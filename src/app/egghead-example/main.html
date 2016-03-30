@@ -1,0 +1,14 @@
+<div class="egghead">
+    <h2>Egghead example from john Liquist</h2>
+    <p>Take a look at the Todo service and see how the it keeps the data immutable</p>
+    <p>Also see how the pipes work by creating a new data array rather than mutating the array </p>
+
+    <p><a target="_blank" href="https://egghead.io/lessons/angular-2-refactoring-mutations-to-enforce-immutable-data-in-angular-2">Link to vid</a> </p>
+    <search-box (update)="term = $event"></search-box>
+    <todo-input></todo-input>
+    <status-selector (select)="status = $event"></status-selector>
+    <todo-list
+            [status]="status"
+            [term]="term"
+    ></todo-list>
+</div>

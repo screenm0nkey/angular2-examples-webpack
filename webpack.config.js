@@ -7,7 +7,7 @@ var webpackConfig = {
   entry: {
     'polyfills': './src/polyfills.ts',
     'vendor':    './src/vendor.ts',
-    'app':       './src/app.ts',
+    'app':       './src/bootstrap.ts',
   },
 
   output: {
@@ -23,9 +23,16 @@ var webpackConfig = {
       // .ts files for TypeScript
       { test: /\.ts$/, loader: 'awesome-typescript-loader' },
 
+      // Support for *.json files.
+      { test: /\.json$/,  loader: 'json-loader' },
+
+      // Support for CSS as raw text
+      { test: /\.css$/,   loader: 'raw-loader' },
+
+      // support for .html as raw text
+      { test: /\.html$/,  loader: 'raw-loader' },
     ]
   }
-
 };
 
 

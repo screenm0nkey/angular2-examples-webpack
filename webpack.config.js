@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 
+
 // Webpack Config
 var webpackConfig = {
   entry: {
@@ -24,7 +25,22 @@ var webpackConfig = {
 
     ]
   }
+
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -74,7 +90,7 @@ var defaultConfig = {
     Buffer: 0,
     clearImmediate: 0,
     setImmediate: 0
-  }
+  },
 }
 
 var webpackMerge = require('webpack-merge');

@@ -3,8 +3,7 @@ import {provide} from 'angular2/core';
 import {HTTP_PROVIDERS} from 'angular2/http';
 import {ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy} from 'angular2/router';
 
-import {MainApp} from './app/main';
-
+import {MainApp} from './app/app';
 
 bootstrap(MainApp, [
   HTTP_PROVIDERS,

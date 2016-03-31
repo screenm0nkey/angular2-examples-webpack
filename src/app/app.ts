@@ -8,7 +8,7 @@ import {MiscExamples} from './misc-examples/main'
 
 @Component({
     selector: 'main-app',
-    template: require('./main.html'),
+    template: require('./app.html'),
     providers: [],
     pipes: [],
     directives: [ROUTER_DIRECTIVES]

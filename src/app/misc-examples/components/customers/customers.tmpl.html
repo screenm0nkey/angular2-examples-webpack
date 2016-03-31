@@ -1,0 +1,51 @@
+<a (click)="changeDisplayMode('list')" [ngClass]="{'active': displayAsList}" class="nav">
+    List View
+</a>
+<a (click)="changeDisplayMode('block')" [ngClass]="{'active': !displayAsList}" class="nav">
+    Column View
+</a>
+
+
+<section>
+    <filter-text-component [placeholder]="filterText" (changed)="filterChanged($event)"></filter-text-component>
+</section>
+
+<section *ngIf="displayAsList">
+    <div *ngFor="#customer of filteredCustomers">
+        <div class="card-header">
+            <img src="/images/{{customer.gender | lowercase}}.png" class="avatar">
+            <a [routerLink]="['/MiscExamples/CustomerDetail',{id:customer.id}]">
+                {{customer.firstName}} {{customer.lastName | capitalize }}
+            </a>
+        </div>
+        <div class="card-body">
+            <span>{{customer.city}}, {{customer.state.name}}</span>
+        </div>
+    </div>
+</section>
+
+
+<section *ngIf="!displayAsList">
+    <table>
+        <thead>
+        <tr>
+            <td></td>
+            <td sort-by="firstName" (sorted)="sort($event)">First</td>
+            <td sort-by="lastName" (sorted)="sort($event)">Last</td>
+            <td (click)="sort('orderTotal')">OrderTotal</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="#customer of filteredCustomers">
+            <td>
+                <a [routerLink]="['/MiscExamples/CustomerDetail', {id:customer.id}]">
+                    <img src="/images/{{customer.gender | lowercase}}.png" class="avatar">
+                </a>
+            </td>
+            <td>{{customer.firstName}}</td>
+            <td>{{customer.lastName | capitalize }}</td>
+            <td>{{customer.orderTotal | currency:'USD':true }}</td>
+        </tr>
+        </tbody>
+    </table>
+</section>

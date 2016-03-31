@@ -1,0 +1,345 @@
+html
+{
+    overflow-x:hidden;
+    overflow-y:scroll;
+}
+
+body
+{
+    font-family:Arial;
+    font-size:15px;
+}
+
+main
+{
+    padding-top:10px;
+    position:relative;
+}
+
+h3
+{
+    color:#9d9d9d;
+}
+
+h2,h3,h4
+{
+    margin:0 0 10px;
+    padding:0;
+}
+
+.white
+{
+    color:#FFF;
+}
+
+.white:hover
+{
+    color:#FFF;
+}
+
+th
+{
+    cursor:pointer;
+}
+
+misc-app
+{
+    display:flex;
+}
+
+#container
+{
+    flex:4;
+}
+
+.navbar-header
+{
+    background-color:#D8D8D8;
+    display:flex;
+    flex-direction:column;
+    float:none;
+    font-size:17px;
+    margin-right:10px;
+}
+
+.navbar-header > a
+{
+    display:block;
+    margin-bottom:5px;
+    padding:5px 20px 5px 5px;
+}
+
+.navbar-header > a:hover
+{
+    background-color:#FFC0CB;
+}
+
+.navbar-header > a.router-link-active
+{
+    background-color:grey;
+}
+
+.app-title
+{
+    color:#FFF;
+    font-size:20px;
+    line-height:50px;
+}
+
+.navbar .nav > li.toolbar-item > a
+{
+    -webkit-text-shadow:none;
+    color:#000;
+    font-weight:700;
+    text-shadow:none;
+}
+
+.navbar .nav > .toolbar-item > a.active
+{
+    color:#027FF4;
+}
+
+.toolbar-item a
+{
+    cursor:pointer;
+}
+
+.indent
+{
+    margin-left:5px;
+}
+
+.card-container
+{
+    width:85%;
+}
+
+.card
+{
+    background-color:#fff;
+    border:1px solid #d4d4d4;
+    height:100px;
+    margin-bottom:20px;
+    position:relative;
+}
+
+.card-header
+{
+    background-color:#D8D8D8;
+    color:#FFF;
+    font-size:14pt;
+    padding:5px;
+    width:100%;
+}
+
+.card-close
+{
+    color:#FFF;
+    font-weight:700;
+    margin-right:5px;
+}
+
+.card-body
+{
+    padding-left:5px;
+}
+
+.card-body-left
+{
+    margin-top:-5px;
+}
+
+.card-body-right
+{
+    margin-left:20px;
+    margin-top:2px;
+}
+
+.card-body-content
+{
+    width:100px;
+}
+
+.card-image
+{
+    height:50px;
+    margin-top:10px;
+    width:50px;
+}
+
+.grid-container div
+{
+    padding-left:0;
+}
+
+.grid-container td
+{
+    vertical-align:middle;
+}
+
+.navbar-brand
+{
+    float:none;
+}
+
+a.navbar-brand
+{
+    color:#fff;
+}
+
+.navbar-inner
+{
+    -moz-box-shadow:none;
+    -webkit-border-radius:0;
+    -webkit-box-shadow:none;
+    background-color:#027FF4;
+    background-image:none;
+    border-radius:0;
+    box-shadow:none;
+    padding-left:0;
+}
+
+.navbar-inner.toolbar
+{
+    background-color:#fafafa;
+}
+
+footer
+{
+    margin-top:15px;
+}
+
+.navbar-inner.footer
+{
+    -moz-box-shadow:none;
+    -webkit-box-shadow:none;
+    background-color:#fafafa;
+    box-shadow:none;
+    height:50px;
+}
+
+.navbar .nav > .active > a,.navbar .nav > .active > a:hover,.navbar .nav > .active > a:focus
+{
+    -webkit-box-shadow:none;
+    background-color:#efefef;
+    box-shadow:none;
+    color:gray;
+}
+
+.navbar .nav li.toolbaritem a:hover,.navbar .nav li a:hover
+{
+    color:#E03930;
+}
+
+.navbar .nav > li
+{
+    cursor:pointer;
+}
+
+.navbar .nav > li > a
+{
+    -webkit-text-shadow:none;
+    color:#FFF;
+    font-weight:700;
+    height:30px;
+    padding-bottom:0;
+    padding-top:6px;
+    text-shadow:none;
+}
+
+.navbar .nav > li.toolbaritem > a
+{
+    -webkit-text-shadow:none;
+    color:#000;
+    font-weight:700;
+    text-shadow:none;
+}
+
+.navbar-fixed-top .navbar-inner,.navbar-static-top .navbar-inner
+{
+    -moz-box-shadow:0 1px 0 rgba(0,0,0,0);
+    -webkit-box-shadow:0 1px 0 rgba(0,0,0,0);
+    box-shadow:0 1px 0 rgba(0,0,0,0);
+}
+
+.nav.navBarPadding
+{
+    margin-left:25px;
+    margin-top:10px;
+}
+
+.navbarText
+{
+    font-weight:700;
+}
+
+.navbar .brand
+{
+    -webkit-text-shadow:none;
+    color:#fff;
+    margin-top:2px;
+    text-shadow:none;
+}
+
+.navbar-toggle
+{
+    border:1px solid #FFF;
+}
+
+.navbar-toggle .icon-bar
+{
+    background-color:#FFF;
+}
+
+filter-textbox
+{
+    margin-top:5px;
+}
+
+.products-list
+{
+    border-left:1px solid #000;
+    border-right:1px solid #000;
+    border-top:1px solid #000;
+}
+
+.product-row
+{
+    border-bottom:1px solid #000;
+}
+
+.product-image
+{
+    float:left;
+    height:100px;
+    padding:20px;
+    width:100px;
+}
+
+.product-info
+{
+    float:left;
+    padding:30px;
+}
+
+.price-display
+{
+    float:right;
+    padding:30px;
+}
+
+.cf:before,.cf:after
+{
+    content:" ";
+    display:table;
+}
+
+.cf:after
+{
+    clear:both;
+}
+
+cf
+{
+    zoom:1;
+}

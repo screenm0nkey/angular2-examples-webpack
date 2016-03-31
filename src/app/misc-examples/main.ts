@@ -3,7 +3,8 @@ import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
 import {CustomersComponent} from './components/customers/customers.component';
 import {OrdersComponent} from './components/customers/customer-detail.component';
-import {ChickensComponent} from './components/chickens/chickens';
+import {ChickensComponent} from './components/chickens/chickens.component';
+import {InventoryApp} from './components/inventory/inputs';
 
 
 @Component({
@@ -17,7 +18,8 @@ import {ChickensComponent} from './components/chickens/chickens';
 @RouteConfig([
     {path: '/customers', name: 'Customers', component: CustomersComponent, useAsDefault: true},
     {path: '/customers/:id', name: 'CustomerDetail', component: OrdersComponent,  data: { isProd: 'smoked-fish'}},
-    {path: '/chickens', name: 'Chickens', component: ChickensComponent}
+    {path: '/chickens', name: 'Chickens', component: ChickensComponent},
+    {path: '/inventory', name: 'Inventory', component: InventoryApp}
 ])
 export class MiscExamples {
     constructor() {

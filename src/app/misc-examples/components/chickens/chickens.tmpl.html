@@ -1,0 +1,34 @@
+<div>
+    <h3>Simple example using @Inputs, @Outputs and Http to display data</h3>
+
+    <chicken-component
+            *ngFor="#chicken of chickens"
+            [name]="chicken.name"
+            (hello)="saidHello($event)">
+    </chicken-component>
+    <hr>
+
+
+    <a href="https://angular.io/docs/ts/latest/guide/attribute-directives.html" target="_blank">
+        taken from here... https://angular.io/docs/ts/latest/guide/attribute-directives.html
+    </a>
+    <div>
+        <input type="radio" name="colors" (click)="color='lightgreen'">Green
+        <input type="radio" name="colors" (click)="color='yellow'">Yellow
+        <input type="radio" name="colors" (click)="color='cyan'">Cyan
+    </div>
+    <!--color is a propety on the controller set by the radio buttons-->
+    <pre>&lt;span [myTooltip]="color" [defaultColor]="'violet'"&gt;</pre>
+
+    <span [myHighlight]="color" [defaultColor]="'violet'">
+        <strong>{{name}}</strong> Mouse over me. I'm a directive using the "host" property
+    </span>
+    <hr>
+
+    <!--this doesn't work i think
+    <template unless>Unless</template>
+    <hr>-->
+
+    <h4>forkJoin example</h4>
+    <pre *ngFor="#cus of customers">{{cus.firstName | json}}</pre>
+</div>

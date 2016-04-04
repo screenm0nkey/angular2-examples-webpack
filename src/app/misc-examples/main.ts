@@ -8,7 +8,8 @@ import {InventoryApp} from './components/inventory/inputs';
 import {HostStuffComponent} from './components/host-binding/main'
 import {EmitterComponent} from './components/emitter/emitter-component'
 import {ChangeDetectionMain} from './components/change-detection/main'
-
+import {ImmutableMain} from './components/immutable/main'
+import { FocusInput } from './components/focusing-input/focus-input'
 
 
 @Component({
@@ -26,7 +27,9 @@ import {ChangeDetectionMain} from './components/change-detection/main'
     {path: '/inventory', name: 'Inventory', component: InventoryApp},
     {path: '/hoststuff', as: 'HostStuff', component: HostStuffComponent},
     {path: '/emitter', as: 'Emitter', component: EmitterComponent},
-    {path: '/change-detection', as: 'ChangeDetection', component: ChangeDetectionMain}
+    {path: '/change-detection', as: 'ChangeDetection', component: ChangeDetectionMain},
+    {path: '/change2', as: 'Change2', component: ImmutableMain},
+    {path: '/focus-input', as: 'FocusInput', component: FocusInput},
 ])
 export class MiscExamples {
     constructor() {

@@ -1,6 +1,7 @@
 import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
+import { InjectComponent } from './components/inject/injecting-token';
 import {CustomersComponent} from './components/customers/customers.component';
 import {OrdersComponent} from './components/customers/customer-detail.component';
 import {ChickensComponent} from './components/chickens/chickens.component';
@@ -19,7 +20,7 @@ import { AccordianComponent } from './components/accordian/accordian';
     styles: [require('./main.css')],
     providers: [],
     pipes: [],
-    directives: [ROUTER_DIRECTIVES]
+    directives: [ROUTER_DIRECTIVES, InjectComponent]
 })
 @RouteConfig([
     {path: '/customers', name: 'Customers', component: CustomersComponent, useAsDefault: true},

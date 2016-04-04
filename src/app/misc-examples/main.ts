@@ -5,6 +5,10 @@ import {CustomersComponent} from './components/customers/customers.component';
 import {OrdersComponent} from './components/customers/customer-detail.component';
 import {ChickensComponent} from './components/chickens/chickens.component';
 import {InventoryApp} from './components/inventory/inputs';
+import {HostStuffComponent} from './components/host-binding/main'
+import {EmitterComponent} from './components/emitter/emitter-component'
+import {ChangeDetectionMain} from './components/change-detection/main'
+
 
 
 @Component({
@@ -19,7 +23,10 @@ import {InventoryApp} from './components/inventory/inputs';
     {path: '/customers', name: 'Customers', component: CustomersComponent, useAsDefault: true},
     {path: '/customers/:id', name: 'CustomerDetail', component: OrdersComponent,  data: { isProd: 'smoked-fish'}},
     {path: '/chickens', name: 'Chickens', component: ChickensComponent},
-    {path: '/inventory', name: 'Inventory', component: InventoryApp}
+    {path: '/inventory', name: 'Inventory', component: InventoryApp},
+    {path: '/hoststuff', as: 'HostStuff', component: HostStuffComponent},
+    {path: '/emitter', as: 'Emitter', component: EmitterComponent},
+    {path: '/change-detection', as: 'ChangeDetection', component: ChangeDetectionMain}
 ])
 export class MiscExamples {
     constructor() {

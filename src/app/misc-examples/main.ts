@@ -5,12 +5,13 @@ import {CustomersComponent} from './components/customers/customers.component';
 import {OrdersComponent} from './components/customers/customer-detail.component';
 import {ChickensComponent} from './components/chickens/chickens.component';
 import {InventoryApp} from './components/inventory/inputs';
-import {HostStuffComponent} from './components/host-binding/main'
-import {EmitterComponent} from './components/emitter/emitter-component'
-import {ChangeDetectionMain} from './components/change-detection/main'
-import {ImmutableMain} from './components/immutable/main'
-import { FocusInput } from './components/focusing-input/focus-input'
-
+import {HostStuffComponent} from './components/host-binding/main';
+import {EmitterComponent} from './components/emitter/emitter-component';
+import {ChangeDetectionMain} from './components/change-detection/main';
+import {ImmutableMain} from './components/immutable/main';
+import { FocusInput } from './components/focusing-input/focus-input';
+import { NgZoneMainComponent } from './components/NgZone/main';
+import { AccordianComponent } from './components/accordian/accordian';
 
 @Component({
     selector: 'misc-app',
@@ -30,6 +31,8 @@ import { FocusInput } from './components/focusing-input/focus-input'
     {path: '/change-detection', as: 'ChangeDetection', component: ChangeDetectionMain},
     {path: '/change2', as: 'Change2', component: ImmutableMain},
     {path: '/focus-input', as: 'FocusInput', component: FocusInput},
+    {path: '/ngzone', as: 'NgZone', component: NgZoneMainComponent},
+    {path: '/accordian', as: 'Accordian', component: AccordianComponent}
 ])
 export class MiscExamples {
     constructor() {

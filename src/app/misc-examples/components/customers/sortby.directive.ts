@@ -12,7 +12,7 @@ export class SortByDirective {
         el.nativeElement.addEventListener('click', evt => this.elementClicked(evt));
     }
 
-    elementClicked(event) {
+    elementClicked(event:Event) {
         event.preventDefault();
         // note. this event will only propergate up to the element which uses the directive.
         // it does not emit to all elements which are implementing the (sorting) event

@@ -23,7 +23,7 @@ export class FilterTextComponent {
         console.log(this);
     }
 
-    filterChanged(evt) {
+    filterChanged(evt: Event) {
         evt.preventDefault();
         this.changed.next(this.model.filter)
     }

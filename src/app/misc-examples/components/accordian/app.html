@@ -1,0 +1,21 @@
+<h3>This example uses ng-content and the Native shadowDOM</h3>
+<h4>See the AccordionGroup component. It imports the Accordion Component as a service</h4>
+<p>
+    <button type="button" class="btn btn-default" (click)="removeDynamic()">
+        Remove last dynamic
+    </button>
+</p>
+
+<accordion close-others="true">
+    <accordion-group heading="This is the header Pete" is-open="true">
+        This is the content
+    </accordion-group>
+
+    <accordion-group [heading]="group.heading" *ngFor="#group of groups">
+        {{group.content}}
+    </accordion-group>
+
+    <accordion-group heading="Another group Nick" [is-open]="isOpen">
+        More content
+    </accordion-group>
+</accordion>

@@ -1,0 +1,68 @@
+<h2>Form 1 Basic form using NgForm and NgControl</h2>
+
+<pre>
+    <h3>
+        &lt;form (ngSubmit)="onSubmit(f)" #f="ngForm"&gt;
+            &lt;input type="text" ngControl="sku"&gt;
+        &lt;/form&gt;
+    </h3>
+
+    NgForm does something handy but non-obvious: it includes the form tag in its
+    selector (instead of requiring you to explicitly add ngForm as an attribute).
+    What this means is that if you inject FORM_DIRECTIVES, NgForm will get
+    automatically attached to any &lt;form&gt; tags you have in your view. This is really
+    useful but potentially confusing because it happens behind the scenes.
+
+    There are two important pieces of functionality that NgForm gives us:
+
+        A ControlGroup named ngForm
+        A (ngSubmit) output
+
+    <strong>ngControl</strong> must be used as a child of <strong>NgForm</strong> (or NgFormModel in form2).
+    Don't try to use ngControl without an NgForm parent or you'll have problems.
+
+    FORM_DIRECTIVES gives us
+        ngControl
+        ngControlGroup
+        ngForm
+        ngFormModel
+
+    If you inject FORM_DIRECTIVES, NgForm will get automatically attached
+    to any FORM tags you have in your view.
+
+    NgForm gives us:
+        A ControlGroup named "ngForm"
+        A (ngSubmit) output event. (ngSubmit) - comes from NgForm directive
+
+    "#f" will be a local variable pointing to the ngForm "ControlGroup" object
+</pre>
+
+
+<form (ngSubmit)="onSubmit(f, n)" #f="ngForm" #n="nicksexport" nicksexport>
+    <fieldset ngControlGroup="name">
+        <label>Firstname:</label>
+        <input type="text" ngControl="firstname">
+
+        <label>Lastname:</label>
+        <input type="text" ngControl="lastname">
+    </fieldset>
+
+    <fieldset ngControlGroup="address">
+        <label>Street:</label>
+        <input type="text" ngControl="street">
+
+        <label>Zip:</label>
+        <input type="text" ngControl="zip">
+
+        <label>City:</label>
+        <input type="text" ngControl="city">
+    </fieldset>
+
+    <button type="submit" class="btn btn-default">Submit</button>
+    <pre>{{formStr}}</pre>
+</form>
+
+
+<hr>
+
+

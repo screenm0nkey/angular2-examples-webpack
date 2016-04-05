@@ -20,7 +20,7 @@ bootstrap(MainApp, [
         }
     }})
 ]).then(
-    success => console.log('AppComponent bootstrapped!'),
+    success => console.log('HttpExamples bootstrapped!'),
     error => console.log(error)
 );
 

@@ -1,6 +1,6 @@
 import { Component, Directive, EventEmitter, ElementRef } from 'angular2/core';
-import {Http, Response, Headers} from 'angular2/http';
-// import {Observable} from 'rxjs/observable';
+import {Http, Headers} from 'angular2/http';
+import {Observable} from 'rxjs/observable';
 import * as Rx from "rxjs/Rx";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
@@ -36,7 +36,7 @@ class Autosearch {
     template: `
         <div class="search-results">
         <h4>Auth0 POST with headers example</h4>
-        <p>(requires backend. needs to run on port 8080)</p>
+        <p>(You need to run the www/server for this to work)</p>
         <input type="text" autosearch (results)="updates.next($event)">
         <pre>{{jsonny | json}}</pre>
     </div><hr>
@@ -58,7 +58,8 @@ export class Auth0Component {
             });
     }
 
-    getJSON(text) {
+    getJSON(text) :Observable<any> {
+        debugger
         // this will be converted into the body of the post
         let formBody = "username=gonto&password=" + text;
         let headers = new Headers();

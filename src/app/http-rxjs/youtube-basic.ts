@@ -16,7 +16,7 @@ import {YoutubeResultComponent} from './youtube-helpers/youtube-result-component
         <div class="search-results">
             <form [ngFormModel]="form" (submit)="onSubmit(f)" #f="ngForm">
                 <div style="max-height: 300px; overflow: hidden; overflow-y: scroll">
-                    <label for="yts">Youtube basic search example </label>
+                    <h4><label for="yts">Youtube basic search example </label></h4>
                     <input type="text" class="form-control" id="yst" placeholder="Youtube Search" ngControl="youtubeSearch">
                 </div>
                 <youtube-result-component *ngFor="#result of results" [result]="result"></youtube-result-component>

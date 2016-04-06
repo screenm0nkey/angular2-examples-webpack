@@ -15,7 +15,8 @@ import 'rxjs/add/operator/do';
         reddit.ts <br>
         <div class="search-results">
             <form [ngFormModel]="searchForm">
-                Reddit Search using the <strong>"form Control.valueChanges"</strong> method of  <input type="text" ngControl="searchField" />
+                <h4>Reddit Search using the <strong>"form Control.valueChanges"</strong></h4>
+                <input type="text" ngControl="searchField"  placeholder="Search Reddit"/>
             </form>
             <img src="/images/loading.gif" *ngIf="loading">
             <div style="max-height: 300px; overflow: hidden; overflow-y: scroll">

@@ -13,6 +13,7 @@ import {ImmutableMain} from './components/immutable/main';
 import { FocusInput } from './components/focusing-input/focus-input';
 import { NgZoneMainComponent } from './components/NgZone/main';
 import { AccordianComponent } from './components/accordian/accordian';
+import { NgRxClockApp } from './components/ngrx/main';
 
 @Component({
     selector: 'misc-app',
@@ -33,7 +34,8 @@ import { AccordianComponent } from './components/accordian/accordian';
     {path: '/change2', as: 'Change2', component: ImmutableMain},
     {path: '/focus-input', as: 'FocusInput', component: FocusInput},
     {path: '/ngzone', as: 'NgZone', component: NgZoneMainComponent},
-    {path: '/accordian', as: 'Accordian', component: AccordianComponent}
+    {path: '/accordian', as: 'Accordian', component: AccordianComponent},
+    {path: '/ngrx', as: 'NgRxClockApp', component: NgRxClockApp}
 ])
 export class MiscExamples {
     constructor() {

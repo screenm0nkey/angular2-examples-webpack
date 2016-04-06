@@ -13,8 +13,7 @@ import {YoutubeResultComponent} from './youtube-helpers/youtube-result-component
 
 @Component({
     selector: 'youtube-search',
-    styles : [require('./main.css')],
-    template: `<input>`,
+    template: `Search <input placeholder="Search Youtube">`,
     outputs: ['loading', 'results'],
     providers: [YoutubeService]
 })
@@ -51,10 +50,11 @@ class YoutubeSearch implements OnInit {
 
 @Component({
     selector: 'ngbook-youtube-example',
+    styles : [require('./main.css')],
     directives: [YoutubeSearch, YoutubeResultComponent],
     template: `
         <div class="search-results">
-            NG2-Book YouTube search example:
+            <h4>NG2-Book YouTube search example:</h4>
             <youtube-search
                 (loading)="loading = $event"
                 (results)="updateResults($event)">

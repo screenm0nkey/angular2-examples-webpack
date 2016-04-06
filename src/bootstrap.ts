@@ -5,7 +5,7 @@ import {ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy} from 'angular2
 import { FORM_PROVIDERS } from "angular2/common";
 
 import {MainApp} from './app/app';
-import {SomeService, EngineService} from './app/misc-examples/components/inject/some-service'
+import {SomeService, EngineService} from './app/misc-examples/components/inject/some-service';
 
 bootstrap(MainApp, [
     ROUTER_PROVIDERS,

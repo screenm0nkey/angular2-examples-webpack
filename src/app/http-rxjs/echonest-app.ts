@@ -231,6 +231,7 @@ export class DropdownComponent implements OnInit {
 @Component({
     selector: 'echonest-app',
     directives: [ArtistComponent, DropdownComponent],
+    styles : [require('./main.css')],
     template: `
         <h4>RxJs Echonest App</h4>
         <section style="float: left; width:200px">

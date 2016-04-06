@@ -13,7 +13,7 @@ class Nick {
 
 @Component({
     selector: 'form-one',
-    templateUrl: '/src/form1.html',
+    template: require('./form1.html'),
     directives: [FORM_DIRECTIVES, Nick]
 })
 export class Form1 {

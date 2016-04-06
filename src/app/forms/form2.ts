@@ -4,7 +4,7 @@ import {FormBuilder, ControlGroup, Control, Validators, FORM_DIRECTIVES} from 'a
 @Component({
     selector: 'form-two',
     directives: [FORM_DIRECTIVES],
-    templateUrl: '/src/form2.html',
+    template: require('./form2.html'),
     providers : [FormBuilder]
 })
 

@@ -15,10 +15,6 @@ import {PromiseExample} from './promise';
 import {YoutubeExample} from './youtube-ng2-book';
 
 
-
-
-
-
 // these query strings will be added everywhere. note I've removed
 // provide(RequestOptions, {useClass: MyOptions}) as it's stopping some examples working
 class MyOptions extends BaseRequestOptions {
@@ -28,13 +24,6 @@ class MyOptions extends BaseRequestOptions {
 
 @Component({
     selector: 'app-component',
-    styles : [`
-        hr {
-            height: 12px;
-            border: 0;
-            box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
-        }
-    `],
     providers : [
         // provide(RequestOptions, {useClass: MyOptions})
         FavStoreService,
@@ -71,8 +60,6 @@ class MyOptions extends BaseRequestOptions {
         PromiseExample,
         YoutubeExample,
         EchonestAppComponent,
-
-
     ]
 })
 export class HttpExamples  {

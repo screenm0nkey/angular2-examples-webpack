@@ -28,15 +28,15 @@ class WikipediaService {
 
 @Component({
     selector: 'wikipedia-promise',
+    styles : [require('./main.css')],
     providers: [JSONP_PROVIDERS, WikipediaService],
     template: `
     <div>
-      <h4>Wikipedia Search using Jsonp which extends Http
-      <br><a href="http://blog.thoughtram.io/angular/2016/01/06/taking-advantage-of-observables-in-angular2.html">
+      <h4>Wikipedia Search using Jsonp which extends Http</h4>
+      <p><a href="http://blog.thoughtram.io/angular/2016/01/06/taking-advantage-of-observables-in-angular2.html">
         taking-advantage-of-observables-in-angular2
-      </a>
-      </h4>
-      <input #term type="text" (keyup)="search(term.value)">
+      </a></p>
+      Search <input #term type="text" (keyup)="search(term.value)" placeholder="Wikipedia Search">
       <ul><li *ngFor="#item of items">{{item}}</li></ul>
     </div>
   `
@@ -55,11 +55,12 @@ export class JsonpWikipediaPromise {
 // same as above but built with observables
 @Component({
     selector: 'wikipedia-observable',
+    styles : [require('./main.css')],
     providers: [JSONP_PROVIDERS, WikipediaService],
     template: `
     <div>
       <h4>Same as above but using promises (toPromise), observables and async pipe</h4>
-      <input type="text" [ngFormControl]="term"/> <span *ngIf="loading">loading</span>
+      Search <input type="text" [ngFormControl]="term" placeholder="Wikipedia Search"/> <span *ngIf="loading">loading</span>
       <ul><li *ngFor="#item of items | async">{{item}}</li></ul>
     </div>
     <hr>

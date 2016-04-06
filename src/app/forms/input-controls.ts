@@ -1,4 +1,4 @@
-import {Component, View} from 'angular2/core';
+import {Component} from 'angular2/core';
 import {FORM_DIRECTIVES} from 'angular2/common';
 import {
     ComponentInstruction,
@@ -7,7 +7,7 @@ import {
 
 @Component({
     selector: 'input-controls',
-    templateUrl: '/src/input-controls.html',
+    template: require('./input-controls.html'),
     directives:[FORM_DIRECTIVES]
 })
 

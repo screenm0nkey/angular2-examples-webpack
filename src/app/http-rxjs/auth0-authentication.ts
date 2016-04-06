@@ -24,7 +24,7 @@ class Autosearch {
             .debounceTime(500)
             .map((e:any) => e.target.value)
             .filter(text => text.length >= 2)
-            .subscribe(data => this.results.next(data))
+            .subscribe(data => this.results.emit(data))
     }
 }
 
@@ -32,12 +32,14 @@ class Autosearch {
 @Component({
     selector: 'auth0-example',
     directives : [Autosearch],
+    styles : [require('./main.css')],
     template: `
         <div class="search-results">
-        <h4>Auth0 POST with headers example (needs to run on port 8080):</h4>
-        <input type="text" autosearch (results)="updates.next($event)">{{searchTerm}}
+        <h4>Auth0 POST with headers example</h4>
+        <p>(requires backend. needs to run on port 8080)</p>
+        <input type="text" autosearch (results)="updates.next($event)">
         <pre>{{jsonny | json}}</pre>
-    </div>
+    </div><hr>
     `
 })
 export class Auth0Component {

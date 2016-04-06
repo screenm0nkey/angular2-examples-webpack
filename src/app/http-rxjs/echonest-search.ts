@@ -81,10 +81,11 @@ class ArtistCardRender {
     selector: 'echonest-search',
     providers : [Echonest],
     directives: [Autosearch, ArtistCardRender],
+    styles : [require('./main.css')],
     template: `
     <div class="search-results">
         <h4>Echonest Search:</h4>
-        <input type="text" autosearch (results)="artists = $event">
+        Search <input type="text" autosearch (results)="artists = $event" placeholder="Echonest Search">
 
         <div *ngIf="artists">
             <div *ngFor="#artist of artists">

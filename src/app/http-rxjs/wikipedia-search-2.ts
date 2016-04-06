@@ -34,11 +34,12 @@ class WikipediaService {
 
 @Component({
     selector: 'wikipedia-super-search',
+    styles : [require('./main.css')],
     providers: [JSONP_PROVIDERS, WikipediaService],
     template: `
     <div>
       <h4>Wikipedia Super Search</h4>
-      <input type="text" [ngFormControl]="term"/>
+      Search <input type="text" [ngFormControl]="term" placeholder="Wikipedia Search"/>
       <ul>
         <li *ngFor="#item of items | async">{{item}}</li>
       </ul>

@@ -8,7 +8,7 @@ interface ValidationResult {
 @Component({
     selector: 'form-three',
     directives: [FORM_DIRECTIVES],
-    templateUrl: '/src/form3.html',
+    template: require('./form3.html'),
     providers : [FormBuilder]
 })
 

@@ -9,6 +9,7 @@ import {SearchResult} from './youtube-helpers/youtube-result-class';
 @Component({
     selector: 'local-ref-search',
     providers: [YoutubeService],
+    styles : [require('./main.css')],
     directives: [FORM_DIRECTIVES, YoutubeResultComponent],
     template: `
         <div class="search-results">

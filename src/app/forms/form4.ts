@@ -34,7 +34,7 @@ class UsernameValidator {
 
 @Component({
     selector: 'form-four',
-    templateUrl: 'src/form4.html',
+    template: require('./form4.html'),
     directives: [FORM_DIRECTIVES]
 })
 export class Form4 {

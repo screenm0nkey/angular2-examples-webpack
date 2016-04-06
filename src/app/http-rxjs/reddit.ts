@@ -10,6 +10,7 @@ import 'rxjs/add/operator/do';
 @Component({
     selector: 'reddit-example',
     directives: [FORM_DIRECTIVES],
+    styles : [require('./main.css')],
     template: `
         reddit.ts <br>
         <div class="search-results">

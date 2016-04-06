@@ -13,6 +13,7 @@ import {YoutubeResultComponent} from './youtube-helpers/youtube-result-component
 
 @Component({
     selector: 'youtube-search',
+    styles : [require('./main.css')],
     template: `<input>`,
     outputs: ['loading', 'results'],
     providers: [YoutubeService]

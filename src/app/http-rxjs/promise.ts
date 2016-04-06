@@ -26,6 +26,7 @@ export class CharacterService {
 
 @Component({
     selector: 'promise-example',
+    styles : [require('./main.css')],
     template: `Promise example : There are {{characters.length}} characters<hr>`,
     providers : [CharacterService]
 })

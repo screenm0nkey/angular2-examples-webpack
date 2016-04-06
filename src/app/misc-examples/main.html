@@ -1,4 +1,5 @@
-<div class="navbar-header">
+<div class="miscellaneous">
+    <nav>
     <a [routerLink]="['/MiscExamples/Customers']" class="router-link">Customers</a>
     <a [routerLink]="['/MiscExamples/Chickens']" class="router-link">Directives and<br>ForkJoin()</a>
     <a [routerLink]="['/MiscExamples/Inventory']" class="router-link">@Inputs <br> @Outputs</a>
@@ -9,10 +10,9 @@
     <a [routerLink]="['/MiscExamples/FocusInput']" class="router-link">Focus Input</a>
     <a [routerLink]="['/MiscExamples/NgZone']" class="router-link">NgZone</a>
     <a [routerLink]="['/MiscExamples/Accordian']" class="router-link">NgContent Accordian</a>
+    </nav>
+    <div id="container">
+        <inject-component>loading</inject-component>
+        <router-outlet></router-outlet>
+    </div>
 </div>
-<div id="container">
-    <inject-component>loading</inject-component>
-    <router-outlet></router-outlet>
-</div>
-
-

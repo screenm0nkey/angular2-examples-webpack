@@ -19,6 +19,7 @@ export class CharacterService {
 
 @Component({
     selector: 'subscribe-example',
+    styles : [require('./main.css')],
     template: `<div class="search-results">Subscribe example : There are <pre>{{characters | json}}</pre> characters</div><hr>`,
     providers : [CharacterService]
 })

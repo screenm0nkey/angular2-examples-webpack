@@ -1,8 +1,8 @@
-## angular2-seed
+## A collection of Angular2 examples I use as a learning resource. 
 
-A simple starter project demonstrating the basic concepts of Angular 2.
+#### It uses angular2-seed by Rob Wormald
+[angular2-seed](https://github.com/angular/angular2-seed)
 
-Work in progress! This branch uses Webpack for Development. There is also a SystemJS branch available.
 
 ### Usage
 - Clone or fork this repository

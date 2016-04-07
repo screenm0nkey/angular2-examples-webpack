@@ -1,7 +1,7 @@
 import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
-import { InjectComponent } from './components/inject/injecting-token';
+import {InjectComponent} from './components/inject/injecting-token';
 import {CustomersComponent} from './components/customers/customers.component';
 import {OrdersComponent} from './components/customers/customer-detail.component';
 import {ChickensComponent} from './components/chickens/chickens.component';
@@ -10,10 +10,11 @@ import {HostStuffComponent} from './components/host-binding/main';
 import {EmitterComponent} from './components/emitter/emitter-component';
 import {ChangeDetectionMain} from './components/change-detection/main';
 import {ImmutableMain} from './components/immutable/main';
-import { FocusInput } from './components/focusing-input/focus-input';
-import { NgZoneMainComponent } from './components/NgZone/main';
-import { AccordianComponent } from './components/accordian/accordian';
-import { NgRxClockApp } from './components/ngrx/main';
+import {FocusInput} from './components/focusing-input/focus-input';
+import {NgZoneMainComponent} from './components/NgZone/main';
+import {AccordianComponent} from './components/accordian/accordian';
+import {NgRxClockApp} from './components/ngrx/main';
+import {DynamicComponent} from './components/dynamic-loader/main';
 
 @Component({
     selector: 'misc-app',
@@ -25,7 +26,7 @@ import { NgRxClockApp } from './components/ngrx/main';
 })
 @RouteConfig([
     {path: '/customers', name: 'Customers', component: CustomersComponent, useAsDefault: true},
-    {path: '/customers/:id', name: 'CustomerDetail', component: OrdersComponent,  data: { isProd: 'smoked-fish'}},
+    {path: '/customers/:id', name: 'CustomerDetail', component: OrdersComponent, data: {isProd: 'smoked-fish'}},
     {path: '/chickens', name: 'Chickens', component: ChickensComponent},
     {path: '/inventory', name: 'Inventory', component: InventoryApp},
     {path: '/hoststuff', as: 'HostStuff', component: HostStuffComponent},
@@ -35,7 +36,8 @@ import { NgRxClockApp } from './components/ngrx/main';
     {path: '/focus-input', as: 'FocusInput', component: FocusInput},
     {path: '/ngzone', as: 'NgZone', component: NgZoneMainComponent},
     {path: '/accordian', as: 'Accordian', component: AccordianComponent},
-    {path: '/ngrx', as: 'NgRxClockApp', component: NgRxClockApp}
+    {path: '/ngrx', as: 'NgRxClockApp', component: NgRxClockApp},
+    {path: '/dynamic-component', as: 'DynamicComponent', component: DynamicComponent}
 ])
 export class MiscExamples {
     constructor() {

@@ -40,17 +40,18 @@ const tick = (state:Date = new Date(), {type, payload})=> {
         <button (click)="dayBackward$.next()">Day -1</button>
         <button (click)="dayForward$.next()">Day +1</button>
         <div></div>
-    {{clock | async | date:'yMMMMEEEEdjms'}}    
+    {{clock$ | async | date:'yMMMMEEEEdjms'}}    
 `
 })
 export class NgRxClockApp {
-    clock;
+    clock$;
     hourBackward$ = new Subject().mapTo({type:HOUR, payload:-1});
     hourForward$ = new Subject().mapTo({type:HOUR, payload:1});
     dayBackward$ = new Subject().mapTo({type:DAY, payload:-1});
     dayForward$ = new Subject().mapTo({type:DAY, payload:1});
 
     constructor(private store:Store<any>){
+        // the ngrx store is a BehaviorSubject so it's an Observer as well as an Observable
         Observable.merge(
             this.hourBackward$,
             this.hourForward$,
@@ -61,7 +62,7 @@ export class NgRxClockApp {
                 .mapTo({type: SECOND, payload: 1})
         ).subscribe(store);
 
-        this.clock = store.select('tick');
+        this.clock$ = store.select('tick');
     }
 }
 

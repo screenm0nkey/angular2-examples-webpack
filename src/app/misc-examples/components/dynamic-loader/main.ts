@@ -1,4 +1,4 @@
-import {Component, DynamicComponentLoader, ElementRef, Injector, provide} from 'angular2/core'
+import {Component, DynamicComponentLoader, ElementRef, Injector, provide, ComponentRef} from 'angular2/core'
 import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
 import 'rxjs/add/observable/fromPromise';
@@ -29,11 +29,11 @@ export class DynamicComponent {
         private _ref:ElementRef,
         private injector:Injector
     ) {
-        const loadComp = comp => Observable
+        const loadComp = (compName:string) => Observable
             .fromPromise(
                 // DynamicComponentLoader.loadIntoLocation returns Promise<ComponentRef>
                 this._loader.loadIntoLocation(
-                    this.injector.get(comp), //the injector looks up the component by string
+                    this.injector.get(compName), //the injector looks up the component by string
                     this._ref, // element
                     'loadTarget' // target id
                 )
@@ -41,8 +41,11 @@ export class DynamicComponent {
 
         this.click$
             //pass the 'string' from the click to the loadComp
-            .switchMap(compName => loadComp(compName))
-            .subscribe(comp => comp.instance.id = Math.random());
+            .switchMap((compName:string) => loadComp(compName))
+            .subscribe((comp:ComponentRef) => {
+                comp.instance.id = Math.random();
+                console.log(comp);
+            });
     }
 }
 

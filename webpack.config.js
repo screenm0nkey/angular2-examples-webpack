@@ -36,21 +36,6 @@ var webpackConfig = {
 };
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Our Webpack Defaults
 var defaultConfig = {
   devtool: 'cheap-module-eval-source-map',
@@ -97,7 +82,7 @@ var defaultConfig = {
     Buffer: 0,
     clearImmediate: 0,
     setImmediate: 0
-  },
+  }
 }
 
 var webpackMerge = require('webpack-merge');

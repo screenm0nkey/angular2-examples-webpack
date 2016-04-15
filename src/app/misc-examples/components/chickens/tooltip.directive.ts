@@ -1,5 +1,6 @@
 import { Directive, ElementRef, Input } from 'angular2/core';
 
+
 /**
  * <span [myTooltip]="color" [defaultColor]="'violet'">
  */
@@ -34,6 +35,6 @@ export class Tooltip {
     private _highlight(color:string) {
         this.el.nativeElement.style.backgroundColor = color;
     }
-
-
 }
+
+

@@ -3,13 +3,14 @@ import { ChickensService} from './chicken.service';
 import { ChickenComponent} from './chicken.component';
 import { Tooltip } from './tooltip.directive';
 import { Unless } from './unless.directive';
+import { DomAdapterComponent } from './dom-adapter.component';
 
 
 @Component({
     selector: 'chickens-component',
     template: require('./chickens.tmpl.html'),
     providers: [ChickensService],
-    directives: [ChickenComponent, Tooltip, Unless]
+    directives: [ChickenComponent, Tooltip, Unless, DomAdapterComponent]
 })
 export class ChickensComponent implements OnInit {
     chickens:any = [];

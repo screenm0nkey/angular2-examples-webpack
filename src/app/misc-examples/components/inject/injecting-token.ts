@@ -23,7 +23,18 @@ let AnyObjectCanBeTheKey = {};
         provide('helloWorld', {useValue : 'Hello World!!!' }), //inject a string
         provide(String, {useValue : 'come-on!' }) //inject a string
     ],
-    template : `<h4><a target="_blank" href="http://www.sitepoint.com/angular-2-components-providers-classes-factories-values">Injecting a service Link</a></h4>`
+    styles : [`
+        h4 { background-color : green; display : inline-block;}
+        a { color : white; padding:4px; display: block; }
+    `],
+    template : `
+        <hr>
+        <h4>
+            <a target="_blank" href="http://www.sitepoint.com/angular-2-components-providers-classes-factories-values">
+                inject-component look at the console and see injecting-token.ts
+            </a>
+        </h4>
+        `
 })
 export class InjectComponent {
     constructor(

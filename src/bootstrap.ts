@@ -11,7 +11,7 @@ bootstrap(MainApp, [
     ROUTER_PROVIDERS,
     FORM_PROVIDERS,
     HTTP_PROVIDERS,
-    SomeService, //this is the same as; provide(SomeService, {useClass : SomeService}),
+    SomeService, //this is the same as provide(SomeService, {useClass : SomeService}),
     provide(LocationStrategy, {useClass : HashLocationStrategy}),// try commenting this out and it reverts to standard urls without hash
     provide('whateverToken', {useClass : SomeService }), // this is used by "injecting-token.ts" component,
     provide('EngineService', { useFactory: () => {         // this is used by "injecting-token.ts" component,

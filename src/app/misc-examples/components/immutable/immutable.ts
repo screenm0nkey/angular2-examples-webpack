@@ -13,7 +13,7 @@ export class TestComponent implements OnChanges, DoCheck {
     ngOnChanges(inputChanges) {
         console.log('inputChanges', inputChanges.todoItem.currentValue);
     }
-    //this is called every time it's checked
+    //this is called every time the component is checked
     ngDoCheck() {
         console.log('ngDoCheck');
     }

@@ -1,12 +1,20 @@
 body {
     padding : 2px 10px 10px;
 }
-.has-error {
-    border-color: red;
-}
 a {
     font-style: italic;
+    color: white;
+    text-decoration: none;
+    background-color: #ce0271;
+    padding: 0px 7px 1px;
+    border-radius: 2px;
+    margin-bottom: 1px;
+    display: inline-block;
+    font-size:11px;
 }
+a:hover {background-color: #6b003a; color : white;}
+nav a{ font-size: 13px}
+
 h4, h3, h2  {
     margin : 10px 0 0;
     padding : 0;
@@ -52,8 +60,11 @@ nav .router-link-active:hover {
     background-color: red;
 }
 pre {
-    font-size: 11px;
-    padding: 5px;
-    margin:0;
+    font-size: 13px;
+    padding: 15px 5px 0px 5px;
+    margin:10px 0;
 }
 .ng-dirty.ng-invalid { border : 1px red solid }
+.has-error {
+    border-color: red;
+}

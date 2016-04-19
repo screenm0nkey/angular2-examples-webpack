@@ -1,5 +1,5 @@
 import { Component } from 'angular2/core';
-import { ROUTER_PROVIDERS, ROUTER_DIRECTIVES, AsyncRoute, Route, Router, RouterOutlet, RouteConfig, RouterLink, RouteParams, RouteData, Location, LocationStrategy, HashLocationStrategy } from 'angular2/router';
+import { ROUTER_DIRECTIVES, RouteConfig } from 'angular2/router';
 import {Form1} from './form1';
 import {Form2} from './form2';
 import {Form3} from './form3';
@@ -11,7 +11,7 @@ import {InputControls} from './input-controls';
 @Component({
     selector: 'app-component',
     template: require('./main.html'),
-    directives: [RouterOutlet, RouterLink, Form1, Form2, Form3, Form4, InputControls]
+    directives: [ROUTER_DIRECTIVES, Form1, Form2, Form3, Form4, InputControls]
 })
 @RouteConfig([
     {path: '/', component: InputControls, name: 'InputControls', useAsDefault: true},

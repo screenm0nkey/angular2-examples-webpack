@@ -6,6 +6,7 @@ import {EggheadApp} from './egghead-example/main';
 import {MiscExamples} from './misc-examples/main';
 import {HttpExamples} from './http-rxjs/main';
 import {FormExamples} from './forms/main';
+import {LifecycleMain} from './lifecycle/main';
 
 
 @Component({
@@ -21,6 +22,7 @@ import {FormExamples} from './forms/main';
     {path: '/misc/...', component: MiscExamples, name: 'MiscExamples'},
     {path: '/http', component: HttpExamples, name: 'HttpExamples'},
     {path: '/forms/...', component: FormExamples, name: 'FormExamples'},
+    {path: '/lifecycle/...', component: LifecycleMain, name: 'Lifecycle'},
 ])
 export class MainApp {
     constructor() {

@@ -35,7 +35,7 @@ export class YoutubeService {
 
         return this.http.get(queryUrl)
             .map((res:Response) => res.json())
-            .map(json => {
+            .map((json:any) => {
                 let arr = [];
                 json.items.forEach(item => {
                     arr.push(this.normaliseData(item))

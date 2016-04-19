@@ -2,23 +2,7 @@ import {Component, NgZone} from 'angular2/core';
 
 @Component({
     selector: 'ng-zone-demo',
-    template: `
-    <h2>Demo: NgZone</h2>
-    <a href="http://blog.thoughtram.io/angular/2016/02/01/zones-in-angular-2.html">Link</a>
-
-    <pre>
-    NgZone comes with an API runOutsideAngular() which performs a 
-    given task outside NgZone’s parent zone, which does not emit an "onTurnDone" 
-    event, hence no change detection is performed. To demonstrate this useful 
-    feature, let’s take look at the following code:
-    </pre>
-
-    <p>Progress: {{progress}}%</p>
-    <p *ngIf="progress >= 100">Done processing {{label}} of Angular zone!</p>
-
-    <button (click)="processWithinAngularZone()">Process within Angular zone</button>
-    <button (click)="processOutsideOfAngularZone()">Process outside of Angular zone</button>
-  `
+    template: require('./runoutside.html')
 })
 export class NgZoneDemo {
     progress:number = 0;

@@ -1,12 +1,12 @@
 <h2>Form 1 Basic form using NgForm and NgControl</h2>
 
-<pre>
-    <h3>
+<pre style="padding: 0;"><h3 style="margin: 0;">
         &lt;form (ngSubmit)="onSubmit(f)" #f="ngForm"&gt;
             &lt;input type="text" ngControl="sku"&gt;
         &lt;/form&gt;
-    </h3>
+    </h3></pre>
 
+<pre>
     NgForm does something handy but non-obvious: it includes the form tag in its
     selector (instead of requiring you to explicitly add ngForm as an attribute).
     What this means is that if you inject FORM_DIRECTIVES, NgForm will get

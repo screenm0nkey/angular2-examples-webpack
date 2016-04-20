@@ -6,6 +6,7 @@ import {Form3} from './form3';
 import {Form4} from './form4';
 import {Form5} from './form5';
 import {InputControls} from './input-controls';
+import {SurveyDemo} from './dynamic-form/survey-demo.component';
 
 
 @Component({
@@ -19,7 +20,8 @@ import {InputControls} from './input-controls';
     {path: '/form2', component: Form2, name: 'Form2'},
     {path: '/form3', component: Form3, name: 'Form3'},
     {path: '/form4', component: Form4, name: 'Form4'},
-    {path: '/form5', component: Form5, name: 'Form5'}
+    {path: '/form5', component: Form5, name: 'Form5'},
+    {path: '/dynamic', component: SurveyDemo, name: 'Dynamic'}
 
 ])
 export class FormExamples {

@@ -8,12 +8,14 @@ a {
     background-color: #ce0271;
     padding: 0px 7px 1px;
     border-radius: 2px;
-    margin-bottom: 1px;
+    margin-bottom: 3px;
     display: inline-block;
     font-size:11px;
 }
+
 a:hover {background-color: #6b003a; color : white;}
 nav a{ font-size: 13px}
+nav a:visited{ color : white}
 
 h4, h3, h2  {
     margin : 10px 0 0;

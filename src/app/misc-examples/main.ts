@@ -10,11 +10,12 @@ import {HostStuffComponent} from './components/host-binding/main';
 import {EmitterComponent} from './components/emitter/emitter-component';
 import {ChangeDetectionMain} from './components/change-detection/main';
 import {ImmutableMain} from './components/immutable/main';
-import {FocusInput} from './components/focusing-input/focus-input';
-import {NgZoneMainComponent} from './components/NgZone/main';
+import {FocusInput} from './components/focusing-input/main';
+import {NgZoneMainComponent} from './components/ng-zone/main';
 import {AccordianComponent} from './components/accordian/accordian';
 import {NgRxClockApp} from './components/ngrx/main';
 import {DynamicComponent} from './components/dynamic-loader/main';
+import {RookieComponent} from './components/rookie-mistakes/main';
 
 @Component({
     selector: 'misc-app',
@@ -37,7 +38,8 @@ import {DynamicComponent} from './components/dynamic-loader/main';
     {path: '/ngzone', as: 'NgZone', component: NgZoneMainComponent},
     {path: '/accordian', as: 'Accordian', component: AccordianComponent},
     {path: '/ngrx', as: 'NgRxClockApp', component: NgRxClockApp},
-    {path: '/dynamic-component', as: 'DynamicComponent', component: DynamicComponent}
+    {path: '/dynamic-component', as: 'DynamicComponent', component: DynamicComponent},
+    {path: '/rookie-mistakes', as: 'RookieComponent', component: RookieComponent}
 ])
 export class MiscExamples {
     constructor() {

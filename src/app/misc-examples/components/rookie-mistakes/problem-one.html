@@ -1,0 +1,19 @@
+<h3>Scenario 2: You need a reference to an element a user projects into your component</h3>
+<a href="http://angularjs.blogspot.co.uk/2016/04/5-rookie-mistakes-to-avoid-with-angular.html">Rookie Mistakes</a>
+<pre>
+What if you need a reference to an element that isn't in your component's template?
+As an example, let's imagine you have a list component that accepts custom list items
+through content projection, and you'd like to track the number of list items.
+
+You can use a @ContentChildren query to search your component's "content"
+(i.e. the nodes projected into the component), but because the content is
+arbitrary, it's not possible to label the nodes with local variables yourself (as in the last example).
+
+One option is to ask your users to label each of their list items with a
+pre-agreed-upon variable, like "#list-item". In that case, the approach
+resembles the last example:
+
+However, this solution isn't ideal because it requires users to write
+some extra boilerplate.  You may prefer an API with regular li tags
+and no attributes.  How can we make this work?
+</pre>

@@ -28,12 +28,9 @@ let AnyObjectCanBeTheKey = {};
         a { color : white; padding:4px; display: block; }
     `],
     template : `
-        <hr>
-        <h4>
             <a target="_blank" href="http://www.sitepoint.com/angular-2-components-providers-classes-factories-values">
-                inject-component look at the console and see injecting-token.ts
+                Dependency Injection (see console)
             </a>
-        </h4>
         `
 })
 export class InjectComponent {

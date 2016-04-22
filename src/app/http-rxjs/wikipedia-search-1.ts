@@ -8,12 +8,13 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
+import {ClientResponse} from "http";
 
 @Injectable()
 class WikipediaService {
     constructor(private jsonp: Jsonp) {}
 
-    search (term: string) : Promise<any> {
+    search (term: string) : Promise<string[]> {
         var search = new URLSearchParams()
         search.set('action', 'opensearch');
         search.set('search', term);
@@ -60,6 +61,7 @@ export class JsonpWikipediaPromise {
     template: `
     <div>
       <h4>Same as above but using promises (toPromise), observables and async pipe</h4>
+      <a href="http://blog.thoughtram.io/angular/2016/01/06/taking-advantage-of-observables-in-angular2.html" target="_blank">Thoughtram article</a>
       Search <input type="text" [ngFormControl]="term" placeholder="Wikipedia Search"/> <span *ngIf="loading">loading</span>
       <ul><li *ngFor="#item of items | async">{{item}}</li></ul>
     </div>
@@ -76,7 +78,13 @@ export class WikipediaObservable {
             .do(()=>this.loading = true)
             .debounceTime(400)
             .distinctUntilChanged()
-            .switchMap((term) => this.wikipediaService.search(term))
+            // you could also use flatMap() instead of switchMap()
+            .switchMap((sterm:string)=>{
+                // Note: You don't have to convert the promise to a stream using fromPromise()
+                // you can just return the promise but I couldn't stop the TS error
+                // when returning a promise directly into switchMap()
+                return Observable.fromPromise(this.wikipediaService.search(sterm))
+            })
             .do(()=>this.loading = false);
     }
 }

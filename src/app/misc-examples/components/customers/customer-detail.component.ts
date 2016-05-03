@@ -1,5 +1,5 @@
-import {Component} from 'angular2/core';
-import {RouterLink, RouteParams, RouteData} from 'angular2/router';
+import {Component} from '@angular/core';
+import {RouterLink, RouteParams, RouteData} from '@angular/router-deprecated';
 import {DataService} from './data.service';
 import {Customer} from "./customer.model";
 import {XLarge} from './x-large.directive';

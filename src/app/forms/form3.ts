@@ -1,5 +1,5 @@
-import {Component} from 'angular2/core';
-import {FormBuilder, ControlGroup, Control, Validators, FORM_DIRECTIVES, AbstractControl} from 'angular2/common';
+import {Component} from '@angular/core';
+import {FormBuilder, ControlGroup, Control, Validators, FORM_DIRECTIVES, AbstractControl} from '@angular/common';
 
 interface ValidationResult {
     [key:string]:boolean;

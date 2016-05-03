@@ -1,4 +1,4 @@
-import {Component} from "angular2/core";
+import {Component} from "@angular/core";
 import {SearchBox} from "./search/components/search-box";
 import {TodoInput} from "./todo/components/todo-input";
 import {TodoList} from "./todo/components/todo-list";

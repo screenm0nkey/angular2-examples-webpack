@@ -1,5 +1,5 @@
-import { Component, Directive, HostBinding, ElementRef} from 'angular2/core';
-import { FORM_DIRECTIVES, NgModel, Validators, FormBuilder, ControlGroup} from "angular2/common";
+import { Component, Directive, HostBinding, ElementRef} from '@angular/core';
+import { FORM_DIRECTIVES, NgModel, Validators, FormBuilder, ControlGroup} from "@angular/common";
 
 @Directive({selector: '[ngModel]'})
 class NgModelStatus {

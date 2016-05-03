@@ -1,5 +1,5 @@
-import { Component} from 'angular2/core';
-import {FORM_DIRECTIVES} from 'angular2/common';
+import { Component} from '@angular/core';
+import {FORM_DIRECTIVES} from '@angular/common';
 import * as Rx from "rxjs/Rx";
 import {YoutubeService} from './youtube-helpers/youtube-service';
 import {YoutubeResultComponent} from './youtube-helpers/youtube-result-component';
@@ -16,7 +16,7 @@ import {SearchResult} from './youtube-helpers/youtube-result-class';
             <h4><label for="yts">Local ref on input Youtube search example </label></h4>
             <input #inny (keyup)="getValue(inny.value)" placeholder="Youtube Search">
             <pre>There are {{results.length}} search results for {{searchTerm}}</pre>
-            <youtube-result-component *ngFor="#result of results" [result]="result"></youtube-result-component>
+            <youtube-result-component *ngFor="let result of results" [result]="result"></youtube-result-component>
         </div>
         <hr>
     `

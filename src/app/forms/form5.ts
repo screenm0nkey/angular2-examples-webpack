@@ -1,5 +1,5 @@
-import {Component, Directive, provide} from 'angular2/core';
-import { Control, NG_VALIDATORS } from 'angular2/common';
+import {Component, Directive, provide} from '@angular/core';
+import { Control, NG_VALIDATORS } from '@angular/common';
 
 interface Validator<T extends Control> {
     (c:T): {[error: string]:any};

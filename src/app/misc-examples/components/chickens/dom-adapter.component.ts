@@ -1,4 +1,4 @@
-import { Component} from 'angular2/core';
+import { Component} from '@angular/core';
 import {BrowserDomAdapter} from 'angular2/platform/browser';
 
 @Component({

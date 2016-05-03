@@ -1,4 +1,4 @@
-import {Component } from 'angular2/core'
+import {Component } from '@angular/core'
 import {Store} from './StoreService';
 import { ImmutableObject } from './immutable';
 import { ImmutableList } from './immutable-list';

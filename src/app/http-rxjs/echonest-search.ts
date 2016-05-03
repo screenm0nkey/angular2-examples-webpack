@@ -1,5 +1,5 @@
-import { Component, Directive, EventEmitter, ElementRef, Injectable, ViewEncapsulation, Input } from 'angular2/core';
-import {Http, Response} from 'angular2/http';
+import { Component, Directive, EventEmitter, ElementRef, Injectable, ViewEncapsulation, Input } from '@angular/core';
+import {Http, Response} from '@angular/http';
 import * as Rx from "rxjs/Rx";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
@@ -88,7 +88,7 @@ class ArtistCardRender {
         Search <input type="text" autosearch (results)="artists = $event" placeholder="Echonest Search">
 
         <div *ngIf="artists">
-            <div *ngFor="#artist of artists">
+            <div *ngFor="let artist of artists">
                 <artist-card [artist]="artist"></artist-card>
             </div>
         </div>

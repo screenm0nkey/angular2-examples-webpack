@@ -1,5 +1,5 @@
-import { Component, Directive, EventEmitter, ElementRef } from 'angular2/core';
-import {Http, Headers} from 'angular2/http';
+import { Component, Directive, EventEmitter, ElementRef } from '@angular/core';
+import {Http, Headers} from '@angular/http';
 import {Observable} from 'rxjs/observable';
 import * as Rx from "rxjs/Rx";
 import 'rxjs/add/operator/map';
@@ -13,7 +13,7 @@ import 'rxjs/add/operator/do';
     outputs: [ 'results' ]
 })
 class Autosearch {
-    results: EventEmitter<Object[]> = new EventEmitter();
+    results: EventEmitter<any> = new EventEmitter();
 
     constructor(private elementRef: ElementRef) {
         console.log(this);

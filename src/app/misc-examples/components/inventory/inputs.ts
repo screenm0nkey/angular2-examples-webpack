@@ -1,4 +1,4 @@
-import { Component, EventEmitter} from "angular2/core";
+import { Component, EventEmitter} from "@angular/core";
 
 
 class Product {
@@ -40,7 +40,7 @@ class ProductImage {
     directives: [],
     template: `
         <div class="product-department">
-            <span *ngFor="#name of product.department; #i=index">
+            <span *ngFor="let name of product.department; #i=index">
             <a href="#">{{ name }}</a>
             <span *ngIf="i < (product.department.length-1)">&gt;</span>
             </span>
@@ -103,7 +103,7 @@ class ProductRow {
     directives: [ProductRow],
     template: `
         <div class="products-list">
-            <product-row *ngFor="#product of productList" [product]="product" (pick)='clicked(product)'></product-row>
+            <product-row *ngFor="let product of productList" [product]="product" (pick)='clicked(product)'></product-row>
         </div>
     `
 })

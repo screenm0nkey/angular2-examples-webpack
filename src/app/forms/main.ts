@@ -1,5 +1,5 @@
-import { Component } from 'angular2/core';
-import { ROUTER_DIRECTIVES, RouteConfig } from 'angular2/router';
+import { Component } from '@angular/core';
+import { ROUTER_DIRECTIVES, RouteConfig } from '@angular/router-deprecated';
 import {Form1} from './form1';
 import {Form2} from './form2';
 import {Form3} from './form3';

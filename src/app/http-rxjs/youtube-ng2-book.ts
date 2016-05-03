@@ -1,4 +1,4 @@
-import { Component, EventEmitter, ElementRef, OnInit} from 'angular2/core';
+import { Component, EventEmitter, ElementRef, OnInit} from '@angular/core';
 import {Observable} from 'rxjs/observable';
 import * as Rx from "rxjs/Rx";
 import 'rxjs/add/operator/map';
@@ -60,7 +60,7 @@ class YoutubeSearch implements OnInit {
                 (results)="updateResults($event)">
             </youtube-search>
             <img src="/images/loading.gif" *ngIf="loading">
-            <youtube-result-component *ngFor="#result of results" [result]="result"></youtube-result-component>
+            <youtube-result-component *ngFor="let result of results" [result]="result"></youtube-result-component>
         </div>
         <hr>
     `

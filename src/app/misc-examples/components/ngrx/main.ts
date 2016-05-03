@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {Observable} from 'rxjs/Rx';
 import {Store, provideStore} from '@ngrx/store';
 import {Subject} from 'rxjs/Subject';

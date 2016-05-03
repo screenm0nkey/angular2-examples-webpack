@@ -1,5 +1,5 @@
-import { Component } from 'angular2/core';
-import {FormBuilder, Validators, ControlGroup, Control, FORM_DIRECTIVES} from 'angular2/common';
+import { Component } from '@angular/core';
+import {FormBuilder, Validators, ControlGroup, Control, FORM_DIRECTIVES} from '@angular/common';
 import * as Rx from "rxjs/Rx";
 import {YoutubeService} from './youtube-helpers/youtube-service';
 import {YoutubeResultComponent} from './youtube-helpers/youtube-result-component';
@@ -19,7 +19,7 @@ import {YoutubeResultComponent} from './youtube-helpers/youtube-result-component
                     <h4><label for="yts">Youtube basic search example </label></h4>
                     <input type="text" class="form-control" id="yst" placeholder="Youtube Search" ngControl="youtubeSearch">
                 </div>
-                <youtube-result-component *ngFor="#result of results" [result]="result"></youtube-result-component>
+                <youtube-result-component *ngFor="let result of results" [result]="result"></youtube-result-component>
             </form>
         </div>
         <hr>

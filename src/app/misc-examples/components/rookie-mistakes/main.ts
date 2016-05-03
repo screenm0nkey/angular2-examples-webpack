@@ -1,4 +1,4 @@
-import {Component } from 'angular2/core';
+import {Component } from '@angular/core';
 import {MyComponent} from './problem-one';
 import {FixComponent} from './fix-one';
 

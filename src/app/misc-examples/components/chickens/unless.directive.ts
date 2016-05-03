@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, ViewContainerRef, TemplateRef } from 'angular2/core';
+import { Directive, ElementRef, Input, ViewContainerRef, TemplateRef } from '@angular/core';
 
 @Directive({
     selector: '[unless]'

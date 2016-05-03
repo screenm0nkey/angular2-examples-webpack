@@ -1,4 +1,4 @@
-import {Component, ContentChildren, AfterContentInit, QueryList, ElementRef } from 'angular2/core';
+import {Component, ContentChildren, AfterContentInit, QueryList, ElementRef } from '@angular/core';
 
 @Component({
     selector: 'super-list',
@@ -32,7 +32,7 @@ class SuperListComponent implements AfterContentInit {
     template: `
         ${require('./problem-one.html')}
         <super-list>
-            <li *ngFor="#item of items" #mylocalref> {{item}} </li>
+            <li *ngFor="let item of items" #mylocalref> {{item}} </li>
         </super-list>
     `
 })

@@ -1,5 +1,5 @@
-import { Component, ChangeDetectionStrategy, Input, EventEmitter } from 'angular2/core';
-import {Output} from "angular2/core";
+import { Component, ChangeDetectionStrategy, Input, EventEmitter } from '@angular/core';
+import {Output} from "@angular/core";
 
 
 class TodoItem {
@@ -61,7 +61,7 @@ export class TodoItemComponent {
     styles: ['li {cursor: pointer}'],
     template: `
     <ul class="todo-list">
-        <li *ngFor="#item of store.items">
+        <li *ngFor="let item of store.items">
             <todoitem-component [item]="item" (editme)="editme.emit($event)"></todoitem-component>
         </li>
     </ul>`

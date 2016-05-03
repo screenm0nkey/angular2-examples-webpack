@@ -1,4 +1,4 @@
-import {Component, ViewEncapsulation, OnDestroy} from 'angular2/core';
+import {Component, ViewEncapsulation, OnDestroy} from '@angular/core';
 
 
 @Component({

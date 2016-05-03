@@ -11,7 +11,7 @@
 </section>
 
 <section *ngIf="displayAsList">
-    <div *ngFor="#customer of filteredCustomers">
+    <div *ngFor="let customer of filteredCustomers">
         <div class="card-header">
             <img src="/images/{{customer.gender | lowercase}}.png" class="avatar">
             <a [routerLink]="['/MiscExamples/CustomerDetail',{id:customer.id}]">
@@ -36,7 +36,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="#customer of filteredCustomers">
+        <tr *ngFor="let customer of filteredCustomers">
             <td>
                 <a [routerLink]="['/MiscExamples/CustomerDetail', {id:customer.id}]">
                     <img src="/images/{{customer.gender | lowercase}}.png" class="avatar">

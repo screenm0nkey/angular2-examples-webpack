@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core'
+import {Component} from '@angular/core'
 import { HostOne } from './host-one';
 import { HostTwo } from './host-two';
 import { HostThree } from './host-three';

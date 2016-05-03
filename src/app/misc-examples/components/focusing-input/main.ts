@@ -1,4 +1,4 @@
-import {Component } from 'angular2/core';
+import {Component } from '@angular/core';
 import {SolutionOne} from './solution1';
 import {SolutionTwo} from './solution2';
 import {SolutionThree} from './solution3';

@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {LoggerService}  from '../logger.service';
 import {AfterViewComponent}  from './after-view.component';
 
@@ -14,7 +14,7 @@ import {AfterViewComponent}  from './after-view.component';
     
         <h4>-- AfterView Logs --</h4>
         <p><button (click)="reset()">Reset</button></p>
-        <div *ngFor="#msg of logs">{{msg}}</div>
+        <div *ngFor="let msg of logs">{{msg}}</div>
       </div>
   `,
     styles: ['.parent {background: burlywood}'],

@@ -1,4 +1,4 @@
-import {Component, ViewChild, AfterViewInit, Renderer, ElementRef} from 'angular2/core';
+import {Component, ViewChild, AfterViewInit, Renderer, ElementRef} from '@angular/core';
 
 @Component({
     selector: 'my-comp',

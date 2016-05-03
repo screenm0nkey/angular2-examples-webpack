@@ -1,6 +1,6 @@
-import {Component } from 'angular2/core';
-import { Control, ControlGroup, FORM_DIRECTIVES } from 'angular2/common';
-import {Http} from 'angular2/http';
+import {Component } from '@angular/core';
+import { Control, ControlGroup, FORM_DIRECTIVES } from '@angular/common';
+import {Http} from '@angular/http';
 import {Observable} from 'rxjs/observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
@@ -20,7 +20,7 @@ import 'rxjs/add/operator/do';
             </form>
             <img src="/images/loading.gif" *ngIf="loading">
             <div style="max-height: 300px; overflow: hidden; overflow-y: scroll">
-                <div class="box" *ngFor="#r of results | async">
+                <div class="box" *ngFor="let r of results | async">
                     <img *ngIf="r.thumb" [src]="r.thumb">
                     <span>{{r.title}}</span><a [href]="r.url">Link</a>
                 </div>

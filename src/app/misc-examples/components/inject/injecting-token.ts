@@ -1,7 +1,7 @@
 import { SomeService, EngineService } from './some-service';
-import {Inject} from "angular2/core";
-import {Component} from "angular2/core";
-import {provide} from "angular2/core";
+import {Inject} from "@angular/core";
+import {Component} from "@angular/core";
+import {provide} from "@angular/core";
 
 /*
 This shows different ways of inject the same Token.

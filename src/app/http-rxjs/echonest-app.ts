@@ -1,5 +1,5 @@
-import {Component, Injectable, OnInit, Input, Output, EventEmitter} from 'angular2/core';
-import {Http, Response, URLSearchParams} from "angular2/http";
+import {Component, Injectable, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {Http, Response, URLSearchParams} from "@angular/http";
 import {Observable} from 'rxjs/observable';
 import * as Rx from "rxjs/Rx";
 import 'rxjs/add/operator/map';
@@ -7,8 +7,6 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/combineLatest';
-
-import {subscriptionLogsToBeFn} from "rxjs/testing/TestScheduler";
 
 
 interface Artist {
@@ -209,7 +207,7 @@ class ArtistComponent {
     template: `
         <form>
             <select #sel (change)="select.emit(sel.value)">
-            <option *ngFor="#result of results">
+            <option *ngFor="let result of results">
                 {{result}}
             </option>
         </select>
@@ -236,11 +234,11 @@ export class DropdownComponent implements OnInit {
         <h4>RxJs Echonest App</h4>
         <section style="float: left; width:200px">
             <header>Top 100 <dropdown-component [results]="[5,15,30,50,100]" (select)="artistStore.getArtists($event)"></dropdown-component></header>
-            <artist-component *ngFor="#artist of artists" [artist]="artist"></artist-component>
+            <artist-component *ngFor="let artist of artists" [artist]="artist"></artist-component>
         </section>
         <section style="float:left; width:200px">
             <header>Favourites <button [disabled]="!favouriteArtists.length" (click)="removeAll()">Remove All</button></header>
-            <artist-component *ngFor="#artist of favouriteArtists" [artist]="artist" [favourites]="'true'"></artist-component>
+            <artist-component *ngFor="let artist of favouriteArtists" [artist]="artist" [favourites]="'true'"></artist-component>
         </section>
         <hr style="clear: both">
     `

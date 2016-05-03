@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {LoggerService}  from '../logger.service';
 import {AfterContentComponent, ChildComponent} from './after-content.component'
 
@@ -18,7 +18,7 @@ import {AfterContentComponent, ChildComponent} from './after-content.component'
 
     <h4>-- AfterContent Logs --</h4>
     <p><button (click)="reset()">Reset</button></p>
-    <div *ngFor="#msg of logs">{{msg}}</div>
+    <div *ngFor="let msg of logs">{{msg}}</div>
   </div>
   `,
     styles: ['.parent {background: burlywood}'],

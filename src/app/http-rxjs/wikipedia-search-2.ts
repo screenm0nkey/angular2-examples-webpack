@@ -1,6 +1,6 @@
-import {Component, Injectable} from 'angular2/core';
-import {Control} from 'angular2/common';
-import {JSONP_PROVIDERS, URLSearchParams, Jsonp} from 'angular2/http';
+import {Component, Injectable} from '@angular/core';
+import {Control} from '@angular/common';
+import {JSONP_PROVIDERS, URLSearchParams, Jsonp} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map';
@@ -41,7 +41,7 @@ class WikipediaService {
       <h4>Wikipedia Super Search</h4>
       Search <input type="text" [ngFormControl]="term" placeholder="Wikipedia Search"/>
       <ul>
-        <li *ngFor="#item of items | async">{{item}}</li>
+        <li *ngFor="let item of items | async">{{item}}</li>
       </ul>
     </div>
   `

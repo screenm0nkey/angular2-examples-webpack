@@ -1,8 +1,8 @@
-import {bootstrap} from 'angular2/platform/browser';
-import {provide} from 'angular2/core';
-import {HTTP_PROVIDERS} from 'angular2/http';
-import {ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy} from 'angular2/router';
-import { FORM_PROVIDERS } from "angular2/common";
+import {bootstrap} from '@angular/platform-browser-dynamic';
+import {provide} from '@angular/core';
+import {HTTP_PROVIDERS} from '@angular/http';
+import {ROUTER_PROVIDERS} from '@angular/router-deprecated';
+import { FORM_PROVIDERS, LocationStrategy, HashLocationStrategy } from "@angular/common";
 
 import {MainApp} from './app/app';
 import {SomeService, EngineService} from './app/misc-examples/components/inject/some-service';

@@ -1,13 +1,12 @@
-export class TodoModel{
-    constructor(
-        public title:string = "",
-        public status:string = "started"
-){}
+export class TodoModel {
+    constructor(public title:string = "",
+                public status:string = "started") {
+    }
 
-    toggle():void{
+    toggle():void {
         this.status =
             this.status == "started"
-            ? "completed"
-            : "started";
+                ? "completed"
+                : "started";
     }
 }

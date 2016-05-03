@@ -1,10 +1,9 @@
-import {Pipe} from "angular2/core";
+import {Pipe, PipeTransform} from '@angular/core';
+import {TodoModel} from "../services/todo-model";
 
-@Pipe({
-    name: "started"
-})
-export class StartedPipe{
-    transform(value, [status]){
-        return value.filter((item)=> item.status === status);
+@Pipe({name: 'started'})
+export class StartedPipe implements PipeTransform {
+    transform(value: TodoModel[], status: string): TodoModel[] {
+        return value.filter((item:TodoModel)=> item.status === status);
     }
 }

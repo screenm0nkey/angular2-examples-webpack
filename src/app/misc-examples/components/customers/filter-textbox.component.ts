@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Output, Input } from 'angular2/core';
-import { FORM_DIRECTIVES } from "angular2/common";
+import { Component, EventEmitter, Output, Input } from '@angular/core';
+import { FORM_DIRECTIVES } from "@angular/common";
 
 @Component({
     selector: 'filter-text-component',

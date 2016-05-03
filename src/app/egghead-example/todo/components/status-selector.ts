@@ -1,10 +1,10 @@
-import {Component, Output, EventEmitter} from "angular2/core";
+import {Component, Output, EventEmitter} from "@angular/core";
 
 @Component({
     selector: 'status-selector',
     template:`<div>
         <select #sel (change)="select.emit(sel.value)">
-            <option *ngFor="#status of statuses">
+            <option *ngFor="let status of statuses">
                 {{status}}
             </option>
         </select>

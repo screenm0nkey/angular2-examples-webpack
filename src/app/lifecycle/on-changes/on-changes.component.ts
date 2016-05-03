@@ -1,7 +1,7 @@
 import {
     Component, Input,
     OnChanges, SimpleChange
-} from 'angular2/core';
+} from '@angular/core';
 
 
 class Hero {
@@ -16,7 +16,7 @@ class Hero {
     <p>{{hero.name}} can {{power}}</p>
 
     <h4>-- Change Log --</h4>
-    <div *ngFor="#chg of changeLog">{{chg}}</div>
+    <div *ngFor="let chg of changeLog">{{chg}}</div>
   </div>
   `,
     styles: [

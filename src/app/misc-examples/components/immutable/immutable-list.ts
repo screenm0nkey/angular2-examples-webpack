@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, OnInit, OnChanges} from 'angular2/core';
+import { Component, ChangeDetectionStrategy, Input, OnInit, OnChanges} from '@angular/core';
 import { Store, Todo } from './StoreService';
 
 
@@ -6,7 +6,7 @@ import { Store, Todo } from './StoreService';
 @Component({
     selector: 'test-component',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    template: `<ul><li *ngFor="#todo of todos">{{todo.someval}}</li></ul>`
+    template: `<ul><li *ngFor="let todo of todos">{{todo.someval}}</li></ul>`
 })
 export class TestComponent implements OnInit, OnChanges {
     @Input() todos;

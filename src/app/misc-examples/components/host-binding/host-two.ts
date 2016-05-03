@@ -1,5 +1,5 @@
-import { Component, Directive, HostBinding, HostListener} from 'angular2/core';
-import { FORM_DIRECTIVES, NgModel} from "angular2/common";
+import { Component, Directive, HostBinding, HostListener} from '@angular/core';
+import { FORM_DIRECTIVES, NgModel} from "@angular/common";
 
 @Directive({
     selector: 'button[counting]',

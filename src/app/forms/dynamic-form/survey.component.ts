@@ -1,5 +1,5 @@
-import {Component,Input, OnInit} from 'angular2/core';
-import {FormBuilder, ControlGroup} from 'angular2/common';
+import {Component,Input, OnInit} from '@angular/core';
+import {FormBuilder, ControlGroup} from '@angular/common';
 
 @Component({
     selector:'survey',

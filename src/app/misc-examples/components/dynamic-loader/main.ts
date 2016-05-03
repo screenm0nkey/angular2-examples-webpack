@@ -1,4 +1,4 @@
-import {Component, DynamicComponentLoader, ElementRef, Injector, provide, ComponentRef} from 'angular2/core'
+import {Component, DynamicComponentLoader, ElementRef, Injector, provide, ComponentRef} from '@angular/core'
 import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
 import 'rxjs/add/observable/fromPromise';

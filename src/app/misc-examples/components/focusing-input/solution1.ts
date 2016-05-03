@@ -1,4 +1,4 @@
-import {Component, Directive, ElementRef, Input, AfterViewInit, OnChanges} from 'angular2/core';
+import {Component, Directive, ElementRef, Input, AfterViewInit, OnChanges} from '@angular/core';
 
 
 @Directive({

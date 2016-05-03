@@ -1,4 +1,4 @@
-import {Component, ChangeDetectionStrategy, ChangeDetectorRef} from 'angular2/core'
+import {Component, ChangeDetectionStrategy, ChangeDetectorRef} from '@angular/core'
 
 @Component({
     selector: 'cmp',

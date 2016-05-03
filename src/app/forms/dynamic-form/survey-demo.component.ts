@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {Survey} from './survey.component';
 import {QuestionModel} from './question.model.ts';
 import {TextboxQuestion, DropDownQuestion} from './questions.model.ts';

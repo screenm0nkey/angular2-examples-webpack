@@ -1,7 +1,7 @@
-import {Component} from 'angular2/core';
-import {JSONP_PROVIDERS, URLSearchParams, Jsonp} from 'angular2/http';
-import {Injectable} from 'angular2/core';
-import {Control} from 'angular2/common';
+import {Component} from '@angular/core';
+import {JSONP_PROVIDERS, URLSearchParams, Jsonp} from '@angular/http';
+import {Injectable} from '@angular/core';
+import {Control} from '@angular/common';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
@@ -38,7 +38,7 @@ class WikipediaService {
         taking-advantage-of-observables-in-angular2
       </a></p>
       Search <input #term type="text" (keyup)="search(term.value)" placeholder="Wikipedia Search">
-      <ul><li *ngFor="#item of items">{{item}}</li></ul>
+      <ul><li *ngFor="let item of items">{{item}}</li></ul>
     </div>
   `
 })
@@ -63,7 +63,7 @@ export class JsonpWikipediaPromise {
       <h4>Same as above but using promises (toPromise), observables and async pipe</h4>
       <a href="http://blog.thoughtram.io/angular/2016/01/06/taking-advantage-of-observables-in-angular2.html" target="_blank">Thoughtram article</a>
       Search <input type="text" [ngFormControl]="term" placeholder="Wikipedia Search"/> <span *ngIf="loading">loading</span>
-      <ul><li *ngFor="#item of items | async">{{item}}</li></ul>
+      <ul><li *ngFor="let item of items | async">{{item}}</li></ul>
     </div>
     <hr>
   `

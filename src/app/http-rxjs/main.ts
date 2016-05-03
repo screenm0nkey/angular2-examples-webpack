@@ -1,5 +1,5 @@
-import { bind, provide, Component } from 'angular2/core';
-import { HTTP_PROVIDERS, JSONP_PROVIDERS, BaseRequestOptions, RequestOptions} from 'angular2/http';
+import { bind, provide, Component } from '@angular/core';
+import { HTTP_PROVIDERS, JSONP_PROVIDERS, BaseRequestOptions, RequestOptions} from '@angular/http';
 import {CounterComponent} from './rx-counter';
 import {WikipediaSuperSearch} from './wikipedia-search-2';
 import {JsonpWikipediaPromise, WikipediaObservable} from './wikipedia-search-1';

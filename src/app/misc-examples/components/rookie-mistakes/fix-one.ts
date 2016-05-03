@@ -1,4 +1,4 @@
-import {Component, ContentChildren, AfterContentInit, QueryList, Directive, ElementRef} from 'angular2/core';
+import {Component, ContentChildren, AfterContentInit, QueryList, Directive, ElementRef} from '@angular/core';
 
 @Directive({ selector: 'li' })
 class SuperListDirective {
@@ -41,7 +41,7 @@ class SuperListComponent implements AfterContentInit {
     ${require('./fix-one.html')}
     <button (click)="addItem()">Add an Item</button><br>
     <super-list>
-        <li *ngFor="#item of items"> {{item}} </li>
+        <li *ngFor="let item of items"> {{item}} </li>
     </super-list>
     ${require('./text.html')}
     `

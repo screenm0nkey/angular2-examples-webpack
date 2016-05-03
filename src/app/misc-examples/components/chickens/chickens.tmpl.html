@@ -4,7 +4,7 @@
     <h3>Simple example using @Inputs, @Outputs and Http to display data</h3>
 
     <chicken-component
-            *ngFor="#chicken of chickens"
+            *ngFor="let chicken of chickens"
             [name]="chicken.name"
             (hello)="saidHello($event)">
     </chicken-component>
@@ -32,5 +32,5 @@
     <hr>-->
 
     <h4>forkJoin example</h4>
-    <pre *ngFor="#cus of customers">{{cus.firstName | json}}</pre>
+    <pre *ngFor="let cus of customers">{{cus.firstName | json}}</pre>
 </div>

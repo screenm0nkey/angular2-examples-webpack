@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core'
+import {Component} from '@angular/core'
 import { ChangeComponent } from './change';
 import { MarkForCheck } from './mark-for-check';
 

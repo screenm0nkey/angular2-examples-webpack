@@ -1,4 +1,4 @@
-import { Component, OnInit } from 'angular2/core';
+import { Component, OnInit } from '@angular/core';
 import { ChickensService} from './chicken.service';
 import { ChickenComponent} from './chicken.component';
 import { Tooltip } from './tooltip.directive';

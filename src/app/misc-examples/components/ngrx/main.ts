@@ -9,7 +9,7 @@ const HOUR = 'HOUR';
 
 const tick = (state:Date = new Date(), {type, payload})=> {
     let d:Date;
-    console.log(state, type, payload);
+    // console.log(state, type, payload);
     switch (type) {
         case DAY:
             d = new Date(state.toDateString());

@@ -1,17 +1,46 @@
-import {Component, DynamicComponentLoader, ElementRef, Injector, provide, ComponentRef} from '@angular/core'
+import {Component, ViewContainerRef, ViewChild, Input, DynamicComponentLoader, Injector, provide, ComponentRef} from '@angular/core'
 import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
 import 'rxjs/add/observable/fromPromise';
 import 'rxjs/add/observable/interval';
 import 'rxjs/add/operator/switchMap';
-import {Person} from './person';
-import {Car} from './car';
 
+
+/*
+ PERSON CLASS
+ */
+@Component({
+    selector: 'person',
+    template: `
+        <style>div{border: 2px solid blue}</style>
+        <div>My id: {{nid}} {{sid}}</div>
+    `,
+})
+export class Person {
+    @Input() id;
+}
+
+/*
+ CAR CLASS
+ */
+@Component({
+    selector: 'car',
+    template: `
+        <style>div{border: 2px dashed red}</style>
+        <div>Car's id {{nid}} {{sid}}</div>
+    `,
+})
+export class Car {}
+
+
+/*
+ APP CLASS
+ */
 @Component({
     selector: 'app',
-    providers : [
-        provide('person', {useValue: Person}),
-        provide('car', {useValue: Car})
+    providers: [
+        provide('car', {useValue: Car}),
+        provide('person', {useValue: Person})
     ],
     template: `
     <div>
@@ -22,30 +51,29 @@ import {Car} from './car';
   `
 })
 export class DynamicComponent {
-    click$ = new Subject();
+    @ViewChild('loadTarget', {read: ViewContainerRef}) target;
+    click$: Subject = new Subject();
 
-    constructor(
-        private _loader:DynamicComponentLoader,
-        private _ref:ElementRef,
-        private injector:Injector
-    ) {
-        const loadComp = (compName:string) => Observable
-            .fromPromise(
-                // DynamicComponentLoader.loadIntoLocation returns Promise<ComponentRef>
-                this._loader.loadIntoLocation(
-                    this.injector.get(compName), //the injector looks up the component by string
-                    this._ref, // element
-                    'loadTarget' // target id
-                )
-            );
 
+    constructor(private dcl:DynamicComponentLoader, private injector:Injector) {
         this.click$
             //pass the 'string' from the click to the loadComp
-            .switchMap((compName:string) => loadComp(compName))
-            .subscribe((comp:ComponentRef) => {
-                comp.instance.id = Math.random();
-                console.log(comp);
+            .switchMap((compName:string) => this.loadComponent(compName))
+            .subscribe((ref:ComponentRef) => {
+                ref.instance.nid = Math.round(Math.random()*10);
+                console.log(ref);
             });
+    }
+
+    loadComponent(compName:string):Observable {
+        var component = this.injector.get(compName);
+        var promise = this.dcl.loadNextToLocation(component, this.target);
+        promise.then((ref:ComponentRef) => {
+            // console.log(this.target._element.nativeElement);
+            ref.instance.sid = Math.round(Math.random()*10);
+            console.log(ref.instance)
+        });
+        return Observable.fromPromise(promise)
     }
 }
 

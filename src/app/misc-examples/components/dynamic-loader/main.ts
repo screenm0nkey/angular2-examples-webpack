@@ -52,26 +52,26 @@ export class Car {}
 })
 export class DynamicComponent {
     @ViewChild('loadTarget', {read: ViewContainerRef}) target;
-    click$: Subject = new Subject();
-
+    click$: Subject<any> = new Subject();
 
     constructor(private dcl:DynamicComponentLoader, private injector:Injector) {
         this.click$
             //pass the 'string' from the click to the loadComp
             .switchMap((compName:string) => this.loadComponent(compName))
-            .subscribe((ref:ComponentRef) => {
+            .subscribe((ref:ComponentRef<any>) => {
                 ref.instance.nid = Math.round(Math.random()*10);
                 console.log(ref);
             });
     }
 
-    loadComponent(compName:string):Observable {
+    loadComponent(compName:string):Observable<ComponentRef<any>> {
         var component = this.injector.get(compName);
         var promise = this.dcl.loadNextToLocation(component, this.target);
-        promise.then((ref:ComponentRef) => {
+
+        promise.then((ref:ComponentRef<any>) => {
             // console.log(this.target._element.nativeElement);
             ref.instance.sid = Math.round(Math.random()*10);
-            console.log(ref.instance)
+            console.log(ref);
         });
         return Observable.fromPromise(promise)
     }

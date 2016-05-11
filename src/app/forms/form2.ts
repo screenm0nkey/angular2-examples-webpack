@@ -24,6 +24,11 @@ export class Form2 {
         });
     }
 
+    logit (evt, ngForm, myform) {
+        console.log('ngForm', ngForm);
+        console.log('myform', myform);
+    }
+
     zipValidator(zip) {
         let valid = /^\d{5}$/.test(zip.value);
         if(valid){
@@ -34,6 +39,5 @@ export class Form2 {
 
     onSubmit() {
         this.payLoad = JSON.stringify(this.myform.value);
-        debugger
     }
 }

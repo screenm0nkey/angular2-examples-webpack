@@ -1,19 +1,20 @@
 import {QuestionBase} from './question.model.ts';
 
-export class TextboxQuestion extends QuestionBase<string>{
+export class TextboxQuestion extends QuestionBase<string> {
     type:string;
-    controlType:string = 'textbox';
+    controlType = 'textbox';
 
-    constructor(){
+    constructor() {
         super();
     }
 }
 
 
-export class DropDownQuestion extends QuestionBase<string>{
+export class DropDownQuestion extends QuestionBase<string> {
     options = [];
     controlType = 'dropdown';
-    constructor(){
+
+    constructor() {
         super();
     }
 }

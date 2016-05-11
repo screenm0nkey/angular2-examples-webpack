@@ -4,7 +4,7 @@ import {RouteConfig, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 import {InjectComponent} from './components/inject/injecting-token';
 import {CustomersComponent} from './components/customers/customers.component';
 import {OrdersComponent} from './components/customers/customer-detail.component';
-import {ChickensComponent} from './components/chickens/chickens.component';
+import {ChickensComponent} from './components/chickens/main.component';
 import {InventoryApp} from './components/inventory/inputs';
 import {HostStuffComponent} from './components/host-binding/main';
 import {EmitterComponent} from './components/emitter/emitter-component';

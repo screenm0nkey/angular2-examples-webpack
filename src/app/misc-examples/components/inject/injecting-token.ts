@@ -1,7 +1,11 @@
-import { SomeService, EngineService } from './some-service';
-import {Inject} from "@angular/core";
-import {Component} from "@angular/core";
-import {provide} from "@angular/core";
+import {provide, Inject, Component, OpaqueToken} from "@angular/core";
+import { SomeService} from './some-service';
+
+
+
+
+
+
 
 /*
 This shows different ways of inject the same Token.
@@ -14,10 +18,13 @@ The 'whateverToken' is defined in the bootstrap.ts as
 * */
 
 let AnyObjectCanBeTheKey = {};
+const SOME_TOKEN: OpaqueToken = new OpaqueToken('SomeToken');
 
 @Component({
     selector: 'inject-component',
     providers : [
+        provide(SOME_TOKEN, {useValue: 'dependency one', multi: true}),
+        provide(SOME_TOKEN, {useValue: 'dependency two', multi: true}),
         provide(AnyObjectCanBeTheKey, {useClass : SomeService }),
         provide('sausages', {useClass : SomeService }),
         provide('helloWorld', {useValue : 'Hello World!!!' }), //inject a string
@@ -36,7 +43,7 @@ let AnyObjectCanBeTheKey = {};
 export class InjectComponent {
     constructor(
         public some1 : SomeService, // defined in bootstrap.ts
-        @Inject(SomeService) public some2, // same as above.
+        @Inject(SomeService) public some2, // longhand version of line above
         @Inject(AnyObjectCanBeTheKey) public some5,
         @Inject('sausages') public some3,
         @Inject('whateverToken') public some4, // see bootstrap.ts for how this is defined
@@ -44,17 +51,21 @@ export class InjectComponent {
         @Inject('helloWorld') public helloWorld,
         @Inject(String) public aString,
         // injects a factory
-        @Inject('EngineService') public factory
+        @Inject('EngineService') public engineFactory1, // notice that we have imported the service
+        @Inject('EngineService') public engineFactory2,
+        @Inject(SOME_TOKEN) public multiDependency
     )
     {
-        some1.callMe('public some1 : SomeService');            // 1
-        some2.callMe('@Inject(SomeService) public some2');     // 1
-        some5.callMe("@Inject('AnyObjectCanBeTheKey') public some5"); // 2
-        some3.callMe("@Inject('sausages') public some3");      // 3
-        some4.callMe("@Inject('whateverToken') public some4"); // 4
+        some1.callMe('public some1 : SomeService');
+        some2.callMe('@Inject(SomeService) public some2');
+        some5.callMe("@Inject('AnyObjectCanBeTheKey') public some5");
+        some3.callMe("@Inject('sausages') public some3");
+        some4.callMe("@Inject('whateverToken') public some4");
         console.log("provide('helloWorld', {useValue : 'Hello World' }", helloWorld);
         console.log('@Inject(String) public aString', aString);
-        factory().callMe("EngineService, { useFactory: () => {}")
+        engineFactory1().callMe("EngineService, { useFactory: () => {}");
+        engineFactory2().callMe("EngineService, { useFactory: () => {}");
+        console.log('provide(SOME_TOKEN, {useValue: "dependency one", multi: true})', multiDependency)
     }
 }
 

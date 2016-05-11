@@ -8,7 +8,7 @@ import { DomAdapterComponent } from './dom-adapter.component';
 
 @Component({
     selector: 'chickens-component',
-    template: require('./chickens.tmpl.html'),
+    template: require('./main.tmpl.html'),
     providers: [ChickensService],
     directives: [ChickenComponent, Tooltip, Unless, DomAdapterComponent]
 })
@@ -33,8 +33,8 @@ export class ChickensComponent implements OnInit {
     getBooksAndMovies() {
         this.chickensService.getBooksAndMovies().subscribe(
             data => {
-                this.chickens = data[0]
-                this.customers = data[1]
+                this.chickens = data[0];
+                this.customers = data[1];
             }
         );
     }

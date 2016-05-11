@@ -6,7 +6,6 @@
 <h2>Form 2 - ngFormModel and ngControl</h2>
 <h3>(see form 3 for ngFormModel and ngFormControl)</h3>
 <pre>
-
     Angular provides another directive that we use when we have an
     existing ControlGroup instead of using the one created by NgForm:
     it's called NgFormModel and we use it like this:
@@ -15,7 +14,9 @@
     </h3>
     NgForm automatically creates a control group called ngForm for us when we don't
     use ngFormModel. Note : we're still using #f="ngForm" but it refers to the control
-    we created with formBuilder.
+    we created by formBuilder.
+    So <strong>myform.controls.firstName</strong> is the same as <strong>f.form.controls.firstName</strong>
+    
     (ngSubmit) event comes from NgForm
 
 </pre>
@@ -25,6 +26,9 @@
 </div>
 
 <form (ngSubmit)="onSubmit()" [ngFormModel]="myform" #f="ngForm">
+
+    <button (click)="logit($event, f, myform)">Console log Form Info</button>
+
 
     <div class="form-row">
         <div class="formHeading">Some checkbox</div>
@@ -36,10 +40,10 @@
     </div>
 
     <div class="form-row">
-        <div class="formHeading">First Name</div>
+        <div class="formHeading">First Name (required)</div>
         <input type="text" id="firstName" ngControl="firstName">
         <div class="errorMessage"
-             *ngIf="f.form.controls.firstName.touched && !f.form.controls.firstName.valid">
+             *ngIf="myform.controls.firstName.touched && !f.form.controls.firstName.valid">
             First Name is required
         </div>
     </div>

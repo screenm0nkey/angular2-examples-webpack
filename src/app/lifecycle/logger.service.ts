@@ -43,8 +43,6 @@ export class LoggerService {
     // setTimeout triggers a change detection.
     // schedules a view refresh to ensure display catches up
     tick() {
-        setTimeout(() => {
-            // console.log('tick')
-        }, 0);
+        setTimeout(() => {}, 0);
     }
 }

@@ -60,6 +60,14 @@
 
 
     <div class="form-row">
+        <div class="formHeading">City</div>
+        <select [(ngModel)]="selectedCity" ngControl="city">
+            <option *ngFor="let city of cities" [ngValue]="city">{{city.name}}</option>
+        </select>
+    </div>
+
+
+    <div class="form-row">
         <div class="formHeading">Zip Code</div>
         <input type="text" id="zip" ngControl="zip" #spy>
         <div class="errorMessage"
@@ -67,7 +75,7 @@
             Zip code has to be 5 digits long
         </div>
     </div>
-    <pre>zip input classNames = {{spy.className}}</pre>
+    <pre>ZIP Input class names = '{{spy.className}}'</pre>
 
 
     <div class="form-row">

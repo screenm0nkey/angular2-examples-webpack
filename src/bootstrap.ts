@@ -13,7 +13,7 @@ bootstrap(MainApp, [
     HTTP_PROVIDERS,
     provide(LocationStrategy, {useClass: HashLocationStrategy}),// try commenting this out and it reverts to standard urls without hash
     SomeService,                                        // this is shorthand for provide(SomeService, {useClass : SomeService}),
-    provide('whateverToken', {useClass: SomeService}),  // this is used by "injecting-token.ts" component,
+    {provide: 'whateverToken', useClass: SomeService},  // this is used by "injecting-token.ts" component,
     provide('EngineService', {                          // this is used by "injecting-token.ts" component,
         useFactory: () => {
             return () => {

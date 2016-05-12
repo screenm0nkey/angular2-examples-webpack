@@ -7,7 +7,7 @@ import {OrdersComponent} from './components/customers/customer-detail.component'
 import {ChickensComponent} from './components/chickens/main.component';
 import {InventoryApp} from './components/inventory/inputs';
 import {HostStuffComponent} from './components/host-binding/main';
-import {EmitterComponent} from './components/emitter/emitter-component';
+import {MultiTransclusion} from './components/multi-content/main';
 import {ChangeDetectionMain} from './components/change-detection/main';
 import {ImmutableMain} from './components/immutable/main';
 import {FocusInput} from './components/focusing-input/main';
@@ -31,7 +31,7 @@ import {RookieComponent} from './components/rookie-mistakes/main';
     {path: '/chickens', name: 'Chickens', component: ChickensComponent},
     {path: '/inventory', name: 'Inventory', component: InventoryApp},
     {path: '/hoststuff', as: 'HostStuff', component: HostStuffComponent},
-    {path: '/emitter', as: 'Emitter', component: EmitterComponent},
+    {path: '/emitter', as: 'Emitter', component: MultiTransclusion},
     {path: '/change-detection', as: 'ChangeDetection', component: ChangeDetectionMain},
     {path: '/change2', as: 'Change2', component: ImmutableMain},
     {path: '/focus-input', as: 'FocusInput', component: FocusInput},

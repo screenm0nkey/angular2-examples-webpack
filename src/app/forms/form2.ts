@@ -12,21 +12,26 @@ export class Form2 {
 
     myform : ControlGroup;
     payLoad : String = '';
+    cities : any[] = [{name:'London'}, {name:'Berlin'}];
+    selectedCity;
 
     constructor(fb: FormBuilder) {
+        this.selectedCity = this.cities[0];
         // calling fb.group() returns a controlGroup
         this.myform = fb.group({
             "checkMe": [true, Validators.required],
             "firstName": ['', Validators.required],
             "streetAddress": ['',Validators.required],
             "zip": ['', Validators.compose([this.zipValidator])],
-            "type": ['home']
+            "type": ['home'],
+            "city" : []
         });
     }
 
     logit (evt, ngForm, myform) {
-        console.log('ngForm', ngForm);
+        console.log('ngForm', ngForm.form);
         console.log('myform', myform);
+        console.log(this.selectedCity)
     }
 
     zipValidator(zip) {

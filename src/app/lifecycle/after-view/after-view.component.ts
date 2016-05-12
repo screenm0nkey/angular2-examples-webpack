@@ -17,8 +17,8 @@ export class ChildViewComponent {
     template: `
     <div>-- child view begins --</div>
       <my-child></my-child>
-    <div>-- child view ends --</div>`
-    + `
+    <div>-- child view ends --</div>
+    
     <p *ngIf="comment" class="comment">
       {{comment}}
     </p>

@@ -7,6 +7,14 @@ import {Spy} from './spy.directive';
   template: `
   <div class="parent">
     <h2>Spy Directive</h2>
+    <pre>
+    Directives have lifecycle hooks too. We create a SpyDirective that logs when 
+    the element it spies upon is created or destroyed using the 
+    ngOnInit and ngOnDestroy hooks.
+
+    We apply the SpyDirective to a div in an ngFor hero repeater 
+    managed by the parent SpyComponent.
+    </pre>
     <p>
       <input [(ngModel)]="newName"
             (keyup.enter)="addHero()"

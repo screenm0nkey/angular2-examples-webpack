@@ -10,9 +10,9 @@ import {AfterContentComponent, ChildComponent} from './after-content.component'
     <h2>AfterContent</h2>
     <a href="https://angular.io/docs/ts/latest/guide/lifecycle-hooks.html#!#aftercontent" target="_blank">Angular docs</a>
 
-    <div  *ngIf="show">
+    <div *ngIf="show">
         <after-content>
-        <my-child></my-child>
+            <my-child></my-child><!--Projected content-->
       </after-content>
     </div>
 
@@ -40,10 +40,3 @@ export class AfterContentParentComponent {
         setTimeout(() => this.show = true, 0)
     }
 }
-
-
-/*
- Copyright 2016 Google Inc. All Rights Reserved.
- Use of this source code is governed by an MIT-style license that
- can be found in the LICENSE file at http://angular.io/license
- */

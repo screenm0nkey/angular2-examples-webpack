@@ -8,8 +8,7 @@ let nextId = 1;
 @Directive({selector: '[my-spy]'})
 export class Spy implements OnInit, OnDestroy {
 
-    constructor(private _logger:LoggerService) {
-    }
+    constructor(private _logger:LoggerService) {}
 
     ngOnInit() {
         this._logIt(`onInit`);

@@ -1,6 +1,6 @@
 import {Component } from '@angular/core';
 import {MyComponent} from './problem-one';
-import {FixComponent} from './fix-one';
+import {FixComponent} from './problem-one-fix';
 
 @Component({
     selector: 'rookie-comp',

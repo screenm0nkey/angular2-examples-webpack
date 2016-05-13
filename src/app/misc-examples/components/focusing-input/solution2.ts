@@ -32,6 +32,7 @@ export class FocusMe implements AfterViewInit, OnChanges {
 export class SolutionTwo implements OnInit {
     // @ViewChild allows us access to the directive instance's api methods in the component.
     // in this case we can access ngAfterViewInit, setFocus, etc
+    // @ViewChildren does the same but lets us access multiple instances
     @ViewChild(FocusMe) child;
     @ViewChildren(FocusMe) children;
     private inputIsVisible : Boolean = false;

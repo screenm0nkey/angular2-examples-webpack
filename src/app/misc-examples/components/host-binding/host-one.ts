@@ -10,11 +10,14 @@ class NgModelStatus {
     count : number = 0;
 
     constructor() {
-        this.smvalue = 'Default Valuez'
+        this.smvalue = 'Default Valuez';
+        // this will update the view input's value
+        setTimeout(()=>this.smvalue='something else', 2000); // changes the input's text
+        setTimeout(()=>this.isFixed=false, 2000); // changes the inputs colour
     }
 
     // it's binding the input element's 'value' property to this.smvalue.
-    // so when we change this.smvalue the inputs value property updates to match
+    // so when we change this.smvalue the input's value property updates to match.
     // it could also be written as  "@HostBinding() value: string;" with this.value
     @HostBinding('value') smvalue: string;
  // @HostBinding() value: string
@@ -29,8 +32,8 @@ class NgModelStatus {
     }
 
     // here we're binding the 'class.fixed-mixed' property of the host element to
-    // the 'isFixed' property. when we set isFixed to true it then sets class.fixed-mixed = true.
-    // if 'isFixed' is true it will add the 'fixed-mixed' class to the input and the
+    // this.isFixed property. when we set this.isFixed to true it then sets class.fixed-mixed = true.
+    // if 'this.isFixed is true it will add the 'fixed-mixed' class to the input and the
     // input text will appear in red. set it to false and it will not add class.
     @HostBinding('class.fixed-mixed')
     isFixed:Boolean = true;

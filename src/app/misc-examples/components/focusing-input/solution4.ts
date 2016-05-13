@@ -3,12 +3,13 @@ import {Component, ViewChild, AfterViewInit, Renderer, ElementRef} from '@angula
 @Component({
     selector: 'my-comp',
     template: `
-    <h3>Using local variable refs and @ViewChild</h3>
-    <h4 style="color: red">Working with the ElementRef directly (not recommended)</h4>
-    <pre>constructor(el: ElementRef) {
-    el.nativeElement.querySelector('input').focus();
-  }</pre>
-    <pre>
+    <h3>Solution 4 - Using local variable refs and @ViewChild</h3>
+    <h4 style="color: red">Working with the ElementRef directly is not recommended when accessing elements in a view (see below)</h4>
+    <pre><strong>
+    constructor(el: ElementRef) {
+        el.nativeElement.querySelector('input').focus();
+    }</strong>
+    
     What developers often don't realize is that it's also possible to query by local variable 
     in addition to component type.  Since you control your component's view, you can add 
     a local variable to the input tag (e.g. "#myInput") and pass the variable name into 

@@ -18,9 +18,12 @@ class SuperListComponent implements AfterContentInit {
 
     ngAfterContentInit() {
         this.count = this.items.length;
-        this.items.forEach(el => console.log(el.nativeElement));
+        this.items.forEach((el:ElementRef) => console.log(el.nativeElement));
     }
 }
+
+
+
 
 
 // this is how the end user might implement the external component.

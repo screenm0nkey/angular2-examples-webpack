@@ -15,7 +15,8 @@ import {NgZoneMainComponent} from './components/ng-zone/main';
 import {AccordianComponent} from './components/accordian/accordian';
 import {NgRxClockApp} from './components/ngrx/main';
 import {DynamicComponent} from './components/dynamic-loader/main';
-import {RookieComponent} from './components/rookie-mistakes/main';
+import {RookieComponent} from './components/content-children/main';
+import {ViewChildrenComponent} from './components/view-children/problem-one-fix';
 
 @Component({
     selector: 'misc-app',
@@ -39,7 +40,8 @@ import {RookieComponent} from './components/rookie-mistakes/main';
     {path: '/accordian', as: 'Accordian', component: AccordianComponent},
     {path: '/ngrx', as: 'NgRxClockApp', component: NgRxClockApp},
     {path: '/dynamic-component', as: 'DynamicComponent', component: DynamicComponent},
-    {path: '/rookie-mistakes', as: 'RookieComponent', component: RookieComponent}
+    {path: '/rookie-mistakes', as: 'RookieComponent', component: RookieComponent},
+    {path: '/view-children', as: 'ViewChildrenComponent', component: ViewChildrenComponent}
 ])
 export class MiscExamples {
     constructor() {

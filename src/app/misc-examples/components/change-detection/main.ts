@@ -7,7 +7,6 @@ import { MarkForCheck } from './mark-for-check';
     template: `
         <change-component></change-component>
         <hr>
-        
         <mark-for-check></mark-for-check>
     `,
     directives: [ChangeComponent, MarkForCheck]

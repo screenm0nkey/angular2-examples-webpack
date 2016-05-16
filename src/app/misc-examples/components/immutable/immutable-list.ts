@@ -28,8 +28,8 @@ export class TestComponent implements OnInit, OnChanges {
     selector: 'immutable-list-component',
     directives : [TestComponent],
     template : `
-        <h4>The list will only update when the @Inputs changes by creating a new array each time.
-        Mutuating it won't cause it to update as we're using onPush which looks for a compoents Inputs to change</h4>
+        <p>The list will only update when the @Inputs changes by creating a new array each time.
+        Mutuating it won't cause it to update as we're using onPush which looks for a compoents Inputs to change</p>
         Make Model Immutable
         <input #chk type="checkbox" (change)="checked=chk.checked; me.focus()"/><br>
         <input type="text" #me (keyup.enter)="addTodo(me, me.value)" placeholder="Press enter to add">

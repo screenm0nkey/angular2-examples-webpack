@@ -23,7 +23,7 @@ class SuperItemComponent {
     `
 })
 export class ViewChildrenComponent  implements AfterViewInit {
-    @ViewChildren(SuperItemComponent) children : QueryList;
+    @ViewChildren(SuperItemComponent) children : QueryList<SuperItemComponent>;
     @ViewChild('myref') el : ElementRef;
 
     public items:string[] = ['hello', 'world', 'today'];

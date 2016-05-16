@@ -1,7 +1,11 @@
 <section class="main">
-    <h3>CHANGE DETECTION example</h3>
-    <a href="http://victorsavkin.com/post/110170125256/change-detection-in-angular-2">Read this...</a>
-    <a href="http://blog.scottlogic.com/2015/12/07/angular-2.html" target="_blank">And this...</a>
+    <h3>CHANGE DETECTION</h3>
+    <a href="http://blog.thoughtram.io/angular/2016/02/22/angular-2-change-detection-explained.html" target="_blank">Thoughtram</a>
+    <a href="http://victorsavkin.com/post/110170125256/change-detection-in-angular-2" target="_blank">Victor Savin</a>
+    <a href="http://blog.scottlogic.com/2015/12/07/angular-2.html" target="_blank">ScottLogic</a>
+    <a href="http://victorsavkin.com/post/133936129316/angular-immutability-and-encapsulation" target="_blank">
+        angular-immutability-and-encapsulation
+    </a>
 
 
     <p>
@@ -9,38 +13,23 @@
         which will be called when any of the @inputs properties change. this doesn't happen if
         OnPush is set. Only when the @input reference changes does it get called.
         This is the case for immutability
-        <br><a href="http://victorsavkin.com/post/133936129316/angular-immutability-and-encapsulation">See here</a>
     </p>
 
     <pre>{changeDetection: ChangeDetectionStrategy.OnPush}</pre>
 
+    <hr/>
+
+    <pre>
+        What's interesting below is if you type into the "Local Ref" input, which is using a local variable reference
+        and not ngModel, the change detection isn't triggered. It only works on the ngModel.
+    </pre>
 
     <p>
         Try removing the <span style="font-weight: bold">ChangeDetectionStrategy.OnPush</span> from the
-        todoitem-component
-        and then type into the first input ( the one using ng-model) and you will see in the console the
-        component's text property is called on every event.
-    </p>
-    <hr/>
-
-    These two are the same. one is the long hand syntax
-    <pre>
-        &lt;input type="text" [(ngModel)]="newItem"&gt;
-        &lt;input type="text" [ngModel]="newItem" (ngModelChange)="newItem=$event">&gt;
-    </pre>
-
-    <hr/>
-    <p style="font-weight: bold">
-        What's interesting is if you type into the input below, which is using a local variable reference and not ngModel
-        the change detection isn't triggered. only works on the ngModel.
+        TodoListComponent and then type into the first input ( the one using ng-model) and you will see
+        in the console the component's text property is called on every event.
     </p>
     <p>Local template variables using #reference <i>(press return to add item)</i></p>
-
-    <input type="text" #inputty (keyup.enter)="addItem(inputty.value); inputty.value=''" placeholder="Local Ref">
-
-    <input type="text" [(ngModel)]="todoStr" (keyup.enter)="addItem(todoStr)" placeholder="ngModel">
-
-    <button (click)="addItem(todoStr)">{{todoItem ? 'Update' : 'Add'}}</button>
-
-    <todolist-component [store]="store" (editme)="setTodoItem($event)"></todolist-component>
 </section>
+
+

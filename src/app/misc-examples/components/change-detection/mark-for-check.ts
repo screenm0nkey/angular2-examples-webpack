@@ -5,10 +5,18 @@ import {Component, ChangeDetectionStrategy, ChangeDetectorRef} from '@angular/co
     changeDetection: ChangeDetectionStrategy.OnPush,
     template: `
         <h3>this.ref.markForCheck() example</h3>
-        <p>
-            The tickes below wouldn't update without calling the markForCheck <br>
+        
+        <pre>
+            The tickes below wouldn't update without calling markForCheck()
             as the change detection is set to "ChangeDetectionStrategy.OnPush"
+        </pre>
+        
+        <p>
+            setInterval triggers the change detection in angular, which updates the views
+            but our view is set to OnPush so it will only update when it's inputs change.
+            it doesn't have any inputs so it will never update unless we call markForCheck().
         </p>
+        
         Number of ticks: {{numberOfTicks}}
     `
 })

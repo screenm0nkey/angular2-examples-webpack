@@ -28,7 +28,7 @@ class SuperListComponent implements AfterContentInit {
 
         // will be called every time an item is added/removed from the 'items' list in FixComponent,
         // which is
-        this.items.changes.subscribe((items:QueryList) => {
+        this.items.changes.subscribe((items:QueryList<ElementRef>) => {
             items.forEach((el:ElementRef) => console.log(el.nativeElement));
             this.showme = true;
             setTimeout(()=>this.showme = false, 2000);

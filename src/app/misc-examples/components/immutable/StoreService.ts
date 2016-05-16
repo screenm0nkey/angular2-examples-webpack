@@ -10,5 +10,5 @@ export class Todo {
  * */
 @Injectable()
 export class Store {
-    todos:Array<any> = [{someval:'hellyeah'}];
+    todos:Array<Todo> = [{someval:'hellyeah'}];
 }

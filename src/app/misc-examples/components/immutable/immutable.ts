@@ -24,10 +24,10 @@ export class TestComponent implements OnChanges, DoCheck {
     selector: 'immutable-object-component',
     directives : [TestComponent],
     template : `
-        <h4>
+        <p>
             Type value into input and then try again with the checkbox selected. The view wont update
             unless the model is made immutable.
-        </h4>
+        </p>
         Make Model Immutable
         <input #chk type="checkbox" (change)="checked=chk.checked; me.focus()"/><br>
         <input type="text" #me (keyup)="updateTodo(me.value)" placeholder="Update model">

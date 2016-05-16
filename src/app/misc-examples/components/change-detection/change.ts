@@ -1,15 +1,16 @@
-import { Component, ChangeDetectionStrategy, Input, EventEmitter } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, EventEmitter, OnInit } from '@angular/core';
 import {Output} from "@angular/core";
 
+var count = 0;
 
 class TodoItem {
     _text:String;
     get text() {
-        console.log(`getting value for text "${this._text}"`);
+        console.log(`${++count} getting value for text "${this._text}"`);
         return this._text;
     }
     set text(value) {
-        console.log(`setting value for text "${this._text}"`);
+        console.log(`${++count} setting value for text "${this._text}"`);
         this._text = value;
     }
     constructor(text:String) {
@@ -47,13 +48,20 @@ export class TodoStore {
 @Component({
     selector: 'todoitem-component',
     template: `<span (click)="editme.emit(item)">{{item.text}}</span>`,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection : ChangeDetectionStrategy.OnPush
 })
-export class TodoItemComponent {
+export class TodoItemComponent implements OnInit {
     @Input() item : TodoItem;
     @Output() editme : EventEmitter<any> = new EventEmitter();
-    constructor() { console.log(this); }
+
+    ngOnInit() {
+        console.log(this.item.text, this);
+    }
 }
+
+
+
+
 /* TODO LIST COMPONENT */
 @Component({
     selector: 'todolist-component',
@@ -76,11 +84,17 @@ export class TodoListComponent {
 }
 
 
+
 /* MAIN COMPONENT */
 @Component({
     selector: 'change-component',
-    template : require('./change.html'),
-    styles: [require('./change.css')],
+    template : `
+        ${require('./change.html')}
+        <input type="text" #inputty (keyup.enter)="addItem(inputty.value); inputty.value=''" placeholder="Local Ref">
+        <input type="text" [(ngModel)]="todoStr" (keyup.enter)="addItem(todoStr)" placeholder="ngModel">
+        <button (click)="addItem(todoStr)">{{todoItem ? 'Update' : 'Add'}}</button>
+        <todolist-component [store]="store" (editme)="setTodoItem($event)"></todolist-component>
+    `,
     directives : [TodoListComponent]
 })
 export class ChangeComponent {

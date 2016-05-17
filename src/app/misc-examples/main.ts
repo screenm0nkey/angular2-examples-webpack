@@ -20,7 +20,7 @@ import {ViewChildrenComponent} from './components/view-children/problem-one-fix'
 @Component({
     selector: 'misc-app',
     template: require('./main.html'),
-    styles: [require('./main.css')],
+    styles : [require('../layout.css')],
     providers: [],
     pipes: [],
     directives: [ROUTER_DIRECTIVES, InjectComponent]

@@ -6,7 +6,7 @@ import {MainClocks} from './ngrx-clock/main';
 
 @Component({
     selector: 'app-component',
-    styles: [require('./main.css')],
+    styles : [require('../layout.css')],
     directives: [
         ROUTER_DIRECTIVES,
         EchonestAppComponent

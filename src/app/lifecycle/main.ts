@@ -9,7 +9,9 @@ import {AfterContentParentComponent} from './after-content/after-content-parent.
 @Component({
     selector: 'lifecycle-main',
     directives: [ROUTER_DIRECTIVES],
+    styles : [require('../layout.css')],
     template: `
+        <div class="miscellaneous">
         <nav>
             <a [routerLink]="['/Lifecycle/Peekaboo']">Peekaboo</a>
             <a [routerLink]="['/Lifecycle/Spy']">Spy</a>
@@ -17,7 +19,10 @@ import {AfterContentParentComponent} from './after-content/after-content-parent.
             <a [routerLink]="['/Lifecycle/AfterView']">AfterView</a>
             <a [routerLink]="['/Lifecycle/AfterContent']">AfterContent</a>
         </nav>
-        <router-outlet></router-outlet>
+        <div id="container">
+            <router-outlet></router-outlet>
+        </div>
+        </div>   
     `,
 })
 @RouteConfig([

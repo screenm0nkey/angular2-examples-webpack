@@ -40,7 +40,7 @@ class Echonest {
     outputs: [ 'results' ]
 })
 class Autosearch {
-    results: EventEmitter<Object[]> = new EventEmitter();
+    results: EventEmitter<any> = new EventEmitter();
 
     constructor(private elementRef: ElementRef, private service: Echonest) {
         console.log(this);

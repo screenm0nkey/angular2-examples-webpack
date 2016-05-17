@@ -26,7 +26,7 @@ class SuperListComponent implements AfterContentInit {
     ngAfterContentInit() {
         this.count = this.items.length;
 
-        // will be called every time an item is added/removed from the 'items' list in FixComponent,
+        // will be called every time$ an item is added/removed from the 'items' list in FixComponent,
         // which is
         this.items.changes.subscribe((items:QueryList<ElementRef>) => {
             items.forEach((el:ElementRef) => console.log(el.nativeElement));

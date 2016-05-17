@@ -1,6 +1,17 @@
-h4 {
-    background-color: maroon;
-    color : white;
-    padding:2px 5px;
-    margin-bottom: 10px;
+.miscellaneous {
+    display: flex;
+}
+nav {
+    float:left;
+    width:200px;
+    margin-right : 10px;
+}
+nav a {
+    display: block;
+    width:100%;
+    margin-bottom: 2px;
+}
+#container {
+    flex:1;
+    overflow: hidden;
 }

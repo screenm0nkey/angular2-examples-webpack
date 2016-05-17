@@ -58,8 +58,8 @@ export class EchonestService {
  * Deals with streams of data related to the favourites
  * */
 @Injectable()
-export class FavStoreService {
-    favourites:Rx.ReplaySubject<Artist[]> = new Rx.ReplaySubject(1);
+export class EchonestFavStoreService {
+    favourites:Rx.ReplaySubject<any> = new Rx.ReplaySubject(1); // favourites:Rx.ReplaySubject<Artist[]> 
     addFavSubject:Rx.Subject<any> = new Rx.Subject<any>();
     removeFavSubject:Rx.Subject<any> = new Rx.Subject<any>();
     removeAllSubject:Rx.Subject<any> = new Rx.Subject<any>();
@@ -128,11 +128,11 @@ export class FavStoreService {
  * Gets artists data from the echonest api
  * */
 @Injectable()
-export class ArtistStoreService {
+export class EchonestArtistStoreService {
     combineSubject:Rx.Subject<any> = new Rx.Subject<any>();
     artists:Rx.Subject<any> = new Rx.Subject<any>();
 
-    constructor(private _service:EchonestService, private _favStore:FavStoreService) {
+    constructor(private _service:EchonestService, private _favStore:EchonestFavStoreService) {
         /*
         * This combines the streams from  favourites and new data from the api.
         * It updates the data from the api with any favourites that have been selected
@@ -177,7 +177,7 @@ class ArtistComponent {
     ADD:string = 'Add';
     REMOVE:string = 'Remove';
 
-    constructor(private _favStore:FavStoreService) {
+    constructor(private _favStore:EchonestFavStoreService) {
         console.log(this);
     }
 
@@ -247,7 +247,7 @@ export class EchonestAppComponent implements OnInit {
     artists:Array<Artist> = [];
     favouriteArtists:Array<Artist> = [];
 
-    constructor(private artistStore:ArtistStoreService, private favStore:FavStoreService) {
+    constructor(private artistStore:EchonestArtistStoreService, private favStore:EchonestFavStoreService) {
         console.log(this);
     }
 

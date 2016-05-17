@@ -11,7 +11,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
     `
 })
 export class ChickenComponent {
-    @Output() hello:EventEmitter<string> = new EventEmitter();
+    @Output() hello:EventEmitter<any> /*EventEmitter<string>*/= new EventEmitter();
     name:string;
 
     constructor() {

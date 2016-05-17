@@ -13,7 +13,6 @@ import {ImmutableMain} from './components/immutable/main';
 import {FocusInput} from './components/focusing-input/main';
 import {NgZoneMainComponent} from './components/ng-zone/main';
 import {AccordianComponent} from './components/accordian/accordian';
-import {NgRxClockApp} from './components/ngrx/main';
 import {DynamicComponent} from './components/dynamic-loader/main';
 import {RookieComponent} from './components/content-children/main';
 import {ViewChildrenComponent} from './components/view-children/problem-one-fix';
@@ -38,7 +37,6 @@ import {ViewChildrenComponent} from './components/view-children/problem-one-fix'
     {path: '/focus-input', as: 'FocusInput', component: FocusInput},
     {path: '/ngzone', as: 'NgZone', component: NgZoneMainComponent},
     {path: '/accordian', as: 'Accordian', component: AccordianComponent},
-    {path: '/ngrx', as: 'NgRxClockApp', component: NgRxClockApp},
     {path: '/dynamic-component', as: 'DynamicComponent', component: DynamicComponent},
     {path: '/rookie-mistakes', as: 'RookieComponent', component: RookieComponent},
     {path: '/view-children', as: 'ViewChildrenComponent', component: ViewChildrenComponent}

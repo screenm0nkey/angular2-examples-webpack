@@ -22,7 +22,7 @@ bootstrap(MainApp, [
         }
     })
 ]).then(
-    success => console.log('HttpExamples bootstrapped!'),
+    success => console.log('MainHttpRxJs bootstrapped!'),
     error => console.log(error)
 );
 

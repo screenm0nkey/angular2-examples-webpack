@@ -1,68 +1,41 @@
-import { bind, provide, Component } from '@angular/core';
-import { HTTP_PROVIDERS, JSONP_PROVIDERS, BaseRequestOptions, RequestOptions} from '@angular/http';
-import {CounterComponent} from './rx-counter';
-import {WikipediaSuperSearch} from './wikipedia-search-2';
-import {JsonpWikipediaPromise, WikipediaObservable} from './wikipedia-search-1';
-import {FavStoreService, EchonestService, ArtistStoreService, EchonestAppComponent} from './echonest-app';
-import {EchonestSearch} from './echonest-search';
-import {Auth0Component} from './auth0-authentication';
-
-import {YoutubeBasicExample} from './youtube-basic';
-import {LocalRefSearch} from './local-ref-search';
-import {RedditExample} from './reddit';
-import {SubscribeExample} from './subscribe';
-import {PromiseExample} from './promise';
-import {YoutubeExample} from './youtube-ng2-book';
-
-
-// these query strings will be added everywhere. note I've removed
-// provide(RequestOptions, {useClass: MyOptions}) as it's stopping some examples working
-class MyOptions extends BaseRequestOptions {
-    url: string = 'format=json'; // this is added to all http requests as a query string
-    body: string = JSON.stringify({name: "Ryan"}); // this doesn't seem to work
-}
+import {Component} from '@angular/core';
+import {RouteConfig, ROUTER_DIRECTIVES, RouterLink, Router} from '@angular/router-deprecated';
+import {HttpExamples} from './http/main';
+import {EchonestFavStoreService, EchonestService, EchonestArtistStoreService, EchonestAppComponent} from './echonest-app/echonest-app';
+import {MainClocks} from './ngrx-clock/main';
 
 @Component({
     selector: 'app-component',
-    providers : [
+    styles: [require('./main.css')],
+    directives: [
+        ROUTER_DIRECTIVES,
+        EchonestAppComponent
+    ],
+    providers: [
         // provide(RequestOptions, {useClass: MyOptions})
-        FavStoreService,
+        EchonestFavStoreService,
         EchonestService,
-        ArtistStoreService
+        EchonestArtistStoreService
     ],
     template: `
-        <echonest-app></echonest-app>
-        <counter-component></counter-component>
-        <wikipedia-super-search></wikipedia-super-search>
-        <wikipedia-promise></wikipedia-promise>
-        <wikipedia-observable></wikipedia-observable>
-        <echonest-search></echonest-search>
-        <auth0-example></auth0-example>
-        <ngbook-youtube-example></ngbook-youtube-example>
-        <youtube-basic-example></youtube-basic-example>
-        <local-ref-search></local-ref-search>
-        <reddit-example></reddit-example>
-        <subscribe-example></subscribe-example>
-        <promise-example></promise-example>
-        
+    <div class="miscellaneous">
+        <nav>
+            <a [routerLink]="['/MainHttpRxJs/HttpExamples']" class="router-link">Http/RxJs Examples</a>
+            <a [routerLink]="['/MainHttpRxJs/EchonestAppComponent']" class="router-link">Echonest RxJs</a>
+            <a [routerLink]="['/MainHttpRxJs/NgRxClockApp']" class="router-link">NgRx Clock App</a>
+        </nav>
+        <div id="container">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
     `,
-    directives : [
-        CounterComponent,
-        WikipediaSuperSearch,
-        JsonpWikipediaPromise,
-        WikipediaObservable,
-        EchonestSearch,
-        Auth0Component,
-        YoutubeBasicExample,
-        LocalRefSearch,
-        RedditExample,
-        SubscribeExample,
-        PromiseExample,
-        YoutubeExample,
-        EchonestAppComponent,
-    ]
 })
-export class HttpExamples  {
+@RouteConfig([
+    {path: '/http-examples', name: 'HttpExamples', component: HttpExamples, useAsDefault: true},
+    {path: '/echonest-app', name: 'EchonestAppComponent', component: EchonestAppComponent},
+    {path: '/ngrx', as: 'NgRxClockApp', component: MainClocks},
+])
+export class MainHttpRxJs {
     constructor() {
         console.log(this);
     }

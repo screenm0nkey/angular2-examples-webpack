@@ -62,7 +62,7 @@ export class PeekABooComponent extends PeekABoo implements OnChanges, OnInit, Do
             }
         }
         this._logIt(`OnChanges: ${changesMsgs.join('; ')}`);
-        this._verb = 'changed'; // next time it will be a change
+        this._verb = 'changed'; // next time$ it will be a change
     }
 
     // Beware! Called frequently!

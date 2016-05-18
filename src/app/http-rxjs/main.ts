@@ -1,12 +1,13 @@
 import {Component} from '@angular/core';
 import {RouteConfig, ROUTER_DIRECTIVES, RouterLink, Router} from '@angular/router-deprecated';
-import {HttpExamples} from './http/main';
+import {HttpExamples} from './searches/main';
 import {EchonestFavStoreService, EchonestService, EchonestArtistStoreService, EchonestAppComponent} from './echonest-app/echonest-app';
 import {MainClocks} from './ngrx-clock/main';
+import {MiscHttpExamples} from './misc-examples/main';
 
 @Component({
     selector: 'app-component',
-    styles : [require('../layout.css')],
+    styles: [require('../../styles/layout.css')],
     directives: [
         ROUTER_DIRECTIVES,
         EchonestAppComponent
@@ -20,7 +21,8 @@ import {MainClocks} from './ngrx-clock/main';
     template: `
     <div class="miscellaneous">
         <nav>
-            <a [routerLink]="['/MainHttpRxJs/HttpExamples']" class="router-link">Http/RxJs Examples</a>
+            <a [routerLink]="['/MainHttpRxJs/HttpExamples']" class="router-link">Http/RxJs Searches</a>
+            <a [routerLink]="['/MainHttpRxJs/MiscHttpExamples']" class="router-link">Http/RxJs Misc Examples</a>
             <a [routerLink]="['/MainHttpRxJs/EchonestAppComponent']" class="router-link">Echonest RxJs</a>
             <a [routerLink]="['/MainHttpRxJs/NgRxClockApp']" class="router-link">NgRx Clock App</a>
         </nav>
@@ -32,6 +34,7 @@ import {MainClocks} from './ngrx-clock/main';
 })
 @RouteConfig([
     {path: '/http-examples', name: 'HttpExamples', component: HttpExamples, useAsDefault: true},
+    {path: '/misc-examples', name: 'MiscHttpExamples', component: MiscHttpExamples},
     {path: '/echonest-app', name: 'EchonestAppComponent', component: EchonestAppComponent},
     {path: '/ngrx', as: 'NgRxClockApp', component: MainClocks},
 ])

@@ -34,7 +34,6 @@ class WikipediaService {
 
 @Component({
     selector: 'wikipedia-super-search',
-    styles : [require('./main.css')],
     providers: [JSONP_PROVIDERS, WikipediaService],
     template: `
     <div>

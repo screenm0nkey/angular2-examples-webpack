@@ -81,7 +81,6 @@ class ArtistCardRender {
     selector: 'echonest-search',
     providers : [Echonest],
     directives: [Autosearch, ArtistCardRender],
-    styles : [require('./main.css')],
     template: `
     <div class="search-results">
         <h4>Echonest Search:</h4>

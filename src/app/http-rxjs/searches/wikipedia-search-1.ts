@@ -29,7 +29,6 @@ class WikipediaService {
 
 @Component({
     selector: 'wikipedia-promise',
-    styles : [require('./main.css')],
     providers: [JSONP_PROVIDERS, WikipediaService],
     template: `
     <div>
@@ -56,7 +55,6 @@ export class JsonpWikipediaPromise {
 // same as above but built with observables
 @Component({
     selector: 'wikipedia-observable',
-    styles : [require('./main.css')],
     providers: [JSONP_PROVIDERS, WikipediaService],
     template: `
     <div>

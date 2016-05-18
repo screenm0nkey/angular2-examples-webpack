@@ -2,12 +2,10 @@ import {Component, OnInit, Injectable} from '@angular/core';
 import {Http} from '@angular/http';
 import {Observable} from "rxjs/Observable";
 
-
 export interface Character {
     id: number;
     name: string;
 }
-
 
 @Injectable()
 export class CharacterService {
@@ -19,12 +17,16 @@ export class CharacterService {
 
 @Component({
     selector: 'subscribe-example',
-    styles : [require('./main.css')],
-    template: `<div class="search-results">Subscribe example : There are <pre>{{characters | json}}</pre> characters</div><hr>`,
+    template: `
+        <div class="search-results">
+            <h4>Subscribe example</h4> <pre class="limit-height">{{characters | json}}</pre>
+        </div>
+    `,
     providers : [CharacterService]
 })
 export class SubscribeExample implements OnInit {
     characters : Character[] = [];
+
     constructor(private _characterService : CharacterService) {
         console.log(this);
     }

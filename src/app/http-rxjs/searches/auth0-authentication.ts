@@ -32,7 +32,6 @@ class Autosearch {
 @Component({
     selector: 'auth0-example',
     directives : [Autosearch],
-    styles : [require('./main.css')],
     template: `
         <div class="search-results">
         <h4>Auth0 POST with headers example</h4>
@@ -59,7 +58,6 @@ export class Auth0Component {
     }
 
     getJSON(text) :Observable<any> {
-        debugger
         // this will be converted into the body of the post
         let formBody = "username=gonto&password=" + text;
         let headers = new Headers();

@@ -3,10 +3,9 @@ import { Observable } from 'rxjs/Rx';
 
 @Component({
     selector: 'counter-component',
-    styles : [require('./main.css')],
     template: `
         <h4>Reactive data flow</h4>
-        <pre><a target="_blank" href="http://blog.lambda-it.ch/reactive-data-flow-in-angular-2">reactive-data-flow-in-angular-2</a></pre>
+        <a target="_blank" href="http://blog.lambda-it.ch/reactive-data-flow-in-angular-2">reactive-data-flow-in-angular-2</a><br>
         <div>
             <button (click)="decrement()">Decrement</button>
             <button (click)="increment()">Increment</button>

@@ -1,16 +1,12 @@
 import {Component} from '@angular/core';
 import {BaseRequestOptions} from '@angular/http';
-import {CounterComponent} from './rx-counter';
 import {WikipediaSuperSearch} from './wikipedia-search-2';
 import {JsonpWikipediaPromise, WikipediaObservable} from './wikipedia-search-1';
 import {EchonestSearch} from './echonest-search';
 import {Auth0Component} from './auth0-authentication';
-
 import {YoutubeBasicExample} from './youtube-basic';
 import {LocalRefSearch} from './local-ref-search';
 import {RedditExample} from './reddit';
-import {SubscribeExample} from './subscribe';
-import {PromiseExample} from './promise';
 import {YoutubeExample} from './youtube-ng2-book';
 
 
@@ -24,8 +20,6 @@ class MyOptions extends BaseRequestOptions {
 @Component({
     selector: 'app-component',
     template: `
-        <echonest-app></echonest-app>
-        <counter-component></counter-component>
         <wikipedia-super-search></wikipedia-super-search>
         <wikipedia-promise></wikipedia-promise>
         <wikipedia-observable></wikipedia-observable>
@@ -35,11 +29,8 @@ class MyOptions extends BaseRequestOptions {
         <youtube-basic-example></youtube-basic-example>
         <local-ref-search></local-ref-search>
         <reddit-example></reddit-example>
-        <subscribe-example></subscribe-example>
-        <promise-example></promise-example>  
     `,
     directives: [
-        CounterComponent,
         WikipediaSuperSearch,
         JsonpWikipediaPromise,
         WikipediaObservable,
@@ -48,8 +39,6 @@ class MyOptions extends BaseRequestOptions {
         YoutubeBasicExample,
         LocalRefSearch,
         RedditExample,
-        SubscribeExample,
-        PromiseExample,
         YoutubeExample
     ]
 })

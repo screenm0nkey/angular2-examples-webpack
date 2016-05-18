@@ -9,7 +9,6 @@ import {YoutubeResultComponent} from './youtube-helpers/youtube-result-component
 
 @Component({
     selector: 'youtube-basic-example',
-    styles : [require('./main.css')],
     providers: [FormBuilder, YoutubeService],
     directives : [FORM_DIRECTIVES, YoutubeResultComponent],
     template: `

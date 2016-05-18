@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 
 import {SeedApp} from './seed-component/seed-app';
@@ -12,6 +12,8 @@ import {LifecycleMain} from './lifecycle/main';
 @Component({
     selector: 'main-app',
     template: require('./app.html'),
+    styles : [require('../styles/app.css'), require('../styles/main.css')],
+    encapsulation: ViewEncapsulation.None,
     providers: [],
     pipes: [],
     directives: [ROUTER_DIRECTIVES]

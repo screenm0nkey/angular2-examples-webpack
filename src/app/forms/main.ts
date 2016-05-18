@@ -11,7 +11,7 @@ import {SurveyDemo} from './dynamic-form/survey-demo.component';
 
 @Component({
     selector: 'app-component',
-    styles : [require('../layout.css')],
+    styles : [require('../../styles/layout.css')],
     template: require('./main.html'),
     directives: [ROUTER_DIRECTIVES, Form1, Form2, Form3, Form4, InputControls]
 })

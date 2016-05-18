@@ -4,7 +4,7 @@ import {Component, ViewChild, AfterViewInit, Renderer, ElementRef} from '@angula
     selector: 'my-comp',
     template: `
     <h3>Solution 4 - Using local variable refs and @ViewChild</h3>
-    <h4 style="color: red">Working with the ElementRef directly is not recommended when accessing elements in a view (see below)</h4>
+    <h4>Working with the ElementRef directly is not recommended when accessing elements in a view (see below)</h4>
     <pre><strong>
     constructor(el: ElementRef) {
         el.nativeElement.querySelector('input').focus();

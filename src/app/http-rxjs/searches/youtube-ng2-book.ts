@@ -50,7 +50,6 @@ class YoutubeSearch implements OnInit {
 
 @Component({
     selector: 'ngbook-youtube-example',
-    styles : [require('./main.css')],
     directives: [YoutubeSearch, YoutubeResultComponent],
     template: `
         <div class="search-results">

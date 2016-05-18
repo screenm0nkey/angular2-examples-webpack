@@ -9,7 +9,9 @@ import {AfterContentParentComponent} from './after-content/after-content-parent.
 @Component({
     selector: 'lifecycle-main',
     directives: [ROUTER_DIRECTIVES],
-    styles : [require('../layout.css')],
+    styles : [
+        require('../../styles/layout.css')
+    ],
     template: `
         <div class="miscellaneous">
         <nav>

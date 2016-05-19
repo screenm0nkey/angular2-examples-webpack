@@ -7,6 +7,7 @@ import {MiscExamples} from './misc-examples/main';
 import {MainHttpRxJs} from './http-rxjs/main';
 import {FormExamples} from './forms/main';
 import {LifecycleMain} from './lifecycle/main';
+import {RouterMainComponent} from './router/main';
 
 
 @Component({
@@ -25,6 +26,7 @@ import {LifecycleMain} from './lifecycle/main';
     {path: '/http/...', component: MainHttpRxJs, name: 'MainHttpRxJs'},
     {path: '/forms/...', component: FormExamples, name: 'FormExamples'},
     {path: '/lifecycle/...', component: LifecycleMain, name: 'Lifecycle'},
+    {path: '/router', component: RouterMainComponent, name: 'RouterExamples'},
 ])
 export class MainApp {
     constructor() {

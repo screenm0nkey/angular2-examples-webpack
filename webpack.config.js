@@ -41,7 +41,7 @@ var webpackConfig = {
 
 // Our Webpack Defaults
 var defaultConfig = {
-  devtool: 'cheap-module-source$-map',
+  devtool: 'cheap-module-source-map',
   cache: true,
   debug: true,
   output: {
@@ -54,7 +54,7 @@ var defaultConfig = {
     preLoaders: [
       {
         test: /\.js$/,
-        loader: 'source$-map-loader',
+        loader: 'source-map-loader',
         exclude: [
           // these packages have problems with their sourcemaps
           path.join(__dirname, 'node_modules', 'rxjs'),

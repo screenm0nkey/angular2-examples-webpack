@@ -3,12 +3,12 @@ import {JSONP_PROVIDERS, URLSearchParams, Jsonp} from '@angular/http';
 import {Injectable} from '@angular/core';
 import {Control} from '@angular/common';
 import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
-import {ClientResponse} from "http";
 
 @Injectable()
 class WikipediaService {
@@ -60,10 +60,10 @@ export class JsonpWikipediaPromise {
     <div>
       <h4>Same as above but using promises (toPromise), observables and async pipe</h4>
       <a href="http://blog.thoughtram.io/angular/2016/01/06/taking-advantage-of-observables-in-angular2.html" target="_blank">Thoughtram article</a>
-      Search <input type="text" [ngFormControl]="term" placeholder="Wikipedia Search"/> <span *ngIf="loading">loading</span>
+      Search <input type="text" [ngFormControl]="term" placeholder="Wikipedia Search"/> 
+      <span *ngIf="loading" style="background-color: red">loading</span>
       <ul><li *ngFor="let item of items | async">{{item}}</li></ul>
     </div>
-    <hr>
   `
 })
 export class WikipediaObservable {
@@ -74,6 +74,7 @@ export class WikipediaObservable {
     constructor(private wikipediaService: WikipediaService) {
         this.items = this.term.valueChanges
             .do(()=>this.loading = true)
+            .delay(1000) // add a delay to see the loading icon
             .debounceTime(400)
             .distinctUntilChanged()
             // you could also use flatMap() instead of switchMap()

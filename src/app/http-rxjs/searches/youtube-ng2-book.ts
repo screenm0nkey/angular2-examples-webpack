@@ -61,7 +61,6 @@ class YoutubeSearch implements OnInit {
             <img src="/images/loading.gif" *ngIf="loading">
             <youtube-result-component *ngFor="let result of results" [result]="result"></youtube-result-component>
         </div>
-        <hr>
     `
 })
 export class YoutubeExample {

@@ -92,7 +92,6 @@ class ArtistCardRender {
             </div>
         </div>
     </div>
-    <hr>
 	`
 })
 

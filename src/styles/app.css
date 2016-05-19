@@ -27,13 +27,33 @@ h4, h3, h2  {
 h4, h3 {
     font-size: 15px;
 }
+h4 {
+    background: rgba(90, 142, 8, 0.8);
+    display: table;
+    padding: 5px 15px;
+    color: white;
+    border-radius: 3px;
+    font-weight: normal;
+    box-shadow: 0px 6px 14px 1px rgba(0,0,0,0.58);
+    z-index: 2;
+}
+
+
+
+pre.limit-height {
+    height: 200px;
+    overflow: scroll;
+    display: inline-block;
+}
 hr{
-    height: 12px;
     border: 0;
     box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
     position: relative;
     left:-10px;
     border-top: solid 3px #884242;
+    margin: 0;
+    padding: 0;
+    height: 12px;
 }
 nav {
     background-color: #AFC7D2;

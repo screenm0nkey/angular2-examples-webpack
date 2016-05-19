@@ -38,7 +38,7 @@ class Autosearch {
         <p>(You need to run the www/server for this to work)</p>
         <input type="text" autosearch (results)="updates.next($event)">
         <pre>{{jsonny | json}}</pre>
-    </div><hr>
+    </div>
     `
 })
 export class Auth0Component {

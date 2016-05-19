@@ -25,7 +25,6 @@ import 'rxjs/add/operator/do';
                 </div>
             </div>
         </div>
-        <hr>
     `,
 })
 export class RedditExample {
@@ -49,12 +48,11 @@ export class RedditExample {
     }
 
     searchRedditPics(search:string) {
-        let baseUrl = 'https://www.reddit.com/r/pics/search.json?restrict_sr=on&q=';
+        let baseUrl = 'https://www.reddit.com/r/pics/search.json?resct_sr=on&q=';
         return this.http.get(baseUrl + search)
             .map(res => res.json())
             .map(this.normaliseRedditData)
             .map((items : any[]) => items.filter((item:any) => item.url));
-
     }
 
     normaliseRedditData(items:any) {

@@ -21,7 +21,6 @@ import {YoutubeResultComponent} from './youtube-helpers/youtube-result-component
                 <youtube-result-component *ngFor="let result of results" [result]="result"></youtube-result-component>
             </form>
         </div>
-        <hr>
     `
 })
 

@@ -13,8 +13,8 @@ import 'rxjs/add/operator/switchMap';
 class WikipediaService {
     constructor(private jsonp: Jsonp) {}
 
-    search(terms: Observable<string>, debounceDuration = 400) {
-        return terms
+    search(terms$: Observable<string>, debounceDuration = 400) {
+        return terms$
             .debounceTime(debounceDuration)
             .distinctUntilChanged()
             .switchMap((term:string) => this.rawSearch(term));
@@ -37,18 +37,20 @@ class WikipediaService {
     providers: [JSONP_PROVIDERS, WikipediaService],
     template: `
     <div>
-      <h4>Wikipedia Super Search</h4>
+      <h4>Using the ngFormControl.valueChanges Observable</h4>
       Search <input type="text" [ngFormControl]="term" placeholder="Wikipedia Search"/>
       <ul>
-        <li *ngFor="let item of items | async">{{item}}</li>
+        <li *ngFor="let item of items$ | async">{{item}}</li>
       </ul>
     </div>
   `
 })
 export class WikipediaSuperSearch {
-    items: Observable<Array<string>>;
+    items$: Observable<Array<string>>;
     term = new Control();
+    valueChanges$ :Observable<any> = this.term.valueChanges; //
+
     constructor(private wikipediaService: WikipediaService) {
-        this.items = wikipediaService.search(this.term.valueChanges, 350);
+        this.items$ = wikipediaService.search(this.valueChanges$, 350);
     }
 }

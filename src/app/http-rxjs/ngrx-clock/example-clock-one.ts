@@ -34,6 +34,7 @@ const tick = (state:Date = new Date(), {type, payload})=> {
     selector: 'clock-one',
     providers : [provideStore({tick})], // this should go really go in the bootstrap
     template: `
+        <h4>Taken from a John Linquist Plunk</h4>
         <button (click)="hourBackward$.next()">Hour -1</button>
         <button (click)="hourForward$.next()">Hour +1</button>
         <div></div>

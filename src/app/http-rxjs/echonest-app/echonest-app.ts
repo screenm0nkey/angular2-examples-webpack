@@ -40,7 +40,7 @@ export class EchonestService {
         search.set('results', num+'');
         search.set('start', '0');
         search.set('bucket', 'hotttnesss');
-        
+
         return this._http.get(this.url, {search})
             .map((res:Response) => res.json())
             .map((data:EchonestResponse) => data.response.artists)
@@ -59,7 +59,7 @@ export class EchonestService {
  * */
 @Injectable()
 export class EchonestFavStoreService {
-    favourites:Rx.ReplaySubject<any> = new Rx.ReplaySubject(1); // favourites:Rx.ReplaySubject<Artist[]> 
+    favourites:Rx.ReplaySubject<any> = new Rx.ReplaySubject(1); // favourites:Rx.ReplaySubject<Artist[]>
     addFavSubject:Rx.Subject<any> = new Rx.Subject<any>();
     removeFavSubject:Rx.Subject<any> = new Rx.Subject<any>();
     removeAllSubject:Rx.Subject<any> = new Rx.Subject<any>();
@@ -229,6 +229,12 @@ export class DropdownComponent implements OnInit {
 @Component({
     selector: 'echonest-app',
     directives: [ArtistComponent, DropdownComponent],
+    providers: [
+        // provide(RequestOptions, {useClass: MyOptions})
+        EchonestFavStoreService,
+        EchonestService,
+        EchonestArtistStoreService
+    ],
     template: `
         <h4>RxJs Echonest App</h4>
         <section style="float: left; width:200px">
@@ -239,7 +245,6 @@ export class DropdownComponent implements OnInit {
             <header>Favourites <button [disabled]="!favouriteArtists.length" (click)="removeAll()">Remove All</button></header>
             <artist-component *ngFor="let artist of favouriteArtists" [artist]="artist" [favourites]="'true'"></artist-component>
         </section>
-        <hr style="clear: both">
     `
 })
 export class EchonestAppComponent implements OnInit {

@@ -22,6 +22,7 @@ import {Clock} from './clock';
         })
     ],
     template: `
+        <h4>Building a Time Machine with Angular 2 Eggehead</h4>
         <a href="https://github.com/johnlindquist/rxjs-in-angular2" target="_blank">rxjs-in-angular2</a><br>
         <input #inputNum type="number" value="0">
         <button (click)="click$.next(inputNum.value)">Update</button>

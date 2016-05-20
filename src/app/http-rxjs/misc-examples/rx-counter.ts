@@ -10,7 +10,7 @@ import { Observable } from 'rxjs/Rx';
             <button (click)="decrement()">Decrement</button>
             <button (click)="increment()">Increment</button>
             <p> Counter: {{ count | async }} </p>
-        </div><hr>`
+        </div>`
 })
 export class CounterComponent {
     decrement : () => void;

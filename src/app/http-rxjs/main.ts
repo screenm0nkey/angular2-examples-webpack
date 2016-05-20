@@ -1,12 +1,7 @@
 import {Component} from '@angular/core';
 import {RouteConfig, ROUTER_DIRECTIVES, RouterLink, Router} from '@angular/router-deprecated';
 import {HttpExamples} from './searches/main';
-import {
-    EchonestFavStoreService,
-    EchonestService,
-    EchonestArtistStoreService,
-    EchonestAppComponent
-} from './echonest-app/echonest-app';
+import {EchonestAppComponent} from './echonest-app/echonest-app';
 import {MainClocks} from './ngrx-clock/main';
 import {MiscHttpExamples} from './misc-examples/main';
 import {NgRxInTenMinsComponent} from './ngrx-in-ten/main';
@@ -16,12 +11,6 @@ import {NgRxInTenMinsComponent} from './ngrx-in-ten/main';
     selector: 'app-component',
     styles: [require('../../styles/layout.css')],
     directives: [ROUTER_DIRECTIVES],
-    providers: [
-        // provide(RequestOptions, {useClass: MyOptions})
-        EchonestFavStoreService,
-        EchonestService,
-        EchonestArtistStoreService
-    ],
     template: `
     <div class="miscellaneous">
         <nav>

@@ -26,7 +26,7 @@ export class CharacterService {
 
 @Component({
     selector: 'promise-example',
-    template: `<h4>Promise example</h4> There are {{characters.length}} characters<hr>`,
+    template: `<h4>Promise example</h4> There are {{characters.length}} characters`,
     providers : [CharacterService]
 })
 export class PromiseExample implements OnInit {

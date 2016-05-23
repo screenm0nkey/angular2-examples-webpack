@@ -1,12 +1,6 @@
 import {provide, Inject, Component, OpaqueToken} from "@angular/core";
 import { SomeService} from './some-service';
 
-
-
-
-
-
-
 /*
 This shows different ways of inject the same Token.
 
@@ -20,6 +14,10 @@ The 'whateverToken' is defined in the bootstrap.ts as
 let AnyObjectCanBeTheKey = {};
 const SOME_TOKEN: OpaqueToken = new OpaqueToken('SomeToken');
 
+//http://blog.thoughtram.io/angular/2016/05/23/opaque-tokens-in-angular-2.html
+const TOKEN_A: OpaqueToken = new OpaqueToken('UserConfig');
+const TOKEN_B: OpaqueToken = new OpaqueToken('UserConfig');
+
 @Component({
     selector: 'inject-component',
     providers : [
@@ -28,7 +26,10 @@ const SOME_TOKEN: OpaqueToken = new OpaqueToken('SomeToken');
         provide(AnyObjectCanBeTheKey, {useClass : SomeService }),
         provide('sausages', {useClass : SomeService }),
         provide('helloWorld', {useValue : 'Hello World!!!' }), //inject a string
-        provide(String, {useValue : 'come-on!' }) //inject a string
+        provide(String, {useValue : 'come-on!' }), //inject a string
+        {provide : TOKEN_A, useValue : 'TREX'}, // see thoughtram opaque-tokens-in-angular-2
+        {provide : TOKEN_B, useValue : 'DINO'}
+
     ],
     styles : [`
         h4 { background-color : green; display : inline-block;}
@@ -53,7 +54,9 @@ export class InjectComponent {
         // injects a factory
         @Inject('EngineService') public engineFactory1, // notice that we have imported the service
         @Inject('EngineService') public engineFactory2,
-        @Inject(SOME_TOKEN) public multiDependency
+        @Inject(SOME_TOKEN) public multiDependency,
+        @Inject(TOKEN_A) public dino1,
+        @Inject(TOKEN_B) public dino2
     )
     {
         some1.callMe('public some1 : SomeService');
@@ -66,6 +69,7 @@ export class InjectComponent {
         engineFactory1().callMe("EngineService, { useFactory: () => {}");
         engineFactory2().callMe("EngineService, { useFactory: () => {}");
         console.log('provide(SOME_TOKEN, {useValue: "dependency one", multi: true})', multiDependency)
+        console.log("{provide : TOKEN_B, useValue : 'DINO'}", dino1, dino2)
     }
 }
 

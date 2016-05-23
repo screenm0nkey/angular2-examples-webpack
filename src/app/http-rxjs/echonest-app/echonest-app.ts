@@ -1,5 +1,5 @@
-import {Component, Injectable, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import {Http, Response, URLSearchParams} from "@angular/http";
+import {Component, Injectable, OnInit, Input} from '@angular/core';
+
 import {Observable} from 'rxjs/observable';
 import * as Rx from "rxjs/Rx";
 import 'rxjs/add/operator/map';
@@ -7,51 +7,10 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/combineLatest';
+import {DropdownComponent} from './dropdown';
+import {EchonestService, Artist, EchonestResponse} from './echonest.service';
 
 
-interface Artist {
-    hotttnesss : Number;
-    id : string;
-    name : string;
-    favourited : Boolean;
-}
-
-interface EchonestResponse {
-    response : {
-        artists : Artist[],
-        status : Object
-    };
-}
-
-
-/*
- * Gets artists data from the echonest api
- * */
-@Injectable()
-export class EchonestService {
-    url:string = 'http://developer.echonest.com/api/v4/artist/top_hottt';
-
-    constructor(private _http:Http) { console.log(this);}
-
-    topHot(num:Number) {
-        var search = new URLSearchParams();
-        search.set('api_key', 'AAXIWZI0HTK1NYTWQ');
-        search.set('format', 'json');
-        search.set('results', num+'');
-        search.set('start', '0');
-        search.set('bucket', 'hotttnesss');
-
-        return this._http.get(this.url, {search})
-            .map((res:Response) => res.json())
-            .map((data:EchonestResponse) => data.response.artists)
-            .map(arr  => {
-                return arr.map((artist:Artist) => {
-                    artist.favourited = false;
-                    return artist;
-                })
-            });
-    }
-}
 
 
 /*
@@ -67,8 +26,6 @@ export class EchonestFavStoreService {
     initialState:Array<Artist> = [];
 
     constructor() {
-        console.log(this);
-
         this.favourites.next([]);
 
         this.updatesSubject
@@ -203,30 +160,6 @@ class ArtistComponent {
 
 
 @Component({
-    selector: 'dropdown-component',
-    template: `
-        <form>
-            <select #sel (change)="select.emit(sel.value)">
-            <option *ngFor="let result of results">
-                {{result}}
-            </option>
-        </select>
-        </form>
-    `
-})
-
-export class DropdownComponent implements OnInit {
-    @Output() select:EventEmitter<any> = new EventEmitter();
-    @Input() results:Array<Number>;
-
-    ngOnInit() {
-        this.select.emit(this.results[0]);
-    }
-}
-
-
-
-@Component({
     selector: 'echonest-app',
     directives: [ArtistComponent, DropdownComponent],
     providers: [
@@ -238,11 +171,15 @@ export class DropdownComponent implements OnInit {
     template: `
         <h4>RxJs Echonest App</h4>
         <section style="float: left; width:200px">
-            <header>Top 100 <dropdown-component [results]="[5,15,30,50,100]" (select)="artistStore.getArtists($event)"></dropdown-component></header>
+            <header>Top 100 
+                <dropdown-component [results]="[5,15,30,50,100]" (select)="artistStore.getArtists($event)"></dropdown-component>
+            </header>
             <artist-component *ngFor="let artist of artists" [artist]="artist"></artist-component>
         </section>
         <section style="float:left; width:200px">
-            <header>Favourites <button [disabled]="!favouriteArtists.length" (click)="removeAll()">Remove All</button></header>
+            <header>Favourites 
+            <button [disabled]="!favouriteArtists.length" (click)="removeAll()">Remove All</button>
+            </header>
             <artist-component *ngFor="let artist of favouriteArtists" [artist]="artist" [favourites]="'true'"></artist-component>
         </section>
     `

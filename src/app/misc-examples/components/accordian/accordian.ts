@@ -42,9 +42,9 @@ class Accordion {
     template: `
     <div class="panel panel-default" [ngClass]="{'panel-open': isOpen}">
         <div class="panel-heading" (click)="toggleOpen($event)">
-            <h4 class="panel-title">
+            <h5 class="panel-title" style="background-color: #2e6da4;">
                 <a href tabindex="0"><span>{{heading}} !!!!</span></a>
-            </h4>
+            </h5>
         </div>
         <div class="panel-collapse" [hidden]="!isOpen">
             <div class="panel-body">

@@ -5,7 +5,11 @@ import {
     ComponentRef,
     ComponentResolver,
     ComponentFactory,
-    Input
+    Input,
+    OnChanges,
+    OnInit,
+    OnDestroy,
+    AfterViewInit
 } from '@angular/core';
 
 import { Renderer } from './renderer';
@@ -14,25 +18,27 @@ import { Renderer } from './renderer';
     selector: '[dcl-wrapper]',
     template: `<div #target></div>`
 })
-export class DclWrapperComponent {
+export class DclWrapperComponent implements OnInit, OnChanges, OnDestroy, AfterViewInit {
     @ViewChild('target', { read: ViewContainerRef }) target;
-    @Input() type: any;
+    @Input() renderer: any;
     @Input() input: string;
     cmpRef: ComponentRef<Renderer>;
     private isViewInitialized: boolean = false;
 
-    constructor(private resolver: ComponentResolver) { }
+    constructor(private resolver: ComponentResolver) {}
 
     updateComponent() {
         if (!this.isViewInitialized) {
             return;
         }
-        if (this.cmpRef) {
-            this.cmpRef.destroy();
-        }
-        this.resolver.resolveComponent(this.type).then((factory: ComponentFactory<any>) => {
-            this.cmpRef = this.target.createComponent(factory)
+        this.ngOnDestroy();
+        this.resolver.resolveComponent(this.renderer).then((factory: ComponentFactory<any>) => {
+            this.cmpRef = this.target.createComponent(factory);
+            this.cmpRef.instance.input = this.input; // this assings string value from the app.component i.e. one, two
         });
+    }
+    ngOnInit() {
+        console.log(12, this.input);
     }
     ngOnChanges() {
         this.updateComponent();

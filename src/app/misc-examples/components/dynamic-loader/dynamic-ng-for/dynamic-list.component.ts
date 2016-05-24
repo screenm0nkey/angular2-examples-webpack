@@ -5,7 +5,7 @@ import { DclWrapperComponent } from './dcl-wrapper.component';
     selector: 'dynamic-list',
     template: `
         <ul>
-            <li *ngFor="let item of items" dcl-wrapper [type]="renderer"></li>
+            <li *ngFor="let item of items" dcl-wrapper [renderer]="renderer" [input]="item"></li>
         </ul>
     `,
     directives: [DclWrapperComponent]

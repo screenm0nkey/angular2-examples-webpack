@@ -2,7 +2,7 @@ import {provide, Inject, Component, ViewChild, ViewContainerRef, ComponentResolv
 import {Observable} from 'rxjs/Rx';
 
 @Component({
-    selector: 'my-app',
+    selector: 'gist-app',
     providers : [provide(Window, {useValue: window})],
     template: `
     <h4>Load a component from a Gist (not currently working. Example uses systemJS</h4>
@@ -13,7 +13,7 @@ import {Observable} from 'rxjs/Rx';
     <h2>Below</h2>
   `
 })
-export class AppComponent {
+export class GistAppComponent {
     @ViewChild('putStuffHere', {read: ViewContainerRef}) putStuffHere;
 
     constructor(

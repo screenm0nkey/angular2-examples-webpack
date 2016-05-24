@@ -38,13 +38,14 @@ class Car {
  APP CLASS
  */
 @Component({
-    selector: 'app',
+    selector: 'dynamic-component-app',
     providers: [
         provide('car', {useValue: Car}),
         provide('person', {useValue: Person})
     ],
     template: `
     <h4>Load components dynamically</h4>
+    <a href="https://gist.run/?id=26b0d3323c912bb0a9b2d1eefb3ba8b9" target="_blank">Original Gist</a>
     <div>
       <button (click)="click$.next('person')">Add a Person</button>
       <button (click)="click$.next('car')">Add a Car</button>

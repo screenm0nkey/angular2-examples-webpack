@@ -9,7 +9,7 @@ import {LoggerService}  from '../logger.service.ts';
     providers: [LoggerService],
     template: `
       <div class="parent">
-        <h2>Peek-A-Boo</h2>
+        <h4>Peek-A-Boo</h4>
     
         <button (click)="toggleChild()">
           {{hasChild ? 'Destroy' : 'Create'}} PeekABooComponent

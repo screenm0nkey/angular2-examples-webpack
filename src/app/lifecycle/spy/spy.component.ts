@@ -6,7 +6,7 @@ import {Spy} from './spy.directive';
   selector: 'spy-parent',
   template: `
   <div class="parent">
-    <h2>Spy Directive</h2>
+    <h4>Spy Directive</h4>
     <pre>
     Directives have lifecycle hooks too. We create a SpyDirective that logs when 
     the element it spies upon is created or destroyed using the 

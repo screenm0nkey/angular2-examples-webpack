@@ -7,7 +7,7 @@ import {TextboxQuestion, DropDownQuestion} from './questions.model.ts';
     selector: 'survey-demo',
     template: `
         <div>
-            <h2>Survey using Dynamic Form</h2>
+            <h4>Survey using Dynamic Form</h4>
             <a href="http://www.syntaxsuccess.com/viewarticle/dynamic-form-in-angular-2.0" target="_blank">Taken from Syntax Success</a>
             <survey [model]="questionModel"></survey>
         </div>

@@ -1,5 +1,6 @@
-import {provide, Inject, Component, ViewChild, ViewContainerRef, ComponentResolver} from '@angular/core';
+import {provide, Component, ViewChild, ViewContainerRef, ComponentResolver} from '@angular/core';
 import {Observable} from 'rxjs/Rx';
+import {Http} from '@angular/http'
 
 @Component({
     selector: 'gist-app',
@@ -18,17 +19,18 @@ export class GistAppComponent {
 
     constructor(
         public compResolver:ComponentResolver,
-        public win : Window
+        public win : Window,
+        public http : Http
     ){}
 
     ngAfterViewInit(){
         const url = 'https://gist.githubusercontent.com/johnlindquist/90c0a12814939738809ae0dceacdcf93/raw/e95c3204af1335693a45d65dbb61162824ad5ab8/loadMe.ts';
 
-        // const importer = url => Observable.fromPromise(this.win.SystemJS.import(url));
-        // const resolve = comp => Observable.fromPromise(this.compResolver.resolveComponent(comp));
+        const importer = url => this.http.get(url).map(res => res.text());
+        const resolve = comp => Observable.fromPromise(this.compResolver.resolveComponent(comp));
 
         // importer(url)
-        //     .switchMap(comp => resolve(comp.LoadMe))
+        //     .switchMap(comp => {debugger; resolve(comp)})
         //     .subscribe(factory => this.putStuffHere.createComponent(factory))
     }
 }

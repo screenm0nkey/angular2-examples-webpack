@@ -16,6 +16,7 @@ import {AccordianComponent} from './components/accordian/accordian';
 import {DynamicExamplesMain} from './components/dynamic-loader/main';
 import {RookieComponent} from './components/content-children/main';
 import {ViewChildrenComponent} from './components/view-children/problem-one-fix';
+import {SocketApp} from './components/socket-io/socket-component';
 
 @Component({
     selector: 'misc-app',
@@ -39,7 +40,8 @@ import {ViewChildrenComponent} from './components/view-children/problem-one-fix'
     {path: '/accordian', as: 'Accordian', component: AccordianComponent},
     {path: '/dynamic-component', as: 'DynamicComponent', component: DynamicExamplesMain},
     {path: '/rookie-mistakes', as: 'RookieComponent', component: RookieComponent},
-    {path: '/view-children', as: 'ViewChildrenComponent', component: ViewChildrenComponent}
+    {path: '/view-children', as: 'ViewChildrenComponent', component: ViewChildrenComponent},
+    {path: '/socket-io', as: 'SocketApp', component: SocketApp}
 ])
 export class MiscExamples {
     constructor() {

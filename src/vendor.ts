@@ -7,7 +7,6 @@ import '@angular/core';
 import '@angular/http';
 import '@angular/router-deprecated';
 
-
 // RxJS 5
 // import 'rxjs/Rx';
 

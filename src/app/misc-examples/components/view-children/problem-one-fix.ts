@@ -11,6 +11,8 @@ class SuperItemComponent {
     @Input('name') name:string;
 }
 
+
+
 @Component({
     selector: 'my-component2',
     directives: [SuperItemComponent],

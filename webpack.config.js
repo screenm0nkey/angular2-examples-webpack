@@ -1,7 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
 
-
 // Webpack Config
 var webpackConfig = {
   entry: {
@@ -34,9 +33,6 @@ var webpackConfig = {
     ]
   }
 };
-
-
-
 
 
 // Our Webpack Defaults

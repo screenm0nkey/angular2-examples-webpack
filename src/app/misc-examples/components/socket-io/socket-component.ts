@@ -1,4 +1,4 @@
-import {Component, Injectable, Inject, provide} from '@angular/core';
+import {Component, Injectable, Inject} from '@angular/core';
 import {Observable, Subject} from 'rxjs/Rx';
 import * as io from 'socket.io-client';
 
@@ -56,7 +56,5 @@ export class ChatRoom {
     `
 })
 export class SocketApp {
-    constructor(private chatRoom:ChatRoom) {
-
-    }
+    constructor(private chatRoom:ChatRoom) {}
 }

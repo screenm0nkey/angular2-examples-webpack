@@ -10,8 +10,10 @@ import {BrowserDomAdapter} from '@angular/platform-browser/src/browser/browser_a
       }`],
     template: `
         <div>
-            Dom adpater is the api to use to interact with the DOM
-            <button class="mr-button" (click)="add()">BrowserDomAdapter example - Add New Element</button>
+            <h4>BrowserDomAdapter is the api to use to interact with the DOM</h4>
+            <button class="mr-button" (click)="add($event)">
+                BrowserDomAdapter example - Click to Add New Element
+            </button>
         </div> 
     `
 })
@@ -32,7 +34,7 @@ export class DomAdapterComponent {
         this.dom.appendChild(this.dom.query("dom-adapter-component"), a);
     }
 
-    raiseevent() {
-        alert('hi');
+    raiseevent(evt) {
+        alert('hi' + evt.target.tagName);
     }
 }

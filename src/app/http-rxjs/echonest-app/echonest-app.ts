@@ -169,7 +169,7 @@ class ArtistComponent {
         EchonestArtistStoreService
     ],
     template: `
-        <h4>RxJs Echonest App</h4>
+        <h4>RxJs Echonest App - NOT WORKING. API IS NO MORE :(</h4>
         <section style="float: left; width:200px">
             <header>Top 100 
                 <dropdown-component [results]="[5,15,30,50,100]" (select)="artistStore.getArtists($event)"></dropdown-component>

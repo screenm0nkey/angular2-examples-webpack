@@ -30,8 +30,8 @@ import {NgRxInTenMinsComponent} from './ngrx-in-ten/main';
     {path: '/http-examples', name: 'HttpExamples', component: HttpExamples, useAsDefault: true},
     {path: '/misc-examples', name: 'MiscHttpExamples', component: MiscHttpExamples},
     {path: '/echonest-app', name: 'EchonestAppComponent', component: EchonestAppComponent},
-    {path: '/ngrx', as: 'NgRxClockApp', component: MainClocks},
-    {path: '/ngrx-in-ten', as: 'NgRxInTen', component: NgRxInTenMinsComponent},
+    {path: '/ngrx', name: 'NgRxClockApp', component: MainClocks},
+    {path: '/ngrx-in-ten', name: 'NgRxInTen', component: NgRxInTenMinsComponent},
 ])
 export class MainHttpRxJs {
     constructor() {

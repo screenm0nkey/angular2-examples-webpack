@@ -1,8 +1,8 @@
 import {Component } from '@angular/core';
 
-import {DynamicComponent} from './dynamic-component'
-import {GistAppComponent} from './load-component-from-gist'
-import {DynamicListAppComponent} from './dynamic-ng-for/app.component'
+import {DynamicComponent} from './dynamic-component';
+import {GistAppComponent} from './load-component-from-gist';
+import {DynamicListAppComponent} from './dynamic-ng-for/app.component';
 
 @Component({
     selector: 'focus-input',

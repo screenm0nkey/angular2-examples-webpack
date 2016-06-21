@@ -1,6 +1,7 @@
-import {Component, Injectable, Inject} from '@angular/core';
+import {Component, Injectable, Inject, EventEmitter} from '@angular/core';
 import {Observable, Subject} from 'rxjs/Rx';
 import * as io from 'socket.io-client';
+
 
 @Injectable()
 export class ChatRoom {
@@ -36,7 +37,9 @@ export class ChatRoom {
         this.send$.withLatestFrom(this.socket$, (message, socket)=> {
             return {message, socket};
         })
-        .subscribe(({message, socket})=> {
+        .subscribe((args)=> {
+            let socket: any = args.socket;
+            let message : any = args.message;
             socket.emit('chat message', message);
         })
     }

@@ -1,6 +1,16 @@
 var webpack = require('webpack');
 var path = require('path');
 
+var ROOT = path.resolve(__dirname, '..');
+var helpers = {
+  root : function root(args) {
+    args = Array.prototype.slice.call(arguments, 0);
+    return path.join.apply(path, [ROOT].concat(args));
+  }
+};
+
+
+
 // Webpack Config
 var webpackConfig = {
   entry: {
@@ -53,9 +63,10 @@ var defaultConfig = {
         loader: 'source-map-loader',
         exclude: [
           // these packages have problems with their sourcemaps
-          path.join(__dirname, 'node_modules', 'rxjs'),
-          path.join(__dirname, 'node_modules', '@angular2-material'),
-          path.join(__dirname, 'node_modules', '@angular'),
+          helpers.root('node_modules/rxjs'),
+          helpers.root('node_modules/@angular'),
+          helpers.root('node_modules/@ngrx'),
+          helpers.root('node_modules/@angular2-material'),
         ]
       }
     ],
@@ -66,8 +77,11 @@ var defaultConfig = {
   },
 
   resolve: {
-    root: [ path.join(__dirname, 'src') ],
-    extensions: ['', '.ts', '.js'],
+    extensions: ['', '.ts', '.js', '.json'],
+    // Make sure root is src
+    root: helpers.root('src'),
+    // remove other default values
+    modulesDirectories: ['node_modules'],
     alias: {
       'angular2/testing': path.join(__dirname, 'node_modules', '@angular', 'core', 'testing.js'),
       '@angular/testing': path.join(__dirname, 'node_modules', '@angular', 'core', 'testing.js'),

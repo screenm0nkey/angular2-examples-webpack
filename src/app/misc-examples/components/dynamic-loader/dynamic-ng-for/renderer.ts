@@ -1,5 +1,3 @@
-import { Input } from '@angular/core';
-
-export abstract class Renderer {
-    @Input() input: string;
+export interface Renderer {
+    input: string;
 }

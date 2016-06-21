@@ -31,17 +31,17 @@ import {SocketApp} from './components/socket-io/socket-component';
     {path: '/customers/:id', name: 'CustomerDetail', component: OrdersComponent, data: {isProd: 'smoked-fish'}},
     {path: '/chickens', name: 'Chickens', component: ChickensComponent},
     {path: '/inventory', name: 'Inventory', component: InventoryApp},
-    {path: '/hoststuff', as: 'HostStuff', component: HostStuffComponent},
-    {path: '/emitter', as: 'Emitter', component: MultiTransclusion},
-    {path: '/change-detection', as: 'ChangeDetection', component: ChangeDetectionMain},
-    {path: '/change2', as: 'Change2', component: ImmutableMain},
-    {path: '/focus-input', as: 'FocusInput', component: FocusInput},
-    {path: '/ngzone', as: 'NgZone', component: NgZoneMainComponent},
-    {path: '/accordian', as: 'Accordian', component: AccordianComponent},
-    {path: '/dynamic-component', as: 'DynamicComponent', component: DynamicExamplesMain},
-    {path: '/rookie-mistakes', as: 'RookieComponent', component: RookieComponent},
-    {path: '/view-children', as: 'ViewChildrenComponent', component: ViewChildrenComponent},
-    {path: '/socket-io', as: 'SocketApp', component: SocketApp}
+    {path: '/hoststuff', name: 'HostStuff', component: HostStuffComponent},
+    {path: '/emitter', name: 'Emitter', component: MultiTransclusion},
+    {path: '/change-detection', name: 'ChangeDetection', component: ChangeDetectionMain},
+    {path: '/change2', name: 'Change2', component: ImmutableMain},
+    {path: '/focus-input', name: 'FocusInput', component: FocusInput},
+    {path: '/ngzone', name: 'NgZone', component: NgZoneMainComponent},
+    {path: '/accordian', name: 'Accordian', component: AccordianComponent},
+    {path: '/dynamic-component', name: 'DynamicComponent', component: DynamicExamplesMain},
+    {path: '/rookie-mistakes', name: 'RookieComponent', component: RookieComponent},
+    {path: '/view-children', name: 'ViewChildrenComponent', component: ViewChildrenComponent},
+    {path: '/socket-io', name: 'SocketApp', component: SocketApp}
 ])
 export class MiscExamples {
     constructor() {

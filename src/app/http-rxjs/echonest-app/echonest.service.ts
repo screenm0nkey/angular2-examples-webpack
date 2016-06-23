@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Http, Response, URLSearchParams} from "@angular/http";
+import {Subject} from 'rxjs/subject';
 import 'rxjs/add/operator/map';
+
 
 export interface Artist {
     hotttnesss : Number;
@@ -9,10 +11,9 @@ export interface Artist {
     favourited : Boolean;
 }
 
-export interface EchonestResponse {
-    response : {
-        artists : Artist[],
-        status : Object
+export interface ITunesResponse {
+    feed : {
+        entry : Artist[]
     };
 }
 
@@ -21,13 +22,20 @@ export interface EchonestResponse {
  * */
 @Injectable()
 export class EchonestService {
-    url:string = 'http://developer.echonest.com/api/v4/artist/top_hottt';
+    // https://itunes.apple.com/uk/rss/topsongs/limit=100/json
+    url:string = 'http://localhost:1970/uk/rss/topsongs/limit=100/json';
+    $topHotDataStream:Subject = new Subject();
 
     constructor(private _http:Http) {
         console.log(this);
     }
 
-    topHot(num:Number) {
+    topHot(num:number) {
+        this.search(num);
+        return this.$topHotDataStream;
+    }
+
+    search(num:number)  {
         var search = new URLSearchParams();
         search.set('api_key', 'AAXIWZI0HTK1NYTWQ');
         search.set('format', 'json');
@@ -37,12 +45,16 @@ export class EchonestService {
 
         return this._http.get(this.url, {search})
             .map((res:Response) => res.json())
-            .map((data:EchonestResponse) => data.response.artists)
+            .map((data:ITunesResponse) => data.feed.entry)
             .map(arr => {
-                return arr.map((artist:Artist) => {
+                return arr.map((item:any, i:number) => {
+                    let artist = <Artist>{};
                     artist.favourited = false;
+                    artist.hotttnesss = i+1;
+                    artist.id = item.id.attributes['im:id'];
+                    artist.name = item['im:artist'].label;
                     return artist;
                 })
-            });
+            }).subscribe(data => this.$topHotDataStream.next(data))
     }
 }

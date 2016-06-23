@@ -1,4 +1,4 @@
-import {Component, Injectable, Inject, EventEmitter} from '@angular/core';
+import {Component, Injectable, Inject} from '@angular/core';
 import {Observable, Subject} from 'rxjs/Rx';
 import * as io from 'socket.io-client';
 
@@ -10,18 +10,23 @@ export class ChatRoom {
     public connected$;
     public message$;
     public messages$;
-
     public send$ = new Subject();
 
     constructor(@Inject('io') io) {
         this.socket$ = this.url$
+            // convert socket to observable
             .switchMap(url => Observable.of(io(url)));
 
         this.message$ = this.socket$
-            .switchMap(socket => Observable.fromEvent(socket, 'chat message'));
+            .switchMap(socket => {
+                return Observable.fromEvent(socket, 'chat message');
+            });
 
         this.messages$ = this.message$
-            .startWith([]).scan((acc, curr)=> [...acc, curr]);
+            .startWith([])
+            .scan((acc, curr)=> {
+                return [...acc, curr];
+            });
 
         const disconnect$ = this.socket$
             .switchMap(socket => Observable.fromEvent(socket, 'disconnect'));

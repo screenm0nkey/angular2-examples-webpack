@@ -17,6 +17,7 @@ import {DynamicExamplesMain} from './components/dynamic-loader/main';
 import {RookieComponent} from './components/content-children/main';
 import {ViewChildrenComponent} from './components/view-children/problem-one-fix';
 import {SocketApp} from './components/socket-io/socket-component';
+import {AppComponent} from './components/notifications/app.component';
 
 @Component({
     selector: 'misc-app',
@@ -41,7 +42,8 @@ import {SocketApp} from './components/socket-io/socket-component';
     {path: '/dynamic-component', name: 'DynamicComponent', component: DynamicExamplesMain},
     {path: '/rookie-mistakes', name: 'RookieComponent', component: RookieComponent},
     {path: '/view-children', name: 'ViewChildrenComponent', component: ViewChildrenComponent},
-    {path: '/socket-io', name: 'SocketApp', component: SocketApp}
+    {path: '/socket-io', name: 'SocketApp', component: SocketApp},
+    {path: '/notifications', name: 'Notifications', component: AppComponent}
 ])
 export class MiscExamples {
     constructor() {

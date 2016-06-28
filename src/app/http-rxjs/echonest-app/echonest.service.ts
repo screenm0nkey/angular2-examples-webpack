@@ -24,7 +24,7 @@ export interface ITunesResponse {
 export class EchonestService {
     // https://itunes.apple.com/uk/rss/topsongs/limit=100/json
     url:string = 'http://localhost:1970/uk/rss/topsongs/limit=100/json';
-    $topHotDataStream:Subject = new Subject();
+    $topHotDataStream:Subject<any> = new Subject();
 
     constructor(private _http:Http) {
         console.log(this);

@@ -106,7 +106,7 @@ export class EchonestArtistStoreService {
     }
 
 
-    getArtists(num:Number) {
+    getArtists(num:number) {
         if (num) {
             this._service.topHot(num).subscribe(this.combineSubject$);
         }

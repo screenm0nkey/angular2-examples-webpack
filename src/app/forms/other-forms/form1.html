@@ -38,7 +38,7 @@
 </pre>
 
 
-<form (ngSubmit)="onSubmit(f, n)" #f="ngForm" #n="nicksexport" nicksexport>
+<form formnick (ngSubmit)="onSubmit(f, n)" #f="ngForm" #n="formnick" formnick>
     <fieldset ngControlGroup="name">
         <label>Firstname:</label>
         <input type="text" ngControl="firstname">

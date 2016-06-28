@@ -18,6 +18,7 @@ import {RookieComponent} from './components/content-children/main';
 import {ViewChildrenComponent} from './components/view-children/problem-one-fix';
 import {SocketApp} from './components/socket-io/socket-component';
 import {AppComponent} from './components/notifications/app.component';
+import {TricksMainComponent} from './components/tricks/main';
 
 @Component({
     selector: 'misc-app',
@@ -43,7 +44,8 @@ import {AppComponent} from './components/notifications/app.component';
     {path: '/rookie-mistakes', name: 'RookieComponent', component: RookieComponent},
     {path: '/view-children', name: 'ViewChildrenComponent', component: ViewChildrenComponent},
     {path: '/socket-io', name: 'SocketApp', component: SocketApp},
-    {path: '/notifications', name: 'Notifications', component: AppComponent}
+    {path: '/notifications', name: 'Notifications', component: AppComponent},
+    {path: '/tricks', name: 'Tricks', component: TricksMainComponent}
 ])
 export class MiscExamples {
     constructor() {

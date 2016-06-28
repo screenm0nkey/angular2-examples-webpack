@@ -64,7 +64,7 @@ export class Auth0Component {
         let headers = new Headers();
         // this is a custom header and Express needed configuration to make it work
         headers.append('Content-Type', "application/x-www-form-urlencoded");
-        headers.append('Custom-Nick', "love-it");
+        headers.append('Custom-FormNick', "love-it");
 
         return this._http.post('//localhost:1970/data', formBody, {
             headers : headers

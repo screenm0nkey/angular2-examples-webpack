@@ -9,9 +9,9 @@ export interface Character {
 
 @Injectable()
 export class CharacterService {
-    characters: Observable<Character[]>;
+    characters$: Observable<Character[]>;
     constructor(http:Http){
-        this.characters = http.get('/json/characters.json').map(res => res.json());
+        this.characters$ = http.get('/json/characters.json').map(res => res.json());
     }
 }
 
@@ -32,6 +32,6 @@ export class SubscribeExample implements OnInit {
     }
 
     ngOnInit() {
-        this._characterService.characters.subscribe(characters=> this.characters = characters);
+        this._characterService.characters$.subscribe(characters=> this.characters = characters);
     }
 }

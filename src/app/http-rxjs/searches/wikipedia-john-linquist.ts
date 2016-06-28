@@ -41,12 +41,12 @@ import {Observable} from 'rxjs/Observable';
         }
     </style>  
     <div>    
-        <h4>John Linquist Wiki Image Search: "{{(searchTerm$ | async)}}"</h4>
+        <h4>John Linquist Wiki Image Search</h4>
         <a href="http://plnkr.co/edit/NXT6JPgr7QoR4SEYva7N?p=preview" target="_blank">Original Plunk</a>
-        <input type="text" (input)="input$.next($event)">
+        <input type="text" (input)="input$.next($event)">{{(searchTerm$ | async)}}
         <h3>{{imageCount$ | async}} results</h3>
         <div class="container">
-            <a *ngFor="let image of images$ | async" [href]="image.descriptionurl">
+            <a *ngFor="let image of images$ | async" [href]="image.descriptionurl" [title]="image.title">
                 <img [src]="image.url" alt="">
             </a>
         </div>
@@ -76,7 +76,10 @@ export class JohnLinquistWikiSearch {
         term$.subscribe(val =>console.log(1, val));
         clear$.subscribe(val =>console.log(2, val));
 
-        this.searchTerm$ = Observable.merge(term$, clear$.map(term => 'Enter a term longer than 2 letters'));
+        this.searchTerm$ = Observable.merge(
+            term$,
+            clear$.map(term => 'Enter a term longer than 2 letters')
+        );
 
         function WikipediaImageSearch(term):Observable<any[]> {
            return wikipediaService.searchAllImages(term) //3

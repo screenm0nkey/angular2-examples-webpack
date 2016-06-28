@@ -8,7 +8,7 @@ import {Observable} from "rxjs/Observable";
 
 @Component({
     selector: 'app',
-    providers : [provideStore({people, filter})],
+    providers: [provideStore({people, filter})],
     template: `
       <h4>Party Planner</h4>
       <a href="https://egghead.io/lessons/angular-2-ngrx-store-in-10-minutes" target="_blank">NgRx in Ten Minutes Egghead</a>
@@ -25,7 +25,7 @@ import {Observable} from "rxjs/Observable";
     directives: [PersonList, PersonInput, FilterSelect]
 })
 export class NgRxInTenMinsComponent {
-    public people$ :Observable<any>;
+    public people$:Observable<any>;
     private id = 0;
 
     constructor(private _store:Store<any>) {
@@ -36,7 +36,7 @@ export class NgRxInTenMinsComponent {
                 return people.filter(filter);
             }
         );
-        this.people$.subscribe((people)=>console.log(people))
+        this.people$.subscribe(people=>console.log(people));
     }
 
     addPerson(name) {
@@ -60,8 +60,7 @@ export class NgRxInTenMinsComponent {
     removePerson({id}) {
         this._store.dispatch({type: "REMOVE_PERSON", payload: id});
     }
-
-
+    
     toggleAttending({id}) {
         this._store.dispatch({type: "TOGGLE_ATTENDING", payload: id});
     }

@@ -3,10 +3,13 @@ import {CounterComponent} from './rx-counter';
 import {PromiseExample} from './promise';
 import {SubscribeExample} from './subscribe';
 import {NgRxStarterApp} from './ngrx-starter';
+import {AutoSearch} from './automated-wiki-search';
 
 @Component({
     selector: 'misc-http-component',
     template: `
+        <auto-wiki-search></auto-wiki-search>
+        <hr>
         <counter-component></counter-component>
         <hr>
         <promise-example></promise-example>  
@@ -19,7 +22,8 @@ import {NgRxStarterApp} from './ngrx-starter';
         CounterComponent,
         PromiseExample,
         SubscribeExample,
-        NgRxStarterApp
+        NgRxStarterApp,
+        AutoSearch
     ]
 })
 export class MiscHttpExamples {

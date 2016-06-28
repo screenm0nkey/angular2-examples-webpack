@@ -10,6 +10,7 @@ import { PushNotificationComponent } from './notification.component';
 export class AppComponent {
   title: string = 'ng2-notifications';
   description: string = 'Angular 2 Component for Native Push Notifications';
-  constructor() {
+  logit(arg) {
+      console.log(arg)
   }
 }

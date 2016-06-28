@@ -9,19 +9,18 @@ const HOUR = 'HOUR';
 
 const tick = (state:Date = new Date(), {type, payload})=> {
     let d:Date;
-    // console.log(state, type, payload);
+    console.log(state, type, payload);
     switch (type) {
         case DAY:
-            d = new Date(state.toDateString());
+            d = new Date(state.getTime());
             d.setDate(d.getDate() + payload);
             return d;
         case HOUR:
-            d = new Date(state.toDateString());
+            d = new Date(state.getTime());
             d.setHours(d.getHours() + payload);
             return d;
-
         case SECOND:
-            d = new Date(state.toDateString());
+            d = new Date(state.getTime());
             d.setSeconds(d.getSeconds() + payload);
             return d;
 
@@ -41,7 +40,7 @@ const tick = (state:Date = new Date(), {type, payload})=> {
         <button (click)="dayBackward$.next()">Day -1</button>
         <button (click)="dayForward$.next()">Day +1</button>
         <div></div>
-    {{clock$ | async | date:'yMMMMEEEEdjms'}}    
+    {{clock$ | async | date:'yyyy MMMM EEE d hh:mm:ss'}}    
 `
 })
 export class NgRxClockApp {
@@ -58,9 +57,7 @@ export class NgRxClockApp {
             this.hourForward$,
             this.dayBackward$,
             this.dayForward$,
-            Observable
-                .interval(1000)
-                .mapTo({type: SECOND, payload: 1})
+            Observable.interval(1000).mapTo({type: SECOND, payload: 1})
         ).subscribe(store);
 
         this.clock$ = store.select('tick');

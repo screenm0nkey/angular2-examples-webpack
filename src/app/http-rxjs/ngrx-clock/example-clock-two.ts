@@ -23,16 +23,21 @@ import {Clock} from './clock';
     ],
     template: `
         <h4>Building a Time Machine with Angular 2 Eggehead</h4>
-        <a href="https://github.com/johnlindquist/rxjs-in-angular2" target="_blank">rxjs-in-angular2</a><br>
+        <a href="https://github.com/johnlindquist/rxjs-in-angular2" target="_blank">
+            rxjs-in-angular2
+        </a>
+        <br>
         <input #inputNum type="number" value="0">
-        <button (click)="click$.next(inputNum.value)">Update</button>
+        <button (click)="click$.next(inputNum.value)">Update Hours</button>
         <clock [time]="time$ | async"></clock>
         
-        <div (click)="person$.next(person)" *ngFor="let person of people$ | async">
-            {{person.name}} is in {{person.time | date:'jms'}}        
+        <div 
+            (click)="person$.next(person)" 
+            *ngFor="let person of people$ | async">
+            {{person.name}} is in {{person.time | date:'jms'}} [Click Me]       
         </div>
         <button (click)="recall$.next()">Recall</button>
-        `
+    `
 })
 export class NgRxClock2 {
     click$ = new Subject()
@@ -47,8 +52,8 @@ export class NgRxClock2 {
         .interval(1000)
         .mapTo({type: SECOND, payload:1});
 
-    time$;
-    people$;
+    public time$;
+    public people$;
 
     constructor(store:Store<any>) {
         this.time$ = store.select('clock');
@@ -59,9 +64,9 @@ export class NgRxClock2 {
             this.seconds$,
             this.person$,
             this.recall$
-                .withLatestFrom(this.time$, (_, y)=> y)
+                .withLatestFrom(this.time$, (_, y) => y)
                 .map((time)=> ({type:RECALL, payload: time}))
         )
-            .subscribe(store.dispatch.bind(store))
+        .subscribe(store.dispatch.bind(store))
     }
 }

@@ -1,6 +1,3 @@
-<header>
-    <h1 class="title">{{ title }}</h1>
-</header>
 <main>
     <h4>{{ description }}</h4>
 
@@ -13,6 +10,6 @@
         (load)="notification.show()">
     </push-notification>
 
-    <button (click)="notification.show()">Show Notification</button>
+    <button (click)="notification.show(); logit(notification)">Click to Show Notification (look at console)</button>
 
 </main>

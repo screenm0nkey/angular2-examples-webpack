@@ -10,7 +10,7 @@ var cors = require('express-cors');
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors({
-    headers : ['X-Requested-With', 'Content-Type', 'Custom-Nick'],
+    headers : ['X-Requested-With', 'Content-Type', 'Custom-FormNick'],
     allowedOrigins: ['127.0.0.1:*', 'localhost:*']
 }));
 

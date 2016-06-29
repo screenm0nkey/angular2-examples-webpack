@@ -40,8 +40,8 @@ export class WikipediaService{
     mapImageInfoToUrls = body => {
         return Object.keys(body.query.pages)
             .filter((page:any) => page > 0) //page -1 means no images
-            .map(page =>{
-                let page : any = body.query.pages[page];
+            .map((page:any) =>{
+                page = body.query.pages[page];
                 let imageInfo = page.imageinfo[0];
                 imageInfo.title = page.title;
                 console.log(6, imageInfo);

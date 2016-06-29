@@ -5,6 +5,7 @@ import {SpyParentComponent} from './spy/spy.component';
 import {OnChangesParentComponent} from './on-changes/on-changes-parent.component';
 import {AfterViewParentComponent} from './after-view/after-view-parent.component';
 import {AfterContentParentComponent} from './after-content/after-content-parent.component';
+import {BasicExample} from './basic-overview/index';
 
 @Component({
     selector: 'lifecycle-main',
@@ -15,6 +16,7 @@ import {AfterContentParentComponent} from './after-content/after-content-parent.
     template: `
         <div class="miscellaneous">
         <nav>
+            <a [routerLink]="['/Lifecycle/Overview']">Overview</a>
             <a [routerLink]="['/Lifecycle/Peekaboo']">Peekaboo</a>
             <a [routerLink]="['/Lifecycle/Spy']">Spy</a>
             <a [routerLink]="['/Lifecycle/OnChanges']">OnChanges</a>
@@ -28,7 +30,8 @@ import {AfterContentParentComponent} from './after-content/after-content-parent.
     `,
 })
 @RouteConfig([
-    {path: '/peekaboo', component: PeekABooParentComponent, name: 'Peekaboo', useAsDefault: true},
+    {path: '/overview', component: BasicExample, name: 'Overview', useAsDefault: true},
+    {path: '/peekaboo', component: PeekABooParentComponent, name: 'Peekaboo'},
     {path: '/spy', component: SpyParentComponent, name: 'Spy'},
     {path: '/on-changes', component: OnChangesParentComponent, name: 'OnChanges'},
     {path: '/after-view', component: AfterViewParentComponent, name: 'AfterView'},

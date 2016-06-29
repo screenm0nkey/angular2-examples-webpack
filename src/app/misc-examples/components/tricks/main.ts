@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {ScrollComponent} from './scroll-bottom';
 import {NextComponent} from './next-input';
+import {Typewriter} from './typewriter';
 
 @Component({
     selector: 'tracks-main-component',
@@ -8,8 +9,10 @@ import {NextComponent} from './next-input';
       <scroll-bottom></scroll-bottom>
       <hr>
       <next-input></next-input>
+      <hr>
+      <typewriter></typewriter>
 	`,
-    directives: [ScrollComponent, NextComponent]
+    directives: [ScrollComponent, NextComponent, Typewriter]
 })
 export class TricksMainComponent {
 

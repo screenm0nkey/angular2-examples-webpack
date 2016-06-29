@@ -23,8 +23,7 @@ import 'rxjs/add/operator/scan';
 })
 export class ScrollComponent {
     items$ = Observable
-        .interval(250)
-        .map(_ => Math.random())
-        .startWith([])
-        .scan((acc, curr)=> [...acc, curr]);
+        .interval(1000)
+        .map((_:number) => Math.random())
+        .scan((acc, curr)=> [...acc, curr],[]);
 }

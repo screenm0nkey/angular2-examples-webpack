@@ -1,0 +1,61 @@
+<h1>Template driven forms - ngForm, ngModel, ngModelGroup</h1>
+<h3>= form1.ts in old</h3>
+
+<pre style="padding: 0;"><h3 style="margin: 0;">
+        &lt;form #form="ngForm" (ngSubmit)="logForm(form.value, n)" #n="ngNickForm" formnick&gt;
+            &lt;input type="text" name="lastname" [(ngModel)]="lastname" #last_name="ngModel"&gt;
+        &lt;/form&gt;
+    </h3></pre>
+
+<pre>
+    NgForm does something handy but non-obvious: it includes the form tag in its
+    selector (instead of requiring you to explicitly add ngForm as an attribute).
+    What this means is that if you inject FORM_DIRECTIVES, NgForm will get
+    automatically attached to any &lt;form&gt; tags you have in your view. This is really
+    useful but potentially confusing because it happens behind the scenes.
+
+
+    If ngModel is used within a form tag, either the name attribute must be set or
+    the form control must be defined as 'standalone' in ngModelOptions.<h3>
+  Example 1: &lt;input [(ngModel)]="person.firstName" name="first"&gt;
+  Example 2: &lt;input [(ngModel)]="person.firstName" [ngModelOptions]="{standalone: true}"&gt;
+  </h3>
+</pre>
+
+<a href="http://blog.thoughtram.io/angular/2016/03/21/template-driven-forms-in-angular-2.html">
+    template-driven-forms-in-angular-2
+</a>
+
+<form #form="ngForm" (ngSubmit)="logForm(form, n)" #n="ngNickForm" formnick>
+    <fieldset ngModelGroup="name">
+        <label>Firstname (with one way binding)</label>
+        <input type="text" name="firstname" [ngModel]="firstname">
+
+        <label>Lastname (with two way binding)</label>
+        <input type="text" name="lastname" [(ngModel)]="lastname">{{lastname}}
+    </fieldset>
+
+    <fieldset ngModelGroup="address">
+        <label>Street:</label>
+        <input type="text" name="street" ngModel #first="ngModel">
+
+        <label>Zip:</label>
+        <input type="text" name="zip" ngModel>
+
+        <label>City:</label>
+        <input type="text" name="city" ngModel>
+    </fieldset>
+
+
+    <input type="text"
+           id="first_name"
+           name="first_name"
+           [(ngModel)]="employee.first_name"
+           [ngClass]="{invalid: first_name.touched && !first_name.valid}"
+           #first_name="ngModel">
+    <p> valid: {{ first_name.valid }} </p>
+    <p> value: {{ first_name.value }} </p>
+
+    <button type="submit">Submit</button>
+    <pre>{{formStr}}</pre>
+</form>

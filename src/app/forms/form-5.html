@@ -1,0 +1,33 @@
+<h2>Model-driven forms - FormBuilder, formGroup, formGroupName and formControlName</h2>
+<h3>= form3.ts in old</h3>
+
+
+<form [formGroup]="myForm" (submit)="onSubmit(myForm.value)">
+    <div *ngIf="!myForm.valid" class="bg-warning">FormBuilder form is invalid</div>
+
+    <div class="form-group">
+        <div class="formHeading">First Name</div>
+        <input type="text" id="firstName" formControlName="firstName">
+        <span *ngIf="!myForm.controls.firstName.valid">
+            First Name is required and has be more than 4 chars
+        </span>
+    </div>
+
+    <div class="form-group" [class.has-error]="!sku.valid && sku.touched">
+        <h3 style="color:crimson;">1) Using FormBuilder controls and controlGroups</h3>
+        <label for="skuInput">SKU</label>
+        <input type="text"
+               class="form-control"
+               id="skuInput"
+               placeholder="SKU"
+               formControlName="sku">
+
+        <div *ngIf="!sku.valid && sku.touched" class="bg-warning">SKU is invalid</div>
+        <div *ngIf="sku.hasError('required')" class="bg-warning">SKU is required</div>
+        <div *ngIf="myForm.hasError('invalidSku', 'sku')" class="bg-warning">Custom  Validator : SKU must begin with <tt>123</tt></div>
+    </div>
+
+
+    <button type="submit" class="btn btn-default">Submit</button>
+    <pre>{{payLoad}}</pre>
+</form>

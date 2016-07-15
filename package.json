@@ -1,19 +1,14 @@
 {
-  "name": "angular2-seed",
+  "name": "angular2-examples-webpack",
   "version": "1.0.0",
-  "description": "A simple starter Angular2 project",
+  "description": "A collection of Angular2 examples",
   "scripts": {
-    "typings-install": "typings install",
+    "typings-install": "./node_modules/.bin/typings install",
     "postinstall": "npm run typings-install",
-    "build": "webpack --inline --colors --progress --display-error-details --display-cached",
+    "build": "./node_modules/.bin/webpack --inline --colors --progress --display-error-details --display-cached",
     "watch": "npm run build -- --watch",
-    "server": "webpack-dev-server --inline --colors --progress --display-error-details --display-cached --port 4000  --content-base src",
-    "start": "npm run server"
+    "start": "./node_modules/.bin/webpack-dev-server --inline --colors --progress --display-error-details --display-cached --port 3000  --content-base src"
   },
-  "contributors": [
-    "Rob Wormald <robwormald@gmail.com>",
-    "PatrickJS <github@gdi2290.com>"
-  ],
   "license": "MIT",
   "nickAddedDependencies" : {
     "express": "^4.13.4",
@@ -59,17 +54,15 @@
     "zone.js": "~0.6.12"
   },
   "keywords": [
-    "Angular2",
-    "angular2-seed",
-    "official angular 2 seed",
-    "official angular2 seed"
+    "Angular2"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/angular/angular2-seed.git"
+    "url": "git+https://github.com/screenm0nkey/angular2-examples-webpack.git"
   },
   "bugs": {
-    "url": "https://github.com/angular/angular2-seed/issues"
+    "url": "https://github.com/screenm0nkey/angular2-examples-webpack/issues"
   },
-  "homepage": "https://github.com/angular/angular2-seed#readme"
+  "homepage": "https://github.com/screenm0nkey/angular2-examples-webpack#readme"
 }
+

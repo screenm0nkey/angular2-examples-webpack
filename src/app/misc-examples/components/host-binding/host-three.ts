@@ -1,5 +1,10 @@
 import { Component, Directive, HostBinding, ElementRef} from '@angular/core';
-import { FORM_DIRECTIVES, NgModel, Validators, FormBuilder, ControlGroup} from "@angular/common";
+import {
+    REACTIVE_FORM_DIRECTIVES,
+    FormBuilder,
+    FormGroup,
+    Validators
+} from '@angular/forms';
 
 @Directive({selector: '[ngModel]'})
 class NgModelStatus {
@@ -13,8 +18,8 @@ class NgModelStatus {
 
 @Component({
     selector: 'host-three-component',
-    directives: [FORM_DIRECTIVES, NgModelStatus],
-    providers: [FormBuilder, NgModel],
+    directives: [REACTIVE_FORM_DIRECTIVES, NgModelStatus],
+    providers: [FormBuilder],
     styles : [`.ng-invalid {
         border:solid 1px red;
     }`],
@@ -22,14 +27,14 @@ class NgModelStatus {
         <a href="https://angular.io/docs/ts/latest/api/core/HostBinding-var.html">
             https://angular.io/docs/ts/latest/api/core/HostBinding-var.html
         </a>
-        <form [ngFormModel]="myForm">
-            <input [(ngModel)]="prop" placeholder="minLength 3" ngControl="checkme">
+        <form [formGroup]="myForm">
+            <input [(ngModel)]="prop" placeholder="minLength 3" formControlName="checkme">
         </form>
     `
 })
 export class HostThree {
     prop:String;
-    myForm : ControlGroup;
+    myForm : FormGroup;
 
     constructor(fb: FormBuilder) {
         this.myForm = fb.group({

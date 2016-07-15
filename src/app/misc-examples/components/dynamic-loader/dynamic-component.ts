@@ -40,8 +40,8 @@ class Car {
 @Component({
     selector: 'dynamic-component-app',
     providers: [
-        provide('car', {useValue: Car}),
-        provide('person', {useValue: Person})
+         {provide:'car',useValue: Car},
+         {provide:'person', useValue: Person}
     ],
     template: `
     <h4>Load components dynamically</h4>

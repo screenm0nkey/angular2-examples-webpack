@@ -27,9 +27,6 @@ import {AutoSearch} from './automated-wiki-search';
     ]
 })
 export class MiscHttpExamples {
-    constructor() {
-        console.log(this);
-    }
 }
 
 

@@ -1,22 +1,13 @@
 var webpack = require('webpack');
 var path = require('path');
 
-var ROOT = path.resolve(__dirname, '..');
-var helpers = {
-  root : function root(args) {
-    args = Array.prototype.slice.call(arguments, 0);
-    return path.join.apply(path, [ROOT].concat(args));
-  }
-};
-
-
 
 // Webpack Config
 var webpackConfig = {
   entry: {
-    'polyfills': './src/polyfills.ts',
-    'vendor':    './src/vendor.ts',
-    'app':       './src/bootstrap.ts'
+    'polyfills': './src/polyfills.browser.ts',
+    'vendor':    './src/vendor.browser.ts',
+    'main':       './src/main.browser.ts'
   },
 
   output: {
@@ -24,24 +15,21 @@ var webpackConfig = {
   },
 
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin({ name: ['app', 'vendor', 'polyfills'], minChunks: Infinity }),
+    new webpack.optimize.OccurenceOrderPlugin(true),
+    new webpack.optimize.CommonsChunkPlugin({ name: ['main', 'vendor', 'polyfills'], minChunks: Infinity }),
   ],
 
   module: {
     loaders: [
       // .ts files for TypeScript
-      { test: /\.ts$/, loader: 'awesome-typescript-loader' },
+      { test: /\.ts$/, loaders: ['awesome-typescript-loader', 'angular2-template-loader'] },
+      { test: /\.css$/, loaders: ['to-string-loader', 'css-loader'] },
+      { test: /\.html$/, loader: 'raw-loader' },
+      { test: /\.json$/, loader: 'json-loader' },
 
-      // Support for *.json files.
-      { test: /\.json$/,  loader: 'json-loader' },
-
-      // Support for CSS as raw text
-      { test: /\.css$/,   loader: 'raw-loader' },
-
-      // support for .html as raw text
-      { test: /\.html$/,  loader: 'raw-loader' },
     ]
   }
+
 };
 
 
@@ -63,10 +51,10 @@ var defaultConfig = {
         loader: 'source-map-loader',
         exclude: [
           // these packages have problems with their sourcemaps
-          helpers.root('node_modules/rxjs'),
-          helpers.root('node_modules/@angular'),
-          helpers.root('node_modules/@ngrx'),
-          helpers.root('node_modules/@angular2-material'),
+          path.join(__dirname, 'node_modules', 'rxjs'),
+          path.join(__dirname, 'node_modules', '@angular2-material'),
+          path.join(__dirname, 'node_modules', '@angular'),
+          path.join(__dirname, 'node_modules', '@@ngrx'),
         ]
       }
     ],
@@ -77,21 +65,8 @@ var defaultConfig = {
   },
 
   resolve: {
-    extensions: ['', '.ts', '.js', '.json'],
-    // Make sure root is src
-    root: helpers.root('src'),
-    // remove other default values
-    modulesDirectories: ['node_modules'],
-    alias: {
-      'angular2/testing': path.join(__dirname, 'node_modules', '@angular', 'core', 'testing.js'),
-      '@angular/testing': path.join(__dirname, 'node_modules', '@angular', 'core', 'testing.js'),
-      '@angular/core': path.join(__dirname, 'node_modules', '@angular', 'core', 'index.js'),
-      'angular2/platform/browser': path.join(__dirname, 'node_modules', '@angular', 'platform-browser', 'index.js'),
-      'angular2/testing': path.join(__dirname, 'node_modules', '@angular', 'testing', 'index.js'),
-      '@angular/router-deprecated': path.join(__dirname, 'node_modules', '@angular', 'router-deprecated', 'index.js'),
-      '@angular/http': path.join(__dirname, 'node_modules', '@angular', 'http', 'index.js'),
-      '@angular/http/testing': path.join(__dirname, 'node_modules', '@angular', 'http', 'testing.js')
-    },
+    root: [ path.join(__dirname, 'src') ],
+    extensions: ['', '.ts', '.js', '.json']
   },
 
   devServer: {

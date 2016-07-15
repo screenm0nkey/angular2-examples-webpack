@@ -4,7 +4,6 @@ import {Http} from '@angular/http'
 
 @Component({
     selector: 'gist-app',
-    providers : [provide(Window, {useValue: window})],
     template: `
     <h4>Load a component from a Gist (not currently working. Example uses systemJS</h4>
     <a href="http://plnkr.co/edit/IpQ2HRa7yBj2YKZdgBZl?p=preview&open=app%2Fapp.component.ts" target="_blank">See Original Plunk here</a>
@@ -19,7 +18,6 @@ export class GistAppComponent {
 
     constructor(
         public compResolver:ComponentResolver,
-        public win : Window,
         public http : Http
     ){}
 

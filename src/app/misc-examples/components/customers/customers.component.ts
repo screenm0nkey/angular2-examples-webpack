@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {RouterLink} from '@angular/router-deprecated';
+import {ROUTER_DIRECTIVES, ActivatedRoute} from '@angular/router';
 
 import {Customer} from "./customer.model";
 import {DataService} from './data.service';
@@ -11,7 +11,7 @@ import {SortByDirective} from './sortby.directive';
 @Component({
     selector: 'customers-component',
     template: require('./customers.tmpl.html'),
-    directives: [RouterLink, FilterTextComponent, SortByDirective],
+    directives: [ROUTER_DIRECTIVES, FilterTextComponent, SortByDirective],
     providers: [DataService, Sorter],
     pipes: [CapitalizePipe],
     styles: [require('./customers.css')]

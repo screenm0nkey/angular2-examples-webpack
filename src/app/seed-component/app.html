@@ -1,0 +1,21 @@
+<h3>
+    Angular 2 Seed
+</h3>
+<nav>
+    <a [routerLink]="['/seed', 'home']" [routerLinkActive]="['active']">
+        Home
+    </a>
+    |
+    <a [routerLink]="['/seed', 'about']" [routerLinkActive]="['active']">
+        About
+    </a>
+    |
+    <a [routerLink]="['/seed', 'github', 'angular']" [routerLinkActive]="['active']">
+        Github Repos
+    </a>
+</nav>
+
+<main>
+    <router-outlet></router-outlet>
+</main>
+

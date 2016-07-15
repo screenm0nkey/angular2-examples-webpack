@@ -1,26 +1,34 @@
 import {Component} from '@angular/core';
-import {RouteParams, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
-import {Http} from '@angular/http';
+import {ROUTER_DIRECTIVES, ActivatedRoute, Router} from '@angular/router';
 import {Github} from '../services/github';
 
 @Component({
   selector: 'repo-detail',
-  template:require('./repo-detail.html'),
-  styles: [require('./repo-detail.css')],
+  pipes: [],
   providers: [],
-  directives: [ ROUTER_DIRECTIVES ],
-  pipes: []
+  directives: [ROUTER_DIRECTIVES],
+  styleUrls: ['./repo-detail.css'],
+  templateUrl: './repo-detail.html'
 })
 export class RepoDetail {
-  repoDetails = {};
-  constructor(public routeParams:RouteParams, public github: Github) {}
+  private org:string;
+  private repo:string;
+  public repoDetails:any = {};
 
-  ngOnInit() {
-    this.github.getRepoForOrg(this.routeParams.get('org'), this.routeParams.get('name'))
-      .subscribe(repoDetails => {
-        this.repoDetails = repoDetails;
-      });
-
+  constructor(public github:Github, private router:Router, private route:ActivatedRoute) {
   }
 
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.org = this.router.routerState.parent(this.route).snapshot.params['org'];
+      this.repo = params['repo'] || '';
+
+      if (this.repo) {
+        this.github.getRepoForOrg(this.org, this.repo)
+          .subscribe(repoDetails => {
+            this.repoDetails = repoDetails;
+          });
+      }
+    });
+  }
 }

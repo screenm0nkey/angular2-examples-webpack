@@ -1,25 +1,30 @@
 import {Component} from '@angular/core';
 import {Github} from '../services/github';
 import {Observable} from 'rxjs/Observable';
-import {RouteParams, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
+import {ROUTER_DIRECTIVES, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'repo-list',
-  template: require('./repo-list.html'),
-  styles: [require('./repo-list.css')],
+  pipes: [],
   providers: [],
   directives: [ ROUTER_DIRECTIVES ],
-  pipes: []
+  styleUrls: ['./repo-list.css'],
+  templateUrl: './repo-list.html',
 })
 export class RepoList {
-  repos: Observable<any>
+  org: string;
+  repos: Observable<any>;
 
-  constructor(public github: Github, public params: RouteParams) {
-      console.log(this)
+  constructor(public github: Github, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-      console.log(20, 'here')
-      this.repos = this.github.getReposForOrg(this.params.get('org'));
+    this.route.params.subscribe(params => {
+        console.log(params)
+      this.org = params['org'];
+      if (this.org) {
+        this.repos = this.github.getReposForOrg(this.org);
+      }
+    });
   }
 }

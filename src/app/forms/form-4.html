@@ -3,36 +3,27 @@
 </style>
 
 
-<h2>Form 2 - ngFormModel and ngControl</h2>
-<h3>(see form 3 for ngFormModel and ngFormControl)</h3>
-<pre>
-    Angular provides another directive that we use when we have an
-    existing ControlGroup instead of using the one created by NgForm:
-    it's called NgFormModel and we use it like this:
-    <h3>
-        &lt;form (ngSubmit)="onSubmit()" [ngFormModel]="myform" #f="ngForm"&gt;
-    </h3>
-    NgForm automatically creates a control group called ngForm for us when we don't
-    use ngFormModel. Note : we're still using #f="ngForm" but it refers to the control
-    we created by formBuilder.
-    So <strong>myform.controls.firstName</strong> is the same as <strong>f.form.controls.firstName</strong>
-    
-    (ngSubmit) event comes from NgForm
+<h1>Model-driven forms - FormBuilder, formGroup, formGroupName and formControlName</h1>
+<h3>= form2.ts in old</h3>
 
+<pre>
+    <h3>
+        &lt;form [formGroup]="registerForm" (ngSubmit)="submit()"&gt;
+        &lt;input type="text" id="firstName" formControlName="firstName"&gt;
+    </h3>
 </pre>
 
 <div class="alert alert-info" role="alert">
     Error messages per field and disabled save button until entire form is valid.
 </div>
 
-<form (ngSubmit)="onSubmit()" [ngFormModel]="myform" #f="ngForm">
+<form [formGroup]="myform" #f="ngForm" (ngSubmit)="onSubmit()">
 
     <button (click)="logit($event, f, myform)">Console log Form Info</button>
 
-
     <div class="form-row">
         <div class="formHeading">Some checkbox</div>
-        <input type="checkbox" ngControl="checkMe">
+        <input type="checkbox" formControlName="checkMe">
         <div class="errorMessage"
              *ngIf="!f.form.controls.checkMe.valid">
             Needs checking
@@ -41,7 +32,7 @@
 
     <div class="form-row">
         <div class="formHeading">First Name (required)</div>
-        <input type="text" id="firstName" ngControl="firstName">
+        <input type="text" id="firstName" formControlName="firstName">
         <div class="errorMessage"
              *ngIf="myform.controls.firstName.touched && !f.form.controls.firstName.valid">
             First Name is required
@@ -51,7 +42,7 @@
 
     <div class="form-row">
         <div class="formHeading">Street Address</div>
-        <input type="text" id="firstName" ngControl="streetAddress">
+        <input type="text" id="streetAddress" formControlName="streetAddress">
         <div class="errorMessage"
              *ngIf="f.form.controls.streetAddress.touched && !f.form.controls.streetAddress.valid">
             Street Address is required
@@ -61,7 +52,7 @@
 
     <div class="form-row">
         <div class="formHeading">City</div>
-        <select [(ngModel)]="selectedCity" ngControl="city">
+        <select [(ngModel)]="selectedCity" formControlName="city">
             <option *ngFor="let city of cities" [ngValue]="city">{{city.name}}</option>
         </select>
     </div>
@@ -69,7 +60,7 @@
 
     <div class="form-row">
         <div class="formHeading">Zip Code</div>
-        <input type="text" id="zip" ngControl="zip" #spy>
+        <input type="text" id="zip" formControlName="zip" #spy>
         <div class="errorMessage"
              *ngIf="f.form.controls.zip.touched && !f.form.controls.zip.valid">
             Zip code has to be 5 digits long
@@ -80,7 +71,7 @@
 
     <div class="form-row">
         <div class="formHeading">Address Type</div>
-        <select id="type" ngControl="type">
+        <select id="type" formControlName="type">
             <option [value]="'home'">Home Address</option>
             <option [value]="'billing'">Billing Address</option>
         </select>

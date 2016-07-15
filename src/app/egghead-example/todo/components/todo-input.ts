@@ -6,15 +6,14 @@ import {TodoModel} from "../services/todo-model";
     selector: 'todo-input',
     template: `<div>
     <form (submit)="onSubmit()">
-        <input type="text" [(ngModel)]="todoModel.title" placeholder="New item">
+        <input type="text" [(ngModel)]="todoModel.title" name="title" placeholder="New item">
     </form>
     </div>`
 })
 export class TodoInput{
     todoModel:TodoModel = new TodoModel();
 
-    constructor(public todoService:TodoService){
-    }
+    constructor(public todoService:TodoService){}
 
     onSubmit(){
         this.todoService.addTodo(this.todoModel);

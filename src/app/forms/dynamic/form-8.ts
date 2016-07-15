@@ -1,25 +1,24 @@
 import {Component} from '@angular/core';
-import {Survey} from './survey.component';
-import {QuestionModel} from './question.model.ts';
-import {TextboxQuestion, DropDownQuestion} from './questions.model.ts';
+
+import {Survey} from './survey';
+import {QuestionModel} from './question-model';
+import {TextboxQuestion} from './textbox-question';
+import {DropDownQuestion} from './dropdown-question';
 
 @Component({
-    selector: 'survey-demo',
-    template: `
+    selector:'survey-demo',
+    template:`
         <div>
-            <h4>Survey using Dynamic Form</h4>
-            <a href="http://www.syntaxsuccess.com/viewarticle/dynamic-form-in-angular-2.0" target="_blank">Taken from Syntax Success</a>
-            <survey [model]="questionModel"></survey>
-        </div>
-    `,
-    directives: [Survey]
+            <h1>Survey using Dynamic Form</h1>
+            <survey [model]="questionModel"></survey></div>
+        `,
+    directives:[Survey]
 })
 
-export class SurveyDemo {
-
+export class FormEight {
     questionModel = new QuestionModel();
 
-    constructor() {
+    constructor(){
         let question = new TextboxQuestion();
         question.key = 'lastName';
         question.text = 'Last name';
@@ -45,14 +44,13 @@ export class SurveyDemo {
         let ddQuestion = new DropDownQuestion();
         ddQuestion.key = 'country';
         ddQuestion.text = 'Country';
-        ddQuestion.options.push({key: 'usa', value: 'USA'});
-        ddQuestion.options.push({key: 'germany', value: 'Germany'});
-        ddQuestion.options.push({key: 'canada', value: 'Canada'});
-        ddQuestion.options.push({key: 'australia', value: 'Australia'});
+        ddQuestion.options.push({key:'usa',value:'USA'});
+        ddQuestion.options.push({key:'germany',value:'Germany'});
+        ddQuestion.options.push({key:'canada',value:'Canada'});
+        ddQuestion.options.push({key:'australia',value:'Australia'});
         ddQuestion.order = 4;
         this.questionModel.questions.push(ddQuestion);
 
-        this.questionModel.questions.sort((a, b) => a.order - b.order);
-        console.log(123, this.questionModel)
+        this.questionModel.questions.sort((a,b) => a.order - b.order);
     }
 }

@@ -1,24 +1,18 @@
 import { Component } from '@angular/core';
-import {
-    FormBuilder,
-    Validators,
-    Control,
-    ControlGroup,
-    FORM_DIRECTIVES
-} from '@angular/common';
+import { FormGroup, FormBuilder, FormControl, AbstractControl, REACTIVE_FORM_DIRECTIVES ,Validators} from '@angular/forms';
 
 interface ValidationResult {
     [key:string]:boolean;
 }
 
 class UsernameValidator {
-    static startsWithNumber(control:Control):ValidationResult {
+    static startsWithNumber(control:FormControl):ValidationResult {
         if (control.value != "" && !isNaN(control.value.charAt(0))) {
             return {"startsWithNumber": true};
         }
         return null;
     }
-    static usernameTaken(control:Control):Promise<ValidationResult> {
+    static usernameTaken(control:FormControl):Promise<ValidationResult> {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 if (control.value === "nick") {
@@ -33,24 +27,26 @@ class UsernameValidator {
 
 
 @Component({
-    selector: 'form-four',
-    template: require('./form4.html'),
-    directives: [FORM_DIRECTIVES]
+    selector: 'form-six',
+    template: require('./form-6.html'),
+    directives: [REACTIVE_FORM_DIRECTIVES]
 })
-export class Form4 {
-    form:ControlGroup;
-    username:Control;
+export class FormSix {
+    form:FormGroup;
+    username:FormControl;
 
-    constructor(private fb:FormBuilder) {
-        this.username = new Control(
-            "",
+    constructor(private formBuilder:FormBuilder) {}
+
+    ngOnInit () {
+        this.username = new FormControl("",
             Validators.compose([Validators.required, UsernameValidator.startsWithNumber]),
             UsernameValidator.usernameTaken
         );
-        this.form = fb.group({
+        this.form = this.formBuilder.group({
             username: this.username
         });
     }
+
     submitData() {
         console.log(JSON.stringify(this.form.value))
     }

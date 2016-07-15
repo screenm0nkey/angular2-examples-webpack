@@ -1,32 +1,40 @@
 import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES, RouteConfig } from '@angular/router-deprecated';
-import {Form1} from './other-forms/form1';
-import {Form2} from './other-forms/form2';
-import {Form3} from './other-forms/form3';
-import {Form4} from './other-forms/form4';
-import {Form5} from './other-forms/form5';
-import {InputControls} from './other-forms/input-controls';
-import {SurveyDemo} from './dynamic-form/survey-demo.component';
-
+import {ROUTER_DIRECTIVES} from '@angular/router';
+import routes from './routes';
 
 @Component({
     selector: 'app-component',
     styles : [require('../../styles/layout.css')],
-    template: require('./main.html'),
-    directives: [ROUTER_DIRECTIVES, Form1, Form2, Form3, Form4, InputControls]
+    directives: [ROUTER_DIRECTIVES],
+    template : `
+        <div class="miscellaneous">
+            <nav>
+                <a [routerLink]="['/form', 'form-one']" [routerLinkActive]="['active']">Form 1</a>
+                <a [routerLink]="['/form', 'form-two']" [routerLinkActive]="['active']">Form 2</a>
+                <a [routerLink]="['/form', 'form-three']" [routerLinkActive]="['active']">Form 3</a>
+                <a [routerLink]="['/form', 'form-four']" [routerLinkActive]="['active']">Form 4</a>
+                <a [routerLink]="['/form', 'form-five']" [routerLinkActive]="['active']">Form 5</a>
+                <a [routerLink]="['/form', 'form-six']" [routerLinkActive]="['active']">Form 6</a>
+                <a [routerLink]="['/form', 'form-seven']" [routerLinkActive]="['active']">Form 7</a>
+                <a [routerLink]="['/form', 'form-eight']" [routerLinkActive]="['active']">Form 8</a>
+            </nav>
+            <div id="container">
+                <pre>
+                    <a href="http://blog.ng-book.com/the-ultimate-guide-to-forms-in-angular-2/" target="_blank">The Ultimate Guide to Forms</a>
+                    <a href="http://blog.thoughtram.io/angular/2016/03/21/template-driven-forms-in-angular-2.html" target="_blank">Template-driven Forms</a>
+                    <a href="http://blog.thoughtram.io/angular/2016/03/14/custom-validators-in-angular-2.html">Custom Validators in Angular 2</a>
+                </pre>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    `
 })
-@RouteConfig([
-    {path: '/', component: InputControls, name: 'InputControls', useAsDefault: true},
-    {path: '/form1', component: Form1, name: 'Form1'},
-    {path: '/form2', component: Form2, name: 'Form2'},
-    {path: '/form3', component: Form3, name: 'Form3'},
-    {path: '/form4', component: Form4, name: 'Form4'},
-    {path: '/form5', component: Form5, name: 'Form5'},
-    {path: '/dynamic', component: SurveyDemo, name: 'Dynamic'}
-
-])
-export class FormExamples {
+export class FormExamplesMain {
     constructor() {
         console.log(this);
     }
 }
+
+export default routes;
+
+

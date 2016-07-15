@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {JSONP_PROVIDERS, URLSearchParams, Jsonp} from '@angular/http';
 import {Injectable} from '@angular/core';
-import {Control} from '@angular/common';
 import {Observable} from 'rxjs/Observable';
+import {REACTIVE_FORM_DIRECTIVES, FormControl} from '@angular/forms';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
@@ -56,11 +56,12 @@ export class JsonpWikipediaPromise {
 @Component({
     selector: 'wikipedia-observable',
     providers: [JSONP_PROVIDERS, WikipediaService],
+    directives : [REACTIVE_FORM_DIRECTIVES],
     template: `
     <div>
       <h4>Same as above but using promises (toPromise), observables and async pipe</h4>
       <a href="http://blog.thoughtram.io/angular/2016/01/06/taking-advantage-of-observables-in-angular2.html" target="_blank">Thoughtram article</a>
-      Search <input type="text" [ngFormControl]="term" placeholder="Wikipedia Search"/> 
+      Search <input type="text" [formControl]="term" placeholder="Wikipedia Search"/> 
       <span *ngIf="loading" style="background-color: red">loading</span>
       <ul><li *ngFor="let item of items | async">{{item}}</li></ul>
     </div>
@@ -68,7 +69,7 @@ export class JsonpWikipediaPromise {
 })
 export class WikipediaObservable {
     items: Observable<Array<string>>;
-    term = new Control();
+    term = new FormControl();
     loading : boolean = false;
 
     constructor(private wikipediaService: WikipediaService) {

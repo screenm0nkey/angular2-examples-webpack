@@ -1,5 +1,3 @@
-
-
 import { Component } from '@angular/core';
 import {Observable} from 'rxjs/Rx';
 import {Jsonp} from '@angular/http';
@@ -38,7 +36,6 @@ export class AutoSearch {
         .switchMap(term => this.jsonp.get(`https://en.wikipedia.org/w/api.php?callback=JSONP_CALLBACK&action=opensearch&format=json&search=${term}`))
         .map(res => res.json()[1]);
 
-    constructor(public jsonp:Jsonp) {
-    }
+    constructor(public jsonp:Jsonp) {}
 }
 

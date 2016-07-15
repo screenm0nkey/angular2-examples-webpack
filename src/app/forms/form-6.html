@@ -1,11 +1,12 @@
-<h2>Form 4 - Asynchonous form validation</h2>
+<h1>Asynchonous form validation</h1>
+<h3>= form4.ts in old</h3>
 <pre><h3>
-    &lt;form [ngFormModel]="form"&gt;
+    &lt;form [formGroup]="form"&gt;
 </h3></pre>
 
 Try typing "nick"
-<form [ngFormModel]="form">
-    <input type="text" ngControl="username" placeholder="Username"/>
+<form [formGroup]="form">
+    <input type="text" formControlName="username" placeholder="Username"/>
 
     <p *ngIf="username.pending">Fetching data from the server...</p>
 

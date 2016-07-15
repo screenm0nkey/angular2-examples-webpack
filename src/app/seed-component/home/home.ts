@@ -2,11 +2,18 @@ import {Component} from '@angular/core';
 
 @Component({
   selector: 'home',
-  template: require('./home.html'),
-  styles: [require('./home.css')],
+  pipes: [],
   providers: [],
   directives: [],
-  pipes: []
+  styleUrls: ['./home.css'],
+  templateUrl: './home.html'
 })
 export class Home {
+
+  constructor() {}
+
+  ngOnInit() {
+
+  }
+
 }

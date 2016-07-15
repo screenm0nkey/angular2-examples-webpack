@@ -1,24 +1,24 @@
 import {Component} from '@angular/core';
-import {FormBuilder, ControlGroup, Control, Validators, FORM_DIRECTIVES} from '@angular/common';
+import { FormGroup, FormBuilder, REACTIVE_FORM_DIRECTIVES ,Validators} from '@angular/forms';
 
 @Component({
-    selector: 'form-two',
-    directives: [FORM_DIRECTIVES],
-    template: require('./form2.html'),
-    providers : [FormBuilder]
+    selector: 'form-four',
+    template: require('./form-4.html'),
+    directives : [ REACTIVE_FORM_DIRECTIVES]
 })
 
-export class Form2 {
-
-    myform : ControlGroup;
+export class FormFour {
+    myform : FormGroup;
     payLoad : String = '';
-    cities : any[] = [{name:'London'}, {name:'Berlin'}];
+    cities : any[] = [{name:'London'}, {name:'Berlin'}, {name:'Rotheram'}];
     selectedCity;
 
-    constructor(fb: FormBuilder) {
-        this.selectedCity = this.cities[0];
+    constructor(private formBuilder: FormBuilder) {}
+
+    ngOnInit() {
+        this.selectedCity = this.cities[2];
         // calling fb.group() returns a controlGroup
-        this.myform = fb.group({
+        this.myform = this.formBuilder.group({
             "checkMe": [true, Validators.required],
             "firstName": ['', Validators.required],
             "streetAddress": ['',Validators.required],
@@ -46,3 +46,5 @@ export class Form2 {
         this.payLoad = JSON.stringify(this.myform.value);
     }
 }
+
+//this.registerForm.controls.address.controls.street.valid

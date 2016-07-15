@@ -1,5 +1,5 @@
 import {Component } from '@angular/core';
-import { Control, ControlGroup, FORM_DIRECTIVES } from '@angular/common';
+import { REACTIVE_FORM_DIRECTIVES, FormGroup, FormControl } from '@angular/forms';
 import {Http} from '@angular/http';
 import {Observable} from 'rxjs/observable';
 import 'rxjs/add/operator/map';
@@ -9,13 +9,13 @@ import 'rxjs/add/operator/do';
 
 @Component({
     selector: 'reddit-example',
-    directives: [FORM_DIRECTIVES],
+    directives: [REACTIVE_FORM_DIRECTIVES],
     template: `
         reddit.ts <br>
         <div class="search-results">
-            <form [ngFormModel]="searchForm">
-                <h4>Reddit Search using the <strong>"form Control.valueChanges"</strong></h4>
-                <input type="text" ngControl="searchField"  placeholder="Search Reddit"/>
+            <form [formGroup]="searchForm">
+                <h4>Reddit Search using the <strong>"form FormControl.valueChanges"</strong></h4>
+                <input type="text" formControlName="searchField"  placeholder="Search Reddit"/>
             </form>
             <img src="/images/loading.gif" *ngIf="loading">
             <div style="max-height: 300px; overflow: hidden; overflow-y: scroll">
@@ -28,13 +28,13 @@ import 'rxjs/add/operator/do';
     `,
 })
 export class RedditExample {
-    searchForm:ControlGroup;
+    searchForm:FormGroup;
     results:Observable<any[]>;
     loading:boolean = false;
 
     constructor(private http:Http) {
-        let searchField = new Control();
-        this.searchForm = new ControlGroup({searchField});
+        let searchField = new FormControl();
+        this.searchForm = new FormGroup({searchField});
 
         this.results = searchField.valueChanges
             .debounceTime(500)

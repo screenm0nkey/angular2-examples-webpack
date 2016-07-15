@@ -1,33 +1,30 @@
 import {Component} from '@angular/core';
-import {FormBuilder, ControlGroup, Control, Validators, FORM_DIRECTIVES, AbstractControl} from '@angular/common';
-
-interface ValidationResult {
-    [key:string]:boolean;
-}
+import { FormGroup, FormBuilder, FormControl, AbstractControl, REACTIVE_FORM_DIRECTIVES ,Validators} from '@angular/forms';
 
 @Component({
-    selector: 'form-three',
-    directives: [FORM_DIRECTIVES],
-    template: require('./form3.html'),
-    providers : [FormBuilder]
+    selector: 'form-five',
+    template: require('./form-5.html'),
+    directives : [ REACTIVE_FORM_DIRECTIVES]
 })
 
-export class Form3 {
-    myForm:ControlGroup;
+export class FormFive {
+    myForm:FormGroup;
     sku:AbstractControl;
     productName:string;
     payLoad : string = '';
 
-    constructor(fb:FormBuilder) {
+    constructor(private formBuilder: FormBuilder) {}
+
+    ngOnInit() {
         // 'Validators.compose' is used to add multiple validators to a control
-        this.myForm = fb.group({
+        this.myForm = this.formBuilder.group({
             firstName: ['', Validators.compose([Validators.required, Validators.minLength(4)])],
             sku: ["", Validators.compose([Validators.required, this.skuValidator])], //uses formbuilder control
             pku: ["12", Validators.required], //uses the NgFormControl directive export
             productName: ["", Validators.required] // uses ng-model
         });
 
-        // assigning "sku" here means we can do this in the form; <input [ngFormControl]="sku">
+        // assigning "sku" here means we can do this in the form; <input [FormControl]="sku">
         this.sku = this.myForm.controls['sku'];
 
         // rxjs observables can be used for keyup validation
@@ -48,13 +45,10 @@ export class Form3 {
     }
 
     // custom validator
-    skuValidator(control:AbstractControl):ValidationResult {
+    skuValidator(control:FormControl) {
         if (!control.value.match(/^123/)) {
             return {invalidSku: true};
         }
     }
-
-
-
-
 }
+

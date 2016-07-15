@@ -1,22 +1,22 @@
 <div class="miscellaneous">
     <nav>
         <inject-component></inject-component>
-        <a [routerLink]="['/MiscExamples/Customers']" class="router-link">Mini Customers App</a>
-        <a [routerLink]="['/MiscExamples/Chickens']" class="router-link">BrowserDomAdapter, Directives and<br>ForkJoin()</a>
-        <a [routerLink]="['/MiscExamples/Inventory']" class="router-link">@Inputs <br> @Outputs</a>
-        <a [routerLink]="['/MiscExamples/HostStuff']" class="router-link">@HostListener <br> @HostBinding</a>
-        <a [routerLink]="['/MiscExamples/Emitter']" class="router-link">Multi-content Projection</a>
-        <a [routerLink]="['/MiscExamples/ChangeDetection']" class="router-link">Change Detection</a>
-        <a [routerLink]="['/MiscExamples/Change2']" class="router-link">Change Detection and <br>Immutable Model</a>
-        <a [routerLink]="['/MiscExamples/FocusInput']" class="router-link">Focus an Input @ViewChild</a>
-        <a [routerLink]="['/MiscExamples/NgZone']" class="router-link">NgZone</a>
-        <a [routerLink]="['/MiscExamples/Accordian']" class="router-link">NgContent Accordian</a>
-        <a [routerLink]="['/MiscExamples/DynamicComponent']" class="router-link">Dynamic Component Loader</a>
-        <a [routerLink]="['/MiscExamples/RookieComponent']" class="router-link">@ContentChildren and ngContent</a>
-        <a [routerLink]="['/MiscExamples/ViewChildrenComponent']" class="router-link">@ViewChildren</a>
-        <a [routerLink]="['/MiscExamples/SocketApp']" class="router-link">Socket-io</a>
-        <a [routerLink]="['/MiscExamples/Notifications']" class="router-link">Notifications</a>
-        <a [routerLink]="['/MiscExamples/Tricks']" class="router-link">Tricks</a>
+        <a [routerLink]="['/misc', 'customers']" [routerLinkActive]="['active']">Mini Customers App</a>
+        <a [routerLink]="['/misc', 'chickens']" [routerLinkActive]="['active']">BrowserDomAdapter, Directives and<br>ForkJoin()</a>
+        <a [routerLink]="['/misc', 'inventory']" [routerLinkActive]="['active']">@Inputs <br> @Outputs</a>
+        <a [routerLink]="['/misc', 'hoststuff']" [routerLinkActive]="['active']">@HostListener <br> @HostBinding</a>
+        <a [routerLink]="['/misc', 'emitter']" [routerLinkActive]="['active']">Multi-content Projection</a>
+        <a [routerLink]="['/misc', 'change-detection']" [routerLinkActive]="['active']">Change Detection</a>
+        <a [routerLink]="['/misc', 'change2']" [routerLinkActive]="['active']">Change Detection and <br>Immutable Model</a>
+        <a [routerLink]="['/misc', 'focus-input']" [routerLinkActive]="['active']">Focus an Input @ViewChild</a>
+        <a [routerLink]="['/misc', 'ngzone']" [routerLinkActive]="['active']">NgZone</a>
+        <a [routerLink]="['/misc', 'accordian']" [routerLinkActive]="['active']">NgContent Accordian</a>
+        <a [routerLink]="['/misc', 'dynamic-component']" [routerLinkActive]="['active']">Dynamic Component Loader</a>
+        <a [routerLink]="['/misc', 'rookie-mistakes']" [routerLinkActive]="['active']">@ContentChildren and ngContent</a>
+        <a [routerLink]="['/misc', 'view-children']" [routerLinkActive]="['active']">@ViewChildren</a>
+        <a [routerLink]="['/misc', 'socket-io']" [routerLinkActive]="['active']">Socket-io</a>
+        <a [routerLink]="['/misc', 'notifications']" [routerLinkActive]="['active']">Notifications</a>
+        <a [routerLink]="['/misc', 'tricks']" [routerLinkActive]="['active']">Tricks</a>
     </nav>
     <div id="container">
         <router-outlet></router-outlet>

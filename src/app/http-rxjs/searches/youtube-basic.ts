@@ -1,22 +1,19 @@
 import { Component } from '@angular/core';
-import {FormBuilder, Validators, ControlGroup, Control, FORM_DIRECTIVES} from '@angular/common';
+import { REACTIVE_FORM_DIRECTIVES, FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import * as Rx from "rxjs/Rx";
 import {YoutubeService} from './youtube-helpers/youtube-service';
 import {YoutubeResultComponent} from './youtube-helpers/youtube-result-component';
 
-
-
-
 @Component({
     selector: 'youtube-basic-example',
     providers: [FormBuilder, YoutubeService],
-    directives : [FORM_DIRECTIVES, YoutubeResultComponent],
+    directives : [REACTIVE_FORM_DIRECTIVES, YoutubeResultComponent],
     template: `
         <div class="search-results">
-            <form [ngFormModel]="form" (submit)="onSubmit(f)" #f="ngForm">
+            <form [formGroup]="form" #f="ngForm" (ngSubmit)="onSubmit(f)">
                 <div style="max-height: 300px; overflow: hidden; overflow-y: scroll">
                     <h4><label for="yts">Youtube basic search example </label></h4>
-                    <input type="text" class="form-control" id="yst" placeholder="Youtube Search" ngControl="youtubeSearch">
+                    <input type="text" class="form-control" id="yst" placeholder="Youtube Search" formControlName="youtubeSearch">
                 </div>
                 <youtube-result-component *ngFor="let result of results" [result]="result"></youtube-result-component>
             </form>
@@ -25,7 +22,7 @@ import {YoutubeResultComponent} from './youtube-helpers/youtube-result-component
 })
 
 export class YoutubeBasicExample {
-    form : ControlGroup;
+    form : FormGroup;
     source:Rx.Observable<any>;
     observer:Rx.Observer<any>;
     results:any[] = [];

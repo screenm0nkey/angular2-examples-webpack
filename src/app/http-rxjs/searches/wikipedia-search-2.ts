@@ -1,7 +1,7 @@
 import {Component, Injectable} from '@angular/core';
-import {Control} from '@angular/common';
 import {JSONP_PROVIDERS, URLSearchParams, Jsonp} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
+import {REACTIVE_FORM_DIRECTIVES, FormControl} from '@angular/forms';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
@@ -35,10 +35,11 @@ class WikipediaService {
 @Component({
     selector: 'wikipedia-super-search',
     providers: [JSONP_PROVIDERS, WikipediaService],
+    directives : [REACTIVE_FORM_DIRECTIVES],
     template: `
     <div>
-      <h4>Using the ngFormControl.valueChanges Observable</h4>
-      Search <input type="text" [ngFormControl]="term" placeholder="Wikipedia Search"/>
+      <h4>Using the formControl.valueChanges Observable</h4>
+      Search <input type="text" [formControl]="term" placeholder="Wikipedia Search"/>
       <ul>
         <li *ngFor="let item of items$ | async">{{item}}</li>
       </ul>
@@ -47,7 +48,7 @@ class WikipediaService {
 })
 export class WikipediaSuperSearch {
     items$: Observable<Array<string>>;
-    term = new Control();
+    term = new FormControl();
     valueChanges$ :Observable<any> = this.term.valueChanges; //
 
     constructor(private wikipediaService: WikipediaService) {

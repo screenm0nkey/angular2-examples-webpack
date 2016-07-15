@@ -38,7 +38,6 @@ class Accordion {
     selector: 'accordion-group, [accordion-group]',
     inputs: ['heading', 'isOpen'],
     encapsulation: ViewEncapsulation.Native,
-    styleUrls: [require('../../../../bootstrap.css')],
     template: `
     <div class="panel panel-default" [ngClass]="{'panel-open': isOpen}">
         <div class="panel-heading" (click)="toggleOpen($event)">

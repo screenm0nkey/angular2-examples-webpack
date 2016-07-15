@@ -1,8 +1,13 @@
-<h3>Repo list</h3>
-<ul>
+<h4>Repo list</h4>
+<ul  style="border:solid 2px blue; float: left; width:30%">
 	<li *ngFor="let repo of repos | async">
-    <a [routerLink]=" ['RepoDetail', {org: repo.owner.login, name: repo.name}] ">
+    <a [routerLink]="['/seed', 'github', repo.owner.login, repo.name]" [routerLinkActive]="['active']">
       {{ repo.name }}
     </a>
   </li>
 </ul>
+
+<div style="border:solid 2px red; float: left;width:60%">
+    <router-outlet></router-outlet>
+</div>
+

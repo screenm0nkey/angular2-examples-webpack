@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Router, CanReuse, OnReuse, OnActivate, OnDeactivate, ComponentInstruction} from '@angular/router-deprecated';
+import {Router, CanReuse, OnReuse, OnActivate, OnDeactivate, ComponentInstruction} from '@angular/router';
 
 @Component({
     template: `
@@ -11,7 +11,7 @@ be reused and the OnDeactivate hook will be run. If routerCanReuse returns
 or resolves to false, a new component will be instantiated, and the existing 
 component will be deactivated and removed as part of the navigation.
 </pre>
-    <button (click)="changeLocation()">Jump to Egghead example</button>
+    <button (click)="changeLocation()">Jump to Angular Seed</button>
     <a href="https://github.com/angular/router/issues/396" target="_blank">CanDeactivate CanReuse</a>
     <a href="https://angular.io/docs/ts/latest/guide/router-deprecated.html">Router Docs</a>
   `
@@ -24,7 +24,7 @@ export class RouterMainComponent implements CanReuse, OnReuse, OnActivate, OnDea
 
     changeLocation() {
         console.log("you should do this manually in your browser");
-        this.router.navigate(['/Egghead', {foo:"bar"}]); //egghead?foo=bar
+        this.router.navigate(['/seed', 'github', 'angular', {foo:"bar"}]); //egghead?foo=bar
     }
 
     /*

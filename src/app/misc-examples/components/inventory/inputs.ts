@@ -40,7 +40,7 @@ class ProductImage {
     directives: [],
     template: `
         <div class="product-department">
-            <span *ngFor="let name of product.department; #i=index">
+            <span *ngFor="let name of product.department; let i=index">
             <a href="#">{{ name }}</a>
             <span *ngIf="i < (product.department.length-1)">&gt;</span>
             </span>

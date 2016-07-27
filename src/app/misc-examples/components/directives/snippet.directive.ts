@@ -7,11 +7,10 @@ interface Snippet {
 }
 
 
-
 @Directive({
     selector: '[uiSnippets]',
     host: {
-        '(input)': 'onChange($event)'
+        '(input)': 'onChange($event)' // map the input event to the onChange handler
     }
 })
 export class UISnippets {
@@ -23,6 +22,7 @@ export class UISnippets {
     }
 
     onChange($event) {
+        debugger
         if ($event.target.value.match(this._snippetRegex) !== null) {
             $event.target.value = this._getValue($event.target.value);
         }

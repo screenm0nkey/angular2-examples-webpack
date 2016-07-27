@@ -21,7 +21,7 @@ import 'rxjs/add/operator/mapTo';
 import 'rxjs/add/observable/bindCallback';
 import 'rxjs/add/observable/merge';
 import {Subject} from 'rxjs/Subject';
-import {WikipediaService} from './wikipedia-search.service';
+import {WikipediaService} from '../searches/wikipedia-search.service';
 import {Observable} from 'rxjs/Observable';
 
 @Component({
@@ -97,7 +97,6 @@ export class JohnLinquistWikiSearch {
             .share();
 
         results$.subscribe(val =>console.log(7, val));
-
 
         this.images$ = Observable.merge(results$, clear$.map(term => []));
 

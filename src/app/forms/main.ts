@@ -17,6 +17,7 @@ import routes from './routes';
                 <a [routerLink]="['/form', 'form-six']" [routerLinkActive]="['active']">Form 6</a>
                 <a [routerLink]="['/form', 'form-seven']" [routerLinkActive]="['active']">Form 7</a>
                 <a [routerLink]="['/form', 'form-eight']" [routerLinkActive]="['active']">Form 8</a>
+                <a [routerLink]="['/form', 'form-nine']" [routerLinkActive]="['active']">Form 9</a>
             </nav>
             <div id="container">
                 <pre>

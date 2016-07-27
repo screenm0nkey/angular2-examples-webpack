@@ -13,7 +13,7 @@ class NgModelStatus {
         this.smvalue = 'Default Valuez';
         // this will update the view input's value
         setTimeout(()=>this.smvalue='something else', 2000); // changes the input's text
-        setTimeout(()=>this.isFixed=false, 2000); // changes the inputs colour
+        setTimeout(()=>this.isFixed=false, 4000); // changes the inputs colour
     }
 
     // it's binding the input element's 'value' property to this.smvalue.
@@ -45,8 +45,9 @@ class NgModelStatus {
     styles: ['.fixed-mixed {color: red}'],
     template: `
         <pre>@HostBinding('value') smvalue: string;</pre>
-        <p> @HostBinding binds the "smvalue" value of the directive to the host element's value
+        <p> @HostBinding binds the "smvalue" value of the directive to the host element's value <br>
             property using. As the element is an &lt;input&gt; it sets the value of the input.
+            Try typing into the input.
         </p>
         <input silly-input>
     `,

@@ -11,6 +11,7 @@ import routes from './routes'
     <div class="miscellaneous">
         <nav>
             <a [routerLink]="['/httprx', 'http-examples']" [routerLinkActive]="['active']">Http/RxJs Searches</a>
+            <a [routerLink]="['/httprx', 'john-linquist']" [routerLinkActive]="['active']">John Linquist</a>
             <a [routerLink]="['/httprx', 'misc-examples']" [routerLinkActive]="['active']">Http/RxJs Misc Examples</a>
             <a [routerLink]="['/httprx', 'echonest-app']" [routerLinkActive]="['active']">Echonest RxJs</a>
             <a [routerLink]="['/httprx', 'ngrx']" [routerLinkActive]="['active']">NgRx Clock App</a>

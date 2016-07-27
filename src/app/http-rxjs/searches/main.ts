@@ -8,8 +8,6 @@ import {YoutubeBasicExample} from './youtube-basic';
 import {LocalRefSearch} from './local-ref-search';
 import {RedditExample} from './reddit';
 import {YoutubeExample} from './youtube-ng2-book';
-import {JohnLinquistWikiSearch} from './wikipedia-john-linquist';
-import {StarWarsComponent} from './star-wars';
 
 
 // these query strings will be added everywhere. note I've removed
@@ -22,10 +20,6 @@ class MyOptions extends BaseRequestOptions {
 @Component({
     selector: 'app-component',
     template: `
-        <john-linquist-wiki></john-linquist-wiki>
-        <hr>
-        <star-wars></star-wars>
-        <hr>
         <wikipedia-super-search></wikipedia-super-search>
         <wikipedia-promise></wikipedia-promise>
         <wikipedia-observable></wikipedia-observable>
@@ -43,8 +37,6 @@ class MyOptions extends BaseRequestOptions {
         <reddit-example></reddit-example>
     `,
     directives: [
-        JohnLinquistWikiSearch,
-        StarWarsComponent,
         WikipediaSuperSearch,
         JsonpWikipediaPromise,
         WikipediaObservable,

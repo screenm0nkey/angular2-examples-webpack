@@ -39,6 +39,20 @@ h4 {
     z-index: 2;
     margin-bottom: 4px;
 }
+button {
+    background: #3498db;
+    background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+    background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+    background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+    background-image: -o-linear-gradient(top, #3498db, #2980b9);
+    background-image: linear-gradient(to bottom, #3498db, #2980b9);
+    border-radius: 4px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 12px;
+    padding: 3px 10px;
+    text-decoration: none;
+}
 pre.limit-height {
     height: 200px;
     overflow: scroll;

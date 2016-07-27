@@ -9,6 +9,7 @@ import { Component, Directive, HostListener} from '@angular/core';
 class CountClicks {
     numberOfClicks = 0;
 
+
     @HostListener('mouseup', ['$event'])
     onMouseup(evt:EventListenerObject) {
         console.log("mouseUp", evt);

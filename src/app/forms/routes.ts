@@ -6,6 +6,7 @@ import {FormFive} from './form-5';
 import {FormSix} from './form-6';
 import {FormSeven} from './form-7';
 import {FormEight} from './dynamic/form-8';
+import {FormNine} from './form-9';
 
 export default [
     { path: '', component: FormOne },
@@ -16,6 +17,7 @@ export default [
     { path: 'form-five', component: FormFive },
     { path: 'form-six', component: FormSix },
     { path: 'form-seven', component: FormSeven },
-    { path: 'form-eight', component: FormEight }
+    { path: 'form-eight', component: FormEight },
+    { path: 'form-nine', component: FormNine },
 
 ]

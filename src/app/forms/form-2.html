@@ -1,5 +1,4 @@
-<h1>Template driven forms - ngForm, ngModel, ngModelGroup</h1>
-<h3>= form1.ts in old</h3>
+<h4><strong>Template driven forms</strong> - ngForm, ngModel, ngModelGroup</h4>
 
 <pre style="padding: 0;"><h3 style="margin: 0;">
         &lt;form #form="ngForm" (ngSubmit)="logForm(form.value, n)" #n="ngNickForm" formnick&gt;
@@ -8,18 +7,25 @@
     </h3></pre>
 
 <pre>
-    NgForm does something handy but non-obvious: it includes the form tag in its
-    selector (instead of requiring you to explicitly add ngForm as an attribute).
-    What this means is that if you inject FORM_DIRECTIVES, NgForm will get
-    automatically attached to any &lt;form&gt; tags you have in your view. This is really
-    useful but potentially confusing because it happens behind the scenes.
+NgForm does something handy but non-obvious: it includes the form tag in its
+selector (instead of requiring you to explicitly add ngForm as an attribute).
+What this means is that if you inject FORM_DIRECTIVES, ngForm will get
+automatically attached to any &lt;form&gt; tags you have in your view. This is really
+useful but potentially confusing because it happens behind the scenes.
 
 
-    If ngModel is used within a form tag, either the name attribute must be set or
-    the form control must be defined as 'standalone' in ngModelOptions.<h3>
-  Example 1: &lt;input [(ngModel)]="person.firstName" name="first"&gt;
-  Example 2: &lt;input [(ngModel)]="person.firstName" [ngModelOptions]="{standalone: true}"&gt;
-  </h3>
+If ngModel is used within a form tag, either the name attribute must be set or
+the form control must be defined as 'standalone' in ngModelOptions.
+Example 1: &lt;input [(ngModel)]="person.firstName" name="first"&gt;
+Example 2: &lt;input [(ngModel)]="person.firstName" [ngModelOptions]="{standalone: true}"&gt;
+
+
+Every form control that is registered with ngModel will automatically show up in form.value
+
+&lt;input type="text" name="lastname" ngModel&gt; // registering it on the form
+&lt;input type="text" name="lastname" [ngModel]="lastname"&gt; // one-way binding
+&lt;input type="text" name="lastname" [(ngModel)]="lastname"&gt; // two-way binding
+
 </pre>
 
 <a href="http://blog.thoughtram.io/angular/2016/03/21/template-driven-forms-in-angular-2.html">

@@ -10,6 +10,7 @@ import {REACTIVE_FORM_DIRECTIVES, FormControl, FormGroup, FormArray} from '@angu
 })
 export class FormNine {
     form: FormGroup;
+    payOffsFormArray : FormArray;
     myModel:any;
 
     constructor() {
@@ -18,21 +19,23 @@ export class FormNine {
         this.myModel = {
             name: "Joanna Jedrzejczyk",
             payOffs: [
-                {amount: 111.11, date: "Jan 1, 2016", final: false},
-                {amount: 222.22, date: "Jan 2, 2016", final: true}
+                {amount: 111.11, date: "Jan 1, 2016", number:3, final: false},
+                {amount: 222.22, date: "Jan 2, 2016", number:11,final: true}
             ]
         };
+
+        this.payOffsFormArray = new FormArray([]);
 
         // initialize form with empty FormArray for payOffs
         this.form = new FormGroup({
             name: new FormControl(''),
-            payOffs: new FormArray([])
+            payOffs: this.payOffsFormArray
         });
 
         // now we manually use the model and push a FormGroup into the form's FormArray for each PayOff
         this.myModel.payOffs.forEach(
             (po) =>
-                this.form.controls.payOffs.push(this.createPayOffFormGroup(po))
+                this.payOffsFormArray.push(this.createPayOffFormGroup(po))
         );
     }
 
@@ -41,7 +44,8 @@ export class FormNine {
         return new FormGroup({
             amount: new FormControl(payOffObj.amount),
             date: new FormControl(payOffObj.date),
-            final: new FormControl(payOffObj.final)
+            number: new FormControl(payOffObj.number),
+            final: new FormControl(payOffObj.final),
         });
     }
 
@@ -49,15 +53,16 @@ export class FormNine {
         event.preventDefault(); // ensure this button doesn't try to submit the form
         var emptyPayOff = {amount: null, date: null, final: false};
 
-        // add pay off to both the model and to form controls because I don't think Angular has any way to do this automagically yet
+        // add pay off to both the model and to form controls because
+        // I don't think Angular has any way to do this automagically yet
         this.myModel.payOffs.push(emptyPayOff);
-        this.form.controls.payOffs.push(this.createPayOffFormGroup(emptyPayOff));
-        console.log("Added New Pay Off", this.form.controls.payOffs)
+        this.payOffsFormArray.push(this.createPayOffFormGroup(emptyPayOff));
+        console.log("Added New Pay Off", this.payOffsFormArray)
     }
 
     deletePayOff(index:number) {
         // delete payoff from both the model and the FormArray
         this.myModel.payOffs.splice(index, 1);
-        this.form.controls.payOffs.removeAt(index);
+        this.payOffsFormArray.removeAt(index);
     }
 }

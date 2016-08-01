@@ -32,10 +32,17 @@
 <div class="input-controls">
     <h4>Select your programming skills</h4>
     <div>
-        <label><input #angularcb type="checkbox" (change)="angular = angularcb.checked" [(ngModel)]="angular"/>Angular</label>
+        <label>
+            <input #angularcb
+                      type="checkbox"
+                      (change)="angular = angularcb.checked"
+                      [(ngModel)]="angular"/>
+            Angular
+        </label>
     </div>
     <div>
-        <label><input #javascriptcb type="checkbox" (change)="javascript = javascriptcb.checked" [(ngModel)]="javacript"/>JavaScript</label>
+        <label><input #javascriptcb type="checkbox" (change)="javascript = javascriptcb.checked"
+                      [(ngModel)]="javacript"/>JavaScript</label>
     </div>
     <div>
         <label><input #csharpcb type="checkbox" (change)="csharp = csharpcb.checked" [(ngModel)]="csharp"/>C#</label>

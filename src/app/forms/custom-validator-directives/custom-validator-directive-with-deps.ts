@@ -26,7 +26,11 @@ function validateEmailFactory(emailBlackList:EmailBlackListService) {
     selector: '[validateEmailDeps][ngModel],[validateEmailDeps][formControl]',
     providers: [
         EmailBlackListService,
-        {provide: NG_VALIDATORS, useExisting: forwardRef(() => EmailValidatorWithDeps), multi: true}
+        {
+            provide: NG_VALIDATORS,
+            useExisting: forwardRef(() => EmailValidatorWithDeps),
+            multi: true
+        }
     ]
 })
 export class EmailValidatorWithDeps implements Validator {

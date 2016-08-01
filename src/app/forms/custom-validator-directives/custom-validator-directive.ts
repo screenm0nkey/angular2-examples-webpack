@@ -18,7 +18,11 @@ function validateEmail(c:FormControl) {
 @Directive({
     selector: '[validateEmail][ngModel]',
     providers: [
-        {provide : NG_VALIDATORS, useValue: validateEmail, multi: true }// multi-provider
+        {
+            provide : NG_VALIDATORS,
+            useValue: validateEmail,
+            multi: true // multi-provider
+        }
     ]
 })
 export class EmailValidator {}

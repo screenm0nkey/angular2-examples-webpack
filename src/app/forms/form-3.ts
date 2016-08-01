@@ -22,7 +22,8 @@ function validateEmail(c: FormControl) {
 })
 
 export class FormThree {
-    // make the control instance available to the form
+    // make the control instance available to the form as you can't exportAs
+    // like you can in template driven forms
     nameCtrl = new FormControl('', Validators.required);
 
     registerForm = new FormGroup({

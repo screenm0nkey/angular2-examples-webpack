@@ -44,7 +44,7 @@ export class FormFive {
         this.payLoad = JSON.stringify(value);
     }
 
-    // custom validator
+    // custom validateMyCounter
     skuValidator(control:FormControl) {
         if (!control.value.match(/^123/)) {
             return {invalidSku: true};

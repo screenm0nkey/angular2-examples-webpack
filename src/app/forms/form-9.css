@@ -11,6 +11,7 @@ input {
     padding: .25em 1em;
     color: green;
     font-size: 1em;
+    width : 105px;
 }
 
 h1 {

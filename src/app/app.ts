@@ -1,10 +1,13 @@
-import { Component, ViewEncapsulation} from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
+import {Component, ViewEncapsulation} from '@angular/core';
+import {ROUTER_DIRECTIVES} from '@angular/router';
 
 @Component({
-  selector: 'main-app',
-  directives: [ ROUTER_DIRECTIVES ],
-    styles : [require('../styles/app.css'), require('../styles/main.css')],
+    selector: 'main-app',
+    directives: [ROUTER_DIRECTIVES],
+    styles: [
+        require('../styles/app.css'),
+        require('../styles/main.css')
+    ],
     template: `
         <nav>
             <a [routerLink]="['/form']" [routerLinkActive]="['active']">Forms</a>
@@ -13,7 +16,6 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
             <a [routerLink]="['/lifecycle']" [routerLinkActive]="['active']">Lifecycle</a>
             <a [routerLink]="['/misc']" [routerLinkActive]="['active']">Miscellaneous</a>
             <a [routerLink]="['/httprx']" [routerLinkActive]="['active']">Http and RxJs</a>
-            <a [routerLink]="['/router']" [routerLinkActive]="['active']">Router</a>
         </nav>
         
         <main>
@@ -23,6 +25,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
     encapsulation: ViewEncapsulation.None
 })
 export class App {
-  constructor() {}
+    constructor() {
+    }
 
 }

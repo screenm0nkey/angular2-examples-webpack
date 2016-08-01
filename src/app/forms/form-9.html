@@ -32,6 +32,9 @@
                     <input type="text" [formControl]="po.controls.date" [(ngModel)]="myModel.payOffs[i].date">
                 </td>
                 <td>
+                    <input type="number" [formControl]="po.controls.number" [(ngModel)]="myModel.payOffs[i].number">
+                </td>
+                <td>
                     <input type="checkbox" [formControl]="po.controls.final" [(ngModel)]="myModel.payOffs[i].final">
                 </td>
                 <td>

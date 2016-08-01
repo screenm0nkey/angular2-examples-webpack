@@ -10,7 +10,7 @@
     "start": "./node_modules/.bin/webpack-dev-server --inline --colors --progress --display-error-details --display-cached --port 3000  --content-base src"
   },
   "license": "MIT",
-  "nickAddedDependencies" : {
+  "nickAddedDependencies": {
     "express": "^4.13.4",
     "express-cors": "0.0.3",
     "body-parser": "^1.15.0",
@@ -21,7 +21,6 @@
     "express": "^4.13.4",
     "express-cors": "0.0.3",
     "body-parser": "^1.15.0",
-
     "angular2-template-loader": "^0.4.0",
     "awesome-typescript-loader": "^1.1.1",
     "css-loader": "^0.23.1",
@@ -36,9 +35,6 @@
     "webpack-merge": "^0.8.4"
   },
   "dependencies": {
-    "@ngrx/store": "^1.5.0",
-    "socket.io-client": "^1.4.6",
-
     "@angular/common": "2.0.0-rc.4",
     "@angular/compiler": "2.0.0-rc.4",
     "@angular/core": "2.0.0-rc.4",
@@ -48,9 +44,11 @@
     "@angular/platform-browser-dynamic": "2.0.0-rc.4",
     "@angular/platform-server": "2.0.0-rc.4",
     "@angular/router": "3.0.0-beta.2",
+    "@ngrx/store": "^1.5.0",
     "core-js": "^2.2.0",
     "ie-shim": "^0.1.0",
     "rxjs": "5.0.0-beta.6",
+    "socket.io-client": "^1.4.6",
     "zone.js": "~0.6.12"
   },
   "keywords": [
@@ -65,4 +63,3 @@
   },
   "homepage": "https://github.com/screenm0nkey/angular2-examples-webpack#readme"
 }
-

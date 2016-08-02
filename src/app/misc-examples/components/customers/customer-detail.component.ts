@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 import {ROUTER_DIRECTIVES, ActivatedRoute} from '@angular/router';
 
-import {DataService} from './data.service';
+import {DataService} from './services/data.service';
 import {Customer} from "./customer.model";
-import {XLarge} from './x-large.directive';
+import {XLarge} from './directives/x-large.directive';
 
 @Component({
     selector: 'orders-component',

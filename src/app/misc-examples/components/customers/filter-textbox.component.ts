@@ -24,6 +24,6 @@ export class FilterTextComponent {
 
     filterChanged(evt: Event) {
         evt.preventDefault();
-        this.changed.next(this.model.filter)
+        this.changed.emit(this.model.filter)
     }
 }

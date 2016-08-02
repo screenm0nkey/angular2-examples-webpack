@@ -7,7 +7,6 @@ import {Http} from '@angular/http';
   pipes: [],
   providers: [],
   directives: [],
-  styleUrls: ['./about.css'],
   templateUrl: './about.html'
 })
 export class About {

@@ -2,19 +2,19 @@ import {Component, OnInit} from '@angular/core';
 import {ROUTER_DIRECTIVES, ActivatedRoute} from '@angular/router';
 
 import {Customer} from "./customer.model";
-import {DataService} from './data.service';
+import {DataService} from './services/data.service';
 import {FilterTextComponent} from './filter-textbox.component';
-import {CapitalizePipe} from './capitalize.pipe';
-import {Sorter} from './sorter.service';
-import {SortByDirective} from './sortby.directive';
+import {CapitalizePipe} from './services/capitalize.pipe';
+import {Sorter} from './services/sorter.service';
+import {SortByDirective} from './directives/sortby.directive';
 
 @Component({
     selector: 'customers-component',
-    template: require('./customers.tmpl.html'),
+    templateUrl: './customers.tmpl.html',
     directives: [ROUTER_DIRECTIVES, FilterTextComponent, SortByDirective],
     providers: [DataService, Sorter],
     pipes: [CapitalizePipe],
-    styles: [require('./customers.css')]
+    styleUrls: ['./customers.css']
 })
 export class CustomersComponent implements OnInit {
     filterText:string;
@@ -24,7 +24,6 @@ export class CustomersComponent implements OnInit {
 
     constructor(public dataService:DataService, public sorter:Sorter) {
         this.customers = [];
-        console.log(this);
     }
 
     ngOnInit() {

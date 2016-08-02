@@ -1,4 +1,4 @@
-import {CustomersComponent} from './components/customers/customers.component';
+import {CustomersComponent} from './components/customers/customers.main.component';
 import {CustomerDetailComponent} from './components/customers/customer-detail.component';
 import {ChickensComponent} from './components/chickens/main.component';
 import {InventoryApp} from './components/inventory/inputs';
@@ -17,7 +17,7 @@ import {TricksMainComponent} from './components/tricks/main';
 import {AppComponent} from './components/notifications/app.component';
 
 export default [
-    {path: '', redirectTo: 'customers', pathMatch: 'full' },
+    {path: '', redirectTo: 'customers', terminal: true},
     {path: 'customers', component: CustomersComponent},
     {path: 'customers/:id', component: CustomerDetailComponent},
     {path: 'chickens', component: ChickensComponent},

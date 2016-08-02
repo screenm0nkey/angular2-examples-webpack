@@ -22,7 +22,6 @@ export class UISnippets {
     }
 
     onChange($event) {
-        debugger
         if ($event.target.value.match(this._snippetRegex) !== null) {
             $event.target.value = this._getValue($event.target.value);
         }

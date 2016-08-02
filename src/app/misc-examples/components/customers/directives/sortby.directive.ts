@@ -9,6 +9,7 @@ export class SortByDirective {
 
     constructor(el:ElementRef) {
         this.sortProperty = el.nativeElement.getAttribute('sort-by');
+        console.log(el.nativeElement);
         el.nativeElement.addEventListener('click', evt => this.elementClicked(evt));
     }
 
@@ -16,6 +17,6 @@ export class SortByDirective {
         event.preventDefault();
         // note. this event will only propergate up to the element which uses the directive.
         // it does not emit to all elements which are implementing the (sorting) event
-        this.sorted.next(this.sortProperty);
+        this.sorted.emit(this.sortProperty);
     }
 }

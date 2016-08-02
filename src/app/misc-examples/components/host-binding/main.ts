@@ -1,13 +1,13 @@
 import {Component} from '@angular/core'
-import { HostOne } from './host-one';
-import { HostOnePartTwo } from './host-one-part-2';
-import { HostTwo } from './host-two';
-import { HostThree } from './host-three';
+import {HostOne} from './host-one';
+import {HostOnePartTwo} from './host-one-part-2';
+import {HostTwo} from './host-two';
+import {HostThree} from './host-three';
 
 @Component({
-    selector: 'host-stuff-component',
-    styles : [`h4 {font-weight: bold;color:darkred}`],
-    template: `
+  selector: 'host-stuff-component',
+  styles: [`h4 {font-weight: bold;color:darkred}`],
+  template: `
         <pre><h2>@HostListener @HostBinding</h2></pre>
         <hr>
         
@@ -27,6 +27,7 @@ import { HostThree } from './host-three';
         <host-three-component></host-three-component>
 
     `,
-    directives: [HostOne, HostOnePartTwo, HostTwo, HostThree]
+  directives: [HostOne, HostOnePartTwo, HostTwo, HostThree]
 })
-export class HostStuffComponent {}
+export class HostStuffComponent {
+}

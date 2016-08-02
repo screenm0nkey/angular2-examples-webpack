@@ -5,8 +5,7 @@ export class Sorter {
     property:string = null;
     direction:number = 1;
 
-    constructor() {
-    }
+    constructor() {}
 
     sort(collection, prop) {
         this.property = prop;

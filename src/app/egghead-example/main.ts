@@ -1,9 +1,9 @@
 import {Component} from "@angular/core";
-import {SearchBox} from "./search/components/search-box";
-import {TodoInput} from "./todo/components/todo-input";
-import {TodoList} from "./todo/components/todo-list";
-import {StatusSelector} from "./todo/components/status-selector";
-import {TodoService} from "./todo/services/todo-service";
+import {SearchBox} from "./components/search-box";
+import {TodoInput} from "./components/new-todo-input";
+import {TodoList} from "./components/todo-list";
+import {StatusSelector} from "./components/status-selector";
+import {TodoService} from "./services/todo-service";
 
 @Component({
     selector: 'eggehead-app',
@@ -16,6 +16,7 @@ import {TodoService} from "./todo/services/todo-service";
             padding: 20px;
             border-radius: 5px;
             border: solid 3px darkgrey;
+            display : table;
         }
     `]
 })

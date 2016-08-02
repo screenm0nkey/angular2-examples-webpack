@@ -3,7 +3,7 @@ import {TodoService} from "../services/todo-service";
 import {TodoModel} from "../services/todo-model";
 
 @Component({
-    selector: 'todo-input',
+    selector: 'new-todo',
     template: `<div>
     <form (submit)="onSubmit()">
         <input type="text" [(ngModel)]="todoModel.title" name="title" placeholder="New item">

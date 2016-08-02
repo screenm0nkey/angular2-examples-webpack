@@ -7,6 +7,8 @@ import {Component, Output, EventEmitter} from "@angular/core";
     </div>`
 })
 export class SearchBox{
+    // 'update' is the name of the event the parent will listen for
+    // i.e. (update)="term = $event"
     @Output() update = new EventEmitter();
 
     ngOnInit(){

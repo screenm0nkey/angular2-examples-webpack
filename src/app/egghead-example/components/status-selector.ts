@@ -15,6 +15,7 @@ export class StatusSelector{
     statuses = ["started", "completed"];
 
     ngOnInit(){
+        // default to selected
         this.select.emit(this.statuses[0]);
     }
 }

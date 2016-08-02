@@ -6,7 +6,7 @@ import {AfterContentParentComponent} from './after-content/after-content-parent.
 import {BasicExample} from './basic-overview/index';
 
 export default [
-    {path: '', redirectTo: 'overview', terminal: true},
+    {path: '', redirectTo: 'overview', pathMatch: 'full' },
     {path: 'overview', component: BasicExample},
     {path: 'peekaboo', component: PeekABooParentComponent},
     {path: 'spy', component: SpyParentComponent},

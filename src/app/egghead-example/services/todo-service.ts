@@ -23,7 +23,6 @@ export class TodoService{
     }
 
     toggleTodo(todo:TodoModel){
-
         const i = this.todos.indexOf(todo);
         const status = todo.status == "started" ? "completed" : "started";
         const toggledTodo = (<any>Object).assign({}, todo, {status});

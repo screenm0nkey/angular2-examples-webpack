@@ -17,7 +17,7 @@ import {TricksMainComponent} from './components/tricks/main';
 import {AppComponent} from './components/notifications/app.component';
 
 export default [
-    {path: '', redirectTo: 'customers', terminal: true},
+    {path: '', redirectTo: 'customers', pathMatch: 'full' },
     {path: 'customers', component: CustomersComponent},
     {path: 'customers/:id', component: CustomerDetailComponent},
     {path: 'chickens', component: ChickensComponent},

@@ -6,7 +6,7 @@ import {NgRxInTenMinsComponent} from './ngrx-in-ten/main';
 import {JohnLinquistExamples} from './john-linquist/main';
 
 export default [
-    {path: '', redirectTo: 'http-examples', terminal: true},
+    {path: '', redirectTo: 'http-examples', pathMatch: 'full' },
     {path: 'http-examples', component: HttpExamples},
     {path: 'john-linquist', component: JohnLinquistExamples},
     {path: 'misc-examples', component: MiscHttpExamples},

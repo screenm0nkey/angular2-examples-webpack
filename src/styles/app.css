@@ -55,11 +55,6 @@ button {
     padding: 3px 10px;
     text-decoration: none;
 }
-pre.limit-height {
-    height: 200px;
-    overflow: scroll;
-    display: inline-block;
-}
 hr{
     border: 0;
     box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
@@ -99,13 +94,17 @@ nav .active:hover {
 nav a:hover {
     background-color: #666;
 }
-
 pre {
     font-size: 13px;
-    padding: 15px 5px 0px 5px;
+    padding: 5px 10px;
     margin:10px 0;
     display: table;
     background-color: white;
+}
+pre.limit-height {
+    height: 200px;
+    overflow: scroll;
+    display: inline-block;
 }
 .ng-dirty.ng-invalid { border : 1px red solid }
 .has-error {

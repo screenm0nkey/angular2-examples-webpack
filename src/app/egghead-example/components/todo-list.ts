@@ -14,8 +14,8 @@ import {SearchPipe} from "../pipes/search-pipe";
             <li *ngFor="let todo of todoService.todos | started : status | search : term">
                 <todo-item-renderer
                     [todo]="todo"
-                    (toggle)="todoService.toggleTodo($event)"
-                ></todo-item-renderer>
+                    (toggle)="todoService.toggleTodo($event)">
+                </todo-item-renderer>
             </li>
         </ul>
     </div>`

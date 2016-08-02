@@ -16,9 +16,9 @@ import routes from './routes';
                 <a [routerLink]="['/form', 'form-five']" [routerLinkActive]="['active']">Form 5 - Model driven observing changes using valueChanges.subscribe()</a>
                 <a [routerLink]="['/form', 'form-six']" [routerLinkActive]="['active']">Form 6 Asynchonous form validation</a>
                 <a [routerLink]="['/form', 'form-seven']" [routerLinkActive]="['active']">Form 7 - Custom validator directives for Template driven forms</a>
-                <a [routerLink]="['/form', 'form-eight']" [routerLinkActive]="['active']">Form 8 - Dynamic Form</a>
-                <a [routerLink]="['/form', 'form-nine']" [routerLinkActive]="['active']">Form 9 - Dynamic Nested Form elements</a>
-                <a [routerLink]="['/form', 'form-ten']" [routerLinkActive]="['active']">Ten</a>
+                <a [routerLink]="['/form', 'form-eight']" [routerLinkActive]="['active']">Form 8 - Dynamic forms</a>
+                <a [routerLink]="['/form', 'form-nine']" [routerLinkActive]="['active']">Form 9 - Dynamic nested form elements</a>
+                <a [routerLink]="['/form', 'form-ten']" [routerLinkActive]="['active']">Form 10 - Custom form controls</a>
             </nav>
             <div id="container">
                 <a href="http://blog.ng-book.com/the-ultimate-guide-to-forms-in-angular-2/" target="_blank">The Ultimate Guide to Forms</a>

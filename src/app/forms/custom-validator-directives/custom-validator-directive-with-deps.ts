@@ -39,7 +39,7 @@ export class EmailValidatorWithDeps implements Validator {
     constructor(emailBlackList:EmailBlackListService) {
         this.validator = validateEmailFactory(emailBlackList);
     }
-
+    // this method is needed as the component is the validator
     validate(c:FormControl) {
         return this.validator(c);
     }

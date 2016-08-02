@@ -8,7 +8,7 @@ import httprxRoutes, {MainHttpRxJs} from './http-rxjs/main';
 
 
 const routes:RouterConfig = [
-    {path: '', redirectTo: 'form', terminal: true},
+    {path: '', redirectTo: 'form', pathMatch: 'full' },
     {path: 'form', component: FormExamplesMain, children: formRoutes},
     {path: 'seed', component: SeedApp, children: seedRoutes},
     {path: 'egghead', component: EggheadApp},

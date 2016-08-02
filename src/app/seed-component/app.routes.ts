@@ -6,7 +6,7 @@ import {RepoDetail} from './repo-detail/repo-detail';
 
 export const routes = [
   { path: '', redirectTo: 'home', },
-  { path: 'home', component: Home, terminal: true },
+  { path: 'home', component: Home, pathMatch: 'full' },
   { path: 'about', component: About },
   { path: 'github', component: RepoBrowser, children: [
     { path: ':org', component: RepoList, children: [

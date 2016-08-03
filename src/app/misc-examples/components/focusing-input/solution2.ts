@@ -1,4 +1,4 @@
-import {Component, Directive, ElementRef, Input, ViewChild, ViewChildren, OnInit, AfterViewInit, OnChanges} from '@angular/core';
+import {Component, Directive, ElementRef, Input, ViewChild, ViewChildren, OnInit, AfterViewInit, OnChanges, QueryList} from '@angular/core';
 
 @Directive({
     selector: '[focusMe]'
@@ -23,7 +23,9 @@ export class FocusMe implements AfterViewInit, OnChanges {
 @Component({
     selector: 'solution-two',
     directives:[FocusMe],
-    template: `<h3>Solution 2 using @ViewChild</h3>
+    template: `
+  <h4>Solution 2 using @ViewChild and ElementRef</h4>
+  <p>Using [focusMe] directive @ViewChild(FocusMe)</p>
 	<button (click)="toggle()">Make it {{isVisible ? 'invisible' : 'visible'}}</button>
 	<input *ngIf="inputIsVisible" focusMe>
 	<button (click)="focusInput()" *ngIf="inputIsVisible">Focus it</button>
@@ -33,10 +35,10 @@ export class SolutionTwo implements OnInit {
     // @ViewChild allows us access to the directive instance's api methods in the component.
     // in this case we can access ngAfterViewInit, setFocus, etc
     // @ViewChildren does the same but lets us access multiple instances
-    @ViewChild(FocusMe) child;
-    @ViewChildren(FocusMe) children;
+    @ViewChild(FocusMe) child : FocusMe;
+    @ViewChildren(FocusMe) children : QueryList;
     private inputIsVisible : Boolean = false;
-    
+
     ngOnInit () {
         // notice that the "child" directive object instance is still not available as a property
         // it wont be available until the input is made visible by NgIf

@@ -3,36 +3,38 @@ import {Component, EventEmitter} from '@angular/core';
 class Broadcaster extends EventEmitter<any> {}
 
 @Component({
-    selector: 'comp1',
-    template: '<div>Generated number: {{ generatedNumber }}</div>',
+  selector: 'comp1',
+  template: '<div>Generated number: {{ generatedNumber }}</div>',
 })
 class Comp1 {
-    generatedNumber: number = 0;
-    constructor(broadcaster: Broadcaster) {
-        setInterval(() => {
-            broadcaster.next(this.generatedNumber = Math.random());
-        },1000);
-    }
+  generatedNumber:number = 0;
+
+  constructor(broadcaster:Broadcaster) {
+    setInterval(() => {
+      broadcaster.emit(this.generatedNumber = Math.random());
+    }, 1000);
+  }
 }
 
 
 @Component({
-    selector: 'comp2',
-    template: '<div>Received number: {{ receivedNumber }}</div>',
+  selector: 'comp2',
+  template: '<div>Received number: {{ receivedNumber }}</div>',
 })
 class Comp2 {
-    receivedNumber: number = 0;
-    constructor(broadcaster: Broadcaster) {
-        broadcaster.subscribe(generatedNumber => this.receivedNumber = generatedNumber);
-    }
+  receivedNumber:number = 0;
+
+  constructor(broadcaster:Broadcaster) {
+    broadcaster.subscribe(generatedNumber => this.receivedNumber = generatedNumber);
+  }
 }
 
 
 @Component({
-    selector: 'emitter-component',
-    viewProviders: [Broadcaster],
-    directives: [Comp1, Comp2],
-    template: `
+  selector: 'emitter-component',
+  viewProviders: [Broadcaster],
+  directives: [Comp1, Comp2],
+  template: `
     <div>
       <comp1></comp1>
       <comp2></comp2>
@@ -40,5 +42,6 @@ class Comp2 {
   `
 })
 export class EmitterComponent {
-    constructor() {}
+  constructor() {
+  }
 }

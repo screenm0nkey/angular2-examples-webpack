@@ -3,9 +3,7 @@ import {Component, Input, ViewChildren, AfterViewInit, ViewChild, ElementRef, Qu
 
 @Component({
     selector: 'super-item',
-    template: `
-        <li>{{name}}</li>
-    `
+    template: `<li>{{name}}</li>`
 })
 class SuperItemComponent {
     @Input('name') name:string;

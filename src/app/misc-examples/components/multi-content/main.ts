@@ -3,8 +3,8 @@ import {EmitterComponent} from './emitter-component';
 import {ContentProjectionComponent} from './multi-content';
 
 @Component({
-    selector: 'main',
-    template: `
+  selector: 'main',
+  template: `
         <multi-content>
             <div header>
                 This content is projected into the "header".    
@@ -17,6 +17,7 @@ import {ContentProjectionComponent} from './multi-content';
             <emitter-component body></emitter-component>
         </multi-content>  
     `,
-    directives : [EmitterComponent, ContentProjectionComponent]
+  directives: [EmitterComponent, ContentProjectionComponent]
 })
-export class MultiTransclusion {}
+export class MultiTransclusion {
+}

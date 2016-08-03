@@ -22,7 +22,7 @@ class NgModelStatus {
 @Component({
   selector: 'host-three-component',
   directives: [REACTIVE_FORM_DIRECTIVES, NgModelStatus],
-  providers: [FormBuilder],
+  providers: [FormBuilder, NgModel],
   styles: [`.ng-invalid {border:solid 1px red;}`],
   template: `
         <a href="https://angular.io/docs/ts/latest/api/core/index/HostBinding-var.html" target="_blank">

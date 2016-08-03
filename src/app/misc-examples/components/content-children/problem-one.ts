@@ -24,8 +24,6 @@ class SuperListComponent implements AfterContentInit {
 
 
 
-
-
 // this is how the end user might implement the external component.
 // we're forced to ask them to add a reference to their list items
 // #mylocalref, which is not ideal

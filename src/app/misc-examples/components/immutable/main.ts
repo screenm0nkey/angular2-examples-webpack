@@ -1,6 +1,6 @@
 import {Component } from '@angular/core'
 import {Store} from './StoreService';
-import { ImmutableObject } from './immutable';
+import { ImmutableObject } from './immutable-object';
 import { ImmutableList } from './immutable-list';
 
 /*
@@ -12,10 +12,12 @@ import { ImmutableList } from './immutable-list';
     selector: 'immutable-main',
     providers : [Store],
     template: `
-        <h3>Immutable Objects (src/app/misc-examples/components/immutable/immutable.ts)</h3>
+        <h4>Immutable Objects</h4>
+        <pre>src/app/misc-examples/components/immutable/immutable.ts</pre>
         <immutable-object-component></immutable-object-component>
         <hr>
-        <h3>Immutable Lists (src/app/misc-examples/components/immutable/immutable-list.ts)</h3>
+        <h4>Immutable Lists</h4>
+        <pre>src/app/misc-examples/components/immutable/immutable-list.ts</pre>
         <immutable-list-component></immutable-list-component>
     `,
     directives: [ImmutableList, ImmutableObject]

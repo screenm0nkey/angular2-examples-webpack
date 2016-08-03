@@ -37,15 +37,12 @@ export class NgZoneDemo {
     increaseProgress(doneCallback:Function) {
         this.progress += 1;
         console.log(`Current progress: ${this.progress}%`);
-
         if (this.progress < 100) {
             window.setTimeout(() => this.increaseProgress(doneCallback), 10);
         } else {
             doneCallback();
         }
     }
-
-
 }
 
 

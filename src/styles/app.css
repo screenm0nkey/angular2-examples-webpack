@@ -44,6 +44,11 @@ h4 {
     z-index: 2;
     margin-bottom: 8px;
 }
+strong {
+  color: black;
+  background: orange;
+  padding : 0 2px;
+}
 button {
     background: #3498db;
     background-image: -webkit-linear-gradient(top, #3498db, #2980b9);

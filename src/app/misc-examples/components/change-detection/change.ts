@@ -77,7 +77,6 @@ export class TodoItemComponent implements OnInit {
 export class TodoListComponent {
     @Input() store;
     @Output() editme : EventEmitter<any> = new EventEmitter();
-
     constructor() {
         console.log(this);
     }
@@ -105,12 +104,12 @@ export class ChangeComponent {
     constructor() {
         this.addItem('First Item');
     }
-    
+
     setTodoItem (todoItem) {
         this.todoItem = todoItem;
         this.todoStr = this.todoItem.text;
     }
-    
+
     addItem(todoStr:string) {
         if (todoStr) {
             if (this.todoItem) {

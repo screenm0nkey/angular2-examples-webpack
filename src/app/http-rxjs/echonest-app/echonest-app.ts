@@ -169,7 +169,8 @@ class ArtistComponent {
         EchonestArtistStoreService
     ],
     template: `
-        <h4>RxJs Itunes App [Need to run the www/server for this]</h4>
+        <h4>RxJs Itunes App</h4>
+        <h5 style="color: red;">Need to run the www/server for this</h5>
         <section style="float: left; width:200px">
             <header>
                 Top 100 

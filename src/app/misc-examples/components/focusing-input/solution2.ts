@@ -36,7 +36,7 @@ export class SolutionTwo implements OnInit {
     // in this case we can access ngAfterViewInit, setFocus, etc
     // @ViewChildren does the same but lets us access multiple instances
     @ViewChild(FocusMe) child : FocusMe;
-    @ViewChildren(FocusMe) children : QueryList;
+    @ViewChildren(FocusMe) children : QueryList<FocusMe>;
     private inputIsVisible : Boolean = false;
 
     ngOnInit () {

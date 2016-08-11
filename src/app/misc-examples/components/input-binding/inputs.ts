@@ -42,7 +42,6 @@ class ProductImage {
         <div class="product-department">
             <span *ngFor="let name of product.department; let i=index">
             <a href="#">{{ name }}</a>
-            <span *ngIf="i < (product.department.length-1)">&gt;</span>
             </span>
         </div>`
 })
@@ -102,7 +101,7 @@ class ProductRow {
     outputs: ['stick'],
     directives: [ProductRow],
     template: `
-        <div class="products-list">
+        <div class="products-list" style="display: table">
             <product-row *ngFor="let product of productList" [product]="product" (pick)='clicked(product)'></product-row>
         </div>
     `

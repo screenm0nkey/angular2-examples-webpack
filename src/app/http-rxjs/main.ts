@@ -4,7 +4,6 @@ import routes from './routes'
 
 
 @Component({
-    selector: 'app-component',
     styles: [require('../../styles/layout.css')],
     directives: [ROUTER_DIRECTIVES],
     template: `
@@ -16,6 +15,7 @@ import routes from './routes'
             <a [routerLink]="['/httprx', 'echonest-app']" [routerLinkActive]="['active']">Echonest RxJs</a>
             <a [routerLink]="['/httprx', 'ngrx']" [routerLinkActive]="['active']">NgRx Clock App</a>
             <a [routerLink]="['/httprx', 'ngrx-in-ten']" [routerLinkActive]="['active']">NgRx in ten minutes</a>
+            <a [routerLink]="['/httprx', 'ngrx-queue']" [routerLinkActive]="['active']">NgRx Queue</a>
         </nav>
         <div id="container">
             <router-outlet></router-outlet>

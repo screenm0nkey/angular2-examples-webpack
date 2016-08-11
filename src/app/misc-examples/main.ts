@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {ROUTER_DIRECTIVES} from '@angular/router';
 import routes from './routes';
-import {InjectComponent} from './components/inject/injecting-token';
 
 @Component({
     selector: 'misc-app',
@@ -9,7 +8,7 @@ import {InjectComponent} from './components/inject/injecting-token';
     styles : [require('../../styles/layout.css')],
     providers: [],
     pipes: [],
-    directives: [ROUTER_DIRECTIVES, InjectComponent]
+    directives: [ROUTER_DIRECTIVES]
 })
 
 export class MiscExamples {}

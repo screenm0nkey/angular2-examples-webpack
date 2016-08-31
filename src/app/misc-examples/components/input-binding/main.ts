@@ -3,6 +3,7 @@ import {InventoryApp} from './inputs';
 import {NameParentComponent} from './input-getters-setters';
 import {VersionParentComponent} from './ng-onchange';
 import {CountdownLocalVarParentComponent} from './local-variables';
+import {ToggleButtonComponent} from './toggle-button';
 
 
 @Component({
@@ -10,10 +11,13 @@ import {CountdownLocalVarParentComponent} from './local-variables';
     InventoryApp,
     NameParentComponent,
     VersionParentComponent,
-    CountdownLocalVarParentComponent
+    CountdownLocalVarParentComponent,
+    ToggleButtonComponent
   ],
   template: `
     <a href="http://mean.expert/2016/05/21/angular-2-component-communication/" target="_blank">How components Communicate</a>
+    <toggle-component></toggle-component>
+    <hr>
     <name-parent></name-parent>
     <hr>
     <version-parent></version-parent>

@@ -1,7 +1,4 @@
 import {Component } from '@angular/core'
-import {Store} from './StoreService';
-import { ImmutableObject } from './immutable-object';
-import { ImmutableList } from './immutable-list';
 
 /*
  * The store service dependency for the components below has to be a injected as a dependency
@@ -10,7 +7,6 @@ import { ImmutableList } from './immutable-list';
  * */
 @Component({
     selector: 'immutable-main',
-    providers : [Store],
     template: `
         <h4>Immutable Objects</h4>
         <pre>src/app/misc-examples/components/immutable/immutable.ts</pre>
@@ -20,6 +16,5 @@ import { ImmutableList } from './immutable-list';
         <pre>src/app/misc-examples/components/immutable/immutable-list.ts</pre>
         <immutable-list-component></immutable-list-component>
     `,
-    directives: [ImmutableList, ImmutableObject]
 })
 export class ImmutableMain {}

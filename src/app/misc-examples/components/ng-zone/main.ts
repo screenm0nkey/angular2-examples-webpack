@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
-import {NgZoneDemo} from './runoutside'
 
 @Component({
     selector: 'ngzone-main-component',
     template: `<ng-zone-demo></ng-zone-demo>`,
-    directives:[NgZoneDemo]
 })
 export class NgZoneMainComponent {
     constructor() {

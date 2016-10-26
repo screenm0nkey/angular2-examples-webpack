@@ -1,6 +1,5 @@
-import {Component} from '@angular/core';
-// import {BrowserDomAdapter} from '@angular/platform-browser';
-import {BrowserDomAdapter} from '@angular/platform-browser/src/browser/browser_adapter'; // bug fix
+import {Component, Inject, Renderer, ElementRef} from '@angular/core';
+import {DOCUMENT} from "@angular/platform-browser";
 
 
 @Component({
@@ -11,10 +10,8 @@ import {BrowserDomAdapter} from '@angular/platform-browser/src/browser/browser_a
     template: `
         <div>
             <h4>
-                BrowserDomAdapter is the api to use to interact with the DOM<br>
+                Accessing the DOM using Renderer and vanilla JS
             </h4>
-            
-            <p style="color: red; font-weight: bold;">BrowserDomAdapter is not supposed to be used. It's for Angular internal use only.</p>
             
             <button class="mr-button" (click)="add($event)">
                 BrowserDomAdapter example - Click to Add New Element
@@ -23,20 +20,17 @@ import {BrowserDomAdapter} from '@angular/platform-browser/src/browser/browser_a
     `
 })
 export class DomAdapterComponent {
-    dom:BrowserDomAdapter;
 
-    constructor() {
-        this.dom = new BrowserDomAdapter();
-    }
+  MyComponent() {}
+    constructor(@Inject(DOCUMENT) public dom, private renderer:Renderer ) {}
 
     add() {
-        // add class to button
-        this.dom.addClass(this.dom.query('.mr-button'), "test");
-        // create a new element
-        var a = this.dom.createElement('button');
-        this.dom.on(a, 'click', this.raiseEvent);
-        this.dom.setInnerHTML(a, 'Click Me');
-        this.dom.appendChild(this.dom.query("dom-adapter-component"), a);
+      var el = document.createElement('a');
+      this.renderer.setElementClass(el, 'test', true);
+      this.renderer.setText(el, 'click me');
+      el.addEventListener('click', this.raiseEvent);
+      var compEl : any = this.dom.getElementsByTagName('dom-adapter-component')[0];
+      compEl.append(el);
     }
 
     raiseEvent(evt) {

@@ -10,7 +10,6 @@ import { Component, EventEmitter, Output, Input } from '@angular/core';
     		[(ngModel)]="model.filter"
     		(keyup)="filterChanged($event)" />
     `,
-    directives: []
 })
 export class FilterTextComponent {
     model:{ filter: any };

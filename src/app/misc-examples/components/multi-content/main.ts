@@ -1,6 +1,4 @@
 import {Component} from '@angular/core';
-import {EmitterComponent} from './emitter-component';
-import {ContentProjectionComponent} from './multi-content';
 
 @Component({
   selector: 'main',
@@ -17,7 +15,6 @@ import {ContentProjectionComponent} from './multi-content';
             <emitter-component body></emitter-component>
         </multi-content>  
     `,
-  directives: [EmitterComponent, ContentProjectionComponent]
 })
 export class MultiTransclusion {
 }

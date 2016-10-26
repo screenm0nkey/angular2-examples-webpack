@@ -1,13 +1,10 @@
 import {Component, Input} from "@angular/core";
 import {TodoService} from "../services/todo-service";
-import {TodoItemRenderer} from "./todo-item-renderer";
-import {StartedPipe} from "../pipes/started-pipe";
-import {SearchPipe} from "../pipes/search-pipe";
+
+
 
 @Component({
     selector:'todo-list',
-    pipes: [StartedPipe, SearchPipe],
-    directives: [TodoItemRenderer],
     template:`
     <div>
         <ul>

@@ -1,9 +1,9 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
+import {Component, ChangeDetectionStrategy} from '@angular/core';
+import {Observable} from 'rxjs/Rx';
 
 @Component({
-    selector: 'counter-component',
-    template: `
+  selector: 'counter-component',
+  template: `
         <h4>Reactive data flow</h4>
         <a target="_blank" href="http://blog.lambda-it.ch/reactive-data-flow-in-angular-2">reactive-data-flow-in-angular-2</a><br>
         <div>
@@ -13,32 +13,36 @@ import { Observable } from 'rxjs/Rx';
         </div>`
 })
 export class CounterComponent {
-    decrement : () => void;
-    increment : () => void;
-    count : Observable<number>;
+  decrement: () => void;
+  increment: () => void;
+  count: Observable<{}>;
 
-    constructor() {
-        // convert event listeners into observables
-        const decrementCounter$ = Observable.create(observer => {
-            this.decrement = () => { observer.next(); };
-        });
-        const incrementCounter$ = Observable.create(observer => {
-            this.increment = () => { observer.next(); };
-        });
+  constructor() {
+    // convert event listeners into observables
+    const decrementCounter$ = Observable.create(observer => {
+      this.decrement = () => {
+        observer.next();
+      };
+    });
+    const incrementCounter$ = Observable.create(observer => {
+      this.increment = () => {
+        observer.next();
+      };
+    });
 
-        // set up the intent
-        const intent$ = Observable.merge(
-            decrementCounter$.map(() => -1),
-            incrementCounter$.map(() => +1)
-        );
+    // set up the intent
+    const intent$ = Observable.merge(
+      decrementCounter$.map(() => -1),
+      incrementCounter$.map(() => +1)
+    );
 
-        // declare how the intent is transformed into a model
-        this.count = intent$
-            .startWith(0)
-            .scan((currentCount:number, value:number) => currentCount + value);
+    // declare how the intent is transformed into a model
+    this.count = intent$
+      .startWith(0)
+      .scan((currentCount: number, value: number) => currentCount + value);
 
-        // the observable model is bound to the user interface in the template.
-        // observables are understood via the async pipe
-    }
+    // the observable model is bound to the user interface in the template.
+    // observables are understood via the async pipe
+  }
 }
 

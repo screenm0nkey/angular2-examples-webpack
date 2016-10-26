@@ -3,35 +3,36 @@ import {Http} from '@angular/http';
 import {Observable} from "rxjs/Observable";
 
 export interface Character {
-    id: number;
-    name: string;
+  id: number;
+  name: string;
 }
 
 @Injectable()
 export class CharacterService {
-    characters$: Observable<Character[]>;
-    constructor(http:Http){
-        this.characters$ = http.get('/json/characters.json').map(res => res.json());
-    }
+  characters$: Observable<Character[]>;
+
+  constructor(http: Http) {
+    this.characters$ = http.get('/json/characters.json').map(res => res.json());
+  }
 }
 
 @Component({
-    selector: 'subscribe-example',
-    template: `
+  selector: 'subscribe-example',
+  template: `
         <div class="search-results">
             <h4>Subscribe example</h4> <pre class="limit-height">{{characters | json}}</pre>
         </div>
     `,
-    providers : [CharacterService]
+  providers: [CharacterService]
 })
 export class SubscribeExample implements OnInit {
-    characters : Character[] = [];
+  characters: Character[] = [];
 
-    constructor(private _characterService : CharacterService) {
-        console.log(this);
-    }
+  constructor(private _characterService: CharacterService) {
+    console.log(this);
+  }
 
-    ngOnInit() {
-        this._characterService.characters$.subscribe(characters=> this.characters = characters);
-    }
+  ngOnInit() {
+    this._characterService.characters$.subscribe(characters=> this.characters = characters);
+  }
 }

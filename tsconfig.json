@@ -7,7 +7,11 @@
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "types": [
+      "core-js",
+      "node"
+    ]
   },
   "exclude": [
     "node_modules"
@@ -17,5 +21,7 @@
   },
   "compileOnSave": false,
   "buildOnSave": false,
-  "atom": { "rewriteTsconfig": false }
+  "atom": {
+    "rewriteTsconfig": false
+  }
 }

@@ -22,7 +22,6 @@ export class FocusMe implements AfterViewInit, OnChanges {
 
 @Component({
     selector: 'solution-two',
-    directives:[FocusMe],
     template: `
   <h4>Solution 2 using @ViewChild and ElementRef</h4>
   <p>Using [focusMe] directive @ViewChild(FocusMe)</p>

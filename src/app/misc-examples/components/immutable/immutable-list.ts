@@ -1,14 +1,12 @@
 import { Component, ChangeDetectionStrategy, Input, OnInit, OnChanges} from '@angular/core';
 import { Store, Todo } from './StoreService';
 
-
-
 @Component({
-    selector: 'test-component',
+    selector: 'test-component-list',
     changeDetection: ChangeDetectionStrategy.OnPush,
     template: `<ul><li *ngFor="let todo of todos">{{todo.someval}}</li></ul>`
 })
-export class TestComponent implements OnInit, OnChanges {
+export class TestComponentList implements OnInit, OnChanges {
     @Input() todos;
 
     constructor() {
@@ -26,7 +24,6 @@ export class TestComponent implements OnInit, OnChanges {
 
 @Component({
     selector: 'immutable-list-component',
-    directives : [TestComponent],
     template : `
         <p>The list will only update when the @Inputs changes by creating a new array each time.
         Mutuating it won't cause it to update as we're using onPush which looks for a compoents Inputs to change</p>
@@ -34,7 +31,7 @@ export class TestComponent implements OnInit, OnChanges {
         <input #chk type="checkbox" (change)="checked=chk.checked; me.focus()"/><br>
         <input type="text" #me (keyup.enter)="addTodo(me, me.value)" placeholder="Press enter to add">
         <hr>
-        <test-component [todos]="store.todos"></test-component>
+        <test-component-list [todos]="store.todos"></test-component-list>
     `,
 })
 export class ImmutableList {

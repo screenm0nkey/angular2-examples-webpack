@@ -1,4 +1,4 @@
-import {provide, Component, ViewChild, ViewContainerRef, ComponentResolver} from '@angular/core';
+import {Component, ViewChild, ViewContainerRef, ComponentFactoryResolver} from '@angular/core';
 import {Observable} from 'rxjs/Rx';
 import {Http} from '@angular/http'
 
@@ -17,7 +17,7 @@ export class GistAppComponent {
     @ViewChild('putStuffHere', {read: ViewContainerRef}) putStuffHere;
 
     constructor(
-        public compResolver:ComponentResolver,
+        public compResolver:ComponentFactoryResolver,
         public http : Http
     ){}
 

@@ -6,7 +6,7 @@ import {Component, Directive, HostBinding, HostListener} from '@angular/core';
 @Directive({
   selector: '[silly-input]'
 })
-class NgModelStatus {
+export class NgModelStatusOne {
   count:number = 0;
 
   constructor() {
@@ -51,7 +51,6 @@ class NgModelStatus {
         </p>
         <input silly-input>
     `,
-  directives: [NgModelStatus]
 })
 export class HostOne {
 }

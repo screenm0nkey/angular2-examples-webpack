@@ -1,67 +1,72 @@
 {
-  "name": "angular2-examples-webpack",
+  "name": "angular2-seed",
   "version": "1.0.0",
-  "description": "A collection of Angular2 examples",
+  "description": "A simple starter Angular2 project",
   "scripts": {
-    "typings-install": "./node_modules/.bin/typings install",
-    "postinstall": "npm run typings-install",
-    "build": "./node_modules/.bin/webpack --inline --colors --progress --display-error-details --display-cached",
+    "build": "webpack --inline --colors --progress --display-error-details --display-cached",
     "watch": "npm run build -- --watch",
-    "start": "./node_modules/.bin/webpack-dev-server --inline --colors --progress --display-error-details --display-cached --port 3000  --content-base src"
+    "server": "webpack-dev-server --inline --colors --progress --display-error-details --display-cached --port 3000  --content-base src",
+    "start": "npm run server",
+    "start-www" : "node www/server"
   },
+  "contributors": [
+    "Rob Wormald <robwormald@gmail.com>",
+    "PatrickJS <github@gdi2290.com>"
+  ],
   "license": "MIT",
-  "nickAddedDependencies": {
-    "express": "^4.13.4",
-    "express-cors": "0.0.3",
-    "body-parser": "^1.15.0",
-    "@ngrx/store": "^1.5.0",
-    "socket.io-client": "^1.4.6"
-  },
   "devDependencies": {
-    "express": "^4.13.4",
-    "express-cors": "0.0.3",
-    "body-parser": "^1.15.0",
+    "@types/core-js": "^0.9.32",
+    "@types/node": "^6.0.38",
+    "@types/socket.io-client": "^1.4.27",
     "angular2-template-loader": "^0.4.0",
     "awesome-typescript-loader": "^1.1.1",
     "css-loader": "^0.23.1",
-    "json-loader": "^0.5.4",
+    "json-load": "^1.0.1",
     "raw-loader": "^0.5.1",
-    "source-map-loader": "^0.1.5",
     "to-string-loader": "^1.1.4",
-    "typescript": "~1.8.9",
-    "typings": "~1.0.3",
+    "typescript": "^2.0.2",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0",
-    "webpack-merge": "^0.8.4"
+    "webpack-merge": "^0.8.4",
+    "express": "^4.13.4",
+    "express-cors": "0.0.3",
+    "body-parser": "^1.15.0"
   },
   "dependencies": {
-    "@angular/common": "2.0.0-rc.4",
-    "@angular/compiler": "2.0.0-rc.4",
-    "@angular/core": "2.0.0-rc.4",
-    "@angular/forms": "^0.2.0",
-    "@angular/http": "2.0.0-rc.4",
-    "@angular/platform-browser": "2.0.0-rc.4",
-    "@angular/platform-browser-dynamic": "2.0.0-rc.4",
-    "@angular/platform-server": "2.0.0-rc.4",
-    "@angular/router": "3.0.0-beta.2",
-    "@ngrx/store": "^2.0.0",
-    "@ngrx/effects": "^1.0.1",
-    "@ngrx/core": "^1.0.0",
-    "core-js": "^2.2.0",
+    "@angular/common": "2.0.0",
+    "@angular/compiler": "2.0.0",
+    "@angular/core": "2.0.0",
+    "@angular/forms": "2.0.0",
+    "@angular/http": "2.0.0",
+    "@angular/platform-browser": "2.0.0",
+    "@angular/platform-browser-dynamic": "2.0.0",
+    "@angular/platform-server": "2.0.0",
+    "@angular/router": "3.0.0",
+    "@angular/upgrade": "2.0.0",
+    "angular2-in-memory-web-api": "0.0.20",
+    "bootstrap": "^3.3.7",
+    "core-js": "^2.4.1",
     "ie-shim": "^0.1.0",
-    "rxjs": "5.0.0-beta.6",
-    "socket.io-client": "^1.4.6",
-    "zone.js": "~0.6.12"
+    "reflect-metadata": "^0.1.3",
+    "rxjs": "5.0.0-beta.12",
+    "socket.io-client": "^1.4.8",
+    "zone.js": "~0.6.23",
+    "@ngrx/core": "^1.2.0",
+    "@ngrx/effects": "^2.0.0",
+    "@ngrx/store": "^2.2.1"
   },
   "keywords": [
-    "Angular2"
+    "Angular2",
+    "angular2-seed",
+    "official angular 2 seed",
+    "official angular2 seed"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/screenm0nkey/angular2-examples-webpack.git"
+    "url": "git+https://github.com/angular/angular2-seed.git"
   },
   "bugs": {
-    "url": "https://github.com/screenm0nkey/angular2-examples-webpack/issues"
+    "url": "https://github.com/angular/angular2-seed/issues"
   },
-  "homepage": "https://github.com/screenm0nkey/angular2-examples-webpack#readme"
+  "homepage": "https://github.com/angular/angular2-seed#readme"
 }

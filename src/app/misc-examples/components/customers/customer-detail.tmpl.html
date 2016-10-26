@@ -4,7 +4,7 @@
     {{isProd}}
 </p>
 
-<p><a href="#" [routerLink]="['/misc', 'customers']"><< Back to all Customers</a></p>
+<p><a routerLink="../"><< Back to all Customers</a></p>
 
 <section *ngIf="customer">
 	<p x-large>{{customer.firstName}} {{customer.lastName}}</p>

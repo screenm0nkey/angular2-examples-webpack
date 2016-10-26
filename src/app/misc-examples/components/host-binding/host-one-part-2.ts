@@ -11,7 +11,7 @@ import {Component, Directive, HostBinding, HostListener} from '@angular/core';
     "(input)": "hostInputUpdateEventHandler($event.target.value)"
   }
 })
-class NgModelStatus {
+export class NgModelStatusTwo {
   count:number = 0;
   smvalue:string;
   isFixed:boolean = true;
@@ -34,10 +34,9 @@ class NgModelStatus {
   template: `
         This example is identicle to host-one-component but we're using the directives' :host property rather than <br>
         using the @HostBinding decorators.
-        <pre>host: {"[value]": 'smvalue'}</pre>
+        <pre>host: &#123;"[value]": 'smvalue'&#125;</pre>
         <input silly-input-two>
     `,
-  directives: [NgModelStatus]
 })
 export class HostOnePartTwo {
 }

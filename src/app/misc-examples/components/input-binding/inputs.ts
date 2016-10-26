@@ -27,7 +27,7 @@ class Product {
   inputs: ['product'],
   template: `<img class="product-image" [src]="product.image_url">`
 })
-class ProductImage {
+export class ProductImage {
   product: Product;
 }
 
@@ -35,7 +35,6 @@ class ProductImage {
 @Component({
   selector: 'product-department',
   inputs: ['product'],
-  directives: [],
   template: `
         <div class="product-department">
             <span *ngFor="let name of product.department; let i=index">
@@ -43,7 +42,7 @@ class ProductImage {
             </span>
         </div>`
 })
-class ProductDepartment {
+export class ProductDepartment {
   product: Product;
 }
 
@@ -53,7 +52,7 @@ class ProductDepartment {
   inputs: ['price'],
   template: `<div class="price-display">\${{ price }}</div>`
 })
-class PriceDisplay {
+export class PriceDisplay {
   price: number;
 }
 
@@ -62,7 +61,6 @@ class PriceDisplay {
   selector: 'product-row',
   inputs: ['product'],
   outputs: ['pick'],
-  directives: [ProductImage, ProductDepartment, PriceDisplay],
   template: `
   <div class="product-row cf" (click)="clicked()">
     <product-image [product]="product"></product-image>
@@ -75,7 +73,7 @@ class PriceDisplay {
   </div>
   `
 })
-class ProductRow {
+export class ProductRow {
   product: Product;
   // (pick)='clicked(product)
   pick: EventEmitter<any>;
@@ -94,14 +92,13 @@ class ProductRow {
   selector: 'products-list',
   inputs: ['productList: products', 'name'],
   outputs: ['stick'],
-  directives: [ProductRow],
   template: `
         <div class="products-list" style="display: table">
             <product-row *ngFor="let product of productList" [product]="product" (pick)='clicked(product)'></product-row>
         </div>
     `
 })
-class ProductsList {
+export class ProductsList {
   productList: Array<Product>;
   stick: EventEmitter<any>;
 
@@ -118,7 +115,6 @@ class ProductsList {
 
 @Component({
   selector: 'inventory-app',
-  directives: [ProductsList],
   template: `
         <div class="inventory-app">
             <products-list [products]="products" (stick)="productClicked($event)">

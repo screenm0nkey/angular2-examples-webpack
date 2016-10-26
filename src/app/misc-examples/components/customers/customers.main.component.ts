@@ -1,19 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {ROUTER_DIRECTIVES, ActivatedRoute} from '@angular/router';
-
 import {Customer} from "./customer.model";
 import {DataService} from './services/data.service';
-import {FilterTextComponent} from './filter-textbox.component';
-import {CapitalizePipe} from './services/capitalize.pipe';
 import {Sorter} from './services/sorter.service';
-import {SortByDirective} from './directives/sortby.directive';
 
 @Component({
     selector: 'customers-component',
-    templateUrl: './customers.tmpl.html',
-    directives: [ROUTER_DIRECTIVES, FilterTextComponent, SortByDirective],
-    providers: [DataService, Sorter],
-    pipes: [CapitalizePipe],
+    templateUrl: 'customers.tmpl.html',
     styleUrls: ['./customers.css']
 })
 export class CustomersComponent implements OnInit {

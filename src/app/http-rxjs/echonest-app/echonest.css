@@ -1,10 +1,11 @@
 
 div.artist {
-    border:1px solid grey;
+    border: 1px solid grey;
     margin-bottom: 5px;
     position: relative;
-    height:22px;
+    height: 22px;
 }
+
 div.artist a {
     display: block;
     /* float: right; */
@@ -16,10 +17,12 @@ div.artist a {
     right: 0px;
     top: -2px;
 }
+
 div.artist.disabled {
     color: grey;
     border-color: grey;
 }
+
 div.artist a.disabled {
     background-color: lightgrey;
     cursor: default;

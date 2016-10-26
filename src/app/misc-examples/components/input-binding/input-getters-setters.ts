@@ -16,10 +16,8 @@ export class NameChildComponent {
 
 
 
-
 @Component({
   selector: 'name-parent',
-  directives : [NameChildComponent],
   template: `
     <h4>Master controls {{names.length}} names</h4>
     <name-child *ngFor="let name of names"

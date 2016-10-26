@@ -8,19 +8,11 @@ import 'rxjs/add/operator/scan';
 import 'rxjs/add/operator/mapTo';
 import 'rxjs/add/operator/withLatestFrom';
 import {Subject} from "rxjs/Subject";
-import {Store, provideStore} from '@ngrx/store';
-import {SECOND, HOUR, ADVANCE, RECALL, clock, people} from './reducers';
-import {Clock} from './clock';
+import {Store} from '@ngrx/store';
+import {SECOND, HOUR, ADVANCE, RECALL} from './reducers';
 
 @Component({
     selector: 'clock-two',
-    directives:[Clock],
-    providers : [
-        provideStore({
-            clock,
-            people
-        })
-    ],
     template: `
         <h4>Building a Time Machine with Angular 2 Eggehead</h4>
         <a href="https://github.com/johnlindquist/rxjs-in-angular2" target="_blank">

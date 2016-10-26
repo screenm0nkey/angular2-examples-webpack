@@ -1,11 +1,9 @@
 import {Component} from '@angular/core';
-import {PeekABooComponent} from './peekaboo.component.ts';
 import {LoggerService}  from '../logger.service.ts';
 
 @Component({
     selector: 'peek-a-boo-parent',
     styles: ['.parent {background: moccasin}'],
-    directives: [PeekABooComponent],
     providers: [LoggerService],
     template: `
       <div class="parent">

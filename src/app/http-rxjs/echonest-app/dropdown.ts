@@ -1,8 +1,8 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
-    selector: 'dropdown-component',
-    template: `
+  selector: 'dropdown-component',
+  template: `
         <form>
             <select #sel (change)="select.emit(sel.value)">
             <option *ngFor="let result of results">
@@ -13,10 +13,10 @@ import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
     `
 })
 export class DropdownComponent implements OnInit {
-    @Output() select:EventEmitter<any> = new EventEmitter();
-    @Input() results:Array<Number>;
+  @Output() select: EventEmitter<any> = new EventEmitter();
+  @Input() results: Array<Number>;
 
-    ngOnInit() {
-        this.select.emit(this.results[0]);
-    }
+  ngOnInit() {
+    this.select.emit(this.results[0]);
+  }
 }

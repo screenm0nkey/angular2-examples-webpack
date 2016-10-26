@@ -6,7 +6,7 @@ class Broadcaster extends EventEmitter<any> {}
   selector: 'comp1',
   template: '<div>Generated number: {{ generatedNumber }}</div>',
 })
-class Comp1 {
+export class Comp1 {
   generatedNumber:number = 0;
 
   constructor(broadcaster:Broadcaster) {
@@ -21,7 +21,7 @@ class Comp1 {
   selector: 'comp2',
   template: '<div>Received number: {{ receivedNumber }}</div>',
 })
-class Comp2 {
+export class Comp2 {
   receivedNumber:number = 0;
 
   constructor(broadcaster:Broadcaster) {
@@ -33,7 +33,6 @@ class Comp2 {
 @Component({
   selector: 'emitter-component',
   viewProviders: [Broadcaster],
-  directives: [Comp1, Comp2],
   template: `
     <div>
       <comp1></comp1>

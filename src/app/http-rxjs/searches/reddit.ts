@@ -1,5 +1,5 @@
-import {Component } from '@angular/core';
-import { REACTIVE_FORM_DIRECTIVES, FormGroup, FormControl } from '@angular/forms';
+import {Component} from '@angular/core';
+import {FormGroup, FormControl} from '@angular/forms';
 import {Http} from '@angular/http';
 import {Observable} from 'rxjs/observable';
 import 'rxjs/add/operator/map';
@@ -8,9 +8,8 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/do';
 
 @Component({
-    selector: 'reddit-example',
-    directives: [REACTIVE_FORM_DIRECTIVES],
-    template: `
+  selector: 'reddit-example',
+  template: `
         reddit.ts <br>
         <div class="search-results">
             <form [formGroup]="searchForm">
@@ -28,50 +27,51 @@ import 'rxjs/add/operator/do';
     `,
 })
 export class RedditExample {
-    searchForm:FormGroup;
-    results:Observable<any[]>;
-    loading:boolean = false;
+  searchForm: FormGroup;
+  results: Observable<any[]>;
+  loading: boolean = false;
 
-    constructor(private http:Http) {
-        let searchField = new FormControl();
-        this.searchForm = new FormGroup({searchField});
+  constructor(private http: Http) {
+    let searchField = new FormControl();
+    this.searchForm = new FormGroup({searchField});
 
-        this.results = searchField.valueChanges
-            .debounceTime(500)
-            .do(()=> this.loading = true)
-            .switchMap((val:string) => {
-                return this.searchRedditPics(val);
-            })
-            .do(()=> this.loading = false);
+    this.results = searchField.valueChanges
+      .debounceTime(500)
+      .do(()=> this.loading = true)
+      .switchMap((val: string) => {
+        return this.searchRedditPics(val);
+      })
+      .do(()=> this.loading = false);
 
-        this.results.subscribe(x=>console.log(x));
-    }
+    this.results.subscribe(x=>console.log(x));
+  }
 
-    searchRedditPics(search:string) {
-        let baseUrl = 'https://www.reddit.com/r/pics/search.json?resct_sr=on&q=';
-        return this.http.get(baseUrl + search)
-            .map(res => res.json())
-            .map(this.normaliseRedditData)
-            .map((items : any[]) => items.filter((item:any) => item.url));
-    }
+  searchRedditPics(search: string) {
+    let baseUrl = 'https://www.reddit.com/r/pics/search.json?resct_sr=on&q=';
+    return this.http.get(baseUrl + search)
+      .map(res => res.json())
+      .map(this.normaliseRedditData)
+      .map((items: any[]) => items.filter((item: any) => item.url));
+  }
 
-    normaliseRedditData(items:any) {
-        if (items.data) {
-            let children:any[] = items.data.children;
-            return children.map((child:any) => {
-                if (child && child.data && child.data.thumbnail) {
-                    let d = child.data;
-                    console.log(d);
-                    if (d.thumbnail && d.thumbnail.startsWith('http')) {
-                        return {
-                            thumb: d.thumbnail,
-                            title: d.title || 'No title',
-                            url : d.url
-                        }
-                    }
-                }
-                return {};
-            });
+  normaliseRedditData(items: any) {
+    if (items.data) {
+      let children: any[] = items.data.children;
+      return children.map((child: any) => {
+        if (child && child.data && child.data.thumbnail) {
+          let d = child.data;
+          console.log(d);
+          debugger
+          if (d.thumbnail && d.thumbnail.startsWith('http')) {
+            return {
+              thumb: d.thumbnail,
+              title: d.title || 'No title',
+              url: d.url
+            }
+          }
         }
+        return {};
+      });
     }
+  }
 }

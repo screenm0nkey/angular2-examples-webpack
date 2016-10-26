@@ -6,7 +6,7 @@ import {Component, Directive, HostListener} from '@angular/core';
     '(mouseenter)': 'showEvent($event)'
   }
 })
-class CountClicks {
+export class CountClicks {
   numberOfClicks = 0;
 
 
@@ -32,7 +32,6 @@ class CountClicks {
         <p>Show different ways to bind to a host elements events. <strong>Look at console output</strong></p>
         <button counting>@HostListener Increment</button>
         `,
-  directives: [CountClicks]
 })
 export class HostTwo {
   prop:String;

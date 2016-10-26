@@ -29,7 +29,6 @@ export class VersionChildComponent implements OnChanges {
 
 @Component({
   selector: 'version-parent',
-  directives: [VersionChildComponent],
   template: `
     <button (click)="newMinor()">New minor version</button>
     <button (click)="newMajor()">New major version</button>

@@ -14,7 +14,7 @@
     <div *ngFor="let customer of filteredCustomers">
         <div class="card-header">
             <img src="/images/{{customer.gender | lowercase}}.png" class="avatar">
-            <a [routerLink]="['/misc', 'customers', customer.id]">
+            <a routerLink="{{customer.id}}">
                 {{customer.firstName}} {{customer.lastName | capitalize }}
             </a>
         </div>
@@ -38,7 +38,7 @@
         <tbody>
         <tr *ngFor="let customer of filteredCustomers">
             <td>
-                <a [routerLink]="['/misc', 'customers', customer.id]">
+                <a routerLink="{{customer.id}}">
                     <img src="/images/{{customer.gender | lowercase}}.png" class="avatar">
                 </a>
             </td>

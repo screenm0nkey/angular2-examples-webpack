@@ -11,9 +11,9 @@ that to a factory function that creates an object.
 
 We get a service from a dependency injector by giving it a token.
 
-<strong>constructor(logger: LoggerService) {
+<strong>constructor(logger: LoggerService) &#123;
 logger.logInfo('Creating HeroBiosComponent');
-}</strong>
+&#125;</strong>
 
 In the case above Angular asks the injector for the service associated
 with the token called LoggerService and and assigns the returned value
@@ -30,7 +30,7 @@ A new injector has no providers. Each component has it's own injector or child-i
 
 The simple class provider is the most typical by far.
 
-<strong>{ provide: LoggerService, useClass: DateLoggerService }</strong>
+<strong>&#123; provide: LoggerService, useClass: DateLoggerService &#125;</strong>
 The “LoggerService” is the token, the “DateLoggerService” is the definition object
 
 The provide object literal above takes a token and a definition object.

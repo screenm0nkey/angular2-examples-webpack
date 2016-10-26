@@ -3,7 +3,7 @@ import {LoggerService}  from '../logger.service';
 
 //////////////////
 @Component({
-    selector: 'my-child',
+    selector: 'after-my-child',
     template: '<input [(ngModel)]="hero">'
 })
 export class ChildViewComponent {
@@ -16,14 +16,13 @@ export class ChildViewComponent {
     selector: 'after-view',
     template: `
     <div>-- child view begins --</div>
-      <my-child></my-child>
+      <after-my-child></after-my-child>
     <div>-- child view ends --</div>
     
     <p *ngIf="comment" class="comment">
       {{comment}}
     </p>
   `,
-    directives: [ChildViewComponent]
 })
 export class AfterViewComponent implements AfterViewChecked, AfterViewInit {
     private _prevHero:string = '';

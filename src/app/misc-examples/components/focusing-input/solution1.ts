@@ -35,7 +35,6 @@ export class FocusMe implements AfterViewInit, OnChanges {
         <input *ngIf="inputIsVisible" [focusMe]="inputHasFocus">
         <button (click)="focusInput()" *ngIf="inputIsVisible">Focus it</button>
     `,
-    directives: [FocusMe]
 })
 export class SolutionOne {
     private inputIsVisible:boolean = false;

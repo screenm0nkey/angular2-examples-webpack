@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {LoggerService}  from '../logger.service';
-import {Spy} from './spy.directive';
 
 @Component({
   selector: 'spy-parent',
@@ -33,7 +32,6 @@ import {Spy} from './spy.directive';
      '.parent {background: khaki;}',
      '.heroes {background: LightYellow; padding: 0 8px}'
   ],
-  directives: [Spy],
   providers:  [LoggerService]
 })
 export class SpyParentComponent {

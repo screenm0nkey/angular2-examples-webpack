@@ -1,9 +1,5 @@
 import {Component } from '@angular/core';
 
-import {DynamicComponent} from './dynamic-component';
-import {GistAppComponent} from './load-component-from-gist';
-import {DynamicListAppComponent} from './dynamic-ng-for/app.component';
-
 @Component({
     selector: 'focus-input',
     template: `
@@ -13,7 +9,6 @@ import {DynamicListAppComponent} from './dynamic-ng-for/app.component';
         <hr>
         <dynamic-list-app></dynamic-list-app>
     `,
-    directives:[DynamicComponent, GistAppComponent, DynamicListAppComponent]
 })
 export class DynamicExamplesMain {
 }

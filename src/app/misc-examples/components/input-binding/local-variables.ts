@@ -3,7 +3,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
   selector: 'countdown-timer',
   template: '<p>{{message}}</p>'
 })
-class CountdownTimerComponent implements OnInit, OnDestroy {
+export class CountdownTimerComponent implements OnInit, OnDestroy {
   intervalId = 0;
   message = '';
   seconds = 11;
@@ -48,7 +48,6 @@ class CountdownTimerComponent implements OnInit, OnDestroy {
 
 @Component({
   selector: 'countdown-parent-lv',
-  directives : [CountdownTimerComponent],
   template: `
   <h4>Countdown to Liftoff (via local variable)</h4>
   <button (click)="timer.start()">Start</button>

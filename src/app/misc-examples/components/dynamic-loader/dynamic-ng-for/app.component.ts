@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 
-import { DynamicListComponent } from './dynamic-list.component';
 import { ToKebabcaseRendererComponent } from './one-renderer.component';
 import { ToSnakecaseRendererComponent } from './two-renderer.component';
-import { Renderer } from './renderer';
 
 @Component({
     selector: 'dynamic-list-app',
@@ -22,7 +20,6 @@ import { Renderer } from './renderer';
         </form>
         <dynamic-list [items]="items" [renderer]="renderer"></dynamic-list>
     `,
-    directives: [DynamicListComponent]
 })
 export class DynamicListAppComponent {
     components : string[] = ['Snake', 'Kebab'];

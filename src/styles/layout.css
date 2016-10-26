@@ -5,17 +5,20 @@
     border-radius: 7px;
     height: 100%;
 }
+
 nav {
-    float:left;
-    width:200px;
-    margin-right : 10px;
+    float: left;
+    width: 200px;
+    margin-right: 10px;
 }
+
 nav a {
     display: block;
-    width:100%;
+    width: 100%;
     margin-bottom: 2px;
 }
+
 #container {
-    flex:1;
+    flex: 1;
     overflow: hidden;
 }

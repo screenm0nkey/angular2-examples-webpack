@@ -1,6 +1,5 @@
 import {Component, Directive, HostBinding, ElementRef} from '@angular/core';
 import {
-  REACTIVE_FORM_DIRECTIVES,
   FormBuilder,
   FormGroup,
   Validators,
@@ -8,7 +7,7 @@ import {
 } from '@angular/forms';
 
 @Directive({selector: '[ngModel]'})
-class NgModelStatus {
+export class NgModelStatusThree {
   constructor(public el:ElementRef,  public control:NgModel) {
     //el is the element the directive is applied too.
   }
@@ -21,7 +20,6 @@ class NgModelStatus {
 
 @Component({
   selector: 'host-three-component',
-  directives: [REACTIVE_FORM_DIRECTIVES, NgModelStatus],
   providers: [FormBuilder, NgModel],
   styles: [`.ng-invalid {border:solid 1px red;}`],
   template: `

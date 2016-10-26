@@ -1,57 +1,53 @@
-import { Component, EventEmitter, ElementRef, OnInit} from '@angular/core';
+import {Component, EventEmitter, ElementRef, OnInit} from '@angular/core';
 import {Observable} from 'rxjs/observable';
 import * as Rx from "rxjs/Rx";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/do';
-
 import {SearchResult} from './youtube-helpers/youtube-result-class';
 import {YoutubeService} from './youtube-helpers/youtube-service';
-import {YoutubeResultComponent} from './youtube-helpers/youtube-result-component';
 
 
 @Component({
-    selector: 'youtube-search',
-    template: `Search <input placeholder="Search Youtube">`,
-    outputs: ['loading', 'results'],
-    providers: [YoutubeService]
+  selector: 'youtube-search',
+  template: `Search <input placeholder="Search Youtube">`,
+  outputs: ['loading', 'results'],
 })
-class YoutubeSearch implements OnInit {
-    loading:EventEmitter<any> = new EventEmitter();
-    results:EventEmitter<any> = new EventEmitter();
+export class YoutubeSearch implements OnInit {
+  loading: EventEmitter<any> = new EventEmitter();
+  results: EventEmitter<any> = new EventEmitter();
 
-    constructor(private el:ElementRef, private ytService:YoutubeService) {
-        console.log(this, ytService);
-    }
+  constructor(private el: ElementRef, private ytService: YoutubeService) {
+    console.log(this, ytService);
+  }
 
-    ngOnInit() {
-        Rx.Observable.fromEvent(this.el.nativeElement, "keyup")
-            .debounceTime(500)
-            .map((e:any) => e.target.value)
-            .filter((text:string) => text.length > 1)
-            .do(() => this.loading.emit(true))
-            .switchMap((query:string) => this.ytService.search(query))
-            .subscribe(
-                (results : SearchResult[]) => {
-                    this.loading.emit(false);
-                    this.results.emit(results);
-                },
-                (err:any) => {
-                    console.log(err);
-                    this.loading.emit(false);
-                },
-                () => {
-                    this.loading.emit(false);
-                }
-            );
-    }
+  ngOnInit() {
+    Rx.Observable.fromEvent(this.el.nativeElement, "keyup")
+      .debounceTime(500)
+      .map((e: any) => e.target.value)
+      .filter((text: string) => text.length > 1)
+      .do(() => this.loading.emit(true))
+      .switchMap((query: string) => this.ytService.search(query))
+      .subscribe(
+        (results: SearchResult[]) => {
+          this.loading.emit(false);
+          this.results.emit(results);
+        },
+        (err: any) => {
+          console.log(err);
+          this.loading.emit(false);
+        },
+        () => {
+          this.loading.emit(false);
+        }
+      );
+  }
 }
 
 @Component({
-    selector: 'ngbook-youtube-example',
-    directives: [YoutubeSearch, YoutubeResultComponent],
-    template: `
+  selector: 'ngbook-youtube-example',
+  template: `
         <div class="search-results">
             <h4>NG2-Book YouTube search example:</h4>
             <youtube-search
@@ -64,15 +60,15 @@ class YoutubeSearch implements OnInit {
     `
 })
 export class YoutubeExample {
-    loading : boolean = false;
-    results : SearchResult[];
+  loading: boolean = false;
+  results: SearchResult[];
 
-    constructor() {
-        console.log(this);
-    }
+  constructor() {
+    console.log(this);
+  }
 
-    updateResults (results : SearchResult[]) {
-        console.log(results);
-        this.results = results;
-    }
+  updateResults(results: SearchResult[]) {
+    console.log(results);
+    this.results = results;
+  }
 }

@@ -8,7 +8,6 @@ class Hero {
 @Component({
     selector: 'on-changes-parent',
     styles: ['.parent {background: Lavender;}'],
-    directives: [OnChangesComponent],
     template: `
         <div class="parent">
           <h2>{{title}}</h2>
@@ -24,7 +23,7 @@ class Hero {
           <p><button (click)="reset()">Reset Log</button></p>
         
           <on-changes [hero]="hero" [power]="power"></on-changes>
-          <do-check [hero]="hero" [power]="power"></do-check>
+          <!--<do-check [hero]="hero" [power]="power"></do-check>-->iv
         </div>
     `
 })

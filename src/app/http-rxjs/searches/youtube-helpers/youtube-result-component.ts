@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {SearchResult} from './youtube-result-class'
 
 
 @Component({
-    selector: 'youtube-result-component',
-    inputs : ['result'],
-    template: `
+  selector: 'youtube-result-component',
+  inputs: ['result'],
+  template: `
         <div>
           <div class="thumbnail">
             <img src="{{result.thumbnailUrl}}" style="width:200px">
@@ -21,8 +21,9 @@ import {SearchResult} from './youtube-result-class'
     `
 })
 export class YoutubeResultComponent {
-    result : SearchResult;
-    constructor() {
-        console.log(12, this);
-    }
+  result: SearchResult;
+
+  constructor() {
+    console.log(12, this);
+  }
 }

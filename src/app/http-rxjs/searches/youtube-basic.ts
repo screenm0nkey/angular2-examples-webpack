@@ -1,14 +1,12 @@
-import { Component } from '@angular/core';
-import { REACTIVE_FORM_DIRECTIVES, FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import {Component} from '@angular/core';
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import * as Rx from "rxjs/Rx";
 import {YoutubeService} from './youtube-helpers/youtube-service';
-import {YoutubeResultComponent} from './youtube-helpers/youtube-result-component';
 
 @Component({
-    selector: 'youtube-basic-example',
-    providers: [FormBuilder, YoutubeService],
-    directives : [REACTIVE_FORM_DIRECTIVES, YoutubeResultComponent],
-    template: `
+  selector: 'youtube-basic-example',
+  providers: [FormBuilder],
+  template: `
         <div class="search-results">
             <form [formGroup]="form" #f="ngForm" (ngSubmit)="onSubmit(f)">
                 <div style="max-height: 300px; overflow: hidden; overflow-y: scroll">
@@ -22,25 +20,25 @@ import {YoutubeResultComponent} from './youtube-helpers/youtube-result-component
 })
 
 export class YoutubeBasicExample {
-    form : FormGroup;
-    source:Rx.Observable<any>;
-    observer:Rx.Observer<any>;
-    results:any[] = [];
+  form: FormGroup;
+  source: Rx.Observable<any>;
+  observer: Rx.Observer<any>;
+  results: any[] = [];
 
-    constructor(fb: FormBuilder, public youtube:YoutubeService) {
-        this.source = Rx.Observable.create((observer: Rx.Observer<any>) => this.observer = observer);
+  constructor(fb: FormBuilder, public youtube: YoutubeService) {
+    this.source = Rx.Observable.create((observer: Rx.Observer<any>) => this.observer = observer);
 
-        this.form = fb.group({
-            "youtubeSearch": ['', Validators.required]
-        });
+    this.form = fb.group({
+      "youtubeSearch": ['', Validators.required]
+    });
 
-        this.form.controls['youtubeSearch'].valueChanges
-            .subscribe((text:string) => this.observer.next(text))
+    this.form.controls['youtubeSearch'].valueChanges
+      .subscribe((text: string) => this.observer.next(text))
 
-        this.source
-            .debounceTime(500)
-            .switchMap((text:string) => this.youtube.search(text))
-            .subscribe((results:any[]) => this.results = results);
-    }
+    this.source
+      .debounceTime(500)
+      .switchMap((text: string) => this.youtube.search(text))
+      .subscribe((results: any[]) => this.results = results);
+  }
 
 }

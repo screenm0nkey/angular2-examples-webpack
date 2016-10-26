@@ -7,7 +7,7 @@ class SuperListDirective {
 
 
 @Component({
-    selector: 'super-list',
+    selector: 'fix-super-list',
     template: `
     there are {{count}} items in the list
     <ul>
@@ -18,7 +18,7 @@ class SuperListDirective {
     </ul>
   `
 })
-class SuperListComponent implements AfterContentInit {
+export class FixSuperListComponent implements AfterContentInit {
     @ContentChildren(SuperListDirective) items:QueryList<SuperListDirective>;
     count:number;
     showme:boolean = false;
@@ -39,18 +39,17 @@ class SuperListComponent implements AfterContentInit {
 
 // this is how the end user might implement the external component
 @Component({
-    selector: 'my-component2',                            // blog.thoughtram.io/angular2/2015/11/23/multi-providers-in-angular-2.html
-    directives: [SuperListComponent, SuperListDirective], // these two could be combined into one group of directives using multi-providers
+    selector: 'fix-my-component',                            // blog.thoughtram.io/angular2/2015/11/23/multi-providers-in-angular-2.html
     template: `                                            
       ${require('./problem-one-fix.html')}
       <button (click)="addItem()">Add an Item</button><br>
-      <super-list>
+      <fix-super-list>
           <li *ngFor="let item of items"> {{item}} </li>
-      </super-list>
+      </fix-super-list>
       ${require('./text.html')}
     `
 })
-export class FixComponent {
+export class FixMyComponent {
     public items:string[] = ['hello', 'world', 'today'];
 
     addItem() {

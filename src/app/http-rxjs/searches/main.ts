@@ -1,25 +1,17 @@
 import {Component} from '@angular/core';
 import {BaseRequestOptions} from '@angular/http';
-import {WikipediaSuperSearch} from './wikipedia-search-2';
-import {JsonpWikipediaPromise, WikipediaObservable} from './wikipedia-search-1';
-import {EchonestSearch} from './echonest-search';
-import {Auth0Component} from './auth0-authentication';
-import {YoutubeBasicExample} from './youtube-basic';
-import {LocalRefSearch} from './local-ref-search';
-import {RedditExample} from './reddit';
-import {YoutubeExample} from './youtube-ng2-book';
 
 
 // these query strings will be added everywhere. note I've removed
 // provide(RequestOptions, {useClass: MyOptions}) as it's stopping some examples working
 class MyOptions extends BaseRequestOptions {
-    url:string = 'format=json'; // this is added to all http requests as a query string
-    body:string = JSON.stringify({name: "Ryan"}); // this doesn't seem to work
+  url: string = 'format=json'; // this is added to all http requests as a query string
+  body: string = JSON.stringify({name: "Ryan"}); // this doesn't seem to work
 }
 
 @Component({
-    selector: 'app-component',
-    template: `
+  selector: 'app-component',
+  template: `
         <wikipedia-super-search></wikipedia-super-search>
         <wikipedia-promise></wikipedia-promise>
         <wikipedia-observable></wikipedia-observable>
@@ -36,22 +28,11 @@ class MyOptions extends BaseRequestOptions {
         <hr>
         <reddit-example></reddit-example>
     `,
-    directives: [
-        WikipediaSuperSearch,
-        JsonpWikipediaPromise,
-        WikipediaObservable,
-        EchonestSearch,
-        Auth0Component,
-        YoutubeBasicExample,
-        LocalRefSearch,
-        RedditExample,
-        YoutubeExample
-    ]
 })
 export class HttpExamples {
-    constructor() {
-        console.log(this);
-    }
+  constructor() {
+    console.log(this);
+  }
 }
 
 

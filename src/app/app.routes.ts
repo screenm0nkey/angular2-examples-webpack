@@ -1,22 +1,17 @@
-import {provideRouter, RouterConfig} from '@angular/router';
-import formRoutes, {FormExamplesMain} from './forms/main';
-import seedRoutes, {SeedApp} from './seed-component/app';
-import {EggheadApp} from './egghead-example/main';
-import lifecycleRoutes, {LifecycleMain} from './lifecycle/main';
-import miscRoutes, {MiscExamples} from './misc-examples/main';
-import httprxRoutes, {MainHttpRxJs} from './http-rxjs/main';
+import {ModuleWithProviders}  from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
+import {EggheadApp} from './egghead-example/egghead.module';
 
-
-const routes:RouterConfig = [
-    {path: '', redirectTo: 'form', terminal: true},
-    {path: 'form', component: FormExamplesMain, children: formRoutes},
-    {path: 'seed', component: SeedApp, children: seedRoutes},
-    {path: 'egghead', component: EggheadApp},
-    {path: 'lifecycle', component: LifecycleMain, children: lifecycleRoutes},
-    {path: 'misc', component: MiscExamples, children: miscRoutes},
-    {path: 'httprx', component: MainHttpRxJs, children: httprxRoutes}
+export const routes: Routes = [
+  {path: '', redirectTo: 'forms', pathMatch: 'full'},
+  {path: 'forms', loadChildren: 'src/app/forms/forms.module#FormExamplesModule'},
+  {path: 'lifecycle', loadChildren: 'src/app/lifecycle/lifecycle.module.ts#LifeCycleModule'},
+  {path: 'seed', loadChildren: 'src/app/seed/seed.module.ts#SeedModule'},
+  {path: 'httprx', loadChildren: 'src/app/http-rxjs/async.module.ts#HttpRxJsModule'},
+  {path: 'egghead', component: EggheadApp}
 ];
 
-export const APP_ROUTER_PROVIDERS = [
-    provideRouter(routes)
-];
+export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
+
+
+

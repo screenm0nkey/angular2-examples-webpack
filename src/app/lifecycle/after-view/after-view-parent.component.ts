@@ -1,7 +1,5 @@
 import {Component} from '@angular/core';
 import {LoggerService}  from '../logger.service';
-import {AfterViewComponent}  from './after-view.component';
-
 
 @Component({
     selector: 'after-view-parent',
@@ -18,8 +16,7 @@ import {AfterViewComponent}  from './after-view.component';
       </div>
   `,
     styles: ['.parent {background: burlywood}'],
-    providers:[LoggerService],
-    directives: [AfterViewComponent]
+    providers:[LoggerService]
 })
 export class AfterViewParentComponent {
     logs:string[];

@@ -1,8 +1,5 @@
 import {Component} from '@angular/core';
-import {SolutionOne} from './solution1';
-import {SolutionTwo} from './solution2';
-import {SolutionThree} from './solution3';
-import {SolutionFour} from './solution4';
+
 
 @Component({
   selector: 'focus-input',
@@ -20,7 +17,6 @@ import {SolutionFour} from './solution4';
         <hr>
         <solution-three></solution-three>
 	`,
-  directives: [SolutionOne, SolutionTwo, SolutionThree, SolutionFour]
 })
 export class FocusInput {
   private isVisible:Boolean = true;

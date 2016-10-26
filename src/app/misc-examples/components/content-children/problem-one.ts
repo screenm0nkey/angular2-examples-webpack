@@ -9,7 +9,7 @@ import {Component, ContentChildren, AfterContentInit, QueryList, ElementRef } fr
     </ul>
   `
 })
-class SuperListComponent implements AfterContentInit {
+export class SuperListComponent implements AfterContentInit {
     // @ContentChildren allows us to target directives, components and local-refs
     // in content which has been inserted using ng-content. If the content was
     // just in the view then we could use @ViewChildren
@@ -29,7 +29,6 @@ class SuperListComponent implements AfterContentInit {
 // #mylocalref, which is not ideal
 @Component({
     selector: 'my-component',
-    directives : [SuperListComponent],
     template: `
         ${require('./problem-one.html')}
         <super-list>

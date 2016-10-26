@@ -2,11 +2,11 @@ import { Component, ChangeDetectionStrategy, Input, OnChanges, DoCheck } from '@
 import { Todo } from './StoreService';
 
 @Component({
-    selector: 'test-component',
+    selector: 'test-component-object',
     changeDetection: ChangeDetectionStrategy.OnPush,
     template: `<pre>{{todoItem|json}}</pre>`
 })
-export class TestComponent implements OnChanges, DoCheck {
+export class TestComponentObject implements OnChanges, DoCheck {
     @Input() todoItem;
     // this will only be called when object is mutated as we've set ChangeDetectionStrategy to OnPush
     // http://victorsavkin.com/post/133936129316/angular-immutability-and-encapsulation
@@ -22,7 +22,6 @@ export class TestComponent implements OnChanges, DoCheck {
 
 @Component({
     selector: 'immutable-object-component',
-    directives : [TestComponent],
     template : `
         <p>
             Type value into input and then try again with the checkbox selected. The view wont update
@@ -31,7 +30,7 @@ export class TestComponent implements OnChanges, DoCheck {
         Make Model Immutable
         <input #chk type="checkbox" (change)="checked=chk.checked; me.focus()"/><br>
         <input type="text" #me (keyup)="updateTodo(me.value)" placeholder="Update model">
-        <test-component [todoItem]="todoItem"></test-component>
+        <test-component-object [todoItem]="todoItem"></test-component-object>
     `,
 })
 export class ImmutableObject {

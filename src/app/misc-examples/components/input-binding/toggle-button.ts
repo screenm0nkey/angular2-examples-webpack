@@ -8,7 +8,7 @@ import {Component, Input, Output, EventEmitter} from '@angular/core';
     </button>
   `
 })
-class ToggleButton {
+export class ToggleButton {
   @Input() nick = true;
   @Output() nickChange = new EventEmitter();
 
@@ -21,7 +21,6 @@ class ToggleButton {
 
 @Component({
   selector: 'toggle-component',
-  directives: [ToggleButton],
   template: `
     <h4>Two way binding on a custom event</h4>
     

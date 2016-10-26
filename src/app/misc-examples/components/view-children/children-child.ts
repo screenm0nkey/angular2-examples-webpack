@@ -4,13 +4,12 @@ import {Component, Input, ViewChildren, AfterViewInit, ViewChild, ElementRef, Qu
   selector: 'super-item',
   template: `<li>{{name}}</li>`
 })
-class SuperItemComponent {
+export class SuperItemComponent {
   @Input('name') name: string;
 }
 
 @Component({
   selector: 'my-component2',
-  directives: [SuperItemComponent],
   template: `
         <h4>@ViewChildren and @ViewChild</h4>
         <button (click)="addItem()">Add Item</button>

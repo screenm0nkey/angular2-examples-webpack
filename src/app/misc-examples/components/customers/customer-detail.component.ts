@@ -1,15 +1,11 @@
 import {Component} from '@angular/core';
-import {ROUTER_DIRECTIVES, ActivatedRoute} from '@angular/router';
-
+import {ActivatedRoute} from '@angular/router';
 import {DataService} from './services/data.service';
 import {Customer} from "./customer.model";
-import {XLarge} from './directives/x-large.directive';
 
 @Component({
     selector: 'orders-component',
-    template: require('./customer-detail.tmpl.html'),
-    directives: [XLarge, ROUTER_DIRECTIVES],
-    providers: [DataService]
+    templateUrl: 'customer-detail.tmpl.html',
 })
 export class CustomerDetailComponent {
     customer:Customer;

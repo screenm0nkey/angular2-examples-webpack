@@ -1,8 +1,4 @@
 import {Component} from '@angular/core'
-import {HostOne} from './host-one';
-import {HostOnePartTwo} from './host-one-part-2';
-import {HostTwo} from './host-two';
-import {HostThree} from './host-three';
 
 @Component({
   selector: 'host-stuff-component',
@@ -15,7 +11,7 @@ import {HostThree} from './host-three';
         <host-one-component></host-one-component>
         <hr>
         
-        <h4>1.2) host-one-part-two using host:{}</h4>
+        <h4>1.2) host-one-part-two using host:</h4>
         <host-one-part-two-component></host-one-part-two-component>
         <hr>
         
@@ -27,7 +23,6 @@ import {HostThree} from './host-three';
         <host-three-component></host-three-component>
 
     `,
-  directives: [HostOne, HostOnePartTwo, HostTwo, HostThree]
 })
 export class HostStuffComponent {
 }

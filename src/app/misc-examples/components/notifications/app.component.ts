@@ -1,9 +1,7 @@
 import {Component} from '@angular/core';
-import { PushNotificationComponent } from './notification.component';
 
 @Component({
   selector: 'app',
-  directives: [PushNotificationComponent],
   styles: [require('./app.component.css')],
   template: require('./app.component.html')
 })

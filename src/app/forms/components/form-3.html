@@ -1,0 +1,36 @@
+<h4><strong>Model-driven forms</strong> - FormGroup and FormControl, formGroup, formGroupName and formControlName</h4>
+
+<form [formGroup]="registerForm" (ngSubmit)="submit()">
+  <label>Firstname:</label>
+  <input formControlName="firstname"
+         type="text"
+         id="first_name"
+         [ngClass]="{invalid: nameCtrl.touched && !nameCtrl.valid}">
+  valid: {{ nameCtrl.valid }}, value: {{ nameCtrl.value }}
+
+  <br>
+
+  <label>Lastname:</label>
+  <input type="text" formControlName="lastname">
+
+  <label>Email:</label>
+  Is valid {{registerForm.controls.email.valid}}
+  <input type="text" formControlName="email">
+
+
+  <fieldset formGroupName="address">
+    <label>Street:</label>
+    Is valid {{registerForm.controls.address.controls.street.valid}}
+    <input type="text" formControlName="street">
+
+    <label>Zip:</label>
+    Is valid {{registerForm.controls.address.controls.zip.valid}}
+    <input type="text" formControlName="zip">
+
+    <label>City:</label>
+    Is valid {{registerForm.controls.address.controls.city.valid}}
+    <input type="text" formControlName="city">
+  </fieldset>
+
+  <button type="submit">Submit</button>
+</form>

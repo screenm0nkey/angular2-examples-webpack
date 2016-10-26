@@ -1,0 +1,12 @@
+<h4>Repo list</h4>
+<ul>
+	<li *ngFor="let repo of repos | async">
+    <a [routerLink]="[repo.name]" routerLinkActive="active">
+      {{ repo.name }}
+    </a>
+  </li>
+</ul>
+
+<div style="border:solid 2px red; float: left;max-width:400px; overflow: hidden">
+  <router-outlet></router-outlet>
+</div>

@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'ngzone-main-component',
-    template: `<ng-zone-demo></ng-zone-demo>`,
+    template: `
+      <ng-zone-demo></ng-zone-demo>
+      <hr>
+      <ng-style-demo></ng-style-demo>
+    `,
 })
-export class NgZoneMainComponent {
-    constructor() {
-        console.log(this);
-    }
-}
+export class NgZoneMainComponent {}

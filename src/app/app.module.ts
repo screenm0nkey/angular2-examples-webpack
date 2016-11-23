@@ -12,7 +12,6 @@ import {SeedModule} from "./seed/seed.module";
 import {HttpRxJsModule} from "./http-rxjs/async.module";
 import {EggheadExamplesModule} from './egghead-example/egghead.module';
 import {LifeCycleModule} from './lifecycle/lifecycle.module';
-import {SpotifyModule} from './http-rxjs/spotify/spotify.module';
 
 // this is for the angular2 services example
 import {SomeService, EngineService} from './misc-examples/components/inject/some-service';
@@ -29,8 +28,7 @@ import {SomeService, EngineService} from './misc-examples/components/inject/some
     MiscExamplesModule,
     HttpRxJsModule,
     EggheadExamplesModule,
-    LifeCycleModule,
-    SpotifyModule
+    LifeCycleModule
   ],
   declarations: [AppComponent],
   providers: [

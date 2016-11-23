@@ -9,7 +9,7 @@ import {SpotifyDemoApp} from './spotify.module';
 
 const routes: Routes = [
   {
-    path: 'spotify',
+    path: 'httprx/spotify',
     component: SpotifyDemoApp,
     children: [
       {path: '', redirectTo: 'search',  pathMatch: 'full'},

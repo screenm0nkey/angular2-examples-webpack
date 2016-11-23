@@ -1,10 +1,11 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'spotify-app',
   template: `
-    <h4>Spot</h4>
-     <router-outlet></router-outlet>
+     <div class="spotify-component">
+         <h4>Spotify</h4>
+        <router-outlet></router-outlet>
+    </div>
   `
 })
 export class SpotifyDemoApp {

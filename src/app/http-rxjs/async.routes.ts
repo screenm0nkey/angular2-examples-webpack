@@ -7,6 +7,7 @@ import {JohnLinquistExamples} from './john-linquist/john.module';
 import {MiscHttpExamples} from './misc-examples/misc.module';
 import {MainClocks} from './ngrx-clock/ngrxclock.module';
 import {NgRxInTenMinsComponent} from './ngrx-in-ten/ngrxinten.module';
+import {SpotifyDemoApp} from './spotify/spotify.module';
 import {MainApp} from './ngrx-queue/main';
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
       {path: 'misc-examples', component: MiscHttpExamples},
       {path: 'ngrx', component: MainClocks},
       {path: 'ngrx-in-ten', component: NgRxInTenMinsComponent},
-      {path: 'ngrx-queue', component: MainApp}
+      {path: 'ngrx-queue', component: MainApp},
+      {path: 'spotify', component: SpotifyDemoApp}
     ]
   },
 ];

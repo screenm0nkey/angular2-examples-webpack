@@ -10,7 +10,6 @@ import {Component, ViewEncapsulation} from '@angular/core';
       <a routerLink="httprx" routerLinkActive="active">Http and RxJs</a>
       <a routerLink="egghead" routerLinkActive="active">Egghead</a>
       <a routerLink="lifecycle" routerLinkActive="active">Lifecycle</a>
-      <a routerLink="spotify" routerLinkActive="active">Spotify</a>
     </nav>
     <main>
       <router-outlet></router-outlet>

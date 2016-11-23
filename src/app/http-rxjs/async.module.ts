@@ -11,6 +11,7 @@ import {MiscHttpModule} from './misc-examples/misc.module';
 import {NgrxClocksModule} from './ngrx-clock/ngrxclock.module';
 import {NgrxInTenModule} from './ngrx-in-ten/ngrxinten.module';
 import {MainApp, NgRxQueueAppComponent} from './ngrx-queue/main';
+import {SpotifyModule} from './spotify/spotify.module';
 import {queue} from './ngrx-queue/reducers';
 import {UnitEffects} from './ngrx-queue/effects';
 
@@ -24,6 +25,7 @@ import {UnitEffects} from './ngrx-queue/effects';
     MiscHttpModule,
     NgrxClocksModule,
     NgrxInTenModule,
+    SpotifyModule,
     StoreModule.provideStore({queue}),
     EffectsModule.run(UnitEffects)
   ],

@@ -12,6 +12,7 @@ import {Component} from '@angular/core';
         <a routerLink="ngrx" routerLinkActive="active">NgRx Clock App</a>
         <a routerLink="ngrx-in-ten" routerLinkActive="active">NgRx in ten minutes</a>
         <a routerLink="ngrx-queue" routerLinkActive="active">NgRx Queue</a>
+        <a routerLink="spotify" routerLinkActive="active">Spotify</a>
       </nav>
       <div id="container">
         <router-outlet></router-outlet>

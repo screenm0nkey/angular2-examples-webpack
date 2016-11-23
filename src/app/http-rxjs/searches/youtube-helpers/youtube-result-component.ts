@@ -22,8 +22,4 @@ import {SearchResult} from './youtube-result-class'
 })
 export class YoutubeResultComponent {
   result: SearchResult;
-
-  constructor() {
-    console.log(12, this);
-  }
 }

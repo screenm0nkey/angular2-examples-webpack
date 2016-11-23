@@ -15,7 +15,7 @@ const routes: Routes = [
     path: 'lifecycle',
     component: LifeCycleMainComponent,
     children: [
-      {path: '', redirectTo: 'overview'},
+      {path: '', redirectTo: 'overview',  pathMatch: 'full'},
       {path: 'overview', component: BasicExample},
       {path: 'peekaboo', component: PeekABooParentComponent},
       {path: 'spy', component: SpyParentComponent},

@@ -7,6 +7,7 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/do';
 import {SearchResult} from './youtube-helpers/youtube-result-class';
 import {YoutubeService} from './youtube-helpers/youtube-service';
+let loadingGif: string = require('../../../images/loading.gif');
 
 
 @Component({
@@ -28,7 +29,8 @@ export class YoutubeSearch implements OnInit {
       .map((e: any) => e.target.value)
       .filter((text: string) => text.length > 1)
       .do(() => this.loading.emit(true))
-      .switchMap((query: string) => this.ytService.search(query))
+      .map((query: string) => this.ytService.search(query))
+      .switch() // .map().switch() === switchMap()
       .subscribe(
         (results: SearchResult[]) => {
           this.loading.emit(false);
@@ -54,7 +56,7 @@ export class YoutubeSearch implements OnInit {
                 (loading)="loading = $event"
                 (results)="updateResults($event)">
             </youtube-search>
-            <img src="/images/loading.gif" *ngIf="loading">
+            <img src="${loadingGif}" *ngIf="loading">
             <youtube-result-component *ngFor="let result of results" [result]="result"></youtube-result-component>
         </div>
     `

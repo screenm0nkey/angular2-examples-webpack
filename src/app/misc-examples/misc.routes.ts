@@ -24,7 +24,7 @@ const routes: Routes = [
     path: 'misc',
     component: MiscExamplesComponent,
     children: [
-      {path: '', redirectTo: 'accordian'},
+      {path: '', redirectTo: 'accordian',  pathMatch: 'full'},
       {path: 'accordian', component: AccordianComponent},
       {path: 'chickens', component: ChickensComponent},
       {path: 'change-detection', component: ChangeDetectionMain},

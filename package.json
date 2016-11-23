@@ -7,7 +7,7 @@
     "watch": "npm run build -- --watch",
     "server": "webpack-dev-server --inline --colors --progress --display-error-details --display-cached --port 4000  --content-base src",
     "start": "npm run server",
-    "start-www" : "node www/server"
+    "start-www": "node www/server"
   },
   "contributors": [
     "Rob Wormald <robwormald@gmail.com>",
@@ -20,17 +20,19 @@
     "@types/socket.io-client": "^1.4.27",
     "angular2-template-loader": "^0.4.0",
     "awesome-typescript-loader": "^1.1.1",
+    "body-parser": "^1.15.0",
     "css-loader": "^0.23.1",
+    "express": "^4.13.4",
+    "express-cors": "0.0.3",
+    "file-loader": "^0.9.0",
+    "image-webpack-loader": "^3.0.0",
     "json-load": "^1.0.1",
     "raw-loader": "^0.5.1",
     "to-string-loader": "^1.1.4",
     "typescript": "^2.0.2",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0",
-    "webpack-merge": "^0.8.4",
-    "express": "^4.13.4",
-    "express-cors": "0.0.3",
-    "body-parser": "^1.15.0"
+    "webpack-merge": "^0.8.4"
   },
   "dependencies": {
     "@angular/common": "2.0.0",

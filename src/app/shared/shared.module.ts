@@ -11,3 +11,12 @@ import { HttpModule, JsonpModule } from '@angular/http';
 })
 export class SharedModule {
 }
+
+/*
+ FormsModule gives us template driven directives such as:
+  • ngModel and
+  • NgForm
+ Whereas ReactiveFormsModule gives us directives like
+  • formControl and
+  • ngFormGroup
+*/

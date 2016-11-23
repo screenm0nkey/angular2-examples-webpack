@@ -18,7 +18,7 @@ const routes: Routes = [
     path: 'forms',
     component: FormExamplesComponent,
     children: [
-      {path: '', redirectTo: 'form-one'},
+      {path: '', redirectTo: 'form-one', pathMatch: 'full'},
       {path: 'form-one', component: FormOneComponent},
       {path: 'form-two', component: FormTwoComponent},
       {path: 'form-three', component: FormThreeComponent},

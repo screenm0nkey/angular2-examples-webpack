@@ -1,18 +1,22 @@
 <h4><strong>Template driven forms</strong> - ngForm, ngModel, ngModelGroup</h4>
 
 
-<pre style="padding: 0;"><h3 style="margin: 0;">
+<pre style="padding: 0;"><h5 style="margin: 0;">
         &lt;form #form="ngForm" (ngSubmit)="logForm(form.value, n)" #n="ngNickForm" formnick&gt;
             &lt;input type="text" name="lastname" [(ngModel)]="lastname" #last_name="ngModel"&gt;
         &lt;/form&gt;
-    </h3></pre>
+    </h5></pre>
 
 <pre>
-NgForm does something handy but non-obvious: it includes the form tag in its
-selector (instead of requiring you to explicitly add ngForm as an attribute).
-What this means is that if you inject FORM_DIRECTIVES, ngForm will get
-automatically attached to any &lt;form&gt; tags you have in your view. This is really
-useful but potentially confusing because it happens behind the scenes.
+Now things get interesting: because we imported FormsModule, that makes NgForm available to our view.
+Remember that whenever we make directives available to our view, they will get attached to any
+element that matches their selector. NgForm does something handy but non-obvious: it includes
+the form tag in its selector (instead of requiring you to explicitly add ngForm as an attribute).
+What this means is that if you import FormsModule, NgForm will get automatically attached to any
+form tags you have in your view. This is really useful but potentially confusing because it happens
+behind the scenes. There are two important pieces of functionality that NgForm gives us:
+1. A FormGroup named ngForm
+2. A (ngSubmit)output
 
 
 If ngModel is used within a form tag, either the name attribute must be set or

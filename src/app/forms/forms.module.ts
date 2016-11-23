@@ -3,7 +3,7 @@ import {routing} from './forms.routes';
 import {SharedModule} from '../shared/shared.module';
 import {FormExamplesComponent} from './forms.component';
 import {FormOneComponent} from './components/form-1';
-import {FormTwoComponent, FormTwoDirective} from './components/form-2';
+import {FormTwoComponent, NickForm} from './components/form-2';
 import {FormThreeComponent} from './components/form-3';
 import {FormFourComponent} from './components/form-4';
 import {FormFiveComponent} from './components/form-5';
@@ -22,7 +22,7 @@ import {FormTenModule} from './components/custom-form-controls/form-10.module'
     FormOneComponent,
     FormTwoComponent,
     // used in form 2 to show exportAs and what NgForm is doing in #form="ngForm"
-    FormTwoDirective,
+    NickForm,
     FormThreeComponent,
     FormFourComponent,
     FormFiveComponent,

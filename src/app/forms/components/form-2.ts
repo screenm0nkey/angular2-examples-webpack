@@ -6,7 +6,7 @@ import {NgForm} from '@angular/forms';
   selector: '[formnick]',
   exportAs: 'ngNickForm'
 })
-export class FormTwoDirective {
+export class NickForm {
   public count: Number = 11;
 
   public call() {
@@ -24,7 +24,7 @@ export class FormTwoComponent {
   employee: any = {'first_name': 'kara'};
   formStr: string = '';
 
-  logForm(form: NgForm, nick: FormTwoDirective) {
+  logForm(form: NgForm, nick: NickForm) {
     this.formStr = JSON.stringify(form.value);
     console.log(this);
     console.log(form);

@@ -4,6 +4,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
+import {Observable} from 'rxjs/Rx';
 
 /*
  * Services
@@ -11,22 +12,20 @@ import {Location} from '@angular/common';
 import {SpotifyService} from '../SpotifyService';
 
 @Component({
-  selector: 'artist',
+  selector: 'artist$',
   template: `
-  <div *ngIf="artist">
-    <h1>{{ artist.name }}</h1>
-
+  <div *ngIf="(artist$ | async)?.name">
+    <h1>{{ (artist$ | async)?.name }}</h1>
     <p>
-      <img src="{{ artist.images[0].url }}">
+      <img src="{{ (artist$ | async)?.images[0].url }}">
     </p>
-
     <p><a href (click)="back()">Back</a></p>
   </div>
   `
 })
 export class ArtistComponent implements OnInit {
   id: string;
-  artist: Object;
+  artist$: Observable<any[]>;
 
   constructor(private route: ActivatedRoute, private spotify: SpotifyService,
               private location: Location) {
@@ -34,16 +33,11 @@ export class ArtistComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.spotify
-      .getArtist(this.id)
-      .subscribe((res: any) => this.renderArtist(res));
+    this.artist$ = this.spotify.getArtist(this.id);
   }
 
   back(): void {
     this.location.back();
   }
 
-  renderArtist(res: any): void {
-    this.artist = res;
-  }
 }

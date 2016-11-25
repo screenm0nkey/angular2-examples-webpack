@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx';
+import 'rxjs/add/operator/map';
 
 /**
  * SpotifyService works querying the Spotify Web API
@@ -30,8 +31,11 @@ export class SpotifyService {
     ]);
   }
 
-  searchTrack(query: string): Observable<any[]> {
-    return this.search(query, 'track');
+  searchTrack(query: string) : Observable<any[]> {
+    return this.search(query, 'track')
+      .map(function (res:any) {
+        return res.tracks.items;
+      });
   }
 
   getTrack(id: string): Observable<any[]> {

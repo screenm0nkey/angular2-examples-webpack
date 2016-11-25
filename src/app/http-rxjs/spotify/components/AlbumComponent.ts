@@ -11,19 +11,19 @@ import {Location} from '@angular/common';
 import {SpotifyService} from '../SpotifyService';
 
 @Component({
-  selector: 'album',
+  selector: 'album$',
   template: `
-  <div *ngIf="album">
-    <h1>{{ album.name }}</h1>
-    <h2>{{ album.artists[0].name }}</h2>
+  <div *ngIf="(album$ | async)?.name">
+    <h1>{{ (album$ | async)?.name }}</h1>
+    <h2>{{ (album$ | async)?.artists[0].name }}</h2>
 
     <p>
-      <img src="{{ album.images[1].url }}">
+      <img src="{{ (album$ | async)?.images[1].url }}">
     </p>
 
     <h3>Tracks</h3>
     <ol>
-      <li *ngFor="let t of album.tracks.items">
+      <li *ngFor="let t of (album$ | async)?.tracks.items">
         <a [routerLink]="['/httprx','spotify', 'tracks', t.id]">
           {{ t.name }}
         </a>
@@ -36,7 +36,7 @@ import {SpotifyService} from '../SpotifyService';
 })
 export class AlbumComponent implements OnInit {
   id: string;
-  album: Object;
+  album$: Object;
 
   constructor(private route: ActivatedRoute,
               private spotify: SpotifyService, // <-- injected
@@ -45,16 +45,10 @@ export class AlbumComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.spotify
-      .getAlbum(this.id)
-      .subscribe((res: any) => this.renderAlbum(res));
+    this.album$ = this.spotify.getAlbum(this.id);
   }
 
   back(): void {
     this.location.back();
-  }
-
-  renderAlbum(res: any): void {
-    this.album = res;
   }
 }

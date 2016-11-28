@@ -49,7 +49,7 @@ export class NgRxClock2 {
 
     constructor(store:Store<any>) {
         this.time$ = store.select('clock');
-        this.people$ = store.select('people');
+        this.people$ = store.select('peoplez');
 
         Observable.merge(
             this.click$,

@@ -1,16 +1,16 @@
 import {NgModule} from '@angular/core';
-import {StoreModule} from '@ngrx/store';
 import {SharedModule} from '../../shared/shared.module';
 import {NgRxInTenMinsComponent} from './main';
 import {PersonList} from './components/person-list';
 import {PersonInput} from './components/person-input';
 import {FilterSelect} from './components/filter-select';
-import {people, filter} from "./reducers";
+
+// StoreModule.provideStore({queue, people, filter, tick, clock, peoplez}),
+// assigned in the async.module as the store seemed to overwrite child store deps
 
 @NgModule({
   imports: [
-    SharedModule,
-    StoreModule.provideStore({people, filter})
+    SharedModule
   ],
   declarations: [
     NgRxInTenMinsComponent,

@@ -1,7 +1,6 @@
 import {Store} from '@ngrx/store';
 import {Component} from '@angular/core';
 import {ADD} from './actions';
-import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/switchMapTo';

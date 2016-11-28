@@ -27,7 +27,7 @@ const defaultPeople = [
   {name: "Nancy", time: clock(undefined, defaultAction)},
   {name: "Drew", time: clock(undefined, defaultAction)},
 ];
-export const people = (state = defaultPeople, {type, payload})=> {
+export const peoplez = (state = defaultPeople, {type, payload})=> {
   switch (type) {
     case ADVANCE:
       return state.map((person)=> {

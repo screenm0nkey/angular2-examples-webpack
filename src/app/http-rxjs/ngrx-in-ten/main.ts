@@ -27,6 +27,7 @@ export class NgRxInTenMinsComponent {
       _store.select('people'),
       _store.select('filter'),
       (people: any[], filter) => {
+        debugger
         if (people && filter) {
           return people.filter(filter);
         }
@@ -36,6 +37,7 @@ export class NgRxInTenMinsComponent {
   }
 
   addPerson(name) {
+    debugger
     this._store.dispatch({
       type: "ADD_PERSON", payload: {
         name,

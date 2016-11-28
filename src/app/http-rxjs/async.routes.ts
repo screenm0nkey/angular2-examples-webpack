@@ -25,7 +25,7 @@ const routes: Routes = [
       {path: 'ngrx-queue', component: MainApp},
       {path: 'spotify', component: SpotifyDemoApp}
     ]
-  },
+  }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forChild(routes);

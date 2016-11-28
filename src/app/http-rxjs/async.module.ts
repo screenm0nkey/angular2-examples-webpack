@@ -14,6 +14,9 @@ import {MainApp, NgRxQueueAppComponent} from './ngrx-queue/main';
 import {SpotifyModule} from './spotify/spotify.module';
 import {queue} from './ngrx-queue/reducers';
 import {UnitEffects} from './ngrx-queue/effects';
+import {people, filter} from "./ngrx-in-ten/reducers";
+import {tick} from './ngrx-clock/example-clock-one';
+import {clock, peoplez} from './ngrx-clock/reducers';
 
 @NgModule({
   imports: [
@@ -26,7 +29,7 @@ import {UnitEffects} from './ngrx-queue/effects';
     NgrxClocksModule,
     NgrxInTenModule,
     SpotifyModule,
-    StoreModule.provideStore({queue}),
+    StoreModule.provideStore({queue, people, filter, tick, clock, peoplez}),
     EffectsModule.run(UnitEffects)
   ],
   declarations: [

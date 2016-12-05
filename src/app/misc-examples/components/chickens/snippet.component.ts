@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Snippet} from './directives/snippet.directive'
 
 @Component({
   selector: 'snippet-component',
-  styles : ['textarea {width : 300px; font-size : 10px; height:75px;}'],
-  template : `
+  styles: ['textarea {width : 300px; font-size : 10px; height:75px;}'],
+  template: `
         <h4>Text Snippet Directive</h4>
         <p>Type <code>lorem\`</code> for lorem ipsum</p>
         <p>Type <code>zombie\`</code> for zombie ipsum</p>
@@ -13,7 +13,8 @@ import {Snippet} from './directives/snippet.directive'
     `
 })
 export class SnippetComponent {
-  mySnippets : Snippet[];
+  mySnippets: Snippet[];
+
   constructor() {
     this.mySnippets = [{
       name: 'lorem',

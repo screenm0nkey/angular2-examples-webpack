@@ -9,7 +9,7 @@ import 'rxjs/add/operator/mapTo';
 const stringOfWords = `Bacon ipsum dolor amet beef pork hamburger landjaeger rump frankfurter ham venison ground round alcatra doner capicola kielbasa ham hock brisket. Pork chop cow shankle capicola turkey brisket chicken pig leberkas pork loin strip steak ground round. Chicken spare ribs meatloaf turkey venison kevin biltong filet mignon pork belly. Porchetta jowl prosciutto venison kielbasa turkey. Ham hock tongue salami pork belly spare ribs chicken filet mignon ground round flank shoulder drumstick short ribs strip steak.`;
 const words = stringOfWords.split(" ");
 
-export const word: ActionReducer<string> = (state = words[0], action: Action)=> {
+export const word: ActionReducer<string> = (state = words[0], action: Action) => {
   switch (action.type) {
     case 'random':
       const randomIndex = Math.floor(Math.random() * words.length);

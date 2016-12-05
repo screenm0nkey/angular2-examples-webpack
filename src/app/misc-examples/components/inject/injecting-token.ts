@@ -64,8 +64,8 @@ export class InjectComponent {
     console.log('@Inject(String) public aString', aString);
     engineFactory1().callMe("EngineService, { useFactory: () => {}");
     engineFactory2().callMe("EngineService, { useFactory: () => {}");
-    console.log('provide(SOME_TOKEN, {useValue: "dependency one", multi: true})', multiDependency)
-    console.log("{provide : TOKEN_B, useValue : 'DINO'}", dino1, dino2)
+    console.log(101, 'provide(SOME_TOKEN, {useValue: "dependency one", multi: true})', multiDependency)
+    console.log(102, "{provide : TOKEN_B, useValue : 'DINO'}", dino1, dino2)
   }
 }
 

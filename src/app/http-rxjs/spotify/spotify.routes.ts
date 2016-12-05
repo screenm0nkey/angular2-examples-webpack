@@ -12,11 +12,11 @@ const routes: Routes = [
     path: 'httprx/spotify',
     component: SpotifyDemoApp,
     children: [
-      {path: '', redirectTo: 'search',  pathMatch: 'full'},
-      { path: 'search', component: SearchComponent },
-      { path: 'artists/:id', component: ArtistComponent },
-      { path: 'tracks/:id', component: TrackComponent },
-      { path: 'albums/:id', component: AlbumComponent },
+      {path: '', redirectTo: 'search', pathMatch: 'full'},
+      {path: 'search', component: SearchComponent},
+      {path: 'artists/:id', component: ArtistComponent},
+      {path: 'tracks/:id', component: TrackComponent},
+      {path: 'albums/:id', component: AlbumComponent},
     ]
   },
 ];

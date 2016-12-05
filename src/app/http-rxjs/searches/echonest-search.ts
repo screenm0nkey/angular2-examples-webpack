@@ -20,12 +20,12 @@ export class Echonest {
     let url = 'http://localhost:1970/uk/rss/topsongs/limit=100/json';
     return this.http.get(url)
       .map((res: Response) => res.json())
-      .map((data)=> {
+      .map((data) => {
         return data.feed.entry
-          .map((ent, x)=> {
+          .map((ent, x) => {
             return {id: x, label: ent['im:name'].label};
           })
-          .filter(item=> {
+          .filter(item => {
             return item.label.toLocaleLowerCase().indexOf(name) >= 0;
           })
       })

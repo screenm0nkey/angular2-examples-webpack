@@ -23,9 +23,10 @@ renderer to invoke the focus method on that input.
   `
 })
 export class SolutionFour implements AfterViewInit {
-  @ViewChild('myInput') input:ElementRef;
+  @ViewChild('myInput') input: ElementRef;
 
-  constructor(private _renderer:Renderer) {}
+  constructor(private _renderer: Renderer) {
+  }
 
   ngAfterViewInit() {
     this._renderer.invokeElementMethod(this.input.nativeElement, 'focus', []);

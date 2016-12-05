@@ -77,7 +77,7 @@ export class StarWarsComponent {
     this.noResults$ = Observable.combineLatest(
       results$,
       term$,
-      (results: any[], term: string)=> {
+      (results: any[], term: string) => {
         return results.length == 0 && term.length > 1;
       })
       .startWith(false)

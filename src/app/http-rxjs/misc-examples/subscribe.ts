@@ -33,6 +33,6 @@ export class SubscribeExample implements OnInit {
   }
 
   ngOnInit() {
-    this._characterService.characters$.subscribe(characters=> this.characters = characters);
+    this._characterService.characters$.subscribe(characters => this.characters = characters);
   }
 }

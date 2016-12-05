@@ -9,7 +9,7 @@
     Immutability vs Encapsulation
   </a>
 
-<pre>
+  <pre>
 Somewhere in Angular’s source code,there’s this thing called <strong>ApplicationRef</strong>,
   which listens to NgZones onTurnDone event. Whenever this event is fired, it executes a tick()
 function which essentially performs change detection.
@@ -18,13 +18,13 @@ function which essentially performs change detection.
   <p>
     In Angular 2, components can subscribe to the <strong>onChanges</strong> lifecycle hook,
     which will be called when any of the @inputs properties change. this doesn't happen if
-    OnPush is set. Only when the @input reference changes does it get called.
+    changeDetection.OnPush is set. Only when the @input reference changes does it get called.
     This is the case for immutability
   </p>
 
-<pre>{changeDetection: ChangeDetectionStrategy.OnPush}</pre>
+  <pre>{changeDetection: ChangeDetectionStrategy.OnPush}</pre>
 
-<pre>
+  <pre>
 What's interesting below is if you type into the "Local Ref"
 input, which is using a local variable reference and not
 ngModel, the change detection isn't triggered. It only works

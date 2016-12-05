@@ -12,7 +12,8 @@ import {FormSevenEmailValidatorWithDeps} from './custom-validator-directive-with
     FormSevenEmailValidatorWithDeps,
   ],
 })
-export class FormSevenModule {}
+export class FormSevenModule {
+}
 
-export { FormSevenComponent }
+export {FormSevenComponent}
 

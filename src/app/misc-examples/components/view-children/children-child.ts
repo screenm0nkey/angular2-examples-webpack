@@ -33,7 +33,7 @@ export class ViewChildrenComponent implements AfterViewInit {
     });
   }
 
-  updatePreInfo (length) {
+  updatePreInfo(length) {
     this.el.nativeElement.innerHTML = `Items = ${length}`;
   }
 

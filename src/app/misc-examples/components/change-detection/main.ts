@@ -1,6 +1,4 @@
 import {Component} from '@angular/core'
-import {ChangeComponent} from './change.components';
-import {MarkForCheck} from './mark-for-check.component';
 
 @Component({
   selector: 'change-detection-main',
@@ -8,6 +6,8 @@ import {MarkForCheck} from './mark-for-check.component';
         <change-component></change-component>
         <hr>
         <mark-for-check></mark-for-check>
+        <hr>
+        <parent-obs></parent-obs>
     `,
 })
 export class ChangeDetectionMain {

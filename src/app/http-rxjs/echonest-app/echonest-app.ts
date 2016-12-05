@@ -46,14 +46,14 @@ export class EchonestFavStoreService {
       .map((artist: Artist) => {
         return artists => {
           artist.favourited = false;
-          return artists.filter((a: Artist)=> a.id !== artist.id);
+          return artists.filter((a: Artist) => a.id !== artist.id);
         }
       }).subscribe(this.updatesSubject$);
 
     this.removeAllSubject$
       .map(() => {
         return artists => {
-          return artists.filter((a: Artist)=> {
+          return artists.filter((a: Artist) => {
             a.favourited = false;
             return false;
           });
@@ -94,8 +94,8 @@ export class EchonestArtistStoreService {
 
 
   assignFavourite(artists: any[], favs: any[]) {
-    favs = favs.map((artist: Artist)=> artist.id);
-    artists.forEach((artist: Artist)=> {
+    favs = favs.map((artist: Artist) => artist.id);
+    artists.forEach((artist: Artist) => {
       artist.favourited = false;
       if (favs.indexOf(artist.id) >= 0) {
         artist.favourited = true;
@@ -202,7 +202,7 @@ export class EchonestAppComponent {
 
   constructor(private artistStore: EchonestArtistStoreService,
               private favStore: EchonestFavStoreService) {
-    this.favouriteArtists$.subscribe((data: any)=> this.buttonDisabled = !data.length);
+    this.favouriteArtists$.subscribe((data: any) => this.buttonDisabled = !data.length);
   }
 
   removeAll() {

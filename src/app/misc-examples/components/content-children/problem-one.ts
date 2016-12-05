@@ -1,8 +1,8 @@
-import {Component, ContentChildren, AfterContentInit, QueryList, ElementRef } from '@angular/core';
+import {Component, ContentChildren, AfterContentInit, QueryList, ElementRef} from '@angular/core';
 
 @Component({
-    selector: 'super-list',
-    template: `
+  selector: 'super-list',
+  template: `
     there are {{count}} items in the list
     <ul>
       <ng-content></ng-content>
@@ -10,26 +10,25 @@ import {Component, ContentChildren, AfterContentInit, QueryList, ElementRef } fr
   `
 })
 export class SuperListComponent implements AfterContentInit {
-    // @ContentChildren allows us to target directives, components and local-refs
-    // in content which has been inserted using ng-content. If the content was
-    // just in the view then we could use @ViewChildren
-    @ContentChildren('mylocalref') items: QueryList<ElementRef>;
-    count :number;
+  // @ContentChildren allows us to target directives, components and local-refs
+  // in content which has been inserted using ng-content. If the content was
+  // just in the view then we could use @ViewChildren
+  @ContentChildren('mylocalref') items: QueryList<ElementRef>;
+  count: number;
 
-    ngAfterContentInit() {
-        this.count = this.items.length;
-        this.items.forEach((el:ElementRef) => console.log(el.nativeElement));
-    }
+  ngAfterContentInit() {
+    this.count = this.items.length;
+    this.items.forEach((el: ElementRef) => console.log(el.nativeElement));
+  }
 }
-
 
 
 // this is how the end user might implement the external component.
 // we're forced to ask them to add a reference to their list items
 // #mylocalref, which is not ideal
 @Component({
-    selector: 'my-component',
-    template: `
+  selector: 'my-component',
+  template: `
         ${require('./problem-one.html')}
         <super-list>
             <li *ngFor="let item of items" #mylocalref> {{item}} </li>
@@ -37,5 +36,5 @@ export class SuperListComponent implements AfterContentInit {
     `
 })
 export class MyComponent {
-    public items:string[] = ['hello', 'world', 'today'];
+  public items: string[] = ['hello', 'world', 'today'];
 }

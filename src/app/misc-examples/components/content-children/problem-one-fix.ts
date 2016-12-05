@@ -2,13 +2,14 @@ import {Component, ContentChildren, AfterContentInit, QueryList, Directive, Elem
 
 @Directive({selector: 'li'})
 class SuperListDirective {
-    constructor(private el:ElementRef) {}
+  constructor(private el: ElementRef) {
+  }
 }
 
 
 @Component({
-    selector: 'fix-super-list',
-    template: `
+  selector: 'fix-super-list',
+  template: `
     there are {{count}} items in the list
     <ul>
         <div *ngIf="showme" style="background-color: red; color : white; display:inline-block">
@@ -19,28 +20,28 @@ class SuperListDirective {
   `
 })
 export class FixSuperListComponent implements AfterContentInit {
-    @ContentChildren(SuperListDirective) items:QueryList<SuperListDirective>;
-    count:number;
-    showme:boolean = false;
-    // use ngAfterViewInit() if you're doing a view query
-    // ngAfterContentInit() is used because we're injecting the content using ngcontent
-    ngAfterContentInit() {
-        this.count = this.items.length;
+  @ContentChildren(SuperListDirective) items: QueryList<SuperListDirective>;
+  count: number;
+  showme: boolean = false;
+  // use ngAfterViewInit() if you're doing a view query
+  // ngAfterContentInit() is used because we're injecting the content using ngcontent
+  ngAfterContentInit() {
+    this.count = this.items.length;
 
-        // will be called every time$ an item is added/removed from the 'items' list in my-component2 below,
-        this.items.changes.subscribe((items:QueryList<ElementRef>) => {
-            items.forEach((el:ElementRef) => console.log(el.nativeElement));
-            this.showme = true;
-            setTimeout(()=>this.showme = false, 2000);
-        });
-    }
+    // will be called every time$ an item is added/removed from the 'items' list in my-component2 below,
+    this.items.changes.subscribe((items: QueryList<ElementRef>) => {
+      items.forEach((el: ElementRef) => console.log(el.nativeElement));
+      this.showme = true;
+      setTimeout(() => this.showme = false, 2000);
+    });
+  }
 }
 
 
 // this is how the end user might implement the external component
 @Component({
-    selector: 'fix-my-component',                            // blog.thoughtram.io/angular2/2015/11/23/multi-providers-in-angular-2.html
-    template: `                                            
+  selector: 'fix-my-component',                            // blog.thoughtram.io/angular2/2015/11/23/multi-providers-in-angular-2.html
+  template: `                                            
       ${require('./problem-one-fix.html')}
       <button (click)="addItem()">Add an Item</button><br>
       <fix-super-list>
@@ -50,10 +51,10 @@ export class FixSuperListComponent implements AfterContentInit {
     `
 })
 export class FixMyComponent {
-    public items:string[] = ['hello', 'world', 'today'];
+  public items: string[] = ['hello', 'world', 'today'];
 
-    addItem() {
-        // this will emit an chnage event to the SuperListComponent component subscriber
-        this.items.push('yeah ' + Math.round(Math.random()*100))
-    }
+  addItem() {
+    // this will emit an chnage event to the SuperListComponent component subscriber
+    this.items.push('yeah ' + Math.round(Math.random() * 100))
+  }
 }

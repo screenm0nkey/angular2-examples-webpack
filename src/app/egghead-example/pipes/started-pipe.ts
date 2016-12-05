@@ -3,7 +3,7 @@ import {TodoModel} from "../services/todo-model";
 
 @Pipe({name: 'started'})
 export class StartedPipe implements PipeTransform {
-    transform(value: TodoModel[], status: string): TodoModel[] {
-        return value.filter((item:TodoModel)=> item.status === status);
-    }
+  transform(value: TodoModel[], status: string): TodoModel[] {
+    return value.filter((item: TodoModel) => item.status === status);
+  }
 }

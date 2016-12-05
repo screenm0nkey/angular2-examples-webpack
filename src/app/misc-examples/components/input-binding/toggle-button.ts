@@ -1,7 +1,7 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
 @Component({
   selector: 'toggle-button',
-  styles : ['button.off { background : black; color : white;}'],
+  styles: ['button.off { background : black; color : white;}'],
   template: `
     <button (click)="onClick($event)" [ngClass]="nick ? 'on' : 'off'">
       <ng-content></ng-content>
@@ -39,5 +39,5 @@ export class ToggleButton {
   `
 })
 export class ToggleButtonComponent {
-  state:boolean = false;
+  state: boolean = false;
 }

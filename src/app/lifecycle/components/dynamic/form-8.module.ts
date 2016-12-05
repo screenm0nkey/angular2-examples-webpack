@@ -10,7 +10,8 @@ import {FormEightSurvey} from './survey';
     FormEightSurvey,
   ],
 })
-export class FormEightModule {}
+export class FormEightModule {
+}
 
-export { FormEightComponent }
+export {FormEightComponent}
 

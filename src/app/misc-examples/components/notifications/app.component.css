@@ -3,9 +3,9 @@
 }
 
 header {
-    display: table;
+  display: table;
   background-color: #fff;
-  padding:0;
+  padding: 0;
   top: 0;
   left: 0;
   width: 100%;
@@ -23,7 +23,7 @@ h2 {
 }
 
 img {
-  width:50%;
+  width: 50%;
 }
 
 main {
@@ -50,11 +50,13 @@ footer {
   position: absolute;
   bottom: 20px;
 }
+
 footer a {
   color: #fff;
   text-decoration: none;
   font-family: sans-serif;
 }
+
 footer a:hover {
   text-decoration: underline;
 }

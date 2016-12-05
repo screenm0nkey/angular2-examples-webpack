@@ -3,46 +3,47 @@ import Timer = NodeJS.Timer;
 
 @Injectable()
 export class LoggerService {
-    logs:string[] = [];
-    prevMsg:string = '';
-    prevMsgCount:number = 1;
-    tid : Timer;
+  logs: string[] = [];
+  prevMsg: string = '';
+  prevMsgCount: number = 1;
+  tid: Timer;
 
-    constructor(private zone:NgZone) {
-    }
+  constructor(private zone: NgZone) {
+  }
 
-    log(msg:string) {
-        if (this.tid) {
-            clearTimeout(this.tid);
-        }
-        if (msg === this.prevMsg) {
-            // Repeat message; update last log entry with count.
-            this.logs[this.logs.length - 1] = msg + ` (${this.prevMsgCount += 1}x)`;
-        } else {
-            // New message; log it.
-            this.prevMsg = msg;
-            this.prevMsgCount = 1;
-            this.logs.push(msg);
-        }
-        // this needs to be done outside of the angular zone as
-        // setTimeout triggers the change detection
-        this.zone.runOutsideAngular(() => {
-            let self = this;
-            this.tid = setTimeout(() => {
-                self.logs.push('Idle');
-                console.log(self.logs)
-                // self.tick();
-            },100);
-        });
+  log(msg: string) {
+    if (this.tid) {
+      clearTimeout(this.tid);
     }
+    if (msg === this.prevMsg) {
+      // Repeat message; update last log entry with count.
+      this.logs[this.logs.length - 1] = msg + ` (${this.prevMsgCount += 1}x)`;
+    } else {
+      // New message; log it.
+      this.prevMsg = msg;
+      this.prevMsgCount = 1;
+      this.logs.push(msg);
+    }
+    // this needs to be done outside of the angular zone as
+    // setTimeout triggers the change detection
+    this.zone.runOutsideAngular(() => {
+      let self = this;
+      this.tid = setTimeout(() => {
+        self.logs.push('Idle');
+        console.log(self.logs)
+        // self.tick();
+      }, 100);
+    });
+  }
 
-    clear() {
-        this.logs.length = 0;
-    }
+  clear() {
+    this.logs.length = 0;
+  }
 
-    // setTimeout triggers a change detection.
-    // schedules a view refresh to ensure display catches up
-    tick() {
-        setTimeout(() => {}, 0);
-    }
+  // setTimeout triggers a change detection.
+  // schedules a view refresh to ensure display catches up
+  tick() {
+    setTimeout(() => {
+    }, 0);
+  }
 }

@@ -26,9 +26,9 @@ export class AutoSearch {
   term$ = Observable.from(this.text)
   // .do(data=>console.log(1,data))
     .zip(this.randomInterval$, x => x)
-    .do(data=>console.log(2, data))
-    .scan((a, c)=> (c === " ") ? "" : a + c)
-    .do(data=>console.log(3, data))
+    .do(data => console.log(2, data))
+    .scan((a, c) => (c === " ") ? "" : a + c)
+    .do(data => console.log(3, data))
     .share();
 
   results$ = this.term$

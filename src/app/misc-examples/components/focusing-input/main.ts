@@ -19,13 +19,13 @@ import {Component} from '@angular/core';
 	`,
 })
 export class FocusInput {
-  private isVisible:Boolean = true;
+  private isVisible: Boolean = true;
 
-  appearInput(visible:Boolean) {
+  appearInput(visible: Boolean) {
     this.isVisible = !this.isVisible;
   }
 
-  focusInput(element:any) {
+  focusInput(element: any) {
     alert(element);
   }
 }

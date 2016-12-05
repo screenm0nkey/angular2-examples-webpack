@@ -2,10 +2,9 @@ import {Component, Input} from "@angular/core";
 import {TodoService} from "../services/todo-service";
 
 
-
 @Component({
-    selector:'todo-list',
-    template:`
+  selector: 'todo-list',
+  template: `
     <div>
         <ul>
             <li *ngFor="let todo of todoService.todos | started : status | search : term">
@@ -17,8 +16,10 @@ import {TodoService} from "../services/todo-service";
         </ul>
     </div>`
 })
-export class TodoList{
-    @Input() status;
-    @Input() term;
-    constructor(public todoService:TodoService){}
+export class TodoList {
+  @Input() status;
+  @Input() term;
+
+  constructor(public todoService: TodoService) {
+  }
 }

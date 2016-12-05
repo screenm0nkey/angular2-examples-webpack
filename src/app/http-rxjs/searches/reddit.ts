@@ -37,13 +37,13 @@ export class RedditExample {
 
     this.results = searchField.valueChanges
       .debounceTime(500)
-      .do(()=> this.loading = true)
+      .do(() => this.loading = true)
       .switchMap((val: string) => {
         return this.searchRedditPics(val);
       })
-      .do(()=> this.loading = false);
+      .do(() => this.loading = false);
 
-    this.results.subscribe(x=>console.log(x));
+    this.results.subscribe(x => console.log(x));
   }
 
   searchRedditPics(search: string) {

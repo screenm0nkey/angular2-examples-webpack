@@ -12,6 +12,9 @@ import {SeedModule} from "./seed/seed.module";
 import {HttpRxJsModule} from "./http-rxjs/async.module";
 import {EggheadExamplesModule} from './egghead-example/egghead.module';
 import {LifeCycleModule} from './lifecycle/lifecycle.module';
+import {AuthAppModule} from './auth/auth.module';
+import {ChatAppModule} from './chat-app/ts/app.module';
+import {ChatAppReduxModule} from './chat-app-redux/ts/app.module';
 
 // this is for the angular2 services example
 import {SomeService, EngineService} from './misc-examples/components/inject/some-service';
@@ -28,23 +31,26 @@ import {SomeService, EngineService} from './misc-examples/components/inject/some
     MiscExamplesModule,
     HttpRxJsModule,
     EggheadExamplesModule,
-    LifeCycleModule
+    LifeCycleModule,
+    AuthAppModule,
+    ChatAppModule,
+    ChatAppReduxModule
   ],
   declarations: [AppComponent],
   providers: [
-    { provide: APP_BASE_HREF, useValue: '/' }, //is the equivalent of using <base href="/">
-      {provide: LocationStrategy, useClass: HashLocationStrategy},
+    {provide: APP_BASE_HREF, useValue: '/'}, //is the equivalent of using <base href="/">
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
     // loading dependencies example
     SomeService,                                        // this is shorthand for provide(SomeService, {useClass : SomeService}),
     {provide: 'whateverToken', useClass: SomeService},  // this is used by "injecting-token.ts" component,
     {
       provide: 'EngineService', useFactory: () => {      // this is used by "injecting-token.ts" component,
-        return () => {
-          return new EngineService();
-        }
+      return () => {
+        return new EngineService();
       }
     }
-    ],
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

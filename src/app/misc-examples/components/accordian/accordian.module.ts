@@ -11,6 +11,7 @@ import {AccordionGroup, Accordion} from './accordian-group.component';
     Accordion
   ]
 })
-export class AccordianModule {}
+export class AccordianModule {
+}
 
 export {AccordianComponent}

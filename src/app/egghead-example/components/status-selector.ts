@@ -1,8 +1,8 @@
 import {Component, Output, EventEmitter} from "@angular/core";
 
 @Component({
-    selector: 'status-selector',
-    template:`<div>
+  selector: 'status-selector',
+  template: `<div>
         <select #sel (change)="select.emit(sel.value)">
             <option *ngFor="let status of statuses">
                 {{status}}
@@ -10,12 +10,12 @@ import {Component, Output, EventEmitter} from "@angular/core";
         </select>
     </div>`
 })
-export class StatusSelector{
-    @Output() select = new EventEmitter();
-    statuses = ["started", "completed"];
+export class StatusSelector {
+  @Output() select = new EventEmitter();
+  statuses = ["started", "completed"];
 
-    ngOnInit(){
-        // default to selected
-        this.select.emit(this.statuses[0]);
-    }
+  ngOnInit() {
+    // default to selected
+    this.select.emit(this.statuses[0]);
+  }
 }

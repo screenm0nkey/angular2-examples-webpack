@@ -15,8 +15,7 @@ import {SpotifyModule} from './spotify/spotify.module';
 import {queue} from './ngrx-queue/reducers';
 import {UnitEffects} from './ngrx-queue/effects';
 import {people, filter} from "./ngrx-in-ten/reducers";
-import {tick} from './ngrx-clock/example-clock-one';
-import {clock, peoplez} from './ngrx-clock/reducers';
+import {clock, peoplez, tick} from './ngrx-clock/reducers';
 
 @NgModule({
   imports: [

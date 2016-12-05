@@ -5,4 +5,5 @@ import {Component} from '@angular/core';
   template: require('./main.html'),
 })
 
-export class DepInjectionApp {}
+export class DepInjectionApp {
+}

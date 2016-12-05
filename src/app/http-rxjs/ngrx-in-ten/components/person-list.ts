@@ -1,8 +1,8 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
-    selector: 'person-list',
-    template: `
+  selector: 'person-list',
+  template: `
       <ul>
         <li 
           *ngFor="let person of people"
@@ -18,9 +18,9 @@ import {Component, Input, Output, EventEmitter} from '@angular/core';
     `
 })
 export class PersonList {
-    @Input() people;
-    @Output() addGuest = new EventEmitter();
-    @Output() removeGuest = new EventEmitter();
-    @Output() removePerson = new EventEmitter();
-    @Output() toggleAttending = new EventEmitter();
+  @Input() people;
+  @Output() addGuest = new EventEmitter();
+  @Output() removeGuest = new EventEmitter();
+  @Output() removePerson = new EventEmitter();
+  @Output() toggleAttending = new EventEmitter();
 }

@@ -5,9 +5,9 @@ import {Component} from "@angular/core";
   template: require('./app.html')
 })
 export class AccordianComponent {
-  isOpen:boolean = false;
+  isOpen: boolean = false;
 
-  groups:Array<any> = [
+  groups: Array<any> = [
     {
       heading: 'Dynamic 1',
       content: 'I am dynamic!'

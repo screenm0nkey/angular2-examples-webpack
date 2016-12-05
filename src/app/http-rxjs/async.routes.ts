@@ -15,7 +15,7 @@ const routes: Routes = [
     path: 'httprx',
     component: MainHttpRxJs,
     children: [
-      {path: '', redirectTo: 'http-examples',  pathMatch: 'full'},
+      {path: '', redirectTo: 'http-examples', pathMatch: 'full'},
       {path: 'http-examples', component: HttpExamples},
       {path: 'john-linquist', component: JohnLinquistExamples},
       {path: 'echonest-app', component: EchonestAppComponent},

@@ -1,8 +1,8 @@
 import {Component, Input, Output, EventEmitter} from "@angular/core";
 
 @Component({
-    selector: 'todo-item-renderer',
-    template: `
+  selector: 'todo-item-renderer',
+  template: `
     <style>
         .completed{
             text-decoration: line-through;
@@ -14,6 +14,6 @@ import {Component, Input, Output, EventEmitter} from "@angular/core";
     </div>`
 })
 export class TodoItemRenderer {
-    @Input() todo;
-    @Output() toggle = new EventEmitter();
+  @Input() todo;
+  @Output() toggle = new EventEmitter();
 }

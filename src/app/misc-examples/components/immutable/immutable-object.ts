@@ -1,28 +1,29 @@
-import { Component, ChangeDetectionStrategy, Input, OnChanges, DoCheck } from '@angular/core';
-import { Todo } from './StoreService';
+import {Component, ChangeDetectionStrategy, Input, OnChanges, DoCheck} from '@angular/core';
+import {Todo} from './StoreService';
 
 @Component({
-    selector: 'test-component-object',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    template: `<pre>{{todoItem|json}}</pre>`
+  selector: 'test-component-object',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `<pre>{{todoItem|json}}</pre>`
 })
 export class TestComponentObject implements OnChanges, DoCheck {
-    @Input() todoItem;
-    // this will only be called when object is mutated as we've set ChangeDetectionStrategy to OnPush
-    // http://victorsavkin.com/post/133936129316/angular-immutability-and-encapsulation
-    ngOnChanges(inputChanges) {
-        console.log('inputChanges', inputChanges.todoItem.currentValue);
-    }
-    //this is called every time$ the component is checked
-    ngDoCheck() {
-        console.log('ngDoCheck');
-    }
+  @Input() todoItem;
+  // this will only be called when object is mutated as we've set ChangeDetectionStrategy to OnPush
+  // http://victorsavkin.com/post/133936129316/angular-immutability-and-encapsulation
+  ngOnChanges(inputChanges) {
+    console.log('inputChanges', inputChanges.todoItem.currentValue);
+  }
+
+  //this is called every time$ the component is checked
+  ngDoCheck() {
+    console.log('ngDoCheck');
+  }
 }
 
 
 @Component({
-    selector: 'immutable-object-component',
-    template : `
+  selector: 'immutable-object-component',
+  template: `
         <p>
             Type value into input and then try again with the checkbox selected. The view wont update
             whilst we're mutating the model. Only when we chnage the model reference i.e. 
@@ -34,16 +35,16 @@ export class TestComponentObject implements OnChanges, DoCheck {
     `,
 })
 export class ImmutableObject {
-    checked : Boolean = false;
-    todoItem : Todo = new Todo();
+  checked: Boolean = false;
+  todoItem: Todo = new Todo();
 
-    updateTodo (val) {
-        if (this.checked) {
-            // immutable model
-            this.todoItem = new Todo(val);
-        } else {
-            // mutate model
-            this.todoItem.someval = val;
-        }
+  updateTodo(val) {
+    if (this.checked) {
+      // immutable model
+      this.todoItem = new Todo(val);
+    } else {
+      // mutate model
+      this.todoItem.someval = val;
     }
+  }
 }

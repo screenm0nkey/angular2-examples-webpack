@@ -1,32 +1,8 @@
 import {Component} from '@angular/core';
 import {Observable} from 'rxjs/Rx';
-import {ActionReducer, Action} from '@ngrx/store';
 import {Store} from '@ngrx/store';
 import {Subject} from 'rxjs/Subject';
-
-const SECOND = 'SECOND';
-const DAY = 'DAY';
-const HOUR = 'HOUR';
-
-export const tick: ActionReducer<any> = (state: Date = new Date(), action: Action)=> {
-  let d: Date;
-  switch (action.type) {
-    case DAY:
-      d = new Date(state.getTime());
-      d.setDate(d.getDate() + action.payload);
-      return d;
-    case HOUR:
-      d = new Date(state.getTime());
-      d.setHours(d.getHours() + action.payload);
-      return d;
-    case SECOND:
-      d = new Date(state.getTime());
-      d.setSeconds(d.getSeconds() + action.payload);
-      return d;
-    default:
-      return state;
-  }
-};
+import {HOUR, DAY, SECOND} from './reducers';
 
 @Component({
   selector: 'clock-one',

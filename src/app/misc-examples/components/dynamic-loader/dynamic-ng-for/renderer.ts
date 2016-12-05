@@ -1,3 +1,3 @@
 export interface Renderer {
-    input: string;
+  input: string;
 }

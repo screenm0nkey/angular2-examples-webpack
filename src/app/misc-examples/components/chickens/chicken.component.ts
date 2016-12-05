@@ -1,9 +1,9 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
-    selector: 'chicken-component',
-    inputs: ['name'],
-    template: `
+  selector: 'chicken-component',
+  inputs: ['name'],
+  template: `
         <div>
           <span>{{name}}</span>
           <button (click)="sayHello()">Say {{name}}</button>
@@ -11,14 +11,14 @@ import { Component, EventEmitter, Output } from '@angular/core';
     `
 })
 export class ChickenComponent {
-    @Output() hello:EventEmitter<any> = new EventEmitter();
-    name:string;
+  @Output() hello: EventEmitter<any> = new EventEmitter();
+  name: string;
 
-    constructor() {
-        console.log(this);
-    }
+  constructor() {
+    console.log(this);
+  }
 
-    sayHello() {
-        this.hello.emit(this.name);
-    }
+  sayHello() {
+    this.hello.emit(this.name);
+  }
 }

@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {SharedModule} from '../../../shared/shared.module';
-import { ImmutableMain } from './main';
-import { ImmutableObject, TestComponentObject } from './immutable-object';
-import { ImmutableList, TestComponentList } from './immutable-list';
+import {ImmutableMain} from './main';
+import {ImmutableObject, TestComponentObject} from './immutable-object';
+import {ImmutableList, TestComponentList} from './immutable-list';
 import {Store} from './StoreService';
 
 @NgModule({
@@ -12,7 +12,7 @@ import {Store} from './StoreService';
     ImmutableObject, TestComponentObject,
     ImmutableList, TestComponentList
   ],
-  providers : [Store],
+  providers: [Store],
 })
 export class ImmutableModule {
 }

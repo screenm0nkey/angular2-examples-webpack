@@ -3,8 +3,8 @@ import {Observable} from 'rxjs/Rx';
 import {Http} from '@angular/http'
 
 @Component({
-    selector: 'gist-app',
-    template: `
+  selector: 'gist-app',
+  template: `
     <h4>Load a component from a Gist (not currently working. Example uses systemJS</h4>
     <a href="http://plnkr.co/edit/IpQ2HRa7yBj2YKZdgBZl?p=preview&open=app%2Fapp.component.ts" target="_blank">See Original Plunk here</a>
     <h2>Above</h2>
@@ -14,21 +14,20 @@ import {Http} from '@angular/http'
   `
 })
 export class GistAppComponent {
-    @ViewChild('putStuffHere', {read: ViewContainerRef}) putStuffHere;
+  @ViewChild('putStuffHere', {read: ViewContainerRef}) putStuffHere;
 
-    constructor(
-        public compResolver:ComponentFactoryResolver,
-        public http : Http
-    ){}
+  constructor(public compResolver: ComponentFactoryResolver,
+              public http: Http) {
+  }
 
-    ngAfterViewInit(){
-        const url = 'https://gist.githubusercontent.com/johnlindquist/90c0a12814939738809ae0dceacdcf93/raw/e95c3204af1335693a45d65dbb61162824ad5ab8/loadMe.ts';
+  ngAfterViewInit() {
+    const url = 'https://gist.githubusercontent.com/johnlindquist/90c0a12814939738809ae0dceacdcf93/raw/e95c3204af1335693a45d65dbb61162824ad5ab8/loadMe.ts';
 
-        const importer = url => this.http.get(url).map(res => res.text());
-        const resolve = comp => Observable.fromPromise(this.compResolver.resolveComponent(comp));
+    const importer = url => this.http.get(url).map(res => res.text());
+    const resolve = comp => Observable.fromPromise(this.compResolver.resolveComponent(comp));
 
-        // importer(url)
-        //     .switchMap(comp => {debugger; resolve(comp)})
-        //     .subscribe(factory => this.putStuffHere.createComponent(factory))
-    }
+    // importer(url)
+    //     .switchMap(comp => {debugger; resolve(comp)})
+    //     .subscribe(factory => this.putStuffHere.createComponent(factory))
+  }
 }

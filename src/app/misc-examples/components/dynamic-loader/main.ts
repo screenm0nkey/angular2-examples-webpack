@@ -1,8 +1,8 @@
-import {Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
-    selector: 'focus-input',
-    template: `
+  selector: 'focus-input',
+  template: `
         <dynamic-component-app></dynamic-component-app>
         <hr>
         <gist-app></gist-app>

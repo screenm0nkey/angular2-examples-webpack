@@ -5,9 +5,9 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 
- /*
-  * Services
-  */
+/*
+ * Services
+ */
 import {SpotifyService} from '../SpotifyService';
 
 @Component({
@@ -41,7 +41,9 @@ export class AlbumComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private spotify: SpotifyService, // <-- injected
               private location: Location) {
-    route.params.subscribe(params => { this.id = params['id']; });
+    route.params.subscribe(params => {
+      this.id = params['id'];
+    });
   }
 
   ngOnInit(): void {

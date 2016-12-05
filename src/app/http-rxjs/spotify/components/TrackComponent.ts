@@ -28,7 +28,9 @@ export class TrackComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private spotify: SpotifyService,
               private location: Location) {
-    route.params.subscribe(params => { this.id = params['id']; });
+    route.params.subscribe(params => {
+      this.id = params['id'];
+    });
   }
 
   ngOnInit(): void {

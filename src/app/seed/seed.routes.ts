@@ -15,7 +15,8 @@ const routes: Routes = [
       {path: '', redirectTo: 'about'},
       {path: 'home', component: Home},
       {path: 'about', component: About},
-      {path: 'github', component: RepoBrowser,
+      {
+        path: 'github', component: RepoBrowser,
         children: [
           {path: '', component: RepoList}, {
             path: ':org', component: RepoList,

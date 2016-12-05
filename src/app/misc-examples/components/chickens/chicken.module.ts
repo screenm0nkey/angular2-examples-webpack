@@ -20,7 +20,7 @@ import {Unless} from './directives/unless.directive';
     SnippetComponent,
     UISnippets
   ],
-  providers : [ChickensService]
+  providers: [ChickensService]
 })
 export class ChickenModule {
 }

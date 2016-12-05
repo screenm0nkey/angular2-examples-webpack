@@ -14,7 +14,8 @@ import {FormTenCounterInputComponent} from './custom-form-control';
     FormTenCounterInputComponent
   ]
 })
-export class FormTenModule {}
+export class FormTenModule {
+}
 
-export { FormTenComponent }
+export {FormTenComponent}
 

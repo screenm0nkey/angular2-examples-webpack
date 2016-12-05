@@ -10,28 +10,27 @@ import {Component, ViewEncapsulation, OnDestroy, Input} from '@angular/core';
   template: '<ng-content></ng-content>'
 })
 export class Accordion {
-  private groups:Array<AccordionGroup> = [];
+  private groups: Array<AccordionGroup> = [];
 
-  addGroup(group:AccordionGroup): void {
+  addGroup(group: AccordionGroup): void {
     this.groups.push(group);
   }
 
-  closeOthers(openGroup:AccordionGroup): void {
-    this.groups.forEach((group:AccordionGroup) => {
+  closeOthers(openGroup: AccordionGroup): void {
+    this.groups.forEach((group: AccordionGroup) => {
       if (group !== openGroup) {
         group.isOpen = false;
       }
     });
   }
 
-  removeGroup(group:AccordionGroup): void {
+  removeGroup(group: AccordionGroup): void {
     const index = this.groups.indexOf(group);
     if (index !== -1) {
       this.groups.splice(index, 1);
     }
   }
 }
-
 
 
 @Component({
@@ -54,15 +53,15 @@ export class Accordion {
     </div>`
 })
 export class AccordionGroup implements OnDestroy {
-  private _isOpen:boolean = false;
-  @Input() heading:string = '';
+  private _isOpen: boolean = false;
+  @Input() heading: string = '';
 
   // we're importing the component as a service
-  constructor(private accordion:Accordion) {
+  constructor(private accordion: Accordion) {
     this.accordion.addGroup(this);
   }
 
-  toggleOpen(event:Event) {
+  toggleOpen(event: Event) {
     event.preventDefault();
     this.isOpen = !this.isOpen;
   }
@@ -75,7 +74,7 @@ export class AccordionGroup implements OnDestroy {
     return this._isOpen;
   }
 
-  public set isOpen(value:boolean) {
+  public set isOpen(value: boolean) {
     this._isOpen = value;
     if (value) {
       this.accordion.closeOthers(this);

@@ -12,8 +12,8 @@ import {Store} from '@ngrx/store';
 import {SECOND, HOUR, ADVANCE, RECALL} from './reducers';
 
 @Component({
-    selector: 'clock-two',
-    template: `
+  selector: 'clock-two',
+  template: `
         <h4>Building a Time Machine with Angular 2 Eggehead</h4>
         <a href="https://github.com/johnlindquist/rxjs-in-angular2" target="_blank">
             rxjs-in-angular2
@@ -32,33 +32,33 @@ import {SECOND, HOUR, ADVANCE, RECALL} from './reducers';
     `
 })
 export class NgRxClock2 {
-    click$ = new Subject()
-        .map((value)=> ({type:HOUR, payload:value}));
+  click$ = new Subject()
+    .map((value) => ({type: HOUR, payload: value}));
 
-    recall$ = new Subject();
+  recall$ = new Subject();
 
-    person$ = new Subject()
-        .map((value)=>({payload: value, type:ADVANCE}));
+  person$ = new Subject()
+    .map((value) => ({payload: value, type: ADVANCE}));
 
-    seconds$ = Observable
-        .interval(1000)
-        .mapTo({type: SECOND, payload:1});
+  seconds$ = Observable
+    .interval(1000)
+    .mapTo({type: SECOND, payload: 1});
 
-    public time$;
-    public people$;
+  public time$;
+  public people$;
 
-    constructor(store:Store<any>) {
-        this.time$ = store.select('clock');
-        this.people$ = store.select('peoplez');
+  constructor(store: Store<any>) {
+    this.time$ = store.select('clock');
+    this.people$ = store.select('peoplez');
 
-        Observable.merge(
-            this.click$,
-            this.seconds$,
-            this.person$,
-            this.recall$
-                .withLatestFrom(this.time$, (_, y) => y)
-                .map((time)=> ({type:RECALL, payload: time}))
-        )
-        .subscribe(store.dispatch.bind(store))
-    }
+    Observable.merge(
+      this.click$,
+      this.seconds$,
+      this.person$,
+      this.recall$
+        .withLatestFrom(this.time$, (_, y) => y)
+        .map((time) => ({type: RECALL, payload: time}))
+    )
+      .subscribe(store.dispatch.bind(store))
+  }
 }

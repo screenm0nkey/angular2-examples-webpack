@@ -34,7 +34,7 @@ export class FormFiveComponent {
       }
     });
     // the subscribe method takes an object or function as callback
-    this.myForm.valueChanges.subscribe(value=> console.log("form changed to: ", value));
+    this.myForm.valueChanges.subscribe(value => console.log("form changed to: ", value));
     // window.myForm = this;
     console.log(this);
   }

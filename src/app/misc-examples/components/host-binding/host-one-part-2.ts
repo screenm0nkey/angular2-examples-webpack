@@ -12,18 +12,18 @@ import {Component, Directive, HostBinding, HostListener} from '@angular/core';
   }
 })
 export class NgModelStatusTwo {
-  count:number = 0;
-  smvalue:string;
-  isFixed:boolean = true;
+  count: number = 0;
+  smvalue: string;
+  isFixed: boolean = true;
 
   constructor() {
     this.smvalue = 'Default Valuez';
     // this will update the view input's value
-    setTimeout(()=>this.smvalue = 'something else', 2000); // changes the input's text
-    setTimeout(()=>this.isFixed = false, 4000); // changes the inputs colour
+    setTimeout(() => this.smvalue = 'something else', 2000); // changes the input's text
+    setTimeout(() => this.isFixed = false, 4000); // changes the inputs colour
   }
 
-  hostInputUpdateEventHandler(updatedValue:string) {
+  hostInputUpdateEventHandler(updatedValue: string) {
     this.smvalue = updatedValue + (++this.count);
     console.log(this.smvalue);
   }

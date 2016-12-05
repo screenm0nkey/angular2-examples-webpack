@@ -31,9 +31,9 @@ export class SpotifyService {
     ]);
   }
 
-  searchTrack(query: string) : Observable<any[]> {
+  searchTrack(query: string): Observable<any[]> {
     return this.search(query, 'track')
-      .map(function (res:any) {
+      .map(function (res: any) {
         return res.tracks.items;
       });
   }

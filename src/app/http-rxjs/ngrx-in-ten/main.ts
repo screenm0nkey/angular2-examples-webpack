@@ -26,18 +26,16 @@ export class NgRxInTenMinsComponent {
     this.people$ = Observable.combineLatest(
       _store.select('people'),
       _store.select('filter'),
-      (people: any[], filter) => {
-        debugger
+      (people: any[], filter: (person: any)=>any) => {
         if (people && filter) {
           return people.filter(filter);
         }
       }
     );
-    this.people$.subscribe(people=>console.log(people));
+    this.people$.subscribe(people => console.log(people));
   }
 
   addPerson(name) {
-    debugger
     this._store.dispatch({
       type: "ADD_PERSON", payload: {
         name,

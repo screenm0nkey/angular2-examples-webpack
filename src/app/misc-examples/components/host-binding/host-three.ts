@@ -8,9 +8,10 @@ import {
 
 @Directive({selector: '[ngModel]'})
 export class NgModelStatusThree {
-  constructor(public el:ElementRef,  public control:NgModel) {
+  constructor(public el: ElementRef, public control: NgModel) {
     //el is the element the directive is applied too.
   }
+
   @HostBinding('class.YES') get valid() {
     console.log(this);
     return this.el.nativeElement.className.indexOf('ng-valid') > 0;
@@ -33,9 +34,9 @@ export class NgModelStatusThree {
     `
 })
 export class HostThree {
-  myForm:FormGroup;
+  myForm: FormGroup;
 
-  constructor(fb:FormBuilder) {
+  constructor(fb: FormBuilder) {
     this.myForm = fb.group({
       "checkme": ['', Validators.compose([
         Validators.required,

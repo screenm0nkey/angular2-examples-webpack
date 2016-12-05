@@ -77,18 +77,18 @@ export class WikipediaObservable {
 
   constructor(private wikipediaService: WikipediaService) {
     this.items = this.term.valueChanges
-      .do(()=>this.loading = true)
+      .do(() => this.loading = true)
       .delay(1000) // add a delay to see the loading icon
       .debounceTime(400)
       .distinctUntilChanged()
       // you could also use flatMap() instead of switchMap()
-      .switchMap((sterm: string)=> {
+      .switchMap((sterm: string) => {
         // Note: You don't have to convert the promise to a stream using fromPromise()
         // you can just return the promise but I couldn't stop the TS error
         // when returning a promise directly into switchMap()
         return Observable.fromPromise(this.wikipediaService.search(sterm))
       })
-      .do(()=>this.loading = false);
+      .do(() => this.loading = false);
   }
 }
 

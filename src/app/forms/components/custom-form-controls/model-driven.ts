@@ -32,7 +32,8 @@ export class FormTenModelDrivenComponent implements OnInit {
   maxValue: number = 7;
   minValue: number = 3;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) {
+  }
 
   ngOnInit() {
     this.form = this.fb.group({

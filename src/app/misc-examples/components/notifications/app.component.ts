@@ -8,7 +8,8 @@ import {Component} from '@angular/core';
 export class AppComponent {
   title: string = 'ng2-notifications';
   description: string = 'Angular 2 Component for Native Push Notifications';
+
   logit(arg) {
-      console.log(arg)
+    console.log(arg)
   }
 }

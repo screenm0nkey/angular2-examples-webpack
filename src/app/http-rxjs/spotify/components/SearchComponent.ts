@@ -78,7 +78,9 @@ export class SearchComponent implements OnInit {
     this.search = this.search.bind(this);
     this.route
       .queryParams
-      .subscribe(params => { this.query = params['query'] || ''; });
+      .subscribe(params => {
+        this.query = params['query'] || '';
+      });
   }
 
   // by the time ngOnInit is called the query property has been set in the constructor
@@ -87,11 +89,11 @@ export class SearchComponent implements OnInit {
   }
 
   submit(query: string): void {
-    this.router.navigate(['httprx','spotify','search'], { queryParams: { query: query } })
+    this.router.navigate(['httprx', 'spotify', 'search'], {queryParams: {query: query}})
       .then(this.search);
   }
 
   search(): void {
-      this.results$ = this.query && this.spotify.searchTrack(this.query)
+    this.results$ = this.query && this.spotify.searchTrack(this.query)
   }
 }

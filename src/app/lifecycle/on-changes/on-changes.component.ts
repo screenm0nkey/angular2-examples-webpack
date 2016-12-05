@@ -1,17 +1,17 @@
 import {
-    Component, Input,
-    OnChanges, SimpleChange
+  Component, Input,
+  OnChanges, SimpleChange
 } from '@angular/core';
 
 
 class Hero {
-    constructor(public name:string) {
-    }
+  constructor(public name: string) {
+  }
 }
 
 @Component({
-    selector: 'on-changes',
-    template: `
+  selector: 'on-changes',
+  template: `
   <div class="hero">
     <p>{{hero.name}} can {{power}}</p>
 
@@ -19,27 +19,27 @@ class Hero {
     <div *ngFor="let chg of changeLog">{{chg}}</div>
   </div>
   `,
-    styles: [
-        '.hero {background: LightYellow; padding: 8px; margin-top: 8px}',
-        'p {background: Yellow; padding: 8px; margin-top: 8px}'
-    ]
+  styles: [
+    '.hero {background: LightYellow; padding: 8px; margin-top: 8px}',
+    'p {background: Yellow; padding: 8px; margin-top: 8px}'
+  ]
 })
 export class OnChangesComponent implements OnChanges {
-    @Input() hero:Hero;
-    @Input() power:string;
+  @Input() hero: Hero;
+  @Input() power: string;
 
-    changeLog:string[] = [];
+  changeLog: string[] = [];
 
-    ngOnChanges(changes:{[propertyName:string]:SimpleChange}) {
-        for (let propName in changes) {
-            let prop = changes[propName];
-            let cur = JSON.stringify(prop.currentValue)
-            let prev = JSON.stringify(prop.previousValue);
-            this.changeLog.push(`${propName}: currentValue = ${cur}, previousValue = ${prev}`);
-        }
+  ngOnChanges(changes: {[propertyName: string]: SimpleChange}) {
+    for (let propName in changes) {
+      let prop = changes[propName];
+      let cur = JSON.stringify(prop.currentValue)
+      let prev = JSON.stringify(prop.previousValue);
+      this.changeLog.push(`${propName}: currentValue = ${cur}, previousValue = ${prev}`);
     }
+  }
 
-    reset() {
-        this.changeLog.length = 0;
-    }
+  reset() {
+    this.changeLog.length = 0;
+  }
 }

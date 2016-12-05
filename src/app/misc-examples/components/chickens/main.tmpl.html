@@ -8,21 +8,21 @@
 
 <h4>Simple example using @Inputs, @Outputs and Http to display data</h4>
 <chicken-component
-        *ngFor="let chicken of chickens"
-        [name]="chicken.name"
-        (hello)="saidHello($event)">
+  *ngFor="let chicken of chickens"
+  [name]="chicken.name"
+  (hello)="saidHello($event)">
 </chicken-component>
 <hr>
 
 
 <h4>directive example</h4>
 <a href="https://angular.io/docs/ts/latest/guide/attribute-directives.html" target="_blank">
-    taken from here... https://angular.io/docs/ts/latest/guide/attribute-directives.html
+  taken from here... https://angular.io/docs/ts/latest/guide/attribute-directives.html
 </a>
 <div>
-    <input type="radio" name="colors" (click)="color='lightgreen'">Green
-    <input type="radio" name="colors" (click)="color='yellow'">Yellow
-    <input type="radio" name="colors" (click)="color='cyan'">Cyan
+  <input type="radio" name="colors" (click)="color='lightgreen'">Green
+  <input type="radio" name="colors" (click)="color='yellow'">Yellow
+  <input type="radio" name="colors" (click)="color='cyan'">Cyan
 </div>
 <!--color is a propety on the controller set by the radio buttons-->
 <pre>&lt;span [myTooltip]="color" [defaultColor]="'violet'"&gt;</pre>

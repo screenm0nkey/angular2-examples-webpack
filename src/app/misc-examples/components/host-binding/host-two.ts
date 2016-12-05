@@ -11,16 +11,16 @@ export class CountClicks {
 
 
   @HostListener('mouseup', ['$event'])
-  onMouseup(evt:EventListenerObject) {
+  onMouseup(evt: EventListenerObject) {
     console.log("mouseUp", evt);
   }
 
   @HostListener('click', ['$event.target'])
-  onClick(btnElement:HTMLElement) {
+  onClick(btnElement: HTMLElement) {
     console.log("button", btnElement, "number of clicks:", this.numberOfClicks++);
   }
 
-  showEvent(evt:EventListenerObject) {
+  showEvent(evt: EventListenerObject) {
     console.log('mouseenter', evt);
   }
 }
@@ -34,5 +34,5 @@ export class CountClicks {
         `,
 })
 export class HostTwo {
-  prop:String;
+  prop: String;
 }

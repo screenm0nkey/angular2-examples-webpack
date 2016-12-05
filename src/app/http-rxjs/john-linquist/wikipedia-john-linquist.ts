@@ -72,8 +72,8 @@ export class JohnLinquistWikiSearch {
       .filter(term => term.length <= 2)
       .share();
 
-    term$.subscribe(val =>console.log(1, val));
-    clear$.subscribe(val =>console.log(2, val));
+    term$.subscribe(val => console.log(1, val));
+    clear$.subscribe(val => console.log(2, val));
 
     this.searchTerm$ = Observable.merge(
       term$,
@@ -87,7 +87,7 @@ export class JohnLinquistWikiSearch {
         .mergeMap(wikipediaService.getImageInfoFromTitle) //5
         .takeUntil(this.input$)
         .map(wikipediaService.mapImageInfoToUrls) //6
-        .scan((acc, curr)=> [...acc, ...curr])
+        .scan((acc, curr) => [...acc, ...curr])
     }
 
     const results$ = term$
@@ -95,7 +95,7 @@ export class JohnLinquistWikiSearch {
       .startWith([])
       .share();
 
-    results$.subscribe(val =>console.log(7, val));
+    results$.subscribe(val => console.log(7, val));
 
     this.images$ = Observable.merge(results$, clear$.map(term => []));
 

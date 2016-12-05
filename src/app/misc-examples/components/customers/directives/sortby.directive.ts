@@ -1,22 +1,22 @@
 import {Directive, ElementRef, EventEmitter, Output} from '@angular/core';
 
 @Directive({
-    selector: '[sort-by]'
+  selector: '[sort-by]'
 })
 export class SortByDirective {
-    @Output() sorted:EventEmitter<any> = new EventEmitter();
-    sortProperty:string;
+  @Output() sorted: EventEmitter<any> = new EventEmitter();
+  sortProperty: string;
 
-    constructor(el:ElementRef) {
-        this.sortProperty = el.nativeElement.getAttribute('sort-by');
-        console.log(el.nativeElement);
-        el.nativeElement.addEventListener('click', evt => this.elementClicked(evt));
-    }
+  constructor(el: ElementRef) {
+    this.sortProperty = el.nativeElement.getAttribute('sort-by');
+    console.log(el.nativeElement);
+    el.nativeElement.addEventListener('click', evt => this.elementClicked(evt));
+  }
 
-    elementClicked(event:Event) {
-        event.preventDefault();
-        // note. this event will only propergate up to the element which uses the directive.
-        // it does not emit to all elements which are implementing the (sorting) event
-        this.sorted.emit(this.sortProperty);
-    }
+  elementClicked(event: Event) {
+    event.preventDefault();
+    // note. this event will only propergate up to the element which uses the directive.
+    // it does not emit to all elements which are implementing the (sorting) event
+    this.sorted.emit(this.sortProperty);
+  }
 }

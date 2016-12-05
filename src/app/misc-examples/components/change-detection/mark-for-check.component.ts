@@ -22,7 +22,7 @@ import {Component, ChangeDetectionStrategy, ChangeDetectorRef} from '@angular/co
 export class Cmp {
   numberOfTicks = 0;
 
-  constructor(private ref:ChangeDetectorRef) {
+  constructor(private ref: ChangeDetectorRef) {
     setInterval(() => {
       this.numberOfTicks++;
       // if you don't call markForCheck(), the view wont update as the

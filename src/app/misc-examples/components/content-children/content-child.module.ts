@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {SharedModule} from '../../../shared/shared.module';
-import {MyComponent,SuperListComponent} from './problem-one';
-import {FixMyComponent,FixSuperListComponent} from './problem-one-fix';
+import {MyComponent, SuperListComponent} from './problem-one';
+import {FixMyComponent, FixSuperListComponent} from './problem-one-fix';
 import {RookieComponent} from './main';
 
 @NgModule({

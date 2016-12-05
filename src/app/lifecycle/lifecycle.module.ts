@@ -20,7 +20,7 @@ import {Spy} from './spy/spy.directive';
   declarations: [
     LifeCycleMainComponent,
     BasicExample, MyComponent,
-    PeekABooParentComponent,PeekABooComponent,
+    PeekABooParentComponent, PeekABooComponent,
     SpyParentComponent,
     AfterViewParentComponent, ChildViewComponent, AfterViewComponent,
     OnChangesParentComponent, OnChangesComponent,

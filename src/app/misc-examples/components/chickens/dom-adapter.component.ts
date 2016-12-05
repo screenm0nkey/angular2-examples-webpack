@@ -3,11 +3,11 @@ import {DOCUMENT} from "@angular/platform-browser";
 
 
 @Component({
-    selector: 'dom-adapter-component',
-    styles: [`.test{
+  selector: 'dom-adapter-component',
+  styles: [`.test{
         color:green;
       }`],
-    template: `
+  template: `
         <div>
             <h4>
                 Accessing the DOM using Renderer and vanilla JS
@@ -21,19 +21,22 @@ import {DOCUMENT} from "@angular/platform-browser";
 })
 export class DomAdapterComponent {
 
-  MyComponent() {}
-    constructor(@Inject(DOCUMENT) public dom, private renderer:Renderer ) {}
+  MyComponent() {
+  }
 
-    add() {
-      var el = document.createElement('a');
-      this.renderer.setElementClass(el, 'test', true);
-      this.renderer.setText(el, 'click me');
-      el.addEventListener('click', this.raiseEvent);
-      var compEl : any = this.dom.getElementsByTagName('dom-adapter-component')[0];
-      compEl.append(el);
-    }
+  constructor(@Inject(DOCUMENT) public dom, private renderer: Renderer) {
+  }
 
-    raiseEvent(evt) {
-        alert('hi ' + evt.target.tagName);
-    }
+  add() {
+    var el = document.createElement('a');
+    this.renderer.setElementClass(el, 'test', true);
+    this.renderer.setText(el, 'click me');
+    el.addEventListener('click', this.raiseEvent);
+    var compEl: any = this.dom.getElementsByTagName('dom-adapter-component')[0];
+    compEl.append(el);
+  }
+
+  raiseEvent(evt) {
+    alert('hi ' + evt.target.tagName);
+  }
 }

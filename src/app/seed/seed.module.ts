@@ -11,9 +11,9 @@ import {RepoList} from './github/repo-list/repo-list';
 import {RepoDetail} from './github/repo-detail/repo-detail';
 
 @NgModule({
-  imports     : [SharedModule, HttpModule, routing],
+  imports: [SharedModule, HttpModule, routing],
   declarations: [SeedComponent, About, RepoBrowser, RepoList, RepoDetail, Home],
-  providers   : [Github]
+  providers: [Github]
 })
 export class SeedModule {
 }

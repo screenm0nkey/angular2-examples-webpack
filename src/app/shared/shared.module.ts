@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from "@angular/router";
-import { HttpModule, JsonpModule } from '@angular/http';
+import {HttpModule, JsonpModule} from '@angular/http';
 
 
 @NgModule({
@@ -14,9 +14,9 @@ export class SharedModule {
 
 /*
  FormsModule gives us template driven directives such as:
-  • ngModel and
-  • NgForm
+ • ngModel and
+ • NgForm
  Whereas ReactiveFormsModule gives us directives like
-  • formControl and
-  • ngFormGroup
-*/
+ • formControl and
+ • ngFormGroup
+ */

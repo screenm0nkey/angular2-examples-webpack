@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input} from '@angular/core';
 @Component({
   selector: 'name-child',
   template: `
@@ -11,9 +11,11 @@ export class NameChildComponent {
   set name(name: string) {
     this._name = (name && name.trim()) || '<no name set>';
   }
-  get name() { return this._name; }
-}
 
+  get name() {
+    return this._name;
+  }
+}
 
 
 @Component({

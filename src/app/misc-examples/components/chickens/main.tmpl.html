@@ -1,3 +1,23 @@
+<a class="ui message"
+     popup
+     #popup1="popuppy"
+     message="Clicked the pop1">
+    Click Me
+</a>
+<a class="alarm icon"
+   popup
+   #popup2="popuppy"
+   message="Clicked pop2">Alarm Click me</a>
+
+<div style="margin-top: 20px;">
+  <button (click)="popup1.displayMessage()" class="ui button">
+    Display popup for message element </button>
+  <button (click)="popup2.displayMessage()" class="ui button"> Display popup for alarm icon
+  </button>
+</div>
+
+<hr>
+
 <dom-adapter-component></dom-adapter-component>
 <hr>
 

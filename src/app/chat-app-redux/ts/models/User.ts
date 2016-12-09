@@ -1,4 +1,3 @@
-
 /**
  * A User represents an agent that sends messages
  */

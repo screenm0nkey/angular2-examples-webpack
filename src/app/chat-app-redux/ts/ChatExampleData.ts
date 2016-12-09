@@ -1,9 +1,9 @@
-import { Store } from 'redux';
+import {Store} from 'redux';
 import {
   AppState,
   getAllMessages
 } from './reducers';
-import { uuid } from './util/uuid';
+import {uuid} from './util/uuid';
 import * as moment from 'moment';
 import {
   Thread,
@@ -24,31 +24,31 @@ const me: User = {
   id: uuid(),
   isClient: true, // <-- notice we're specifying the client as this User
   name: 'Juliet',
-  avatarSrc: require('../images/avatars/female-avatar-1.png')
+  avatarSrc: require('../../../images/avatars/female-avatar-1.png')
 };
 
 const ladycap: User = {
   id: uuid(),
   name: 'Lady Capulet',
-  avatarSrc: require('../images/avatars/female-avatar-2.png')
+  avatarSrc: require('../../../images/avatars/female-avatar-2.png')
 };
 
 const echo: User = {
   id: uuid(),
   name: 'Echo Bot',
-  avatarSrc: require('../images/avatars/male-avatar-1.png')
+  avatarSrc: require('../../../images/avatars/male-avatar-1.png')
 };
 
 const rev: User = {
   id: uuid(),
   name: 'Reverse Bot',
-  avatarSrc: require('../images/avatars/female-avatar-4.png')
+  avatarSrc: require('../../../images/avatars/female-avatar-4.png')
 };
 
 let wait: User = {
   id: uuid(),
   name: 'Waiting Bot',
-  avatarSrc: require('../images/avatars/male-avatar-2.png')
+  avatarSrc: require('../../../images/avatars/male-avatar-2.png')
 };
 
 let tLadycap: Thread = {
@@ -80,7 +80,6 @@ let tWait: Thread = {
 };
 
 export default function ChatExampleData(store: Store<AppState>) {
-
   // set the current User
   store.dispatch(UserActions.setCurrentUser(me));
 
@@ -117,7 +116,7 @@ export default function ChatExampleData(store: Store<AppState>) {
     author: wait,
     sentAt: moment().subtract(4, 'minutes').toDate(),
     text: `I\'ll wait however many seconds you send to me before responding.` +
-      ` Try sending '3'`
+    ` Try sending '3'`
   }));
 
   // select the first thread
@@ -129,10 +128,10 @@ export default function ChatExampleData(store: Store<AppState>) {
 
   let handledMessages = {};
 
-  store.subscribe( () => {
+  store.subscribe(() => {
     getAllMessages(store.getState())
-      // bots only respond to messages sent by the user, so
-      // only keep messages sent by the current user
+    // bots only respond to messages sent by the user, so
+    // only keep messages sent by the current user
       .filter(message => message.author.id === me.id)
       .map(message => {
 

@@ -1,16 +1,15 @@
-
 import {
   Component,
   OnInit
 } from '@angular/core';
-import { Message } from '../models';
+import {Message} from '../models';
 
 /**
  * ChatMessage is a component that shows a single Message in the ChatWindow.
  * ChatMessage shows the message a user sent and indicates whether it is
  * incoming or outgoing
  */
- @Component({
+@Component({
   inputs: ['message'],
   selector: 'chat-message',
   template: `

@@ -1,15 +1,17 @@
 import {NgModule} from '@angular/core';
 import {SharedModule} from '../../../shared/shared.module';
-import {MultiTransclusion} from './main';
+import {MultiTransclusion, ContentProjectionComponent} from './main';
 import {EmitterComponent, Comp1, Comp2} from './emitter-component';
-import {ContentProjectionComponent} from './multi-content';
+import {TransclusionSampleApp, Message} from './transclusion';
+import {Tab,Tabset,TabsSampleApp} from './tabs';
 
 @NgModule({
   imports: [SharedModule],
   declarations: [
-    MultiTransclusion,
+    MultiTransclusion, ContentProjectionComponent,
     EmitterComponent, Comp1, Comp2,
-    ContentProjectionComponent
+    TransclusionSampleApp, Message,
+    Tab,Tabset,TabsSampleApp
   ]
 })
 export class MultiConentModule {

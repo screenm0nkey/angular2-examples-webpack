@@ -76,9 +76,8 @@ export default class ChatWindow {
   draftMessage: { text: string };
   currentUser: User;
 
-  constructor(@Inject(AppStore) private store: Store<AppState>,
-              private el: ElementRef) {
-    store.subscribe(() => this.updateState() );
+  constructor(@Inject(AppStore) private store: Store<AppState>, private el: ElementRef) {
+    store.subscribe(this.updateState.bind(this));
     this.updateState();
     this.draftMessage = { text: '' };
   }
@@ -91,8 +90,7 @@ export default class ChatWindow {
   }
 
   scrollToBottom(): void {
-    let scrollPane: any = this.el
-      .nativeElement.querySelector('.msg-container-base');
+    let scrollPane: any = this.el.nativeElement.querySelector('.msg-container-base');
     if (scrollPane) {
       setTimeout(() => scrollPane.scrollTop = scrollPane.scrollHeight);
     }

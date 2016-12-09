@@ -25,7 +25,7 @@ export class ToggleButton {
     <h4>Two way binding on a custom event</h4>
     
     <p><a href="https://egghead.io/lessons/angular-2-angular-2-building-a-toggle-button-component">Building a toggle button</a></p>
-    <p>for two way custom event to work you have to suffix the event name with 'Change' i.e if the @input value is 'nick' then the @output becomes 'nickChange'</p>
+    <p>For two way custom event to work you have to suffix the event name with 'Change' i.e if the @input value is 'nick' then the @output becomes 'nickChange'</p>
 <pre>
 @Input() nick = true;
 @Output() nickChange = new EventEmitter();

@@ -1,20 +1,10 @@
+/* tslint:disable:typedef */
 
- /* tslint:disable:typedef */
-
-import {
-  Reducer,
-  combineReducers 
-} from 'redux';
-import {
-  UsersState,
-  UsersReducer
-} from './UsersReducer.ts';
-export * from './UsersReducer.ts';
-import {
-  ThreadsState,
-  ThreadsReducer
-} from './ThreadsReducer.ts';
-export * from './ThreadsReducer.ts';
+import {Reducer, combineReducers} from 'redux';
+import {UsersState, UsersReducer} from './UsersReducer';
+export * from './UsersReducer';
+import {ThreadsState, ThreadsReducer} from './ThreadsReducer';
+export * from './ThreadsReducer';
 
 export interface AppState {
   users: UsersState;

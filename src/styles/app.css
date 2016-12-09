@@ -15,6 +15,8 @@ a {
     display: table;
     margin-top: 6px;
     box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.58);
+    position: relative;
+    left : 3px;
 }
 
 a.big {
@@ -62,7 +64,10 @@ h4 {
     font-size: 19px;
     box-shadow: 0px 6px 14px 1px rgba(0, 0, 0, 0.58);
     z-index: 2;
-    margin-bottom: 8px;
+    margin: 8px 0;
+}
+h4:first-child {
+  margin: 8px 0;
 }
 
 strong {

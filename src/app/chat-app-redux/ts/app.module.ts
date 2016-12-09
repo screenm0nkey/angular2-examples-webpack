@@ -14,8 +14,7 @@ import {FromNowPipe} from './pipes/FromNowPipe';
 import ChatExampleData from './ChatExampleData';
 
 let devtools: StoreEnhancer<AppState> =
-  window['devToolsExtension'] ?
-    window['devToolsExtension']() : f => f;
+  window['devToolsExtension'] ? window['devToolsExtension']() : f => f;
 
 let store: Store<AppState> = createStore<AppState>(
   reducer,
@@ -54,7 +53,6 @@ export class ChatAppRedux {
 })
 export class ChatAppReduxModule {
 }
-export {ChatAppRedux}
 
 
 

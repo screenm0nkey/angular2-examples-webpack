@@ -2,12 +2,8 @@ import {
   Action,
   ActionCreator
 } from 'redux';
-import { uuid } from '../util/uuid';
-import {
-  User,
-  Message,
-  Thread
-} from '../models';
+import {uuid} from '../util/uuid';
+import { Message, Thread} from '../models';
 
 export const ADD_THREAD = '[Thread] Add';
 export interface AddThreadAction extends Action {

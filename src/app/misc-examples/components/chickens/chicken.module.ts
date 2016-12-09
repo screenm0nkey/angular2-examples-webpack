@@ -8,6 +8,7 @@ import {SnippetComponent} from './snippet.component';
 import {UISnippets} from './directives/snippet.directive';
 import {Tooltip} from './directives/tooltip.directive';
 import {Unless} from './directives/unless.directive';
+import {PopupDirective} from './directives/popup.directive';
 
 @NgModule({
   imports: [SharedModule],
@@ -18,7 +19,8 @@ import {Unless} from './directives/unless.directive';
     Unless,
     DomAdapterComponent,
     SnippetComponent,
-    UISnippets
+    UISnippets,
+    PopupDirective
   ],
   providers: [ChickensService]
 })

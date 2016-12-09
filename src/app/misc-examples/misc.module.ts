@@ -19,6 +19,7 @@ import {NotifcationModule} from './components/notifications/notifications.module
 import {SocketApp} from './components/socket-io/socket-component';
 import {ChildViewsModule} from './components/view-children/childviews.module';
 import {TricksModule} from './components/tricks/tricks.module';
+import {MiscLifecycleModule} from './components/lifecycle/lifecycle.module';
 // import {DynamicModule} from './components/dynamic-loader/dynamic.module';
 
 
@@ -40,9 +41,11 @@ import {TricksModule} from './components/tricks/tricks.module';
     NgZoneModule,
     NotifcationModule,
     ChildViewsModule,
-    TricksModule
+    TricksModule,
+    MiscLifecycleModule
     // DynamicModule
   ],
+  exports : [SharedModule],
   declarations: [
     MiscExamplesComponent,
     SocketApp

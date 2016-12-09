@@ -1,5 +1,5 @@
 import {Component, EventEmitter, ElementRef, OnInit} from '@angular/core';
-import {Observable} from 'rxjs/observable';
+import {Observable} from 'rxjs/Observable';
 import * as Rx from "rxjs/Rx";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';

@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms';
 import {Http} from '@angular/http';
-import {Observable} from 'rxjs/observable';
+import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/debounceTime';

@@ -5,6 +5,8 @@ import {Component, ViewEncapsulation, OnDestroy, Input} from '@angular/core';
   selector: 'accordion, [accordion]',
   encapsulation: ViewEncapsulation.Native,
   host: {
+    // below will add the 'panel-group' class to the host element
+    // we can have dynamic classes by using "[class.panel-group]": "someComponentProperty",
     'class': 'panel-group'
   },
   template: '<ng-content></ng-content>'

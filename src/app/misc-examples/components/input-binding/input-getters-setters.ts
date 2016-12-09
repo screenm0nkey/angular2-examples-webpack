@@ -7,6 +7,7 @@ import {Component, Input} from '@angular/core';
 })
 export class NameChildComponent {
   _name: string = '<no name set>';
+
   @Input()
   set name(name: string) {
     this._name = (name && name.trim()) || '<no name set>';
@@ -21,10 +22,10 @@ export class NameChildComponent {
 @Component({
   selector: 'name-parent',
   template: `
-    <h4>Master controls {{names.length}} names</h4>
-    <name-child *ngFor="let name of names"
-      [name]="name">
-    </name-child>
+    <h4>Using Getters and Setter on @Input</h4>
+    <pre>@Input() set name(name: string)</pre>
+    There are {{names.length}} names
+    <name-child *ngFor="let name of names" [name]="name"></name-child>
   `
 })
 export class NameParentComponent {

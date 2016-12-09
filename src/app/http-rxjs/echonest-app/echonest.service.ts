@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Http, Response, URLSearchParams} from "@angular/http";
-import {Subject} from 'rxjs/subject';
+import {Subject} from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 
 

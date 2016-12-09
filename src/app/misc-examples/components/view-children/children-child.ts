@@ -12,6 +12,7 @@ export class SuperItemComponent {
   selector: 'my-component2',
   template: `
         <h4>@ViewChildren and @ViewChild</h4>
+        <p class="file">misc-examples/components/view-children/children-child.ts</p>
         <button (click)="addItem()">Add Item</button>
         <ul>
             <super-item *ngFor="let item of items" [name]="item"></super-item>
@@ -38,7 +39,7 @@ export class ViewChildrenComponent implements AfterViewInit {
   }
 
   addItem() {
-    // this will emit an chnage event to the SuperListComponent component subscriber
+    // this will emit an change event to the SuperListComponent component subscriber
     this.items.push('yeah ' + Math.round(Math.random() * 100))
   }
 }

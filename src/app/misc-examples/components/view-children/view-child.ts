@@ -50,6 +50,7 @@ import {AfterViewInit, ViewChild} from '@angular/core';
   selector: 'countdown-parent-vc',
   template: `
   <h4>Countdown to Liftoff (via ViewChild)</h4>
+  <p class="file">misc-examples/components/view-children/view-child.ts</p>
   <button (click)="start()">Start</button>
   <button (click)="stop()">Stop</button>
   <div class="seconds">{{ seconds() }}</div>
@@ -57,8 +58,7 @@ import {AfterViewInit, ViewChild} from '@angular/core';
   `,
 })
 export class CountdownViewChildParentComponent implements AfterViewInit {
-  @ViewChild(CountdownTimerComponent)
-  private timerComponent: CountdownTimerComponent;
+  @ViewChild(CountdownTimerComponent) private timerComponent: CountdownTimerComponent;
 
   seconds() {
     return 0;

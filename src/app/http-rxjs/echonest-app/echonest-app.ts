@@ -1,8 +1,8 @@
 import {Component, Injectable, OnInit, Input} from '@angular/core';
 
-import {Observable} from 'rxjs/observable';
-import {Subject} from "rxjs/subject";
-import {ReplaySubject} from "rxjs/replaySubject";
+import {Observable} from 'rxjs/Observable';
+import {Subject} from "rxjs/Subject";
+import {ReplaySubject} from "rxjs/ReplaySubject";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/debounceTime';

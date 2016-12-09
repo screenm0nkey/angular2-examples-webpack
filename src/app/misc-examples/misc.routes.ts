@@ -17,6 +17,7 @@ import {AppComponent} from './components/notifications/notifications.module';
 import {SocketApp} from './components/socket-io/socket-component';
 import {MainChildrenApp} from './components/view-children/childviews.module';
 import {TricksMainComponent} from './components/tricks/tricks.module';
+import {MiscLifecycleMain} from './components/lifecycle/lifecycle.module';
 // import {DynamicExamplesMain} from './components/dynamic-loader/dynamic.module';
 
 const routes: Routes = [
@@ -42,6 +43,7 @@ const routes: Routes = [
       {path: 'socket-io', component: SocketApp},
       {path: 'view-children', component: MainChildrenApp},
       {path: 'tricks', component: TricksMainComponent},
+      {path: 'lifecycle', component: MiscLifecycleMain},
       // {path: 'dynamic-component', component: DynamicExamplesMain},
     ]
   },

@@ -28,6 +28,7 @@ export class OnChangeCmp2 implements OnChanges {
   <h4>OnChange</h4>
 
   <div class="ui form">
+    <p>It’s important to note that the OnChanges hook gets overriden by DoCheck so if we implement both, OnChanges will be ignored.</p>
     <div class="field">
       <label>Name</label>
       <input type="text" #namefld value="{{name}}" (keyup)="setValues(namefld, commentfld)">

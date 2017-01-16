@@ -17,7 +17,7 @@ export class GistAppComponent {
   @ViewChild('putStuffHere', {read: ViewContainerRef}) putStuffHere;
 
   constructor(public compResolver: ComponentFactoryResolver,
-              public http: Http) {
+              public http: Http) {debugger
   }
 
   ngAfterViewInit() {

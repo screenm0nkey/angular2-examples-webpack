@@ -16,6 +16,7 @@ export class SuperListComponent implements AfterContentInit {
   @ContentChildren('mylocalref') items: QueryList<ElementRef>;
   count: number;
 
+  // this is used for ng-content
   ngAfterContentInit() {
     this.count = this.items.length;
     this.items.forEach((el: ElementRef) => console.log(el.nativeElement));

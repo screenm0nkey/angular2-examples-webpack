@@ -56,5 +56,8 @@
 <template unless>Unless</template>
 <hr>-->
 
-<h4>forkJoin example</h4>
-<pre *ngFor="let cus of customers">{{cus.firstName | json}}</pre>
+<h4>Observable.forkJoin() example</h4>
+<p>When all observables complete, emit the last value from each. <strong>Observable.forkJoin()</strong> is like a little like $q.all()</p>
+<ul>
+  <li *ngFor="let cus of customers">{{cus.firstName | json}}</li>
+</ul>

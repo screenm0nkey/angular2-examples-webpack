@@ -1,7 +1,6 @@
 import {Component} from '@angular/core'
 
 @Component({
-  selector: 'host-stuff-component',
   styles: [`h4 {font-weight: bold;color:darkred}`],
   template: `
         <pre><h2>@HostListener @HostBinding</h2></pre>
@@ -21,8 +20,7 @@ import {Component} from '@angular/core'
         
         <h4>3) host-three-component</h4>
         <host-three-component></host-three-component>
-
     `,
 })
-export class HostStuffComponent {
+export class HostBindingComponent {
 }

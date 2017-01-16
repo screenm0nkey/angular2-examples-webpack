@@ -19,9 +19,9 @@ export class ChildViewComponent {
       <after-my-child></after-my-child>
     <div>-- child view ends --</div>
     
-    <p *ngIf="comment" class="comment">
+    <h2 *ngIf="comment" class="comment">
       {{comment}}
-    </p>
+    </h2>
   `,
 })
 export class AfterViewComponent implements AfterViewChecked, AfterViewInit {
@@ -64,7 +64,7 @@ export class AfterViewComponent implements AfterViewChecked, AfterViewInit {
   private _logIt(method: string) {
     let vc = this.viewChild;
     let message = `${method}: "${vc ? vc.hero : 'no'}" child view`
-    this._logger.log(message);
+    console.log(message);
   }
 
 }

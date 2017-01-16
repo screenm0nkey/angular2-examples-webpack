@@ -4,6 +4,8 @@ import {ChangeDetectionMain} from './main';
 import {MarkForCheck, Cmp} from './mark-for-check.component';
 import {ChangeComponent, TodoItemComponent, TodoListComponent} from './change.components';
 import {ParentChangeObs, ChildObsList} from './change-with-observables.components';
+import {DefaultCmp,OnPushCmp,OnPushChangeDetectionSampleApp} from './onpush';
+import {ObservableChangeDetectionSampleApp, ObservableCmp} from './observables';
 
 @NgModule({
   imports: [SharedModule],
@@ -15,7 +17,9 @@ import {ParentChangeObs, ChildObsList} from './change-with-observables.component
     TodoListComponent,
     Cmp,
     ParentChangeObs,
-    ChildObsList
+    ChildObsList,
+    DefaultCmp,OnPushCmp,OnPushChangeDetectionSampleApp,
+    ObservableChangeDetectionSampleApp, ObservableCmp
   ]
 })
 export class ChangeModule {

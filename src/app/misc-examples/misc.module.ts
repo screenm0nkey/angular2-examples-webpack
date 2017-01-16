@@ -9,7 +9,8 @@ import {ChangeModule} from './components/change-detection/change.module';
 import {ContentChildModule} from './components/content-children/content-child.module';
 import {CustomersModule} from './components/customers/customers.module';
 import {FocusingInputModule} from './components/focusing-input/focusing.module';
-import {HostStuffModule} from './components/host-binding/hosting.module';
+import {HostBindingModule} from './components/host-binding/hosting.module';
+import {DirectivesLinquistModule} from './components/directives-linquist/directives.module';
 import {ImmutableModule} from './components/immutable/immutable.module';
 import {DIModule} from './components/inject/di.module';
 import {InputBindingModule} from './components/input-binding/inputbinding.module';
@@ -20,6 +21,7 @@ import {SocketApp} from './components/socket-io/socket-component';
 import {ChildViewsModule} from './components/view-children/childviews.module';
 import {TricksModule} from './components/tricks/tricks.module';
 import {MiscLifecycleModule} from './components/lifecycle/lifecycle.module';
+import {TemplatesModule} from './components/templates/templates.module';
 // import {DynamicModule} from './components/dynamic-loader/dynamic.module';
 
 
@@ -33,7 +35,7 @@ import {MiscLifecycleModule} from './components/lifecycle/lifecycle.module';
     ContentChildModule,
     CustomersModule,
     FocusingInputModule,
-    HostStuffModule,
+    HostBindingModule,
     ImmutableModule,
     DIModule,
     InputBindingModule,
@@ -42,7 +44,9 @@ import {MiscLifecycleModule} from './components/lifecycle/lifecycle.module';
     NotifcationModule,
     ChildViewsModule,
     TricksModule,
-    MiscLifecycleModule
+    MiscLifecycleModule,
+    TemplatesModule,
+    DirectivesLinquistModule
     // DynamicModule
   ],
   exports : [SharedModule],

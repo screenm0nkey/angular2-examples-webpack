@@ -8,12 +8,9 @@ import {Component} from '@angular/core'
 @Component({
   selector: 'immutable-main',
   template: `
-        <h4>Immutable Objects</h4>
-        <pre>src/app/misc-examples/components/immutable/immutable.ts</pre>
+        
         <immutable-object-component></immutable-object-component>
         <hr>
-        <h4>Immutable Lists</h4>
-        <pre>src/app/misc-examples/components/immutable/immutable-list.ts</pre>
         <immutable-list-component></immutable-list-component>
     `,
 })

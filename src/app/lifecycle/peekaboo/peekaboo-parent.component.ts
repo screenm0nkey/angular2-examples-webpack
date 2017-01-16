@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {LoggerService}  from '../logger.service.ts';
+import {LoggerService}  from '../logger.service';
 
 @Component({
   selector: 'peek-a-boo-parent',

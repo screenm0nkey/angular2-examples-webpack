@@ -46,7 +46,7 @@ export class TodoStore {
  the view gets the values and doesn't change so we can use "OnPush"
  http://victorsavkin.com/post/110170125256/change-detection-in-angular-2
  */
-/* TODO LIST ITEM COMPONENT */
+/* TODO ITEM COMPONENT */
 @Component({
   selector: 'todoitem-component',
   template: `<span (click)="editme.emit(item)">{{item.text}}</span>`,
@@ -76,17 +76,13 @@ export class TodoItemComponent implements OnInit {
 export class TodoListComponent {
   @Input() store;
   @Output() editme: EventEmitter<any> = new EventEmitter();
-
-  constructor() {
-    console.log(this);
-  }
 }
 
 
 /* MAIN COMPONENT */
 @Component({
   selector: 'change-component',
-  template: 'change.components.html',
+  templateUrl: 'change.components.html',
 })
 export class ChangeComponent {
   todoStr: String;

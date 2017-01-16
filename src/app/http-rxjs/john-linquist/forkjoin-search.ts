@@ -17,7 +17,6 @@ import {Subject} from "rxjs/Subject";
   :host{
     display: flex;
   }
-  
   .person{
     cursor: pointer;
   }

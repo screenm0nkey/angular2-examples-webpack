@@ -4,11 +4,10 @@ import {Component, ChangeDetectionStrategy, ChangeDetectorRef} from '@angular/co
   selector: 'cmp',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <h3>this.ref.markForCheck() example</h3>
-    <pre>
-    The tickes below wouldn't update without calling markForCheck()
-    as the change detection is set to "ChangeDetectionStrategy.OnPush"
-    </pre>
+    <h4>this.ref.markForCheck() example</h4>
+<pre>The tickes below wouldn't update without calling markForCheck()
+as the change detection is set to "ChangeDetectionStrategy.OnPush"
+</pre>
     
     <p>
         <strong>setInterval() triggers the change detection</strong> in angular, which updates the views

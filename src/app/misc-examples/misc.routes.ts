@@ -7,7 +7,8 @@ import {ChangeDetectionMain} from './components/change-detection/change.module';
 import {RookieComponent} from './components/content-children/content-child.module';
 import {CustomersComponent, CustomerDetailComponent} from './components/customers/customers.module';
 import {FocusInput} from './components/focusing-input/focusing.module';
-import {HostStuffComponent} from './components/host-binding/hosting.module';
+import {HostBindingComponent} from './components/host-binding/hosting.module';
+import {DirectivesLinquistMain} from './components/directives-linquist/directives.module';
 import {ImmutableMain} from './components/immutable/immutable.module';
 import {DepInjectionApp} from './components/inject/di.module';
 import {MainInputBindingApp} from './components/input-binding/inputbinding.module';
@@ -18,6 +19,7 @@ import {SocketApp} from './components/socket-io/socket-component';
 import {MainChildrenApp} from './components/view-children/childviews.module';
 import {TricksMainComponent} from './components/tricks/tricks.module';
 import {MiscLifecycleMain} from './components/lifecycle/lifecycle.module';
+import { TemplateComponent} from './components/templates/templates.module';
 // import {DynamicExamplesMain} from './components/dynamic-loader/dynamic.module';
 
 const routes: Routes = [
@@ -33,7 +35,8 @@ const routes: Routes = [
       {path: 'customers', component: CustomersComponent},
       {path: 'customers/:id', component: CustomerDetailComponent},
       {path: 'focus-input', component: FocusInput},
-      {path: 'hoststuff', component: HostStuffComponent},
+      {path: 'hostbinding', component: HostBindingComponent},
+      {path: 'directives', component: DirectivesLinquistMain},
       {path: 'change2', component: ImmutableMain},
       {path: 'dependency', component: DepInjectionApp},
       {path: 'input-binding', component: MainInputBindingApp},
@@ -44,6 +47,7 @@ const routes: Routes = [
       {path: 'view-children', component: MainChildrenApp},
       {path: 'tricks', component: TricksMainComponent},
       {path: 'lifecycle', component: MiscLifecycleMain},
+      {path: 'templates', component: TemplateComponent},
       // {path: 'dynamic-component', component: DynamicExamplesMain},
     ]
   },

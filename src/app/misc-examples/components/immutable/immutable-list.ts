@@ -27,6 +27,8 @@ export class TestComponentList implements OnInit, OnChanges {
 @Component({
   selector: 'immutable-list-component',
   template: `
+        <h4>Immutable Lists</h4>
+        <pre>src/app/misc-examples/components/immutable/immutable-list.ts</pre>
         <p>The list will only update when the @Inputs changes by creating a new array each time.
         Mutuating it won't cause it to update as we're using onPush which looks for a compoents Inputs to change</p>
         Make Model Immutable

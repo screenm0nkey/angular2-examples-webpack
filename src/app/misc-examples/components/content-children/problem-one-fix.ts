@@ -24,7 +24,7 @@ export class FixSuperListComponent implements AfterContentInit {
   count: number;
   showme: boolean = false;
   // use ngAfterViewInit() if you're doing a view query
-  // ngAfterContentInit() is used because we're injecting the content using ngcontent
+  // use ngAfterContentInit() if you're injecting the content using ngcontent
   ngAfterContentInit() {
     this.count = this.items.length;
 

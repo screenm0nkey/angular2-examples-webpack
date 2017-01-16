@@ -8,6 +8,10 @@ import {Component} from '@angular/core'
         <mark-for-check></mark-for-check>
         <hr>
         <parent-obs></parent-obs>
+        <hr>
+        <change-detection-sample-app></change-detection-sample-app>
+        <hr>
+        <observable-change-detection-sample-app></observable-change-detection-sample-app>
     `,
 })
 export class ChangeDetectionMain {

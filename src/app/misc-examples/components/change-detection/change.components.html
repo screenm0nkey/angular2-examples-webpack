@@ -1,5 +1,5 @@
 <section class="main">
-  <h3>CHANGE DETECTION</h3>
+  <h4>CHANGE DETECTION</h4>
   <a href="http://blog.thoughtram.io/angular/2016/02/22/angular-2-change-detection-explained.html" target="_blank">Thoughtram
     Change Detection Explained</a>
   <a href="http://victorsavkin.com/post/110170125256/change-detection-in-angular-2" target="_blank">Victor Savin Change
@@ -22,7 +22,7 @@ function which essentially performs change detection.
     This is the case for immutability
   </p>
 
-  <pre>{changeDetection: ChangeDetectionStrategy.OnPush}</pre>
+  <pre><strong>changeDetection: ChangeDetectionStrategy.OnPush</strong></pre>
 
   <pre>
 What's interesting below is if you type into the "Local Ref"
@@ -32,16 +32,17 @@ on the ngModel.
 </pre>
 
   <p>
-    Try removing the <strong>ChangeDetectionStrategy.OnPush from the
-    TodoListComponent</strong> and then type into the first input ( the one using ng-model) and you will see
+    Try changing the <strong>ChangeDetectionStrategy from the
+    TodoListComponent from Push to Default</strong> and then type into the first input ( the one using ng-model) and you will see
     in the console the component's text property is called on every event.
   </p>
   <p>Local template variables using #reference <i>(press return to add item)</i></p>
 </section>
 
-<input type="text" #inputty (keyup.enter)="addItem(inputty.value); inputty.value=''" placeholder="Local Ref">
+
 <input type="text" [(ngModel)]="todoStr" (keyup.enter)="addItem(todoStr)" placeholder="ngModel">
 <button (click)="addItem(todoStr)">{{todoItem ? 'Update' : 'Add'}}</button>
+<input type="text" #inputty (keyup.enter)="addItem(inputty.value); inputty.value=''" placeholder="Local Ref">
 <todolist-component [store]="store" (editme)="setTodoItem($event)"></todolist-component>
 
 

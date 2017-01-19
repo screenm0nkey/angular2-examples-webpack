@@ -38,9 +38,8 @@ var webpackConfig = {
 
 // Our Webpack Defaults
 var defaultConfig = {
-  devtool: 'cheap-module-source-map',
-  cache: true,
-  debug: true,
+  devtool: 'source-map',
+
   output: {
     filename: '[name].bundle.js',
     sourceMapFilename: '[name].map',
@@ -49,21 +48,29 @@ var defaultConfig = {
 
   resolve: {
     root: [path.join(__dirname, 'src')],
-    extensions: ['', '.ts', '.js', '.json']
+    extensions: ['', '.ts', '.js', '.json'],
+    modules: [ path.resolve(__dirname, 'node_modules') ]
   },
 
   devServer: {
     historyApiFallback: true,
-    watchOptions: {aggregateTimeout: 300, poll: 1000}
+    watchOptions: {aggregateTimeout: 300, poll: 1000},
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+      "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+    }
   },
 
   node: {
-    global: 1,
+    global: true,
     crypto: 'empty',
-    module: 0,
-    Buffer: 0,
-    clearImmediate: 0,
-    setImmediate: 0
+    __dirname: true,
+    __filename: true,
+    process: true,
+    Buffer: false,
+    clearImmediate: false,
+    setImmediate: false
   }
 };
 

@@ -23,7 +23,7 @@ import {Component} from '@angular/core'
     </div>
   `
 })
-export class Example5AppComponent {
+export class Example05AppComponent {
   one = {message: 'Hello One'}
   two = {message: 'Hello Two'}
   three = {message: 'Hello Three'}

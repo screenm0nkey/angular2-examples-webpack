@@ -16,8 +16,11 @@ import {
   inputs: ['ngBookRepeatOf']
 })
 export class NgBookRepeat implements DoCheck {
+  // items holds the collection we’re iterating on
   private items: any;
+  // differ is used for change detection purposes
   private differ: IterableDiffer;
+  //views is a Map that will link a given item on the collection with the view that contains it
   private views: Map<any, ViewRef> = new Map<any, ViewRef>();
 
   constructor(private viewContainer: ViewContainerRef,
@@ -26,6 +29,7 @@ export class NgBookRepeat implements DoCheck {
               private differs: IterableDiffers) {
   }
 
+  // this will trigger when we set the ngBookRepeatOf input:
   set ngBookRepeatOf(items) {
     this.items = items;
     if (this.items && !this.differ) {

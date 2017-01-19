@@ -15,4 +15,4 @@ export class FirstDirective {
 <h3 first>This will be gone</h3>
     `
 })
-export class Example01Component{}
+export class Example01AppComponent{}

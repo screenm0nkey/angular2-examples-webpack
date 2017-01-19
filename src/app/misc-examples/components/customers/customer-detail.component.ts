@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Params} from '@angular/router';
 import {DataService} from './services/data.service';
 import {Customer} from "./customer.model";
 
@@ -15,8 +15,8 @@ export class CustomerDetailComponent {
   }
 
   ngOnInit() {
-    this.route.params.subscribe((params: any) => {
-      let id = parseInt(params.id, 10);
+    this.route.params.subscribe((params: Params) => {
+      let id = parseInt(params['id'], 10);
       let stream = this.dataService.getCustomers()
         .map(customers => {
           return customers.find(c => c.id === id);

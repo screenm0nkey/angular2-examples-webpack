@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {AuthService} from '../services/AuthService';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'login',
@@ -20,7 +21,7 @@ import {AuthService} from '../services/AuthService';
     </div>
 
     <a class="btn btn-default" (click)="login(username.value, password.value)">
-      Submit
+      Login
     </a>
   </form>
 
@@ -31,10 +32,12 @@ import {AuthService} from '../services/AuthService';
   `
 })
 export class LoginComponent {
-  message: string;
+  message: string = '';
 
-  constructor(private authService: AuthService) {
-    this.message = '';
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private route: ActivatedRoute) {
   }
 
   login(username: string, password: string): boolean {
@@ -50,6 +53,9 @@ export class LoginComponent {
 
   logout(): boolean {
     this.authService.logout();
+    if (this.router.url.endsWith('protected')) {
+      this.router.navigate(['/auth','aboutus', 34], {relativeTo: this.route});
+    }
     return false;
   }
 }

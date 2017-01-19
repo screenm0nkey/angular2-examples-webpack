@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Params} from '@angular/router';
 import {Github} from '../shared/github';
 
 @Component({
@@ -16,7 +16,7 @@ export class RepoDetail implements OnInit {
   }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params:Params) => {
       this.org = this.route.snapshot.parent.params['org'];
       this.repo = params['repo'] || '';
 

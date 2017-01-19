@@ -7,9 +7,10 @@ import {HomeComponent} from './components/HomeComponent';
 import {AboutComponent} from './components/AboutComponent';
 import {ContactComponent} from './components/ContactComponent';
 import {ProtectedComponent} from './components/ProtectedComponent';
+import {ComposeMessageComponent} from './components/compose-message.component';
 import {AuthAppComponent} from './auth.component'
 import {AUTH_PROVIDERS} from './services/AuthService';
-import {LoggedInGuard, UserCanDeactivate} from './guards/loggedIn.guard';
+import {LoggedInGuard, UserCanDeactivate} from './guards/activation.guard';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import {LoggedInGuard, UserCanDeactivate} from './guards/loggedIn.guard';
     AboutComponent,
     ContactComponent,
     ProtectedComponent,
-    LoginComponent
+    LoginComponent,
+    ComposeMessageComponent
   ],
   providers: [
     AUTH_PROVIDERS,

@@ -28,4 +28,4 @@ export class BasicComponent4{
     Please also see <a [routerLink]="['/misc', 'templates']">Misc Templates</a>
 `
 })
-export class Example4AppComponent{}
+export class Example04AppComponent{}

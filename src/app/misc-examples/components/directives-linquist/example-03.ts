@@ -71,7 +71,7 @@ export class TrackDirective {
     </div>    
   `
 })
-export class TrackAppComponent {
+export class Example03AppComponent {
   //only for visuals
   constructor(private tracking: TrackingService) {
   }

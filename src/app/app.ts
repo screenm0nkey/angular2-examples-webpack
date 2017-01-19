@@ -10,7 +10,7 @@ import {Component, ViewEncapsulation} from '@angular/core';
       <a routerLink="httprx" routerLinkActive="active">Http and RxJs</a>
       <a routerLink="egghead" routerLinkActive="active">Egghead</a>
       <a routerLink="lifecycle" routerLinkActive="active">Lifecycle</a>
-      <a routerLink="auth" routerLinkActive="active">Auth</a>
+      <a routerLink="auth" routerLinkActive="active">Routing Example</a>
       <a routerLink="chat" routerLinkActive="active">RxJs Chat App</a>
       <a routerLink="chat-redux" routerLinkActive="active">Redux Chat App</a>
     </nav>

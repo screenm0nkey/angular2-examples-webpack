@@ -31,5 +31,5 @@ export class ThreeDirective {
     <span *three><strong>We</strong> can this as a template inside our directive, </span>    
 `
 })
-export class Example6AppComponent {
+export class Example06AppComponent {
 }

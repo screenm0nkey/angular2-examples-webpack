@@ -1,6 +1,15 @@
-import {Component, EventEmitter} from '@angular/core';
+import {Component, Injectable} from '@angular/core';
+import {Subject} from 'rxjs/Rx';
 
-class Broadcaster extends EventEmitter<any> {
+@Injectable()
+class BroadcasterService {
+  subject: Subject<any> = new Subject<any>();
+  emit (val){
+    this.subject.next(val);
+  }
+  subscribe(func){
+    this.subject.subscribe(func);
+  }
 }
 
 @Component({
@@ -10,7 +19,7 @@ class Broadcaster extends EventEmitter<any> {
 export class Comp1 {
   generatedNumber: number = 0;
 
-  constructor(broadcaster: Broadcaster) {
+  constructor(broadcaster: BroadcasterService) {
     setInterval(() => {
       broadcaster.emit(this.generatedNumber = Math.random());
     }, 1000);
@@ -25,7 +34,7 @@ export class Comp1 {
 export class Comp2 {
   receivedNumber: number = 0;
 
-  constructor(broadcaster: Broadcaster) {
+  constructor(broadcaster: BroadcasterService) {
     broadcaster.subscribe(generatedNumber => this.receivedNumber = generatedNumber);
   }
 }
@@ -33,9 +42,10 @@ export class Comp2 {
 
 @Component({
   selector: 'emitter-component',
-  viewProviders: [Broadcaster],
+  viewProviders: [BroadcasterService],
   template: `
     <div>
+     
       <comp1></comp1>
       <comp2></comp2>
     </div>
@@ -45,3 +55,6 @@ export class EmitterComponent {
   constructor() {
   }
 }
+
+
+

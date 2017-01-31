@@ -4,6 +4,7 @@ import {Component} from '@angular/core';
   template: `
      <div class="spotify-component">
          <h4>Spotify</h4>
+         yes
         <router-outlet></router-outlet>
     </div>
   `

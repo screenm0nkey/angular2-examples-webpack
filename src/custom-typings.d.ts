@@ -22,7 +22,7 @@
  * If you're importing a module that uses Node.js modules which are CommonJS you need to import as
  *
 
- import * as _ from 'lodash'
+ import * as _ from 'lodash';
 
  * You can include your type definitions in this file until you create one for the typings registry
  * see https://github.com/typings/registry

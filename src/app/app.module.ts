@@ -1,45 +1,36 @@
-import {NgModule} from '@angular/core'
-import {FormsModule} from "@angular/forms";
-import {BrowserModule} from "@angular/platform-browser";
-import {HttpModule} from "@angular/http";
-import {LocationStrategy, HashLocationStrategy, APP_BASE_HREF} from '@angular/common';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {APP_BASE_HREF} from '@angular/common';
 
-import {routing} from "./app.routes";
-import {AppComponent} from "./app";
-import {FormExamplesModule} from "./forms/forms.module";
-import {MiscExamplesModule} from "./misc-examples/misc.module";
-import {SeedModule} from "./seed/seed.module";
-import {HttpRxJsModule} from "./http-rxjs/async.module";
+import {PageNotFoundComponent} from './not-found.component';
+import {AppComponent} from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+// this is for the angular2 services example
+import {SomeService, EngineService} from './misc-examples/components/inject/some-service';
 import {EggheadExamplesModule} from './egghead-example/egghead.module';
-import {LifeCycleModule} from './lifecycle/lifecycle.module';
-import {AuthAppModule} from './auth/auth.module';
+import {ComposeMessageComponent} from './auth/components/compose-message.component';
+import {SharedModule} from './shared/shared.module';
 import {ChatAppModule} from './chat-app/ts/app.module';
 import {ChatAppReduxModule} from './chat-app-redux/ts/app.module';
 
-// this is for the angular2 services example
-import {SomeService, EngineService} from './misc-examples/components/inject/some-service';
-
-
 @NgModule({
+  // modules only need to be imported if they are not lazy loaded
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule,
-    routing,
-    FormExamplesModule,
-    SeedModule,
-    MiscExamplesModule,
-    HttpRxJsModule,
+    SharedModule,
+    AppRoutingModule,
     EggheadExamplesModule,
-    LifeCycleModule,
-    AuthAppModule,
     ChatAppModule,
     ChatAppReduxModule
   ],
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    PageNotFoundComponent,
+    ComposeMessageComponent
+  ],
   providers: [
     {provide: APP_BASE_HREF, useValue: '/'}, //is the equivalent of using <base href="/">
-    {provide: LocationStrategy, useClass: HashLocationStrategy},
+    // {provide: LocationStrategy, useClass: HashLocationStrategy},
     // loading dependencies example
     SomeService,                                        // this is shorthand for provide(SomeService, {useClass : SomeService}),
     {provide: 'whateverToken', useClass: SomeService},  // this is used by "injecting-token.ts" component,

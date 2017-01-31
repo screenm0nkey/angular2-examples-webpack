@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "lodash": "registry:npm/lodash#4.0.0+20161015015725",
+    "underscore": "registry:dt/underscore#1.8.3+20161016154529"
+  }
+}

@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
-import {routing} from './forms.routes';
 import {SharedModule} from '../shared/shared.module';
+import {FormsRoutingModule} from './forms.routes.module';
 import {FormExamplesComponent} from './forms.component';
 import {FormOneComponent} from './components/form-1';
 import {FormTwoComponent, NickForm} from './components/form-2';
@@ -13,15 +13,20 @@ import {FormSevenModule} from './components/custom-validator-directives/form-7.m
 import {FormEightModule} from './components/dynamic/form-8.module'
 import {FormTenModule} from './components/custom-form-controls/form-10.module'
 
-
 @NgModule({
-  imports: [routing, SharedModule, FormSevenModule, FormEightModule, FormTenModule],
+  imports: [
+    SharedModule,
+    FormsRoutingModule,
+    SharedModule,
+    FormSevenModule,
+    FormEightModule,
+    FormTenModule
+  ],
   declarations: [
     FormExamplesComponent,
     FormOneComponent,
     FormTwoComponent,
-    // used in form 2 to show exportAs and what NgForm is doing in #form="ngForm"
-    NickForm,
+    NickForm, // used in form 2 to show exportAs and what NgForm is doing in #form="ngForm"
     FormThreeComponent,
     FormFourComponent,
     FormFiveComponent,
@@ -29,5 +34,5 @@ import {FormTenModule} from './components/custom-form-controls/form-10.module'
     FormNineComponent
   ]
 })
-export class FormExamplesModule {
+export class NickFormsModule {
 }

@@ -8,7 +8,7 @@ import {Auth0Component, AutosearchAuth} from './auth0-authentication';
 import {YoutubeBasicExample} from './youtube-basic';
 import {LocalRefSearch} from './local-ref-search';
 import {RedditExample} from './reddit';
-import {YoutubeExample, YoutubeSearch} from './youtube-ng2-book';
+import {NgBookYoutubeExample, NgBookYoutubeSearch} from './youtube-ng2-book';
 import {YoutubeResultComponent} from './youtube-helpers/youtube-result-component';
 import {YoutubeService} from './youtube-helpers/youtube-service';
 
@@ -25,7 +25,7 @@ import {YoutubeService} from './youtube-helpers/youtube-service';
     YoutubeBasicExample,
     LocalRefSearch,
     RedditExample,
-    YoutubeExample, YoutubeSearch,
+    NgBookYoutubeExample, NgBookYoutubeSearch,
     YoutubeResultComponent
   ],
   providers: [YoutubeService]

@@ -7,7 +7,11 @@ import {DropdownComponent} from './dropdown';
   imports: [
     SharedModule
   ],
-  declarations: [EchonestAppComponent, ArtistComponent, DropdownComponent,]
+  declarations: [
+    EchonestAppComponent,
+    ArtistComponent,
+    DropdownComponent,
+  ]
 })
 export class EchonestModule {
 }

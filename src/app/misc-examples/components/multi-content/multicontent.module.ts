@@ -5,6 +5,7 @@ import {EmitterComponent, Comp1, Comp2} from './emitter-component';
 import {TransclusionSampleApp, Message} from './transclusion';
 import {Tab,Tabset,TabsSampleApp} from './tabs';
 
+
 @NgModule({
   imports: [SharedModule],
   declarations: [
@@ -14,7 +15,7 @@ import {Tab,Tabset,TabsSampleApp} from './tabs';
     Tab,Tabset,TabsSampleApp
   ]
 })
-export class MultiConentModule {
+export class MultiContentModule {
 }
 
 export {MultiTransclusion}

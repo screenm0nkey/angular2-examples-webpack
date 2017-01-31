@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {routing} from './lifecycle.routes';
+import {LifeCycleRoutingModule} from './lifecycle.routes.module';
 import {SharedModule} from '../shared/shared.module';
 import {LifeCycleMainComponent} from './lifecycle.component';
 import {BasicExample, MyComponent} from './basic-overview/index';
@@ -16,7 +16,7 @@ import {Spy} from './spy/spy.directive';
 
 
 @NgModule({
-  imports: [routing, SharedModule],
+  imports: [LifeCycleRoutingModule, SharedModule],
   declarations: [
     LifeCycleMainComponent,
     BasicExample, MyComponent,

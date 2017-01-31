@@ -7,11 +7,10 @@ import {AuthService} from './services/AuthService';
   template: `
 <div class="miscellaneous">
   <nav class="navLinks">
-      <a [routerLink]="['/auth','home']" routerLinkActive="active">Home</a>
-      <a [routerLink]="['/auth','aboutus', getId()]" routerLinkActive="active">About Us</a>
-      <a [routerLink]="['/auth','contact']" routerLinkActive="active">Contact us</a>
-      <a [routerLink]="['/auth','protected']" routerLinkActive="active" *ngIf="isLoggedIn()">Protected</a>
-      <a [routerLink]="[{ outlets: { popup: ['compose'] } }]">Contact</a>
+      <a [routerLink]="['./']" routerLinkActive="active">Home</a>
+      <a [routerLink]="['./aboutus', getId()]" routerLinkActive="active">About Us</a>
+      <a [routerLink]="['./contact']" routerLinkActive="active">Contact us</a>
+      <a [routerLink]="['./protected']" routerLinkActive="active" *ngIf="isLoggedIn()">Protected</a>
     </nav>
 
     <div id="container">
@@ -19,7 +18,6 @@ import {AuthService} from './services/AuthService';
       <login></login>
       <hr>
       <router-outlet></router-outlet>
-      <router-outlet name="popup"></router-outlet>
     </div>
   </div>
   `

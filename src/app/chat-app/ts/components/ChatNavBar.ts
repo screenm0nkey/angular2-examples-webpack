@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MessagesService, ThreadsService} from '../services/services';
 import {Message, Thread} from '../models';
-import * as _ from 'underscore';
+import * as u from 'underscore';
 
 @Component({
   selector: 'nav-bar',
@@ -26,7 +26,7 @@ export class ChatNavBar implements OnInit {
       // one array with two items. the current thread and an array of Message objects
       .subscribe(([currentThread, messages]: [Thread, Message[]]) => {
         this.unreadMessagesCount =
-          _.reduce(
+          u.reduce(
             messages, (sum: number, m: Message) => {
               let messageIsInCurrentThread: boolean = m.thread && currentThread && (currentThread.id === m.thread.id);
               if (m && !m.isRead && !messageIsInCurrentThread) {

@@ -1,34 +1,46 @@
 var webpack = require('webpack');
 var path = require('path');
-
+var webpackMerge = require('webpack-merge');
 
 // Webpack Config
 var webpackConfig = {
   entry: {
-    'polyfills': './src/polyfills.browser.ts',
-    'vendor': './src/vendor.browser.ts',
     'main': './src/main.browser.ts',
   },
 
   output: {
-    path: './dist',
+    publicPath: '',
+    path: path.resolve(__dirname, './dist'),
   },
 
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(true),
-    new webpack.optimize.CommonsChunkPlugin({name: ['main', 'vendor', 'polyfills'], minChunks: Infinity}),
+    new webpack.ContextReplacementPlugin(
+      // The (\\|\/) piece accounts for path separators in *nix and Windows
+      /angular(\\|\/)core(\\|\/)src(\\|\/)linker/,
+      path.resolve(__dirname, './src'),
+      {
+        // your Angular Async Route paths relative to this root directory
+      }
+    ),
   ],
 
   module: {
     loaders: [
       // .ts files for TypeScript
-      {test: /\.ts$/, loaders: ['awesome-typescript-loader', 'angular2-template-loader']},
+      {
+        test: /\.ts$/,
+        loaders: [
+          'awesome-typescript-loader',
+          'angular2-template-loader',
+          'angular2-router-loader'
+        ]
+      },
       {test: /\.css$/, loaders: ['to-string-loader', 'css-loader']},
       {test: /\.html$/, loader: 'raw-loader'},
       {test: /\.json$/, loader: 'json-loader'},
       {test: /\.(jpe?g|png|gif|svg)$/i, loaders: [
-        'file?hash=sha512&digest=hex&name=[hash].[ext]',
-        'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+        'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
+        'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
       ]}
     ]
   }
@@ -47,9 +59,8 @@ var defaultConfig = {
   },
 
   resolve: {
-    root: [path.join(__dirname, 'src')],
-    extensions: ['', '.ts', '.js', '.json'],
-    modules: [ path.resolve(__dirname, 'node_modules') ]
+    extensions: ['.ts', '.js', '.json'],
+    modules: [path.resolve(__dirname, 'node_modules')]
   },
 
   devServer: {
@@ -74,5 +85,5 @@ var defaultConfig = {
   }
 };
 
-var webpackMerge = require('webpack-merge');
+
 module.exports = webpackMerge(defaultConfig, webpackConfig);

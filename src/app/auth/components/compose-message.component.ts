@@ -21,7 +21,7 @@ import {slideInDownAnimation} from '../animations';
       <button (click)="cancel()">Cancel</button>
     </p>
   `,
-  styles: [':host { position: relative; bottom: 10%; }'],
+  styles: [':host { position: relative; bottom: 10%; background-color: white; border: solid 4px red; }'],
   animations: [slideInDownAnimation]
 })
 export class ComposeMessageComponent {

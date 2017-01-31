@@ -12,12 +12,12 @@ import {ActivatedRoute, Router} from '@angular/router';
   <form class="form-inline" *ngIf="!authService.getUser()">
     <div class="form-group">
       <label for="username">User:</label>
-      <input class="form-control" name="username" #username>
+      <input class="form-control" name="username" value="user" #username>
     </div>
 
     <div class="form-group">
       <label for="password">Password:</label>
-      <input class="form-control" type="password" name="password" #password>
+      <input class="form-control" type="password" name="password" value="password" #password>
     </div>
 
     <a class="btn btn-default" (click)="login(username.value, password.value)">
@@ -34,10 +34,9 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class LoginComponent {
   message: string = '';
 
-  constructor(
-    private authService: AuthService,
-    private router: Router,
-    private route: ActivatedRoute) {
+  constructor(private authService: AuthService,
+              private router: Router,
+              private route: ActivatedRoute) {
   }
 
   login(username: string, password: string): boolean {
@@ -54,7 +53,7 @@ export class LoginComponent {
   logout(): boolean {
     this.authService.logout();
     if (this.router.url.endsWith('protected')) {
-      this.router.navigate(['/auth','aboutus', 34], {relativeTo: this.route});
+      this.router.navigate(['../', 34], {relativeTo: this.route});
     }
     return false;
   }

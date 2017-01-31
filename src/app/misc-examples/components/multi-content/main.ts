@@ -4,11 +4,14 @@ import {Component} from '@angular/core';
 @Component({
   selector: 'multi-content',
   template: `
-    <h4>Demoing content projection</h4>
+    <h4>Multi content projection (transclusion)</h4>
     <div class="box">
+    <pre>&lt;ng-content select="[header]"&gt;&lt;/ng-content&gt;</pre>
       <ng-content select="[header]"></ng-content>
     </div>
     <div class="box">
+      <pre>&lt;ng-content select="[body]"&gt;&lt;/ng-content&gt;
+      Content here is a seperate compomonent</pre>
       <ng-content select="[body]"></ng-content>
     </div>
   `,

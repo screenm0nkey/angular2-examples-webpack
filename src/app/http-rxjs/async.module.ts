@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
-import {routing} from './async.routes';
+import {AsyncRoutingModule} from './async.routes.module';
 import {SharedModule} from '../shared/shared.module';
 import {MainHttpRxJs} from './async.component'
 import {SearchesModule} from './searches/searches.module';
@@ -19,15 +19,15 @@ import {clock, peoplez, tick} from './ngrx-clock/reducers';
 
 @NgModule({
   imports: [
-    routing,
     SharedModule,
+    AsyncRoutingModule,
+    SpotifyModule,
     SearchesModule,
     EchonestModule,
     JohnLinquistModule,
     MiscHttpModule,
     NgrxClocksModule,
     NgrxInTenModule,
-    SpotifyModule,
     StoreModule.provideStore({queue, people, filter, tick, clock, peoplez}),
     EffectsModule.run(UnitEffects)
   ],

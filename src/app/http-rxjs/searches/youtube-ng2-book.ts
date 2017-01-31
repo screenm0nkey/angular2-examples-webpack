@@ -15,7 +15,7 @@ let loadingGif: string = require('../../../images/loading.gif');
   template: `Search <input placeholder="Search Youtube">`,
   outputs: ['loading', 'results'],
 })
-export class YoutubeSearch implements OnInit {
+export class NgBookYoutubeSearch implements OnInit {
   loading: EventEmitter<any> = new EventEmitter();
   results: EventEmitter<any> = new EventEmitter();
 
@@ -61,7 +61,7 @@ export class YoutubeSearch implements OnInit {
         </div>
     `
 })
-export class YoutubeExample {
+export class NgBookYoutubeExample {
   loading: boolean = false;
   results: SearchResult[];
 

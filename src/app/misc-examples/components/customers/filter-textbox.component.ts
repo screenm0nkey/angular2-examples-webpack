@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output, Input} from '@angular/core';
+import {Component, EventEmitter, Output, Input} from "@angular/core";
 
 @Component({
   selector: 'filter-text-component',
@@ -12,7 +12,7 @@ import {Component, EventEmitter, Output, Input} from '@angular/core';
     `,
 })
 export class FilterTextComponent {
-  model: { filter: any };
+  model: {filter: any};
   @Input() placeholder: string;
   @Output() changed: EventEmitter<any> = new EventEmitter();
 

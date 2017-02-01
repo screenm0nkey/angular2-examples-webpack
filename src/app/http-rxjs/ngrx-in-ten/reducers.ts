@@ -1,4 +1,4 @@
-import {ActionReducer, Action} from '@ngrx/store';
+import {ActionReducer, Action} from "@ngrx/store";
 
 export const filter: ActionReducer<any> = (state = person => person, action: Action) => {
   switch (action.type) {

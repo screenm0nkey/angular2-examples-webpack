@@ -1,6 +1,6 @@
-import {Component, ViewChild, ViewContainerRef, ComponentFactoryResolver} from '@angular/core';
-import {Observable} from 'rxjs/Rx';
-import {Http} from '@angular/http'
+import {Component, ViewChild, ViewContainerRef, ComponentFactoryResolver} from "@angular/core";
+import {Observable} from "rxjs/Rx";
+import {Http} from "@angular/http";
 
 @Component({
   selector: 'gist-app',
@@ -17,7 +17,8 @@ export class GistAppComponent {
   @ViewChild('putStuffHere', {read: ViewContainerRef}) putStuffHere;
 
   constructor(public compResolver: ComponentFactoryResolver,
-              public http: Http) {debugger
+              public http: Http) {
+    debugger
   }
 
   ngAfterViewInit() {

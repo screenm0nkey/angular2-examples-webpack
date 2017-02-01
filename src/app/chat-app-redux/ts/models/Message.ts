@@ -1,5 +1,5 @@
-import {User} from './User';
-import {Thread} from './Thread';
+import {User} from "./User";
+import {Thread} from "./Thread";
 
 export interface Message {
   id?: string;

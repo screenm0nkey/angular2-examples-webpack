@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {BaseRequestOptions} from '@angular/http';
+import {Component} from "@angular/core";
+import {BaseRequestOptions} from "@angular/http";
 
 
 // these query strings will be added everywhere. note I've removed

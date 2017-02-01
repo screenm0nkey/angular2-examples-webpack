@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
-import {Observable} from 'rxjs/Rx';
-import {Jsonp} from '@angular/http';
+import {Component} from "@angular/core";
+import {Observable} from "rxjs/Rx";
+import {Jsonp} from "@angular/http";
 
 @Component({
   selector: 'auto-wiki-search',

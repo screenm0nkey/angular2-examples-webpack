@@ -1,13 +1,13 @@
-import {Component} from '@angular/core';
-import {Http} from '@angular/http';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/mergeMap';
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/toArray';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/share';
-import 'rxjs/add/observable/from';
-import 'rxjs/add/observable/forkJoin';
+import {Component} from "@angular/core";
+import {Http} from "@angular/http";
+import "rxjs/add/operator/map";
+import "rxjs/add/operator/mergeMap";
+import "rxjs/add/operator/switchMap";
+import "rxjs/add/operator/toArray";
+import "rxjs/add/operator/do";
+import "rxjs/add/operator/share";
+import "rxjs/add/observable/from";
+import "rxjs/add/observable/forkJoin";
 import {Observable} from "rxjs/Observable";
 import {Subject} from "rxjs/Subject";
 

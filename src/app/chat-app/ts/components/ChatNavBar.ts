@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {MessagesService, ThreadsService} from '../services/services';
-import {Message, Thread} from '../models';
-import * as u from 'underscore';
+import {Component, OnInit} from "@angular/core";
+import {MessagesService, ThreadsService} from "../services/services";
+import {Message, Thread} from "../models";
+import * as u from "underscore";
 
 @Component({
   selector: 'nav-bar',

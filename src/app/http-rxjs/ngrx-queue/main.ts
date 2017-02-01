@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {NgRxQueueAppComponent} from './app.component';
+import {Component} from "@angular/core";
+import {NgRxQueueAppComponent} from "./app.component";
 
 
 @Component({

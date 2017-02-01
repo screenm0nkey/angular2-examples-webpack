@@ -1,13 +1,13 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {LifeCycleMainComponent} from './lifecycle.component';
+import {NgModule} from "@angular/core";
+import {RouterModule, Routes} from "@angular/router";
+import {LifeCycleMainComponent} from "./lifecycle.component";
 // children
-import {BasicExample} from './basic-overview/index';
-import {PeekABooParentComponent} from './peekaboo/peekaboo-parent.component';
-import {SpyParentComponent} from './spy/spy.component';
-import {OnChangesParentComponent} from './on-changes/on-changes-parent.component';
-import {AfterViewParentComponent} from './after-view/after-view-parent.component';
-import {AfterContentParentComponent} from './after-content/after-content-parent.component';
+import {BasicExample} from "./basic-overview/index";
+import {PeekABooParentComponent} from "./peekaboo/peekaboo-parent.component";
+import {SpyParentComponent} from "./spy/spy.component";
+import {OnChangesParentComponent} from "./on-changes/on-changes-parent.component";
+import {AfterViewParentComponent} from "./after-view/after-view-parent.component";
+import {AfterContentParentComponent} from "./after-content/after-content-parent.component";
 
 
 const formsRoutes: Routes = [

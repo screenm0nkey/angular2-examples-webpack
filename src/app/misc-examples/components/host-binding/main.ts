@@ -1,4 +1,4 @@
-import {Component} from '@angular/core'
+import {Component} from "@angular/core";
 
 @Component({
   styles: [`h4 {font-weight: bold;color:darkred}`],

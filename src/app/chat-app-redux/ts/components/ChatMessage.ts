@@ -1,8 +1,5 @@
-import {
-  Component,
-  OnInit
-} from '@angular/core';
-import {Message} from '../models';
+import {Component, OnInit} from "@angular/core";
+import {Message} from "../models";
 
 /**
  * ChatMessage is a component that shows a single Message in the ChatWindow.

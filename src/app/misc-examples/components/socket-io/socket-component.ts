@@ -1,6 +1,6 @@
-import {Component, Injectable, Inject} from '@angular/core';
-import {Observable, Subject} from 'rxjs/Rx';
-import * as io from 'socket.io-client';
+import {Component, Injectable, Inject} from "@angular/core";
+import {Observable, Subject} from "rxjs/Rx";
+import * as io from "socket.io-client";
 
 
 @Injectable()

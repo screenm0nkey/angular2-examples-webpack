@@ -1,10 +1,11 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {PageNotFoundComponent} from './not-found.component';
-import {EggheadApp} from './egghead-example/main';
-import {ComposeMessageComponent} from './auth/components/compose-message.component';
-import {ChatApp} from './chat-app/ts/app.module';
-import {ChatAppRedux} from './chat-app-redux/ts/app.module';
+import {NgModule} from "@angular/core";
+import {RouterModule, Routes} from "@angular/router";
+import {PageNotFoundComponent} from "./not-found.component";
+import {EggheadApp} from "./egghead-example/main";
+import {ComposeMessageComponent} from "./auth/components/compose-message.component";
+import {ChatApp} from "./chat-app/ts/app.module";
+import {ChatAppRedux} from "./chat-app-redux/ts/app.module";
+import {SelectivePreloadingStrategy} from "./selective-preloading-strategy";
 
 const appRoutes: Routes = [
   {
@@ -14,7 +15,8 @@ const appRoutes: Routes = [
   },
   {
     path: 'forms',
-    loadChildren: './forms/forms.module#NickFormsModule'
+    loadChildren: './forms/forms.module#NickFormsModule',
+    data: {preload: true}
   },
   {
     path: 'misc',
@@ -61,12 +63,17 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(
+      appRoutes,
+      {preloadingStrategy: SelectivePreloadingStrategy}
+    )
+  ],
+  providers : [
+    SelectivePreloadingStrategy
   ],
   exports: [
     RouterModule
-  ],
-  providers: []
+  ]
 })
 export class AppRoutingModule {
 }

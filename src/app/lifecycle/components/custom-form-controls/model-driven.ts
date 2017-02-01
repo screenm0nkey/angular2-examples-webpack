@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {FormGroup, FormBuilder} from '@angular/forms';
-import {createCounterRangeValidator} from './custom-form-control';
+import {Component, OnInit} from "@angular/core";
+import {FormGroup, FormBuilder} from "@angular/forms";
+import {createCounterRangeValidator} from "./custom-form-control";
 
 @Component({
   selector: 'model-driven',

@@ -1,4 +1,4 @@
-import {Component, Directive, Input, HostListener, HostBinding, Injectable} from '@angular/core'
+import {Component, Directive, Input, HostListener, HostBinding, Injectable} from "@angular/core";
 
 @Injectable()
 export class TrackingService {
@@ -11,10 +11,11 @@ export class TrackingService {
 }
 
 @Injectable()
-export class OnlineService{
+export class OnlineService {
   online = true
-  constructor(){
-    setInterval(()=>{
+
+  constructor() {
+    setInterval(() => {
       this.online = Math.random() > .5
     }, 1000)
   }
@@ -22,17 +23,19 @@ export class OnlineService{
 
 
 @Directive({
-  selector:'[online]'
+  selector: '[online]'
 })
-export class OnlineDirective{
-  @HostBinding('disabled') get functionCanBeCalledAnything(){
+export class OnlineDirective {
+  @HostBinding('disabled') get functionCanBeCalledAnything() {
     return this.online.online
   }
 
-  @HostBinding('class.offline') get thisCanBeCalledAnything(){
+  @HostBinding('class.offline') get thisCanBeCalledAnything() {
     return this.online.online
   }
-  constructor(private online:OnlineService){}
+
+  constructor(private online: OnlineService) {
+  }
 }
 
 

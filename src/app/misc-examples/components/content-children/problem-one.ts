@@ -1,4 +1,4 @@
-import {Component, ContentChildren, AfterContentInit, QueryList, ElementRef} from '@angular/core';
+import {Component, ContentChildren, AfterContentInit, QueryList, ElementRef} from "@angular/core";
 
 @Component({
   selector: 'super-list',

@@ -1,4 +1,4 @@
-import { Component, ViewChild, ViewContainerRef } from '@angular/core'
+import {Component, ViewChild, ViewContainerRef} from "@angular/core";
 
 
 @Component({
@@ -9,12 +9,13 @@ import { Component, ViewChild, ViewContainerRef } from '@angular/core'
     </template>
   `
 })
-export class BasicComponent4{
+export class BasicComponent4 {
   @ViewChild('foo') template;
 
-  constructor(private view:ViewContainerRef){}
+  constructor(private view: ViewContainerRef) {
+  }
 
-  ngAfterContentInit(){
+  ngAfterContentInit() {
     this.view.createEmbeddedView(this.template);
     this.view.createEmbeddedView(this.template);
   }
@@ -28,4 +29,5 @@ export class BasicComponent4{
     Please also see <a [routerLink]="['/misc', 'templates']">Misc Templates</a>
 `
 })
-export class Example04AppComponent{}
+export class Example04AppComponent {
+}

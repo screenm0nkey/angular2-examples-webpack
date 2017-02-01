@@ -1,5 +1,5 @@
-import {Component, ChangeDetectionStrategy} from '@angular/core';
-import {Observable} from 'rxjs/Rx';
+import {Component} from "@angular/core";
+import {Observable} from "rxjs/Rx";
 
 @Component({
   selector: 'counter-component',

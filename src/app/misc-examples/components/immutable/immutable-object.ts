@@ -1,5 +1,5 @@
-import {Component, ChangeDetectionStrategy, Input, OnChanges, DoCheck} from '@angular/core';
-import {Todo} from './StoreService';
+import {Component, ChangeDetectionStrategy, Input, OnChanges, DoCheck} from "@angular/core";
+import {Todo} from "./StoreService";
 
 @Component({
   selector: 'test-component-object',

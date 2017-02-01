@@ -1,5 +1,5 @@
-import {Component, OnInit, Injectable} from '@angular/core';
-import {Http} from '@angular/http';
+import {Component, OnInit, Injectable} from "@angular/core";
+import {Http} from "@angular/http";
 
 
 export interface Character {

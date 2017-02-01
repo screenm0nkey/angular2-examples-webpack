@@ -1,4 +1,4 @@
-import {Component, NgZone, DoCheck} from '@angular/core';
+import {Component, NgZone, DoCheck} from "@angular/core";
 
 @Component({
   selector: 'ng-zone-demo',
@@ -28,7 +28,8 @@ export class NgZoneDemo implements DoCheck {
   progress: number = 0;
   label: string;
 
-  constructor(private zone: NgZone) {}
+  constructor(private zone: NgZone) {
+  }
 
   // this is called every time the component is checked.
   // a component is checked every time change detection occurs

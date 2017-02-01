@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {ActivatedRoute, Params} from '@angular/router';
+import {Component} from "@angular/core";
+import {ActivatedRoute, Params} from "@angular/router";
 
 @Component({
   selector: 'about',
@@ -38,7 +38,7 @@ import {ActivatedRoute, Params} from '@angular/router';
 export class AboutComponent {
   params: string;
   queryParams: string;
-  fragment : string;
+  fragment: string;
   data: string;
 
   constructor(private route: ActivatedRoute) {

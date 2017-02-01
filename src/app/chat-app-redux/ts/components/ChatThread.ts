@@ -1,10 +1,5 @@
-import {
-  Component,
-  EventEmitter
-} from '@angular/core';
-import {
-  Thread
-} from '../models';
+import {Component, EventEmitter} from "@angular/core";
+import {Thread} from "../models";
 
 /**
  * ChatThread shows an individual thread in the ChatThreads. It indicates the

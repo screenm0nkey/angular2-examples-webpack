@@ -1,4 +1,4 @@
-import {ActionReducer, Action} from '@ngrx/store';
+import {ActionReducer, Action} from "@ngrx/store";
 export const HOUR = 'HOUR';
 export const SECOND = 'SECOND';
 export const ADVANCE = 'ADVANCE';

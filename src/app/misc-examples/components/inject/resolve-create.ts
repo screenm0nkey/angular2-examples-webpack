@@ -1,6 +1,6 @@
-import {Component, Inject, ReflectiveInjector} from '@angular/core';
-import {ApiService} from './services/ApiService';
-import {ViewPortService} from './services/ViewPortService';
+import {Component, Inject, ReflectiveInjector} from "@angular/core";
+import {ApiService} from "./services/ApiService";
+import {ViewPortService} from "./services/ViewPortService";
 
 @Component({
   selector: 'di-sample-app2',

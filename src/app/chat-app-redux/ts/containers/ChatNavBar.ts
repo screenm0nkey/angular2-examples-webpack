@@ -1,13 +1,7 @@
-import {
-  Inject,
-  Component
-} from '@angular/core';
-import { AppStore } from '../app-store';
-import { Store } from 'redux';
-import {
-  AppState,
-  getUnreadMessagesCount
-} from '../reducers';
+import {Inject, Component} from "@angular/core";
+import {AppStore} from "../app-store";
+import {Store} from "redux";
+import {AppState, getUnreadMessagesCount} from "../reducers";
 
 @Component({
   selector: 'chat-nav-bar',
@@ -25,7 +19,7 @@ import {
   </nav>
   `
 })
-export default class ChatNavBar  {
+export default class ChatNavBar {
   unreadMessagesCount: number;
 
   constructor(@Inject(AppStore) private store: Store<AppState>) {

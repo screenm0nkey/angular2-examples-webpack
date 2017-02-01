@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Component} from "@angular/core";
+import {ActivatedRoute, Router} from "@angular/router";
+import {SelectivePreloadingStrategy} from "../../selective-preloading-strategy";
 
 @Component({
   selector: 'home',
@@ -13,24 +14,32 @@ resolve data, global query params and the global fragment.
 
 <strong>RouterState</strong> The current state of the router including a tree of the 
 currently activated routes together with convenience methods for traversing the route tree.</pre>
+
+Preloaded Modules
+    <ul>
+      <li *ngFor="let module of modules">{{ module }}</li>
+    </ul>
     
-    <button (click)="goToProduct(id)">Go to About</button>
+    <button (click)="goToProduct(id)">Go to About Us with fragment and queryparams</button>
     
   `
 })
 export class HomeComponent {
   id: number = 1;
+  modules: string[];
 
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private preloadStrategy: SelectivePreloadingStrategy) {
+    this.modules = preloadStrategy.preloadedModules;
   }
 
   goToProduct(id: string): void {
-    const navigationExtras = {
+    this.router.navigate(['./aboutus', id], {
       relativeTo: this.route,
-      queryParams: { 'session_id': 111111 },
+      queryParams: {'session_id': 111111},
       fragment: 'anchor'
-    };
-
-    this.router.navigate(['../aboutus', id], navigationExtras);
+    });
   }
 }

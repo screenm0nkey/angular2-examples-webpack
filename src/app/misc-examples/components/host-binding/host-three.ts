@@ -1,10 +1,5 @@
-import {Component, Directive, HostBinding, ElementRef} from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-  NgModel
-} from '@angular/forms';
+import {Component, Directive, HostBinding, ElementRef} from "@angular/core";
+import {FormBuilder, FormGroup, Validators, NgModel} from "@angular/forms";
 
 @Directive({selector: '[ngModel]'})
 export class NgModelStatusThree {

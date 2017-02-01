@@ -1,9 +1,5 @@
-import {
-  Component,
-  Injectable,
-  ChangeDetectionStrategy
-} from '@angular/core';
-import {Subject, BehaviorSubject} from 'rxjs';
+import {Component, Injectable, ChangeDetectionStrategy} from "@angular/core";
+import {Subject, BehaviorSubject} from "rxjs";
 
 
 class Thread {

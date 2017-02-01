@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
-import {MessagesService, ThreadsService, UserService} from './services/services';
-import {ChatExampleData} from './ChatExampleData';
+import {Component} from "@angular/core";
+import {MessagesService, ThreadsService, UserService} from "./services/services";
+import {ChatExampleData} from "./ChatExampleData";
 
 @Component({
   selector: 'chat-app',

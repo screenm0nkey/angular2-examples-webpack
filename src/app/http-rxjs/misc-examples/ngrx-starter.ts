@@ -1,9 +1,8 @@
-import {Component} from '@angular/core';
-import {ActionReducer, Action} from '@ngrx/store';
-import {Store} from '@ngrx/store';
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/mapTo';
+import {Component} from "@angular/core";
+import {ActionReducer, Action, Store} from "@ngrx/store";
+import {Observable} from "rxjs/Observable";
+import "rxjs/add/observable/interval";
+import "rxjs/add/operator/mapTo";
 
 
 const stringOfWords = `Bacon ipsum dolor amet beef pork hamburger landjaeger rump frankfurter ham venison ground round alcatra doner capicola kielbasa ham hock brisket. Pork chop cow shankle capicola turkey brisket chicken pig leberkas pork loin strip steak ground round. Chicken spare ribs meatloaf turkey venison kevin biltong filet mignon pork belly. Porchetta jowl prosciutto venison kielbasa turkey. Ham hock tongue salami pork belly spare ribs chicken filet mignon ground round flank shoulder drumstick short ribs strip steak.`;

@@ -1,8 +1,8 @@
-import {Injectable, Component} from '@angular/core';
-import {CanActivate, CanDeactivate, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
-import {AuthService} from '../services/AuthService';
-import {DialogService} from '../services/dialog.service';
-import {Observable} from 'rxjs/Observable';
+import {Injectable, Component} from "@angular/core";
+import {CanActivate, CanDeactivate, ActivatedRouteSnapshot, RouterStateSnapshot} from "@angular/router";
+import {AuthService} from "../services/AuthService";
+import {DialogService} from "../services/dialog.service";
+import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class LoggedInGuard implements CanActivate {

@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
-import {AuthService} from '../services/AuthService';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Component} from "@angular/core";
+import {AuthService} from "../services/AuthService";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'login',
@@ -53,7 +53,7 @@ export class LoginComponent {
   logout(): boolean {
     this.authService.logout();
     if (this.router.url.endsWith('protected')) {
-      this.router.navigate(['../', 34], {relativeTo: this.route});
+      this.router.navigate(['./aboutus', 34], {relativeTo: this.route});
     }
     return false;
   }

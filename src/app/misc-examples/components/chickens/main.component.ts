@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {ChickensService} from './chicken.service';
+import {Component, OnInit} from "@angular/core";
+import {ChickensService} from "./chicken.service";
 
 
 @Component({

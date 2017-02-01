@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
+import {Component} from "@angular/core";
 import * as Rx from "rxjs/Rx";
-import {YoutubeService} from './youtube-helpers/youtube-service';
-import {SearchResult} from './youtube-helpers/youtube-result-class';
+import {YoutubeService} from "./youtube-helpers/youtube-service";
+import {SearchResult} from "./youtube-helpers/youtube-result-class";
 
 
 @Component({

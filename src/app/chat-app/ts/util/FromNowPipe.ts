@@ -1,5 +1,5 @@
-import {Pipe} from '@angular/core';
-import * as moment from 'moment';
+import {Pipe} from "@angular/core";
+import * as moment from "moment";
 
 @Pipe({
   name: 'fromNow'

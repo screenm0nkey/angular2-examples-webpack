@@ -1,5 +1,5 @@
 //Based on https://github.com/thelgevold/angular-2-samples/blob/master/components/grid/sorter
-import {Injectable} from '@angular/core';
+import {Injectable} from "@angular/core";
 @Injectable()
 export class Sorter {
   property: string = null;

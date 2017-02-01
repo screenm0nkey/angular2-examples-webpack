@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {Github} from '../shared/github';
-import {Observable} from 'rxjs/Observable';
-import {ActivatedRoute, Params} from '@angular/router';
+import {Component, OnInit} from "@angular/core";
+import {Github} from "../shared/github";
+import {Observable} from "rxjs/Observable";
+import {ActivatedRoute, Params} from "@angular/router";
 
 @Component({
   selector: 'repo-list',
@@ -16,7 +16,7 @@ export class RepoList implements OnInit {
   }
 
   ngOnInit() {
-    this.route.params.subscribe((params:Params) => {
+    this.route.params.subscribe((params: Params) => {
       this.org = params['org'];
       if (this.org) {
         this.repos = this.github.getReposForOrg(this.org);

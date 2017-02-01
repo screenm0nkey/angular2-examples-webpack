@@ -1,4 +1,4 @@
-import {Component, Directive, HostBinding, Input, HostListener} from '@angular/core'
+import {Component, Directive, HostBinding, Input, HostListener} from "@angular/core";
 
 @Directive({
   selector: '[second]'

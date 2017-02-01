@@ -1,5 +1,5 @@
 import {Component, Injectable, ReflectiveInjector} from "@angular/core";
-import {ParamService} from './some-service';
+import {ParamService} from "./some-service";
 
 @Injectable()
 export class MyService {

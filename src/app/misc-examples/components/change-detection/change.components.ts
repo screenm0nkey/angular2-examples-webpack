@@ -1,5 +1,4 @@
-import {Component, ChangeDetectionStrategy, Input, EventEmitter, OnInit} from '@angular/core';
-import {Output} from "@angular/core";
+import {Component, ChangeDetectionStrategy, Input, EventEmitter, OnInit, Output} from "@angular/core";
 
 var count = 0;
 

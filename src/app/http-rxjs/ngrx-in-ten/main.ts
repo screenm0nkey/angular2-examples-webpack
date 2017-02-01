@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {Store} from '@ngrx/store';
+import {Component} from "@angular/core";
+import {Store} from "@ngrx/store";
 import {Observable} from "rxjs/Observable";
 
 @Component({
@@ -26,7 +26,7 @@ export class NgRxInTenMinsComponent {
     this.people$ = Observable.combineLatest(
       _store.select('people'),
       _store.select('filter'),
-      (people: any[], filter: (person: any)=>any) => {
+      (people: any[], filter: (person: any) => any) => {
         if (people && filter) {
           return people.filter(filter);
         }

@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
-import {Subject, Observable} from 'rxjs';
-import {User, Thread, Message} from '../models';
+import {Injectable} from "@angular/core";
+import {Subject, Observable} from "rxjs";
+import {User, Thread, Message} from "../models";
 
 let initialMessages: Message[] = [];
 

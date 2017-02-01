@@ -1,4 +1,4 @@
-import {Component} from '@angular/core'
+import {Component} from "@angular/core";
 
 /*
  * The store service dependency for the components below has to be a injected as a dependency

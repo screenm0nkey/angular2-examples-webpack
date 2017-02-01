@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
+import {Component} from "@angular/core";
+import {FormGroup, FormBuilder, Validators, FormControl} from "@angular/forms";
 
 @Component({
   selector: 'form-four',
@@ -35,7 +35,7 @@ export class FormFourComponent {
   }
 
 
-  zipValidator(zip: FormControl): { [s: string]: boolean } {
+  zipValidator(zip: FormControl): {[s: string]: boolean} {
     let valid = /^\d{5}$/.test(zip.value);
     if (valid) {
       return null;

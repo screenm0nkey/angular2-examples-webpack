@@ -1,5 +1,5 @@
-import {Component, AfterViewChecked, AfterViewInit, ViewChild} from '@angular/core';
-import {LoggerService}  from '../logger.service';
+import {Component, AfterViewChecked, AfterViewInit, ViewChild} from "@angular/core";
+import {LoggerService} from "../logger.service";
 
 //////////////////
 @Component({

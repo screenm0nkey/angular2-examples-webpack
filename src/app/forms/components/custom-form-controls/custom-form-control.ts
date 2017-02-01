@@ -1,5 +1,5 @@
-import {Component, forwardRef, Input, OnChanges} from '@angular/core';
-import {FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS} from '@angular/forms';
+import {Component, forwardRef, Input, OnChanges} from "@angular/core";
+import {FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS} from "@angular/forms";
 
 
 export function createCounterRangeValidator(maxValue, minValue) {

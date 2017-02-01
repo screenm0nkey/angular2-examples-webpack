@@ -1,12 +1,10 @@
-import {
-  Component,
-  Input,
-  ChangeDetectionStrategy,
-} from '@angular/core';
+import {Component, Input, ChangeDetectionStrategy} from "@angular/core";
 
 
 class Profile {
-  constructor(private first: string, private last: string) {}
+  constructor(private first: string, private last: string) {
+  }
+
   lastChanged() {
     return new Date();
   }
@@ -45,7 +43,6 @@ class Profile {
 export class DefaultCmp {
   @Input() profile: Profile;
 }
-
 
 
 @Component({

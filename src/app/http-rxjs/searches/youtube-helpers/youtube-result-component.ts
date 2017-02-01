@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {SearchResult} from './youtube-result-class'
+import {Component} from "@angular/core";
+import {SearchResult} from "./youtube-result-class";
 
 
 @Component({

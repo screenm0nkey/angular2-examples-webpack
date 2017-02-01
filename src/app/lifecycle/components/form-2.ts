@@ -1,5 +1,5 @@
-import {Component, Directive} from '@angular/core';
-import {NgForm} from '@angular/forms';
+import {Component, Directive} from "@angular/core";
+import {NgForm} from "@angular/forms";
 
 // expose directive to be used in template. this is what NgForm is doing.
 @Directive({

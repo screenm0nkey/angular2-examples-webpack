@@ -1,13 +1,15 @@
-import {Component, Injectable} from '@angular/core';
-import {Subject} from 'rxjs/Rx';
+import {Component, Injectable} from "@angular/core";
+import {Subject} from "rxjs/Rx";
 
 @Injectable()
 class BroadcasterService {
   subject: Subject<any> = new Subject<any>();
-  emit (val){
+
+  emit(val) {
     this.subject.next(val);
   }
-  subscribe(func){
+
+  subscribe(func) {
     this.subject.subscribe(func);
   }
 }

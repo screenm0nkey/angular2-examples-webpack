@@ -1,18 +1,9 @@
-import {Store} from 'redux';
-import {
-  AppState,
-  getAllMessages
-} from './reducers';
-import {uuid} from './util/uuid';
-import * as moment from 'moment';
-import {
-  Thread,
-  User
-} from './models';
-import {
-  ThreadActions,
-  UserActions
-} from './actions';
+import {Store} from "redux";
+import {AppState, getAllMessages} from "./reducers";
+import {uuid} from "./util/uuid";
+import * as moment from "moment";
+import {Thread, User} from "./models";
+import {ThreadActions, UserActions} from "./actions";
 
 /**
  * ChatExampleData sets up the initial data for our chats as well as

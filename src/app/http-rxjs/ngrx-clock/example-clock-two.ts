@@ -1,15 +1,15 @@
-import {Component} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/observable/merge';
-import 'rxjs/add/operator/startWith';
-import 'rxjs/add/operator/scan';
-import 'rxjs/add/operator/mapTo';
-import 'rxjs/add/operator/withLatestFrom';
+import {Component} from "@angular/core";
+import {Observable} from "rxjs/Observable";
+import "rxjs/add/observable/interval";
+import "rxjs/add/operator/map";
+import "rxjs/add/observable/merge";
+import "rxjs/add/operator/startWith";
+import "rxjs/add/operator/scan";
+import "rxjs/add/operator/mapTo";
+import "rxjs/add/operator/withLatestFrom";
 import {Subject} from "rxjs/Subject";
-import {Store} from '@ngrx/store';
-import {SECOND, HOUR, ADVANCE, RECALL} from './reducers';
+import {Store} from "@ngrx/store";
+import {SECOND, HOUR, ADVANCE, RECALL} from "./reducers";
 
 @Component({
   selector: 'clock-two',

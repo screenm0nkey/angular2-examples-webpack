@@ -1,10 +1,10 @@
-import {NgModule} from '@angular/core';
-import {SharedModule} from '../../../shared/shared.module';
-import {MiscLifecycleMain} from './main.component';
-import {LifecycleSampleApp1, OnInitCmp1} from './lifecycle_01';
-import {LifecycleSampleApp2, OnChangeCmp2} from './lifecycle_02';
-import {DoCheckCmp,DoCheckItem} from './lifecycle_03';
-import {LifecycleSampleApp4, AftersCmp} from './lifecycle_04';
+import {NgModule} from "@angular/core";
+import {SharedModule} from "../../../shared/shared.module";
+import {MiscLifecycleMain} from "./main.component";
+import {LifecycleSampleApp1, OnInitCmp1} from "./lifecycle_01";
+import {LifecycleSampleApp2, OnChangeCmp2} from "./lifecycle_02";
+import {DoCheckCmp, DoCheckItem} from "./lifecycle_03";
+import {LifecycleSampleApp4, AftersCmp} from "./lifecycle_04";
 
 @NgModule({
   imports: [SharedModule],
@@ -12,7 +12,7 @@ import {LifecycleSampleApp4, AftersCmp} from './lifecycle_04';
     MiscLifecycleMain,
     LifecycleSampleApp1, OnInitCmp1,
     LifecycleSampleApp2, OnChangeCmp2,
-    DoCheckCmp,DoCheckItem,
+    DoCheckCmp, DoCheckItem,
     LifecycleSampleApp4, AftersCmp
   ]
 })

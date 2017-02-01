@@ -1,4 +1,4 @@
-import { Component, Directive, HostBinding } from '@angular/core'
+import {Component, Directive, HostBinding} from "@angular/core";
 
 @Directive({
   selector: '[first]'
@@ -15,4 +15,5 @@ export class FirstDirective {
 <h3 first>This will be gone</h3>
     `
 })
-export class Example01AppComponent{}
+export class Example01AppComponent {
+}

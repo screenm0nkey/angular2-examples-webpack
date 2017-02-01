@@ -2,14 +2,13 @@ import {
   Component,
   Directive,
   ElementRef,
-  Input,
   ViewChild,
   ViewChildren,
   OnInit,
   AfterViewInit,
   OnChanges,
   QueryList
-} from '@angular/core';
+} from "@angular/core";
 
 @Directive({
   selector: '[focusMe]'

@@ -1,11 +1,4 @@
-import {
-  Component,
-  Input,
-  IterableDiffers,
-  KeyValueDiffers,
-  EventEmitter,
-  DoCheck,
-} from '@angular/core';
+import {Component, Input, IterableDiffers, KeyValueDiffers, EventEmitter, DoCheck} from "@angular/core";
 
 
 @Component({
@@ -87,7 +80,6 @@ export class DoCheckItem implements DoCheck {
     this.comment.likes += 1;
   }
 }
-
 
 
 @Component({

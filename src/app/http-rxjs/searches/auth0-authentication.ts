@@ -1,11 +1,11 @@
-import {Component, Directive, EventEmitter, ElementRef} from '@angular/core';
-import {Http, Headers} from '@angular/http';
-import {Observable} from 'rxjs/Observable';
+import {Component, Directive, EventEmitter, ElementRef} from "@angular/core";
+import {Http, Headers} from "@angular/http";
+import {Observable} from "rxjs/Observable";
 import * as Rx from "rxjs/Rx";
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/do';
+import "rxjs/add/operator/map";
+import "rxjs/add/operator/switchMap";
+import "rxjs/add/operator/debounceTime";
+import "rxjs/add/operator/do";
 
 
 @Directive({

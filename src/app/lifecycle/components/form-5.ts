@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {FormGroup, FormBuilder, FormControl, AbstractControl, Validators} from '@angular/forms';
+import {Component} from "@angular/core";
+import {FormGroup, FormBuilder, FormControl, AbstractControl, Validators} from "@angular/forms";
 
 @Component({
   selector: 'form-five',

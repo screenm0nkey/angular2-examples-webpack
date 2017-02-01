@@ -1,8 +1,8 @@
-import {NgModule} from '@angular/core';
-import {SharedModule} from '../../../shared/shared.module';
-import {TemplateComponent} from './main.component';
-import {IfTemplateSampleApp, NgBookIf} from './if';
-import {ForTemplateSampleApp,NgBookRepeat} from './for';
+import {NgModule} from "@angular/core";
+import {SharedModule} from "../../../shared/shared.module";
+import {TemplateComponent} from "./main.component";
+import {IfTemplateSampleApp, NgBookIf} from "./if";
+import {ForTemplateSampleApp, NgBookRepeat} from "./for";
 
 
 @NgModule({
@@ -10,9 +10,10 @@ import {ForTemplateSampleApp,NgBookRepeat} from './for';
   declarations: [
     TemplateComponent,
     IfTemplateSampleApp, NgBookIf,
-    ForTemplateSampleApp,NgBookRepeat
+    ForTemplateSampleApp, NgBookRepeat
   ]
 })
-export class TemplatesModule {}
+export class TemplatesModule {
+}
 
 export {TemplateComponent}

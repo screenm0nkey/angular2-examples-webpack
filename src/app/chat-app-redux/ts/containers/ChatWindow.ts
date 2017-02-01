@@ -1,24 +1,9 @@
-
-import {
-  Inject,
-  Component,
-  ElementRef
-} from '@angular/core';
-import { AppStore } from '../app-store';
-import { Store } from 'redux';
-import {
-  User,
-  Thread
-} from '../models';
-import {
-  ThreadActions
-} from '../actions';
-import {
-  AppState,
-  getCurrentThread,
-  getCurrentUser
-} from '../reducers';
-import ChatMessage from '../components/ChatMessage';
+import {Inject, Component, ElementRef} from "@angular/core";
+import {AppStore} from "../app-store";
+import {Store} from "redux";
+import {User, Thread} from "../models";
+import {ThreadActions} from "../actions";
+import {AppState, getCurrentThread, getCurrentUser} from "../reducers";
 
 /**
  * ChatWindow is the container which handles the current chat
@@ -73,13 +58,13 @@ import ChatMessage from '../components/ChatMessage';
 })
 export default class ChatWindow {
   currentThread: Thread;
-  draftMessage: { text: string };
+  draftMessage: {text: string};
   currentUser: User;
 
   constructor(@Inject(AppStore) private store: Store<AppState>, private el: ElementRef) {
     store.subscribe(this.updateState.bind(this));
     this.updateState();
-    this.draftMessage = { text: '' };
+    this.draftMessage = {text: ''};
   }
 
   updateState() {
@@ -105,7 +90,7 @@ export default class ChatWindow {
         text: this.draftMessage.text
       }
     ));
-    this.draftMessage = { text: '' };
+    this.draftMessage = {text: ''};
   }
 
   onEnter(event: any): void {

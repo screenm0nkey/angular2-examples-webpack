@@ -1,8 +1,7 @@
-import {Component} from '@angular/core';
-
-import {QuestionModel} from './question-model';
-import {TextboxQuestion} from './textbox-question';
-import {DropDownQuestion} from './dropdown-question';
+import {Component} from "@angular/core";
+import {QuestionModel} from "./question-model";
+import {TextboxQuestion} from "./textbox-question";
+import {DropDownQuestion} from "./dropdown-question";
 
 @Component({
   selector: 'survey-demo',

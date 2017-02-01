@@ -1,4 +1,4 @@
-import {Component, Directive, HostListener} from '@angular/core';
+import {Component, Directive, HostListener} from "@angular/core";
 
 @Directive({
   selector: 'button[counting]',

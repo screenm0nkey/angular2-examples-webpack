@@ -1,15 +1,14 @@
 /*
  * Angular
  */
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {Location} from '@angular/common';
-import {Observable} from 'rxjs/Rx';
-
+import {Component, OnInit} from "@angular/core";
+import {ActivatedRoute} from "@angular/router";
+import {Location} from "@angular/common";
+import {Observable} from "rxjs/Rx";
 /*
  * Services
  */
-import {SpotifyService} from '../SpotifyService';
+import {SpotifyService} from "../SpotifyService";
 
 @Component({
   selector: 'artist$',

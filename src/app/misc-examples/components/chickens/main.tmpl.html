@@ -1,8 +1,8 @@
 <a class="ui message"
-     popup
-     #popup1="popuppy"
-     message="Clicked the pop1">
-    Click Me
+   popup
+   #popup1="popuppy"
+   message="Clicked the pop1">
+  Click Me
 </a>
 <a class="alarm icon"
    popup
@@ -11,7 +11,8 @@
 
 <div style="margin-top: 20px;">
   <button (click)="popup1.displayMessage()" class="ui button">
-    Display popup for message element </button>
+    Display popup for message element
+  </button>
   <button (click)="popup2.displayMessage()" class="ui button"> Display popup for alarm icon
   </button>
 </div>
@@ -57,7 +58,8 @@
 <hr>-->
 
 <h4>Observable.forkJoin() example</h4>
-<p>When all observables complete, emit the last value from each. <strong>Observable.forkJoin()</strong> is like a little like $q.all()</p>
+<p>When all observables complete, emit the last value from each. <strong>Observable.forkJoin()</strong> is like a little
+  like $q.all()</p>
 <ul>
   <li *ngFor="let cus of customers">{{cus.firstName | json}}</li>
 </ul>

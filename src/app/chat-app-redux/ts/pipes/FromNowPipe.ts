@@ -1,7 +1,5 @@
-import {
-  Pipe
-} from '@angular/core';
-import * as moment from 'moment';
+import {Pipe} from "@angular/core";
+import * as moment from "moment";
 
 /**
  * FromNowPipe let's us convert a date into a human-readable relative-time

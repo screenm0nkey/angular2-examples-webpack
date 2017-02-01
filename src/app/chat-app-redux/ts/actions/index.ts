@@ -1,5 +1,5 @@
-import * as ThreadActions from './ThreadActions';
-import * as UserActions from './UserActions';
+import * as ThreadActions from "./ThreadActions";
+import * as UserActions from "./UserActions";
 
 // export here for object imports
 export {

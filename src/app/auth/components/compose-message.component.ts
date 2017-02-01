@@ -1,6 +1,6 @@
-import {Component, HostBinding} from '@angular/core';
-import {Router} from '@angular/router';
-import {slideInDownAnimation} from '../animations';
+import {Component, HostBinding} from "@angular/core";
+import {Router} from "@angular/router";
+import {slideInDownAnimation} from "../animations";
 
 @Component({
   template: `

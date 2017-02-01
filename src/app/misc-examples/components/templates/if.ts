@@ -1,4 +1,4 @@
-import {Component, Directive, ElementRef, ViewContainerRef, TemplateRef} from '@angular/core';
+import {Component, Directive, ElementRef, ViewContainerRef, TemplateRef} from "@angular/core";
 
 @Directive({
   selector: '[ngBookIf]',
@@ -9,7 +9,7 @@ export class NgBookIf {
   constructor(private el: ElementRef,
               private viewContainer: ViewContainerRef,
               private template: TemplateRef<any>) {
-    console.log('The constructor only gets invoked once', el. nativeElement);
+    console.log('The constructor only gets invoked once', el.nativeElement);
   }
 
   set ngBookIf(condition) {

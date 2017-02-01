@@ -1,14 +1,13 @@
-import {Component, Injectable, OnInit, Input} from '@angular/core';
-
-import {Observable} from 'rxjs/Observable';
+import {Component, Injectable, Input} from "@angular/core";
+import {Observable} from "rxjs/Observable";
 import {Subject} from "rxjs/Subject";
 import {ReplaySubject} from "rxjs/ReplaySubject";
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/combineLatest';
-import {EchonestService, Artist} from './echonest.service';
+import "rxjs/add/operator/map";
+import "rxjs/add/operator/switchMap";
+import "rxjs/add/operator/debounceTime";
+import "rxjs/add/operator/do";
+import "rxjs/add/operator/combineLatest";
+import {EchonestService, Artist} from "./echonest.service";
 
 
 /*

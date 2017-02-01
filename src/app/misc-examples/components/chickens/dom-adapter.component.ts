@@ -1,4 +1,4 @@
-import {Component, Inject, Renderer, ElementRef} from '@angular/core';
+import {Component, Inject, Renderer} from "@angular/core";
 import {DOCUMENT} from "@angular/platform-browser";
 
 

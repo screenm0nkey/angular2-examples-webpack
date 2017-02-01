@@ -7,8 +7,8 @@ import {
   TemplateRef,
   DoCheck,
   IterableDiffers,
-  IterableDiffer,
-} from '@angular/core';
+  IterableDiffer
+} from "@angular/core";
 
 
 @Directive({

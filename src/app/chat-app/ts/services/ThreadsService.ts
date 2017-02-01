@@ -1,14 +1,14 @@
-import {Injectable} from '@angular/core';
-import {Subject, BehaviorSubject, Observable} from 'rxjs';
-import {Thread, Message} from '../models';
-import {MessagesService} from './MessagesService';
-import * as u from 'underscore';
+import {Injectable} from "@angular/core";
+import {Subject, BehaviorSubject, Observable} from "rxjs";
+import {Thread, Message} from "../models";
+import {MessagesService} from "./MessagesService";
+import * as u from "underscore";
 
 @Injectable()
 export class ThreadsService {
 
   // `threads` is a observable that contains the most up to date list of threads
-  threads: Observable<{ [key: string]: Thread }>;
+  threads: Observable<{[key: string]: Thread}>;
 
   // `orderedThreads` contains a newest-first chronological list of threads
   orderedThreads: Observable<Thread[]>;
@@ -36,7 +36,7 @@ export class ThreadsService {
       });
 
     this.orderedThreads = this.threads
-      .map((threadGroups: { [key: string]: Thread }) => {
+      .map((threadGroups: {[key: string]: Thread}) => {
         let threads: Thread[] = u.values(threadGroups);
         return u.sortBy(threads, (t: Thread) => t.lastMessage.sentAt).reverse();
       });

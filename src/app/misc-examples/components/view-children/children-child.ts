@@ -1,4 +1,4 @@
-import {Component, Input, ViewChildren, AfterViewInit, ViewChild, ElementRef, QueryList} from '@angular/core';
+import {Component, Input, ViewChildren, AfterViewInit, ViewChild, ElementRef, QueryList} from "@angular/core";
 
 @Component({
   selector: 'super-item',

@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {Component} from "@angular/core";
+import {FormGroup, FormControl, Validators} from "@angular/forms";
 
 
 function validateEmail(c: FormControl) {
@@ -8,10 +8,10 @@ function validateEmail(c: FormControl) {
   console.log(c.value, valid);
 
   return valid ? null : {
-    validateEmail: {
-      valid: false
-    }
-  };
+      validateEmail: {
+        valid: false
+      }
+    };
 }
 
 @Component({

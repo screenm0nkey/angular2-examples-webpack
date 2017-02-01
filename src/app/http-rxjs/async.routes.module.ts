@@ -1,13 +1,13 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {MainHttpRxJs} from './async.component'
-import {HttpExamples} from './searches/searches.module';
-import {EchonestAppComponent} from './echonest-app/echonest.module';
-import {JohnLinquistExamples} from './john-linquist/john.module';
-import {MiscHttpExamples} from './misc-examples/misc.module';
-import {MainClocks} from './ngrx-clock/ngrxclock.module';
-import {NgRxInTenMinsComponent} from './ngrx-in-ten/ngrxinten.module';
-import {MainApp} from './ngrx-queue/main';
+import {NgModule} from "@angular/core";
+import {RouterModule, Routes} from "@angular/router";
+import {MainHttpRxJs} from "./async.component";
+import {HttpExamples} from "./searches/searches.module";
+import {EchonestAppComponent} from "./echonest-app/echonest.module";
+import {JohnLinquistExamples} from "./john-linquist/john.module";
+import {MiscHttpExamples} from "./misc-examples/misc.module";
+import {MainClocks} from "./ngrx-clock/ngrxclock.module";
+import {NgRxInTenMinsComponent} from "./ngrx-in-ten/ngrxinten.module";
+import {MainApp} from "./ngrx-queue/main";
 
 const asyncRoutes: Routes = [
   {

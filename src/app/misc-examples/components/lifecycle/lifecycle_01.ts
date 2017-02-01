@@ -1,10 +1,4 @@
-import {
-  Component,
-  Output,
-  OnInit,
-  OnDestroy,
-  EventEmitter
-} from '@angular/core';
+import {Component, Output, OnInit, OnDestroy, EventEmitter} from "@angular/core";
 
 @Component({
   selector: 'on-init-1',
@@ -36,13 +30,13 @@ export class OnInitCmp1 implements OnInit, OnDestroy {
 })
 export class LifecycleSampleApp1 {
   display: boolean;
-  componentState : string = '';
+  componentState: string = '';
 
   constructor() {
     this.display = true;
   }
 
-  logIt(val):void {
+  logIt(val): void {
     this.componentState = val;
   }
 

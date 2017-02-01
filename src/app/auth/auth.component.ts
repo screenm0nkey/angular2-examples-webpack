@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {AuthService} from './services/AuthService';
+import {Component} from "@angular/core";
+import {AuthService} from "./services/AuthService";
 
 @Component({
   selector: 'router-app',
@@ -23,13 +23,14 @@ import {AuthService} from './services/AuthService';
   `
 })
 export class AuthAppComponent {
-  constructor(private auth : AuthService){}
+  constructor(private auth: AuthService) {
+  }
 
-  isLoggedIn(){
+  isLoggedIn() {
     return this.auth.isLoggedIn();
   }
 
-  getId () {
+  getId() {
     return 23;
   }
 }

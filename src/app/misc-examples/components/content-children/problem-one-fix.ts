@@ -1,4 +1,4 @@
-import {Component, ContentChildren, AfterContentInit, QueryList, Directive, ElementRef} from '@angular/core';
+import {Component, ContentChildren, AfterContentInit, QueryList, Directive, ElementRef} from "@angular/core";
 
 @Directive({selector: 'li'})
 class SuperListDirective {

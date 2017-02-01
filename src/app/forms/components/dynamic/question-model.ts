@@ -1,4 +1,4 @@
-import {FormGroup, Validators, FormControl} from '@angular/forms';
+import {FormGroup, Validators, FormControl} from "@angular/forms";
 
 export class QuestionModel {
   questions = [];

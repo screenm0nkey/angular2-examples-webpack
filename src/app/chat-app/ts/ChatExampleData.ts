@@ -1,10 +1,7 @@
 /* tslint:disable:max-line-length */
-import {User, Thread, Message} from './models';
-import {
-  MessagesService, ThreadsService,
-  UserService
-} from './services/services';
-import * as moment from 'moment';
+import {User, Thread, Message} from "./models";
+import {MessagesService, ThreadsService, UserService} from "./services/services";
+import * as moment from "moment";
 
 // the person using the app us Juliet
 let me: User = new User('Juliet', require('../../../images/avatars/female-avatar-1.png'));

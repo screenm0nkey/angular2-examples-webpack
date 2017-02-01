@@ -1,4 +1,4 @@
-import {Component, Directive, ElementRef, ViewContainerRef, TemplateRef} from '@angular/core'
+import {Component, Directive, ElementRef, ViewContainerRef, TemplateRef} from "@angular/core";
 
 @Directive({
   selector: '[three]'

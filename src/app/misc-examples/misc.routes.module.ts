@@ -1,25 +1,25 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {MiscExamplesComponent} from './misc.component';
-import {AccordianComponent} from './components/accordian/accordian.module';
-import {ChickensComponent} from './components/chickens/chicken.module';
-import {ChangeDetectionMain} from './components/change-detection/change.module';
-import {RookieComponent} from './components/content-children/content-child.module';
-import {CustomersComponent, CustomerDetailComponent} from './components/customers/customers.module';
-import {FocusInput} from './components/focusing-input/focusing.module';
-import {HostBindingComponent} from './components/host-binding/hosting.module';
-import {DirectivesLinquistMain} from './components/directives-linquist/directives.module';
-import {ImmutableMain} from './components/immutable/immutable.module';
-import {DepInjectionApp} from './components/inject/di.module';
-import {MainInputBindingApp} from './components/input-binding/inputbinding.module';
-import {MultiTransclusion} from './components/multi-content/multicontent.module';
-import {NgZoneMainComponent} from './components/ng-zone/ngzone.module';
-import {AppComponent} from './components/notifications/notifications.module';
-import {SocketApp} from './components/socket-io/socket-component';
-import {MainChildrenApp} from './components/view-children/childviews.module';
-import {TricksMainComponent} from './components/tricks/tricks.module';
-import {MiscLifecycleMain} from './components/lifecycle/lifecycle.module';
-import {TemplateComponent} from './components/templates/templates.module';
+import {NgModule} from "@angular/core";
+import {RouterModule, Routes} from "@angular/router";
+import {MiscExamplesComponent} from "./misc.component";
+import {AccordianComponent} from "./components/accordian/accordian.module";
+import {ChickensComponent} from "./components/chickens/chicken.module";
+import {ChangeDetectionMain} from "./components/change-detection/change.module";
+import {RookieComponent} from "./components/content-children/content-child.module";
+import {CustomersComponent, CustomerDetailComponent} from "./components/customers/customers.module";
+import {FocusInput} from "./components/focusing-input/focusing.module";
+import {HostBindingComponent} from "./components/host-binding/hosting.module";
+import {DirectivesLinquistMain} from "./components/directives-linquist/directives.module";
+import {ImmutableMain} from "./components/immutable/immutable.module";
+import {DepInjectionApp} from "./components/inject/di.module";
+import {MainInputBindingApp} from "./components/input-binding/inputbinding.module";
+import {MultiTransclusion} from "./components/multi-content/multicontent.module";
+import {NgZoneMainComponent} from "./components/ng-zone/ngzone.module";
+import {AppComponent} from "./components/notifications/notifications.module";
+import {SocketApp} from "./components/socket-io/socket-component";
+import {MainChildrenApp} from "./components/view-children/childviews.module";
+import {TricksMainComponent} from "./components/tricks/tricks.module";
+import {MiscLifecycleMain} from "./components/lifecycle/lifecycle.module";
+import {TemplateComponent} from "./components/templates/templates.module";
 
 
 const formsRoutes: Routes = [

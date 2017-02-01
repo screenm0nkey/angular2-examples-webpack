@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
-import {Jsonp} from '@angular/http';
-import {Observable} from 'rxjs/Observable';
+import {Injectable} from "@angular/core";
+import {Jsonp} from "@angular/http";
+import {Observable} from "rxjs/Observable";
 
 const CALLBACK = 'callback=JSONP_CALLBACK';
 const WIKIPEDIA = 'https://en.wikipedia.org/w/api.php';

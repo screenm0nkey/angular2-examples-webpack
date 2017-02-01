@@ -1,5 +1,5 @@
 import {Inject, Component, OpaqueToken} from "@angular/core";
-import {SomeService, EngineService} from './some-service';
+import {SomeService, EngineService} from "./some-service";
 
 /*
  This shows different ways of inject the same Token.

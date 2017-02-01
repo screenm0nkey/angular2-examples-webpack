@@ -1,7 +1,7 @@
-import {Injectable} from '@angular/core';
+import {Injectable} from "@angular/core";
 import {Http, Response, URLSearchParams} from "@angular/http";
-import {Subject} from 'rxjs/Subject';
-import 'rxjs/add/operator/map';
+import {Subject} from "rxjs/Subject";
+import "rxjs/add/operator/map";
 
 
 export interface Artist {

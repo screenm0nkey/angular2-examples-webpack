@@ -1,4 +1,4 @@
-import {Component, ViewChild, AfterViewInit, Renderer, ElementRef} from '@angular/core';
+import {Component, ViewChild, AfterViewInit, Renderer, ElementRef} from "@angular/core";
 
 @Component({
   selector: 'solution-four',

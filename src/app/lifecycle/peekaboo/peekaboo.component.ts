@@ -7,10 +7,11 @@ import {
   AfterContentChecked,
   AfterViewInit,
   AfterViewChecked,
-  OnDestroy
-} from '@angular/core';
-import {Component, Input} from '@angular/core';
-import {LoggerService} from '../logger.service';
+  OnDestroy,
+  Component,
+  Input
+} from "@angular/core";
+import {LoggerService} from "../logger.service";
 
 let nextId = 1;
 

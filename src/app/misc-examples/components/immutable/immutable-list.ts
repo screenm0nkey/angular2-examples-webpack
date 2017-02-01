@@ -1,5 +1,5 @@
-import {Component, ChangeDetectionStrategy, Input, OnInit, OnChanges} from '@angular/core';
-import {Store, Todo} from './StoreService';
+import {Component, ChangeDetectionStrategy, Input, OnInit, OnChanges} from "@angular/core";
+import {Store, Todo} from "./StoreService";
 
 @Component({
   selector: 'test-component-list',

@@ -1,11 +1,11 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {LoggedInGuard, UserCanDeactivate} from './guards/activation.guard';
-import {HomeComponent} from './components/HomeComponent';
-import {AboutComponent} from './components/AboutComponent';
-import {ContactComponent} from './components/ContactComponent';
-import {ProtectedComponent} from './components/ProtectedComponent';
-import {AuthAppComponent} from './auth.component';
+import {NgModule} from "@angular/core";
+import {RouterModule, Routes} from "@angular/router";
+import {LoggedInGuard, UserCanDeactivate} from "./guards/activation.guard";
+import {HomeComponent} from "./components/HomeComponent";
+import {AboutComponent} from "./components/AboutComponent";
+import {ContactComponent} from "./components/ContactComponent";
+import {ProtectedComponent} from "./components/ProtectedComponent";
+import {AuthAppComponent} from "./auth.component";
 
 
 const formsRoutes: Routes = [
@@ -18,7 +18,8 @@ const formsRoutes: Routes = [
         children: [
           {
             path: '',
-            component: HomeComponent},
+            component: HomeComponent
+          },
           {
             path: 'aboutus/:id', component: AboutComponent,
             canDeactivate: [UserCanDeactivate],
@@ -26,7 +27,8 @@ const formsRoutes: Routes = [
           },
           {
             path: 'contact',
-            component: ContactComponent},
+            component: ContactComponent
+          },
           {
             path: 'protected',
             component: ProtectedComponent,

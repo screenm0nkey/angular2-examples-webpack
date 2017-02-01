@@ -1,38 +1,38 @@
 
 div.artist {
-    border: 1px solid grey;
-    margin-bottom: 5px;
-    position: relative;
-    height: 22px;
+  border: 1px solid grey;
+  margin-bottom: 5px;
+  position: relative;
+  height: 22px;
 }
 
 div.artist a {
-    display: block;
-    /* float: right; */
-    background-color: brown;
-    padding: 2px 10px;
-    color: white;
-    border-radius: 2px;
-    position: absolute;
-    left: 150px;
-    top: -5px;
-    width : 65px
+  display: block;
+  /* float: right; */
+  background-color: brown;
+  padding: 2px 10px;
+  color: white;
+  border-radius: 2px;
+  position: absolute;
+  left: 150px;
+  top: -5px;
+  width: 65px
 }
 
 div.artist.disabled {
-    color: grey;
-    border-color: grey;
+  color: grey;
+  border-color: grey;
 }
 
 div.artist a.disabled {
-    background-color: lightgrey;
-    cursor: default;
+  background-color: lightgrey;
+  cursor: default;
 }
 
 h4 {
-    background-color: maroon;
-    color: white;
-    padding: 2px 5px;
-    margin-bottom: 10px;
+  background-color: maroon;
+  color: white;
+  padding: 2px 5px;
+  margin-bottom: 10px;
 }
 

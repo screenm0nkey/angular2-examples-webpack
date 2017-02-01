@@ -1,4 +1,4 @@
-import {Injectable, NgZone} from '@angular/core';
+import {Injectable, NgZone} from "@angular/core";
 import Timer = NodeJS.Timer;
 
 @Injectable()

@@ -1,16 +1,7 @@
-import {
-  Component,
-  OnInit,
-  ElementRef,
-  ChangeDetectionStrategy
-} from '@angular/core';
-import {
-  MessagesService,
-  ThreadsService,
-  UserService
-} from '../services/services';
-import {Observable} from 'rxjs';
-import {User, Thread, Message} from '../models';
+import {Component, OnInit, ElementRef, ChangeDetectionStrategy} from "@angular/core";
+import {MessagesService, ThreadsService, UserService} from "../services/services";
+import {Observable} from "rxjs";
+import {User, Thread, Message} from "../models";
 
 @Component({
   inputs: ['message'],

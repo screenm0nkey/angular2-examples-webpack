@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {FormGroup, FormBuilder, FormControl, Validators} from '@angular/forms';
+import {Component} from "@angular/core";
+import {FormGroup, FormBuilder, FormControl, Validators} from "@angular/forms";
 
 interface ValidationResult {
   [key: string]: boolean;

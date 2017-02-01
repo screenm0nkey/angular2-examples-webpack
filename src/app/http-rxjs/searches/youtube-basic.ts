@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {Component} from "@angular/core";
+import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 import * as Rx from "rxjs/Rx";
-import {YoutubeService} from './youtube-helpers/youtube-service';
+import {YoutubeService} from "./youtube-helpers/youtube-service";
 
 @Component({
   selector: 'youtube-basic-example',

@@ -1,4 +1,4 @@
-import {Component, Directive, HostBinding, HostListener} from '@angular/core';
+import {Component, Directive, HostBinding, HostListener} from "@angular/core";
 
 /**
  * <input silly-input>

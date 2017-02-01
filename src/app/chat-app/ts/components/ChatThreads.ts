@@ -1,7 +1,7 @@
-import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
-import {ThreadsService} from '../services/services';
-import {Observable} from 'rxjs';
-import {Thread} from '../models';
+import {Component, OnInit, ChangeDetectionStrategy} from "@angular/core";
+import {ThreadsService} from "../services/services";
+import {Observable} from "rxjs";
+import {Thread} from "../models";
 
 @Component({
   inputs: ['thread'],

@@ -1,5 +1,5 @@
-import {LargeService} from './LargeService';
-import {SmallService} from './SmallService';
+import {LargeService} from "./LargeService";
+import {SmallService} from "./SmallService";
 
 export class ViewPortService {
   determineService(): any {

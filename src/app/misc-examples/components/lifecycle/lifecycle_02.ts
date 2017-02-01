@@ -1,9 +1,4 @@
-import {
-  Component,
-  Input,
-  SimpleChange,
-  OnChanges,
-} from '@angular/core';
+import {Component, Input, SimpleChange, OnChanges} from "@angular/core";
 
 @Component({
   selector: 'on-change-2',
@@ -12,7 +7,7 @@ import {
   `
 })
 export class OnChangeCmp2 implements OnChanges {
-  jsonText : any;
+  jsonText: any;
   @Input('name') name: string;
   @Input('comment') comment: string;
 

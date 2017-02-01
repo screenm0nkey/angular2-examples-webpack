@@ -1,4 +1,4 @@
-import {Component, QueryList, AfterContentInit, Input, ContentChildren} from '@angular/core';
+import {Component, QueryList, AfterContentInit, Input, ContentChildren} from "@angular/core";
 
 @Component({
   selector: 'tab',
@@ -12,7 +12,6 @@ export class Tab {
   @Input('title') title: string;
   active: boolean = false;
 }
-
 
 
 @Component({
@@ -43,7 +42,6 @@ export class Tabset implements AfterContentInit {
     tab.active = true;
   }
 }
-
 
 
 @Component({
@@ -77,9 +75,9 @@ export class TabsSampleApp {
 
   constructor() {
     this.tabs = [
-      { title: 'About', content: 'This is the About tab' },
-      { title: 'Blog', content: 'This is our blog' },
-      { title: 'Contact us', content: 'Contact us here' },
+      {title: 'About', content: 'This is the About tab'},
+      {title: 'Blog', content: 'This is our blog'},
+      {title: 'Contact us', content: 'Contact us here'},
     ];
   }
 }

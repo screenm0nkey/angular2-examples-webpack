@@ -1,4 +1,4 @@
-import {Pipe, PipeTransform} from '@angular/core';
+import {Pipe, PipeTransform} from "@angular/core";
 import {TodoModel} from "../services/todo-model";
 
 @Pipe({name: 'search'})

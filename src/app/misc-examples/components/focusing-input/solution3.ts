@@ -1,4 +1,4 @@
-import {Component, ViewChild, NgZone, DoCheck} from '@angular/core';
+import {Component, ViewChild, NgZone, DoCheck} from "@angular/core";
 
 @Component({
   selector: 'solution-three',

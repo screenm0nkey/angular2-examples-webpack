@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {Snippet} from './directives/snippet.directive'
+import {Component} from "@angular/core";
+import {Snippet} from "./directives/snippet.directive";
 
 @Component({
   selector: 'snippet-component',

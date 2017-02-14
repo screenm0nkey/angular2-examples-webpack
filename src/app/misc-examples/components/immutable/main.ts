@@ -8,7 +8,10 @@ import {Component} from "@angular/core";
 @Component({
   selector: 'immutable-main',
   template: `
-        
+<pre>
+Angular will still run change detection on an OnPush component 
+when any of its <strong>input properties changes, when it fires an event, or when an observable fires an event.</strong> 
+</pre>
         <immutable-object-component></immutable-object-component>
         <hr>
         <immutable-list-component></immutable-list-component>

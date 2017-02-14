@@ -7,9 +7,9 @@ import {AuthService} from "./services/AuthService";
   template: `
 <div class="miscellaneous">
   <nav class="navLinks">
-      <a [routerLink]="['./']" routerLinkActive="active">Home</a>
+      <a routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
       <a [routerLink]="['./aboutus', getId()]" routerLinkActive="active">About Us</a>
-      <a [routerLink]="['./contact']" routerLinkActive="active">Contact us</a>
+      <a [routerLink]="['./contact']" routerLinkActive="active">Selective Preloading Strategy</a>
       <a [routerLink]="['./protected']" routerLinkActive="active" *ngIf="isLoggedIn()">Protected</a>
     </nav>
 

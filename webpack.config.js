@@ -33,15 +33,34 @@ var webpackConfig = {
           'awesome-typescript-loader',
           'angular2-template-loader',
           'angular2-router-loader'
-        ]
+        ],
+        exclude: /node_modules/,
       },
-      {test: /\.css$/, loaders: ['to-string-loader', 'css-loader']},
-      {test: /\.html$/, loader: 'raw-loader'},
-      {test: /\.json$/, loader: 'json-loader'},
-      {test: /\.(jpe?g|png|gif|svg)$/i, loaders: [
-        'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
-        'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
-      ]}
+      {test: /\.css$/, loaders: ['to-string-loader', 'css-loader'], exclude: /node_modules/},
+      {test: /\.html$/, loader: 'raw-loader', exclude: /node_modules/},
+      {test: /\.json$/, loader: 'json-loader', exclude: /node_modules/},
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loaders: ['file-loader?context=src/images&name=images/[path][name].[ext]', {
+          loader: 'image-webpack-loader',
+          query: {
+            mozjpeg: {
+              progressive: true,
+            },
+            gifsicle: {
+              interlaced: false,
+            },
+            optipng: {
+              optimizationLevel: 4,
+            },
+            pngquant: {
+              quality: '75-90',
+              speed: 3,
+            },
+          },
+        }],
+        exclude: /node_modules/
+      }
     ]
   }
 

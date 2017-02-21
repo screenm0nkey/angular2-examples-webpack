@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {Subject, BehaviorSubject, Observable} from "rxjs";
 import {Thread, Message} from "../models";
 import {MessagesService} from "./MessagesService";
-import * as u from "underscore";
+import * as _ from "lodash";
 
 @Injectable()
 export class ThreadsService {
@@ -37,14 +37,14 @@ export class ThreadsService {
 
     this.orderedThreads = this.threads
       .map((threadGroups: {[key: string]: Thread}) => {
-        let threads: Thread[] = u.values(threadGroups);
-        return u.sortBy(threads, (t: Thread) => t.lastMessage.sentAt).reverse();
+        let threads: Thread[] = _.values(threadGroups);
+        return _.sortBy(threads, (t: Thread) => t.lastMessage.sentAt).reverse();
       });
 
     this.currentThreadMessages = this.currentThread
       .combineLatest(messagesService.messages, (currentThread: Thread, messages: Message[]) => {
         if (currentThread && messages.length > 0) {
-          return u.chain(messages)
+          return _.chain(messages)
             .filter((message: Message) =>
               (message.thread.id === currentThread.id))
             .map((message: Message) => {

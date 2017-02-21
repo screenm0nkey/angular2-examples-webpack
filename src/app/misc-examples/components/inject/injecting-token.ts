@@ -31,14 +31,7 @@ const TOKEN_B: OpaqueToken = new OpaqueToken('UserConfig');
     {provide: TOKEN_A, useValue: 'TREX'}, // see thoughtram opaque-tokens-in-angular-2
     {provide: TOKEN_B, useValue: 'DINO'}
   ],
-  template: `
-    <a target="_blank" href="http://blog.thoughtram.io/angular/2016/09/14/bypassing-providers-in-angular-2.html">
-        BYPASSING PROVIDERS IN ANGULAR 2
-    </a>
-    <a target="_blank" href="http://blog.thoughtram.io/angular/2015/05/18/dependency-injection-in-angular-2.html">
-        Dependency Injection
-    </a>
-        `
+  template: ``
 })
 export class InjectComponent {
   constructor(public some1: SomeService, // defined in bootstrap.ts

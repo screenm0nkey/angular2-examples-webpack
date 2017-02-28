@@ -21,6 +21,7 @@ import {MrTestyServiceOne, MrTestyServiceTwo} from "../misc-examples/components/
   // if used on a lazy-loaded module. look at console for "Created an instance of MrTestyServiceTwo 1"
   providers: [MrTestyServiceTwo]
 })
+// taken from here http://blog.angular-university.io/angular2-ngmodule
 export class SharedModule {
   static forRoot(): ModuleWithProviders {
     return {

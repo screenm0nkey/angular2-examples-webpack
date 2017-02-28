@@ -13,7 +13,7 @@ import {FocusingInputModule} from "./components/focusing-input/focusing.module";
 import {HostBindingModule} from "./components/host-binding/hosting.module";
 import {DirectivesLinquistModule} from "./components/directives-linquist/directives.module";
 import {ImmutableModule} from "./components/immutable/immutable.module";
-import {DIModule} from "./components/inject/di.module";
+import {DIModule} from "./components/dependency-injection/main.module";
 import {InputBindingModule} from "./components/input-binding/inputbinding.module";
 import {MultiContentModule} from "./components/multi-content/multicontent.module";
 import {NgZoneModule} from "./components/ng-zone/ngzone.module";
@@ -21,6 +21,7 @@ import {NotifcationModule} from "./components/notifications/notifications.module
 import {SocketApp} from "./components/socket-io/socket-component";
 import {MiscLifecycleModule} from "./components/lifecycle/lifecycle.module";
 import {TemplatesModule} from "./components/templates/templates.module";
+
 
 
 @NgModule({

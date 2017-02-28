@@ -1,12 +1,11 @@
 import {NgModule} from "@angular/core";
 import {SharedModule} from "../../../shared/shared.module";
-import {DepInjectionApp} from "./dependency-injection";
+import {DepInjectionApp} from "./main";
 import {InjectComponent} from "./injecting-token";
-import {DiSampleApp} from "./injecting-token-manually";
-import {ParamService, RubbishService} from "./some-service";
-import {ApiService} from "./services/ApiService";
-import {ViewPortService} from "./services/ViewPortService";
-import {DiSampleApp2} from "./resolve-create";
+import {DiSampleApp} from "./resolve-create-service";
+import {ParamService, RubbishService} from "./services/some-service";
+import {ApiService, ViewPortService} from "./services/more-services";
+import {DiSampleApp2} from "./resolve-create-factory";
 
 // if we provide services in the module they will be globally available
 // as all modules use the root injector.

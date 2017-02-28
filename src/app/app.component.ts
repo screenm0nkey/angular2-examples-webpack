@@ -1,4 +1,8 @@
 import {Component, ViewEncapsulation} from "@angular/core";
+import {
+  MrTestyServiceOne,
+  MrTestyServiceTwo
+} from "./misc-examples/components/dependency-injection/services/more-services";
 
 @Component({
   selector: 'main-app',
@@ -26,4 +30,6 @@ import {Component, ViewEncapsulation} from "@angular/core";
   ],
 })
 export class AppComponent {
+  constructor(private ts1: MrTestyServiceOne, private ts2: MrTestyServiceTwo) {
+  }
 }

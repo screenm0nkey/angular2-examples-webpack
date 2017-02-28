@@ -2,13 +2,13 @@ import {Injectable} from "@angular/core";
 
 // These services are used in the injecting-token.ts examples
 
-var sscounter = 0;
 @Injectable()
 export class SomeService {
+  static counter : number = 0;
   public count: number;
 
   constructor() {
-    this.count = ++sscounter;
+    this.count = ++SomeService.counter;
   }
 
   callMe(s: String) {
@@ -16,15 +16,14 @@ export class SomeService {
   }
 }
 
-var encounter = 0;
 @Injectable()
 export class EngineService {
+  static counter : number = 0;
   public count: number;
 
   constructor() {
-    this.count = ++encounter;
+    this.count = ++SomeService.counter;
   }
-
   callMe(s: String) {
     console.log(this.count, `EngineService instance id=${this.count}`, s);
   }
@@ -35,7 +34,6 @@ export class ParamService {
   constructor(private phrase: string, num: number) {
     console.log(333, 'ParamService is being created with phrase', phrase, num);
   }
-
   getValue(): string {
     return this.phrase;
   }

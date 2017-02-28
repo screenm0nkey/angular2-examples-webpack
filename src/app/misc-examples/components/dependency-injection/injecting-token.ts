@@ -1,8 +1,8 @@
 import {Inject, Component, OpaqueToken} from "@angular/core";
-import {SomeService, EngineService} from "./some-service";
+import {SomeService, EngineService} from "./services/some-service";
 
 /*
- This shows different ways of inject the same Token.
+ This shows different ways of dependency-injection the same Token.
 
  NOTE: when using a string token we HAVE to use @Inject,
  i.e. @Inject('whateverToken') public some3
@@ -26,8 +26,8 @@ const TOKEN_B: OpaqueToken = new OpaqueToken('UserConfig');
     {provide: SOME_TOKEN, useValue: 'dependency two', multi: true},
     {provide: AnyObjectCanBeTheKey, useClass: SomeService},
     {provide: 'sausages', useClass: SomeService},
-    {provide: 'helloWorld', useValue: 'Hello World!!!'}, //inject a string
-    {provide: String, useValue: 'come-on!'}, //inject a string
+    {provide: 'helloWorld', useValue: 'Hello World!!!'}, //dependency-injection a string
+    {provide: String, useValue: 'come-on!'}, //dependency-injection a string
     {provide: TOKEN_A, useValue: 'TREX'}, // see thoughtram opaque-tokens-in-angular-2
     {provide: TOKEN_B, useValue: 'DINO'}
   ],

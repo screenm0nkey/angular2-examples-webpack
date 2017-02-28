@@ -6,12 +6,12 @@ import {AppComponent} from "./app.component";
 import {AppRoutingModule} from "./app-routing.module";
 import {FormsModule} from "@angular/forms";
 // this is for the angular2 services example
-import {SomeService, EngineService} from "./misc-examples/components/inject/some-service";
+import {SomeService, EngineService} from "./misc-examples/components/dependency-injection/services/some-service";
 import {EggheadExamplesModule} from "./egghead-example/egghead.module";
 import {ComposeMessageComponent} from "./auth/components/compose-message.component";
-import {SharedModule} from "./shared/shared.module";
 import {ChatAppModule} from "./chat-app/ts/app.module";
 import {ChatAppReduxModule} from "./chat-app-redux/ts/app.module";
+import {SharedModule} from "./shared/shared.module";
 
 @NgModule({
   // modules only need to be imported if they are not lazy loaded
@@ -19,12 +19,11 @@ import {ChatAppReduxModule} from "./chat-app-redux/ts/app.module";
     BrowserModule,
     CommonModule, //this is needed for the
     FormsModule,
-
-
     AppRoutingModule,
     EggheadExamplesModule,
     ChatAppModule,
-    ChatAppReduxModule
+    ChatAppReduxModule,
+    SharedModule.forRoot()
   ],
   declarations: [
     AppComponent,

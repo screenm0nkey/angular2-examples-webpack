@@ -1,12 +1,13 @@
 import {Component, Inject, ReflectiveInjector} from "@angular/core";
-import {ApiService} from "./services/ApiService";
-import {ViewPortService} from "./services/ViewPortService";
+import {ApiService, ViewPortService} from "./services/more-services";
 
 @Component({
-  selector: 'di-sample-app2',
+  selector: 'resolve-create-factory',
   template: `
+  <h4>Injecting a Service using ReflectiveInjector.resolveAndCreate</h4>
   <button (click)="invokeApi()">Invoke API</button>
   <button (click)="useInjectors()">Use Injectors</button>
+  <p>Look at console</p>
   `
 })
 export class DiSampleApp2 {
@@ -16,15 +17,16 @@ export class DiSampleApp2 {
   }
 
   invokeApi(): void {
+    console.clear();
     this.apiService.get();
     this.aliasService.get();
     this.sizeService.run();
   }
 
   useInjectors(): void {
+    console.clear();
     let injector: any = ReflectiveInjector.resolveAndCreate([
-      ViewPortService,
-      {
+      ViewPortService, {
         provide: 'OtherSizeService',
         useFactory: (viewport: any) => {
           return viewport.determineService();

@@ -35,7 +35,4 @@ Observable.prototype.debug = function (num: number, message: string) {
   );
 };
 
-
-
-
 platformBrowserDynamic().bootstrapModule(AppModule);

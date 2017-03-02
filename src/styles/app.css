@@ -157,7 +157,17 @@ h4 pre {
   display: inline;
   border: none;
   padding: 0;
-  margin:0;
+  margin: 0;
+  font-size: 10px;
+  color: gold;
+  position: relative;
+  top: -2px;
+}
+h4 pre:before {
+  content: " (";
+}
+h4 pre:after {
+  content: ")";
 }
 pre {
     font-size: 13px;

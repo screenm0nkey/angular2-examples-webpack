@@ -4,9 +4,9 @@ import {Component, ViewChild, ViewContainerRef} from "@angular/core";
 @Component({
   selector: 'basic-04',
   template: `
-    <template #foo>
+    <ng-template #foo>
       This is content inside a template <br>
-    </template>
+    </ng-template>
   `
 })
 export class BasicComponent4 {

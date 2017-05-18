@@ -9,8 +9,8 @@ export class TemplateService {
 @Component({
   selector: 'template-storage',
   template: `
-    <template #header><span>I'm a header</span></template>
-    <template #footer><span>I'm a footer</span></template>
+    <ng-template #header><span>I'm a header</span></ng-template>
+    <ng-template #footer><span>I'm a footer</span></ng-template>
   `
 })
 export class TemplateStorage {

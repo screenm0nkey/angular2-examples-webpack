@@ -5,9 +5,9 @@ import {Component} from "@angular/core";
   template: `
     <h4>Create elements with ngTemplateOutlet</h4>
     <pre>"let-" is only supported on template elements</pre>
-    <template #foo let-whatever="message">
-    <span>{{whatever}}</span>
-    </template>
+    <ng-template #foo let-whatever="message">
+      <span>{{whatever}}</span>
+    </ng-template>
     
     <div 
         [ngTemplateOutlet]="foo"

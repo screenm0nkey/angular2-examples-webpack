@@ -19,7 +19,7 @@ export class NgBookRepeat implements DoCheck {
   // items holds the collection we’re iterating on
   private items: any;
   // differ is used for change detection purposes
-  private differ: IterableDiffer;
+  private differ: IterableDiffer<any>;
   //views is a Map that will link a given item on the collection with the view that contains it
   private views: Map<any, ViewRef> = new Map<any, ViewRef>();
 

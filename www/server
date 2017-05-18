@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var app = express();
 var cors = require('express-cors');
 
-// bosy parser needed to parse POST'ed form data
+// bodyParser needed to parse POST form data
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(cors({

@@ -32,6 +32,16 @@ export class Echonest {
   }
 }
 
+@Component({
+  selector: 'artist-card',
+  encapsulation: ViewEncapsulation.Native, // this makes it a real web components
+  template: `<pre>{{artist.label}}</pre>`
+})
+export class ArtistCardRender {
+  @Input() artist: Object;
+}
+
+
 
 @Directive({
   selector: 'input[type=text][autosearch]',
@@ -64,14 +74,6 @@ export class Autosearch {
 }
 
 
-@Component({
-  selector: 'artist-card',
-  encapsulation: ViewEncapsulation.Native, // this makes it a real web components
-  template: `<pre>{{artist.label}}</pre>`
-})
-export class ArtistCardRender {
-  @Input() artist: Object;
-}
 
 
 @Component({
@@ -92,9 +94,8 @@ export class ArtistCardRender {
     </div>
 	`
 })
-
 export class EchonestSearch {
-  artists: ArtistCardRender[];
+  artists: ArtistCardRender[];distinc
 
   setArtists(artists) {
     if (Array.isArray(artists)) {

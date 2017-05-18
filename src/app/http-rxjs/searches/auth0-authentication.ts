@@ -1,4 +1,4 @@
-import {Component, Directive, EventEmitter, ElementRef} from "@angular/core";
+import {Component, Directive, EventEmitter, ElementRef, OnInit} from "@angular/core";
 import {Http, Headers} from "@angular/http";
 import {Observable} from "rxjs/Observable";
 import * as Rx from "rxjs/Rx";
@@ -12,11 +12,10 @@ import "rxjs/add/operator/do";
   selector: 'input[type=text][autosearch]',
   outputs: ['results']
 })
-export class AutosearchAuth {
+export class AutosearchAuth implements OnInit {
   results: EventEmitter<any> = new EventEmitter();
 
   constructor(private elementRef: ElementRef) {
-    console.log(this);
   }
 
   ngOnInit() {
@@ -29,15 +28,19 @@ export class AutosearchAuth {
 }
 
 
+
 @Component({
   selector: 'auth0-example',
   template: `
         <div class="search-results">
-        <h4>Auth0 POST with headers example</h4>
+        <h4>POSTing form data with custom headers example</h4>
+        <p class="file">src/app/http-rxjs/searches/auth0-authentication.ts</p>
         <pre>headers.append('Content-Type', "application/x-www-form-urlencoded");</pre>
-        <p>(You need to run the www/server for this to work)</p>
-        <input type="text" autosearch (results)="updates.next($event)">
-        <pre>{{jsonny | json}}</pre>
+        <p>Type anything in the input. It's just posting the data.<br>You need to run the www/server for this to work)</p>
+        
+        <input type="text" autosearch (results)="updates.next($event)"><h3>{{searchTerm}}</h3>
+        
+        <pre *ngIf="jsonny">{{jsonny | json}}</pre>
     </div>
     `
 })
@@ -47,28 +50,25 @@ export class Auth0Component {
   jsonny: JSON;
 
   constructor(private _http: Http) {
-    console.log(this);
     this.updates
+      .filter(text => typeof text === 'string')
       .do(text => this.searchTerm = text)
       .switchMap(text => this.getJSON(text))
       .subscribe((results: JSON) => {
-        console.log(results);
         this.jsonny = results
       });
   }
 
-  getJSON(text): Observable<any> {
+  getJSON(text): Observable<JSON> {
     // this will be converted into the body of the post
     let formBody = "username=gonto&password=" + text;
     let headers = new Headers();
     // this is a custom header and Express needed configuration to make it work
     headers.append('Content-Type', "application/x-www-form-urlencoded");
     headers.append('Custom-FormNick', "love-it");
-
     return this._http.post('//localhost:1970/data', formBody, {
       headers: headers
     }).map(res => res.json())
-
   }
 }
 

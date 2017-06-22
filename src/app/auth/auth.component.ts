@@ -3,7 +3,6 @@ import {AuthService} from "./services/AuthService";
 
 @Component({
   selector: 'router-app',
-  styles: [require('../../styles/layout.css')],
   template: `
 <div class="miscellaneous">
   <nav class="navLinks">

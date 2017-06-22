@@ -29,7 +29,11 @@ export class CharacterService {
 
 @Component({
   selector: 'promise-example',
-  template: `<h4>Promise example</h4> There are {{characters.length}} characters`,
+  template: `
+    <p class="file"> src/app/http-rxjs/misc-examples/promise.ts</p>
+    <h4>Promise example</h4> 
+     <p style="margin-bottom: 10px">There are {{characters.length}} characters <br/>{{characters | json}}</p>
+  `,
   providers: [CharacterService]
 })
 export class PromiseExample implements OnInit {

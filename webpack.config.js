@@ -1,9 +1,11 @@
-var webpack = require('webpack');
-var path = require('path');
-var webpackMerge = require('webpack-merge');
+const webpack = require('webpack');
+const path = require('path');
+const webpackMerge = require('webpack-merge');
+
+const excluded = [/node_modules/, /ms-components/];
 
 // Webpack Config
-var webpackConfig = {
+const webpackConfig = {
   entry: {
     'main': './src/main.browser.ts',
   },
@@ -34,11 +36,11 @@ var webpackConfig = {
           'angular2-template-loader',
           'angular2-router-loader'
         ],
-        exclude: /node_modules/,
+        exclude: excluded,
       },
-      {test: /\.css$/, loaders: ['to-string-loader', 'css-loader'], exclude: /node_modules/},
-      {test: /\.html$/, loader: 'raw-loader', exclude: /node_modules/},
-      {test: /\.json$/, loader: 'json-loader', exclude: /node_modules/},
+      {test: /\.css$/, loaders: ['to-string-loader', 'css-loader'], exclude: excluded},
+      {test: /\.html$/, loader: 'raw-loader', exclude:excluded},
+      {test: /\.json$/, loader: 'json-loader', exclude: excluded},
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         loaders: ['file-loader?context=src/images&name=images/[path][name].[ext]', {
@@ -59,7 +61,7 @@ var webpackConfig = {
             },
           },
         }],
-        exclude: /node_modules/
+        exclude: excluded
       }
     ]
   }
@@ -68,7 +70,7 @@ var webpackConfig = {
 
 
 // Our Webpack Defaults
-var defaultConfig = {
+const defaultConfig = {
   devtool: 'source-map',
 
   output: {

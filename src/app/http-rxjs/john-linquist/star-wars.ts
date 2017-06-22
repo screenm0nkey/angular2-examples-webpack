@@ -26,6 +26,7 @@ import "rxjs/add/operator/startWith";
     }
   `],
   template: `
+      <span class="path">src/app/http-rxjs/john-linquist/star-wars.ts</span>
       <h4>Search for a Star Wars character (supports regex)</h4>
       <input (keyup)="input$.next($event)">
       <h3>{{(people$ | async)?.length}} results</h3>
@@ -39,7 +40,7 @@ import "rxjs/add/operator/startWith";
       </div>
   `,
   providers: [
-    {provide: 'API', useValue: 'https://swapi-json-server-vlhfwhtpic.now.sh'}],
+    {provide: 'URL', useValue: 'https://swapi-json-server-vlhfwhtpic.now.sh'}],
 })
 export class StarWarsComponent {
   input$ = new Subject();
@@ -47,15 +48,12 @@ export class StarWarsComponent {
   noResults$;
 
   getStarWarsCharacter(term: string): Observable<any> {
-    let obs$ = this.http.get(`${this.api}/people?name_like=${term}`);
-    return obs$.map((res: Response) => {
-      return res.json().map(person => {
-        return Object.assign({}, person, {image: `${this.api}/${person.image}`});
-      })
-    });
+    return this.http.get(`${this.api}/people?name_like=${term}`)
+      .map((res: Response) => res.json().map(person =>
+        Object.assign({}, person, {image: `${this.api}/${person.image}`})));
   }
 
-  constructor(public http: Http, @Inject('API') public api) {
+  constructor(public http: Http, @Inject('URL') public api) {
     const term$ = this.input$
       .map((ev: any) => ev.target.value);
 

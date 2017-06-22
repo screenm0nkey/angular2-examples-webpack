@@ -7,11 +7,16 @@ import {YoutubeService} from "./youtube-helpers/youtube-service";
   selector: 'youtube-basic-example',
   providers: [FormBuilder],
   template: `
-        <div class="search-results">
+        <div class="search-results" style="padding-bottom: 10px;">
+        <p class="path">src/app/http-rxjs/searches/youtube-basic.ts</p>
             <form [formGroup]="form" #f="ngForm" (ngSubmit)="onSubmit(f)">
                 <div style="max-height: 300px; overflow: hidden; overflow-y: scroll">
-                    <h4><label for="yts">Youtube basic search example </label></h4>
-                    <input type="text" class="form-control" id="yst" placeholder="Youtube Search" formControlName="youtubeSearch">
+                    <h4>Youtube basic search example </h4>
+                    <input 
+                      type="text" 
+                      class="form-control" 
+                      placeholder="Youtube Search" 
+                      formControlName="youtubeSearch">
                 </div>
                 <youtube-result-component *ngFor="let result of results" [result]="result"></youtube-result-component>
             </form>
@@ -21,24 +26,27 @@ import {YoutubeService} from "./youtube-helpers/youtube-service";
 
 export class YoutubeBasicExample {
   form: FormGroup;
-  source: Rx.Observable<any>;
-  observer: Rx.Observer<any>;
+  subject$: Rx.Subject<any>;
   results: any[] = [];
 
   constructor(fb: FormBuilder, public youtube: YoutubeService) {
-    this.source = Rx.Observable.create((observer: Rx.Observer<any>) => this.observer = observer);
+    this.subject$ = new Rx.Subject();
 
     this.form = fb.group({
       "youtubeSearch": ['', Validators.required]
     });
 
     this.form.controls['youtubeSearch'].valueChanges
-      .subscribe((text: string) => this.observer.next(text))
+      .filter(text=>text && text.length >= 2)
+      .subscribe(text=>this.subject$.next(text))
 
-    this.source
+    this.subject$
       .debounceTime(500)
       .switchMap((text: string) => this.youtube.search(text))
       .subscribe((results: any[]) => this.results = results);
   }
 
+  onSubmit(val:FormGroup){
+    console.log(101, val);
+  }
 }

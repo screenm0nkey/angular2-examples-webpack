@@ -10,7 +10,6 @@ import {
   IterableDiffer
 } from "@angular/core";
 
-
 @Directive({
   selector: '[ngBookRepeat]',
   inputs: ['ngBookRepeatOf']

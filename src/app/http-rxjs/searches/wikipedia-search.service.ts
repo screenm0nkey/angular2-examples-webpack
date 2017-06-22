@@ -16,7 +16,7 @@ export class WikipediaService {
   constructor(private _jsonp: Jsonp) {
   }
 
-  searchAllImages = (term: string): Observable<string> => {
+  search = (term: string): Observable<string> => {
     let json$: Observable<string> = this._jsonp.get(`${API}&${ALLIMAGES}&aifrom=${term}`).map(res => {
       console.log(3, res.json());
       return res.json();
@@ -24,7 +24,7 @@ export class WikipediaService {
     return json$;
   };
 
-  mapAllImagesToTitles = allImages => {
+  getImageTitles = allImages => {
     allImages = allImages.query.allimages.map(({title}) => title);
     console.log(4, allImages);
     return allImages;

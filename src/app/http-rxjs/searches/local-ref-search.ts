@@ -9,21 +9,22 @@ import {SearchResult} from "./youtube-helpers/youtube-result-class";
   providers: [YoutubeService],
   template: `
         <div class="search-results">
-            <h4><label for="yts">Local ref on input and observer.next(value) Youtube search example </label></h4>
-            <input #inny (keyup)="getValue(inny.value)" placeholder="Youtube Search">
+          <p class="file">src/app/http-rxjs/searches/local-ref-search.ts</p>
+            <h4>Local ref on input and observer.next(value) Youtube search example </h4>
+            
+            <input #inny (keyup)="source$.next(inny.value)" placeholder="Youtube Search">
             <pre>There are {{results.length}} search results for {{searchTerm}}</pre>
             <youtube-result-component *ngFor="let result of results" [result]="result"></youtube-result-component>
         </div>
     `
 })
 export class LocalRefSearch {
-  source$: Rx.Observable<any>;
-  observer: Rx.Observer<any>;
+  source$: Rx.Subject<any>;
   results: SearchResult[] = [];
   searchTerm: string = '';
 
   constructor(public youtube: YoutubeService) {
-    this.source$ = Rx.Observable.create((observer: Rx.Observer<any>) => this.observer = observer);
+    this.source$ = new Rx.Subject();
 
     this.source$
       .debounceTime(500)
@@ -32,8 +33,5 @@ export class LocalRefSearch {
       .subscribe((results: SearchResult[]) => this.results = results);
   }
 
-  getValue(value) {
-    this.observer.next(value);
-  }
 
 }

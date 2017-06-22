@@ -15,7 +15,10 @@
     "lib": ["es7", "dom"]
   },
   "exclude": [
-    "node_modules", "typings"
+    "node_modules",
+    "typings",
+    "ms-components",
+    "www"
   ],
   "awesomeTypescriptLoaderOptions": {
     "useWebpackText": true

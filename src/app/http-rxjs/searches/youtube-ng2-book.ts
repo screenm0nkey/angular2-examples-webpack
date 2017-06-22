@@ -49,7 +49,8 @@ export class NgBookYoutubeSearch implements OnInit {
 @Component({
   selector: 'ngbook-youtube-example',
   template: `
-        <div class="search-results">
+        <div class="search-results" style="padding-bottom:10px">
+          <p class="path">src/app/http-rxjs/searches/youtube-ng2-book.ts</p>
             <h4>NG2-Book YouTube search example:</h4>
             <youtube-search
                 (loading)="loading = $event"
@@ -63,10 +64,6 @@ export class NgBookYoutubeSearch implements OnInit {
 export class NgBookYoutubeExample {
   loading: boolean = false;
   results: SearchResult[];
-
-  constructor() {
-    console.log(this);
-  }
 
   updateResults(results: SearchResult[]) {
     console.log(results);

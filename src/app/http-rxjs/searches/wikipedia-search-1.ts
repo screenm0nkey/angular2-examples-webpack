@@ -1,5 +1,5 @@
 import {Component, Injectable} from "@angular/core";
-import {URLSearchParams, Jsonp} from "@angular/http";
+import {Jsonp, URLSearchParams} from "@angular/http";
 import {Observable} from "rxjs/Observable";
 import {FormControl} from "@angular/forms";
 import "rxjs/add/operator/delay";
@@ -32,22 +32,29 @@ class WikipediaService {
   providers: [WikipediaService],
   template: `
     <div>
-      <h4>Wikipedia Search using Jsonp which extends Http</h4>
+    <p class="path">src/app/http-rxjs/searches/wikipedia-search-1.ts</p>
+      <h4>Examples using promises, observables and async pipe and a loader</h4>
       <p>
-      <a href="http://blog.thoughtram.io/angular/2016/01/06/taking-advantage-of-observables-in-angular2.html">
+      <a href="http://blog.thoughtram.io/angular/2016/01/06/taking-advantage-of-observables-in-angular2.html" target="_blank">
         taking-advantage-of-observables-in-angular2
       </a>
+      <a href="http://blog.thoughtram.io/angular/2016/01/06/taking-advantage-of-observables-in-angular2.html" target="_blank">Thoughtram article</a>
+
       </p>
-      Search <input #term type="text" (keyup)="search(term.value)" placeholder="Wikipedia Search">
-      <ul><li *ngFor="let item of items">{{item}}</li></ul>
+      Search 
+      <input #term type="text" 
+        (keyup)="search(term.value)" 
+        placeholder="Wikipedia Search">
+      <ul>
+        <li *ngFor="let item of items">{{item}}</li>
+      </ul>
     </div>
   `
 })
 export class JsonpWikipediaPromise {
   items: Array<string>;
 
-  constructor(private wikipediaService: WikipediaService) {
-  }
+  constructor(private wikipediaService: WikipediaService) {}
 
   search(term: string) {
     this.wikipediaService.search(term).then(items => this.items = items);
@@ -61,9 +68,8 @@ export class JsonpWikipediaPromise {
   providers: [WikipediaService],
   template: `
     <div>
-      <h4>Same as above but using promises (toPromise), observables and async pipe</h4>
-      <a href="http://blog.thoughtram.io/angular/2016/01/06/taking-advantage-of-observables-in-angular2.html" target="_blank">Thoughtram article</a>
-      Search <input type="text" [formControl]="term" placeholder="Wikipedia Search"/> 
+      <h5></h5>
+      Search using async filter<input type="text" [formControl]="term" placeholder="Wikipedia Search"/> 
       <span *ngIf="loading" style="background-color: red">loading</span>
       <ul><li *ngFor="let item of items | async">{{item}}</li></ul>
     </div>
@@ -77,16 +83,11 @@ export class WikipediaObservable {
   constructor(private wikipediaService: WikipediaService) {
     this.items = this.term.valueChanges
       .do(() => this.loading = true)
-      .delay(1000) // add a delay to see the loading icon
       .debounceTime(400)
       .distinctUntilChanged()
-      // you could also use flatMap() instead of switchMap()
-      .switchMap((sterm: string) => {
-        // Note: You don't have to convert the promise to a stream using fromPromise()
-        // you can just return the promise but I couldn't stop the TS error
-        // when returning a promise directly into switchMap()
-        return Observable.fromPromise(this.wikipediaService.search(sterm))
-      })
+      // you should always use switchMap when making http requests
+      .switchMap((sterm: string) => this.wikipediaService.search(sterm))
+      .delay(1000) // add a delay to see the loading icon
       .do(() => this.loading = false);
   }
 }

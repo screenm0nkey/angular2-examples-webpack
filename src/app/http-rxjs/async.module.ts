@@ -16,6 +16,7 @@ import {queue} from "./ngrx-queue/reducers";
 import {UnitEffects} from "./ngrx-queue/effects";
 import {people, filter} from "./ngrx-in-ten/reducers";
 import {clock, peoplez, tick} from "./ngrx-clock/reducers";
+import {wordsReducer} from "./misc-examples/ngrx-starter";
 
 @NgModule({
   imports: [
@@ -28,7 +29,7 @@ import {clock, peoplez, tick} from "./ngrx-clock/reducers";
     MiscHttpModule,
     NgrxClocksModule,
     NgrxInTenModule,
-    StoreModule.provideStore({queue, people, filter, tick, clock, peoplez}),
+    StoreModule.provideStore({queue, people, filter, tick, clock, peoplez, wordsReducer}),
     EffectsModule.run(UnitEffects)
   ],
   declarations: [

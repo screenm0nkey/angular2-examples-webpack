@@ -6,7 +6,6 @@ body {
 p {
   font-family: "Courier";
   font-size: 12px;
-  width: 90%;
   text-align: justify;
 }
 
@@ -101,19 +100,36 @@ button {
 
 hr {
   border: 0;
-  box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
   position: relative;
   left: -10px;
-  border-top: solid 3px #b400ff;
+  border-top: solid 3px #ababab;
   margin: 0;
   padding: 0;
-  height: 12px;
+  box-shadow: 0px 6px 14px 1px rgba(0, 0, 0, 0.58);
+}
+hr:after, hr:before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 54px;
+  background-color: #ababab;
+  position: absolute;
+  right:0;
+}
+hr:before {
+  left:0;
 }
 
-p.file {
-  font-family: "Courier New";
-  font-size: 10px;
+p.file, p.path{
+  font-family: "Courier";
+  font-size: 12px;
+  background: #ababab;
   margin: 0;
+  border-radius: 2px;
+  padding: 0 3px;
+  display: inline-block;
+  top: -2px;
+  position: relative;
 }
 
 nav {
@@ -127,7 +143,8 @@ nav {
   margin-bottom: 15px;
   display: inline-block;
   float: left;
-  width: 240px;
+  min-width: 200px;
+  max-width: 240px;
   margin-right: 10px;
 }
 
@@ -211,7 +228,8 @@ pre.limit-height {
 
 #container {
   flex: 1;
-  overflow: hidden;
+  /*overflow: hidden;*/
+  padding-left:5px;
 }
 
 

@@ -37,11 +37,14 @@ class WikipediaService {
   providers: [WikipediaService],
   template: `
     <div>
-      <h4>Using the formControl.valueChanges Observable</h4>
+      <hr>
+      <p class="path">src/app/http-rxjs/searches/wikipedia-search-2.ts</p>
+      <h4>Using the formControl.valueChanges Observable and JSONP</h4>
       Search <input type="text" [formControl]="term" placeholder="Wikipedia Search"/>
       <ul>
         <li *ngFor="let item of items$ | async">{{item}}</li>
       </ul>
+      <hr>
     </div>
   `
 })

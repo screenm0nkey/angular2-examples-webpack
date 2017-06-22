@@ -40,9 +40,10 @@ import {Observable} from "rxjs/Observable";
         }
     </style>  
     <div>    
+        <p class="path">src/app/http-rxjs/john-linquist/wikipedia-john-linquist.ts</p>
         <h4>John Linquist Wiki Image Search</h4>
         <a href="http://plnkr.co/edit/NXT6JPgr7QoR4SEYva7N?p=preview" target="_blank">Original Plunk</a>
-        <input type="text" (input)="input$.next($event)">{{(searchTerm$ | async)}}
+        <input type="text" (input)="input$.next($event)"><span style="color: red">{{(searchTerm$ | async)}}</span>
         <h3>{{imageCount$ | async}} results</h3>
         <div class="container">
             <a *ngFor="let image of images$ | async" [href]="image.descriptionurl" [title]="image.title">
@@ -53,53 +54,46 @@ import {Observable} from "rxjs/Observable";
 `
 })
 export class JohnLinquistWikiSearch {
-  input$ = new Subject().map((event: Event) => {
-    let target = <HTMLInputElement>event.target;
-    return target.value;
-  });
+  input$ = new Subject().map((event: Event) => (<HTMLInputElement>event.target).value);
   searchTerm$;
   images$;
   imageCount$;
 
-  constructor(wikipediaService: WikipediaService) {
+  constructor(private wiki: WikipediaService) {
     const term$ = this.input$
       .distinctUntilChanged()
       .debounceTime(250)
       .filter(term => term.length > 2)
       .share(); // make it hot
 
-    const clear$ = this.input$
+    const lessThanTwoChars$ = this.input$
       .filter(term => term.length <= 2)
       .share();
 
-    term$.subscribe(val => console.log(1, val));
-    clear$.subscribe(val => console.log(2, val));
 
     this.searchTerm$ = Observable.merge(
       term$,
-      clear$.map(term => 'Enter a term longer than 2 letters')
+      lessThanTwoChars$.map(term => !term.length ? '' : 'Enter a term longer than 2 letters')
     );
 
-    function WikipediaImageSearch(term): Observable<any[]> {
-      return wikipediaService.searchAllImages(term) //3
-        .map(wikipediaService.mapAllImagesToTitles) //4
-        .concatAll()
-        .mergeMap(wikipediaService.getImageInfoFromTitle) //5
-        .takeUntil(this.input$)
-        .map(wikipediaService.mapImageInfoToUrls) //6
-        .scan((acc, curr) => [...acc, ...curr])
-    }
-
     const results$ = term$
-      .switchMap(WikipediaImageSearch.bind(this))
+      .switchMap(this.wikipediaImageSearch.bind(this))
       .startWith([])
       .share();
 
-    results$.subscribe(val => console.log(7, val));
-
-    this.images$ = Observable.merge(results$, clear$.map(term => []));
+    this.images$ = Observable.merge(results$, lessThanTwoChars$.map(term => []));
 
     this.imageCount$ = this.images$
       .map(results => results.length)
+  }
+
+  wikipediaImageSearch(term): Observable<any[]> {
+    return this.wiki.search(term) //3
+      .map(this.wiki.getImageTitles) //4
+      .concatAll()
+      .mergeMap(this.wiki.getImageInfoFromTitle) //5
+      .takeUntil(this.input$)
+      .map(this.wiki.mapImageInfoToUrls) //6
+      .scan((acc, curr) => [...acc, ...curr])
   }
 }

@@ -1,7 +1,6 @@
 import {Component} from "@angular/core";
 
 @Component({
-  styles: [require('../../styles/layout.css')],
   template: `
     <div class="miscellaneous">
       <nav>

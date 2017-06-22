@@ -2,7 +2,6 @@ import {Component} from "@angular/core";
 
 // does not require a selector as its loaded by router
 @Component({
-  styles: [require('../../styles/layout.css')],
   template: `
     <div class="miscellaneous">
             <nav>

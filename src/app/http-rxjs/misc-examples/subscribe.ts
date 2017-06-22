@@ -1,4 +1,4 @@
-import {Component, OnInit, Injectable} from "@angular/core";
+import {Component, Injectable, OnInit} from "@angular/core";
 import {Http} from "@angular/http";
 import {Observable} from "rxjs/Observable";
 
@@ -20,7 +20,9 @@ export class CharacterService {
   selector: 'subscribe-example',
   template: `
         <div class="search-results">
-            <h4>Subscribe example</h4> <pre class="limit-height">{{characters | json}}</pre>
+          <p class="file">src/app/http-rxjs/misc-examples/subscribe.ts</p>
+            <h4>Subscribe example</h4> 
+            <pre class="limit-height">{{characters | json}}</pre>
         </div>
     `,
   providers: [CharacterService]

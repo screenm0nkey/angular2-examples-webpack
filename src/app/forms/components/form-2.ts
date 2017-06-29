@@ -7,7 +7,7 @@ import {NgForm} from "@angular/forms";
   exportAs: 'ngNickForm'
 })
 export class NickForm {
-  public count: Number = 11;
+  public count: number = 11;
 
   public call() {
     console.log('NICK');

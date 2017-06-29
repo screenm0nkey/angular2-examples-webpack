@@ -1,7 +1,9 @@
 import {NgModule} from "@angular/core";
 import {SharedModule} from "../../shared/shared.module";
-import {ArtistComponent, EchonestAppComponent} from "./echonest-app";
-import {DropdownComponent} from "./dropdown";
+import {EchonestAppComponent} from "./echonest.component";
+import {ArtistComponent} from "./artist.component";
+import {DropdownComponent} from "./dropdown.component";
+import {EchonestRepo} from "./echonest.repo";
 
 @NgModule({
   imports: [
@@ -11,8 +13,11 @@ import {DropdownComponent} from "./dropdown";
     EchonestAppComponent,
     ArtistComponent,
     DropdownComponent,
+  ],
+  providers : [
+    EchonestRepo
   ]
 })
-export class EchonestModule {
-}
+export class EchonestModule {}
+
 export {EchonestAppComponent}

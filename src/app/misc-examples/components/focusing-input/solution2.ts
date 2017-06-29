@@ -4,6 +4,7 @@ import {
   ElementRef,
   ViewChild,
   ViewChildren,
+  SimpleChange,
   OnInit,
   AfterViewInit,
   OnChanges,
@@ -27,7 +28,7 @@ export class FocusMe implements AfterViewInit, OnChanges {
     this.elementRef.nativeElement.focus();
   }
 
-  ngOnChanges(changes) {
+  ngOnChanges(changes: {[propName: string]: SimpleChange}): void {
     console.log(changes);
   }
 }
@@ -49,7 +50,7 @@ export class SolutionTwo implements OnInit {
   // @ViewChildren does the same but lets us access multiple instances
   @ViewChild(FocusMe) child: FocusMe;
   @ViewChildren(FocusMe) children: QueryList<FocusMe>;
-  private inputIsVisible: Boolean = false;
+  private inputIsVisible: boolean = false;
 
   ngOnInit() {
     // notice that the "child" directive object instance is still not available as a property

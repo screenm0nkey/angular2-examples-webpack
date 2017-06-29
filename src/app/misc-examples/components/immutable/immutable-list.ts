@@ -39,7 +39,7 @@ export class TestComponentList implements OnInit, OnChanges {
     `,
 })
 export class ImmutableList {
-  checked: Boolean = false;
+  checked: boolean = false;
 
   constructor(public store: Store) {
     console.log(108, this.store);

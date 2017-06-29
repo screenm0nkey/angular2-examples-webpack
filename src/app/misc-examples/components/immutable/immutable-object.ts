@@ -45,7 +45,7 @@ export class TestComponentObject implements OnChanges, DoCheck {
     `,
 })
 export class ImmutableObject {
-  checked: Boolean = false;
+  checked: boolean = false;
   todoItem: Todo = new Todo();
 
   updateTodo(val) {

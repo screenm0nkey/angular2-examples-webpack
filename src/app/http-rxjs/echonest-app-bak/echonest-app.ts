@@ -79,35 +79,26 @@ export class EchonestFavStoreService {
  * */
 @Injectable()
 export class EchonestArtistStoreService {
-  combineSubject$: Subject<any> = new Subject<any>();
+  artistsSubject$: Subject<any> = new Subject<any>();
   artists$: Observable<any>;
 
-  constructor(private _service: EchonestService, private _favStore: EchonestFavStoreService) {
+  constructor(private echonestService: EchonestService, private echonestFavStoreService: EchonestFavStoreService) {
     // Combines the streams from  favourites$ and new data from the api.
     // It updates the data from the api with any favourites$ that have been selected
-    this.artists$ = this.combineSubject$.combineLatest(
-      this._favStore.favourites$,
+    this.artists$ = this.artistsSubject$.combineLatest(
+      this.echonestFavStoreService.favourites$,
       this.assignFavourite
     );
   }
 
-
-  assignFavourite(artists: any[], favs: any[]) {
-    favs = favs.map((artist: Artist) => artist.id);
-    artists.forEach((artist: Artist) => {
-      artist.favourited = false;
-      if (favs.indexOf(artist.id) >= 0) {
-        artist.favourited = true;
-      }
-    });
+  assignFavourite(artists: any[], favourites: any[]) {
+    const artistIds = favourites.map((artist: Artist) => artist.id);
+    artists.forEach((artist: Artist) => artist.favourited = artistIds.includes(artist.id))
     return artists;
   }
 
-
-  getArtists(num: number) {
-    if (num) {
-      this._service.topHot(num).subscribe(this.combineSubject$);
-    }
+  getArtists(amountRequired: number = 0) {
+    return amountRequired && this.echonestService.getArtists(amountRequired).subscribe(this.artistsSubject$);
   }
 }
 
@@ -117,10 +108,10 @@ export class EchonestArtistStoreService {
   styles: [require('./echonest.css')],
   template: `
         <div class="artist">
-            <span>{{artist.name}} {{favourites}}</span>
+            <span>[{{artist.hotttnesss}}]{{artist.name}}</span>
             <a href="#" 
                 (click)="updateFavouriteState($event)" 
-                [ngClass]="{disabled: getClass()}">
+                [ngClass]="{disabled: isDisabled()}">
                 {{btntxt}}
             </a>
         </div>`
@@ -128,29 +119,27 @@ export class EchonestArtistStoreService {
 export class ArtistComponent {
   @Input() artist: Artist;
   @Input() favourites: Boolean;
-  btntxt: string;
-  ADD: string = 'Add';
-  REMOVE: string = 'Remove';
+  private readonly ADD: string = 'Add';
+  private readonly REMOVE: string = 'Remove';
 
-  constructor(private _favStore: EchonestFavStoreService) {
-    console.log(this);
-  }
+  btntxt: string;
+
+  constructor(private _favStore: EchonestFavStoreService) {}
 
   ngOnInit() {
     this.btntxt = (this.artist.favourited && this.favourites) ? this.REMOVE : this.ADD;
   }
 
-  getClass() {
-    if (this.artist.favourited && this.btntxt === this.ADD) {
-      return true;
-    }
+  isDisabled() {
+    return !!(this.artist.favourited && this.btntxt === this.ADD)
   }
 
-  updateFavouriteState(evt: Event) {
+  updateFavouriteState(evt: MouseEvent) {
     evt.preventDefault();
     if (this.artist.favourited && this.btntxt === this.REMOVE) {
       this._favStore.removeFavourite(this.artist);
-    } else if (!this.artist.favourited && this.btntxt === this.ADD) {
+    }
+    if (!this.artist.favourited && this.btntxt === this.ADD) {
       this._favStore.addFavourite(this.artist);
     }
   }
@@ -166,8 +155,10 @@ export class ArtistComponent {
     EchonestArtistStoreService
   ],
   template: `
-        <h4>RxJs Itunes App</h4>
+        <p class="file">src/app/http-rxjs/echonest-app/echonest-app.ts</p>
+        <h4>A not particularly well written RxJs Mini App</h4>
         <h5 style="color: red;">Need to run the www/server for this</h5>
+        
         <section style="float: left; width:200px">
             <header>
                 Top 100 
@@ -179,29 +170,29 @@ export class ArtistComponent {
             <artist-component *ngFor="let artist of artists$ | async" [artist]="artist"></artist-component>
         </section>
         <section style="float:left; width:200px">
-            <header>Favourites 
+            <header>Favourites
             <button 
-                [disabled]="buttonDisabled" 
+                [disabled]="(favouriteArtists$ | async)?.length===0" 
                 (click)="removeAll()">
                 Remove All
             </button>
             </header>
             <artist-component 
                 *ngFor="let artist of favouriteArtists$ | async" 
-                [artist]="artist" 
+                [artist]="artist"
                 [favourites]="'true'">
             </artist-component>
         </section>
     `
 })
 export class EchonestAppComponent {
-  buttonDisabled: boolean = false;
-  favouriteArtists$: ReplaySubject<any> = this.favStore.favourites$;
-  artists$: Observable<any> = this.artistStore.artists$;
+  favouriteArtists$: ReplaySubject<any>;
+  artists$: Observable<any>;
 
   constructor(private artistStore: EchonestArtistStoreService,
               private favStore: EchonestFavStoreService) {
-    this.favouriteArtists$.subscribe((data: any) => this.buttonDisabled = !data.length);
+    this.artists$ = artistStore.artists$;
+    this.favouriteArtists$ = favStore.favourites$;
   }
 
   removeAll() {

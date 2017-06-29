@@ -97,6 +97,10 @@ button {
   padding: 3px 10px;
   text-decoration: none;
 }
+button[disabled] {
+  background: dimgrey !important;
+  opacity: 0.3;
+}
 
 hr {
   border: 0;
@@ -133,7 +137,7 @@ p.file, p.path{
 }
 
 nav {
-  background-color: gold;
+  background-color: #466c94;
   padding: 0 3px 3px;
   border-radius: 3px;
 }

@@ -11,7 +11,7 @@ import {Component, ViewChild, NgZone, DoCheck} from "@angular/core";
 })
 export class SolutionThree implements DoCheck {
   @ViewChild('input1') input1ElementRef;
-  private input1IsVisible: Boolean = false;
+  private input1IsVisible: boolean = false;
 
   constructor(private _ngZone: NgZone) {
     console.log(this);

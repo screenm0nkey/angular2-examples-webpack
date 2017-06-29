@@ -35,7 +35,7 @@ export class NgModelStatusOne {
   // this.isFixed property. when we set this.isFixed to true it then sets class.fixed-mixed = true.
   // if this.isFixed === true it will add the 'fixed-mixed' class to the input and the
   // input text will appear in red. set it to false and it will not add class.
-  @HostBinding('class.fixed-mixed') isFixed: Boolean = true;
+  @HostBinding('class.fixed-mixed') isFixed: boolean = true;
 }
 
 

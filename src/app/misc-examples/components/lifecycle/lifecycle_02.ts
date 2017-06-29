@@ -20,6 +20,7 @@ export class OnChangeCmp2 implements OnChanges {
 @Component({
   selector: 'lifecycle-sample-app-2',
   template: `
+  <p class="file">src/app/misc-examples/components/lifecycle/lifecycle_02</p>
   <h4>OnChange</h4>
 
   <div class="ui form">

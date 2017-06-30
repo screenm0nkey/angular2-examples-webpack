@@ -10,7 +10,7 @@ import "rxjs/add/operator/do";
 @Component({
   selector: 'reddit-example',
   template: `
-        <p class="file">src/app/http-rxjs/searches/reddit.ts</p>
+        <p class="path">src/app/http-rxjs/searches/reddit.ts</p>
         <h4>Reddit Search using the <strong>"form FormControl.valueChanges"</strong></h4>
         
         <div class="search-results" style="padding-bottom: 10px">

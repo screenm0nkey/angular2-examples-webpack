@@ -21,11 +21,14 @@ export class OnInitCmp1 implements OnInit, OnDestroy {
 @Component({
   selector: 'lifecycle-sample-app-1',
   template: `
-  <h4>OnInit and OnDestroy</h4>
+  <p class="path">src/app/lifecycle/miscellaneous/lifecycle_01.ts</p>
+  <h4>ngOnInit and ngOnDestroy</h4>
 
-  <button class="ui primary button" (click)="toggle()">Toggle</button>
-  <div class="ui label">{{componentState}} </div>
-  <on-init-1 *ngIf="display" (update)="logIt($event)"></on-init-1>
+  <div class="clearfix">
+    <button style="float: left" (click)="toggle()">Toggle Componets "display" state</button>
+    <pre>{{componentState | json}} </pre>
+    <on-init-1 *ngIf="display" (update)="logIt($event)"></on-init-1>
+  </div>
   `
 })
 export class LifecycleSampleApp1 {

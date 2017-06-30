@@ -1,33 +1,23 @@
-import {Component, Input, IterableDiffers, KeyValueDiffers, EventEmitter, DoCheck} from "@angular/core";
+import {Component, DoCheck, EventEmitter, Input, IterableDiffers, KeyValueDiffers} from "@angular/core";
 
 
 @Component({
   selector: 'do-check-item',
   outputs: ['onRemove'],
   template: `
-  <div class="ui feed">
+  <div style="background-color: #8a6d3b; display: table; border-radius: 5px; border:solid 5px saddlebrown">
     <div class="event">
       <div class="content">
-        <div class="summary">
-          <a class="user">
-            {{comment.author}}
-          </a> posted a comment
-          <div class="date">
-            1 Hour Ago
-          </div>
-        </div>
-        <div class="extra text">
-          {{comment.comment}}
-        </div>
+        <div class="user" style="float: left">{{comment.author}} posted "<i>{{comment.comment}}</i>"</div>
         <div class="meta">
-          <div class="pull-left" (click)="remove()">
-            <i class="trash icon"></i> Remove
-          </div>
-          <div class="pull-left" (click)="clear()">
-            <i class="eraser icon"></i> Clear
-          </div>
+          <button class="pull-left" (click)="remove()">
+           Remove
+          </button>
+          <button class="pull-left" (click)="clear()">
+            Clear post
+          </button>
           <div class="pull-left" (click)="like()">
-            <i class="like icon"></i> {{comment.likes}} Likes
+            {{comment.likes}} Likes
           </div>
         </div>
       </div>
@@ -45,11 +35,10 @@ export class DoCheckItem implements DoCheck {
     this.onRemove = new EventEmitter();
   }
 
-  //ngDoCheck is called every time the component is checked, which is quite a lot as it's checked on every event
   ngDoCheck(): void {
-    var changes = this.differ.diff(this.comment);
-    console.log(0, changes);
+    const changes = this.differ.diff(this.comment);
     if (changes) {
+      console.log('%cKeyValueDiffers', 'color:pink', changes);
       changes.forEachAddedItem(r => this.logChange('added', r));
       changes.forEachRemovedItem(r => this.logChange('removed', r));
       changes.forEachChangedItem(r => this.logChange('changed', r));
@@ -58,13 +47,13 @@ export class DoCheckItem implements DoCheck {
 
   logChange(action, r) {
     if (action === 'changed') {
-      console.log(1, r.key, action, 'from', r.previousValue, 'to', r.currentValue);
+      console.log('%cChanged', 'color:pink', r.key, 'from', r.previousValue, 'to', r.currentValue);
     }
     if (action === 'added') {
-      console.log(2, action, r.key, 'with', r.currentValue);
+      console.log('%cAdded', 'color:pink', r.key, 'with', r.currentValue);
     }
     if (action === 'removed') {
-      console.log(3, action, r.key, '(was ' + r.previousValue + ')');
+      console.log('%cRemoved', 'color:pink', r.key, '(was ' + r.previousValue + ')');
     }
   }
 
@@ -85,13 +74,17 @@ export class DoCheckItem implements DoCheck {
 @Component({
   selector: 'do-check',
   template: `
-  <do-check-item [comment]="comment"
-    *ngFor="let comment of comments" (onRemove)="removeComment($event)">
-  </do-check-item>
-
-  <button class="ui primary button" (click)="addComment()">
-    Add
-  </button>
+    <p class="path">src/app/lifecycle/miscellaneous/lifecycle_03.ts</p>
+    <h4>ngDoCheck and IterableDiffers, KeyValueDiffers</h4>
+    <p>on every system event i.e. click, timeout etc ngDoCheck is called and the component is checked, which is quite a lot</p>
+    <p>Use IterableDiffers on Arrays and KeyValueDiffers on Maps</p>
+    
+    <do-check-item 
+      *ngFor="let comment of comments" 
+      (onRemove)="removeComment($event)"
+      [comment]="comment">
+    </do-check-item>
+    <button style="margin-bottom: 10px" (click)="addComment()">Add More Comments</button>
   `
 })
 export class DoCheckCmp implements DoCheck {
@@ -103,15 +96,14 @@ export class DoCheckCmp implements DoCheck {
   constructor(differs: IterableDiffers) {
     this.differ = differs.find([]).create(null);
     this.comments = [];
-
     this.authors = ['Elliot', 'Helen', 'Jenny', 'Joe', 'Justen', 'Matt'];
     this.texts = [
-      "Ours is a life of constant reruns. We're always circling back to where we'd we starter day soon.",
+      "Ours is a life of constant reruns",
       'Really cool!',
       'Thanks!'
     ];
-
-    this.addComment();
+    // setTimeout will trigger ngDoCheck
+    setTimeout(() => this.addComment(), 1000)
   }
 
   getRandomInt(max: number): number {
@@ -138,11 +130,11 @@ export class DoCheckCmp implements DoCheck {
 
   //ngDoCheck is called every time the component is checked, which is quite a lot as it's checked on every event
   ngDoCheck(): void {
-    var changes = this.differ.diff(this.comments);
-
+    const changes = this.differ.diff(this.comments);
     if (changes) {
-      changes.forEachAddedItem(r => console.log(5, 'Added', r.item));
-      changes.forEachRemovedItem(r => console.log(6, 'Removed', r.item));
+      console.log('%cIterableDiffers', 'color:orange', changes);
+      changes.forEachAddedItem(r => console.log('%cAdded', 'color:orange', r.item));
+      changes.forEachRemovedItem(r => console.log('%cRemoved', 'color:orange', r.item));
     }
   }
 }

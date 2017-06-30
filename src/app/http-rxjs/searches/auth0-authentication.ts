@@ -32,7 +32,7 @@ export class AutosearchAuth implements OnInit {
   selector: 'auth0-example',
   template: `
         <div class="search-results">
-        <p class="file">src/app/http-rxjs/searches/auth0-authentication.ts</p>
+        <p class="path">src/app/http-rxjs/searches/auth0-authentication.ts</p>
         <h4>POSTing form data with custom headers example</h4>
         <pre>headers.append('Content-Type', "application/x-www-form-urlencoded");</pre>
         <p>Type anything in the input. It's just posting the data.<br>You need to run the www/server for this to work)</p>

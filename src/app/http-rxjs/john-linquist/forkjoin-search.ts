@@ -36,7 +36,7 @@ interface Vechicle {
   }
 `],
   template: `<div class="master">
-<p class="file">src/app/http-rxjs/john-linquist/forkjoin-search.ts</p>
+<p class="path">src/app/http-rxjs/john-linquist/forkjoin-search.ts</p>
   <h4>  forkJoin() People and vehicles</h4>
   <a href="http://plnkr.co/edit/fOhgiYQyKtjGCAeWvi5U?p=preview&open=app%2Fapp.component.ts" target="_blank">Original Plunk</a>
   <a href="https://blog.thoughtram.io/angular/2016/06/16/cold-vs-hot-observables.html">share() is a shortcut for publish().refCount()</a>

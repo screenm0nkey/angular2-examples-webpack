@@ -11,7 +11,7 @@ import {Artist} from "./echonest.repo";
     EchonestService,
   ],
   template: `
-        <p class="file">src/app/http-rxjs/echonest-app/echonest-app.ts</p>
+        <p class="path">src/app/http-rxjs/echonest-app/echonest-app.ts</p>
         <h4>A not particularly well written RxJs Mini App</h4>
         <span style="color: red;">Need to run the www/server for this</span>
         <header>

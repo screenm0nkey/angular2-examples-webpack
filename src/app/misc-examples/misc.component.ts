@@ -14,7 +14,6 @@ import {Component} from "@angular/core";
         <a routerLink="./templates" routerLinkActive="active">Templates</a>
         <a routerLink="./emitter" routerLinkActive="active">Transclusion 1</a>
         <a routerLink="./accordian" routerLinkActive="active">Transclusion 2</a>
-        <a routerLink="./lifecycle" routerLinkActive="active">Lifecycle</a>
         <a routerLink="./change-detection" routerLinkActive="active">Change Detection</a>
         <a routerLink="./change2" routerLinkActive="active">Change Detection and Immutable Model</a>
         <a routerLink="./focus-input" routerLinkActive="active">Focus an Input @ViewChild</a>

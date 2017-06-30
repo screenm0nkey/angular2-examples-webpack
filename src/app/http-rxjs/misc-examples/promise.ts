@@ -30,7 +30,7 @@ export class CharacterService {
 @Component({
   selector: 'promise-example',
   template: `
-    <p class="file"> src/app/http-rxjs/misc-examples/promise.ts</p>
+    <p class="path"> src/app/http-rxjs/misc-examples/promise.ts</p>
     <h4>Promise example</h4> 
      <p style="margin-bottom: 10px">There are {{characters.length}} characters <br/>{{characters | json}}</p>
   `,

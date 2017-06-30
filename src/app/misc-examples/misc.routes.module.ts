@@ -18,9 +18,7 @@ import {AppComponent} from "./components/notifications/notifications.module";
 import {SocketApp} from "./components/socket-io/socket-component";
 import {MainChildrenApp} from "./components/view-children/childviews.module";
 import {TricksMainComponent} from "./components/tricks/tricks.module";
-import {MiscLifecycleMain} from "./components/lifecycle/lifecycle.module";
 import {TemplateComponent} from "./components/templates/templates.module";
-
 
 const formsRoutes: Routes = [
   {
@@ -46,7 +44,6 @@ const formsRoutes: Routes = [
           {path: 'ngzone', component: NgZoneMainComponent},
           {path: 'notifications', component: AppComponent},
           {path: 'socket-io', component: SocketApp},
-          {path: 'lifecycle', component: MiscLifecycleMain},
           {path: 'templates', component: TemplateComponent},
           {path: 'view-children', component: MainChildrenApp},
           {path: 'tricks', component: TricksMainComponent}

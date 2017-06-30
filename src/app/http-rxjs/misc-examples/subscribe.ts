@@ -20,7 +20,7 @@ export class CharacterService {
   selector: 'subscribe-example',
   template: `
         <div class="search-results">
-          <p class="file">src/app/http-rxjs/misc-examples/subscribe.ts</p>
+          <p class="path">src/app/http-rxjs/misc-examples/subscribe.ts</p>
             <h4>Subscribe example</h4> 
             <pre class="limit-height">{{characters | json}}</pre>
         </div>

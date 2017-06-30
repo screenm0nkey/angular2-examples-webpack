@@ -6,7 +6,7 @@ import {Jsonp} from "@angular/http";
   selector: 'auto-wiki-search',
   template: `
     <div>
-      <p class="file">src/app/http-rxjs/misc-examples/automated-wiki-search.ts</p>
+      <p class="path">src/app/http-rxjs/misc-examples/automated-wiki-search.ts</p>
       <h4>Automated Wiki Search</h4>
       
       <button (click)="searchWiki()" *ngIf="!search">Start Http wiki search</button>

@@ -13,10 +13,14 @@ import {AfterViewComponent, ChildViewComponent} from "./after-view/after-view.co
 import {AfterContentParentComponent} from "./after-content/after-content-parent.component";
 import {AfterContentComponent, ChildComponent} from "./after-content/after-content.component";
 import {Spy} from "./spy/spy.directive";
-
+import {MiscLifecycleModule} from "./miscellaneous/lifecycle.module";
 
 @NgModule({
-  imports: [LifeCycleRoutingModule, SharedModule],
+  imports: [
+    SharedModule,
+    LifeCycleRoutingModule,
+    MiscLifecycleModule,
+  ],
   declarations: [
     LifeCycleMainComponent,
     BasicExample, MyComponent,

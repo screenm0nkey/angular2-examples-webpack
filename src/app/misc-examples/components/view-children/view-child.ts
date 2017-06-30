@@ -49,7 +49,7 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
   selector: 'countdown-parent-vc',
   template: `
   <h4>Countdown to Liftoff (via ViewChild)</h4>
-  <p class="file">misc-examples/components/view-children/view-child.ts</p>
+  <p class="path">misc-examples/components/view-children/view-child.ts</p>
   <button (click)="start()">Start</button>
   <button (click)="stop()">Stop</button>
   <div class="seconds">{{ seconds() }}</div>

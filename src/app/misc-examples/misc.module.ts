@@ -19,15 +19,12 @@ import {MultiContentModule} from "./components/multi-content/multicontent.module
 import {NgZoneModule} from "./components/ng-zone/ngzone.module";
 import {NotifcationModule} from "./components/notifications/notifications.module";
 import {SocketApp} from "./components/socket-io/socket-component";
-import {MiscLifecycleModule} from "./components/lifecycle/lifecycle.module";
 import {TemplatesModule} from "./components/templates/templates.module";
-
-
 
 @NgModule({
   imports: [
-    MiscRoutingModule,
     SharedModule,
+    MiscRoutingModule,
     TricksModule,
     ChildViewsModule,
     AccordianModule,
@@ -43,7 +40,6 @@ import {TemplatesModule} from "./components/templates/templates.module";
     MultiContentModule,
     NgZoneModule,
     NotifcationModule,
-    MiscLifecycleModule,
     TemplatesModule,
     DirectivesLinquistModule
   ],

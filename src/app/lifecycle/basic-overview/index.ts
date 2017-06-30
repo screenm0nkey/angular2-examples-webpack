@@ -3,8 +3,7 @@ import {Component, Input} from "@angular/core";
 @Component({
   selector: 'my-component',
   template: `
-  LifeCycle Hooks
-  {{message}}
+  LifeCycle Hooks {{message}} <br>
   <ng-content></ng-content>
   `
 })
@@ -12,52 +11,56 @@ export class MyComponent {
   @Input() message;
 
   constructor() {
-    console.log(`constructor`);
+    console.log('%cconstructor', 'color:white');
   }
 
   ngOnInit() {
-    console.log(`ngOnInit`);
-  }
-
-  ngAfterViewInit() {
-    console.log(`ngAfterViewInit`);
-  }
-
-  ngAfterContentInit() {
-    console.log(`ngAfterContentInit`);
-  }
-
-  ngOnChanges() {
-    console.log(`ngOnChanges`);
-  }
-
-  ngDoCheck() {
-    //great article on writing custom logic when things change
-    //http://teropa.info/blog/2016/03/06/writing-an-angular-2-template-directive.html
-    console.log(`ngDoCheck`);
-  }
-
-  ngAfterContentChecked() {
-    console.log(`ngAfterContentChecked`);
-  }
-
-  ngAfterViewChecked() {
-    console.log(`ngAfterViewChecked---`);
+    console.log('%cOnInit', 'color:yellow');
   }
 
   ngOnDestroy() {
-    console.log(`ngOnDestroy`);
+    console.log('%cOnDestroy', 'color:purple');
+  }
+
+  ngDoCheck() {
+    console.log('%cDoCheck', 'color:pink');
+  }
+
+  ngOnChanges() {
+    console.log('%cOnChanges', 'color:lime');
+  }
+
+  // this is used for <ng-content>
+  ngAfterContentInit() {
+    console.log('%cAfterContentInit', 'color:red');
+  }
+
+  ngAfterContentChecked() {
+    console.log('%cAfterContentChecked', 'color:blue');
+  }
+
+  // this is used for viewChild /viewChildren
+  ngAfterViewInit() {
+    console.log('%cAfterViewInit', 'color:orange');
+  }
+
+  ngAfterViewChecked() {
+    console.log('%cAfterViewChecked', 'color:green');
   }
 }
+
 
 
 @Component({
   selector: 'my-app',
   template: `
-  <h4>Basic - Check the Console for LifeCycle Hooks</h4>
+  <p class="path">src/app/lifecycle/basic-overview/index.ts</p>
+  <h4>Basic <pre>Check the Console for LifeCycle Hooks</pre></h4>
+  <pre>great article on writing custom logic when things change <a href="http://teropa.info/blog/2016/03/06/writing-an-angular-2-template-directive.html">template-directive</a></pre>
   <input [(ngModel)]="appMessage">
+  
   <my-component [message]="appMessage">
-    This is content: {{appMessage}}
+    This is content is transposed using &lt;ng-content&gt;: {{appMessage}}
   </my-component>
   `,
 })

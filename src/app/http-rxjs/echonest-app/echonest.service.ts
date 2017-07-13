@@ -1,30 +1,55 @@
 import {Injectable} from "@angular/core";
 import {Artist, EchonestRepo} from "./echonest.repo";
-import {BehaviorSubject} from "rxjs/BehaviorSubject";
+import {BehaviorSubject, Observable} from "rxjs";
 
 
 @Injectable()
 export class EchonestService {
-  public artists$: BehaviorSubject<Artist[]> = new BehaviorSubject([]);
-  private artists: Artist[];
+  private favourites: Artist[] = [];
+  private artists: Artist[] = [];
+  private artists$: BehaviorSubject<Artist[]> = new BehaviorSubject(this.artists);
+  private favourites$: BehaviorSubject<Artist[]> = new BehaviorSubject(this.favourites);
+
 
   constructor(private repo: EchonestRepo) {
   }
 
+  getArtists(): Observable<Artist[]> {
+    return this.artists$.asObservable();
+  }
+
+  getFavourites(): Observable<Artist[]> {
+    return this.favourites$.asObservable();
+  }
+
   onArtistSelected(artist: Artist) {
-    this.artists = this.artists
-      .map((a: Artist) => {
-        a.id === artist.id && (a.favourited = !artist.favourited);
-        return a;
-      });
+    artist = {...artist};
+    this.artists = this.artists.map((a: Artist) => {
+      if (a.id === artist.id) {
+        artist.favourited = !artist.favourited;
+        return artist;
+      }
+      return a;
+    });
+    this.favourites = this.favourites.filter((a: Artist) => a.id !== artist.id);
+    if (artist.favourited) {
+      this.favourites.push(artist);
+    }
     this.artists$.next(this.artists);
+    this.favourites$.next(this.favourites);
   }
 
   fetchArtists(num: number): void {
     this.repo
       .get(num)
       .subscribe((artists: Artist[]) => {
-        this.artists = artists;
+        const ids = this.favourites.map((a: Artist) => a.id);
+        this.artists = artists.map((a: Artist) => {
+          if (ids.includes(a.id)) {
+            a.favourited = true;
+          }
+          return a;
+        });
         this.artists$.next(this.artists);
       })
   }

@@ -19,15 +19,14 @@ import {LoggerService} from "../logger.service";
         </peek-a-boo>
     
         <h4>-- Lifecycle Hook Log --</h4>
-<pre>
-    The logging in the view seems to be a little out of sync with the contents of the log. 
-    see the console. This is because we explicity call this._logger.tick(), which triggers
-    a timeout, which in turn triggers the change detection to run. 
-    Every time the change detection runs these lifecycle methods are run;
-    DoCheck(), AfterContentChecked(), AfterViewChecked(), which are added to the logger output.
-    
-</pre>
-        
+        <p>
+            The logging in the view seems to be a little out of sync with the contents of the log. 
+            see the console. This is because we explicity call this._logger.tick(), which triggers
+            a timeout, which in turn triggers the change detection to run. 
+        </p>
+        <p>
+          Every time the change detection runs these lifecycle methods are run;
+          DoCheck(), AfterContentChecked(), AfterViewChecked(), which are added to the logger output.</p>
         <div *ngFor="let msg of hookLog">{{msg}}</div>
       </div>
   `

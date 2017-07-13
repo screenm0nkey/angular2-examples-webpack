@@ -56,7 +56,8 @@ export class MyComponent {
   template: `
   <p class="path">src/app/lifecycle/basic-overview/index.ts</p>
   <h4>Basic <pre>Check the Console for LifeCycle Hooks</pre></h4>
-  <pre>great article on writing custom logic when things change <a href="http://teropa.info/blog/2016/03/06/writing-an-angular-2-template-directive.html">template-directive</a></pre>
+  <pre>great article on writing custom logic when things change 
+  <a href="http://teropa.info/blog/2016/03/06/writing-an-angular-2-template-directive.html">Writing A Structural Directive in Angular 2</a></pre>
   <input [(ngModel)]="appMessage">
   
   <my-component [message]="appMessage">

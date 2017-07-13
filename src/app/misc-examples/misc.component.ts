@@ -16,6 +16,7 @@ import {Component} from "@angular/core";
         <a routerLink="./accordian" routerLinkActive="active">Transclusion 2</a>
         <a routerLink="./change-detection" routerLinkActive="active">Change Detection</a>
         <a routerLink="./change2" routerLinkActive="active">Change Detection and Immutable Model</a>
+        <a routerLink="/httprx/echonest-app">Change Detection in Echonest</a>
         <a routerLink="./focus-input" routerLinkActive="active">Focus an Input @ViewChild</a>
         <a routerLink="./ngzone" routerLinkActive="active">NgZone & NgStyle</a>
         <a routerLink="./rookie-mistakes" routerLinkActive="active">@ContentChildren and ngContent</a>

@@ -1,4 +1,4 @@
-import {Component, DoCheck, EventEmitter, Input, IterableDiffers, KeyValueDiffers} from "@angular/core";
+import {Component, DoCheck, EventEmitter, Input, IterableDiffers, IterableDiffer, KeyValueDiffers, KeyValueDiffer} from "@angular/core";
 
 
 @Component({
@@ -8,7 +8,9 @@ import {Component, DoCheck, EventEmitter, Input, IterableDiffers, KeyValueDiffer
   <div style="background-color: #8a6d3b; display: table; border-radius: 5px; border:solid 5px saddlebrown">
     <div class="event">
       <div class="content">
-        <div class="user" style="float: left">{{comment.author}} posted "<i>{{comment.comment}}</i>"</div>
+        <div class="user" style="float: left">{{comment.author}} posted "<i>{{comment.comment}}</i>" [{{comment.likes}} Likes
+        
+        ]</div>
         <div class="meta">
           <button class="pull-left" (click)="remove()">
            Remove
@@ -16,9 +18,7 @@ import {Component, DoCheck, EventEmitter, Input, IterableDiffers, KeyValueDiffer
           <button class="pull-left" (click)="clear()">
             Clear post
           </button>
-          <div class="pull-left" (click)="like()">
-            {{comment.likes}} Likes
-          </div>
+      
         </div>
       </div>
     </div>
@@ -28,7 +28,7 @@ import {Component, DoCheck, EventEmitter, Input, IterableDiffers, KeyValueDiffer
 export class DoCheckItem implements DoCheck {
   @Input('comment') comment: any;
   onRemove: EventEmitter<any>;
-  differ: any;
+  private differ: KeyValueDiffer<string, any>;
 
   constructor(differs: KeyValueDiffers) {
     this.differ = differs.find([]).create(null);
@@ -77,7 +77,11 @@ export class DoCheckItem implements DoCheck {
     <p class="path">src/app/lifecycle/miscellaneous/lifecycle_03.ts</p>
     <h4>ngDoCheck and IterableDiffers, KeyValueDiffers</h4>
     <p>on every system event i.e. click, timeout etc ngDoCheck is called and the component is checked, which is quite a lot</p>
-    <p>Use IterableDiffers on Arrays and KeyValueDiffers on Maps</p>
+    <p>Use<strong>IterableDiffers on Arrays and KeyValueDiffers on Maps</strong></p>
+    <p>
+      It’s important to note that the <strong>ngOnChanges() hook gets overriden by ngDoCheck()</strong> 
+      so if we implement both, OnChanges will be ignored.
+    </p>
     
     <do-check-item 
       *ngFor="let comment of comments" 
@@ -91,7 +95,7 @@ export class DoCheckCmp implements DoCheck {
   comments: any[];
   authors: string[];
   texts: string[];
-  differ: any;
+  differ: IterableDiffer<any>;
 
   constructor(differs: IterableDiffers) {
     this.differ = differs.find([]).create(null);

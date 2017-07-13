@@ -1,7 +1,7 @@
-import {Component, Injectable, Input} from "@angular/core";
-import {Observable} from "rxjs/Observable";
-import {EchonestService} from "./echonest.service"
+import {Component} from "@angular/core";
+import {EchonestService} from "./echonest.service";
 import {Artist} from "./echonest.repo";
+import {Observable} from "rxjs";
 
 
 @Component({
@@ -13,6 +13,8 @@ import {Artist} from "./echonest.repo";
   template: `
         <p class="path">src/app/http-rxjs/echonest-app/echonest-app.ts</p>
         <h4>A not particularly well written RxJs Mini App</h4>
+        <a routerLink="/misc/change-detection/">See change-detection example</a>
+        <br>
         <span style="color: red;">Need to run the www/server for this</span>
         <header>
             Top 100 
@@ -32,24 +34,21 @@ import {Artist} from "./echonest.repo";
           </div>
           <div style="float: right">
             <artist-component 
-              *ngFor="let artist of favourites" 
+              *ngFor="let artist of favourites$ | async" 
               [type]="'favourite'"
-              [artist]="artist">
+              [artist]="artist"
+              (select)="service.onArtistSelected($event)">
              </artist-component>
           </div>
         </div>
-        
     `
 })
 export class EchonestAppComponent {
   private artists$: Observable<Artist[]>;
-  private favourites: Artist[];
+  private favourites$: Observable<Artist[]>;
 
-  constructor(private service:EchonestService){
-    this.artists$ = service.artists$;
-    this.artists$.subscribe((artists:Artist[])=>{
-      this.favourites = artists.filter((artist:Artist)=>artist.favourited)
-    });
+  constructor(private service: EchonestService) {
+    this.artists$ = service.getArtists();
+    this.favourites$ = service.getFavourites();
   }
-
 }

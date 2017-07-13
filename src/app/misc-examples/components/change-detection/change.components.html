@@ -1,4 +1,6 @@
 <section class="main">
+  <hr>
+  <p class="file">src/app/misc-examples/components/change-detection/change.components.ts</p>
   <h4>CHANGE DETECTION</h4>
   <a href="http://blog.thoughtram.io/angular/2016/02/22/angular-2-change-detection-explained.html" target="_blank">Thoughtram
     Change Detection Explained</a>
@@ -9,40 +11,40 @@
     Immutability vs Encapsulation
   </a>
 
-  <pre>
-Somewhere in Angular’s source code,there’s this thing called <strong>ApplicationRef</strong>,
-  which listens to NgZones onTurnDone event. Whenever this event is fired, it executes a tick()
-function which essentially performs change detection.
-</pre>
+  <p>
+    Somewhere in Angular’s source code,there’s this thing called <strong>ApplicationRef</strong>,
+    which listens to NgZones onTurnDone event. Whenever this event is fired, it executes a tick()
+    function which essentially performs change detection.
+  </p>
 
   <p>
     In Angular 2, components can subscribe to the <strong>onChanges</strong> lifecycle hook,
     which will be called when any of the @inputs properties change. this doesn't happen if
     changeDetection.OnPush is set. Only when the @input reference changes does it get called.
-    This is the case for immutability
+    This is the case for immutability.
   </p>
 
-  <pre><strong>changeDetection: ChangeDetectionStrategy.OnPush</strong></pre>
-
-  <pre>
-What's interesting below is if you type into the "Local Ref"
-input, which is using a local variable reference and not
-ngModel, the change detection isn't triggered. It only works
-on the ngModel.
-</pre>
+  <p><strong>changeDetection: ChangeDetectionStrategy.OnPush</strong></p>
 
   <p>
-    Try changing the <strong>ChangeDetectionStrategy from the
-    TodoListComponent from Push to Default</strong> and then type into the first input ( the one using ng-model) and you
-    will see
+    What's interesting below is if you type into the "Local Ref"
+    input, which is using a local variable reference and not
+    ngModel, the change detection isn't triggered. It only works
+    on the ngModel.
+  </p>
+
+  <p>
+    Try changing the <strong>ChangeDetectionStrategy on the TodoListComponent from Push to Default</strong> and then
+    type into the first input ( the one using ng-model) and you will see
     in the console the component's text property is called on every event.
   </p>
-  <p>Local template variables using #reference <i>(press return to add item)</i></p>
+  <p>Local template variables using #reference <i style="color: red; font-weight: bold">(press return to add item)</i></p>
 </section>
 
 
 <input type="text" [(ngModel)]="todoStr" (keyup.enter)="addItem(todoStr)" placeholder="ngModel">
 <button (click)="addItem(todoStr)">{{todoItem ? 'Update' : 'Add'}}</button>
+
 <input type="text" #inputty (keyup.enter)="addItem(inputty.value); inputty.value=''" placeholder="Local Ref">
 <todolist-component [store]="store" (editme)="setTodoItem($event)"></todolist-component>
 

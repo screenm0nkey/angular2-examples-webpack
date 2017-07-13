@@ -9,6 +9,7 @@ export interface Artist {
   id: string;
   name: string;
   favourited: boolean;
+  sid : number;
 }
 
 export interface ITunesResponse {

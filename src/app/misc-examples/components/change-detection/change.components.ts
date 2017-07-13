@@ -1,9 +1,10 @@
-import {Component, ChangeDetectionStrategy, Input, EventEmitter, OnInit, Output} from "@angular/core";
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
 
 var count = 0;
 
 export class TodoItem {
   _text: String;
+
   get text() {
     console.log(`${++count} getting value for text "${this._text}"`);
     return this._text;
@@ -21,7 +22,7 @@ export class TodoItem {
 
 
 export class TodoStore {
-  items: TodoItem[] = [];
+  private items: TodoItem[] = [];
 
   addItem(newItem: TodoItem) {
     // we are mutating the array
@@ -76,6 +77,8 @@ export class TodoListComponent {
   @Input() store;
   @Output() editme: EventEmitter<any> = new EventEmitter();
 }
+
+
 
 
 /* MAIN COMPONENT */

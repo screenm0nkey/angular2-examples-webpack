@@ -7,7 +7,8 @@ import "rxjs/add/operator/switchMap";
 import "rxjs/add/operator/debounceTime";
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/combineLatest";
-import {EchonestService, Artist} from "./echonest.service";
+import {EchonestService} from "../echonest-app/echonest.service";
+import {Artist} from "../echonest-app/echonest.repo";
 
 
 /*

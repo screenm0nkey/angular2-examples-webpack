@@ -1,4 +1,4 @@
-import {Component, NgZone, DoCheck} from "@angular/core";
+import {Component, DoCheck, NgZone} from "@angular/core";
 
 @Component({
   selector: 'ng-zone-demo',
@@ -6,7 +6,7 @@ import {Component, NgZone, DoCheck} from "@angular/core";
     <h4>Demo: NgZone (watch console log)</h4>
     <a href="http://blog.thoughtram.io/angular/2016/02/01/zones-in-angular-2.html" target="_blank">Zones in Angular 2</a>
     
-<pre>NgZone comes with an API runOutsideAngular() which performs a
+<p>NgZone comes with an API runOutsideAngular() which performs a
 given task outside NgZone’s parent zone, which does not emit an "onTurnDone"
 event, hence no change detection is performed. To demonstrate this useful
 feature, let’s take look at the following code:
@@ -15,7 +15,7 @@ ngDoCheck() is called every time the component is checked.
 a component is checked every time change detection occurs, which is triggered 
 every time an angular event happens i.e click, settimeout, http etc.
 
-Running processes outside of the Angular zone stops ngDoCheck() being called.</pre>
+Running processes outside of the Angular zone stops ngDoCheck() being called.</p>
     
     <p>Progress: {{progress}}%</p>
     <p *ngIf="progress >= 100">Done processing {{label}} of Angular zone!</p>
@@ -35,7 +35,7 @@ export class NgZoneDemo implements DoCheck {
   // a component is checked every time change detection occurs
   // which is triggered every time an event an angular event happens.
   ngDoCheck() {
-    console.log(`ngDoCheck ${this.progress}%`);
+    // console.log(`ngDoCheck ${this.progress}%`);
   }
 
   // Loop inside the Angular zone

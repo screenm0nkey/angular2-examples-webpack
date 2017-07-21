@@ -26,7 +26,7 @@ export class OnChangeCmp2 implements OnChanges {
 @Component({
   selector: 'lifecycle-sample-app-2',
   template: `
-  <p class="path">src/app/lifecycle/miscellaneous/lifecycle_02</p>
+  <p class="path">/lifecycle/miscellaneous/lifecycle_02</p>
   <h4>ngOnChanges and the SimpleChange object</h4>
   <p>
     It’s important to note that the <strong>ngOnChanges()</strong> hook gets overriden by <strong>ngDoCheck()</strong> 

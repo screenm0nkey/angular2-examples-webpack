@@ -23,14 +23,13 @@ export class EchonestService {
   }
 
   onArtistSelected(artist: Artist) {
-    artist = {...artist};
-    this.artists = this.artists.map((a: Artist) => {
-      if (a.id === artist.id) {
-        artist.favourited = !artist.favourited;
-        return artist;
-      }
-      return a;
-    });
+    artist.favourited = !artist.favourited;
+    const index = this.artists.indexOf(artist);
+    this.artists = [
+      ...this.artists.slice(0, index),
+      artist = {...artist},
+      ...this.artists.slice(index + 1)
+    ];
     this.favourites = this.favourites.filter((a: Artist) => a.id !== artist.id);
     if (artist.favourited) {
       this.favourites.push(artist);

@@ -1,17 +1,16 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
 
-var count = 0;
 
 export class TodoItem {
   _text: String;
 
   get text() {
-    console.log(`${++count} getting value for text "${this._text}"`);
+    console.log(`%cgetting value for text "${this._text}"`, 'color:green');
     return this._text;
   }
 
   set text(value) {
-    console.log(`${++count} setting value for text "${this._text}"`);
+    console.log(`%csetting value for text "${this._text}"`, 'color:orange');
     this._text = value;
   }
 
@@ -24,14 +23,13 @@ export class TodoItem {
 export class TodoStore {
   private items: TodoItem[] = [];
 
+  // we are mutating the array
   addItem(newItem: TodoItem) {
-    // we are mutating the array
     this.items.push(newItem);
   }
 
   updateItem(item: TodoItem, todoStr: string): void {
     const index = this.items.indexOf(item);
-
     this.items = [
       ...this.items.slice(0, index),
       new TodoItem(todoStr),
@@ -57,7 +55,7 @@ export class TodoItemComponent implements OnInit {
   @Output() editme: EventEmitter<any> = new EventEmitter();
 
   ngOnInit() {
-    console.log(this.item.text, this);
+    console.log(`%cNew ToDoItem`,'color:pink', this.item.text);
   }
 }
 
@@ -84,7 +82,23 @@ export class TodoListComponent {
 /* MAIN COMPONENT */
 @Component({
   selector: 'change-component',
-  templateUrl: 'change.components.html',
+  template: `
+    ${require('./change.components.html')}
+    <input 
+      type="text" 
+      [(ngModel)]="todoStr" 
+      (keyup.enter)="addItem(todoStr)" 
+      placeholder="ngModel">
+
+    <input 
+      #inputty 
+      type="text" 
+      (keyup.enter)="addItem(inputty.value); 
+      inputty.value=''" 
+      placeholder="Local Ref">
+      
+    <todolist-component [store]="store" (editme)="setTodoItem($event)"></todolist-component>
+  `,
 })
 export class ChangeComponent {
   todoStr: String;

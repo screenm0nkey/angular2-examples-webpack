@@ -43,11 +43,12 @@ export class ChildObsList {
   selector: 'parent-obs',
   providers: [ThreadsService],
   template: `
-    <div>
+      <p class="file">/misc-examples/components/change-detection/observables.components.ts</p>
       <h4>ChangeDetectionStrategy.OnPush with Observables and how to turn off ChangeDetection</h4>
+      <a href="http://blog.angular-university.io/how-does-angular-2-change-detection-really-work/" target="_blank">Link to article</a>
+      
       <p *ngIf="off">
         <strong>Change detection turned off for this component</strong>
-        <a href="http://blog.angular-university.io/how-does-angular-2-change-detection-really-work/" target="_blank">Link to article</a>
       </p>
       <p>
         Even though the view is "OnPush" the view will still update as it's using observables
@@ -60,7 +61,6 @@ export class ChildObsList {
       <button *ngIf="!off" (click)="turnOffChangeDetection()">Turn Off Change Detection</button>
       <button *ngIf="off" (click)="turnOnChangeDetection()">Turn On Change Detection</button>
       <child-obs-list></child-obs-list>
-    </div>
   `
 })
 export class ParentChangeObs {

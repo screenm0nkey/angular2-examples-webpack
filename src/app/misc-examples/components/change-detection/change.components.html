@@ -1,7 +1,9 @@
 <section class="main">
-  <hr>
-  <p class="file">src/app/misc-examples/components/change-detection/change.components.ts</p>
+  <p class="file">/misc-examples/components/change-detection/change.components.ts</p>
   <h4>CHANGE DETECTION</h4>
+
+  <a href="http://blog.angular-university.io/how-does-angular-2-change-detection-really-work/" target="_blank">How does
+    Angular Change Detection Really Work ?</a>
   <a href="http://blog.thoughtram.io/angular/2016/02/22/angular-2-change-detection-explained.html" target="_blank">Thoughtram
     Change Detection Explained</a>
   <a href="http://victorsavkin.com/post/110170125256/change-detection-in-angular-2" target="_blank">Victor Savin Change
@@ -10,6 +12,13 @@
   <a href="http://victorsavkin.com/post/133936129316/angular-immutability-and-encapsulation" target="_blank">
     Immutability vs Encapsulation
   </a>
+
+  <h5><strong>Each Angular component has an associated change detector, which is created at application startup
+    time</strong></h5>
+
+  <h5><strong>OnPush does not check only for changes in the component inputs:
+    if a component emits an event that will also trigger change detection.
+  </strong></h5>
 
   <p>
     Somewhere in Angular’s source code,there’s this thing called <strong>ApplicationRef</strong>,
@@ -27,10 +36,10 @@
   <p><strong>changeDetection: ChangeDetectionStrategy.OnPush</strong></p>
 
   <p>
-    What's interesting below is if you type into the "Local Ref"
-    input, which is using a local variable reference and not
-    ngModel, the change detection isn't triggered. It only works
-    on the ngModel.
+    <i>What's interesting below is if you set the change detection to default and type into the "Local Ref"
+      input, which is using a local variable reference and not
+      ngModel, the change detection isn't triggered. It only works
+      on the ngModel <span style="color: red;">(change ChangeDetectionStrategy to default to see it)</span></i>
   </p>
 
   <p>
@@ -38,14 +47,10 @@
     type into the first input ( the one using ng-model) and you will see
     in the console the component's text property is called on every event.
   </p>
-  <p>Local template variables using #reference <i style="color: red; font-weight: bold">(press return to add item)</i></p>
+  <h5 style="color: red; margin: 0;">You need to watch the console for this examaple</h5>
+  <p>Local template variables using #reference
+    <i style="color: red; font-weight: bold">(press return to add item)</i></p>
 </section>
 
-
-<input type="text" [(ngModel)]="todoStr" (keyup.enter)="addItem(todoStr)" placeholder="ngModel">
-<button (click)="addItem(todoStr)">{{todoItem ? 'Update' : 'Add'}}</button>
-
-<input type="text" #inputty (keyup.enter)="addItem(inputty.value); inputty.value=''" placeholder="Local Ref">
-<todolist-component [store]="store" (editme)="setTodoItem($event)"></todolist-component>
 
 

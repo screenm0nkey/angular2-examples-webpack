@@ -40,7 +40,7 @@ import {Observable} from "rxjs/Observable";
         }
     </style>  
     <div>    
-        <p class="path">src/app/http-rxjs/john-linquist/wikipedia-john-linquist.ts</p>
+        <p class="path">/http-rxjs/john-linquist/wikipedia-john-linquist.ts</p>
         <h4>John Linquist Wiki Image Search</h4>
         <a href="http://plnkr.co/edit/NXT6JPgr7QoR4SEYva7N?p=preview" target="_blank">Original Plunk</a>
         <input type="text" (input)="input$.next($event)"><span style="color: red">{{(searchTerm$ | async)}}</span>

@@ -73,7 +73,7 @@ export class AftersCmp implements OnInit, OnDestroy, DoCheck, OnChanges, AfterCo
 @Component({
   selector: 'lifecycle-sample-app-4',
   template: `
-  <p class="path">src/app/lifecycle/miscellaneous/lifecycle_04</p>
+  <p class="path">/lifecycle/miscellaneous/lifecycle_04</p>
   <h4>AfterContentInit, AfterViewInit, AfterContentChecked and AfterViewChecked</h4>
   <a href="http://teropa.info/blog/2016/03/06/writing-an-angular-2-template-directive.html">Writing A Structural Directive Using Differs</a>
   <p>See the Console. It displays all the life cycle events</p>

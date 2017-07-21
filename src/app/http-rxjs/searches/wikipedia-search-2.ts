@@ -38,7 +38,7 @@ class WikipediaService {
   template: `
     <div>
       <hr>
-      <p class="path">src/app/http-rxjs/searches/wikipedia-search-2.ts</p>
+      <p class="path">/http-rxjs/searches/wikipedia-search-2.ts</p>
       <h4>Using the formControl.valueChanges Observable and JSONP</h4>
       Search <input type="text" [formControl]="term" placeholder="Wikipedia Search"/>
       <ul>

@@ -11,7 +11,7 @@ import {Observable} from "rxjs";
     EchonestService,
   ],
   template: `
-        <p class="path">src/app/http-rxjs/echonest-app/echonest-app.ts</p>
+        <p class="path">/http-rxjs/echonest-app/echonest-app.ts</p>
         <h4>A not particularly well written RxJs Mini App</h4>
         <a routerLink="/misc/change-detection/">See change-detection example</a>
         <br>

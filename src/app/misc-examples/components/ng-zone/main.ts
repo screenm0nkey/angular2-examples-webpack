@@ -5,7 +5,7 @@ import {Component} from "@angular/core";
   template: `
       <ng-zone-demo></ng-zone-demo>
       <hr>
-      <ng-style-demo></ng-style-demo>
+      <jordi-example></jordi-example>
     `,
 })
 export class NgZoneMainComponent {

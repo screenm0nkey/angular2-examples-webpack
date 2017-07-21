@@ -14,12 +14,11 @@ export class ObservableCmp {
   @Input() items: Observable<number>;
   counter = 0;
 
-  constructor(private changeDetector: ChangeDetectorRef) {
-  }
+  constructor(private changeDetector: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.items.subscribe((v) => {
-      console.log('got value', v);
+      console.log('%cGot observable value '+v, 'color:violet');
       this.counter++;
       if (this.counter % 5 == 0) {
         this.changeDetector.markForCheck();
@@ -33,6 +32,7 @@ export class ObservableCmp {
 @Component({
   selector: 'observable-change-detection-sample-app',
   template: `
+  <p class="file">/misc-examples/components/change-detection/observables.ts</p>
   <h4>Change detection using Observable</h4>
   <observable [items]="itemObservable"></observable>
   `
@@ -43,7 +43,7 @@ export class ObservableChangeDetectionSampleApp {
   constructor() {
     const delay = 100;
     const repeatMs = 200;
-    this.itemObservable = Observable.timer(delay, repeatMs).take(20);
+    this.itemObservable = Observable.timer(delay, repeatMs).take(5);
   }
 }
 

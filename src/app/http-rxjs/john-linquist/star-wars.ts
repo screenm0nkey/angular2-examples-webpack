@@ -26,7 +26,7 @@ import "rxjs/add/operator/startWith";
     }
   `],
   template: `
-      <span class="path">src/app/http-rxjs/john-linquist/star-wars.ts</span>
+      <span class="path">/http-rxjs/john-linquist/star-wars.ts</span>
       <h4>Search for a Star Wars character (supports regex)</h4>
       <input (keyup)="input$.next($event)">
       <h3>{{(people$ | async)?.length}} results</h3>

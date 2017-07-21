@@ -50,7 +50,7 @@ export class NgBookYoutubeSearch implements OnInit {
   selector: 'ngbook-youtube-example',
   template: `
         <div class="search-results" style="padding-bottom:10px">
-          <p class="path">src/app/http-rxjs/searches/youtube-ng2-book.ts</p>
+          <p class="path">/http-rxjs/searches/youtube-ng2-book.ts</p>
             <h4>NG2-Book YouTube search example:</h4>
             <youtube-search
                 (loading)="loading = $event"

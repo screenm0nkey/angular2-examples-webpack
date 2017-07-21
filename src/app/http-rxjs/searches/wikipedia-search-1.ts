@@ -32,7 +32,7 @@ class WikipediaService {
   providers: [WikipediaService],
   template: `
     <div>
-    <p class="path">src/app/http-rxjs/searches/wikipedia-search-1.ts</p>
+    <p class="path">/http-rxjs/searches/wikipedia-search-1.ts</p>
       <h4>Examples using promises, observables and async pipe and a loader</h4>
       <p>
       <a href="http://blog.thoughtram.io/angular/2016/01/06/taking-advantage-of-observables-in-angular2.html" target="_blank">

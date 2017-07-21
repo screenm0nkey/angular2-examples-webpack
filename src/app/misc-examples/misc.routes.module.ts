@@ -9,10 +9,10 @@ import {CustomersComponent, CustomerDetailComponent} from "./components/customer
 import {FocusInput} from "./components/focusing-input/focusing.module";
 import {HostBindingComponent} from "./components/host-binding/hosting.module";
 import {DirectivesLinquistMain} from "./components/directives-linquist/directives.module";
-import {ImmutableMain} from "./components/immutable/immutable.module";
 import {DepInjectionApp} from "./components/dependency-injection/main.module";
 import {MainInputBindingApp} from "./components/input-binding/inputbinding.module";
 import {MultiTransclusion} from "./components/multi-content/multicontent.module";
+import {NgStyleMainComponent} from "./components/ng-style/ngstyle.module";
 import {NgZoneMainComponent} from "./components/ng-zone/ngzone.module";
 import {AppComponent} from "./components/notifications/notifications.module";
 import {SocketApp} from "./components/socket-io/socket-component";
@@ -38,10 +38,10 @@ const formsRoutes: Routes = [
           {path: 'focus-input', component: FocusInput},
           {path: 'hostbinding', component: HostBindingComponent},
           {path: 'directives', component: DirectivesLinquistMain},
-          {path: 'change2', component: ImmutableMain},
           {path: 'input-binding', component: MainInputBindingApp},
           {path: 'emitter', component: MultiTransclusion},
           {path: 'ngzone', component: NgZoneMainComponent},
+          {path: 'ngstyle', component: NgStyleMainComponent},
           {path: 'notifications', component: AppComponent},
           {path: 'socket-io', component: SocketApp},
           {path: 'templates', component: TemplateComponent},

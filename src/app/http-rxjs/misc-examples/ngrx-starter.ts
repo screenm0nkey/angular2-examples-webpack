@@ -22,7 +22,7 @@ export const wordsReducer: ActionReducer<string> = (state = words[0], action: Ac
   selector: 'ngrx-stater-app',
   template: `
     <hr>
-    <p class="path">src/app/http-rxjs/misc-examples/ngrx-starter.ts</p>
+    <p class="path">/http-rxjs/misc-examples/ngrx-starter.ts</p>
     <h4>Basic NgRx example</h4>
     
     <a href="http://plnkr.co/edit/avLMS3m0VNMXSfUhT7K9?p=preview" target="_blank">Orinial Plunk</a>

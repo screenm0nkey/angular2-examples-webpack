@@ -11,7 +11,9 @@ export class MyService {
 @Component({
   selector: 'resolve-create-service',
   template: `
+  <p class="file">misc-examples/components/dependency-injection/resolve-create-service.ts</p>
   <h4>Injecting a Service using ReflectiveInjector.resolveAndCreate</h4>
+  
   <button (click)="invokeService()">Click here to inject a token</button>
   <p>Look at console</p>
   `

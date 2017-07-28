@@ -11,11 +11,12 @@ import {Component} from "@angular/core";
         <a routerLink="./input-binding" routerLinkActive="active">Component Communication @Inputs @Outputs</a>
         <a routerLink="./hostbinding" routerLinkActive="active">@HostListener  @HostBinding</a>
         <a routerLink="./directives" routerLinkActive="active">Directives with John Linquist</a>
-        <a routerLink="./templates" routerLinkActive="active">Templates</a>
+        <a routerLink="./templates" routerLinkActive="active">Templates (*ngBookIf, *ngBookFor)</a>
         <a routerLink="./emitter" routerLinkActive="active">Transclusion 1</a>
         <a routerLink="./accordian" routerLinkActive="active">Transclusion 2</a>
-        <a routerLink="./ngzone" routerLinkActive="active">Change Detection and the NgZone</a>
         <a routerLink="./change-detection" routerLinkActive="active">Change Detection</a>
+        <a routerLink="./ngzone" routerLinkActive="active">The NgZone</a>
+        <a routerLink="./speedyapp" routerLinkActive="active">How to Speed up an App</a>
         <a routerLink="/httprx/echonest-app">Change Detection in Echonest</a>
         <a routerLink="./focus-input" routerLinkActive="active">Focus an Input @ViewChild</a>
         <a routerLink="./ngstyle" routerLinkActive="active">NgStyle</a>

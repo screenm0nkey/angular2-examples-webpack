@@ -1,18 +1,18 @@
-body {
+body * {
   padding: 0px;
   font-family: "Avenir";
+  line-height: normal;
 }
 
 p {
   font-family: "Avenir";
   font-size: 12px;
-  text-align: justify;
-  padding-right: 20%;
+  padding-right: 20px;
 }
 
 a {
   font-style: italic;
-  color: white;
+  color: #fbff73;
   text-decoration: none;
   background-color: #ce0271;
   padding: 0px 7px 1px;
@@ -78,10 +78,43 @@ h4:first-child {
   margin: 8px 0;
 }
 
-strong {
+h5 {
+  font-size: 13px;
+  background-color: #464861;
+  padding: 1px 10px;
+  border-radius: 4px;
+  color: white;
+  font-weight: lighter;
+  margin: 5px 0;
+  display: table;
+}
+h5:before {
+  content: "\2022";
+  width: 10px;
+  color: red;
+  margin-right: 10px;
+}
+
+ul.bullets {
+  background-color: #a0a0a0;
+  padding: 5px 5px 5px 0;
+}
+
+ul.bullets li {
+  font-size: 13px;
+  background-color: #464861;
+  padding: 1px 10px;
+  border-radius: 4px;
+  color: white;
+  font-weight: lighter;
+  margin: 5px 0 5px 18px;
+}
+
+strong, p.strong {
   color: black;
   background: orange;
   padding: 0 2px;
+  font-weight:normal;
 }
 
 button {
@@ -224,6 +257,11 @@ section.main {
   padding-right: 3px;
 }
 
+.red {
+  color: #e02828;
+  font-weight: bold;
+}
+
 .ng-dirty.ng-invalid {
   border: 1px red solid
 }
@@ -234,9 +272,6 @@ section.main {
 
 .miscellaneous {
   display: flex;
-  background-color: #efefef;
-  border: solid #ccc;
-  border-radius: 7px;
   height: 100%;
 }
 
@@ -246,6 +281,23 @@ section.main {
   padding-left:5px;
   margin-top:65px;
   margin-left:200px;
+}
+
+div.comps > * {
+  display: block;
+  padding: 5px;
+  margin: 0 10px 20px 0;
+}
+div.comps > *:nth-child(odd) {
+  background-color: #cacaca;
+}
+div.comps > *:nth-child(even) {
+  background-color: #c5c5da;
+}
+div.comp:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 

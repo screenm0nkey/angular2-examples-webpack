@@ -3,11 +3,11 @@ import {Component} from "@angular/core";
 @Component({
   selector: 'tracks-main-component',
   template: `
+    <div class="comps">  
       <scroll-bottom></scroll-bottom>
-      <hr>
       <next-input></next-input>
-      <hr>
       <typewriter></typewriter>
+    </div> 
 	`,
 })
 export class TricksMainComponent {

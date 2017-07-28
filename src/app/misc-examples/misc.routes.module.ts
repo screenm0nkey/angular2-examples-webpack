@@ -14,6 +14,7 @@ import {MainInputBindingApp} from "./components/input-binding/inputbinding.modul
 import {MultiTransclusion} from "./components/multi-content/multicontent.module";
 import {NgStyleMainComponent} from "./components/ng-style/ngstyle.module";
 import {NgZoneMainComponent} from "./components/ng-zone/ngzone.module";
+import {SpeedyMainComponent} from "./components/speeding-up-app/speedy.module";
 import {AppComponent} from "./components/notifications/notifications.module";
 import {SocketApp} from "./components/socket-io/socket-component";
 import {MainChildrenApp} from "./components/view-children/childviews.module";
@@ -40,6 +41,7 @@ const formsRoutes: Routes = [
           {path: 'directives', component: DirectivesLinquistMain},
           {path: 'input-binding', component: MainInputBindingApp},
           {path: 'emitter', component: MultiTransclusion},
+          {path: 'speedyapp', component: SpeedyMainComponent},
           {path: 'ngzone', component: NgZoneMainComponent},
           {path: 'ngstyle', component: NgStyleMainComponent},
           {path: 'notifications', component: AppComponent},

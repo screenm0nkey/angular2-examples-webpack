@@ -15,7 +15,7 @@ import {Observable} from "rxjs";
         <h4>A not particularly well written RxJs Mini App</h4>
         <a routerLink="/misc/change-detection/">See change-detection example</a>
         <br>
-        <span style="color: red;">Need to run the www/server for this</span>
+        <span class="red">Need to run the www/server for this</span>
         <header>
             Top 100 
             <dropdown-component 

@@ -1,5 +1,4 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component} from "@angular/core";
-
+import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component} from "@angular/core";
 
 
 @Component({
@@ -18,6 +17,12 @@ import {ChangeDetectionStrategy, ChangeDetectorRef, Component} from "@angular/co
       Then reattach the ref and start the interval. You can then see what happening.
     </p>
     
+    <p class="strong">
+    We only want to detach the change detectors after change detection has been performed for the first time,
+    otherwise we won’t see any text in the buttons.
+    To call detach() we can take advantage of Angular’s AfterViewInit life cycle hook.
+    </p>
+    
     <button (click)="startStopInterval()">{{start ? 'Stop' : 'Start'}} Interval</button>
     Number of ticks: {{numberOfTicks}}
     
@@ -26,14 +31,22 @@ import {ChangeDetectionStrategy, ChangeDetectorRef, Component} from "@angular/co
      <button (click)="detectChanges()">Manually detect changes</button>
   `
 })
-export class DetectChanges {
+export class DetectChanges implements AfterViewInit {
   start: boolean = false;
   numberOfTicks = 0;
   id: any = 0;
   attached: boolean;
 
   constructor(private ref: ChangeDetectorRef) {
-    ref.detach();
+  }
+
+  /**
+   * We only want to detach the change detectors after change detection has been performed for the first time,
+   * otherwise we won’t see any text in the buttons.
+   * To call detach() we can take advantage of Angular’s AfterViewInit life cycle hook.
+   */
+  ngAfterViewInit() {
+    this.ref.detach();
   }
 
   ngDoCheck() {
@@ -50,7 +63,7 @@ export class DetectChanges {
     }
   }
 
-  detachRef(){
+  detachRef() {
     this.attached = !this.attached;
     if (this.attached) {
       this.ref.detach();

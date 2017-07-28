@@ -1,4 +1,4 @@
-import {Component, Directive, ElementRef, ViewContainerRef, TemplateRef} from "@angular/core";
+import {Component, Directive, ElementRef, TemplateRef, ViewContainerRef} from "@angular/core";
 
 @Directive({
   selector: '[ngBookIf]',
@@ -26,11 +26,12 @@ export class NgBookIf {
 @Component({
   selector: 'if-template',
   template: `
+  <p class="file">misc-examples/components/templates/simple-ng-if.component.ts</p>
   <h4>Custom *ngBookIf template</h4>
-<pre>The view container is used to attach one or more views to the directive.
-the * before the *ngBookIf converts it into a template. it's short hand. 
-see <a routerLink="../directives">A Structural Directive</a> 
-</pre>
+  <p>The view container is used to attach one or more views to the directive.
+    the * before the *ngBookIf converts it into a template. it's short hand. 
+  see <a routerLink="../directives">A Structural Directive</a> 
+  </p>
   <button class="ui primary button" (click)="toggle()">
     Toggle
   </button>

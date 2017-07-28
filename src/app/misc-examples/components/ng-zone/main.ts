@@ -1,11 +1,10 @@
 import {Component} from "@angular/core";
 
 @Component({
-  selector: 'ngzone-main-component',
   template: `
+    <div class="comps">
       <ng-zone-demo></ng-zone-demo>
-      <hr>
-      <jordi-example></jordi-example>
+     <div>
     `,
 })
 export class NgZoneMainComponent {

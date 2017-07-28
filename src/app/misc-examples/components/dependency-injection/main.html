@@ -1,106 +1,107 @@
-<inject-component></inject-component>
+<div class="comps">
+  <section>
+    <inject-component></inject-component>
+    <a href="http://blog.angular-university.io/angular2-ngmodule/" class="block" target="_blank">
+      Angular 2 NgModule Intro - Ahead Of Time Compilation And Lazy Loading - Avoid Common Pitfalls
+    </a>
+    <a target="_blank" href="http://blog.thoughtram.io/angular/2015/05/18/dependency-injection-in-angular-2.html">
+      Dependency Injection
+    </a>
+  </section>
 
-<a href="http://blog.angular-university.io/angular2-ngmodule/" class="block" target="_blank">
-  Angular 2 NgModule Intro - Ahead Of Time Compilation And Lazy Loading - Avoid Common Pitfalls
-</a>
+  <resolve-create-service></resolve-create-service>
 
-<a target="_blank" href="http://blog.thoughtram.io/angular/2015/05/18/dependency-injection-in-angular-2.html">
-  Dependency Injection
-</a>
+  <resolve-create-factory></resolve-create-factory>
 
+  <section>
+    <p class="file">/misc-examples/components/inject/main.html</p>
+    <p>
+      Every component comes with its own injector. <br>
+      <a target="_blank" href="http://blog.thoughtram.io/angular/2016/09/14/bypassing-providers-in-angular-2.html"
+         class="block">
+        BYPASSINGPROVIDERS IN ANGULAR 2
+      </a>
+      <a href="http://blog.angular-university.io/angular2-ngmodule/" class="block">
+        Angular 2 NgModule Intro - Ahead Of Time Compilation And Lazy Loading - Avoid Common Pitfalls
+      </a>
+      If we provide services in a module they will be globally available as <strong>all modules use the root
+      injector</strong>.
+      This is NOT the case with Lazy loaded modules.
+      <a
+        href="http://stackoverflow.com/questions/39828246/angular-2-how-to-isolate-service-provider-in-a-feature-module"
+        target="_blank" class="block">
+        Angular 2 how to isolate service provider in a feature module
+      </a>
+    </p>
 
-<resolve-create-service></resolve-create-service>
-<hr>
-<resolve-create-factory></resolve-create-factory>
-<hr>
+    <p>
+      This is NOT the case with Lazy loaded modules. Essentially lazy loading could trigger
+      certain bugs related to services overriding each other in the global context
+      that are hard to reproduce due to accidental overwrites of injectables.
+      In order to avoid this Angular 2 will do when lazy loading a module is that
+      it will create a child dependency injection context. This Home DI context will
+      contain the service, but this service will not be visible to the rest of the application.
+    </p>
 
-<p>
-  <i>/misc-examples/components/inject/main.html</i><br>
-  Every component comes with its own injector. <br>
-  <a target="_blank" href="http://blog.thoughtram.io/angular/2016/09/14/bypassing-providers-in-angular-2.html"
-     class="block">
-    BYPASSINGPROVIDERS IN ANGULAR 2
-  </a>
-  <a href="http://blog.angular-university.io/angular2-ngmodule/" class="block">
-    Angular 2 NgModule Intro - Ahead Of Time Compilation And Lazy Loading - Avoid Common Pitfalls
-  </a>
-  If we provide services in a module they will be globally available as <strong>all modules use the root
-  injector</strong>.
-  This is NOT the case with Lazy loaded modules.
-  <a href="http://stackoverflow.com/questions/39828246/angular-2-how-to-isolate-service-provider-in-a-feature-module"
-     target="_blank" class="block">
-    Angular 2 how to isolate service provider in a feature module
-  </a>
-</p>
+    <p>
+      When a module is loaded at application launch, its @NgModule.providers have application-wide scope.
+      They are available for injection throughout the application. Load the module lazily if you can.
+      Angular gives a lazy-loaded module its own child injector. The module's providers are visible only
+      within the component tree created with this injector. If you must load the module eagerly, when the
+      application starts, provide the service in a component instead.
+    </p>
 
-<p>
-  This is NOT the case with Lazy loaded modules. Essentially lazy loading could trigger
-  certain bugs related to services overriding each other in the global context
-  that are hard to reproduce due to accidental overwrites of injectables.
-  In order to avoid this Angular 2 will do when lazy loading a module is that
-  it will create a child dependency injection context. This Home DI context will
-  contain the service, but this service will not be visible to the rest of the application.
-</p>
+    <p>
+      When a module is loaded at application launch, its @NgModule.providers have application-wide scope.
+      They are available for injection throughout the application. Load the module lazily if you can.
+      Angular gives a lazy-loaded module its own child injector. The module's providers are visible only
+      within the component tree created with this injector. If you must load the module eagerly, when the
+      application starts, provide the service in a component instead.
+    </p>
 
-<p>
-  When a module is loaded at application launch, its @NgModule.providers have application-wide scope.
-  They are available for injection throughout the application. Load the module lazily if you can.
-  Angular gives a lazy-loaded module its own child injector. The module's providers are visible only
-  within the component tree created with this injector. If you must load the module eagerly, when the
-  application starts, provide the service in a component instead.
-</p>
+    <p>
+      The DI in Angular 2 basically consists of three things:
+      <strong>Injector</strong> - The injector object that exposes APIs to us to create instances of dependencies.
+      <strong>Provider</strong> - A provider is like a recipe that tells the injector how
+      to create an instance of a dependency. A provider takes a token and maps
+      that to a factory function that creates an object.
+      <strong>Dependency</strong> - A dependency is the type of which an object should be created.
 
-<p>
-  When a module is loaded at application launch, its @NgModule.providers have application-wide scope.
-  They are available for injection throughout the application. Load the module lazily if you can.
-  Angular gives a lazy-loaded module its own child injector. The module's providers are visible only
-  within the component tree created with this injector. If you must load the module eagerly, when the
-  application starts, provide the service in a component instead.
-</p>
+      We get a service from a dependency injector by giving it a token.
+    </p>
 
-<p>
-  The DI in Angular 2 basically consists of three things:
-  <strong>Injector</strong> - The injector object that exposes APIs to us to create instances of dependencies.
-  <strong>Provider</strong> - A provider is like a recipe that tells the injector how
-  to create an instance of a dependency. A provider takes a token and maps
-  that to a factory function that creates an object.
-  <strong>Dependency</strong> - A dependency is the type of which an object should be created.
+    <pre>
+    <strong>constructor(logger: LoggerService) &#123;
+      logger.logInfo('Creating HeroBiosComponent');
+    &#125;</strong>
+    </pre>
 
-  We get a service from a dependency injector by giving it a token.
-</p>
+    <p>In the case above Angular asks the injector for the service associated
+      with the token called "LoggerService" and assigns the returned value
+      to the logger parameter.</p>
 
-<pre>
-<strong>constructor(logger: LoggerService) &#123;
-  logger.logInfo('Creating HeroBiosComponent');
-&#125;</strong>
-</pre>
+    <p>A provider is a recipe for delivering a service associated with a
+      token (see below for what a token is).</p>
 
+    <p>If the injector doesn't have a provider for the requested token, it delegates
+      the request to its parent injector, where the process repeats until there are
+      no more injectors.</p>
 
-<p>In the case above Angular asks the injector for the service associated
-  with the token called "LoggerService" and assigns the returned value
-  to the logger parameter.</p>
+    <p>A new injector has no providers. Each component has it's own injector or child-injector</p>
 
-<p>A provider is a recipe for delivering a service associated with a
-  token (see below for what a token is).</p>
+    <p>The simple class provider is the most typical by far.</p>
 
-<p>If the injector doesn't have a provider for the requested token, it delegates
-  the request to its parent injector, where the process repeats until there are
-  no more injectors.</p>
+    <pre><strong>&#123; provide: LoggerService, useClass: DateLoggerService &#125;
+    The “LoggerService” is the token, the “DateLoggerService” is the definition object
+    </strong></pre>
 
-<p>A new injector has no providers. Each component has it's own injector or child-injector</p>
+    <p>The provide object literal above takes a token and a definition object.
+      The token is usually a class but it doesn't have to be.</p>
 
-<p>The simple class provider is the most typical by far.</p>
+    <p>Set the useValue property to a fixed value that the provider can return as the dependency object.</p>
 
-<pre><strong>&#123; provide: LoggerService, useClass: DateLoggerService &#125;
-The “LoggerService” is the token, the “DateLoggerService” is the definition object
-</strong></pre>
-
-<p>The provide object literal above takes a token and a definition object.
-  The token is usually a class but it doesn't have to be.</p>
-
-<p>Set the useValue property to a fixed value that the provider can return as the dependency object.</p>
-
-<p>Use this technique to provide runtime configuration constants such as web-site
-  base addresses and feature flags. We often use a value provider in a unit test
-  to replace a production service with a fake or mock.</p>
-
+    <p>Use this technique to provide runtime configuration constants such as web-site
+      base addresses and feature flags. We often use a value provider in a unit test
+      to replace a production service with a fake or mock.</p>
+  </section>
+</div>

@@ -17,6 +17,7 @@ import {InputBindingModule} from "./components/input-binding/inputbinding.module
 import {MultiContentModule} from "./components/multi-content/multicontent.module";
 import {NgStyleModule} from "./components/ng-style/ngstyle.module";
 import {NgZoneModule} from "./components/ng-zone/ngzone.module";
+import {SpeedyModule} from "./components/speeding-up-app/speedy.module";
 import {NotifcationModule} from "./components/notifications/notifications.module";
 import {SocketApp} from "./components/socket-io/socket-component";
 import {TemplatesModule} from "./components/templates/templates.module";
@@ -39,6 +40,7 @@ import {TemplatesModule} from "./components/templates/templates.module";
     MultiContentModule,
     NgStyleModule,
     NgZoneModule,
+    SpeedyModule,
     NotifcationModule,
     TemplatesModule,
     DirectivesLinquistModule

@@ -4,7 +4,9 @@ import {ApiService, ViewPortService} from "./services/more-services";
 @Component({
   selector: 'resolve-create-factory',
   template: `
+  <p class="file">misc-examples/components/dependency-injection/resolve-create-factory.ts</p>
   <h4>Injecting a Service using ReflectiveInjector.resolveAndCreate</h4>
+  
   <button (click)="invokeApi()">Invoke API</button>
   <button (click)="useInjectors()">Use Injectors</button>
   <p>Look at console</p>

@@ -20,6 +20,7 @@ import {SocketApp} from "./components/socket-io/socket-component";
 import {MainChildrenApp} from "./components/view-children/childviews.module";
 import {TricksMainComponent} from "./components/tricks/tricks.module";
 import {TemplateComponent} from "./components/templates/templates.module";
+import {ChangeAfterComponent} from "./components/changed-after-check/main.module";
 
 const formsRoutes: Routes = [
   {
@@ -32,6 +33,7 @@ const formsRoutes: Routes = [
           {path: '', component: DepInjectionApp},
           {path: 'accordian', component: AccordianComponent},
           {path: 'chickens', component: ChickensComponent},
+          {path: 'change-after-check', component: ChangeAfterComponent},
           {path: 'change-detection', component: ChangeDetectionMain},
           {path: 'rookie-mistakes', component: RookieComponent},
           {path: 'customers', component: CustomersComponent},

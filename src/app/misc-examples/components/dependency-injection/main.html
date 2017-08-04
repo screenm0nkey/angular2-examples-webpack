@@ -9,13 +9,15 @@
     </a>
   </section>
 
+  <inject-parent-component></inject-parent-component>
+
   <resolve-create-service></resolve-create-service>
 
   <resolve-create-factory></resolve-create-factory>
 
   <section>
     <p class="file">/misc-examples/components/inject/main.html</p>
-    <p>
+    <p class="links">
       Every component comes with its own injector. <br>
       <a target="_blank" href="http://blog.thoughtram.io/angular/2016/09/14/bypassing-providers-in-angular-2.html"
          class="block">
@@ -24,9 +26,6 @@
       <a href="http://blog.angular-university.io/angular2-ngmodule/" class="block">
         Angular 2 NgModule Intro - Ahead Of Time Compilation And Lazy Loading - Avoid Common Pitfalls
       </a>
-      If we provide services in a module they will be globally available as <strong>all modules use the root
-      injector</strong>.
-      This is NOT the case with Lazy loaded modules.
       <a
         href="http://stackoverflow.com/questions/39828246/angular-2-how-to-isolate-service-provider-in-a-feature-module"
         target="_blank" class="block">
@@ -35,7 +34,9 @@
     </p>
 
     <p>
-      This is NOT the case with Lazy loaded modules. Essentially lazy loading could trigger
+      If we provide services in a module they will be globally available as <strong>all modules use the root
+      injector. This is NOT the case with Lazy loaded modules.</strong>
+      Essentially lazy loading could trigger
       certain bugs related to services overriding each other in the global context
       that are hard to reproduce due to accidental overwrites of injectables.
       In order to avoid this Angular 2 will do when lazy loading a module is that
@@ -60,21 +61,21 @@
     </p>
 
     <p>
-      The DI in Angular 2 basically consists of three things:
-      <strong>Injector</strong> - The injector object that exposes APIs to us to create instances of dependencies.
-      <strong>Provider</strong> - A provider is like a recipe that tells the injector how
+      The DI in Angular 2 basically consists of three things:<br>
+      <span class="red">Injector</span> - The injector object that exposes APIs to us to create instances of
+      dependencies.<br>
+      <span class="red">Provider</span> - A provider is like a recipe that tells the injector how
       to create an instance of a dependency. A provider takes a token and maps
-      that to a factory function that creates an object.
-      <strong>Dependency</strong> - A dependency is the type of which an object should be created.
+      that to a factory function that creates an object.<br>
+      <span class="red">Dependency</span> - A dependency is the type of which an object should be created.
 
       We get a service from a dependency injector by giving it a token.
     </p>
 
-    <pre>
-    <strong>constructor(logger: LoggerService) &#123;
+    <code>constructor(logger: LoggerService) &#123;
       logger.logInfo('Creating HeroBiosComponent');
-    &#125;</strong>
-    </pre>
+      &#125;
+    </code>
 
     <p>In the case above Angular asks the injector for the service associated
       with the token called "LoggerService" and assigns the returned value
@@ -91,10 +92,9 @@
 
     <p>The simple class provider is the most typical by far.</p>
 
-    <pre><strong>&#123; provide: LoggerService, useClass: DateLoggerService &#125;
-    The “LoggerService” is the token, the “DateLoggerService” is the definition object
-    </strong></pre>
-
+    <code>&#123; provide: LoggerService, useClass: DateLoggerService &#125;
+    </code>
+    <p>The “LoggerService” is the token, the “DateLoggerService” is the definition object</p>
     <p>The provide object literal above takes a token and a definition object.
       The token is usually a class but it doesn't have to be.</p>
 

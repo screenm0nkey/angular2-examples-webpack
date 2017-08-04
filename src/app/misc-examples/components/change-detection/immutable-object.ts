@@ -27,10 +27,10 @@ export class TestComponentObject implements OnChanges, DoCheck {
     <p class="path">/misc-examples/components/immutable/immutable-object.ts</p>
     <h4>Immutable Objects</h4>
     
-    <p>
+    <p class="stong">
       Angular will still run change detection on an OnPush component
-      when any of its <strong>input properties changes, when it fires an event, or when an observable fires an
-      event.</strong>
+      when any of its input properties changes, when it fires an event, or when an observable fires an
+      event.
     </p>
     
     <p>

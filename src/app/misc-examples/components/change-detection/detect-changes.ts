@@ -8,11 +8,19 @@ import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component} fr
     <p class="path">/misc-examples/components/immutable/detect-changes.ts</p>
     <h4>this.ref.detectChanges()</h4>
     <a href="https://stackoverflow.com/questions/41364386/whats-the-difference-between-markforcheck-and-detectchanges" target="_blank">detectChanges vs markForCheck</a>
+    <a href="https://blog.thoughtram.io/angular/2017/02/02/making-your-angular-app-fast.html" target="_blank">Making your angular app fast</a>
+    <a routerLink="../speedyapp">Speeding up app</a>
     
-    <p>ngDoCheck will get called even if the changeDetector is detached</p>
+    <p>On push will stop the component's view bindings from being checked. 
+    It doesn’t prevent Angular from checking the components themselves, to see if the inputs have changed.
+    But turning of the components change detection stops the component and view from being checked.
+    </p>
+    
+    <p class="strong">ngDoCheck will get called even if the changeDetector is detached</p>
     
     <p>
-      The Buttons are missing the text becuause the text is interpolated and the ref is detached. <br>
+      the change detector detachment needs to be in <code>ngAfterInit()</code> unless none of the interpolated text will display 
+      in the view when it loads.<br>
       Try clicking the "Manually detect button" and the buttons will update.
       Then reattach the ref and start the interval. You can then see what happening.
     </p>
@@ -20,7 +28,7 @@ import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component} fr
     <p class="strong">
     We only want to detach the change detectors after change detection has been performed for the first time,
     otherwise we won’t see any text in the buttons.
-    To call detach() we can take advantage of Angular’s AfterViewInit life cycle hook.
+    To call <code>detach()</code> we can take advantage of Angular’s AfterViewInit life cycle hook.
     </p>
     
     <button (click)="startStopInterval()">{{start ? 'Stop' : 'Start'}} Interval</button>
@@ -44,6 +52,7 @@ export class DetectChanges implements AfterViewInit {
    * We only want to detach the change detectors after change detection has been performed for the first time,
    * otherwise we won’t see any text in the buttons.
    * To call detach() we can take advantage of Angular’s AfterViewInit life cycle hook.
+   * https://hackernoon.com/everything-you-need-to-know-about-the-expressionchangedafterithasbeencheckederror-error-e3fd9ce7dbb4
    */
   ngAfterViewInit() {
     this.ref.detach();

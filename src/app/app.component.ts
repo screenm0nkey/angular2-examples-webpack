@@ -7,7 +7,7 @@ import {
 @Component({
   selector: 'main-app',
   template: `
-     <nav>
+     <nav class="main">
       <a routerLink="/forms" routerLinkActive="active">Forms</a>
       <a routerLink="/seed" routerLinkActive="active">Seed</a>
       <a routerLink="/misc" routerLinkActive="active">Misc Examples</a>

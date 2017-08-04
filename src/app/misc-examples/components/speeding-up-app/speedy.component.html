@@ -3,8 +3,9 @@
   <h4>How to Speed Up an Application</h4>
 
   <ul class="bullets">
-    <li>ChangeDetectionStrategy.OnPush - Use Angular’s OnPush change detection strategy to save view bindings per change
-      detection task. This can only be used on components which have a @inputs.
+    <li>ChangeDetectionStrategy.OnPush - Use Angular’s OnPush change detection strategy to save view bindings being
+      checked per change
+      detection task. This can only be used on components which have a <code>@inputs</code>.
     </li>
     <li>“Simple” NgFor - Angular’s NgFor directive is sometimes a little bit too smart. A simpler version of it could be
       faster
@@ -12,6 +13,6 @@
     <li>Detach change detectors - Another option is to detach all change detectors from the tree and only perform change
       detection for the components that is actually changing
     </li>
-    <li>Use the ngZone</li>
+    <li>Avoid using the ngZone using runOutsideAngular()</li>
   </ul>
 </div>

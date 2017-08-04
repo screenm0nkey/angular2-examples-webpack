@@ -1,13 +1,13 @@
 import {
+  ChangeDetectorRef,
   Component,
   Directive,
-  ChangeDetectorRef,
-  ViewRef,
-  ViewContainerRef,
-  TemplateRef,
   DoCheck,
+  IterableDiffer,
   IterableDiffers,
-  IterableDiffer
+  TemplateRef,
+  ViewContainerRef,
+  ViewRef
 } from "@angular/core";
 
 @Directive({
@@ -64,9 +64,9 @@ In template that is generated, we’re going to have a local view variable <stro
 that will receive the value from the <strong>$implicit</strong> local variable. 
 That’s the name of the local variable that Angular uses when “de-sugaring” the syntax into a template.
 </p>
-<pre><strong>&lt;li *ngBookRepeat="let peep of people"&gt;</strong>
+<pre>&lt;li *ngBookRepeat="let peep of people"&gt;</pre>
 gets converted to
-<strong>&lt;template ngBookRepeat [ngBookRepeatOf]="people" let-peep="$implicit"&gt;</strong></pre>
+<pre>&lt;template ngBookRepeat [ngBookRepeatOf]="people" let-peep="$implicit"&gt</pre>
   <i>here in the code where we set the $implicit value to the change.item. change.item will equal peep.</i>
 <pre>
 let view = this.viewContainer.createEmbeddedView(this.template, &#123;'$implicit': change.item&#125;);

@@ -25,6 +25,7 @@ import {Component} from "@angular/core";
         <a routerLink="./socket-io" routerLinkActive="active">Socket-io and @Input getters/setters</a>
         <a routerLink="./view-children" routerLinkActive="active">@ViewChildren @ViewChild</a>
         <a routerLink="./tricks" routerLinkActive="active">Tricks</a>
+        <a routerLink="./change-after-check" routerLinkActive="active">ExpressionChangedAfterItHasBeenCheckedError</a>
       </nav>
       <div id="container">
         <router-outlet></router-outlet>

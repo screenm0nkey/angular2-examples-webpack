@@ -14,9 +14,9 @@ import {Component} from "@angular/core";
         
         <detect-changes></detect-changes>
         
-        <parent-obs></parent-obs>
-        
         <change-detection-sample-app></change-detection-sample-app>
+        
+        <parent-obs></parent-obs>
         
         <observable-change-detection-sample-app></observable-change-detection-sample-app>
       </div>

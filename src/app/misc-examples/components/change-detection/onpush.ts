@@ -1,10 +1,9 @@
-import {Component, Input, ChangeDetectionStrategy} from "@angular/core";
+import {ChangeDetectionStrategy, Component, Input} from "@angular/core";
 
 
 class Profile {
   constructor(private first: string, private last: string) {
   }
-
   lastChanged() {
     return new Date();
   }
@@ -13,7 +12,7 @@ class Profile {
 @Component({
   selector: 'default',
   template: `
-  <h5 class="ui horizontal divider header">
+  <h5>
     Default Strategy
   </h5>
 
@@ -36,12 +35,17 @@ class Profile {
     </div>
   </form>
   <div>
+    View checked {{count}} times <br>
     {{profile.lastChanged() | date:'medium'}}
   </div>
   `
 })
 export class DefaultCmp {
   @Input() profile: Profile;
+  count: number = 0;
+  ngDoCheck(){
+    this.count++;
+  }
 }
 
 
@@ -49,7 +53,7 @@ export class DefaultCmp {
   selector: 'on-push',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-  <h5 class="ui horizontal divider header">
+  <h5>
     OnPush Strategy
   </h5>
 
@@ -72,12 +76,17 @@ export class DefaultCmp {
     </div>
   </form>
   <div>
+    View checked {{count}} times <br>
     {{profile.lastChanged() | date:'medium'}}
   </div>
   `
 })
 export class OnPushCmp {
   @Input() profile: Profile;
+  count: number = 0;
+  ngDoCheck(){
+    this.count++;
+  }
 }
 
 @Component({

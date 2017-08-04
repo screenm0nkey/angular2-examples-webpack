@@ -21,6 +21,7 @@ import {SpeedyModule} from "./components/speeding-up-app/speedy.module";
 import {NotifcationModule} from "./components/notifications/notifications.module";
 import {SocketApp} from "./components/socket-io/socket-component";
 import {TemplatesModule} from "./components/templates/templates.module";
+import {ChangedAfterModule} from "./components/changed-after-check/main.module";
 
 @NgModule({
   imports: [
@@ -43,7 +44,8 @@ import {TemplatesModule} from "./components/templates/templates.module";
     SpeedyModule,
     NotifcationModule,
     TemplatesModule,
-    DirectivesLinquistModule
+    DirectivesLinquistModule,
+    ChangedAfterModule
   ],
   exports: [SharedModule],
   declarations: [

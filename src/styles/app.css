@@ -2,11 +2,17 @@ body * {
   padding: 0px;
   font-family: "Avenir";
   line-height: normal;
+  font-size: 13px;
+}
+code {
+  font-family: Courier;
+  background-color: cornsilk;
+  padding: 0 2px;
+  color: black;
 }
 
 p {
   font-family: "Avenir";
-  font-size: 12px;
   padding-right: 20px;
 }
 
@@ -17,13 +23,16 @@ a {
   background-color: #ce0271;
   padding: 0px 7px 1px;
   border-radius: 2px;
-  margin-bottom: 3px;
   font-size: 11px;
   display: inline-block;
-  margin-top: 6px;
+}
+
+.links>a, nav > a {
   box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.58);
   position: relative;
   left: 3px;
+  margin-right: 10px;
+  display: table;
 }
 
 a.block {
@@ -62,20 +71,47 @@ h4, h3 {
 }
 
 h4 {
-  background: rgba(90, 142, 8, 0.8);
+  background: rgb(125, 125, 134);
   display: table;
   padding: 3px 15px;
-  color: white;
+  color: #f0ff37;
   border-radius: 3px;
   font-weight: normal;
   font-size: 16px;
   box-shadow: 0px 6px 14px 1px rgba(0, 0, 0, 0.58);
   z-index: 2;
-  margin: 8px 0;
+  margin: -2px 0 8px 0;
+  font-family: Courier;
+}
+#container > ng-component > h4 {
+  background-color: green;
+  position: relative;
+  top: -8px;
 }
 
 h4:first-child {
   margin: 8px 0;
+}
+
+h4 pre {
+  font-family: Courier;
+  background-color: rgba(0, 0, 0, 0);
+  display: inline;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: 10px;
+  color: gold;
+  position: relative;
+  top: -2px;
+}
+
+h4 pre:before {
+  content: " (";
+}
+
+h4 pre:after {
+  content: ")";
 }
 
 h5 {
@@ -101,13 +137,13 @@ ul.bullets {
 }
 
 ul.bullets li {
-  font-size: 13px;
   background-color: #464861;
   padding: 1px 10px;
   border-radius: 4px;
   color: white;
   font-weight: lighter;
   margin: 5px 0 5px 18px;
+  display: table;
 }
 
 strong, p.strong {
@@ -127,7 +163,6 @@ button {
   border-radius: 4px;
   font-family: Arial;
   color: #ffffff;
-  font-size: 12px;
   padding: 3px 10px;
   text-decoration: none;
 }
@@ -160,7 +195,6 @@ hr:before {
 
 p.file, p.path{
   font-family: "Courier";
-  font-size: 12px;
   background: #ababab;
   margin: 0;
   border-radius: 2px;
@@ -172,10 +206,14 @@ p.file, p.path{
 
 nav {
   background-color: #466c94;
-  padding: 0 3px 3px;
+  padding: 7px 3px 3px;
   border-radius: 3px;
   position: fixed;
   z-index: 99;
+}
+nav.main {
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .miscellaneous nav {
@@ -190,17 +228,20 @@ nav {
   position: fixed;
 }
 
-nav a {
+nav > a {
+  max-width: 188px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 13px;
   display: inline-block;
   margin-right: 10px;
   background-color: #333;
   color: white;
   padding: 2px 10px;
   text-decoration: none;
-  font-size: 13px
 }
 
-nav a:visited {
+nav > a:visited {
   color: white
 }
 
@@ -218,28 +259,9 @@ nav a:hover {
   background-color: #666;
 }
 
-h4 pre {
-  background-color: rgba(0, 0, 0, 0);
-  display: inline;
-  border: none;
-  padding: 0;
-  margin: 0;
-  font-size: 10px;
-  color: gold;
-  position: relative;
-  top: -2px;
-}
-
-h4 pre:before {
-  content: " (";
-}
-
-h4 pre:after {
-  content: ")";
-}
 
 pre {
-  font-size: 12px;
+  font-family: Courier;
   line-height: 15px;
   padding: 5px 10px;
   margin: 0;
@@ -287,6 +309,7 @@ div.comps > * {
   display: block;
   padding: 5px;
   margin: 0 10px 20px 0;
+  border : solid 5px #c1c1c1;
 }
 div.comps > *:nth-child(odd) {
   background-color: #cacaca;
@@ -298,6 +321,12 @@ div.comp:after {
   content: "";
   display: table;
   clear: both;
+}
+div.comps a[routerLink] {
+  background-color: #52042e;
+}
+div.comps a[routerLink]:after {
+  content: " [int]";
 }
 
 

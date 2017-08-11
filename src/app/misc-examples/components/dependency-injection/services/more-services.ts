@@ -2,28 +2,31 @@ import {Injectable} from "@angular/core";
 
 @Injectable()
 export class SmallService {
-  run(): void {
+  run(): string {
     console.log('Small service...');
+    return 'Small service...';
   }
 }
 
 @Injectable()
 export class LargeService {
-  run(): void {
+  run(): string {
     console.log('Large service...');
+    return 'Large service...';
   }
 }
 
 @Injectable()
 export class ApiService {
-  get(): void {
-    console.log('Getting resource...');
+  run(): string {
+    console.log('API Service...');
+    return 'API service...';
   }
 }
 
 @Injectable()
 export class ViewPortService {
-  determineService(): any {
+  determineService(): SmallService | LargeService {
     let w: number = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
     if (w < 800) {
       return new SmallService();
@@ -31,18 +34,20 @@ export class ViewPortService {
     return new LargeService();
   }
 }
+
 @Injectable()
 export class MrTestyServiceOne {
   static counter : number = 0;
   constructor() {
-    console.log(1111, `Created an instance of MrTestyServiceOne ${++MrTestyServiceOne.counter}`);
+    console.log(`%cCreated an instance of MrTestyServiceOne ${++MrTestyServiceOne.counter}`, 'color:blue');
   }
 }
+
 @Injectable()
 export class MrTestyServiceTwo {
   static counter : number = 0;
   constructor() {
-    console.log(2222, `Created an instance of MrTestyServiceTwo ${++MrTestyServiceTwo.counter}`);
+    console.log(`%cCreated an instance of MrTestyServiceTwo ${++MrTestyServiceTwo.counter}`, 'color:lime');
   }
 }
 

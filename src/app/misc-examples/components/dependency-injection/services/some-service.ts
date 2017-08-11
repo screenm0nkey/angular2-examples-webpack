@@ -5,34 +5,23 @@ import {Injectable} from "@angular/core";
 @Injectable()
 export class SomeService {
   static counter : number = 0;
-  public count: number;
-
-  constructor() {
-    this.count = ++SomeService.counter;
-  }
-
   callMe(s: String) {
-    console.log(this.count, `SomeService instance id=${this.count}`, s);
+    console.log(`%cSomeService instance-id=${++SomeService.counter}`, 'color:green', s);
   }
 }
 
 @Injectable()
 export class EngineService {
   static counter : number = 0;
-  public count: number;
-
-  constructor() {
-    this.count = ++SomeService.counter;
-  }
   callMe(s: String) {
-    console.log(this.count, `EngineService instance id=${this.count}`, s);
+    console.log(`%cEngineService instance-id=${++SomeService.counter}`,'color:orange', s);
   }
 }
 
 @Injectable()
 export class ParamService {
   constructor(private phrase: string, num: number) {
-    console.log(333, 'ParamService is being created with phrase', phrase, num);
+    console.log('%cParamService is being created with phrase', 'color:violet', phrase, num);
   }
   getValue(): string {
     return this.phrase;

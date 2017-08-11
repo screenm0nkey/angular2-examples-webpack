@@ -9,6 +9,14 @@ code {
   background-color: cornsilk;
   padding: 0 2px;
   color: black;
+  display: table;
+  white-space: pre;
+  margin : 0 0 10px 0;
+}
+
+p > code {
+  display: inline-block;
+  margin: 0;
 }
 
 p {
@@ -131,6 +139,10 @@ h5:before {
   margin-right: 10px;
 }
 
+ul {
+  margin-left: 20px;
+}
+
 ul.bullets {
   background-color: #a0a0a0;
   padding: 5px 5px 5px 0;
@@ -149,8 +161,11 @@ ul.bullets li {
 strong, p.strong {
   color: black;
   background: orange;
-  padding: 0 2px;
-  font-weight:normal;
+  padding: 0 4px;
+  font-weight: bold;
+}
+p.strong {
+  display: table;
 }
 
 button {
@@ -324,9 +339,13 @@ div.comp:after {
 }
 div.comps a[routerLink] {
   background-color: #52042e;
+  font-size:13px;
 }
 div.comps a[routerLink]:after {
   content: " [int]";
+}
+div.comps a {
+  margin-bottom: 5px;
 }
 
 

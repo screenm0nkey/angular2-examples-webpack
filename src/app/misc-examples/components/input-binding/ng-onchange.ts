@@ -1,4 +1,5 @@
 import {Component, Input, OnChanges, SimpleChange} from "@angular/core";
+
 @Component({
   selector: 'version-child',
   template: `
@@ -14,11 +15,12 @@ export class VersionChildComponent implements OnChanges {
   @Input() minor: number;
   changeLog: string[] = [];
 
-  ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
+  ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
     let log: string[] = [];
+    console.log('%cngOnChanges', 'color:green', changes);
     for (let propName in changes) {
       let changedProp = changes[propName];
-      let from = JSON.stringify(changedProp.previousValue);
+      let from = JSON.stringify(changedProp.previousValue)||0;
       let to = JSON.stringify(changedProp.currentValue);
       log.push(`${propName} changed from ${from} to ${to}`);
     }
@@ -30,6 +32,8 @@ export class VersionChildComponent implements OnChanges {
 @Component({
   selector: 'version-parent',
   template: `
+    <p class="file">src/app/misc-examples/components/input-binding/ng-onchange.ts</p>
+    <h4>Using <code>ngOnChanges</code>, <code>@Input</code> and the SimpleChange object</h4>
     <button (click)="newMinor()">New minor version</button>
     <button (click)="newMajor()">New major version</button>
     <version-child [major]="major" [minor]="minor"></version-child>

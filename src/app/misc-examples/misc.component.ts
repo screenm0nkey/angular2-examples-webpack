@@ -8,8 +8,11 @@ import {Component} from "@angular/core";
         <a routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Dependency Injection and Modules</a>
         <a routerLink="./customers" routerLinkActive="active">Mini Customers App</a>
         <a routerLink="./chickens" routerLinkActive="active">BrowserDomAdapter, Directives and ForkJoin()</a>
-        <a routerLink="./input-binding" routerLinkActive="active">Component Communication @Inputs @Outputs</a>
+        <a routerLink="./input-binding" routerLinkActive="active">Component Communication</a>
         <a routerLink="./hostbinding" routerLinkActive="active">@HostListener  @HostBinding</a>
+        <a routerLink="./rookie-mistakes" routerLinkActive="active">@ContentChildren and ngContent</a>
+        <a routerLink="./view-children" routerLinkActive="active">@ViewChildren @ViewChild</a>
+        <a routerLink="./focus-input" routerLinkActive="active">Focus an Input @ViewChild</a>
         <a routerLink="./directives" routerLinkActive="active">Directives with John Linquist</a>
         <a routerLink="./templates" routerLinkActive="active">Templates (*ngBookIf, *ngBookFor)</a>
         <a routerLink="./emitter" routerLinkActive="active">Transclusion 1</a>
@@ -17,13 +20,9 @@ import {Component} from "@angular/core";
         <a routerLink="./change-detection" routerLinkActive="active">Change Detection</a>
         <a routerLink="./ngzone" routerLinkActive="active">The NgZone</a>
         <a routerLink="./speedyapp" routerLinkActive="active">How to Speed up an App</a>
-        <a routerLink="/httprx/echonest-app">Change Detection in Echonest</a>
-        <a routerLink="./focus-input" routerLinkActive="active">Focus an Input @ViewChild</a>
         <a routerLink="./ngstyle" routerLinkActive="active">NgStyle</a>
-        <a routerLink="./rookie-mistakes" routerLinkActive="active">@ContentChildren and ngContent</a>
         <a routerLink="./notifications" routerLinkActive="active">Notifications</a>
         <a routerLink="./socket-io" routerLinkActive="active">Socket-io and @Input getters/setters</a>
-        <a routerLink="./view-children" routerLinkActive="active">@ViewChildren @ViewChild</a>
         <a routerLink="./tricks" routerLinkActive="active">Tricks</a>
         <a routerLink="./change-after-check" routerLinkActive="active">ExpressionChangedAfterItHasBeenCheckedError</a>
       </nav>

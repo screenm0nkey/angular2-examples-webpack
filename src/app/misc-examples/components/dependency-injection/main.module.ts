@@ -31,10 +31,11 @@ import {InjectParentComponent,BComponent} from "./inject-parent-component";
     },
     ApiService,
     ViewPortService,
+    // useExisting https://blog.thoughtram.io/angular/2016/09/14/bypassing-providers-in-angular-2.html
     {provide: 'ApiServiceAlias', useExisting: ApiService},
     {
       provide: 'SizeService',
-      useFactory: (viewport: any) => {
+      useFactory: (viewport: ViewPortService) => {
         return viewport.determineService();
       },
       deps: [ViewPortService]

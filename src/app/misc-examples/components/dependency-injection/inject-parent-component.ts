@@ -6,10 +6,8 @@ import {Component, Input} from "@angular/core";
     <p class="file">misc-examples/components/dependency-injection/inject-parent-component.ts</p>
     <h4>Injecting a parent component into a child</h4>
     <p>
-      The example below was taken from <a href="https://hackernoon.com/everything-you-need-to-know-about-the-expressionchangedafterithasbeencheckederror-error-e3fd9ce7dbb4" target="_blank">here</a>. <br> 
-      It's supposed to produced a but it seems to work fine
+      The example below was taken from <a href="https://hackernoon.com/everything-you-need-to-know-about-the-expressionchangedafterithasbeencheckederror-error-e3fd9ce7dbb4" target="_blank">here</a>.
     </p>
-    
      <p>
       I'm the parent<br>
       {{text}}<br>
@@ -20,8 +18,11 @@ import {Component, Input} from "@angular/core";
 })
 export class InjectParentComponent {
   text: string = 'property binding using @Input';
-  name: string = 'property on parent'
+  name: string = 'property on parent';
 }
+
+
+
 
 @Component({
   selector: 'b-component',

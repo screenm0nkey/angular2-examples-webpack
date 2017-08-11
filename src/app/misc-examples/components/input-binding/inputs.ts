@@ -1,6 +1,5 @@
 import {Component, EventEmitter} from "@angular/core";
 
-
 class Product {
   sku: string;
   name: string;
@@ -21,7 +20,9 @@ class Product {
   }
 }
 
-
+/**
+ * ProductImage
+ */
 @Component({
   selector: 'product-image',
   inputs: ['product'],
@@ -31,14 +32,16 @@ export class ProductImage {
   product: Product;
 }
 
-
+/**
+ * ProductDepartment
+ */
 @Component({
   selector: 'product-department',
   inputs: ['product'],
   template: `
         <div class="product-department">
             <span *ngFor="let name of product.department; let i=index">
-            <a href="#">{{ name }}</a>
+            {{ name }}
             </span>
         </div>`
 })
@@ -46,7 +49,9 @@ export class ProductDepartment {
   product: Product;
 }
 
-
+/**
+ * PriceDisplay
+ */
 @Component({
   selector: 'price-display',
   inputs: ['price'],
@@ -56,13 +61,15 @@ export class PriceDisplay {
   price: number;
 }
 
-
+/**
+ * ProductRow
+ */
 @Component({
   selector: 'product-row',
   inputs: ['product'],
   outputs: ['pick'],
   template: `
-  <div class="product-row cf" (click)="clicked()">
+  <div class="product-row cf" (click)="clicked($event)">
     <product-image [product]="product"></product-image>
     <div class="product-info">
       <div class="product-sku">SKU #{{ product.sku }}</div>
@@ -75,47 +82,48 @@ export class PriceDisplay {
 })
 export class ProductRow {
   product: Product;
-  // (pick)='clicked(product)
-  pick: EventEmitter<any>;
-
-  constructor() {
-    this.pick = new EventEmitter();
-  }
-
-  clicked() {
+  pick: EventEmitter<any> = new EventEmitter(); // (pick)='clicked(product)
+  clicked(evt:MouseEvent) {
+    evt.preventDefault();
     this.pick.next(this.product);
   }
 }
 
-
+/**
+ * ProductsList
+ */
 @Component({
   selector: 'products-list',
   inputs: ['productList: products', 'name'],
-  outputs: ['stick'],
+  outputs: ['stick'], // stick is the name of the event the parent listens for
   template: `
         <div class="products-list" style="display: table">
-            <product-row *ngFor="let product of productList" [product]="product" (pick)='clicked(product)'></product-row>
+            <product-row 
+              *ngFor="let product of productList" 
+              [product]="product" 
+              (pick)='clicked(product)'>
+        </product-row>
         </div>
     `
 })
 export class ProductsList {
   productList: Array<Product>;
-  stick: EventEmitter<any>;
+  stick: EventEmitter<any> = new EventEmitter();
 
-  constructor() {
-    this.stick = new EventEmitter();
-  }
-
-  clicked(product) {
+  clicked(product: Product) {
     console.log(product);
     this.stick.next(product);
   }
 }
 
-
+/**
+ * InventoryApp
+ */
 @Component({
   selector: 'inventory-app',
   template: `
+    <p class="file">src/app/misc-examples/components/input-binding/inputs.ts</p>
+    <h4>Using different Inputs and Events</h4>
         <div class="inventory-app">
             <products-list [products]="products" (stick)="productClicked($event)">
             </products-list>

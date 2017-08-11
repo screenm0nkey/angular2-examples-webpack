@@ -35,7 +35,8 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
       this.seconds -= 1;
       if (this.seconds === 0) {
         this.message = 'Blast off!';
-      } else {
+      }
+      else {
         if (this.seconds < 0) {
           this.seconds = 10;
         } // reset
@@ -45,11 +46,13 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
   }
 }
 
+
+
 @Component({
   selector: 'countdown-parent-vc',
   template: `
-  <h4>Countdown to Liftoff (via ViewChild)</h4>
   <p class="path">misc-examples/components/view-children/view-child.ts</p>
+  <h4>Countdown to Liftoff (via ViewChild)</h4>
   <button (click)="start()">Start</button>
   <button (click)="stop()">Stop</button>
   <div class="seconds">{{ seconds() }}</div>
@@ -65,8 +68,7 @@ export class CountdownViewChildParentComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     // Redefine `seconds()` to get from the `CountdownTimerComponent.seconds` ...
-    // but wait a tick first to avoid one-time devMode
-    // unidirectional-data-flow-violation error
+    // but wait a tick first to avoid one-time devMode unidirectional-data-flow-violation error
     setTimeout(() => this.seconds = () => this.timerComponent.seconds, 0);
   }
 

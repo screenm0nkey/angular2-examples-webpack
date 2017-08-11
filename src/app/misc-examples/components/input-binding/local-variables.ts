@@ -1,4 +1,5 @@
 import {Component, OnDestroy, OnInit} from "@angular/core";
+
 @Component({
   selector: 'countdown-timer',
   template: '<p>{{message}}</p>'
@@ -49,10 +50,15 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
 @Component({
   selector: 'countdown-parent-lv',
   template: `
-  <h4>Countdown to Liftoff (via local variable)</h4>
+<p class="file">src/app/misc-examples/components/input-binding/local-variables.ts</p>
+  <h4>Access a child component from the parent using local variable</h4>
+  <p><a routerLink="/misc/view-children">@viewChild @viewChildren</a></p>
+  <code>&lt;countdown-timer #timer&gt;</code>
+  
   <button (click)="timer.start()">Start</button>
   <button (click)="timer.stop()">Stop</button>
   <div class="seconds">{{timer.seconds}}</div>
+  
   <countdown-timer #timer></countdown-timer>
   `,
 })

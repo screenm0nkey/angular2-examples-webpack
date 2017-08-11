@@ -1,4 +1,5 @@
-import {Component, Input, Output, EventEmitter} from "@angular/core";
+import {Component, EventEmitter, Input, Output} from "@angular/core";
+
 @Component({
   selector: 'toggle-button',
   styles: ['button.off { background : black; color : white;}'],
@@ -22,15 +23,16 @@ export class ToggleButton {
 @Component({
   selector: 'toggle-component',
   template: `
+  <p class="file">src/app/misc-examples/components/input-binding/toggle-button.ts</p>
     <h4>Two way binding on a custom event</h4>
-    
-    <p><a href="https://egghead.io/lessons/angular-2-angular-2-building-a-toggle-button-component">Building a toggle button</a></p>
+    <p><a href="https://egghead.io/lessons/angular-2-angular-2-building-a-toggle-button-component" target="_blank">Building a toggle button</a></p>
+    <p>
+      It covers using transclusion in Angular 2, setting up your own two-way binding, and making the button into a reusable component.
+    </p>
     <p>For two way custom event to work you have to suffix the event name with 'Change' i.e if the @input value is 'nick' then the @output becomes 'nickChange'</p>
-<pre>
-@Input() nick = true;
-@Output() nickChange = new EventEmitter();
-&lt;toggle-button [(nick)]="state"&gt;
-</pre>
+    <p>This code <code>&lt;toggle-button [(nick)]="state"&gt;</code> is passing the input binding "nick" into the child component and also listening for the "nick" event. 
+    <p class="strong">The event is is emitted from the child by appending the word "Change" to the end of the input binding name i.e "nick"+"Change" <code>this.nickChange.emit(value);</code></p>
+    
     <toggle-button [(nick)]="state">
      {{state ? 'On' : 'Off'}}
     </toggle-button>

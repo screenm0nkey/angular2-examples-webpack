@@ -1,34 +1,43 @@
-import {Component, Inject, ReflectiveInjector} from "@angular/core";
+import {Component, Inject, ReflectiveInjector, ViewChild, ElementRef} from "@angular/core";
 import {ApiService, ViewPortService} from "./services/more-services";
 
 @Component({
   selector: 'resolve-create-factory',
   template: `
   <p class="file">misc-examples/components/dependency-injection/resolve-create-factory.ts</p>
-  <h4>Injecting a Service using ReflectiveInjector.resolveAndCreate</h4>
+  <h4>Manually Injecting a Factory with Dependencies</h4>
+  <code>&#123;
+    provide: 'OtherSizeService',
+    useFactory: (viewport: any) => &#123;
+      return viewport.determineService();
+    &#125;,
+    deps: [ViewPortService]
+  &#125;</code>
   
   <button (click)="invokeApi()">Invoke API</button>
   <button (click)="useInjectors()">Use Injectors</button>
-  <p>Look at console</p>
+  <button (click)="useInjectors()">Use Injectors</button>
+  <p #reffy></p>
   `
 })
 export class DiSampleApp2 {
+  @ViewChild('reffy') el: ElementRef;
+
   constructor(private apiService: ApiService,
-              @Inject('ApiServiceAlias') private aliasService: ApiService,
+              @Inject('ApiServiceAlias') private aliasService: ApiService,//useExisting
               @Inject('SizeService') private sizeService: any) {
   }
 
   invokeApi(): void {
-    console.clear();
-    this.apiService.get();
-    this.aliasService.get();
-    this.sizeService.run();
+    this.addMessage(this.apiService.run());
+    this.addMessage(this.aliasService.run());//useExisting
+    this.addMessage(this.sizeService.run());
   }
 
   useInjectors(): void {
-    console.clear();
     let injector: any = ReflectiveInjector.resolveAndCreate([
-      ViewPortService, {
+      ViewPortService,
+      {
         provide: 'OtherSizeService',
         useFactory: (viewport: any) => {
           return viewport.determineService();
@@ -37,7 +46,11 @@ export class DiSampleApp2 {
       }
     ]);
     let sizeService: any = injector.get('OtherSizeService');
-    sizeService.run();
+    this.addMessage(sizeService.run());
+  }
+
+  addMessage(msg: string) {
+    this.el.nativeElement.innerHTML += `${msg}<br>`;
   }
 }
 

@@ -32,7 +32,7 @@ export class VersionChildComponent implements OnChanges {
 @Component({
   selector: 'version-parent',
   template: `
-    <p class="file">src/app/misc-examples/components/input-binding/ng-onchange.ts</p>
+    <p class="file">misc-examples/components/input-binding/ng-onchange.ts</p>
     <h4>Using <code>ngOnChanges</code>, <code>@Input</code> and the SimpleChange object</h4>
     <button (click)="newMinor()">New minor version</button>
     <button (click)="newMajor()">New major version</button>

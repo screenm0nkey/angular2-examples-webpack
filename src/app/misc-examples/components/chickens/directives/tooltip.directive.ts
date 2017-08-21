@@ -1,4 +1,4 @@
-import {Directive, ElementRef, Input} from "@angular/core";
+import {Directive, ElementRef, HostListener, Input} from "@angular/core";
 
 
 /**
@@ -8,8 +8,7 @@ import {Directive, ElementRef, Input} from "@angular/core";
   selector: '[myHighlight]',
   //inputs: ['tooltip'],
   host: {
-    '(mouseenter)': 'onMouseEnter()',
-    '(mouseleave)': 'onMouseLeave()'
+    '(mouseenter)': 'onMouseEnter()'
   }
 })
 export class Tooltip {
@@ -29,7 +28,8 @@ export class Tooltip {
   onMouseEnter() {
     this._highlight(this.highlightColor || this._defaultColor);
   }
-
+  // notice two different ways of binding to the host element
+  @HostListener('mouseleave')
   onMouseLeave() {
     this._highlight(null);
   }

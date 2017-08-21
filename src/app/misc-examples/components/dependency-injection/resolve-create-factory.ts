@@ -1,5 +1,7 @@
-import {Component, Inject, ReflectiveInjector, ViewChild, ElementRef} from "@angular/core";
+import {Component, Inject, ReflectiveInjector, ViewChild, ElementRef, InjectionToken} from "@angular/core";
 import {ApiService, ViewPortService} from "./services/more-services";
+
+const SOME_TOKEN = new InjectionToken<string>(`SomeToken`);
 
 @Component({
   selector: 'resolve-create-factory',
@@ -11,7 +13,7 @@ import {ApiService, ViewPortService} from "./services/more-services";
     useFactory: (viewport: any) => &#123;
       return viewport.determineService();
     &#125;,
-    deps: [ViewPortService]
+    deps: [ViewPortService, SOME_TOKEN]
   &#125;</code>
   
   <button (click)="invokeApi()">Invoke API</button>
@@ -36,13 +38,15 @@ export class DiSampleApp2 {
 
   useInjectors(): void {
     let injector: any = ReflectiveInjector.resolveAndCreate([
+      {provide: SOME_TOKEN, useValue: 'Im a InjectionToken, which you are manually injecting'},
       ViewPortService,
       {
         provide: 'OtherSizeService',
-        useFactory: (viewport: any) => {
+        useFactory: (viewport: any, token: string) => {
+          console.log(`%c${token}`, 'color:purple');
           return viewport.determineService();
         },
-        deps: [ViewPortService]
+        deps: [ViewPortService, SOME_TOKEN]
       }
     ]);
     let sizeService: any = injector.get('OtherSizeService');

@@ -23,7 +23,7 @@ export class ToggleButton {
 @Component({
   selector: 'toggle-component',
   template: `
-  <p class="file">src/app/misc-examples/components/input-binding/toggle-button.ts</p>
+  <p class="file">misc-examples/components/input-binding/toggle-button.ts</p>
     <h4>Two way binding on a custom event</h4>
     <p><a href="https://egghead.io/lessons/angular-2-angular-2-building-a-toggle-button-component" target="_blank">Building a toggle button</a></p>
     <p>

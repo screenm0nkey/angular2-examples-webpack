@@ -30,7 +30,7 @@ export class BoxZoneComponent implements OnChanges {
 @Component({
   selector: 'speed-up-app-with-zones',
   template: `
-    <p class="file">src/app/misc-examples/components/speeding-up-app/speedy-with-zones.component.ts</p>
+    <p class="file">misc-examples/components/speeding-up-app/speedy-with-zones.component.ts</p>
     <p><a href="https://blog.thoughtram.io/angular/2017/02/21/using-zones-in-angular-for-better-performance.html"
      target="_blank">
     Using Zones for better performance

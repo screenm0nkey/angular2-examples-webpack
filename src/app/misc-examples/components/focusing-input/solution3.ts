@@ -1,4 +1,4 @@
-import {Component, ViewChild, NgZone, DoCheck} from "@angular/core";
+import {Component, ViewChild, NgZone, DoCheck, ElementRef} from "@angular/core";
 
 @Component({
   selector: 'solution-three',
@@ -10,7 +10,7 @@ import {Component, ViewChild, NgZone, DoCheck} from "@angular/core";
     `,
 })
 export class SolutionThree implements DoCheck {
-  @ViewChild('input1') input1ElementRef;
+  @ViewChild('input1') input1ElementRef : ElementRef;
   private input1IsVisible: boolean = false;
 
   constructor(private _ngZone: NgZone) {

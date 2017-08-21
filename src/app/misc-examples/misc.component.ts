@@ -7,7 +7,7 @@ import {Component} from "@angular/core";
       <nav>
         <a routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Dependency Injection and Modules</a>
         <a routerLink="./customers" routerLinkActive="active">Mini Customers App</a>
-        <a routerLink="./chickens" routerLinkActive="active">BrowserDomAdapter, Directives and ForkJoin()</a>
+        <a routerLink="./chickens" routerLinkActive="active">Dynamic Components, ExportAs, Renderer2, Directives and ForkJoin()</a>
         <a routerLink="./input-binding" routerLinkActive="active">Component Communication</a>
         <a routerLink="./hostbinding" routerLinkActive="active">@HostListener  @HostBinding</a>
         <a routerLink="./rookie-mistakes" routerLinkActive="active">@ContentChildren and ngContent</a>

@@ -5,7 +5,7 @@ import {MiscExamplesComponent} from "./misc.component";
 import {ChildViewsModule} from "./components/view-children/childviews.module";
 import {TricksModule} from "./components/tricks/tricks.module";
 import {AccordianModule} from "./components/accordian/accordian.module";
-import {ChickenModule} from "./components/chickens/chicken.module";
+import {ChickenModule} from "./components/chickens/chickens.module";
 import {ChangeModule} from "./components/change-detection/change.module";
 import {ContentChildModule} from "./components/content-children/content-child.module";
 import {CustomersModule} from "./components/customers/customers.module";

@@ -1,23 +1,23 @@
 <div header>
   These two are the same. one is the long hand syntax
-  <pre>
+  <code>
 &lt;input type="text" [(ngModel)]="newItem"&gt;
-&lt;input type="text" [ngModel]="newItem" (ngModelChange)="newItem=$event"&gt;</pre>
+&lt;input type="text" [ngModel]="newItem" (ngModelChange)="newItem=$event"&gt;</code>
 
-  <hr>
+
 
   <h2>Template driven forms using ngModel and input refs but not using ngForm</h2>
   <h3>= input-controls.ts (/forms) in old</h3>
 
   <div class="input-controls">
-    <h4>"Two way bindings"</h4>
+    <h5>"Two way bindings"</h5>
     <input [(ngModel)]="name"/>
     <div>Current Value: {{name}}</div>
   </div>
 
 
   <div class="input-controls">
-    <h4>Select a gender</h4>
+    <h5>Select a gender</h5>
     <label>
       <input name="gender"
              type="radio"
@@ -38,7 +38,7 @@
 
 
   <div class="input-controls">
-    <h4>Select your programming skills</h4>
+    <h5>Select your programming skills</h5>
     <div>
       <label>
         <input #angularcb

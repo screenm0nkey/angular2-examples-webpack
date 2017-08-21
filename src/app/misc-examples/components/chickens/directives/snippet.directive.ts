@@ -6,7 +6,6 @@ export interface Snippet {
   content: string;
 }
 
-
 @Directive({
   selector: '[uiSnippets]',
   host: {
@@ -18,6 +17,7 @@ export class UISnippets {
   private _snippetRegex: RegExp;
 
   constructor() {
+    // W is anything not a word
     this._snippetRegex = /(?:^|\W)(\w+)(?!\w)`/g;  // Match on given string with a following `
   }
 

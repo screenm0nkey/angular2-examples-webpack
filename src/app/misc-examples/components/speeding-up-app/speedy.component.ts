@@ -8,7 +8,7 @@ function getRandomInt(min, max) {
 @Component({
   selector: 'speed-up-app',
   template: `
-  <p class="file">src/app/misc-examples/components/speeding-up-app/speedy.component.ts</p>
+  <p class="file">misc-examples/components/speeding-up-app/speedy.component.ts</p>
     <p><a href="https://blog.thoughtram.io/angular/2017/02/02/making-your-angular-app-fast.html" target="_blank">
     Making your angular app fast.
   </a></p>

@@ -1,3 +1,3 @@
-import {OpaqueToken} from "@angular/core";
+import {InjectionToken} from "@angular/core";
 
-export const AppStore = new OpaqueToken('App.store');
+export const AppStore = new InjectionToken<string>('App.store');

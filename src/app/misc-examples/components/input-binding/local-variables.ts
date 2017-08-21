@@ -50,7 +50,7 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
 @Component({
   selector: 'countdown-parent-lv',
   template: `
-<p class="file">src/app/misc-examples/components/input-binding/local-variables.ts</p>
+<p class="file">misc-examples/components/input-binding/local-variables.ts</p>
   <h4>Access a child component from the parent using local variable</h4>
   <p><a routerLink="/misc/view-children">@viewChild @viewChildren</a></p>
   <code>&lt;countdown-timer #timer&gt;</code>

@@ -2,7 +2,7 @@ import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
 import {MiscExamplesComponent} from "./misc.component";
 import {AccordianComponent} from "./components/accordian/accordian.module";
-import {ChickensComponent} from "./components/chickens/chicken.module";
+import {MainComponent} from "./components/chickens/chickens.module";
 import {ChangeDetectionMain} from "./components/change-detection/change.module";
 import {RookieComponent} from "./components/content-children/content-child.module";
 import {CustomersComponent, CustomerDetailComponent} from "./components/customers/customers.module";
@@ -32,7 +32,7 @@ const formsRoutes: Routes = [
         children: [
           {path: '', component: DepInjectionApp},
           {path: 'accordian', component: AccordianComponent},
-          {path: 'chickens', component: ChickensComponent},
+          {path: 'chickens', component: MainComponent},
           {path: 'change-after-check', component: ChangeAfterComponent},
           {path: 'change-detection', component: ChangeDetectionMain},
           {path: 'rookie-mistakes', component: RookieComponent},

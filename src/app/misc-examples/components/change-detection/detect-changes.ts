@@ -5,7 +5,7 @@ import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component} fr
   selector: 'detect-changes',
   changeDetection: ChangeDetectionStrategy.Default,
   template: `
-    <p class="path">/misc-examples/components/immutable/detect-changes.ts</p>
+    <p class="file">/misc-examples/components/immutable/detect-changes.ts</p>
     <h4>this.ref.detectChanges()</h4>
     <a href="https://stackoverflow.com/questions/41364386/whats-the-difference-between-markforcheck-and-detectchanges" target="_blank">detectChanges vs markForCheck</a>
     <a href="https://blog.thoughtram.io/angular/2017/02/02/making-your-angular-app-fast.html" target="_blank">Making your angular app fast</a>

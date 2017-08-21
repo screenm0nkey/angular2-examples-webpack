@@ -1,65 +1,70 @@
-<a class="ui message"
-   popup
-   #popup1="popuppy"
-   message="Clicked the pop1">
-  Click Me
-</a>
-<a class="alarm icon"
-   popup
-   #popup2="popuppy"
-   message="Clicked pop2">Alarm Click me</a>
+<div class="comps">
 
-<div style="margin-top: 20px;">
-  <button (click)="popup1.displayMessage()" class="ui button">
-    Display popup for message element
-  </button>
-  <button (click)="popup2.displayMessage()" class="ui button"> Display popup for alarm icon
-  </button>
+  <dynamic-component></dynamic-component>
+
+  <section>
+    <p class="file">misc-examples/components/chickens/directives/popup.directive.ts</p>
+    <h4>Directive using host and exportAs and local variables</h4>
+    <button
+      popup
+      #popup1="popuppy"
+      message="Socks">
+      Socks - Click Me
+    </button>
+    <br>
+    <button (click)="popup1.displayMessage('Shirt')">
+      I'm accessing the directive's API using a local variable
+    </button>
+    <br>
+    <button
+      popup
+      #popup2="popuppy"
+      message="Pants">
+      Pants - Click me
+    </button>
+    <br>
+    <button (click)="popup2.displayMessage('Trousers')">
+      I'm accessing the directive's API using a local variable
+    </button>
+  </section>
+
+  <dom-adapter-component></dom-adapter-component>
+
+  <snippet-component></snippet-component>
+
+  <chicken-component></chicken-component>
+
+  <section>
+    <p class="file">src/app/misc-examples/components/chickens/directives/tooltip.directive.ts</p>
+    <h4>directive example</h4>
+    <a href="https://angular.io/docs/ts/latest/guide/attribute-directives.html" target="_blank">
+      taken from here
+    </a>
+    <div>
+      <input [(ngModel)]="color" value="green" type="radio" name="color">Green
+      <input [(ngModel)]="color" value="yellow" type="radio" name="color">Yellow
+      <input [(ngModel)]="color" value="cyan" type="radio" name="color">Cyan
+    </div>
+    <!--color is a propety on the controller set by the radio buttons-->
+    <code>&lt;span [myTooltip]="color" [defaultColor]="'violet'"&gt;</code>
+
+    <span [myHighlight]="color" [defaultColor]="'violet'">
+      <span [ngStyle]="{'background-color': color}">highlight {{color}}</span> Mouse over me. I'm a directive using the "host" property
+    </span>
+  </section>
+
+
+  <!--this doesn't work i think
+  <ng-template unless>Unless</template>
+  <hr>-->
+
+  <section><h4>Observable.forkJoin() example</h4>
+    <p>When all observables complete, emit the last value from each. <strong>Observable.forkJoin()</strong> is like a
+      little
+      like $q.all()</p>
+    <ul>
+      <li *ngFor="let cus of customers">{{cus.firstName | json}}</li>
+    </ul>
+  </section>
+
 </div>
-
-<hr>
-
-<dom-adapter-component></dom-adapter-component>
-<hr>
-
-
-<snippet-component></snippet-component>
-<hr>
-
-
-<h4>Simple example using @Inputs, @Outputs and Http to display data</h4>
-<chicken-component
-  *ngFor="let chicken of chickens"
-  [name]="chicken.name"
-  (hello)="saidHello($event)">
-</chicken-component>
-<hr>
-
-
-<h4>directive example</h4>
-<a href="https://angular.io/docs/ts/latest/guide/attribute-directives.html" target="_blank">
-  taken from here... https://angular.io/docs/ts/latest/guide/attribute-directives.html
-</a>
-<div>
-  <input type="radio" name="colors" (click)="color='lightgreen'">Green
-  <input type="radio" name="colors" (click)="color='yellow'">Yellow
-  <input type="radio" name="colors" (click)="color='cyan'">Cyan
-</div>
-<!--color is a propety on the controller set by the radio buttons-->
-<pre>&lt;span [myTooltip]="color" [defaultColor]="'violet'"&gt;</pre>
-
-<span [myHighlight]="color" [defaultColor]="'violet'">
-    <strong>{{name}}</strong> Mouse over me. I'm a directive using the "host" property
-</span>
-<hr>
-
-<!--this doesn't work i think
-<ng-template unless>Unless</template>
-<hr>-->
-
-<h4>Observable.forkJoin() example</h4>
-<p>When all observables complete, emit the last value from each. <strong>Observable.forkJoin()</strong> is like a little
-  like $q.all()</p>
-<ul>
-  <li *ngFor="let cus of customers">{{cus.firstName | json}}</li>
-</ul>

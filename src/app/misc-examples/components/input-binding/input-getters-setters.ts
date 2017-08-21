@@ -22,7 +22,7 @@ export class NameChildComponent {
 @Component({
   selector: 'name-parent',
   template: `
-    <p class="file">src/app/misc-examples/components/input-binding/input-getters-setters.ts</p>
+    <p class="file">misc-examples/components/input-binding/input-getters-setters.ts</p>
     <h4>Using Getters and Setter on @Input</h4>
     <code>@Input() set name(name: string)</code>
     There are {{names.length}} names

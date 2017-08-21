@@ -4,7 +4,7 @@ import {ChangeDetectionStrategy, ChangeDetectorRef, Component} from "@angular/co
   selector: 'mark-for-check',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <p class="path">/misc-examples/components/immutable/mark-for-check-component.ts</p>
+    <p class="file">/misc-examples/components/immutable/mark-for-check-component.ts</p>
     <h4>this.ref.markForCheck()</h4>
     
     <p>The tickes below wouldn't update without calling markForCheck()

@@ -1,56 +1,63 @@
-<h4>Customers App from Dan Whalin</h4>
-<a href="https://github.com/DanWahlin/Angular2-CustomerManager" target="_blank">App on github</a>
-
-<hr>
-
-<a (click)="changeDisplayMode('list')" [ngClass]="{'active': displayAsList}" class="nav">
-  List View
-</a>
-<a (click)="changeDisplayMode('block')" [ngClass]="{'active': !displayAsList}" class="nav">
-  Column View
-</a>
-
-
-<section style="margin: 10px 0; border: solid gray 4px; display: table">
-  <filter-text-component [placeholder]="filterText" (changed)="filterChanged($event)"></filter-text-component>
-</section>
-
-<section *ngIf="displayAsList">
-  <div *ngFor="let customer of filteredCustomers">
-    <div class="card-header">
-      <img src="/images/{{customer.gender | lowercase}}.png" class="avatar">
-      <a routerLink="{{customer.id}}">
-        {{customer.firstName}} {{customer.lastName | capitalize }}
-      </a>
+<div class="comps">
+  <div>
+    <p class="file">src/app/misc-examples/components/customers/customers.main.component.ts</p>
+    <h4>Customers App from Dan Whalin</h4>
+    <div class="links">
+      <a href="https://github.com/DanWahlin/Angular2-CustomerManager" target="_blank">App on github</a>
     </div>
-    <div class="card-body">
-      <span>{{customer.city}}, {{customer.state.name}}</span>
-    </div>
-  </div>
-</section>
+    <p class="red">Click the customers</p>
+    <a (click)="changeDisplayMode('list')" [ngClass]="{'active': displayAsList}" class="nav">List View</a>
+    <a (click)="changeDisplayMode('block')" [ngClass]="{'active': !displayAsList}" class="nav">Column View</a>
 
+    <section style="margin: 10px 0; border: solid gray 4px; display: table">
+      <filter-text-component
+        [placeholder]="filterText"
+        (changed)="filterChanged($event)">
+      </filter-text-component>
+    </section>
 
-<section *ngIf="!displayAsList">
-  <table>
-    <thead>
-    <tr>
-      <td></td>
-      <td sort-by="firstName" (sorted)="sort($event)">First</td>
-      <td sort-by="lastName" (sorted)="sort($event)">Last</td>
-      <td (click)="sort('orderTotal')">OrderTotal</td>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let customer of filteredCustomers">
-      <td>
-        <a routerLink="{{customer.id}}">
+    <section *ngIf="displayAsList">
+      <div *ngFor="let customer of filteredCustomers"
+           (click)="onClick(customer.id)"
+           style="cursor:pointer;">
+        <div class="card-header">
           <img src="/images/{{customer.gender | lowercase}}.png" class="avatar">
-        </a>
-      </td>
-      <td>{{customer.firstName}}</td>
-      <td>{{customer.lastName | capitalize }}</td>
-      <td>{{customer.orderTotal | currency:'USD':true }}</td>
-    </tr>
-    </tbody>
-  </table>
-</section>
+          <a routerLink="{{customer.id}}">
+            {{customer.firstName}} {{customer.lastName | capitalize }}
+          </a>
+        </div>
+        <div class="card-body">
+          <span>{{customer.city}}, {{customer.state.name}}</span>
+        </div>
+      </div>
+    </section>
+
+
+    <section *ngIf="!displayAsList">
+      <table>
+        <thead>
+        <tr>
+          <td></td>
+          <td sort-by="firstName" (sorted)="sort($event)">First</td>
+          <td sort-by="lastName" (sorted)="sort($event)">Last</td>
+          <td (click)="sort('orderTotal')">OrderTotal</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let customer of filteredCustomers"
+            (click)="onClick(customer.id)"
+            style="cursor:pointer;">
+          <td>
+            <a routerLink="{{customer.id}}">
+              <img src="/images/{{customer.gender | lowercase}}.png" class="avatar">
+            </a>
+          </td>
+          <td>{{customer.firstName}}</td>
+          <td>{{customer.lastName | capitalize }}</td>
+          <td>{{customer.orderTotal | currency:'USD':true }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</div>

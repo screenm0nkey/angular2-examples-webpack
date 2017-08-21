@@ -11,7 +11,7 @@ export class SuperItemComponent {
 @Component({
   selector: 'my-component2',
   template: `
-        <p class="path">misc-examples/components/view-children/children-child.ts</p>
+        <p class="file">misc-examples/components/view-children/children-child.ts</p>
         <h4>@ViewChildren and @ViewChild</h4>
         <button (click)="addItem()">Add Item</button>
         <ul>

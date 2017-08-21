@@ -3,7 +3,7 @@ import {SharedModule} from "../../../shared/shared.module";
 import {CustomersComponent} from "./customers.main.component";
 import {CustomerDetailComponent} from "./customer-detail.component";
 import {FilterTextComponent} from "./filter-textbox.component";
-import {CapitalizePipe} from "./capitalize.pipe";
+import {CapitalizePipe} from "./services/capitalize.pipe";
 import {Sorter} from "./services/sorter.service";
 import {SortByDirective} from "./directives/sortby.directive";
 import {DataService} from "./services/data.service";

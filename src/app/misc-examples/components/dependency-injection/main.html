@@ -1,12 +1,13 @@
 <div class="comps">
   <section>
     <p class="file">/misc-examples/components/inject/main.html</p>
+    <h4>Dependency Injection</h4>
     <p class="links">
       <a target="_blank" href="http://blog.thoughtram.io/angular/2015/05/18/dependency-injection-in-angular-2.html" target="_blank">
         Dependency Injection
       </a>
       <a href="http://blog.thoughtram.io/angular/2016/05/23/opaque-tokens-in-angular-2.html" target="_blank">
-        Opaque Tokens
+        InjectionToken (was OpaqueToken)
       </a>
       <a href="https://blog.thoughtram.io/angular2/2015/11/23/multi-providers-in-angular-2.html" target="_blank">
         Multi Providers
@@ -31,6 +32,13 @@
     <p class="strong">Every component comes with its own injector</p>
 
     <p class="strong">Providers are flattened, meaning that, if there are multiple providers with the same token, the last one wins. Use Tokens to void this.</p>
+
+    <p class="strong">When using a string token we HAVE to use @Inject, i.e. <code>@Inject('whateverToken') public some3</code></p>
+
+    <p class="strong">
+      multi providers basically extend the thing that is being injected for a particular token.
+      Angular uses this mechanism to provide pluggable hooks i.e extending NG_VALIDATORS
+    </p>
 
     <p>
       <strong>If we provide services in a module they will be globally available as all modules use the root

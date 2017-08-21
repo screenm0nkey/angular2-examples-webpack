@@ -24,7 +24,7 @@ export class TestComponentObject implements OnChanges, DoCheck {
 @Component({
   selector: 'immutable-object-component',
   template: `
-    <p class="path">/misc-examples/components/immutable/immutable-object.ts</p>
+    <p class="file">/misc-examples/components/immutable/immutable-object.ts</p>
     <h4>Immutable Objects</h4>
     
     <p class="stong">

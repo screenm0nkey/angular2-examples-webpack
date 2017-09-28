@@ -28,7 +28,6 @@ export class NgModelStatusOne {
   @HostListener("input", ["$event.target.value"])
   iCanBeCalledAnythingAsLongAsIFollowTheHostListenerDecorator(updatedValue: string) {
     this.smvalue = updatedValue + (++this.count);
-    console.log(this.smvalue);
   }
 
   // here we're binding the 'class.fixed-mixed' property of the host element to
@@ -43,9 +42,12 @@ export class NgModelStatusOne {
   selector: 'host-one-component',
   styles: ['.fixed-mixed {color: red}'],
   template: `
-        <pre>@HostBinding('value') smvalue: string;</pre>
-        <p> @HostBinding binds the "smvalue" value of the directive to the host element's value <br>
-            property using. As the element is an &lt;input&gt; it sets the value of the input.
+        <p class="file">misc-examples/components/host-binding/host-one.ts</p>
+        <h4>@HostBinding && @HostListener</h4>
+        <code>@HostListener("input", ["$event.target.value"])</code>
+        <code>@HostBinding('value') smvalue: string;</code>
+        <p> @HostBinding binds the "smvalue" value of the directive to the host element's "value"
+            property. As the element is an &lt;input&gt;, it will change the value of the input when "smvalue" is changed.
             Try typing into the input.
         </p>
         <input silly-input>

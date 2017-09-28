@@ -4,14 +4,12 @@ import {Component} from "@angular/core";
   selector: '[message]',
   inputs: ['header'],
   host: {
-    'class': 'ui message'
+    'class': 'ui message' // add class to host element
   },
   template: `
   <div>
-    <div class="header">
-      {{ header }}
-    </div>
-    <p>
+    <div class="header">{{ header }}</div>
+    <p style="border: solid pink">
       <ng-content></ng-content>
     </p>
   </div>
@@ -26,10 +24,12 @@ export class Message {
 }
 
 @Component({
-  selector: 'transclusion-sample-app',
+  selector: 'transclusion-simple',
   template: `
-  <div message header="My Message">
-    This is the content of the message
+  <p class="file">misc-examples/components/multi-content/transclusion.ts</p>
+  <h4>Using Input and Transclusion on a directive</h4>
+  <div message header="This message was inserted using @Input">
+    This content was inserted using transclusion
   </div>
   `
 })

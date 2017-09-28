@@ -37,9 +37,6 @@ const seedRoutes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forChild(seedRoutes)
-  ],
-  exports: [
-    RouterModule
   ]
 })
 export class SeedRoutingModule {

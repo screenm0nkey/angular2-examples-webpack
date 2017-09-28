@@ -47,7 +47,6 @@ export class Comp2 {
   viewProviders: [BroadcasterService],
   template: `
     <div>
-     
       <comp1></comp1>
       <comp2></comp2>
     </div>

@@ -6,7 +6,7 @@ import {LoggerService} from "../logger.service";
   template: `
   <div class="comps">
   <div class="parent">
-    <p class="file">src/app/lifecycle/after-content/after-content-parent.component.ts</p>
+    <p class="file">lifecycle/after-content/after-content-parent.component.ts</p>
     <h4>AfterContent</h4>
     <a href="https://angular.io/docs/ts/latest/guide/lifecycle-hooks.html#!#aftercontent" target="_blank">Angular docs</a>
 

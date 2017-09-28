@@ -46,8 +46,6 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
   }
 }
 
-
-
 @Component({
   selector: 'countdown-parent-vc',
   template: `

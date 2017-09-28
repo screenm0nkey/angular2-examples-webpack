@@ -1,4 +1,17 @@
-import {Component, Input, ViewChildren, AfterViewInit, ViewChild, ElementRef, QueryList} from "@angular/core";
+import {AfterViewInit, Component, ElementRef, Input, QueryList, ViewChild, ViewChildren} from "@angular/core";
+
+
+@Component({
+  selector: 'keep-count',
+  template: `<h5>{{count}}</h5>`
+})
+export class KeepCountComponent {
+  private count: number = 0;
+
+  updateCount(num: number) {
+    this.count = num;
+  }
+}
 
 @Component({
   selector: 'super-item',
@@ -18,10 +31,12 @@ export class SuperItemComponent {
             <super-item *ngFor="let item of items" [name]="item"></super-item>
         </ul>
         <pre #myref></pre>
+        <keep-count></keep-count>
     `
 })
 export class ViewChildrenComponent implements AfterViewInit {
   @ViewChildren(SuperItemComponent) children: QueryList<SuperItemComponent>;
+  @ViewChild(KeepCountComponent) private keepCount: KeepCountComponent;
   @ViewChild('myref') el: ElementRef;
 
   public items: string[] = ['hello', 'world', 'today'];
@@ -29,13 +44,14 @@ export class ViewChildrenComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.updatePreInfo(this.children.length);
     this.children.changes.subscribe((items: SuperItemComponent[]) => {
-      items.forEach((item: SuperItemComponent) => console.log(item.name));
+      // items.forEach((item: SuperItemComponent) => console.log(item.name));
       this.updatePreInfo(items.length);
     });
   }
 
   updatePreInfo(length) {
     this.el.nativeElement.innerHTML = `Items = ${length}`;
+    this.keepCount.updateCount(length)
   }
 
   addItem() {

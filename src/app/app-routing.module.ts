@@ -9,6 +9,11 @@ import {SelectivePreloadingStrategy} from "./selective-preloading-strategy";
 
 const appRoutes: Routes = [
   {
+    path: '',
+    redirectTo: '/misc',
+    pathMatch: 'full'
+  },
+  {
     path: 'compose',
     component: ComposeMessageComponent,
     outlet: 'popup'
@@ -49,11 +54,6 @@ const appRoutes: Routes = [
   {
     path: 'chat-redux',
     component: ChatAppRedux
-  },
-  {
-    path: '',
-    redirectTo: '/misc',
-    pathMatch: 'full'
   },
   {
     path: '**',

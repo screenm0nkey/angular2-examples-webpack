@@ -2,8 +2,8 @@ import {NgModule, ModuleWithProviders} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {RouterModule} from "@angular/router";
 import {HttpModule, JsonpModule} from "@angular/http";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 /*
  FormsModule gives us template driven directives such as:
  • ngModel and
@@ -19,10 +19,10 @@ import {MrTestyServiceOne, MrTestyServiceTwo} from "../misc-examples/components/
   // This would happen in the case where the component is not used internally inside the module
   exports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, HttpModule, JsonpModule],
   // this provider will be available app wide and will instantaited more than once
-  // if used on a lazy-loaded module. look at console for "Created an instance of MrTestyServiceTwo 1"
+  // if used on a lazy-loaded module. look at console for "Created an instance of MrTestyServiceTwo"
   providers: [MrTestyServiceTwo]
 })
-// taken from here http://blog.angular-university.io/angular2-ngmodule
+// http://blog.angular-university.io/angular2-ngmodule
 export class SharedModule {
   static forRoot(): ModuleWithProviders {
     return {

@@ -54,7 +54,7 @@ export class ChickComponent {
   template: `
       <p class="file">misc-examples/components/chickens/chicken.component.ts</p>
       <h4>Simple example using @ViewChild, @Inputs, @Outputs and Http to display data</h4>
-      <code>forkjoin() is like a little like $q.all()</code>
+      <strong>forkjoin() is like a little like $q.all()</strong>
       <p #namey></p>
        <chick-component
         *ngFor="let chicken of chickens"

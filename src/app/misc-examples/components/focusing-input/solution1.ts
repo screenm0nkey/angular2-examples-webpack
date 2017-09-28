@@ -29,11 +29,12 @@ export class FocusMe implements AfterViewInit, OnChanges {
 @Component({
   selector: 'solution-one',
   template: `
-        <h4>Solution 1 using ngOnChanges ElementRef</h4>
-        <p>Using [focusMe] directive, and @Input</p>
+        <p class="file">misc-examples/components/focusing-input/solution1.ts</p>
+        <h4>Solution 1 using ngOnChanges ElementRef, directive and @Input</h4>
+        
         <button (click)="showInput()">Make it visible</button>
-        <input *ngIf="inputIsVisible" [focusMe]="inputHasFocus">
-        <button (click)="focusInput()" *ngIf="inputIsVisible">Focus it</button>
+        <input  *ngIf="inputIsVisible" [focusMe]="inputHasFocus">
+        <button *ngIf="inputIsVisible" (click)="focusInput()">Focus it</button>
     `,
 })
 export class SolutionOne {

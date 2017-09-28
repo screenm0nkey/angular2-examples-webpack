@@ -1,23 +1,34 @@
-import {Component, ViewChild, NgZone, DoCheck, ElementRef} from "@angular/core";
+import {Component, DoCheck, ElementRef, NgZone, ViewChild} from "@angular/core";
 
 @Component({
   selector: 'solution-three',
   template: `
+        <p class="file">misc-examples/components/focusing-input/solution3.ts</p>
         <h4>Solution 3 using ngZone and @ViewChild with local reference</h4>
+        
+        <p>We run the setTimeout outside of the NgZone so that we don't cause Angular's change detection algorithm to run after the setTimeout() finishes</p>
+        
+        <p>Give ngIf a chance to render the input by using a timeout.
+     Then set the focus but do this outside the Angular zone to be efficient.
+     There is no need to run change detection after setTimeout() runs,
+     since we're only focusing an element.</p>
+     
+     <p>It will still work if you use settimeout in the NgZone but the ngDoCheck will be called a few more times as the component is checked</p>
+        
         <button (click)="showInput()">Make it visible</button>
-        <input #input1 *ngIf="input1IsVisible">
-        <button (click)="focusInput1()" *ngIf="input1IsVisible">Focus it</button>
+        <input  *ngIf="input1IsVisible" #input1>
+        <button *ngIf="input1IsVisible" (click)="focusInput1()">Focus it</button>
     `,
 })
 export class SolutionThree implements DoCheck {
-  @ViewChild('input1') input1ElementRef : ElementRef;
+  @ViewChild('input1') input1ElementRef: ElementRef;
   private input1IsVisible: boolean = false;
 
   constructor(private _ngZone: NgZone) {
     console.log(this);
   }
 
-  // don't use NgZone so that we don't cause Angular's change detection algorithm to run after the setTimeout() finishes
+  // run outside of the NgZone so that we don't cause Angular's change detection algorithm to run after the setTimeout() finishes
   showInput() {
     this.input1IsVisible = true;
     // Give ngIf a chance to render the <input> using a timeout.

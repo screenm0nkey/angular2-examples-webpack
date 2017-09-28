@@ -28,9 +28,6 @@ const spotifyRoutes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forChild(spotifyRoutes)
-  ],
-  exports: [
-    RouterModule
   ]
 })
 export class SpotifyRoutingModule {

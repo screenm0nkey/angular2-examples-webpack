@@ -2,8 +2,6 @@ import {Component} from "@angular/core";
 
 @Component({
   template: `
-    
-    
     <div class="comps">
       <div class="links">
         <a routerLink="/misc/view-children">@viewChild, @viewChildren</a>

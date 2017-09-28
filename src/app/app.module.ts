@@ -1,10 +1,9 @@
 import {NgModule} from "@angular/core";
 import {BrowserModule} from "@angular/platform-browser";
-import {APP_BASE_HREF, CommonModule} from "@angular/common";
+import {APP_BASE_HREF} from "@angular/common";
 import {PageNotFoundComponent} from "./not-found.component";
 import {AppComponent} from "./app.component";
 import {AppRoutingModule} from "./app-routing.module";
-import {FormsModule} from "@angular/forms";
 // this is for the angular2 services example
 import {SomeService, EngineService} from "./misc-examples/components/dependency-injection/services/some-service";
 import {EggheadExamplesModule} from "./egghead-example/egghead.module";
@@ -12,13 +11,10 @@ import {ComposeMessageComponent} from "./auth/components/compose-message.compone
 import {ChatAppModule} from "./chat-app/ts/app.module";
 import {ChatAppReduxModule} from "./chat-app-redux/ts/app.module";
 import {SharedModule} from "./shared/shared.module";
-
 @NgModule({
   // modules only need to be imported if they are not lazy loaded
   imports: [
     BrowserModule,
-    CommonModule, //this is needed for the
-    FormsModule,
     AppRoutingModule,
     EggheadExamplesModule,
     ChatAppModule,

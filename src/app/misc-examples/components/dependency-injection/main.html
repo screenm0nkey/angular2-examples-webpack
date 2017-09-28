@@ -1,9 +1,10 @@
 <div class="comps">
   <section>
-    <p class="file">/misc-examples/components/inject/main.html</p>
+    <p class="file">/misc-examples/components/dependecy-injection/main.html</p>
     <h4>Dependency Injection</h4>
     <p class="links">
-      <a target="_blank" href="http://blog.thoughtram.io/angular/2015/05/18/dependency-injection-in-angular-2.html" target="_blank">
+      <a target="_blank" href="http://blog.thoughtram.io/angular/2015/05/18/dependency-injection-in-angular-2.html"
+         target="_blank">
         Dependency Injection
       </a>
       <a href="http://blog.thoughtram.io/angular/2016/05/23/opaque-tokens-in-angular-2.html" target="_blank">
@@ -12,15 +13,9 @@
       <a href="https://blog.thoughtram.io/angular2/2015/11/23/multi-providers-in-angular-2.html" target="_blank">
         Multi Providers
       </a>
-      <a href="http://blog.angular-university.io/angular2-ngmodule/" class="block" target="_blank">
-        Angular 2 NgModule Intro - Ahead Of Time Compilation And Lazy Loading - Avoid Common Pitfalls
-      </a>
       <a target="_blank" href="http://blog.thoughtram.io/angular/2016/09/14/bypassing-providers-in-angular-2.html"
          class="block" target="_blank">
         BYPASSINGPROVIDERS IN ANGULAR 2
-      </a>
-      <a href="http://blog.angular-university.io/angular2-ngmodule/" class="block" target="_blank">
-        Angular 2 NgModule Intro - Ahead Of Time Compilation And Lazy Loading - Avoid Common Pitfalls
       </a>
       <a
         href="http://stackoverflow.com/questions/39828246/angular-2-how-to-isolate-service-provider-in-a-feature-module"
@@ -31,9 +26,11 @@
 
     <p class="strong">Every component comes with its own injector</p>
 
-    <p class="strong">Providers are flattened, meaning that, if there are multiple providers with the same token, the last one wins. Use Tokens to void this.</p>
+    <p class="strong">Providers are flattened, meaning that, if there are multiple providers with the same token, the
+      last one wins. Use Tokens to void this.</p>
 
-    <p class="strong">When using a string token we HAVE to use @Inject, i.e. <code>@Inject('whateverToken') public some3</code></p>
+    <p class="strong">When using a string token we HAVE to use @Inject, i.e. <code>@Inject('whateverToken') public
+      some3</code></p>
 
     <p class="strong">
       multi providers basically extend the thing that is being injected for a particular token.
@@ -56,25 +53,18 @@
       Angular gives a lazy-loaded module its own child injector. The module's providers are visible only
       within the component tree created with this injector. If you must load the module eagerly, when the
       application starts, provide the service in a component instead <a
-      href="https://stackoverflow.com/questions/39828246/angular-2-how-to-isolate-service-provider-in-a-feature-module">Taken
+      href="https://stackoverflow.com/questions/39828246/angular-2-how-to-isolate-service-provider-in-a-feature-module"
+      target="_blank">Taken
       from here</a>
-    </p>
-
-    <p>I haven't seen it mentioned but when the module is lazy loaded, the providers don't become globally
-      available, only within the scope of the lazy loaded module. </p>
-
-    <p>
-      When a module is loaded at application launch, its @NgModule.providers have application-wide scope.
-      They are available for injection throughout the application. Load the module lazily if you can.
-      <strong>Angular gives a lazy-loaded module its own child injector. The module's providers are visible only
-      within the component tree created with this injector. If you must load the module eagerly, when the
-      application starts, provide the service in a component instead.</strong>
     </p>
 
     <ul>
       The DI in Angular 2 basically consists of three things:<br>
-      <li><span class="red">Injector</span> - The injector object that exposes APIs to us to create instances of dependencies</li>
-      <li><span class="red">Provider</span> - A provider is like a recipe that tells the injector how to create an instance of a dependency. A provider takes a token and maps that to a factory function that creates an object.
+      <li><span class="red">Injector</span> - The injector object that exposes APIs to allow us to create instances of
+        dependencies
+      </li>
+      <li><span class="red">Provider</span> - A provider is like a recipe that tells the injector how to create an
+        instance of a dependency. A provider takes a token and maps that to a factory function that creates an object.
       <li><span class="red">Dependency</span> - A dependency is the type of which an object should be created.</li>
     </ul>
 
@@ -97,20 +87,71 @@
 
     <p>A new injector has no providers. Each component has it's own injector or child-injector.</p>
 
-    <i>The simple class provider is the most typical by far.</i>
+    <i>The simple "class" Provider is the most typical by far.</i>
 
     <code>&#123; provide: LoggerService, useClass: DateLoggerService &#125;</code>
-
+    <p>The provide object literal above takes a token and a definition object. The token is usually a class but it
+      doesn't have to be.</p>
     <p class="strong">The “LoggerService” is the token, the “DateLoggerService” is the Definition Object or Factory</p>
 
-    <p>The provide object literal above takes a token and a definition object.
-      The token is usually a class but it doesn't have to be.</p>
 
-    <p>Set the useValue property to a fixed value that the provider can return as the dependency object.</p>
-
-    <p>Use this technique to provide runtime configuration constants such as web-site
+    <p><strong>Set the "useValue" property to a fixed value that the provider can return as the dependency
+      object.</strong>
+      Use this technique to provide runtime configuration constants such as web-site
       base addresses and feature flags. We often use a value provider in a unit test
       to replace a production service with a fake or mock.</p>
+  </section>
+
+  <section>
+    <p class="file">/misc-examples/components/dependecy-injection/main.html</p>
+    <h4>Modules</h4>
+    <a href="http://blog.angular-university.io/angular2-ngmodule/" class="block" target="_blank">
+      Angular 2 NgModule Intro - Ahead Of Time Compilation And Lazy Loading - Avoid Common Pitfalls
+    </a>
+    <ul>
+      <li>we can list the components, directives, and pipes that are part of the module in the declarations array</li>
+      <li>we can import other modules by listing them in the imports array</li>
+      <li>we can export ....</li>
+      <li>they are essential for template parsing, both in the Just In Time or Ahead Of Time Compilation scenarios as we
+        will see
+      </li>
+      <li>They can be used to clarify which components and directives are meant to be used publicly vs internal
+        implementation details, as we will soon see
+      </li>
+      <li> Angular module allows Angular to define a context for compiling templates. Each HTML tag is compared to that
+        list to see if a component should be applied on top of it, the same goes for each attribute.
+      </li>
+      <li>
+        Each application only has one root module, and each component, directive and pipe should only be associated with
+        a single module.
+      </li>
+      <li>When the module is lazy loaded, the providers don't become globally
+        available, only within the scope of the lazy loaded module.
+      </li>
+
+      <li>
+        When a module is loaded at application launch, its @NgModule.providers have application-wide scope.
+        They are available for injection throughout the application. Load the module lazily if you can.
+        <strong>Angular gives a lazy-loaded module its own child injector. The module's providers are visible only
+          within the component tree created with this injector. If you must load the module eagerly, when the
+          application starts, provide the service in a component instead.</strong>
+      </li>
+      <li>Components are not visible outside of their modules unless the module exports the component</li>
+      <li>
+        Components can be exported without adding it to declarations. This would happen in the case where the component
+        is not used internally inside the module.
+      </li>
+      <li>
+        You cannot import a component directly. it has to be part of a module.
+      </li>
+      <li>Services loaded in modules are available globally Modules that are directly imported are usually meant to
+        enrich the global application and the injectables received are in most of the cases meant as application-wide
+        singletons.
+      </li>
+      <li>
+        Each module needs to define separately what it can 'see' in its context, so the solution is to import the modules i.e CommonModule
+      </li>
+    </ul>
   </section>
 
   <inject-component></inject-component>

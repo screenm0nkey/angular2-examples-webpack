@@ -3,8 +3,8 @@ import {Component, QueryList, AfterContentInit, Input, ContentChildren} from "@a
 @Component({
   selector: 'tab',
   template: `
-  <div class="ui bottom attached tab segment" [class.active]="active">
-    <ng-content></ng-content>
+  <div class="ui bottom attached tab segment" [class.active]="active" style="border: deepskyblue 3px solid">
+      <ng-content></ng-content>
   </div>
   `
 })
@@ -25,7 +25,9 @@ export class Tab {
       {{ tab.title }}
     </a>
   </div>
-  <ng-content></ng-content>
+  <div style="border: solid 3px deeppink">
+    <ng-content></ng-content>
+  </div>
   `
 })
 export class Tabset implements AfterContentInit {
@@ -47,27 +49,18 @@ export class Tabset implements AfterContentInit {
 @Component({
   selector: 'tabs-sample-app',
   template: `
-  <pre>@ContentChildren(Tab) tabs: QueryList&lt;Tab&gt;</pre>
-  <p>
-   QueryList is a class provided by Angular and when we use QueryList with a @ContentChildren annotation
- Angular populates this with the components that match the query and then keeps the items
- up to date if the state of the application changes.
- However, QueryList requires a @ContentChildren to populate it, so let’s take a look at that now.
- On the tabs instance variable, we add the @ContentChildren(Tab) annotation. 
- This annotation will tell Angular to inject all the direct child directives (of the Tab type) into the tabs parameter. 
- We then assign it to the tabs property of our component. With this we now have access to all the child Tab components.
-</p>
-  <tabset>
-    <tab title="First tab">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-      Quibusdam magni quia ut harum facilis, ullam deleniti porro
-      dignissimos quasi at molestiae sapiente natus, neque voluptatum
-      ad consequuntur cupiditate nemo sunt.
-    </tab>
-    <tab *ngFor="let tab of tabs" [title]="tab.title">
-      {{ tab.content }}
-    </tab>
-  </tabset>
+    ${require('./tabs.html')}
+    <tabset>
+      <tab title="First tab">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Quibusdam magni quia ut harum facilis, ullam deleniti porro
+        dignissimos quasi at molestiae sapiente natus, neque voluptatum
+        ad consequuntur cupiditate nemo sunt.
+      </tab>
+      <tab *ngFor="let tab of tabs" [title]="tab.title">
+        {{ tab.content }}
+      </tab>
+    </tabset>
   `
 })
 export class TabsSampleApp {

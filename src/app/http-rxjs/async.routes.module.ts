@@ -34,9 +34,6 @@ const asyncRoutes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forChild(asyncRoutes)
-  ],
-  exports: [
-    RouterModule
   ]
 })
 export class AsyncRoutingModule {

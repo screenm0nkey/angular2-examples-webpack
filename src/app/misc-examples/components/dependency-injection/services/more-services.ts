@@ -39,7 +39,7 @@ export class ViewPortService {
 export class MrTestyServiceOne {
   static counter : number = 0;
   constructor() {
-    console.log(`%cCreated an instance of MrTestyServiceOne ${++MrTestyServiceOne.counter}`, 'color:blue');
+    console.log(`%cCreated an instance of MrTestyServiceOne ${++MrTestyServiceOne.counter}`, 'color:violet');
   }
 }
 
@@ -47,7 +47,7 @@ export class MrTestyServiceOne {
 export class MrTestyServiceTwo {
   static counter : number = 0;
   constructor() {
-    console.log(`%cCreated an instance of MrTestyServiceTwo ${++MrTestyServiceTwo.counter}`, 'color:lime');
+    console.log(`%cCreated an instance of MrTestyServiceTwo ${++MrTestyServiceTwo.counter}`, 'color:deeppink');
   }
 }
 

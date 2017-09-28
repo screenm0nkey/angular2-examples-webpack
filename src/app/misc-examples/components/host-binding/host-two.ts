@@ -9,7 +9,6 @@ import {Component, Directive, HostListener} from "@angular/core";
 export class CountClicks {
   numberOfClicks = 0;
 
-
   @HostListener('mouseup', ['$event'])
   onMouseup(evt: EventListenerObject) {
     console.log("mouseUp", evt);
@@ -29,6 +28,8 @@ export class CountClicks {
 @Component({
   selector: 'host-two-component',
   template: `
+        <p class="file">misc-examples/components/host-binding/host-two.ts</p>
+        <h4>host:&#123;&#125; and @HostListener</h4>
         <p>Show different ways to bind to a host elements events. <strong>Look at console output</strong></p>
         <button counting>@HostListener Increment</button>
         `,

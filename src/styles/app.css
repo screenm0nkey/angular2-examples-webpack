@@ -10,11 +10,11 @@ code {
   padding: 0 2px;
   color: black;
   display: table;
-  white-space: pre;
+  white-space: nowrap;
   margin : 0 0 10px 0;
 }
 
-p > code {
+p code, h4 > code {
   display: inline-block;
   margin: 0;
 }
@@ -210,13 +210,15 @@ hr:before {
 
 p.file, p.path{
   font-family: "Courier";
-  background: #ababab;
+  background: #827e9c;
+  color: white;
   margin: 0;
   border-radius: 2px;
   padding: 0 3px;
   display: inline-block;
   top: -2px;
   position: relative;
+  font-size: 10px;
 }
 
 nav {

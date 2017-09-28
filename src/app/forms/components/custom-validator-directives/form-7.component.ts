@@ -6,7 +6,7 @@ import {Component} from "@angular/core";
   template: `
     <div class="comps">
       <div class="custom">
-      <p class="file">src/app/forms/components/custom-validator-directives/form-7.component.ts</p>
+      <p class="file">forms/components/custom-validator-directives/form-7.component.ts</p>
         <h4>Custom validateMyCounter directives for template driven forms</h4>
 
       <p>

@@ -23,7 +23,7 @@ const formsRoutes: Routes = [
           {
             path: 'aboutus/:id', component: AboutComponent,
             canDeactivate: [UserCanDeactivate],
-            data: {preload: 'sausagepart'}
+            data: {preload: 'sausagepart'} //data.preload flag is truthy. "sausagepart" is a truthy
           },
           {
             path: 'contact',
@@ -43,9 +43,6 @@ const formsRoutes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forChild(formsRoutes)
-  ],
-  exports: [
-    RouterModule
   ],
   providers: [
     UserCanDeactivate,

@@ -4,7 +4,6 @@ import {SharedModule} from "../shared/shared.module";
 import {MiscExamplesComponent} from "./misc.component";
 import {ChildViewsModule} from "./components/view-children/childviews.module";
 import {TricksModule} from "./components/tricks/tricks.module";
-import {AccordianModule} from "./components/accordian/accordian.module";
 import {ChickenModule} from "./components/chickens/chickens.module";
 import {ChangeModule} from "./components/change-detection/change.module";
 import {ContentChildModule} from "./components/content-children/content-child.module";
@@ -29,7 +28,6 @@ import {ChangedAfterModule} from "./components/changed-after-check/main.module";
     MiscRoutingModule,
     TricksModule,
     ChildViewsModule,
-    AccordianModule,
     ChickenModule,
     ChangeModule,
     ContentChildModule,
@@ -47,7 +45,6 @@ import {ChangedAfterModule} from "./components/changed-after-check/main.module";
     DirectivesLinquistModule,
     ChangedAfterModule
   ],
-  exports: [SharedModule],
   declarations: [
     MiscExamplesComponent,
     SocketApp

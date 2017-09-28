@@ -1,6 +1,11 @@
 import {Component} from "@angular/core";
 import {SelectivePreloadingStrategy} from "../../selective-preloading-strategy";
 
+
+/**
+ * ALl we're doing here is displaying the preloaded modules.
+ * Taken from here https://angular.io/guide/router
+ */
 @Component({
   selector: 'contact',
   template: `

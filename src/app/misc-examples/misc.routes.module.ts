@@ -1,7 +1,6 @@
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
 import {MiscExamplesComponent} from "./misc.component";
-import {AccordianComponent} from "./components/accordian/accordian.module";
 import {MainComponent} from "./components/chickens/chickens.module";
 import {ChangeDetectionMain} from "./components/change-detection/change.module";
 import {RookieComponent} from "./components/content-children/content-child.module";
@@ -31,7 +30,6 @@ const formsRoutes: Routes = [
         path: '',
         children: [
           {path: '', component: DepInjectionApp},
-          {path: 'accordian', component: AccordianComponent},
           {path: 'chickens', component: MainComponent},
           {path: 'change-after-check', component: ChangeAfterComponent},
           {path: 'change-detection', component: ChangeDetectionMain},
@@ -60,9 +58,6 @@ const formsRoutes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forChild(formsRoutes)
-  ],
-  exports: [
-    RouterModule
   ]
 })
 export class MiscRoutingModule {

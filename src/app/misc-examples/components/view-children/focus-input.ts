@@ -1,14 +1,11 @@
 import {Component, ViewChild, AfterViewInit, Renderer, ElementRef} from "@angular/core";
 
 @Component({
-  selector: 'solution-four',
+  selector: 'focus-input',
   template: `
     <p class="file">misc-examples/components/focusing-input/solution4.ts</p>
-    <h4>Correct Solution - Using local variable refs and @ViewChild</h4>
-    <p class="strong">
-      Working with the ElementRef directly is not recommended when accessing elements in a view <br>
-      use <code>_renderer.invokeElementMethod</code>
-    </p>
+    <h4>Solution 4 - Using local variable refs and @ViewChild</h4>
+    <p class="strong">Working with the ElementRef directly is not recommended when accessing elements in a view (see below)</p>
     <p>
     <code>constructor(el: ElementRef) 
         el.nativeElement.querySelector('input').focus();
@@ -26,7 +23,7 @@ import {Component, ViewChild, AfterViewInit, Renderer, ElementRef} from "@angula
     <div> Some other content </div>
   `
 })
-export class SolutionFour implements AfterViewInit {
+export class FocusInput implements AfterViewInit {
   @ViewChild('myInput') input: ElementRef;
 
   constructor(private _renderer: Renderer) {
@@ -34,6 +31,5 @@ export class SolutionFour implements AfterViewInit {
 
   ngAfterViewInit() {
     this._renderer.invokeElementMethod(this.input.nativeElement, 'focus', []);
-
   }
 }

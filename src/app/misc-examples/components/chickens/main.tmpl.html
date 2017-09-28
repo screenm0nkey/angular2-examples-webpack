@@ -35,7 +35,7 @@
   <chicken-component></chicken-component>
 
   <section>
-    <p class="file">src/app/misc-examples/components/chickens/directives/tooltip.directive.ts</p>
+    <p class="file">misc-examples/components/chickens/directives/tooltip.directive.ts</p>
     <h4>directive example</h4>
     <a href="https://angular.io/docs/ts/latest/guide/attribute-directives.html" target="_blank">
       taken from here
@@ -51,20 +51,6 @@
     <span [myHighlight]="color" [defaultColor]="'violet'">
       <span [ngStyle]="{'background-color': color}">highlight {{color}}</span> Mouse over me. I'm a directive using the "host" property
     </span>
-  </section>
-
-
-  <!--this doesn't work i think
-  <ng-template unless>Unless</template>
-  <hr>-->
-
-  <section><h4>Observable.forkJoin() example</h4>
-    <p>When all observables complete, emit the last value from each. <strong>Observable.forkJoin()</strong> is like a
-      little
-      like $q.all()</p>
-    <ul>
-      <li *ngFor="let cus of customers">{{cus.firstName | json}}</li>
-    </ul>
   </section>
 
 </div>

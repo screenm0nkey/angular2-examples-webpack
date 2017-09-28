@@ -33,9 +33,6 @@ const formsRoutes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forChild(formsRoutes)
-  ],
-  exports: [
-    RouterModule
   ]
 })
 export class LifeCycleRoutingModule {

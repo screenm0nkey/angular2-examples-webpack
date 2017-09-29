@@ -3,7 +3,22 @@ import {MrTestyServiceOne, MrTestyServiceTwo} from "./services/more-services";
 
 @Component({
   selector: 'misc-app',
-  templateUrl: './main.html',
+  template: `
+  <div class="comps">
+    ${require('./dependency.html')}
+    
+    ${require('./modules.html')}
+    
+    <inject-component></inject-component>
+
+    <inject-parent-component></inject-parent-component>
+
+    <resolve-create-service></resolve-create-service>
+
+    <resolve-create-factory></resolve-create-factory>
+  </div>
+  
+  `,
 })
 
 export class DepInjectionApp {

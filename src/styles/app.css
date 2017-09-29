@@ -4,17 +4,11 @@ body * {
   line-height: normal;
   font-size: 13px;
 }
-code {
-  font-family: Courier;
-  background-color: cornsilk;
-  padding: 0 2px;
-  color: black;
-  display: table;
-  white-space: nowrap;
-  margin : 0 0 10px 0;
-}
 
-p code, h4 > code {
+ li {
+   margin-bottom: 5px;
+ }
+p code, h4 > code, li>code {
   display: inline-block;
   margin: 0;
 }
@@ -99,27 +93,6 @@ h4 {
 
 h4:first-child {
   margin: 8px 0;
-}
-
-h4 pre {
-  font-family: Courier;
-  background-color: rgba(0, 0, 0, 0);
-  display: inline;
-  border: none;
-  padding: 0;
-  margin: 0;
-  font-size: 10px;
-  color: gold;
-  position: relative;
-  top: -2px;
-}
-
-h4 pre:before {
-  content: " (";
-}
-
-h4 pre:after {
-  content: ")";
 }
 
 h5 {
@@ -276,20 +249,52 @@ nav a:hover {
   background-color: #666;
 }
 
+code {
+  font-family: Courier;
+  background-color: cornsilk;
+  padding: 0 2px;
+  color: black;
+  display: table;
+  white-space: pre-line;
+  margin : 0 0 10px 0;
+  font-size:15px;
+}
 
 pre {
   font-family: Courier;
+  color: black;
   line-height: 15px;
   padding: 5px 10px;
   margin: 0;
-  display: table;
-  background-color: moccasin;
+  background-color: cornsilk;
+  font-size:15px;
 }
 
 pre.limit-height {
   height: 200px;
   overflow: scroll;
   display: inline-block;
+}
+
+h4 pre {
+  font-family: Courier;
+  background-color: cornsilk;
+  display: inline;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: 10px;
+  color: gold;
+  position: relative;
+  top: -2px;
+}
+
+h4 pre:before {
+  content: " (";
+}
+
+h4 pre:after {
+  content: ")";
 }
 
 section.main {

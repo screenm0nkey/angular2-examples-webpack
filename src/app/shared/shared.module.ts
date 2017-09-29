@@ -22,9 +22,11 @@ import {MrTestyServiceOne, MrTestyServiceTwo} from "../misc-examples/components/
   // if used on a lazy-loaded module. look at console for "Created an instance of MrTestyServiceTwo"
   providers: [MrTestyServiceTwo]
 })
-// http://blog.angular-university.io/angular2-ngmodule
+
+// http://angularfirst.com/the-ngmodule-forroot-convention
+// https://blog.angular-university.io/angular2-ngmodule
 export class SharedModule {
-  static forRoot(): ModuleWithProviders {
+  public static forRoot(): ModuleWithProviders {
     return {
       ngModule: SharedModule,
       // this provider will be available app wide but will only be instantiated once

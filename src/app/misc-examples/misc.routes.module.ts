@@ -21,7 +21,7 @@ import {TricksMainComponent} from "./components/tricks/tricks.module";
 import {TemplateComponent} from "./components/templates/templates.module";
 import {ChangeAfterComponent} from "./components/changed-after-check/main.module";
 
-const formsRoutes: Routes = [
+export const formsRoutes: Routes = [
   {
     path: '',
     component: MiscExamplesComponent,

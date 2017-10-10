@@ -1,5 +1,5 @@
 /* tslint:disable:max-line-length */
-import {User, Thread, Message} from "./models";
+import {Message, Thread, User} from "./models";
 import {MessagesService, ThreadsService, UserService} from "./services/services";
 import * as moment from "moment";
 

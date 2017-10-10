@@ -9,7 +9,7 @@ export interface Artist {
   id: string;
   name: string;
   favourited: boolean;
-  sid : number;
+  sid: number;
 }
 
 export interface ITunesResponse {
@@ -29,7 +29,7 @@ export class EchonestRepo {
   constructor(private _http: Http) {
   }
 
-  get(num: number) : Observable<Artist[]> {
+  get(num: number): Observable<Artist[]> {
     const search = new URLSearchParams();
     search.set('api_key', 'AAXIWZI0HTK1NYTWQ');
     search.set('format', 'json');

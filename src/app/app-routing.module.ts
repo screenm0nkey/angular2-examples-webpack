@@ -68,7 +68,7 @@ const appRoutes: Routes = [
       {preloadingStrategy: SelectivePreloadingStrategy}
     )
   ],
-  providers : [
+  providers: [
     SelectivePreloadingStrategy
   ],
   exports: [

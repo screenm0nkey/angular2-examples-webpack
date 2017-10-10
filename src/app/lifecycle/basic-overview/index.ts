@@ -50,7 +50,6 @@ export class MyComponent {
 }
 
 
-
 @Component({
   selector: 'my-app',
   template: `

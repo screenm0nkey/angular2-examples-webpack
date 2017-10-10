@@ -18,6 +18,7 @@ import {Clock} from "./clock";
 })
 export class NgrxClocksModule {
 }
+
 export {MainClocks}
 
 

@@ -14,6 +14,7 @@ import {Subject} from "rxjs/Subject";
 interface Person {
   vehicles: number[];
 }
+
 interface Vechicle {
   image: string;
   image_path: string;
@@ -84,7 +85,7 @@ export class ForkJoinComponent implements OnInit {
       .get(`${ForkJoinComponent.API}/people`)
       .map(res => res.json().filter((person: Person) => person.vehicles.length));
 
-    this.people$.subscribe(res=>console.log(1333, res))
+    this.people$.subscribe(res => console.log(1333, res))
   }
 
   getVechicles(id: number): Observable<Vechicle[]> {

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, OnChanges, OnDestroy, Input, Output} from "@angular/core";
+import {Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output} from "@angular/core";
 
 declare var Notification;
 

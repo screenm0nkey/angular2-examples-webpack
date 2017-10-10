@@ -1,15 +1,15 @@
 import {
-  OnChanges,
-  SimpleChange,
-  OnInit,
-  DoCheck,
-  AfterContentInit,
   AfterContentChecked,
-  AfterViewInit,
+  AfterContentInit,
   AfterViewChecked,
-  OnDestroy,
+  AfterViewInit,
   Component,
-  Input
+  DoCheck,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChange
 } from "@angular/core";
 import {LoggerService} from "../logger.service";
 
@@ -39,7 +39,7 @@ export class PeekABoo implements OnInit {
 })
 // Don't HAVE to mention the Lifecycle Hook interfaces
 // unless we want typing and tool support.
-export class PeekABooComponent extends PeekABoo implements OnChanges, OnInit, DoCheck, AfterContentInit,AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
+export class PeekABooComponent extends PeekABoo implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
   @Input() name: string;
   private _verb = 'initialized';
 
@@ -52,7 +52,7 @@ export class PeekABooComponent extends PeekABoo implements OnChanges, OnInit, Do
   // only called for/if there is an @input variable set by parent.
   // Responds after Angular sets a data-bound @input property. The method
   // receives a changes object of current and previous values.
-  ngOnChanges(changes: {[propertyName: string]: SimpleChange}) {
+  ngOnChanges(changes: { [propertyName: string]: SimpleChange }) {
     let changesMsgs: string[] = [];
     for (let propName in changes) {
       if (propName === 'name') {

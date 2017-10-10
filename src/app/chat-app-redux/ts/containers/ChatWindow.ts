@@ -1,7 +1,7 @@
-import {Inject, Component, ElementRef} from "@angular/core";
+import {Component, ElementRef, Inject} from "@angular/core";
 import {AppStore} from "../app-store";
 import {Store} from "redux";
-import {User, Thread} from "../models";
+import {Thread, User} from "../models";
 import {ThreadActions} from "../actions";
 import {AppState, getCurrentThread, getCurrentUser} from "../reducers";
 
@@ -58,7 +58,7 @@ import {AppState, getCurrentThread, getCurrentUser} from "../reducers";
 })
 export default class ChatWindow {
   currentThread: Thread;
-  draftMessage: {text: string};
+  draftMessage: { text: string };
   currentUser: User;
 
   constructor(@Inject(AppStore) private store: Store<AppState>, private el: ElementRef) {

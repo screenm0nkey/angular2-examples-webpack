@@ -1,4 +1,4 @@
-import {Component, Directive, ElementRef, ViewContainerRef, TemplateRef, Input} from "@angular/core";
+import {Component, Directive, ElementRef, Input, TemplateRef, ViewContainerRef} from "@angular/core";
 
 @Directive({
   selector: '[seven]'
@@ -6,7 +6,8 @@ import {Component, Directive, ElementRef, ViewContainerRef, TemplateRef, Input} 
 export class SevenDirective {
   count: number = 0;
 
-  @Input() set sevenFrom({one, two, three}) {
+  @Input()
+  set sevenFrom({one, two, three}) {
     if (++this.count === 5) {
       this.view.clear();
       this.count = 0;

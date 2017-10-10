@@ -27,6 +27,7 @@ import {SpotifyRoutingModule} from "./spotify.routes.module";
 })
 export class SpotifyModule {
 }
+
 export {SpotifyDemoApp}
 
 

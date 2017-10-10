@@ -24,6 +24,7 @@ import {SearchPipe} from "./pipes/search-pipe";
 })
 export class EggheadExamplesModule {
 }
+
 export {EggheadApp}
 
 

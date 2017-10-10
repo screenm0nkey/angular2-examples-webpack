@@ -49,6 +49,7 @@ export class BComponent {
 
   constructor(private sharedService: SharedService) {
   }
+
   ngOnInit() {
     this.sharedService.text = 'updated name';
   }

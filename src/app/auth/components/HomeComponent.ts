@@ -20,9 +20,8 @@ currently activated routes together with convenience methods for traversing the 
 export class HomeComponent {
   id: number = 1;
 
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute) {
+  constructor(private router: Router,
+              private route: ActivatedRoute) {
   }
 
   goToProduct(id: string): void {

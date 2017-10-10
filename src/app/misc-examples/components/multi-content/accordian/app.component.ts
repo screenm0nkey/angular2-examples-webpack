@@ -40,6 +40,7 @@ export class AccordianExample {
       content: 'Dynamic as well'
     }
   ];
+
   removeDynamic() {
     this.groups.pop();
   }

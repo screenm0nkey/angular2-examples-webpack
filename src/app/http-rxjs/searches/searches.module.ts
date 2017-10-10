@@ -3,7 +3,7 @@ import {SharedModule} from "../../shared/shared.module";
 import {HttpExamples} from "./main";
 import {WikipediaSuperSearch} from "./wikipedia-search-2";
 import {JsonpWikipediaPromise, WikipediaObservable} from "./wikipedia-search-1";
-import {EchonestSearch, Autosearch, ArtistCardRender} from "./echonest-search";
+import {ArtistCardRender, Autosearch, EchonestSearch} from "./echonest-search";
 import {Auth0Component, AutosearchAuth} from "./auth0-authentication";
 import {YoutubeBasicExample} from "./youtube-basic";
 import {LocalRefSearch} from "./local-ref-search";

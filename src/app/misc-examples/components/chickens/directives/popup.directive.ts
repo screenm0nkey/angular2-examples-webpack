@@ -16,7 +16,7 @@ export class PopupDirective {
     console.log(1, elRef.nativeElement);
   }
 
-  displayMessage(msg:string): void {
+  displayMessage(msg: string): void {
     msg = msg || this.message;
     this.elRef.nativeElement.innerText += (` - ${msg}`);
   }

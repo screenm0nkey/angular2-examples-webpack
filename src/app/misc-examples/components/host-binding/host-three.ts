@@ -1,12 +1,14 @@
-import {Component, Directive, HostBinding, ElementRef} from "@angular/core";
-import {FormBuilder, FormGroup, Validators, NgModel} from "@angular/forms";
+import {Component, Directive, ElementRef, HostBinding} from "@angular/core";
+import {FormBuilder, FormGroup, NgModel, Validators} from "@angular/forms";
 
 @Directive({selector: '[ngModel]'})
 export class NgModelStatusThree {
   //el is the element the directive is applied too.
-  constructor(public el: ElementRef, public control: NgModel) {}
+  constructor(public el: ElementRef, public control: NgModel) {
+  }
 
-  @HostBinding('class.YES') get valid() {
+  @HostBinding('class.YES')
+  get valid() {
     return this.el.nativeElement.className.indexOf('ng-valid') > 0;
   }
 }

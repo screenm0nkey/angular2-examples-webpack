@@ -27,7 +27,8 @@ export class MarkForCheck {
   numberOfTicks = 0;
   id: any = 0;
 
-  constructor(private ref: ChangeDetectorRef) {}
+  constructor(private ref: ChangeDetectorRef) {
+  }
 
   startStopInterval() {
     clearInterval(this.id);

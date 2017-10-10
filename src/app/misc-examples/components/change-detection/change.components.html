@@ -4,10 +4,13 @@
 
   <section class="links">
     <a routerLink="/httprx/echonest-app">Change Detection in Echonest</a>
-    <a href="https://hackernoon.com/everything-you-need-to-know-about-change-detection-in-angular-8006c51d206f" target="_blank">
+    <a href="https://hackernoon.com/everything-you-need-to-know-about-change-detection-in-angular-8006c51d206f"
+       target="_blank">
       Everything you need to know about change detection in Angular
     </a>
-    <a href="https://hackernoon.com/everything-you-need-to-know-about-the-expressionchangedafterithasbeencheckederror-error-e3fd9ce7dbb4" target="_blank">
+    <a
+      href="https://hackernoon.com/everything-you-need-to-know-about-the-expressionchangedafterithasbeencheckederror-error-e3fd9ce7dbb4"
+      target="_blank">
       Everything you need to know about the `ExpressionChangedAfterItHasBeenCheckedError` error
     </a>
     <a href="http://blog.angular-university.io/how-does-angular-2-change-detection-really-work/" target="_blank">
@@ -38,7 +41,8 @@
 
     <li>Each Angular component has an associated change detector, which is created at application startup time</li>
 
-    <li>OnPush does not only check for changes in the component's inputs but if a component emits an event that will also
+    <li>OnPush does not only check for changes in the component's inputs but if a component emits an event that will
+      also
       trigger change detection.
     </li>
 
@@ -70,7 +74,8 @@
   </p>
 
   <p>
-    Try changing the <span class="red">ChangeDetectionStrategy on the TodoListComponent from Push to Default</span> and then
+    Try changing the <span class="red">ChangeDetectionStrategy on the TodoListComponent from Push to Default</span> and
+    then
     type into the first input ( the one using ng-model) and you will see
     in the console the component's text property is called on every event.
   </p>

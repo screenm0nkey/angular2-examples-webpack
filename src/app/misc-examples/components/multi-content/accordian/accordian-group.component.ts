@@ -1,4 +1,4 @@
-import {Component, ViewEncapsulation, OnDestroy, Input} from "@angular/core";
+import {Component, Input, OnDestroy, ViewEncapsulation} from "@angular/core";
 import {Accordion} from './accordian.component';
 
 @Component({

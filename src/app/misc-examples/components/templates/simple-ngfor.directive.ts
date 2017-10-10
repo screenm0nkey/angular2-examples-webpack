@@ -35,7 +35,7 @@ export class SimpleNgFor implements DoCheck {
   // or see the highlight directive example in this app
   @Input()
   set ngForTemplate(value: TemplateRef<SimpleNgForRow>) {
-    console.log(`%c${value}`,'color:lime');
+    console.log(`%c${value}`, 'color:lime');
     if (value) {
       this._template = value;
     }

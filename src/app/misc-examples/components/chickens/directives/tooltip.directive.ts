@@ -18,7 +18,8 @@ export class Tooltip {
   // see here for an explanation of this setter
   // https://angular.io/docs/ts/latest/guide/attribute-directives.html
   // example <span [myHighlight]="color" [defaultColor]="'violet'">
-  @Input() set defaultColor(colorName: string) {
+  @Input()
+  set defaultColor(colorName: string) {
     this._defaultColor = colorName || this._defaultColor;
   }
 
@@ -28,6 +29,7 @@ export class Tooltip {
   onMouseEnter() {
     this._highlight(this.highlightColor || this._defaultColor);
   }
+
   // notice two different ways of binding to the host element
   @HostListener('mouseleave')
   onMouseLeave() {

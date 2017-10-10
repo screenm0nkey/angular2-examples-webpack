@@ -4,6 +4,7 @@ import {ChangeDetectionStrategy, Component, Input} from "@angular/core";
 class Profile {
   constructor(private first: string, private last: string) {
   }
+
   lastChanged() {
     return new Date();
   }
@@ -43,7 +44,8 @@ class Profile {
 export class DefaultCmp {
   @Input() profile: Profile;
   count: number = 0;
-  ngDoCheck(){
+
+  ngDoCheck() {
     this.count++;
   }
 }
@@ -84,7 +86,8 @@ export class DefaultCmp {
 export class OnPushCmp {
   @Input() profile: Profile;
   count: number = 0;
-  ngDoCheck(){
+
+  ngDoCheck() {
     this.count++;
   }
 }

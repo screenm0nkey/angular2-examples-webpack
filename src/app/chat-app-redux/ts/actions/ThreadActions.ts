@@ -3,9 +3,11 @@ import {uuid} from "../util/uuid";
 import {Message, Thread} from "../models";
 
 export const ADD_THREAD = '[Thread] Add';
+
 export interface AddThreadAction extends Action {
   thread: Thread;
 }
+
 export const addThread: ActionCreator<AddThreadAction> =
   (thread) => ({
     type: ADD_THREAD,
@@ -13,10 +15,12 @@ export const addThread: ActionCreator<AddThreadAction> =
   });
 
 export const ADD_MESSAGE = '[Thread] Add Message';
+
 export interface AddMessageAction extends Action {
   thread: Thread;
   message: Message;
 }
+
 export const addMessage: ActionCreator<AddMessageAction> =
   (thread: Thread, messageArgs: Message): AddMessageAction => {
     const defaults = {
@@ -35,9 +39,11 @@ export const addMessage: ActionCreator<AddMessageAction> =
   };
 
 export const SELECT_THREAD = '[Thread] Select';
+
 export interface SelectThreadAction extends Action {
   thread: Thread;
 }
+
 export const selectThread: ActionCreator<SelectThreadAction> =
   (thread) => ({
     type: SELECT_THREAD,

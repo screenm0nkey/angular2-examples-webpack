@@ -1,4 +1,13 @@
-import {Component, DoCheck, EventEmitter, Input, IterableDiffers, IterableDiffer, KeyValueDiffers, KeyValueDiffer} from "@angular/core";
+import {
+  Component,
+  DoCheck,
+  EventEmitter,
+  Input,
+  IterableDiffer,
+  IterableDiffers,
+  KeyValueDiffer,
+  KeyValueDiffers
+} from "@angular/core";
 
 
 @Component({

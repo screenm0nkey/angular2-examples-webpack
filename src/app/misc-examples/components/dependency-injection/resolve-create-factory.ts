@@ -1,4 +1,4 @@
-import {Component, Inject, ReflectiveInjector, ViewChild, ElementRef, InjectionToken} from "@angular/core";
+import {Component, ElementRef, Inject, InjectionToken, ReflectiveInjector, ViewChild} from "@angular/core";
 import {ApiService, ViewPortService} from "./services/more-services";
 
 const SOME_TOKEN = new InjectionToken<string>(`SomeToken`);

@@ -1,4 +1,4 @@
-import {Component, ContentChildren, AfterContentInit, QueryList, ElementRef} from "@angular/core";
+import {AfterContentInit, Component, ContentChildren, ElementRef, QueryList} from "@angular/core";
 
 // SuperList component would be our library that an end user us using.
 @Component({

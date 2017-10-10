@@ -18,4 +18,5 @@ import {ForkJoinComponent} from "./forkjoin-search";
 })
 export class JohnLinquistModule {
 }
+
 export {JohnLinquistExamples}

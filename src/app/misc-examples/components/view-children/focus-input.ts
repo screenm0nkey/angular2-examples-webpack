@@ -1,4 +1,4 @@
-import {Component, ViewChild, AfterViewInit, Renderer, ElementRef} from "@angular/core";
+import {AfterViewInit, Component, ElementRef, Renderer, ViewChild} from "@angular/core";
 
 @Component({
   selector: 'focus-input',

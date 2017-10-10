@@ -18,8 +18,7 @@ import {SelectivePreloadingStrategy} from "../../selective-preloading-strategy";
 export class ContactComponent {
   modules: string[];
 
-  constructor(
-    private preloadStrategy: SelectivePreloadingStrategy) {
+  constructor(private preloadStrategy: SelectivePreloadingStrategy) {
     this.modules = preloadStrategy.preloadedModules;
   }
 }

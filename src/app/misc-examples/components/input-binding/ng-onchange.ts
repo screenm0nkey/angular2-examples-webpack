@@ -20,7 +20,7 @@ export class VersionChildComponent implements OnChanges {
     console.log('%cngOnChanges', 'color:green', changes);
     for (let propName in changes) {
       let changedProp = changes[propName];
-      let from = JSON.stringify(changedProp.previousValue)||0;
+      let from = JSON.stringify(changedProp.previousValue) || 0;
       let to = JSON.stringify(changedProp.currentValue);
       log.push(`${propName} changed from ${from} to ${to}`);
     }

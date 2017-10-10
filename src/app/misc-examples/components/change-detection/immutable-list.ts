@@ -1,4 +1,4 @@
-import {Component, ChangeDetectionStrategy, Input, OnInit, OnChanges} from "@angular/core";
+import {ChangeDetectionStrategy, Component, Input, OnChanges, OnInit} from "@angular/core";
 import {Store, Todo} from "./StoreService";
 
 @Component({

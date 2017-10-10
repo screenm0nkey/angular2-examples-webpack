@@ -11,6 +11,7 @@ export class EComponent {
   name = 'I am E component';
   @Input() text;
   @Output() change = new EventEmitter();
+
   ngOnInit() {
     this.change.emit('updated text');
   }
@@ -34,6 +35,7 @@ export class EComponent {
 export class EventBroadcastingComponent {
   name = 'I am A component';
   text = 'A message for the child component';
+
   update(value) {
     this.text = value;
   }

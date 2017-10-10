@@ -1,5 +1,5 @@
 import {Component} from "@angular/core";
-import {ActionReducer, Action, Store} from "@ngrx/store";
+import {Action, ActionReducer, Store} from "@ngrx/store";
 import {Observable} from "rxjs/Observable";
 import "rxjs/add/observable/interval";
 import "rxjs/add/operator/mapTo";

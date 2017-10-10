@@ -27,7 +27,7 @@ export class OnChangesComponent implements OnChanges {
 
   changeLog: string[] = [];
 
-  ngOnChanges(changes: {[propertyName: string]: SimpleChange}) {
+  ngOnChanges(changes: { [propertyName: string]: SimpleChange }) {
     for (let propName in changes) {
       let prop = changes[propName];
       let cur = JSON.stringify(prop.currentValue)

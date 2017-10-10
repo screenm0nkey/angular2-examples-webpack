@@ -9,12 +9,13 @@ import {AccordionGroup} from "./accordian-group.component";
 // outside of this module
 @NgModule({
   imports: [SharedModule],
-  exports : [AccordianExample],
+  exports: [AccordianExample],
   declarations: [
     AccordianExample,
     AccordionGroup,
     Accordion
   ]
 })
-export class AccordianModule {}
+export class AccordianModule {
+}
 

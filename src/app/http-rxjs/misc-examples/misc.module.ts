@@ -22,6 +22,7 @@ import {AutoSearch} from "./automated-wiki-search";
 })
 export class MiscHttpModule {
 }
+
 export {MiscHttpExamples}
 
 

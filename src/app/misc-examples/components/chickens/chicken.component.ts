@@ -1,5 +1,4 @@
-import {Component, EventEmitter, Output, OnInit, ViewChild, ElementRef} from "@angular/core";
-import {Injectable} from "@angular/core";
+import {Component, ElementRef, EventEmitter, Injectable, OnInit, Output, ViewChild} from "@angular/core";
 import {Http, Response} from "@angular/http";
 import {Observable} from "rxjs/Rx";
 
@@ -23,7 +22,6 @@ export class ChickensService {
 }
 
 
-
 @Component({
   selector: 'chick-component',
   inputs: ['name'],
@@ -41,11 +39,11 @@ export class ChickComponent {
   constructor() {
     console.log(this);
   }
+
   sayHello() {
     this.hello.emit(this.name);
   }
 }
-
 
 
 @Component({
@@ -64,19 +62,20 @@ export class ChickComponent {
     `
 })
 export class ChickenComponent implements OnInit {
-  @ViewChild('namey') namey : ElementRef;
+  @ViewChild('namey') namey: ElementRef;
   chickens: any = [];
   customers: any = [];
 
-  constructor(private chickensService: ChickensService) {}
+  constructor(private chickensService: ChickensService) {
+  }
 
   ngOnInit() {
     this.getBooksAndMovies();
   }
 
   saidHello(name) {
-    const el : HTMLElement = this.namey.nativeElement;
-    el.innerText +=` : ${name}`;
+    const el: HTMLElement = this.namey.nativeElement;
+    el.innerText += ` : ${name}`;
   }
 
   getBooksAndMovies() {

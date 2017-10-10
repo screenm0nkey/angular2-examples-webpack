@@ -1,4 +1,4 @@
-import {Component, AfterViewChecked, AfterViewInit, ViewChild} from "@angular/core";
+import {AfterViewChecked, AfterViewInit, Component, ViewChild} from "@angular/core";
 import {LoggerService} from "../logger.service";
 
 //////////////////

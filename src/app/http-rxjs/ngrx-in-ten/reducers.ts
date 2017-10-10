@@ -1,4 +1,4 @@
-import {ActionReducer, Action} from "@ngrx/store";
+import {Action, ActionReducer} from "@ngrx/store";
 
 export const filter: ActionReducer<any> = (state = person => person, action: Action) => {
   switch (action.type) {
@@ -12,6 +12,7 @@ export const filter: ActionReducer<any> = (state = person => person, action: Act
       return state;
   }
 };
+
 // Action only has payload and type properties
 interface NickAction extends Action {
   id: number;

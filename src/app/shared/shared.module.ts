@@ -1,4 +1,4 @@
-import {NgModule, ModuleWithProviders} from "@angular/core";
+import {ModuleWithProviders, NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {RouterModule} from "@angular/router";
 import {HttpModule, JsonpModule} from "@angular/http";
@@ -12,7 +12,10 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
  • formControl and
  • ngFormGroup
  */
-import {MrTestyServiceOne, MrTestyServiceTwo} from "../misc-examples/components/dependency-injection/services/more-services";
+import {
+  MrTestyServiceOne,
+  MrTestyServiceTwo
+} from "../misc-examples/components/dependency-injection/services/more-services";
 
 @NgModule({
   // Notice that we have only exported it without adding it to declarations or imports.

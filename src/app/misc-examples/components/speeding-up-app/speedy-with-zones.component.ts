@@ -1,5 +1,4 @@
-
-import { Component, NgZone, Input, OnChanges } from '@angular/core';
+import {Component, Input, NgZone, OnChanges} from '@angular/core';
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
@@ -22,7 +21,8 @@ function getRandomInt(min, max) {
 export class BoxZoneComponent implements OnChanges {
   @Input() boxZone;
   @Input() selected;
-  ngOnChanges(){
+
+  ngOnChanges() {
     // console.log(this)
   }
 }
@@ -47,7 +47,8 @@ export class BoxZoneComponent implements OnChanges {
   `
 })
 export class SpeedingZonesComponent {
-  constructor(private zone: NgZone) {}
+  constructor(private zone: NgZone) {
+  }
 
   currentId = null;
   boxes = [];
@@ -56,7 +57,7 @@ export class SpeedingZonesComponent {
   element;
 
   ngOnInit() {
-    for (let i=0; i < 5000; i++) {
+    for (let i = 0; i < 5000; i++) {
       const id = i;
       const x = getRandomInt(0, 500);
       const y = getRandomInt(0, 500);
@@ -96,7 +97,7 @@ export class SpeedingZonesComponent {
   mouseUp($event) {
     this.zone.run(() => {
       this.updateBox(this.currentId, $event.clientX + this.offsetX, $event.clientY + this.offsetY);
-      this.currentId  = null;
+      this.currentId = null;
     });
     window.document.removeEventListener("mousemove", this.bindMouse);
   }

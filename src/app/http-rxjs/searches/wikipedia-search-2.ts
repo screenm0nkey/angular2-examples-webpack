@@ -1,5 +1,5 @@
 import {Component, Injectable} from "@angular/core";
-import {URLSearchParams, Jsonp} from "@angular/http";
+import {Jsonp, URLSearchParams} from "@angular/http";
 import {Observable} from "rxjs/Observable";
 import {FormControl} from "@angular/forms";
 import "rxjs/add/operator/map";

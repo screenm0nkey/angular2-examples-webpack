@@ -1,5 +1,5 @@
 import {Action} from "redux";
-import {Thread, Message} from "../models";
+import {Message, Thread} from "../models";
 import {ThreadActions} from "../actions";
 import {createSelector} from "reselect";
 

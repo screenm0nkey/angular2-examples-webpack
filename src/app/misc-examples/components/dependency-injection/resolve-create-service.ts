@@ -1,4 +1,4 @@
-import {Component, ElementRef, Injectable, ReflectiveInjector, ViewChild, AfterViewInit} from "@angular/core";
+import {AfterViewInit, Component, ElementRef, Injectable, ReflectiveInjector, ViewChild} from "@angular/core";
 import {ParamService} from "./services/some-service";
 
 @Injectable()
@@ -24,7 +24,7 @@ class MyService {
 })
 export class DiSampleApp implements AfterViewInit {
   @ViewChild('reffy') el: ElementRef;
-  injector : ReflectiveInjector;
+  injector: ReflectiveInjector;
   myService: MyService;
 
   constructor(public ps: ParamService) {

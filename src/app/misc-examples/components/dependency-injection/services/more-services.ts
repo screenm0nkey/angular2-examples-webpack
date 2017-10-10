@@ -37,7 +37,8 @@ export class ViewPortService {
 
 @Injectable()
 export class MrTestyServiceOne {
-  static counter : number = 0;
+  static counter: number = 0;
+
   constructor() {
     console.log(`%cCreated an instance of MrTestyServiceOne ${++MrTestyServiceOne.counter}`, 'color:violet');
   }
@@ -45,7 +46,8 @@ export class MrTestyServiceOne {
 
 @Injectable()
 export class MrTestyServiceTwo {
-  static counter : number = 0;
+  static counter: number = 0;
+
   constructor() {
     console.log(`%cCreated an instance of MrTestyServiceTwo ${++MrTestyServiceTwo.counter}`, 'color:deeppink');
   }

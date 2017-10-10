@@ -19,6 +19,7 @@ import {FilterSelect} from "./components/filter-select";
 })
 export class NgrxInTenModule {
 }
+
 export {NgRxInTenMinsComponent}
 
 

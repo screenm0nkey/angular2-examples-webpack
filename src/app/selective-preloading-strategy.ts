@@ -12,7 +12,7 @@ export class SelectivePreloadingStrategy implements PreloadingStrategy {
     if (route.data && route.data.preload) {
       // add the route path to our preloaded module array
       this.preloadedModules.push(route.path);
-      console.log('%cPRELOADED-ROUTES: '+route.path, 'color:deeppink' );
+      console.log('%cPRELOADED-ROUTES: ' + route.path, 'color:deeppink');
       return load();
     } else {
       return Observable.of(null);

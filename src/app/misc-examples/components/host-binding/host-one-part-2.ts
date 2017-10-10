@@ -28,6 +28,7 @@ export class NgModelStatusTwo {
     console.log(this.smvalue);
   }
 }
+
 @Component({
   selector: 'host-one-part-two-component',
   styles: ['.fixed-mixed {color: red}'],

@@ -1,9 +1,9 @@
-import {Inject, Component} from "@angular/core";
+import {Component, Inject} from "@angular/core";
 import {AppStore} from "../app-store";
 import {Store} from "redux";
 import {Thread} from "../models";
 import {ThreadActions} from "../actions";
-import {AppState, getCurrentThread, getAllThreads} from "../reducers";
+import {AppState, getAllThreads, getCurrentThread} from "../reducers";
 
 @Component({
   selector: 'chat-threads',

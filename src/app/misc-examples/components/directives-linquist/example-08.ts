@@ -1,4 +1,4 @@
-import {Component, Injectable, ViewChild, Directive, ViewContainerRef, TemplateRef} from "@angular/core";
+import {Component, Directive, Injectable, TemplateRef, ViewChild, ViewContainerRef} from "@angular/core";
 
 @Injectable()
 export class TemplateService {

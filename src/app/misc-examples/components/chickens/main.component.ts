@@ -4,6 +4,6 @@ import {Component} from "@angular/core";
   templateUrl: 'main.tmpl.html'
 })
 export class MainComponent {
-  color:string = "green";
+  color: string = "green";
   gender: string = 'Female';
 }

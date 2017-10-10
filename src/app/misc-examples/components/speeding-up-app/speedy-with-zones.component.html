@@ -7,7 +7,8 @@
     So the reason it's faster outside of the NgZone is because when you add a handler to an event like "mousemove" it is
     actually using
     Zone.onmousemove, which triggers the change detection when the event occurs. Binding the event handler outside
-    of Zone stops the change detection being triggered. If you look at the console you will only see the change detection
+    of Zone stops the change detection being triggered. If you look at the console you will only see the change
+    detection
     happening a few times when it's outside.
   </p>
 

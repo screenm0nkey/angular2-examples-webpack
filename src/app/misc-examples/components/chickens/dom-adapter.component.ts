@@ -24,7 +24,8 @@ import {DOCUMENT} from "@angular/platform-browser";
 })
 export class DomAdapterComponent {
 
-  constructor(@Inject(DOCUMENT) public dom, private renderer: Renderer2) {}
+  constructor(@Inject(DOCUMENT) public dom, private renderer: Renderer2) {
+  }
 
   add() {
     const el: HTMLButtonElement = this.renderer.createElement('button');

@@ -25,10 +25,12 @@ const TOKEN_B = new InjectionToken<string>('UserConfig');
     {provide: TOKEN_A, useValue: 'TREX'},
     {provide: TOKEN_B, useValue: 'DINO'},
     // notice that SOME_TOKEN has multiple values
-    {provide: 'jeffFactory', useFactory: (someTokens: string[]) =>
+    {
+      provide: 'jeffFactory', useFactory: (someTokens: string[]) =>
       someTokens.map((str) =>
         str.toUpperCase()),
-      deps: [SOME_TOKEN]} // no `new Inject(SOME_TOKEN)` required as we're using InjectionToken
+      deps: [SOME_TOKEN]
+    } // no `new Inject(SOME_TOKEN)` required as we're using InjectionToken
   ],
   template: `
     <p class="file">misc-examples/components/dependency-injection/injecting-token.ts</p>
@@ -70,7 +72,7 @@ export class InjectComponent {
     console.log("%c{provide : TOKEN_B, useValue : 'DINO'}", 'color:red', dino1, dino2);
   }
 
-  someService () {
+  someService() {
     this.some1.callMe('public some1 : SomeService');
     this.some2.callMe('@Inject(SomeService) public some2');
     this.some3.callMe("@Inject('sausages') public some3");
@@ -78,13 +80,13 @@ export class InjectComponent {
     this.some5.callMe("@Inject('AnyObjectCanBeTheKey') public some5");
   }
 
-  engineService(){
+  engineService() {
     //inject factory
     this.engineFactory1().callMe("EngineService, { useFactory: () => {}");
     this.engineFactory2().callMe("EngineService, { useFactory: () => {}");
   }
 
-  manuallyInject(){
+  manuallyInject() {
     let injector: any = ReflectiveInjector.resolveAndCreate([
       {provide: SOME_TOKEN, useValue: 'BMW one', multi: true},
       {provide: SOME_TOKEN, useValue: 'BMW two', multi: true},

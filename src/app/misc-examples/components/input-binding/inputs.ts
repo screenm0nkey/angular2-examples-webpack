@@ -83,7 +83,7 @@ export class PriceDisplay {
 export class ProductRow {
   product: Product;
   pick: EventEmitter<any> = new EventEmitter(); // (pick)='clicked(product)
-  clicked(evt:MouseEvent) {
+  clicked(evt: MouseEvent) {
     evt.preventDefault();
     this.pick.next(this.product);
   }

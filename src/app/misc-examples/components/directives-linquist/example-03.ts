@@ -1,4 +1,4 @@
-import {Component, Directive, Input, HostListener, HostBinding, Injectable} from "@angular/core";
+import {Component, Directive, HostBinding, HostListener, Injectable, Input} from "@angular/core";
 
 @Injectable()
 export class TrackingService {
@@ -26,11 +26,13 @@ export class OnlineService {
   selector: '[online]'
 })
 export class OnlineDirective {
-  @HostBinding('disabled') get functionCanBeCalledAnything() {
+  @HostBinding('disabled')
+  get functionCanBeCalledAnything() {
     return this.online.online
   }
 
-  @HostBinding('class.offline') get thisCanBeCalledAnything() {
+  @HostBinding('class.offline')
+  get thisCanBeCalledAnything() {
     return this.online.online
   }
 

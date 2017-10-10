@@ -1,4 +1,4 @@
-import {Component, Directive, HostBinding, Input, HostListener} from "@angular/core";
+import {Component, Directive, HostBinding, HostListener, Input} from "@angular/core";
 
 @Directive({
   selector: '[second]'
@@ -6,7 +6,8 @@ import {Component, Directive, HostBinding, Input, HostListener} from "@angular/c
 export class Example02Directive {
   @Input() second;
 
-  @HostBinding() get innerText() {
+  @HostBinding()
+  get innerText() {
     return this.second
   }
 

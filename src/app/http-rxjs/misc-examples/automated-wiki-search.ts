@@ -19,11 +19,11 @@ import {Jsonp} from "@angular/http";
 `
 })
 export class AutoSearch {
-  search : boolean = false;
-  text:string;
-  randomInterval$:Observable<any>;
-  term$:Observable<any>;
-  results$:Observable<any>;
+  search: boolean = false;
+  text: string;
+  randomInterval$: Observable<any>;
+  term$: Observable<any>;
+  results$: Observable<any>;
 
   constructor(public jsonp: Jsonp) {
     this.text = `Beginning fish, firmament give have make years. Divide you're. Fill light, him firmament cattle face 
@@ -36,24 +36,24 @@ export class AutoSearch {
     this.randomInterval$ = Observable
       .range(0, this.text.length)
       .concatMap(x => Observable.of(x).delay(Math.random() * 2000))
-      .do(data=>console.log('%c'+data, "color:pink"));
+      .do(data => console.log('%c' + data, "color:pink"));
 
     this.term$ = Observable.from(this.text)
-      .do(data=>console.log('%c'+data, "color:red"))
+      .do(data => console.log('%c' + data, "color:red"))
       .zip(this.randomInterval$, x => x)
-      .do(data=>console.log('%czip '+data, "color:green"))
+      .do(data => console.log('%czip ' + data, "color:green"))
       .scan((a, c) => (c === " ") ? "" : a + c)
-      .do(data=>console.log('%cscan '+data, "color:orange"))
+      .do(data => console.log('%cscan ' + data, "color:orange"))
       .share();
 
     this.results$ = this.term$
       .debounceTime(250)
-      .filter(()=>this.search)
+      .filter(() => this.search)
       .switchMap(term => this.jsonp.get(`https://en.wikipedia.org/w/api.php?callback=JSONP_CALLBACK&action=opensearch&format=json&search=${term}`))
       .map(res => res.json()[1]);
   }
 
-  searchWiki (){
+  searchWiki() {
     this.search = !this.search;
     console.log(1111, this.search);
   }

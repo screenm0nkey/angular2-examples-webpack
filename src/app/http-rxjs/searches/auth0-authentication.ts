@@ -1,5 +1,5 @@
-import {Component, Directive, EventEmitter, ElementRef, OnInit} from "@angular/core";
-import {Http, Headers} from "@angular/http";
+import {Component, Directive, ElementRef, EventEmitter, OnInit} from "@angular/core";
+import {Headers, Http} from "@angular/http";
 import {Observable} from "rxjs/Observable";
 import * as Rx from "rxjs/Rx";
 import "rxjs/add/operator/map";
@@ -15,7 +15,8 @@ import "rxjs/add/operator/do";
 export class AutosearchAuth implements OnInit {
   results: EventEmitter<any> = new EventEmitter();
 
-  constructor(private elementRef: ElementRef) {}
+  constructor(private elementRef: ElementRef) {
+  }
 
   ngOnInit() {
     Rx.Observable.fromEvent(this.elementRef.nativeElement, 'keyup')
@@ -25,7 +26,6 @@ export class AutosearchAuth implements OnInit {
       .subscribe(data => this.results.emit(data))
   }
 }
-
 
 
 @Component({

@@ -22,8 +22,6 @@ export class InjectParentComponent {
 }
 
 
-
-
 @Component({
   selector: 'b-component',
   template: `<div style="border:solid 2px green;">I'm the child. <br>{{text}} <br>{{parent.name}}</div>`

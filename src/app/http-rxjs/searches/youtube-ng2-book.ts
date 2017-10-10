@@ -1,4 +1,4 @@
-import {Component, EventEmitter, ElementRef, OnInit} from "@angular/core";
+import {Component, ElementRef, EventEmitter, OnInit} from "@angular/core";
 import * as Rx from "rxjs/Rx";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/switchMap";
@@ -6,6 +6,7 @@ import "rxjs/add/operator/debounceTime";
 import "rxjs/add/operator/do";
 import {SearchResult} from "./youtube-helpers/youtube-result-class";
 import {YoutubeService} from "./youtube-helpers/youtube-service";
+
 let loadingGif: string = require('../../../images/loading.gif');
 
 

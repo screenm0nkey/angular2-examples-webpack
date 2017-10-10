@@ -54,7 +54,8 @@ class WikipediaService {
 export class JsonpWikipediaPromise {
   items: Array<string>;
 
-  constructor(private wikipediaService: WikipediaService) {}
+  constructor(private wikipediaService: WikipediaService) {
+  }
 
   search(term: string) {
     this.wikipediaService.search(term).then(items => this.items = items);

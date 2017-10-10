@@ -1,5 +1,5 @@
 import {Component} from "@angular/core";
-import {FormGroup, FormBuilder, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import * as Rx from "rxjs/Rx";
 import {YoutubeService} from "./youtube-helpers/youtube-service";
 
@@ -37,8 +37,8 @@ export class YoutubeBasicExample {
     });
 
     this.form.controls['youtubeSearch'].valueChanges
-      .filter(text=>text && text.length >= 2)
-      .subscribe(text=>this.subject$.next(text))
+      .filter(text => text && text.length >= 2)
+      .subscribe(text => this.subject$.next(text))
 
     this.subject$
       .debounceTime(500)
@@ -46,7 +46,7 @@ export class YoutubeBasicExample {
       .subscribe((results: any[]) => this.results = results);
   }
 
-  onSubmit(val:FormGroup){
+  onSubmit(val: FormGroup) {
     console.log(101, val);
   }
 }

@@ -1,4 +1,4 @@
-import {ActionReducer, Action} from "@ngrx/store";
+import {Action, ActionReducer} from "@ngrx/store";
 import {ADD, GROW} from "./actions";
 
 export const unit: ActionReducer<any> = (state, action: Action) => {

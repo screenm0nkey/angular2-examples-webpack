@@ -4,7 +4,7 @@ import {MiscExamplesComponent} from "./misc.component";
 import {MainComponent} from "./components/chickens/chickens.module";
 import {ChangeDetectionMain} from "./components/change-detection/change.module";
 import {RookieComponent} from "./components/content-children/content-child.module";
-import {CustomersComponent, CustomerDetailComponent} from "./components/customers/customers.module";
+import {CustomerDetailComponent, CustomersComponent} from "./components/customers/customers.module";
 import {FocusInput} from "./components/focusing-input/focusing.module";
 import {HostBindingComponent} from "./components/host-binding/hosting.module";
 import {DirectivesLinquistMain} from "./components/directives-linquist/directives.module";

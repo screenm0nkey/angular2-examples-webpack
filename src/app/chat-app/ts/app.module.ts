@@ -1,8 +1,8 @@
 import {NgModule} from "@angular/core";
 import {SharedModule} from "../../shared/shared.module";
 import {ChatNavBar} from "./components/ChatNavBar";
-import {ChatThreads, ChatThread} from "./components/ChatThreads";
-import {ChatWindow, ChatMessage} from "./components/ChatWindow";
+import {ChatThread, ChatThreads} from "./components/ChatThreads";
+import {ChatMessage, ChatWindow} from "./components/ChatWindow";
 import {servicesInjectables} from "./services/services";
 import {utilInjectables} from "./util/util";
 import {ChatApp} from "./app";
@@ -23,6 +23,7 @@ import {ChatApp} from "./app";
 })
 export class ChatAppModule {
 }
+
 export {ChatApp}
 
 

@@ -1,5 +1,5 @@
-import {Inject, Component, NgModule} from "@angular/core";
-import {createStore, Store, compose, StoreEnhancer} from "redux";
+import {Component, Inject, NgModule} from "@angular/core";
+import {compose, createStore, Store, StoreEnhancer} from "redux";
 import {SharedModule} from "../../shared/shared.module";
 import {AppStore} from "./app-store";
 import {AppState, default as reducer} from "./reducers";

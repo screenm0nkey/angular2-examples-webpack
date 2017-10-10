@@ -1,4 +1,5 @@
-import {Component, OnDestroy, OnInit, AfterViewInit, ViewChild} from "@angular/core";
+import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from "@angular/core";
+
 @Component({
   selector: 'countdown-timer',
   template: '<p>{{message}}</p>'

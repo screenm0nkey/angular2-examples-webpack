@@ -2,7 +2,7 @@ import {Component} from "@angular/core";
 import {Observable} from "rxjs/Rx";
 import {Store} from "@ngrx/store";
 import {Subject} from "rxjs/Subject";
-import {HOUR, DAY, SECOND} from "./reducers";
+import {DAY, HOUR, SECOND} from "./reducers";
 
 @Component({
   selector: 'clock-one',

@@ -1,4 +1,4 @@
-import {Component, Directive, EventEmitter, ElementRef, Injectable, ViewEncapsulation, Input} from "@angular/core";
+import {Component, Directive, ElementRef, EventEmitter, Injectable, Input, ViewEncapsulation} from "@angular/core";
 import {Http, Response} from "@angular/http";
 import * as Rx from "rxjs/Rx";
 import "rxjs/add/operator/map";
@@ -12,7 +12,8 @@ export class Echonest {
   url: string;
   format: string;
 
-  constructor(public http: Http) {}
+  constructor(public http: Http) {
+  }
 
   songSearch(name) {
     name = name.toLocaleLowerCase();
@@ -41,7 +42,6 @@ export class ArtistCardRender {
 }
 
 
-
 @Directive({
   selector: 'input[type=text][autosearch]',
   providers: [Echonest],
@@ -50,7 +50,8 @@ export class ArtistCardRender {
 export class Autosearch {
   results: EventEmitter<any> = new EventEmitter();
 
-  constructor(private elementRef: ElementRef, private service: Echonest) {}
+  constructor(private elementRef: ElementRef, private service: Echonest) {
+  }
 
   // mergeAll merges an observable sequence of observable sequences into an
   // observable sequence with the data values of the observables.
@@ -61,10 +62,9 @@ export class Autosearch {
       .debounceTime(500)
       .filter(text => text.length > 1)
       .mergeMap(name => this.service.songSearch(name))
-      .subscribe(data=>this.results.emit(data));
+      .subscribe(data => this.results.emit(data));
   }
 }
-
 
 
 @Component({

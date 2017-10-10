@@ -1,5 +1,5 @@
-import {Component, Injectable, ChangeDetectionStrategy, ChangeDetectorRef} from "@angular/core";
-import {Subject, BehaviorSubject} from "rxjs";
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Injectable} from "@angular/core";
+import {BehaviorSubject, Subject} from "rxjs";
 
 class Thread {
   constructor(public message?: string) {
@@ -9,7 +9,7 @@ class Thread {
 @Injectable()
 class ThreadsService {
   messages: Thread[] = [{message: 'First one'}];
-  threads: Subject<Thread> = new BehaviorSubject<Thread>(this.messages);
+  threads: Subject<Thread[]> = new BehaviorSubject<Thread[]>(this.messages);
 
   addThread(thread: Thread): void {
     this.messages.push(thread);
@@ -28,7 +28,7 @@ class ThreadsService {
   `
 })
 export class ChildObsList {
-  threads$: Subject<Thread>;
+  threads$: Subject<Thread[]>;
 
   constructor(private threadsService: ThreadsService) {
     this.threads$ = this.threadsService.threads;
@@ -67,8 +67,10 @@ export class ChildObsList {
   `
 })
 export class ParentChangeObs {
-  private off : boolean = false;
-  constructor(private threadsService: ThreadsService, private ref: ChangeDetectorRef) {}
+  private off: boolean = false;
+
+  constructor(private threadsService: ThreadsService, private ref: ChangeDetectorRef) {
+  }
 
   update(msg: string) {
     this.threadsService.addThread({message: msg});
@@ -84,7 +86,6 @@ export class ParentChangeObs {
     this.ref.reattach()
     this.off = false;
   }
-
 
 
 }

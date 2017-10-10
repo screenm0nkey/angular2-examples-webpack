@@ -1,4 +1,4 @@
-import {Component, AfterContentChecked, AfterContentInit, ContentChild} from "@angular/core";
+import {AfterContentChecked, AfterContentInit, Component, ContentChild} from "@angular/core";
 import {LoggerService} from "../logger.service";
 
 //////////////////

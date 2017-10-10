@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
-import {Subject, BehaviorSubject, Observable} from "rxjs";
-import {Thread, Message} from "../models";
+import {BehaviorSubject, Observable, Subject} from "rxjs";
+import {Message, Thread} from "../models";
 import {MessagesService} from "./MessagesService";
 import * as _ from "lodash";
 
@@ -8,7 +8,7 @@ import * as _ from "lodash";
 export class ThreadsService {
 
   // `threads` is a observable that contains the most up to date list of threads
-  threads: Observable<{[key: string]: Thread}>;
+  threads: Observable<{ [key: string]: Thread }>;
 
   // `orderedThreads` contains a newest-first chronological list of threads
   orderedThreads: Observable<Thread[]>;
@@ -22,7 +22,7 @@ export class ThreadsService {
   constructor(private messagesService: MessagesService) {
     this.threads = messagesService.messages
       .map((messages: Message[]) => {
-        let threads: {[key: string]: Thread} = {};
+        let threads: { [key: string]: Thread } = {};
         // Store the message's thread in our accumulator `threads`
         messages.map((message: Message) => {
           threads[message.thread.id] = threads[message.thread.id] || message.thread;
@@ -36,7 +36,7 @@ export class ThreadsService {
       });
 
     this.orderedThreads = this.threads
-      .map((threadGroups: {[key: string]: Thread}) => {
+      .map((threadGroups: { [key: string]: Thread }) => {
         let threads: Thread[] = _.values(threadGroups);
         return _.sortBy(threads, (t: Thread) => t.lastMessage.sentAt).reverse();
       });

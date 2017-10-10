@@ -14,10 +14,11 @@ import {EchonestRepo} from "./echonest.repo";
     ArtistComponent,
     DropdownComponent,
   ],
-  providers : [
+  providers: [
     EchonestRepo
   ]
 })
-export class EchonestModule {}
+export class EchonestModule {
+}
 
 export {EchonestAppComponent}

@@ -11,6 +11,7 @@ import {ComposeMessageComponent} from "./auth/components/compose-message.compone
 import {ChatAppModule} from "./chat-app/ts/app.module";
 import {ChatAppReduxModule} from "./chat-app-redux/ts/app.module";
 import {SharedModule} from "./shared/shared.module";
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   // modules only need to be imported if they are not lazy loaded
@@ -20,7 +21,8 @@ import {SharedModule} from "./shared/shared.module";
     EggheadExamplesModule,
     ChatAppModule,
     ChatAppReduxModule,
-    SharedModule.forRoot()
+    SharedModule.forRoot(),
+    EffectsModule.forRoot([]),
   ],
   declarations: [
     AppComponent,

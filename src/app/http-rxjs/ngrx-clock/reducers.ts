@@ -8,7 +8,7 @@ export const DAY = 'DAY';
 
 const defaultAction: Action = {type: '', payload: ''}
 
-export const clock: ActionReducer<any> = (state: Date = new Date(), action: Action = defaultAction) => {
+export const clock = (state: Date = new Date(), action: Action = defaultAction) => {
   const date = new Date(state.getTime());
   switch (action.type) {
     case SECOND:
@@ -54,7 +54,7 @@ export const peoplez = (state = defaultPeople, {type, payload}) => {
 };
 
 
-export const tick: ActionReducer<any> = (state: Date = new Date(), action: Action) => {
+export const tick = (state: Date = new Date(), action: Action) => {
   let d: Date;
   switch (action.type) {
     case DAY:

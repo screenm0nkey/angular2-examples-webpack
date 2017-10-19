@@ -46,7 +46,10 @@
   },
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
+    "typings",
+    "ms-components",
+    "www"
   ],
   "awesomeTypescriptLoaderOptions": {
     "forkChecker": true,

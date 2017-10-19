@@ -21,7 +21,7 @@ import {
   // Notice that we have only exported it without adding it to declarations or imports.
   // This would happen in the case where the component is not used internally inside the module
   exports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, HttpModule, JsonpModule],
-  // this provider will be available app wide and will instantaited more than once
+  // this provider will be available app wide and will instantiated more than once
   // if used on a lazy-loaded module. look at console for "Created an instance of MrTestyServiceTwo"
   providers: [MrTestyServiceTwo]
 })

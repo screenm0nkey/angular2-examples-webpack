@@ -1,5 +1,5 @@
 import {Component} from "@angular/core";
-import {Action, ActionReducer, Store} from "@ngrx/store";
+import {Action, Store} from "@ngrx/store";
 import {Observable} from "rxjs/Observable";
 import "rxjs/add/observable/interval";
 import "rxjs/add/operator/mapTo";
@@ -8,7 +8,7 @@ import "rxjs/add/operator/mapTo";
 const stringOfWords = `Bacon ipsum dolor amet beef pork hamburger landjaeger rump`;
 const words = stringOfWords.split(" ");
 
-export const wordsReducer: ActionReducer<string> = (state = words[0], action: Action) => {
+export const wordsReducer = (state = words[0], action: Action) => {
   switch (action.type) {
     case 'random':
       const randomIndex = Math.floor(Math.random() * words.length);

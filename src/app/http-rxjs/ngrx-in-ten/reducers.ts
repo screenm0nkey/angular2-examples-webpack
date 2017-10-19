@@ -1,6 +1,6 @@
 import {Action, ActionReducer} from "@ngrx/store";
 
-export const filter: ActionReducer<any> = (state = person => person, action: Action) => {
+export const filter = (state = person => person, action: Action) => {
   switch (action.type) {
     case "SHOW_ATTENDING":
       return person => person.attending;
@@ -18,7 +18,7 @@ interface NickAction extends Action {
   id: number;
 }
 
-export const people: ActionReducer<any> = (state = [], action: NickAction) => {
+export const people = (state = [], action: Action) => {
   switch (action.type) {
     case "ADD_PERSON":
       action.id = Math.round(Math.random() * 100000);

@@ -16,7 +16,8 @@ export class UnitEffects {
   constructor(private updates$: Actions) {
   }
 
-  @Effect() growUnit$ = this.updates$
+  @Effect()
+  growUnit$ = this.updates$
     .ofType(ADD)
     .map(action => action.payload)
     .mergeMap(unit => {

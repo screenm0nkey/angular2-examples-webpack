@@ -1,5 +1,5 @@
 import {NgModule} from "@angular/core";
-import {StoreModule} from "@ngrx/store";
+import {StoreModule, Store} from "@ngrx/store";
 import {EffectsModule} from "@ngrx/effects";
 import {AsyncRoutingModule} from "./async.routes.module";
 import {SharedModule} from "../shared/shared.module";
@@ -29,8 +29,8 @@ import {UnitEffects} from "./ngrx-queue/effects";
     MiscHttpModule,
     NgrxClocksModule,
     NgrxInTenModule,
-    StoreModule.forRoot({queue, people, filter, tick, clock, peoplez, wordsReducer}),
-    EffectsModule.forRoot(UnitEffects)
+    Store, StoreModule.forRoot({queue, people, filter, tick, clock, peoplez, wordsReducer}),
+    EffectsModule.forFeature([UnitEffects]),
   ],
   declarations: [
     MainHttpRxJs,

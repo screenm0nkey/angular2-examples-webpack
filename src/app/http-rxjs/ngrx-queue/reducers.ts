@@ -1,7 +1,7 @@
-import {Action, ActionReducer} from "@ngrx/store";
+import {Action} from "@ngrx/store";
 import {ADD, GROW} from "./actions";
 
-export const unit: ActionReducer<any> = (state, action: Action) => {
+export const unit = (state, action: Action) => {
   switch (action.type) {
     case GROW:
       const {health, id} = state;
@@ -16,7 +16,7 @@ export const unit: ActionReducer<any> = (state, action: Action) => {
   }
 };
 
-export const queue: ActionReducer<any> = (state = [], action: Action) => {
+export const queue =  (state = [], action: Action) => {
   switch (action.type) {
     case ADD:
       return [...state, action.payload];

@@ -28,7 +28,7 @@ export class FixSuperListComponent implements AfterContentInit {
   // use ngAfterContentInit() if you're injecting the content using ngcontent
   ngAfterContentInit() {
     this.count = this.items.length;
-    // will be called every time$ an item is added/removed from the 'items' list in my-component2 below,
+    // will be called every time$ an item is added/removed from the 'items' list in add-to-list-component below,
     this.items.changes.subscribe((items: QueryList<SuperListDirective>) => {
       items.forEach((item: SuperListDirective) => {
         item.el.nativeElement.innerText += '-1'

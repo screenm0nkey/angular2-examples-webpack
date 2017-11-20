@@ -4,6 +4,7 @@ import {ChangeAfterComponent} from './main.component';
 import {BComponent, SharedService, SharedServiceComponent} from './shared-service.component';
 import {DComponent, DynamicComponent} from './dynamic.component';
 import {EComponent, EventBroadcastingComponent} from './event-broadcasting';
+import {InjectParentComponent,InjectChildComponent} from './inject-parent-component';
 
 @NgModule({
   imports: [SharedModule],
@@ -11,7 +12,8 @@ import {EComponent, EventBroadcastingComponent} from './event-broadcasting';
     ChangeAfterComponent,
     SharedServiceComponent, BComponent,
     EComponent, EventBroadcastingComponent,
-    DynamicComponent, DComponent
+    DynamicComponent, DComponent,
+    InjectParentComponent,InjectChildComponent
   ],
   // You need to use entryComponents under @NgModule.
   // This is for dynamically added components that are added using ViewContainerRef.createComponent()

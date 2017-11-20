@@ -6,7 +6,7 @@ import {Component} from "@angular/core";
     <div class="links">
       <a routerLink="/misc/input-binding">Access a child component from the parent using local variable</a>
     </div>
-    <my-component2></my-component2>
+    <add-to-list-component></add-to-list-component>
     <countdown-parent-vc></countdown-parent-vc>
   </div>
   `

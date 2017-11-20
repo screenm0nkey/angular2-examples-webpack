@@ -6,7 +6,7 @@ import {DiSampleApp} from "./resolve-create-service";
 import {ParamService, RubbishService} from "./services/some-service";
 import {ApiService, ViewPortService} from "./services/more-services";
 import {DiSampleApp2} from "./resolve-create-factory";
-import {BComponent, InjectParentComponent} from "./inject-parent-component";
+import {InjectChildComponent, InjectParentComponent} from "./inject-parent-component";
 
 // if we provide services in the module they will be globally available
 // as all modules use the root injector.
@@ -19,7 +19,7 @@ import {BComponent, InjectParentComponent} from "./inject-parent-component";
     InjectComponent,
     DiSampleApp,
     DiSampleApp2,
-    InjectParentComponent, BComponent
+    InjectParentComponent, InjectChildComponent
   ],
   providers: [
     RubbishService,

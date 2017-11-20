@@ -1,8 +1,8 @@
 import {NgModule} from "@angular/core";
 import {SharedModule} from "../../../shared/shared.module";
 import {MainChildrenApp} from "./main";
-import {KeepCountComponent, SuperItemComponent, ViewChildrenComponent} from "./children-child";
-import {CountdownTimerComponent, CountdownViewChildParentComponent} from "./view-child";
+import {KeepCountComponent, SuperItemComponent, ViewChildrenComponent} from "./add-to-list";
+import {CountdownTimerComponent, CountdownViewChildParentComponent} from "./countdown";
 
 @NgModule({
   imports: [SharedModule],

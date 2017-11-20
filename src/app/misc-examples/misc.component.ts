@@ -22,7 +22,7 @@ import {Component} from "@angular/core";
         <a routerLink="./notifications" routerLinkActive="active">Notifications</a>
         <a routerLink="./socket-io" routerLinkActive="active">Socket-io and @Input getters/setters</a>
         <a routerLink="./tricks" routerLinkActive="active">Tricks</a>
-        <a routerLink="./change-after-check" routerLinkActive="active">ExpressionChangedAfterItHasBeenCheckedError</a>
+        <a routerLink="./change-after-check" routerLinkActive="active" title="ExpressionChangedAfterItHasBeenCheckedError">ExpressionChangedAfterItHasBeenCheckedError</a>
         <a routerLink="./customers" routerLinkActive="active">Mini Customers App</a>
       </nav>
       <div id="container">

@@ -1,71 +1,83 @@
-import {Component, Directive, HostBinding, HostListener, Injectable, Input} from "@angular/core";
+import {
+  Component,
+  Directive,
+  HostBinding,
+  HostListener,
+  Injectable,
+  Input
+} from "@angular/core";
 
 @Injectable()
 export class TrackingService {
   logs = [];
 
   log(trackingEvent) {
-    this.logs.push(trackingEvent)
+    this.logs.push(trackingEvent);
     console.log(this.logs);
   }
 }
 
 @Injectable()
 export class OnlineService {
-  online = true
+  online = true;
 
   constructor() {
     setInterval(() => {
-      this.online = Math.random() > .5
-    }, 1000)
+      this.online = Math.random() > 0.5;
+    }, 1000);
   }
 }
 
 
+
+
 @Directive({
-  selector: '[online]'
+  selector: "[online]"
 })
 export class OnlineDirective {
-  @HostBinding('disabled')
+  @HostBinding("disabled")
   get functionCanBeCalledAnything() {
-    return this.online.online
+    return this.online.online;
   }
 
-  @HostBinding('class.offline')
+  @HostBinding("class.offline")
   get thisCanBeCalledAnything() {
-    return this.online.online
+    return this.online.online;
   }
 
-  constructor(private online: OnlineService) {
-  }
+  constructor(private online: OnlineService) {}
 }
 
 
+
+
 @Directive({
-  selector: '[track]'
+  selector: "[track]"
 })
 export class TrackDirective {
   @Input() track;
 
-  @HostListener('click')
+  @HostListener("click")
   onClick() {
-    this.tracking.log({event: 'click', message: this.track})
+    this.tracking.log({ event: "click", message: this.track });
   }
 
-  @HostListener('mouseover')
+  @HostListener("mouseover")
   onMouseover() {
-    this.tracking.log({event: 'mouseover', message: this.track})
+    this.tracking.log({ event: "mouseover", message: this.track });
   }
 
-  constructor(private tracking: TrackingService) {
-  }
+  constructor(private tracking: TrackingService) {}
 }
 
+
+
 @Component({
-  selector: 'track-app',
-  styles: [require('./styles.css')],
+  selector: "track-app",
+  styles: [require("./styles.css")],
   template: `
-    <h4>0Combine hostbinding with services</h4>
+    <p class="path">src/app/misc-examples/components/directives-linquist/example-03</p>
+    <h4>Combine @HostBinding with services</h4>
     <button online [track]="'One Button'">One</button>
     <button online [track]="'Two Button'">Two</button>
     <button online [track]="'Three Button'">Three</button>
@@ -78,6 +90,5 @@ export class TrackDirective {
 })
 export class Example03AppComponent {
   //only for visuals
-  constructor(private tracking: TrackingService) {
-  }
+  constructor(private tracking: TrackingService) {}
 }

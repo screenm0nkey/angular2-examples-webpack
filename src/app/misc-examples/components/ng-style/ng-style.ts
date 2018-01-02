@@ -1,7 +1,7 @@
-import {Component} from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'ng-style-demo',
+  selector: "ng-style-demo",
   template: `
     <h4>Using ngStyle demo</h4>
     <div [style.background-color]="'yellow'">
@@ -40,21 +40,21 @@ export class NgStyleSampleApp {
   color: string;
   fontSize: number;
   style: {
-    'background-color': string,
-    'border-radius': string,
-    border?: string,
-    width?: string,
-    height?: string
+    "background-color": string;
+    "border-radius": string;
+    border?: string;
+    width?: string;
+    height?: string;
   };
 
   constructor() {
     this.fontSize = 16;
-    this.color = 'blue';
+    this.color = "blue";
     this.style = {
-      'background-color': '#ccc',
-      'border-radius': '50px',
-      'height': '30px',
-      'width': '30px'
+      "background-color": "#ccc",
+      "border-radius": "50px",
+      height: "30px",
+      width: "30px"
     };
   }
 
@@ -63,5 +63,3 @@ export class NgStyleSampleApp {
     this.fontSize = fontSize;
   }
 }
-
-

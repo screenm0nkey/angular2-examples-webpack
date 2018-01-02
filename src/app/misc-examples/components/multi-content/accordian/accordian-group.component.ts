@@ -1,10 +1,10 @@
-import {Component, Input, OnDestroy, ViewEncapsulation} from "@angular/core";
-import {Accordion} from './accordian.component';
+import { Component, Input, OnDestroy, ViewEncapsulation } from "@angular/core";
+import { Accordion } from "./accordian.component";
 
 @Component({
-  selector: 'accordion-group, [accordion-group]',
+  selector: "accordion-group, [accordion-group]",
   encapsulation: ViewEncapsulation.Native,
-  inputs: ['isOpen'],
+  inputs: ["isOpen"],
   template: `
     <div class="panel panel-default" [ngClass]="{'panel-open': isOpen}">
         <div class="panel-heading" (click)="toggleOpen($event)">
@@ -22,7 +22,7 @@ import {Accordion} from './accordian.component';
 })
 export class AccordionGroup implements OnDestroy {
   private _isOpen: boolean = false;
-  @Input() heading: string = '';
+  @Input() heading: string = "";
 
   // we're importing the component as a service
   constructor(private accordion: Accordion) {

@@ -1,7 +1,7 @@
-import {Component, Input} from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 @Component({
-  selector: 'my-component',
+  selector: "my-component",
   template: `
   LifeCycle Hooks {{message}} <br>
   <ng-content></ng-content>
@@ -11,47 +11,46 @@ export class MyComponent {
   @Input() message;
 
   constructor() {
-    console.log('%cconstructor', 'color:white');
+    console.log("%cconstructor", "color:white");
   }
 
   ngOnInit() {
-    console.log('%cOnInit', 'color:yellow');
+    console.log("%cOnInit", "color:yellow");
   }
 
   ngOnDestroy() {
-    console.log('%cOnDestroy', 'color:purple');
+    console.log("%cOnDestroy", "color:purple");
   }
 
   ngDoCheck() {
-    console.log('%cDoCheck', 'color:pink');
+    console.log("%cDoCheck", "color:pink");
   }
 
   ngOnChanges() {
-    console.log('%cOnChanges', 'color:lime');
+    console.log("%cOnChanges", "color:lime");
   }
 
   // this is used for <ng-content>
   ngAfterContentInit() {
-    console.log('%cAfterContentInit', 'color:red');
+    console.log("%cAfterContentInit", "color:red");
   }
 
   ngAfterContentChecked() {
-    console.log('%cAfterContentChecked', 'color:blue');
+    console.log("%cAfterContentChecked", "color:blue");
   }
 
   // this is used for viewChild /viewChildren
   ngAfterViewInit() {
-    console.log('%cAfterViewInit', 'color:orange');
+    console.log("%cAfterViewInit", "color:orange");
   }
 
   ngAfterViewChecked() {
-    console.log('%cAfterViewChecked', 'color:green');
+    console.log("%cAfterViewChecked", "color:green");
   }
 }
 
-
 @Component({
-  selector: 'my-app',
+  selector: "my-app",
   template: `
   <p class="path">/lifecycle/basic-overview/index.ts</p>
   <h4>Basic <pre>Check the Console for LifeCycle Hooks</pre></h4>
@@ -62,7 +61,7 @@ export class MyComponent {
   <my-component [message]="appMessage">
     This is content is transposed using &lt;ng-content&gt;: {{appMessage}}
   </my-component>
-  `,
+  `
 })
 export class BasicExample {
   appMessage = "hello";

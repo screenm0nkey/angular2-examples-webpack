@@ -1,21 +1,19 @@
-import {Component, Directive, ElementRef, HostBinding} from "@angular/core";
-import {FormBuilder, FormGroup, NgModel, Validators} from "@angular/forms";
+import { Component, Directive, ElementRef, HostBinding } from "@angular/core";
+import { FormBuilder, FormGroup, NgModel, Validators } from "@angular/forms";
 
-@Directive({selector: '[ngModel]'})
+@Directive({ selector: "[ngModel]" })
 export class NgModelStatusThree {
   //el is the element the directive is applied too.
-  constructor(public el: ElementRef, public control: NgModel) {
-  }
+  constructor(public el: ElementRef, public control: NgModel) {}
 
-  @HostBinding('class.YES')
+  @HostBinding("class.YES")
   get valid() {
-    return this.el.nativeElement.className.indexOf('ng-valid') > 0;
+    return this.el.nativeElement.className.indexOf("ng-valid") > 0;
   }
 }
 
-
 @Component({
-  selector: 'host-three-component',
+  selector: "host-three-component",
   providers: [NgModel],
   styles: [`.ng-invalid {border:solid 1px red;}`],
   template: `
@@ -35,11 +33,10 @@ export class HostThree {
 
   constructor(fb: FormBuilder) {
     this.myForm = fb.group({
-      "checkme": ['', Validators.compose([
-        Validators.required,
-        Validators.minLength(3)
-      ])]
+      checkme: [
+        "",
+        Validators.compose([Validators.required, Validators.minLength(3)])
+      ]
     });
   }
 }
-

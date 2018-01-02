@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import { Component } from "@angular/core";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/concatAll";
@@ -19,12 +19,12 @@ import "rxjs/add/operator/race";
 import "rxjs/add/operator/mapTo";
 import "rxjs/add/observable/bindCallback";
 import "rxjs/add/observable/merge";
-import {Subject} from "rxjs/Subject";
-import {WikipediaService} from "../searches/wikipedia-search.service";
-import {Observable} from "rxjs/Observable";
+import { Subject } from "rxjs/Subject";
+import { WikipediaService } from "../searches/wikipedia-search.service";
+import { Observable } from "rxjs/Observable";
 
 @Component({
-  selector: 'john-linquist-wiki',
+  selector: "john-linquist-wiki",
   providers: [WikipediaService],
   template: `
     <style>
@@ -54,7 +54,9 @@ import {Observable} from "rxjs/Observable";
 `
 })
 export class JohnLinquistWikiSearch {
-  input$ = new Subject().map((event: Event) => (<HTMLInputElement>event.target).value);
+  input$ = new Subject().map(
+    (event: Event) => (<HTMLInputElement>event.target).value
+  );
   searchTerm$;
   images$;
   imageCount$;
@@ -70,10 +72,11 @@ export class JohnLinquistWikiSearch {
       .filter(term => term.length <= 2)
       .share();
 
-
     this.searchTerm$ = Observable.merge(
       term$,
-      lessThanTwoChars$.map(term => !term.length ? '' : 'Enter a term longer than 2 letters')
+      lessThanTwoChars$.map(
+        term => (!term.length ? "" : "Enter a term longer than 2 letters")
+      )
     );
 
     const results$ = term$
@@ -81,19 +84,22 @@ export class JohnLinquistWikiSearch {
       .startWith([])
       .share();
 
-    this.images$ = Observable.merge(results$, lessThanTwoChars$.map(term => []));
+    this.images$ = Observable.merge(
+      results$,
+      lessThanTwoChars$.map(term => [])
+    );
 
-    this.imageCount$ = this.images$
-      .map(results => results.length)
+    this.imageCount$ = this.images$.map(results => results.length);
   }
 
   wikipediaImageSearch(term): Observable<any[]> {
-    return this.wiki.search(term) //3
+    return this.wiki
+      .search(term) //3
       .map(this.wiki.getImageTitles) //4
       .concatAll()
       .mergeMap(this.wiki.getImageInfoFromTitle) //5
       .takeUntil(this.input$)
       .map(this.wiki.mapImageInfoToUrls) //6
-      .scan((acc, curr) => [...acc, ...curr])
+      .scan((acc, curr) => [...acc, ...curr]);
   }
 }

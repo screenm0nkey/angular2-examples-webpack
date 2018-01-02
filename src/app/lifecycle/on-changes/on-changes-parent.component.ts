@@ -1,14 +1,13 @@
-import {Component, ViewChild} from "@angular/core";
-import {OnChangesComponent} from "./on-changes.component";
+import { Component, ViewChild } from "@angular/core";
+import { OnChangesComponent } from "./on-changes.component";
 
 class Hero {
-  constructor(public name: string) {
-  }
+  constructor(public name: string) {}
 }
 
 @Component({
-  selector: 'on-changes-parent',
-  styles: ['.parent {background: Lavender;}'],
+  selector: "on-changes-parent",
+  styles: [".parent {background: Lavender;}"],
   template: `
         <div class="parent">
           <h2>{{title}}</h2>
@@ -31,7 +30,7 @@ class Hero {
 export class OnChangesParentComponent {
   hero: Hero;
   power: string;
-  title = 'OnChanges';
+  title = "OnChanges";
   @ViewChild(OnChangesComponent) childView: OnChangesComponent;
 
   constructor() {
@@ -40,9 +39,9 @@ export class OnChangesParentComponent {
 
   reset() {
     // new Hero object every time$; triggers onChanges
-    this.hero = new Hero('Windstorm');
+    this.hero = new Hero("Windstorm");
     // setting power only triggers onChanges if this value is different
-    this.power = 'sing';
+    this.power = "sing";
     this.childView && this.childView.reset();
   }
 }

@@ -1,8 +1,8 @@
-import {Component} from "@angular/core";
-import {ActivatedRoute, Params} from "@angular/router";
+import { Component } from "@angular/core";
+import { ActivatedRoute, Params } from "@angular/router";
 
 @Component({
-  selector: 'about',
+  selector: "about",
   template: `
    <h4>About</h4>
     params = <strong>{{ params }}</strong>,
@@ -44,22 +44,19 @@ export class AboutComponent {
   constructor(private route: ActivatedRoute) {
     route.params.subscribe((params: Params) => {
       //route.snapshot.parent.params['org'];
-      this.params = params['id'];
+      this.params = params["id"];
     });
 
     route.queryParams.subscribe((data: any) => {
-      this.queryParams = data['session_id'];
+      this.queryParams = data["session_id"];
     });
-
 
     route.fragment.subscribe((fragment: string) => {
       this.fragment = fragment;
     });
 
-
     route.data.subscribe((data: any) => {
       this.data = data.preload;
     });
-
   }
 }

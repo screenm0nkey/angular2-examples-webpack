@@ -1,8 +1,8 @@
-import {Component, EventEmitter, Input, Output} from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 
 @Component({
-  selector: 'toggle-button',
-  styles: ['button.off { background : black; color : white;}'],
+  selector: "toggle-button",
+  styles: ["button.off { background : black; color : white;}"],
   template: `
     <button (click)="onClick($event)" [ngClass]="nick ? 'on' : 'off'">
       <ng-content></ng-content>
@@ -19,9 +19,8 @@ export class ToggleButton {
   }
 }
 
-
 @Component({
-  selector: 'toggle-component',
+  selector: "toggle-component",
   template: `
   <p class="file">misc-examples/components/input-binding/toggle-button.ts</p>
     <h4>Two way binding on a custom event</h4>

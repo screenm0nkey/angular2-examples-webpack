@@ -1,7 +1,7 @@
-import {Component, Injectable} from "@angular/core";
-import {Jsonp, URLSearchParams} from "@angular/http";
-import {Observable} from "rxjs/Observable";
-import {FormControl} from "@angular/forms";
+import { Component, Injectable } from "@angular/core";
+import { Jsonp, URLSearchParams } from "@angular/http";
+import { Observable } from "rxjs/Observable";
+import { FormControl } from "@angular/forms";
 import "rxjs/add/operator/delay";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/toPromise";
@@ -11,24 +11,24 @@ import "rxjs/add/operator/switchMap";
 
 @Injectable()
 class WikipediaService {
-  constructor(private jsonp: Jsonp) {
-  }
+  constructor(private jsonp: Jsonp) {}
 
   search(term: string): Promise<string[]> {
-    var search = new URLSearchParams()
-    search.set('action', 'opensearch');
-    search.set('search', term);
-    search.set('format', 'json');
+    var search = new URLSearchParams();
+    search.set("action", "opensearch");
+    search.set("search", term);
+    search.set("format", "json");
     return this.jsonp
-      .get('http://en.wikipedia.org/w/api.php?callback=JSONP_CALLBACK', {search})
+      .get("http://en.wikipedia.org/w/api.php?callback=JSONP_CALLBACK", {
+        search
+      })
       .toPromise()
-      .then((request) => request.json()[1]);
+      .then(request => request.json()[1]);
   }
 }
 
-
 @Component({
-  selector: 'wikipedia-promise',
+  selector: "wikipedia-promise",
   providers: [WikipediaService],
   template: `
     <div>
@@ -54,18 +54,16 @@ class WikipediaService {
 export class JsonpWikipediaPromise {
   items: Array<string>;
 
-  constructor(private wikipediaService: WikipediaService) {
-  }
+  constructor(private wikipediaService: WikipediaService) {}
 
   search(term: string) {
-    this.wikipediaService.search(term).then(items => this.items = items);
+    this.wikipediaService.search(term).then(items => (this.items = items));
   }
 }
 
-
 // same as above but built with observables
 @Component({
-  selector: 'wikipedia-observable',
+  selector: "wikipedia-observable",
   providers: [WikipediaService],
   template: `
     <div>
@@ -83,13 +81,12 @@ export class WikipediaObservable {
 
   constructor(private wikipediaService: WikipediaService) {
     this.items = this.term.valueChanges
-      .do(() => this.loading = true)
+      .do(() => (this.loading = true))
       .debounceTime(400)
       .distinctUntilChanged()
       // you should always use switchMap when making http requests
       .switchMap((sterm: string) => this.wikipediaService.search(sterm))
       .delay(1000) // add a delay to see the loading icon
-      .do(() => this.loading = false);
+      .do(() => (this.loading = false));
   }
 }
-

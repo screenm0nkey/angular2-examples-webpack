@@ -1,9 +1,9 @@
-import {Component} from "@angular/core";
-import {AuthService} from "../services/AuthService";
-import {ActivatedRoute, Router} from "@angular/router";
+import { Component } from "@angular/core";
+import { AuthService } from "../services/AuthService";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
-  selector: 'login',
+  selector: "login",
   template: `
   <div class="alert alert-danger" role="alert" *ngIf="message">
     {{ message }}
@@ -32,28 +32,32 @@ import {ActivatedRoute, Router} from "@angular/router";
   `
 })
 export class LoginComponent {
-  message: string = '';
+  message: string = "";
 
-  constructor(private authService: AuthService,
-              private router: Router,
-              private route: ActivatedRoute) {
-  }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   login(username: string, password: string): boolean {
-    this.message = '';
+    this.message = "";
     if (!this.authService.login(username, password)) {
-      this.message = 'Incorrect credentials.';
-      setTimeout(function () {
-        this.message = '';
-      }.bind(this), 2500);
+      this.message = "Incorrect credentials.";
+      setTimeout(
+        function() {
+          this.message = "";
+        }.bind(this),
+        2500
+      );
     }
     return false;
   }
 
   logout(): boolean {
     this.authService.logout();
-    if (this.router.url.endsWith('protected')) {
-      this.router.navigate(['./aboutus', 34], {relativeTo: this.route});
+    if (this.router.url.endsWith("protected")) {
+      this.router.navigate(["./aboutus", 34], { relativeTo: this.route });
     }
     return false;
   }

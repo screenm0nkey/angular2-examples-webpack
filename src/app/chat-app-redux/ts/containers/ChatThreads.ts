@@ -1,12 +1,12 @@
-import {Component, Inject} from "@angular/core";
-import {AppStore} from "../app-store";
-import {Store} from "redux";
-import {Thread} from "../models";
-import {ThreadActions} from "../actions";
-import {AppState, getAllThreads, getCurrentThread} from "../reducers";
+import { Component, Inject } from "@angular/core";
+import { AppStore } from "../app-store";
+import { Store } from "redux";
+import { Thread } from "../models";
+import { ThreadActions } from "../actions";
+import { AppState, getAllThreads, getCurrentThread } from "../reducers";
 
 @Component({
-  selector: 'chat-threads',
+  selector: "chat-threads",
   template: `
   <!-- conversations -->
   <div class="row">
@@ -21,7 +21,6 @@ import {AppState, getAllThreads, getCurrentThread} from "../reducers";
   </div>
   `
 })
-
 export default class ChatThreads {
   threads: Thread[];
   currentThreadId: string;

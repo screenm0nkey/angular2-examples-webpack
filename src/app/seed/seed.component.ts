@@ -1,7 +1,7 @@
-import {Component} from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app',
+  selector: "app",
   template: `
     <h3>
       Angular 2 Seed
@@ -19,7 +19,6 @@ import {Component} from "@angular/core";
     <footer style="clear: both">
       Footer © 2016
     </footer>
-  `,
+  `
 })
-export class SeedComponent {
-}
+export class SeedComponent {}

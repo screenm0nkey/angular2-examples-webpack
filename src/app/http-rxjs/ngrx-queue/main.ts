@@ -1,12 +1,11 @@
-import {Component} from "@angular/core";
-import {NgRxQueueAppComponent} from "./app.component";
+import { Component } from "@angular/core";
+import { NgRxQueueAppComponent } from "./app.component";
 
 @Component({
   template: `<my-app></my-app>`
 })
 export class NgRxQueueMainApp {
-  constructor() {
-  }
+  constructor() {}
 }
 
-export {NgRxQueueAppComponent}
+export { NgRxQueueAppComponent };

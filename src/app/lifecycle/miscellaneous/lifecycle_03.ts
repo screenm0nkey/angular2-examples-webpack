@@ -9,10 +9,9 @@ import {
   KeyValueDiffers
 } from "@angular/core";
 
-
 @Component({
-  selector: 'do-check-item',
-  outputs: ['onRemove'],
+  selector: "do-check-item",
+  outputs: ["onRemove"],
   template: `
   <div style="background-color: #8a6d3b; display: table; border-radius: 5px; border:solid 5px saddlebrown">
     <div class="event">
@@ -35,7 +34,7 @@ import {
   `
 })
 export class DoCheckItem implements DoCheck {
-  @Input('comment') comment: any;
+  @Input("comment") comment: any;
   onRemove: EventEmitter<any>;
   private differ: KeyValueDiffer<string, any>;
 
@@ -47,22 +46,35 @@ export class DoCheckItem implements DoCheck {
   ngDoCheck(): void {
     const changes = this.differ.diff(this.comment);
     if (changes) {
-      console.log('%cKeyValueDiffers', 'color:pink', changes);
-      changes.forEachAddedItem(r => this.logChange('added', r));
-      changes.forEachRemovedItem(r => this.logChange('removed', r));
-      changes.forEachChangedItem(r => this.logChange('changed', r));
+      console.log("%cKeyValueDiffers", "color:pink", changes);
+      changes.forEachAddedItem(r => this.logChange("added", r));
+      changes.forEachRemovedItem(r => this.logChange("removed", r));
+      changes.forEachChangedItem(r => this.logChange("changed", r));
     }
   }
 
   logChange(action, r) {
-    if (action === 'changed') {
-      console.log('%cChanged', 'color:pink', r.key, 'from', r.previousValue, 'to', r.currentValue);
+    if (action === "changed") {
+      console.log(
+        "%cChanged",
+        "color:pink",
+        r.key,
+        "from",
+        r.previousValue,
+        "to",
+        r.currentValue
+      );
     }
-    if (action === 'added') {
-      console.log('%cAdded', 'color:pink', r.key, 'with', r.currentValue);
+    if (action === "added") {
+      console.log("%cAdded", "color:pink", r.key, "with", r.currentValue);
     }
-    if (action === 'removed') {
-      console.log('%cRemoved', 'color:pink', r.key, '(was ' + r.previousValue + ')');
+    if (action === "removed") {
+      console.log(
+        "%cRemoved",
+        "color:pink",
+        r.key,
+        "(was " + r.previousValue + ")"
+      );
     }
   }
 
@@ -79,9 +91,8 @@ export class DoCheckItem implements DoCheck {
   }
 }
 
-
 @Component({
-  selector: 'do-check',
+  selector: "do-check",
   template: `
     <p class="path">/lifecycle/miscellaneous/lifecycle_03.ts</p>
     <h4>ngDoCheck and IterableDiffers, KeyValueDiffers</h4>
@@ -109,14 +120,14 @@ export class DoCheckCmp implements DoCheck {
   constructor(differs: IterableDiffers) {
     this.differ = differs.find([]).create(null);
     this.comments = [];
-    this.authors = ['Elliot', 'Helen', 'Jenny', 'Joe', 'Justen', 'Matt'];
+    this.authors = ["Elliot", "Helen", "Jenny", "Joe", "Justen", "Matt"];
     this.texts = [
       "Ours is a life of constant reruns",
-      'Really cool!',
-      'Thanks!'
+      "Really cool!",
+      "Thanks!"
     ];
     // setTimeout will trigger ngDoCheck
-    setTimeout(() => this.addComment(), 1000)
+    setTimeout(() => this.addComment(), 1000);
   }
 
   getRandomInt(max: number): number {
@@ -145,11 +156,13 @@ export class DoCheckCmp implements DoCheck {
   ngDoCheck(): void {
     const changes = this.differ.diff(this.comments);
     if (changes) {
-      console.log('%cIterableDiffers', 'color:orange', changes);
-      changes.forEachAddedItem(r => console.log('%cAdded', 'color:orange', r.item));
-      changes.forEachRemovedItem(r => console.log('%cRemoved', 'color:orange', r.item));
+      console.log("%cIterableDiffers", "color:orange", changes);
+      changes.forEachAddedItem(r =>
+        console.log("%cAdded", "color:orange", r.item)
+      );
+      changes.forEachRemovedItem(r =>
+        console.log("%cRemoved", "color:orange", r.item)
+      );
     }
   }
 }
-
-

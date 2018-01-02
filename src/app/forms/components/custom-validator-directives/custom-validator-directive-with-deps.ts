@@ -1,5 +1,5 @@
-import {Directive, forwardRef, Injectable} from "@angular/core";
-import {FormControl, NG_VALIDATORS, Validator} from "@angular/forms";
+import { Directive, forwardRef, Injectable } from "@angular/core";
+import { FormControl, NG_VALIDATORS, Validator } from "@angular/forms";
 
 @Injectable()
 class EmailBlackListService {
@@ -8,22 +8,22 @@ class EmailBlackListService {
   }
 }
 
-
 function validateEmailFactory(emailBlackList: EmailBlackListService) {
   return (c: FormControl) => {
     let EMAIL_REGEXP = emailBlackList.getRegex();
 
-    return EMAIL_REGEXP.test(c.value) ? null : {
-      validateEmail: {
-        valid: false
-      }
-    };
+    return EMAIL_REGEXP.test(c.value)
+      ? null
+      : {
+          validateEmail: {
+            valid: false
+          }
+        };
   };
 }
 
-
 @Directive({
-  selector: '[validateEmailDeps][ngModel],[validateEmailDeps][formControl]',
+  selector: "[validateEmailDeps][ngModel],[validateEmailDeps][formControl]",
   providers: [
     EmailBlackListService,
     {
@@ -46,4 +46,3 @@ export class FormSevenEmailValidatorWithDeps implements Validator {
     return this.validator(c);
   }
 }
-

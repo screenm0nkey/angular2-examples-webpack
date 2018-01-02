@@ -1,9 +1,10 @@
-import {Component} from "@angular/core";
-import {LoggerService} from "../logger.service";
+import { Component } from "@angular/core";
+import { LoggerService } from "../logger.service";
 
 @Component({
-  selector: 'spy-parent',
-  template: `
+  selector: "spy-parent",
+  template:
+    `
   <div class="parent">
     <h4>Spy Directive</h4>
     <pre>
@@ -21,22 +22,22 @@ import {LoggerService} from "../logger.service";
       <button (click)="addHero()">Add Hero</button>
       <button (click)="reset()">Reset Heroes</button>
     </p>` +
-  `<div *ngFor="let hero of heroes"  my-spy  class="heroes">
+    `<div *ngFor="let hero of heroes"  my-spy  class="heroes">
        {{hero}}
-     </div>`
-  + `<h4>-- Spy Lifecycle Hook Log --</h4>
+     </div>` +
+    `<h4>-- Spy Lifecycle Hook Log --</h4>
     <div *ngFor="let msg of spyLog">{{msg}}</div>
    </div>
   `,
   styles: [
-    '.parent {background: khaki;}',
-    '.heroes {background: LightYellow; padding: 0 8px}'
+    ".parent {background: khaki;}",
+    ".heroes {background: LightYellow; padding: 0 8px}"
   ],
   providers: [LoggerService]
 })
 export class SpyParentComponent {
-  newName = 'Herbie';
-  heroes: string[] = ['Windstorm', 'Magneta'];
+  newName = "Herbie";
+  heroes: string[] = ["Windstorm", "Magneta"];
   spyLog: string[];
 
   constructor(private _logger: LoggerService) {
@@ -46,7 +47,7 @@ export class SpyParentComponent {
   addHero() {
     if (this.newName.trim()) {
       this.heroes.push(this.newName.trim());
-      this.newName = '';
+      this.newName = "";
       this._logger.tick();
     }
   }
@@ -57,7 +58,7 @@ export class SpyParentComponent {
   }
 
   reset() {
-    this._logger.log('-- reset --');
+    this._logger.log("-- reset --");
     this.heroes.length = 0;
     this._logger.tick();
   }

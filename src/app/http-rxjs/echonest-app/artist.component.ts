@@ -1,9 +1,17 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange} from "@angular/core";
-import {Artist} from "./echonest.repo";
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChange
+} from "@angular/core";
+import { Artist } from "./echonest.repo";
 
 @Component({
-  selector: 'artist-component',
-  styles: [require('./echonest.css')],
+  selector: "artist-component",
+  styles: [require("./echonest.css")],
   template: `
         <div class="artist">
             <span style="font-size:11px">[{{artist.hotttnesss}}] {{artist.name}}</span>
@@ -18,8 +26,8 @@ export class ArtistComponent implements OnInit, OnChanges {
   @Output() select = new EventEmitter();
   @Input() artist: Artist;
   @Input() type: string;
-  private readonly ADD: string = 'Add';
-  private readonly REMOVE: string = 'Remove';
+  private readonly ADD: string = "Add";
+  private readonly REMOVE: string = "Remove";
   private buttonText: string;
   private disabled: boolean = false;
 
@@ -40,12 +48,11 @@ export class ArtistComponent implements OnInit, OnChanges {
   setButtonText(favourited: boolean) {
     this.buttonText = this.ADD;
     this.disabled = false;
-    if (this.type === 'all' && favourited) {
+    if (this.type === "all" && favourited) {
       this.disabled = true;
     }
     if (this.type === "favourite" && favourited) {
       this.buttonText = this.REMOVE;
     }
   }
-
 }

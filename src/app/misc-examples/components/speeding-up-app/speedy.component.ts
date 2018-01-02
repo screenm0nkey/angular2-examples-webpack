@@ -1,12 +1,12 @@
-import {AfterViewInit, ChangeDetectorRef, Component} from '@angular/core';
-import {BoxComponent} from './box.component';
+import { AfterViewInit, ChangeDetectorRef, Component } from "@angular/core";
+import { BoxComponent } from "./box.component";
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
 @Component({
-  selector: 'speed-up-app',
+  selector: "speed-up-app",
   template: `
   <p class="file">misc-examples/components/speeding-up-app/speedy.component.ts</p>
     <p><a href="https://blog.thoughtram.io/angular/2017/02/02/making-your-angular-app-fast.html" target="_blank">
@@ -30,8 +30,7 @@ export class SpeedingComponent implements AfterViewInit {
   offsetX;
   offsetY;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) {
-  }
+  constructor(private changeDetectorRef: ChangeDetectorRef) {}
 
   ngOnInit() {
     for (let i = 0; i < 5000; i++) {
@@ -52,7 +51,7 @@ export class SpeedingComponent implements AfterViewInit {
   }
 
   mouseDown(event) {
-    const boxComponent = event.target['BoxComponent'];
+    const boxComponent = event.target["BoxComponent"];
     if (boxComponent) {
       const box = boxComponent.box;
       const mouseX = event.clientX;
@@ -68,7 +67,11 @@ export class SpeedingComponent implements AfterViewInit {
   mouseMove(event) {
     event.preventDefault();
     if (this.currentBoxComponent !== null) {
-      this.updateBox(this.currentBoxComponent, event.clientX + this.offsetX, event.clientY + this.offsetY);
+      this.updateBox(
+        this.currentBoxComponent,
+        event.clientX + this.offsetX,
+        event.clientY + this.offsetY
+      );
     }
   }
 
@@ -85,8 +88,4 @@ export class SpeedingComponent implements AfterViewInit {
     boxComponent.box.y = y;
     boxComponent.update();
   }
-
 }
-
-
-

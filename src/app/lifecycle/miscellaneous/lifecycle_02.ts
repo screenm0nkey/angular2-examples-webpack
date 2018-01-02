@@ -1,7 +1,7 @@
-import {Component, Input, OnChanges, SimpleChange} from "@angular/core";
+import { Component, Input, OnChanges, SimpleChange } from "@angular/core";
 
 @Component({
-  selector: 'on-change-2',
+  selector: "on-change-2",
   template: `
     <p style="font-weight: bold">The JSON below is the formatted "SimpleChange" object passed into ngOnChanges()</p>
     <pre>{{changes|json}}</pre>
@@ -10,21 +10,20 @@ import {Component, Input, OnChanges, SimpleChange} from "@angular/core";
 })
 export class OnChangeCmp2 implements OnChanges {
   private changes: { [propName: string]: SimpleChange };
-  @Input('name') name: string;
-  @Input('comment') comment: string;
+  @Input("name") name: string;
+  @Input("comment") comment: string;
   private localstring: string;
 
   ngOnChanges(changes: { [propName: string]: SimpleChange }): void {
     this.changes = changes;
-    console.log('Changes', JSON.stringify(changes));
+    console.log("Changes", JSON.stringify(changes));
     // notice that this value also updates. not only the @Inputs
-    this.localstring = Math.round(Math.random() * 100000) + 'NICK';
+    this.localstring = Math.round(Math.random() * 100000) + "NICK";
   }
 }
 
-
 @Component({
-  selector: 'lifecycle-sample-app-2',
+  selector: "lifecycle-sample-app-2",
   template: `
   <p class="path">/lifecycle/miscellaneous/lifecycle_02</p>
   <h4>ngOnChanges and the SimpleChange object</h4>
@@ -56,8 +55,8 @@ export class LifecycleSampleApp2 {
   comment: string;
 
   constructor() {
-    this.name = 'Mr Biscuit';
-    this.comment = 'I am learning so much!';
+    this.name = "Mr Biscuit";
+    this.comment = "I am learning so much!";
   }
 
   setValues(namefld, commentfld): void {
@@ -65,6 +64,3 @@ export class LifecycleSampleApp2 {
     this.comment = commentfld.value;
   }
 }
-
-
-

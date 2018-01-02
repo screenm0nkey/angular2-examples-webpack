@@ -1,19 +1,21 @@
 import {Component, Directive, HostBinding} from "@angular/core";
 
 @Directive({
-  selector: '[first]'
+  selector: "[first]"
 })
 export class FirstDirective {
-  @HostBinding() innerText = `I'm a directive!`
+  // innerText is a a property of the <p> tag dom element
+  @HostBinding() innerText = `I'm a directive!`;
 }
 
 @Component({
-  selector: 'example-01',
+  selector: "example-01",
   template: `
-<h4 first>Hello, Angular</h4>
-<h2>No first here</h2>
-<h3 first>This will be gone</h3>
-    `
+    <p class="path">src/app/misc-examples/components/directives-linquist/example-01</p>
+    <p first>This will be replaced</p>
+    <p>No first here</p>
+    <p first>This will be replaced</p>
+  `
 })
 export class Example01AppComponent {
 }

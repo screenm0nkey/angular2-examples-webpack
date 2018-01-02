@@ -1,13 +1,11 @@
-import {Component, Input, OnChanges, SimpleChange} from "@angular/core";
-
+import { Component, Input, OnChanges, SimpleChange } from "@angular/core";
 
 class Hero {
-  constructor(public name: string) {
-  }
+  constructor(public name: string) {}
 }
 
 @Component({
-  selector: 'on-changes',
+  selector: "on-changes",
   template: `
   <div class="hero">
     <p>{{hero.name}} can {{power}}</p>
@@ -17,8 +15,8 @@ class Hero {
   </div>
   `,
   styles: [
-    '.hero {background: LightYellow; padding: 8px; margin-top: 8px}',
-    'p {background: Yellow; padding: 8px; margin-top: 8px}'
+    ".hero {background: LightYellow; padding: 8px; margin-top: 8px}",
+    "p {background: Yellow; padding: 8px; margin-top: 8px}"
   ]
 })
 export class OnChangesComponent implements OnChanges {
@@ -30,9 +28,11 @@ export class OnChangesComponent implements OnChanges {
   ngOnChanges(changes: { [propertyName: string]: SimpleChange }) {
     for (let propName in changes) {
       let prop = changes[propName];
-      let cur = JSON.stringify(prop.currentValue)
+      let cur = JSON.stringify(prop.currentValue);
       let prev = JSON.stringify(prop.previousValue);
-      this.changeLog.push(`${propName}: currentValue = ${cur}, previousValue = ${prev}`);
+      this.changeLog.push(
+        `${propName}: currentValue = ${cur}, previousValue = ${prev}`
+      );
     }
   }
 

@@ -1,11 +1,11 @@
-import {Component, Input, NgZone, OnChanges} from '@angular/core';
+import { Component, Input, NgZone, OnChanges } from "@angular/core";
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
 @Component({
-  selector: '[boxZone]',
+  selector: "[boxZone]",
   template: `
     <svg:rect
       [attr.dataId]="boxZone.id"
@@ -28,7 +28,7 @@ export class BoxZoneComponent implements OnChanges {
 }
 
 @Component({
-  selector: 'speed-up-app-with-zones',
+  selector: "speed-up-app-with-zones",
   template: `
     <p class="file">misc-examples/components/speeding-up-app/speedy-with-zones.component.ts</p>
     <p><a href="https://blog.thoughtram.io/angular/2017/02/21/using-zones-in-angular-for-better-performance.html"
@@ -47,8 +47,7 @@ export class BoxZoneComponent implements OnChanges {
   `
 })
 export class SpeedingZonesComponent {
-  constructor(private zone: NgZone) {
-  }
+  constructor(private zone: NgZone) {}
 
   currentId = null;
   boxes = [];
@@ -70,7 +69,7 @@ export class SpeedingZonesComponent {
     }
   }
 
-  bindMouse = (ev) => {
+  bindMouse = ev => {
     this.mouseMove(ev);
   };
 
@@ -96,7 +95,11 @@ export class SpeedingZonesComponent {
 
   mouseUp($event) {
     this.zone.run(() => {
-      this.updateBox(this.currentId, $event.clientX + this.offsetX, $event.clientY + this.offsetY);
+      this.updateBox(
+        this.currentId,
+        $event.clientX + this.offsetX,
+        $event.clientY + this.offsetY
+      );
       this.currentId = null;
     });
     window.document.removeEventListener("mousemove", this.bindMouse);
@@ -107,8 +110,4 @@ export class SpeedingZonesComponent {
     box.x = x;
     box.y = y;
   }
-
 }
-
-
-

@@ -1,6 +1,6 @@
-import {Component, HostBinding} from "@angular/core";
-import {Router} from "@angular/router";
-import {slideInDownAnimation} from "../animations";
+import { Component, HostBinding } from "@angular/core";
+import { Router } from "@angular/router";
+import { slideInDownAnimation } from "../animations";
 
 @Component({
   template: `
@@ -21,23 +21,24 @@ import {slideInDownAnimation} from "../animations";
       <button (click)="cancel()">Cancel</button>
     </p>
   `,
-  styles: [':host { position: relative; bottom: 10%; background-color: white; border: solid 4px red; }'],
+  styles: [
+    ":host { position: relative; bottom: 10%; background-color: white; border: solid 4px red; }"
+  ],
   animations: [slideInDownAnimation]
 })
 export class ComposeMessageComponent {
-  @HostBinding('@routeAnimation') routeAnimation = true;
-  @HostBinding('style.display') display = 'block'; // set the host element style to block
-  @HostBinding('style.position') position = 'absolute';
+  @HostBinding("@routeAnimation") routeAnimation = true;
+  @HostBinding("style.display") display = "block"; // set the host element style to block
+  @HostBinding("style.position") position = "absolute";
 
   details: string;
   sending: boolean = false;
 
-  constructor(private router: Router) {
-  }
+  constructor(private router: Router) {}
 
   send() {
     this.sending = true;
-    this.details = 'Sending Message...';
+    this.details = "Sending Message...";
 
     setTimeout(() => {
       this.sending = false;
@@ -52,10 +53,9 @@ export class ComposeMessageComponent {
   closePopup() {
     // Providing a `null` value to the named outlet
     // clears the contents of the named outlet
-    this.router.navigate([{outlets: {popup: null}}]);
+    this.router.navigate([{ outlets: { popup: null } }]);
   }
 }
-
 
 /*
  Copyright 2016 Google Inc. All Rights Reserved.

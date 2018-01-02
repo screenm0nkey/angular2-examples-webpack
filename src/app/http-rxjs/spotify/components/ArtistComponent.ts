@@ -1,17 +1,17 @@
 /*
  * Angular
  */
-import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute} from "@angular/router";
-import {Location} from "@angular/common";
-import {Observable} from "rxjs/Rx";
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { Location } from "@angular/common";
+import { Observable } from "rxjs/Rx";
 /*
  * Services
  */
-import {SpotifyService} from "../SpotifyService";
+import { SpotifyService } from "../SpotifyService";
 
 @Component({
-  selector: 'artist$',
+  selector: "artist$",
   template: `
   <div *ngIf="(artist$ | async)?.name">
     <h1>{{ (artist$ | async)?.name }}</h1>
@@ -26,10 +26,13 @@ export class ArtistComponent implements OnInit {
   id: string;
   artist$: Observable<any[]>;
 
-  constructor(private route: ActivatedRoute, private spotify: SpotifyService,
-              private location: Location) {
+  constructor(
+    private route: ActivatedRoute,
+    private spotify: SpotifyService,
+    private location: Location
+  ) {
     route.params.subscribe(params => {
-      this.id = params['id'];
+      this.id = params["id"];
     });
   }
 
@@ -40,5 +43,4 @@ export class ArtistComponent implements OnInit {
   back(): void {
     this.location.back();
   }
-
 }

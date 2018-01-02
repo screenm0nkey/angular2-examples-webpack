@@ -1,14 +1,18 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Injectable} from "@angular/core";
-import {BehaviorSubject, Subject} from "rxjs";
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Injectable
+} from "@angular/core";
+import { BehaviorSubject, Subject } from "rxjs";
 
 class Thread {
-  constructor(public message?: string) {
-  }
+  constructor(public message?: string) {}
 }
 
 @Injectable()
 class ThreadsService {
-  messages: Thread[] = [{message: 'First one'}];
+  messages: Thread[] = [{ message: "First one" }];
   threads: Subject<Thread[]> = new BehaviorSubject<Thread[]>(this.messages);
 
   addThread(thread: Thread): void {
@@ -17,9 +21,8 @@ class ThreadsService {
   }
 }
 
-
 @Component({
-  selector: 'child-obs-list',
+  selector: "child-obs-list",
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <ul>
@@ -36,9 +39,8 @@ export class ChildObsList {
   }
 }
 
-
 @Component({
-  selector: 'parent-obs',
+  selector: "parent-obs",
   providers: [ThreadsService],
   template: `
       <p class="file">/misc-examples/components/change-detection/observables.components.ts</p>
@@ -69,11 +71,13 @@ export class ChildObsList {
 export class ParentChangeObs {
   private off: boolean = false;
 
-  constructor(private threadsService: ThreadsService, private ref: ChangeDetectorRef) {
-  }
+  constructor(
+    private threadsService: ThreadsService,
+    private ref: ChangeDetectorRef
+  ) {}
 
   update(msg: string) {
-    this.threadsService.addThread({message: msg});
+    this.threadsService.addThread({ message: msg });
   }
 
   turnOffChangeDetection() {
@@ -83,9 +87,7 @@ export class ParentChangeObs {
   }
 
   turnOnChangeDetection() {
-    this.ref.reattach()
+    this.ref.reattach();
     this.off = false;
   }
-
-
 }

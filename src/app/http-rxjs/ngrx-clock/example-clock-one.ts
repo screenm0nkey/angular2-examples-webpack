@@ -1,11 +1,11 @@
-import {Component} from "@angular/core";
-import {Observable} from "rxjs/Rx";
-import {Store} from "@ngrx/store";
-import {Subject} from "rxjs/Subject";
-import {DAY, HOUR, SECOND} from "./reducers";
+import { Component } from "@angular/core";
+import { Observable } from "rxjs/Rx";
+import { Store } from "@ngrx/store";
+import { Subject } from "rxjs/Subject";
+import { DAY, HOUR, SECOND } from "./reducers";
 
 @Component({
-  selector: 'clock-one',
+  selector: "clock-one",
   template: `
         <h4>Taken from a John Linquist Plunk</h4>
         <button (click)="hourBackward$.next()">Hour -1</button>
@@ -19,10 +19,10 @@ import {DAY, HOUR, SECOND} from "./reducers";
 })
 export class NgRxClockApp {
   clock$;
-  hourBackward$ = new Subject().mapTo({type: HOUR, payload: -1});
-  hourForward$ = new Subject().mapTo({type: HOUR, payload: 1});
-  dayBackward$ = new Subject().mapTo({type: DAY, payload: -1});
-  dayForward$ = new Subject().mapTo({type: DAY, payload: 1});
+  hourBackward$ = new Subject().mapTo({ type: HOUR, payload: -1 });
+  hourForward$ = new Subject().mapTo({ type: HOUR, payload: 1 });
+  dayBackward$ = new Subject().mapTo({ type: DAY, payload: -1 });
+  dayForward$ = new Subject().mapTo({ type: DAY, payload: 1 });
 
   constructor(private store: Store<any>) {
     // the ngrx store is a BehaviorSubject so it's an Observer as well as an Observable
@@ -31,13 +31,9 @@ export class NgRxClockApp {
       this.hourForward$,
       this.dayBackward$,
       this.dayForward$,
-      Observable.interval(1000).mapTo({type: SECOND, payload: 1})
+      Observable.interval(1000).mapTo({ type: SECOND, payload: 1 })
     ).subscribe(store);
 
-    this.clock$ = store.select('tick');
+    this.clock$ = store.select("tick");
   }
 }
-
-
-
-

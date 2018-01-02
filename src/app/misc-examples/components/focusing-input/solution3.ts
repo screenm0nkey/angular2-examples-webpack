@@ -1,7 +1,13 @@
-import {Component, DoCheck, ElementRef, NgZone, ViewChild} from "@angular/core";
+import {
+  Component,
+  DoCheck,
+  ElementRef,
+  NgZone,
+  ViewChild
+} from "@angular/core";
 
 @Component({
-  selector: 'solution-three',
+  selector: "solution-three",
   template: `
         <p class="file">misc-examples/components/focusing-input/solution3.ts</p>
         <h4>Solution 3 using ngZone and @ViewChild with local reference</h4>
@@ -18,10 +24,10 @@ import {Component, DoCheck, ElementRef, NgZone, ViewChild} from "@angular/core";
         <button (click)="showInput()">Make it visible</button>
         <input  *ngIf="input1IsVisible" #input1>
         <button *ngIf="input1IsVisible" (click)="focusInput1()">Focus it</button>
-    `,
+    `
 })
 export class SolutionThree implements DoCheck {
-  @ViewChild('input1') input1ElementRef: ElementRef;
+  @ViewChild("input1") input1ElementRef: ElementRef;
   private input1IsVisible: boolean = false;
 
   constructor(private _ngZone: NgZone) {
@@ -48,7 +54,7 @@ export class SolutionThree implements DoCheck {
   // this log 3 times instead of 1 when you click the
   // "Make it visible" button.
   ngDoCheck(): any {
-    console.log(13001, 'doCheck');
+    console.log(13001, "doCheck");
   }
 
   focusInput1() {

@@ -1,35 +1,38 @@
-import {Component, Directive, ElementRef, EventEmitter, OnInit} from "@angular/core";
-import {Headers, Http} from "@angular/http";
-import {Observable} from "rxjs/Observable";
+import {
+  Component,
+  Directive,
+  ElementRef,
+  EventEmitter,
+  OnInit
+} from "@angular/core";
+import { Headers, Http } from "@angular/http";
+import { Observable } from "rxjs/Observable";
 import * as Rx from "rxjs/Rx";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/switchMap";
 import "rxjs/add/operator/debounceTime";
 import "rxjs/add/operator/do";
 
-
 @Directive({
-  selector: 'input[type=text][autosearch]',
-  outputs: ['results']
+  selector: "input[type=text][autosearch]",
+  outputs: ["results"]
 })
 export class AutosearchAuth implements OnInit {
   results: EventEmitter<any> = new EventEmitter();
 
-  constructor(private elementRef: ElementRef) {
-  }
+  constructor(private elementRef: ElementRef) {}
 
   ngOnInit() {
-    Rx.Observable.fromEvent(this.elementRef.nativeElement, 'keyup')
+    Rx.Observable.fromEvent(this.elementRef.nativeElement, "keyup")
       .debounceTime(500)
       .map((e: any) => e.target.value)
       .filter(text => text.length >= 2)
-      .subscribe(data => this.results.emit(data))
+      .subscribe(data => this.results.emit(data));
   }
 }
 
-
 @Component({
-  selector: 'auth0-example',
+  selector: "auth0-example",
   template: `
         <div class="search-results">
         <p class="path">/http-rxjs/searches/auth0-authentication.ts</p>
@@ -45,15 +48,15 @@ export class AutosearchAuth implements OnInit {
 })
 export class Auth0Component {
   updates$: Rx.Subject<any> = new Rx.Subject<any>();
-  searchTerm: string = '';
+  searchTerm: string = "";
   jsonny: JSON;
 
   constructor(private _http: Http) {
     this.updates$
-      .filter(text => typeof text === 'string')
-      .do(text => this.searchTerm = text)
+      .filter(text => typeof text === "string")
+      .do(text => (this.searchTerm = text))
       .switchMap(text => this.getJSON(text))
-      .subscribe((results: JSON) => this.jsonny = results);
+      .subscribe((results: JSON) => (this.jsonny = results));
   }
 
   getJSON(text): Observable<JSON> {
@@ -61,12 +64,13 @@ export class Auth0Component {
     let formBody = "username=gonto&password=" + text;
     let headers = new Headers();
     // this is a custom header and Express needs this configuration to make it work
-    headers.append('Content-Type', "application/x-www-form-urlencoded");
+    headers.append("Content-Type", "application/x-www-form-urlencoded");
     // Custom-FormNick is defined in express config in www/server
-    headers.append('Custom-FormNick', "love-it");
-    return this._http.post('//localhost:1970/data', formBody, {
-      headers: headers
-    }).map(res => res.json())
+    headers.append("Custom-FormNick", "love-it");
+    return this._http
+      .post("//localhost:1970/data", formBody, {
+        headers: headers
+      })
+      .map(res => res.json());
   }
 }
-

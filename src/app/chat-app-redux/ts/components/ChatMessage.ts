@@ -1,5 +1,5 @@
-import {Component, OnInit} from "@angular/core";
-import {Message} from "../models";
+import { Component, OnInit } from "@angular/core";
+import { Message } from "../models";
 
 /**
  * ChatMessage is a component that shows a single Message in the ChatWindow.
@@ -7,8 +7,8 @@ import {Message} from "../models";
  * incoming or outgoing
  */
 @Component({
-  inputs: ['message'],
-  selector: 'chat-message',
+  inputs: ["message"],
+  selector: "chat-message",
   template: `
   <div class="msg-container"
        [ngClass]="{'base-sent': !incoming, 'base-receive': incoming}">

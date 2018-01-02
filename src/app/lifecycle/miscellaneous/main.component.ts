@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
   template: `
@@ -8,7 +8,6 @@ import {Component} from "@angular/core";
         <lifecycle-sample-app-2></lifecycle-sample-app-2>
         <do-check></do-check>
       </div>
-    `,
+    `
 })
-export class MiscLifecycleMain {
-}
+export class MiscLifecycleMain {}

@@ -1,7 +1,7 @@
-import {Component} from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'misc-http-component',
+  selector: "misc-http-component",
   template: `
       <ngrx-stater-app></ngrx-stater-app>
       <hr>
@@ -12,10 +12,6 @@ import {Component} from "@angular/core";
       <promise-example></promise-example>  
       <hr>
       <subscribe-example></subscribe-example>
-    `,
-
+    `
 })
-export class MiscHttpExamples {
-}
-
-
+export class MiscHttpExamples {}

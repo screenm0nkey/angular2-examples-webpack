@@ -1,8 +1,14 @@
-import {AfterContentInit, Component, ContentChildren, ElementRef, QueryList} from "@angular/core";
+import {
+  AfterContentInit,
+  Component,
+  ContentChildren,
+  ElementRef,
+  QueryList
+} from "@angular/core";
 
 // SuperList component would be our library that an end user us using.
 @Component({
-  selector: 'super-list',
+  selector: "super-list",
   template: `
     there are {{count}} items in the list
     <ul>
@@ -14,7 +20,7 @@ export class SuperListComponent implements AfterContentInit {
   // @ContentChildren allows us to target directives, components and local-refs
   // in content which has been inserted using ng-content. If the content was
   // just in the view then we could use @ViewChildren
-  @ContentChildren('mylocalref') items: QueryList<ElementRef>;
+  @ContentChildren("mylocalref") items: QueryList<ElementRef>;
   count: number;
 
   // this is used for ng-content
@@ -24,12 +30,11 @@ export class SuperListComponent implements AfterContentInit {
   }
 }
 
-
 // this is how the end user might implement the external component.
 // we're forced to ask them to add a reference to their list items
 // #mylocalref, which is not ideal
 @Component({
-  selector: 'my-component',
+  selector: "my-component",
   template: `
     <p class="file">misc-examples/components/content-children/problem-one.ts</p>
     <h4>Scenario: You need a reference to an element a user projects into your component using ng-content</h4>
@@ -66,5 +71,5 @@ export class SuperListComponent implements AfterContentInit {
     `
 })
 export class MyComponent {
-  public items: string[] = ['hello', 'world', 'today'];
+  public items: string[] = ["hello", "world", "today"];
 }

@@ -1,25 +1,27 @@
 import {Component, DoCheck, NgZone} from "@angular/core";
 
 @Component({
-  selector: 'ng-zone-demo',
+  selector: "ng-zone-demo",
   template: `
+    <p class="path">misc-examples/components/ng-zone/runoutside.ts</p>
     <h4>Demo: NgZone (watch console log)</h4>
-    <a href="http://blog.thoughtram.io/angular/2016/02/01/zones-in-angular-2.html" target="_blank">Zones in Angular 2</a>
+    <a href="http://blog.thoughtram.io/angular/2016/02/01/zones-in-angular-2.html" target="_blank">
+      Zones in Angular 2
+    </a>
     
-<p>NgZone comes with an API runOutsideAngular() which performs a
-given task outside NgZone’s parent zone, which does not emit an "onTurnDone"
-event, hence no change detection is performed. To demonstrate this useful
-feature, let’s take look at the following code:
+      <p>NgZone comes with an API runOutsideAngular() <strong>which performs a
+      given task outside NgZone’s parent zone. This means it does not emit an "onTurnDone"
+      event, hence no change detection is performed.</strong> This means it will be faster.</p>
 
-ngDoCheck() is called every time the component is checked. 
-a component is checked every time change detection occurs, which is triggered 
-every time an angular event happens i.e click, settimeout, http etc.
+      <p>ngDoCheck() is called every time the component is checked.
+      a component is checked every time change detection occurs, which is triggered
+      every time an angular event happens i.e click, settimeout, http etc.</p>
 
-Running processes outside of the Angular zone stops ngDoCheck() being called.</p>
+      <p>Running processes outside of the Angular zone stops ngDoCheck() being called.</p>
     
     <p>Progress: {{progress}}%</p>
     <p *ngIf="progress >= 100">Done processing {{label}} of Angular zone!</p>
-    
+
     <button (click)="processWithinAngularZone()">Process within Angular zone</button>
     <button (click)="processOutsideOfAngularZone()">Process outside of Angular zone</button>
   `
@@ -35,27 +37,27 @@ export class NgZoneDemo implements DoCheck {
   // a component is checked every time change detection occurs
   // which is triggered every time an event an angular event happens.
   ngDoCheck() {
-    // console.log(`ngDoCheck ${this.progress}%`);
+    console.log(`ngDoCheck ${this.progress}%`);
   }
 
   // Loop inside the Angular zone
   // so the UI DOES refresh after each setTimeout cycle
   processWithinAngularZone() {
-    this.label = 'inside';
+    this.label = "inside";
     this.progress = 0;
-    this.increaseProgress(() => console.log('Inside Done!'));
+    this.increaseProgress(() => console.log("Inside Done!"));
   }
 
   // Loop outside of the Angular zone
   // so the UI DOES NOT refresh after each setTimeout cycle
   processOutsideOfAngularZone() {
-    this.label = 'outside';
+    this.label = "outside";
     this.progress = 0;
     this.zone.runOutsideAngular(() => {
       this.increaseProgress(() => {
         // reenter the Angular zone and display done
         this.zone.run(() => {
-          console.log('Outside Done!')
+          console.log("Outside Done!");
         });
       });
     });
@@ -63,7 +65,6 @@ export class NgZoneDemo implements DoCheck {
 
   increaseProgress(doneCallback: Function) {
     this.progress += 1;
-    console.log(`Current progress: ${this.progress}%`);
     if (this.progress < 100) {
       window.setTimeout(() => this.increaseProgress(doneCallback), 10);
     } else {
@@ -71,5 +72,3 @@ export class NgZoneDemo implements DoCheck {
     }
   }
 }
-
-

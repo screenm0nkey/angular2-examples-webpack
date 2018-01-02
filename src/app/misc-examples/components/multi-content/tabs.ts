@@ -1,7 +1,13 @@
-import {AfterContentInit, Component, ContentChildren, Input, QueryList} from "@angular/core";
+import {
+  AfterContentInit,
+  Component,
+  ContentChildren,
+  Input,
+  QueryList
+} from "@angular/core";
 
 @Component({
-  selector: 'tab',
+  selector: "tab",
   template: `
   <div class="ui bottom attached tab segment" [class.active]="active" style="border: deepskyblue 3px solid">
       <ng-content></ng-content>
@@ -9,13 +15,12 @@ import {AfterContentInit, Component, ContentChildren, Input, QueryList} from "@a
   `
 })
 export class Tab {
-  @Input('title') title: string;
+  @Input("title") title: string;
   active: boolean = false;
 }
 
-
 @Component({
-  selector: 'tabset',
+  selector: "tabset",
   template: `
   <div class="ui top attached tabular menu">
     <a *ngFor="let tab of tabs"
@@ -40,16 +45,15 @@ export class Tabset implements AfterContentInit {
   }
 
   setActive(tab: Tab) {
-    this.tabs.toArray().forEach((t) => t.active = false);
+    this.tabs.toArray().forEach(t => (t.active = false));
     tab.active = true;
   }
 }
 
-
 @Component({
-  selector: 'tabs-sample-app',
+  selector: "tabs-sample-app",
   template: `
-    ${require('./tabs.html')}
+    ${require("./tabs.html")}
     <tabset>
       <tab title="First tab">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -68,9 +72,9 @@ export class TabsSampleApp {
 
   constructor() {
     this.tabs = [
-      {title: 'About', content: 'This is the About tab'},
-      {title: 'Blog', content: 'This is our blog'},
-      {title: 'Contact us', content: 'Contact us here'},
+      { title: "About", content: "This is the About tab" },
+      { title: "Blog", content: "This is our blog" },
+      { title: "Contact us", content: "Contact us here" }
     ];
   }
 }

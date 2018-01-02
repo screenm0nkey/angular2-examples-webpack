@@ -1,16 +1,14 @@
-import {NgModule} from "@angular/core";
-import {MiscHttpExamples} from "./main";
-import {SharedModule} from "../../shared/shared.module";
-import {CounterComponent} from "./rx-counter";
-import {PromiseExample} from "./promise";
-import {SubscribeExample} from "./subscribe";
-import {NgRxStarterApp} from "./ngrx-starter";
-import {AutoSearch} from "./automated-wiki-search";
+import { NgModule } from "@angular/core";
+import { MiscHttpExamples } from "./main";
+import { SharedModule } from "../../shared/shared.module";
+import { CounterComponent } from "./rx-counter";
+import { PromiseExample } from "./promise";
+import { SubscribeExample } from "./subscribe";
+import { NgRxStarterApp } from "./ngrx-starter";
+import { AutoSearch } from "./automated-wiki-search";
 
 @NgModule({
-  imports: [
-    SharedModule,
-  ],
+  imports: [SharedModule],
   declarations: [
     MiscHttpExamples,
     CounterComponent,
@@ -20,9 +18,6 @@ import {AutoSearch} from "./automated-wiki-search";
     AutoSearch
   ]
 })
-export class MiscHttpModule {
-}
+export class MiscHttpModule {}
 
-export {MiscHttpExamples}
-
-
+export { MiscHttpExamples };

@@ -1,7 +1,7 @@
-import {Component, Inject} from "@angular/core";
-import {Http, Response} from "@angular/http";
-import {Subject} from "rxjs/Subject";
-import {Observable} from "rxjs/Observable";
+import { Component, Inject } from "@angular/core";
+import { Http, Response } from "@angular/http";
+import { Subject } from "rxjs/Subject";
+import { Observable } from "rxjs/Observable";
 import "rxjs/add/observable/merge";
 import "rxjs/add/observable/combineLatest";
 import "rxjs/add/operator/map";
@@ -15,8 +15,9 @@ import "rxjs/add/operator/share";
 import "rxjs/add/operator/startWith";
 
 @Component({
-  selector: 'star-wars',
-  styles: [`
+  selector: "star-wars",
+  styles: [
+    `
       input{
         border: 1px solid black;
       }
@@ -24,7 +25,8 @@ import "rxjs/add/operator/startWith";
         display: flex;
         flex-wrap: wrap;
     }
-  `],
+  `
+  ],
   template: `
       <span class="path">/http-rxjs/john-linquist/star-wars.ts</span>
       <h4>Search for a Star Wars character (supports regex)</h4>
@@ -40,7 +42,8 @@ import "rxjs/add/operator/startWith";
       </div>
   `,
   providers: [
-    {provide: 'URL', useValue: 'https://swapi-json-server-vlhfwhtpic.now.sh'}],
+    { provide: "URL", useValue: "https://swapi-json-server-vlhfwhtpic.now.sh" }
+  ]
 })
 export class StarWarsComponent {
   input$ = new Subject();
@@ -48,17 +51,21 @@ export class StarWarsComponent {
   noResults$;
 
   getStarWarsCharacter(term: string): Observable<any> {
-    return this.http.get(`${this.api}/people?name_like=${term}`)
-      .map((res: Response) => res.json().map(person =>
-        Object.assign({}, person, {image: `${this.api}/${person.image}`})));
+    return this.http
+      .get(`${this.api}/people?name_like=${term}`)
+      .map((res: Response) =>
+        res
+          .json()
+          .map(person =>
+            Object.assign({}, person, { image: `${this.api}/${person.image}` })
+          )
+      );
   }
 
-  constructor(public http: Http, @Inject('URL') public api) {
-    const term$ = this.input$
-      .map((ev: any) => ev.target.value);
+  constructor(public http: Http, @Inject("URL") public api) {
+    const term$ = this.input$.map((ev: any) => ev.target.value);
 
-    const clear$ = term$
-      .filter(term => term.length < 2);
+    const clear$ = term$.filter(term => term.length < 2);
 
     const results$ = term$
       .debounceTime(250)
@@ -67,17 +74,14 @@ export class StarWarsComponent {
       .do(console.log.bind(console))
       .share();
 
-    this.people$ = Observable.merge(
-      clear$.mapTo([]),
-      results$
-    ).startWith([]);
+    this.people$ = Observable.merge(clear$.mapTo([]), results$).startWith([]);
 
     this.noResults$ = Observable.combineLatest(
       results$,
       term$,
       (results: any[], term: string) => {
         return results.length == 0 && term.length > 1;
-      })
-      .startWith(false)
+      }
+    ).startWith(false);
   }
 }

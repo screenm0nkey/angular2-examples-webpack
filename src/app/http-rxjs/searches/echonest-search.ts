@@ -1,39 +1,46 @@
-import {Component, Directive, ElementRef, EventEmitter, Injectable, Input, ViewEncapsulation} from "@angular/core";
-import {Http, Response} from "@angular/http";
+import {
+  Component,
+  Directive,
+  ElementRef,
+  EventEmitter,
+  Injectable,
+  Input,
+  ViewEncapsulation
+} from "@angular/core";
+import { Http, Response } from "@angular/http";
 import * as Rx from "rxjs/Rx";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/switchMap";
 import "rxjs/add/operator/debounceTime";
 import "rxjs/add/operator/do";
 
-
 @Injectable()
 export class Echonest {
   url: string;
   format: string;
 
-  constructor(public http: Http) {
-  }
+  constructor(public http: Http) {}
 
   songSearch(name) {
     name = name.toLocaleLowerCase();
-    let url = 'http://localhost:1970/uk/rss/topsongs/limit=100/json';
-    return this.http.get(url)
+    let url = "http://localhost:1970/uk/rss/topsongs/limit=100/json";
+    return this.http
+      .get(url)
       .map((res: Response) => res.json())
-      .map((data) => {
+      .map(data => {
         return data.feed.entry
           .map((ent, x) => {
-            return {id: x, label: ent['im:name'].label};
+            return { id: x, label: ent["im:name"].label };
           })
           .filter(item => {
             return item.label.toLocaleLowerCase().indexOf(name) >= 0;
-          })
-      })
+          });
+      });
   }
 }
 
 @Component({
-  selector: 'artist-card',
+  selector: "artist-card",
   encapsulation: ViewEncapsulation.Native, // this makes it a real web components
   template: `<pre>{{artist.label}}</pre>`
 })
@@ -41,22 +48,20 @@ export class ArtistCardRender {
   @Input() artist: Object;
 }
 
-
 @Directive({
-  selector: 'input[type=text][autosearch]',
+  selector: "input[type=text][autosearch]",
   providers: [Echonest],
-  outputs: ['results']
+  outputs: ["results"]
 })
 export class Autosearch {
   results: EventEmitter<any> = new EventEmitter();
 
-  constructor(private elementRef: ElementRef, private service: Echonest) {
-  }
+  constructor(private elementRef: ElementRef, private service: Echonest) {}
 
   // mergeAll merges an observable sequence of observable sequences into an
   // observable sequence with the data values of the observables.
   ngOnInit() {
-    Rx.Observable.fromEvent(this.elementRef.nativeElement, 'keyup')
+    Rx.Observable.fromEvent(this.elementRef.nativeElement, "keyup")
       .map((e: Event) => (<HTMLInputElement>e.target).value)
       .distinctUntilChanged()
       .debounceTime(500)
@@ -66,9 +71,8 @@ export class Autosearch {
   }
 }
 
-
 @Component({
-  selector: 'echonest-search',
+  selector: "echonest-search",
   providers: [Echonest],
   template: `
     <div class="search-results">

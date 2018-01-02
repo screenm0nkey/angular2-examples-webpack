@@ -16,6 +16,7 @@ p code, h4 > code, li>code {
 p {
   font-family: "Avenir";
   padding-right: 20px;
+  margin-bottom: 7px;
 }
 
 a {

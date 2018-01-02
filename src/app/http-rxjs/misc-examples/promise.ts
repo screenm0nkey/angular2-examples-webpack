@@ -1,6 +1,5 @@
-import {Component, Injectable, OnInit} from "@angular/core";
-import {Http} from "@angular/http";
-
+import { Component, Injectable, OnInit } from "@angular/core";
+import { Http } from "@angular/http";
 
 export interface Character {
   id: number;
@@ -11,12 +10,12 @@ export interface Character {
 export class CharacterService {
   characters: Character[] = [];
 
-  constructor(private _http: Http) {
-  }
+  constructor(private _http: Http) {}
 
   getCharacters(): Promise<Character[]> {
     this.characters.length = 0;
-    let promise = this._http.get('/json/characters.json')
+    let promise = this._http
+      .get("/json/characters.json")
       .map((response: any) => response.json())
       .toPromise(null)
       .then((characters: Character[]) => {
@@ -28,7 +27,7 @@ export class CharacterService {
 }
 
 @Component({
-  selector: 'promise-example',
+  selector: "promise-example",
   template: `
     <p class="path"> /http-rxjs/misc-examples/promise.ts</p>
     <h4>Promise example</h4> 
@@ -44,10 +43,8 @@ export class PromiseExample implements OnInit {
   }
 
   ngOnInit() {
-    this._characterService.getCharacters()
-      .then((characters: Character[]) => {
-        this.characters = characters;
-      });
+    this._characterService.getCharacters().then((characters: Character[]) => {
+      this.characters = characters;
+    });
   }
 }
-

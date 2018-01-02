@@ -1,7 +1,11 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component} from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component
+} from "@angular/core";
 
 @Component({
-  selector: 'mark-for-check',
+  selector: "mark-for-check",
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <p class="file">/misc-examples/components/immutable/mark-for-check-component.ts</p>
@@ -27,8 +31,7 @@ export class MarkForCheck {
   numberOfTicks = 0;
   id: any = 0;
 
-  constructor(private ref: ChangeDetectorRef) {
-  }
+  constructor(private ref: ChangeDetectorRef) {}
 
   startStopInterval() {
     clearInterval(this.id);
@@ -44,5 +47,3 @@ export class MarkForCheck {
     }
   }
 }
-
-

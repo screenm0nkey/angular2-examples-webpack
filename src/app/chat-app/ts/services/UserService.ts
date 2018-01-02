@@ -1,7 +1,6 @@
-import {Injectable} from "@angular/core";
-import {BehaviorSubject, Subject} from "rxjs";
-import {User} from "../models";
-
+import { Injectable } from "@angular/core";
+import { BehaviorSubject, Subject } from "rxjs";
+import { User } from "../models";
 
 /**
  * UserService manages our current user
@@ -17,6 +16,4 @@ export class UserService {
   }
 }
 
-export var userServiceInjectables: Array<any> = [
-  UserService
-];
+export var userServiceInjectables: Array<any> = [UserService];

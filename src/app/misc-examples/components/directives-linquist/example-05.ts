@@ -1,7 +1,7 @@
-import {Component} from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'example-05',
+  selector: "example-05",
   template: `
     <h4>Create elements with ngTemplateOutlet</h4>
     <pre>"let-" is only supported on template elements</pre>
@@ -24,7 +24,7 @@ import {Component} from "@angular/core";
   `
 })
 export class Example05AppComponent {
-  one = {message: 'Hello One'}
-  two = {message: 'Hello Two'}
-  three = {message: 'Hello Three'}
+  one = { message: "Hello One" };
+  two = { message: "Hello Two" };
+  three = { message: "Hello Three" };
 }

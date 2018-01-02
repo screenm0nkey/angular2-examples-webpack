@@ -1,6 +1,6 @@
-import {Store} from "@ngrx/store";
-import {Component} from "@angular/core";
-import {ADD} from "./actions";
+import { Store } from "@ngrx/store";
+import { Component } from "@angular/core";
+import { ADD } from "./actions";
 import "rxjs/add/operator/filter";
 import "rxjs/add/operator/switchMap";
 import "rxjs/add/operator/switchMapTo";
@@ -22,15 +22,17 @@ const createUnit = (health = 0) => {
     health,
     ready: false
   };
-}
+};
 
 @Component({
-  selector: 'my-app',
-  styles: [`
+  selector: "my-app",
+  styles: [
+    `
     :host{
       font-family: Arial;
     }
-  `],
+  `
+  ],
   template: `
     <a href="http://plnkr.co/edit/E57afQC5zwSQFt2oH5Z0?p=preview" target="_blank">Plunk</a>
     <button (click)="onClick($event)">
@@ -49,13 +51,16 @@ const createUnit = (health = 0) => {
 `
 })
 export class NgRxQueueAppComponent {
-  unitsInProgress$ = this.store.select('queue').map((queue: any) => queue.filter(u => !u.ready));
-  unitsReady$ = this.store.select('queue').map((queue: any) => queue.filter(u => u.ready));
+  unitsInProgress$ = this.store
+    .select("queue")
+    .map((queue: any) => queue.filter(u => !u.ready));
+  unitsReady$ = this.store
+    .select("queue")
+    .map((queue: any) => queue.filter(u => u.ready));
 
   onClick(event) {
-    this.store.dispatch({type: ADD, payload: createUnit()});
+    this.store.dispatch({ type: ADD, payload: createUnit() });
   }
 
-  constructor(public store: Store<any>) {
-  }
+  constructor(public store: Store<any>) {}
 }

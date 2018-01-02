@@ -1,12 +1,18 @@
-import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from "@angular/core";
+import {
+  AfterViewInit,
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChild
+} from "@angular/core";
 
 @Component({
-  selector: 'countdown-timer',
-  template: '<p>{{message}}</p>'
+  selector: "countdown-timer",
+  template: "<p>{{message}}</p>"
 })
 export class CountdownTimerComponent implements OnInit, OnDestroy {
   intervalId = 0;
-  message = '';
+  message = "";
   seconds = 11;
 
   clearTimer() {
@@ -35,9 +41,8 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
     this.intervalId = window.setInterval(() => {
       this.seconds -= 1;
       if (this.seconds === 0) {
-        this.message = 'Blast off!';
-      }
-      else {
+        this.message = "Blast off!";
+      } else {
         if (this.seconds < 0) {
           this.seconds = 10;
         } // reset
@@ -48,7 +53,7 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
 }
 
 @Component({
-  selector: 'countdown-parent-vc',
+  selector: "countdown-parent-vc",
   template: `
   <p class="file">misc-examples/components/view-children/view-child.ts</p>
   <h4>Countdown to Liftoff (via ViewChild)</h4>
@@ -56,10 +61,11 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
   <button (click)="stop()">Stop</button>
   <div class="seconds">{{ seconds() }}</div>
   <countdown-timer></countdown-timer>
-  `,
+  `
 })
 export class CountdownViewChildParentComponent implements AfterViewInit {
-  @ViewChild(CountdownTimerComponent) private timerComponent: CountdownTimerComponent;
+  @ViewChild(CountdownTimerComponent)
+  private timerComponent: CountdownTimerComponent;
 
   seconds() {
     return 0;
@@ -68,7 +74,7 @@ export class CountdownViewChildParentComponent implements AfterViewInit {
   ngAfterViewInit() {
     // Redefine `seconds()` to get from the `CountdownTimerComponent.seconds` ...
     // but wait a tick first to avoid one-time devMode unidirectional-data-flow-violation error
-    setTimeout(() => this.seconds = () => this.timerComponent.seconds, 0);
+    setTimeout(() => (this.seconds = () => this.timerComponent.seconds), 0);
   }
 
   start() {
@@ -79,4 +85,3 @@ export class CountdownViewChildParentComponent implements AfterViewInit {
     this.timerComponent.stop();
   }
 }
-

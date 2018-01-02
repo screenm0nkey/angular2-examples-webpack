@@ -1,5 +1,3 @@
-import {fromNowPipeInjectables} from "./FromNowPipe";
+import { fromNowPipeInjectables } from "./FromNowPipe";
 
-export var utilInjectables: Array<any> = [
-  fromNowPipeInjectables
-];
+export var utilInjectables: Array<any> = [fromNowPipeInjectables];

@@ -1,11 +1,11 @@
-import {Component, ViewEncapsulation} from "@angular/core";
+import { Component, ViewEncapsulation } from "@angular/core";
 import {
   MrTestyServiceOne,
   MrTestyServiceTwo
 } from "./misc-examples/components/dependency-injection/services/more-services";
 
 @Component({
-  selector: 'main-app',
+  selector: "main-app",
   template: `
      <nav class="main">
       <a routerLink="/forms" routerLinkActive="active">Forms</a>
@@ -25,11 +25,8 @@ import {
     </main>
   `,
   encapsulation: ViewEncapsulation.None,
-  styles: [
-    require('../styles/app.css')
-  ],
+  styles: [require("../styles/app.css")]
 })
 export class AppComponent {
-  constructor(private ts1: MrTestyServiceOne, private ts2: MrTestyServiceTwo) {
-  }
+  constructor(private ts1: MrTestyServiceOne, private ts2: MrTestyServiceTwo) {}
 }

@@ -1,8 +1,8 @@
-import {Component} from "@angular/core";
-import {LoggerService} from "../logger.service";
+import { Component } from "@angular/core";
+import { LoggerService } from "../logger.service";
 
 @Component({
-  selector: 'after-content-parent',
+  selector: "after-content-parent",
   template: `
   <div class="comps">
   <div class="parent">
@@ -22,7 +22,7 @@ import {LoggerService} from "../logger.service";
   </div>
   </div>
   `,
-  styles: ['.parent {background: burlywood}'],
+  styles: [".parent {background: burlywood}"],
   providers: [LoggerService]
 })
 export class AfterContentParentComponent {
@@ -37,6 +37,6 @@ export class AfterContentParentComponent {
     this.logs.length = 0;
     // quickly remove and reload AfterContentComponent which recreates it
     this.show = false;
-    setTimeout(() => this.show = true, 0)
+    setTimeout(() => (this.show = true), 0);
   }
 }

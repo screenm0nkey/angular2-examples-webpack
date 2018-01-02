@@ -1,9 +1,9 @@
-import {Component} from "@angular/core";
-import {Observable} from "rxjs/Rx";
-import {Jsonp} from "@angular/http";
+import { Component } from "@angular/core";
+import { Observable } from "rxjs/Rx";
+import { Jsonp } from "@angular/http";
 
 @Component({
-  selector: 'auto-wiki-search',
+  selector: "auto-wiki-search",
   template: `
     <div>
       <p class="path">/http-rxjs/misc-examples/automated-wiki-search.ts</p>
@@ -33,23 +33,28 @@ export class AutoSearch {
             Image you meat bearing one of herb living called waters he seasons his have him. God multiply one multiply 
             their. His air gathered kind bearing fowl One years fruit days to living place and.`;
 
-    this.randomInterval$ = Observable
-      .range(0, this.text.length)
+    this.randomInterval$ = Observable.range(0, this.text.length)
       .concatMap(x => Observable.of(x).delay(Math.random() * 2000))
-      .do(data => console.log('%c' + data, "color:pink"));
+      .do(data => console.log("%c" + data, "color:pink"));
 
     this.term$ = Observable.from(this.text)
-      .do(data => console.log('%c' + data, "color:red"))
+      .do(data => console.log("%c" + data, "color:red"))
       .zip(this.randomInterval$, x => x)
-      .do(data => console.log('%czip ' + data, "color:green"))
-      .scan((a, c) => (c === " ") ? "" : a + c)
-      .do(data => console.log('%cscan ' + data, "color:orange"))
+      .do(data => console.log("%czip " + data, "color:green"))
+      .scan((a, c) => (c === " " ? "" : a + c))
+      .do(data => console.log("%cscan " + data, "color:orange"))
       .share();
 
     this.results$ = this.term$
       .debounceTime(250)
       .filter(() => this.search)
-      .switchMap(term => this.jsonp.get(`https://en.wikipedia.org/w/api.php?callback=JSONP_CALLBACK&action=opensearch&format=json&search=${term}`))
+      .switchMap(term =>
+        this.jsonp.get(
+          `https://en.wikipedia.org/w/api.php?callback=JSONP_CALLBACK&action=opensearch&format=json&search=${
+            term
+          }`
+        )
+      )
       .map(res => res.json()[1]);
   }
 
@@ -58,4 +63,3 @@ export class AutoSearch {
     console.log(1111, this.search);
   }
 }
-

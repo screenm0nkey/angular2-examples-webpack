@@ -1,7 +1,7 @@
-import {Component, EventEmitter, Input, Output} from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 
 @Component({
-  selector: 'todo-item-renderer',
+  selector: "todo-item-renderer",
   template: `
     <style>
         .completed{

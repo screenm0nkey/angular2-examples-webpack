@@ -1,12 +1,10 @@
-import {QuestionBase} from "./question-base";
+import { QuestionBase } from "./question-base";
 
 export class TextboxQuestion extends QuestionBase<string> {
-
   type: string;
-  controlType = 'textbox';
+  controlType = "textbox";
 
   constructor() {
     super();
   }
-
 }

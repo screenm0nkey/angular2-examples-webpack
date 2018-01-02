@@ -1,8 +1,7 @@
-import {Component} from "@angular/core";
-
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'multi-content',
+  selector: "multi-content",
   template: `
     <p class="file">misc-examples/components/multi-content/named-content.ts</p>
     <h4>Multi content projection (transclusion)</h4>
@@ -16,18 +15,18 @@ import {Component} from "@angular/core";
       <ng-content select="[body]"></ng-content>
     </div>
   `,
-  styles: [`
+  styles: [
+    `
         .box {
           min-height: 30px;
           border: 5px solid purple;
           display: block;
           margin-bottom : 10px;
         }
-    `]
+    `
+  ]
 })
-export class ContentProjectionComponent {
-}
-
+export class ContentProjectionComponent {}
 
 @Component({
   template: `
@@ -48,5 +47,4 @@ export class ContentProjectionComponent {
     </div>
   `
 })
-export class MultiTransclusion {
-}
+export class MultiTransclusion {}

@@ -1,13 +1,13 @@
-import {Component} from "@angular/core";
-import {MrTestyServiceOne, MrTestyServiceTwo} from "./services/more-services";
+import { Component } from "@angular/core";
+import { MrTestyServiceOne, MrTestyServiceTwo } from "./services/more-services";
 
 @Component({
-  selector: 'misc-app',
+  selector: "misc-app",
   template: `
   <div class="comps">
-    ${require('./dependency.html')}
+    ${require("./dependency.html")}
     
-    ${require('./modules.html')}
+    ${require("./modules.html")}
     
     <inject-component></inject-component>
 
@@ -18,9 +18,8 @@ import {MrTestyServiceOne, MrTestyServiceTwo} from "./services/more-services";
     <resolve-create-factory></resolve-create-factory>
   </div>
   
-  `,
+  `
 })
-
 export class DepInjectionApp {
   // Multiple versions of the same injectable are possible.
   // Because this service is injected via a lazy-loaded module it creates a new instance of the injectable,
@@ -29,6 +28,5 @@ export class DepInjectionApp {
   // Note there is only a single instance of MrTestyServiceOne being created.
   // Note that the MrTestyServiceOne provider is declared in the Shared module but
   // it's accessible here as ngModules use the root injector, which means it's available app wide
-  constructor(private ts1: MrTestyServiceOne, private ts2: MrTestyServiceTwo) {
-  }
+  constructor(private ts1: MrTestyServiceOne, private ts2: MrTestyServiceTwo) {}
 }

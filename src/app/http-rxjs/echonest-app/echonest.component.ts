@@ -1,14 +1,13 @@
-import {Component} from "@angular/core";
-import {EchonestService} from "./echonest.service";
-import {Artist} from "./echonest.repo";
-import {Observable} from "rxjs";
-
+import { Component } from "@angular/core";
+import { EchonestService } from "./echonest.service";
+import { Artist } from "./echonest.repo";
+import { Observable } from "rxjs";
 
 @Component({
-  selector: 'echonest-app',
+  selector: "echonest-app",
   providers: [
     // provide(RequestOptions, {useClass: MyOptions})
-    EchonestService,
+    EchonestService
   ],
   template: `
         <p class="path">/http-rxjs/echonest-app/echonest-app.ts</p>

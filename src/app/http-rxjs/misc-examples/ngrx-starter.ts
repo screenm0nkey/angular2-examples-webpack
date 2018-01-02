@@ -1,16 +1,15 @@
-import {Component} from "@angular/core";
-import {Action, Store} from "@ngrx/store";
-import {Observable} from "rxjs/Observable";
+import { Component } from "@angular/core";
+import { Action, Store } from "@ngrx/store";
+import { Observable } from "rxjs/Observable";
 import "rxjs/add/observable/interval";
 import "rxjs/add/operator/mapTo";
-
 
 const stringOfWords = `Bacon ipsum dolor amet beef pork hamburger landjaeger rump`;
 const words = stringOfWords.split(" ");
 
 export const wordsReducer = (state = words[0], action: Action) => {
   switch (action.type) {
-    case 'random':
+    case "random":
       const randomIndex = Math.floor(Math.random() * words.length);
       return words[randomIndex];
     default:
@@ -19,7 +18,7 @@ export const wordsReducer = (state = words[0], action: Action) => {
 };
 
 @Component({
-  selector: 'ngrx-stater-app',
+  selector: "ngrx-stater-app",
   template: `
     <hr>
     <p class="path">/http-rxjs/misc-examples/ngrx-starter.ts</p>
@@ -33,10 +32,10 @@ export class NgRxStarterApp {
   word$;
 
   constructor(public store: Store<any>) {
-    this.word$ = store.select('wordsReducer');
+    this.word$ = store.select("wordsReducer");
 
     Observable.interval(1000)
-      .mapTo('random')
-      .subscribe(type => store.dispatch({type}));
+      .mapTo("random")
+      .subscribe(type => store.dispatch({ type }));
   }
 }

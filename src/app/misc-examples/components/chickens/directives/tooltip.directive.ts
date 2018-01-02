@@ -1,19 +1,18 @@
-import {Directive, ElementRef, HostListener, Input} from "@angular/core";
-
+import { Directive, ElementRef, HostListener, Input } from "@angular/core";
 
 /**
  * <span [myHighlight]="color" [defaultColor]="'violet'">
  */
 @Directive({
-  selector: '[myHighlight]',
+  selector: "[myHighlight]",
   //inputs: ['tooltip'],
   host: {
-    '(mouseenter)': 'onMouseEnter()'
+    "(mouseenter)": "onMouseEnter()"
   }
 })
 export class Tooltip {
-  @Input('myHighlight') highlightColor: string;
-  private _defaultColor = 'red';
+  @Input("myHighlight") highlightColor: string;
+  private _defaultColor = "red";
 
   // see here for an explanation of this setter
   // https://angular.io/docs/ts/latest/guide/attribute-directives.html
@@ -23,15 +22,14 @@ export class Tooltip {
     this._defaultColor = colorName || this._defaultColor;
   }
 
-  constructor(private el: ElementRef) {
-  }
+  constructor(private el: ElementRef) {}
 
   onMouseEnter() {
     this._highlight(this.highlightColor || this._defaultColor);
   }
 
   // notice two different ways of binding to the host element
-  @HostListener('mouseleave')
+  @HostListener("mouseleave")
   onMouseLeave() {
     this._highlight(null);
   }
@@ -40,5 +38,3 @@ export class Tooltip {
     this.el.nativeElement.style.backgroundColor = color;
   }
 }
-
-

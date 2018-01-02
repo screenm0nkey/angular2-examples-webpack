@@ -1,8 +1,7 @@
-import {Component} from "@angular/core";
-
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'focus-input',
+  selector: "focus-input",
   template: `
       <div class="comps">
         <div><p>These examples are in response to a question posed on stackoverflow
@@ -16,7 +15,7 @@ import {Component} from "@angular/core";
         <solution-two></solution-two>
         <solution-three></solution-three>
       </div>
-	`,
+	`
 })
 export class FocusInput {
   private isVisible: boolean = true;

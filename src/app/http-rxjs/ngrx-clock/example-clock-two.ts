@@ -1,5 +1,5 @@
-import {Component} from "@angular/core";
-import {Observable} from "rxjs/Observable";
+import { Component } from "@angular/core";
+import { Observable } from "rxjs/Observable";
 import "rxjs/add/observable/interval";
 import "rxjs/add/operator/map";
 import "rxjs/add/observable/merge";
@@ -7,12 +7,12 @@ import "rxjs/add/operator/startWith";
 import "rxjs/add/operator/scan";
 import "rxjs/add/operator/mapTo";
 import "rxjs/add/operator/withLatestFrom";
-import {Subject} from "rxjs/Subject";
-import {Store} from "@ngrx/store";
-import {ADVANCE, HOUR, RECALL, SECOND} from "./reducers";
+import { Subject } from "rxjs/Subject";
+import { Store } from "@ngrx/store";
+import { ADVANCE, HOUR, RECALL, SECOND } from "./reducers";
 
 @Component({
-  selector: 'clock-two',
+  selector: "clock-two",
   template: `
         <h4>Building a Time Machine with Angular 2 Eggehead</h4>
         <a href="https://github.com/johnlindquist/rxjs-in-angular2" target="_blank">
@@ -32,24 +32,20 @@ import {ADVANCE, HOUR, RECALL, SECOND} from "./reducers";
     `
 })
 export class NgRxClock2 {
-  click$ = new Subject()
-    .map((value) => ({type: HOUR, payload: value}));
+  click$ = new Subject().map(value => ({ type: HOUR, payload: value }));
 
   recall$ = new Subject();
 
-  person$ = new Subject()
-    .map((value) => ({payload: value, type: ADVANCE}));
+  person$ = new Subject().map(value => ({ payload: value, type: ADVANCE }));
 
-  seconds$ = Observable
-    .interval(1000)
-    .mapTo({type: SECOND, payload: 1});
+  seconds$ = Observable.interval(1000).mapTo({ type: SECOND, payload: 1 });
 
   public time$;
   public people$;
 
   constructor(store: Store<any>) {
-    this.time$ = store.select('clock');
-    this.people$ = store.select('peoplez');
+    this.time$ = store.select("clock");
+    this.people$ = store.select("peoplez");
 
     Observable.merge(
       this.click$,
@@ -57,8 +53,7 @@ export class NgRxClock2 {
       this.person$,
       this.recall$
         .withLatestFrom(this.time$, (_, y) => y)
-        .map((time) => ({type: RECALL, payload: time}))
-    )
-      .subscribe(store.dispatch.bind(store))
+        .map(time => ({ type: RECALL, payload: time }))
+    ).subscribe(store.dispatch.bind(store));
   }
 }

@@ -1,7 +1,7 @@
-import {Component, Input} from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 @Component({
-  selector: 'inject-parent-component',
+  selector: "inject-parent-component",
   template: `
     <p class="file">misc-examples/components/dependency-injection/inject-parent-component.ts</p>
     <h4>Injecting a parent component into a child</h4>
@@ -15,13 +15,12 @@ import {Component, Input} from "@angular/core";
   `
 })
 export class InjectParentComponent {
-  text: string = 'A message for the child component';
+  text: string = "A message for the child component";
   name: string = "I'm the parent component";
 }
 
-
 @Component({
-  selector: 'inject-child-component',
+  selector: "inject-child-component",
   template: `<div style="border:solid 2px green;">
               <h6 style="margin:0">I'm the child.</h6>
               {{text}} <br>
@@ -33,4 +32,3 @@ export class InjectChildComponent {
 
   constructor(private parent: InjectParentComponent) {}
 }
-

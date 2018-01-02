@@ -1,8 +1,14 @@
-import {ChangeDetectionStrategy, Component, DoCheck, Input, OnChanges} from "@angular/core";
-import {Todo} from "./StoreService";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  DoCheck,
+  Input,
+  OnChanges
+} from "@angular/core";
+import { Todo } from "./StoreService";
 
 @Component({
-  selector: 'test-component-object',
+  selector: "test-component-object",
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `<pre>{{todoItem|json}}</pre>`
 })
@@ -11,19 +17,18 @@ export class TestComponentObject implements OnChanges, DoCheck {
   // this will only be called when object is reference is changed as we've set ChangeDetectionStrategy to OnPush
   // http://victorsavkin.com/post/133936129316/angular-immutability-and-encapsulation
   ngOnChanges(inputChanges) {
-    console.log('inputChanges', inputChanges.todoItem.currentValue);
+    console.log("inputChanges", inputChanges.todoItem.currentValue);
   }
 
   //this is called every time$ the component is checked
   // checking is different to change detection
   ngDoCheck() {
-    console.log('%cngDoCheck immutable-object', 'color:green');
+    console.log("%cngDoCheck immutable-object", "color:green");
   }
 }
 
-
 @Component({
-  selector: 'immutable-object-component',
+  selector: "immutable-object-component",
   template: `
     <p class="file">/misc-examples/components/immutable/immutable-object.ts</p>
     <h4>Immutable Objects</h4>
@@ -52,7 +57,7 @@ export class TestComponentObject implements OnChanges, DoCheck {
     <input #chk type="checkbox" (change)="checked=chk.checked; me.focus()"/><br>
     <input type="text" #me (keyup)="updateTodo(me.value)" placeholder="Update model">
     <test-component-object [todoItem]="todoItem"></test-component-object>
-    `,
+    `
 })
 export class ImmutableObject {
   checked: boolean = false;

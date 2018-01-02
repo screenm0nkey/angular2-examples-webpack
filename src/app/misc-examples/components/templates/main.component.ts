@@ -1,7 +1,7 @@
-import {Component} from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'template-component',
+  selector: "template-component",
   template: `
     <div class="comps">
       <if-template></if-template>
@@ -9,6 +9,4 @@ import {Component} from "@angular/core";
     </div>
   `
 })
-export class TemplateComponent {
-
-}
+export class TemplateComponent {}

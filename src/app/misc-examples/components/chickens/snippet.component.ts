@@ -1,9 +1,9 @@
-import {Component} from "@angular/core";
-import {Snippet} from "./directives/snippet.directive";
+import { Component } from "@angular/core";
+import { Snippet } from "./directives/snippet.directive";
 
 @Component({
-  selector: 'snippet-component',
-  styles: ['textarea {width : 300px; font-size : 10px; height:75px;}'],
+  selector: "snippet-component",
+  styles: ["textarea {width : 300px; font-size : 10px; height:75px;}"],
   template: `
         <p class="file">misc-examples/components/chickens/directives/snippet.directive.ts</p>
         <h4>Text Snippet Directive</h4>
@@ -17,17 +17,19 @@ export class SnippetComponent {
   mySnippets: Snippet[];
 
   constructor() {
-    this.mySnippets = [{
-      name: 'lorem',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing '
-    },
+    this.mySnippets = [
       {
-        name: 'bacon',
-        content: 'Bacon ipsum dolor amet doner strip steak pastrami '
+        name: "lorem",
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing "
       },
       {
-        name: 'zombie',
-        content: 'Zombie ipsum reversus ab viral inferno, nam rick grimes '
-      }];
+        name: "bacon",
+        content: "Bacon ipsum dolor amet doner strip steak pastrami "
+      },
+      {
+        name: "zombie",
+        content: "Zombie ipsum reversus ab viral inferno, nam rick grimes "
+      }
+    ];
   }
 }

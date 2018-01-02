@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
   template: `
@@ -13,8 +13,6 @@ import {Component} from "@angular/core";
       <dynamic-component></dynamic-component>
       <event-broadcasting></event-broadcasting>
     </div>
-  `,
+  `
 })
-export class ChangeAfterComponent {
-
-}
+export class ChangeAfterComponent {}

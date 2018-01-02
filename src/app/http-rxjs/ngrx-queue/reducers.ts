@@ -1,14 +1,14 @@
-import {Action} from "@ngrx/store";
-import {ADD, GROW} from "./actions";
+import { Action } from "@ngrx/store";
+import { ADD, GROW } from "./actions";
 
 export const unit = (state, action: Action) => {
   switch (action.type) {
     case GROW:
-      const {health, id} = state;
+      const { health, id } = state;
       return {
         id,
         health: health + 1,
-        ready: (health + 1 === 10)
+        ready: health + 1 === 10
       };
 
     default:
@@ -16,7 +16,7 @@ export const unit = (state, action: Action) => {
   }
 };
 
-export const queue =  (state = [], action: Action) => {
+export const queue = (state = [], action: Action) => {
   switch (action.type) {
     case ADD:
       return [...state, action.payload];
@@ -24,12 +24,12 @@ export const queue =  (state = [], action: Action) => {
     case GROW:
       return state.map(u => {
         if (u.id === action.payload) {
-          return unit(u, {type: action.type, payload: action.payload});
+          return unit(u, { type: action.type, payload: action.payload });
         }
         return u;
       });
 
     default:
-      return state
+      return state;
   }
 };

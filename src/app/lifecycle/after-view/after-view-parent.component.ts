@@ -1,8 +1,8 @@
-import {Component} from "@angular/core";
-import {LoggerService} from "../logger.service";
+import { Component } from "@angular/core";
+import { LoggerService } from "../logger.service";
 
 @Component({
-  selector: 'after-view-parent',
+  selector: "after-view-parent",
   template: `
       <div class="parent">
         <h2>AfterView</h2>
@@ -15,7 +15,7 @@ import {LoggerService} from "../logger.service";
         <div *ngFor="let msg of logs">{{msg}}</div>
       </div>
   `,
-  styles: ['.parent {background: burlywood}'],
+  styles: [".parent {background: burlywood}"],
   providers: [LoggerService]
 })
 export class AfterViewParentComponent {
@@ -30,6 +30,6 @@ export class AfterViewParentComponent {
     this.logs.length = 0;
     // quickly remove and reload AfterViewComponent which recreates it
     this.show = false;
-    setTimeout(() => this.show = true, 0)
+    setTimeout(() => (this.show = true), 0);
   }
 }

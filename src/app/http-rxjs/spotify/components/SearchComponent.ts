@@ -1,16 +1,16 @@
 /*
  * Angular
  */
-import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute, Router} from "@angular/router";
-import {Observable} from "rxjs/Rx";
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
+import { Observable } from "rxjs/Rx";
 /*
  * Services
  */
-import {SpotifyService} from "../SpotifyService";
+import { SpotifyService } from "../SpotifyService";
 
 @Component({
-  selector: 'search',
+  selector: "search",
   template: `
   <h1>Search</h1>
   <p>
@@ -64,15 +64,15 @@ export class SearchComponent implements OnInit {
   query: string;
   results$: Observable<any[]>;
 
-  constructor(private spotify: SpotifyService,
-              private router: Router,
-              private route: ActivatedRoute) {
+  constructor(
+    private spotify: SpotifyService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
     this.search = this.search.bind(this);
-    this.route
-      .queryParams
-      .subscribe(params => {
-        this.query = params['query'] || '';
-      });
+    this.route.queryParams.subscribe(params => {
+      this.query = params["query"] || "";
+    });
   }
 
   // by the time ngOnInit is called the query property has been set in the constructor
@@ -81,11 +81,12 @@ export class SearchComponent implements OnInit {
   }
 
   submit(query: string): void {
-    this.router.navigate(['httprx', 'spotify'], {queryParams: {query: query}})
+    this.router
+      .navigate(["httprx", "spotify"], { queryParams: { query: query } })
       .then(this.search);
   }
 
   search(): void {
-    this.results$ = this.query && this.spotify.searchTrack(this.query)
+    this.results$ = this.query && this.spotify.searchTrack(this.query);
   }
 }

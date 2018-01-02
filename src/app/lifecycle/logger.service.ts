@@ -1,14 +1,13 @@
-import {Injectable, NgZone} from "@angular/core";
+import { Injectable, NgZone } from "@angular/core";
 
 @Injectable()
 export class LoggerService {
   logs: string[] = [];
-  prevMsg: string = '';
+  prevMsg: string = "";
   prevMsgCount: number = 1;
   tid: number;
 
-  constructor(private zone: NgZone) {
-  }
+  constructor(private zone: NgZone) {}
 
   log(msg: string) {
     if (this.tid) {
@@ -16,7 +15,7 @@ export class LoggerService {
     }
     if (msg === this.prevMsg) {
       // Repeat message; update last log entry with count.
-      this.logs[this.logs.length - 1] = msg + ` (${this.prevMsgCount += 1}x)`;
+      this.logs[this.logs.length - 1] = msg + ` (${(this.prevMsgCount += 1)}x)`;
     } else {
       // New message; log it.
       this.prevMsg = msg;
@@ -28,8 +27,8 @@ export class LoggerService {
     this.zone.runOutsideAngular(() => {
       let self = this;
       this.tid = setTimeout(() => {
-        self.logs.push('Idle');
-        console.log(self.logs)
+        self.logs.push("Idle");
+        console.log(self.logs);
         // self.tick();
       }, 100);
     });

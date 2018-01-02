@@ -1,30 +1,37 @@
-import {Component, Directive, ElementRef, TemplateRef, ViewContainerRef} from "@angular/core";
+import {
+  Component,
+  Directive,
+  ElementRef,
+  TemplateRef,
+  ViewContainerRef
+} from "@angular/core";
 
 @Directive({
-  selector: '[ngBookIf]',
-  inputs: ['ngBookIf']
+  selector: "[ngBookIf]",
+  inputs: ["ngBookIf"]
 })
 export class NgBookIf {
   // The view container is used to attach one or more views to the directive.
-  constructor(private el: ElementRef,
-              private viewContainer: ViewContainerRef,
-              private template: TemplateRef<any>) {
-    console.log('The constructor only gets invoked once', el.nativeElement);
+  constructor(
+    private el: ElementRef,
+    private viewContainer: ViewContainerRef,
+    private template: TemplateRef<any>
+  ) {
+    console.log("The constructor only gets invoked once", el.nativeElement);
   }
 
   set ngBookIf(condition) {
     if (condition) {
       console.log(this.template.elementRef.nativeElement);
       this.viewContainer.createEmbeddedView(this.template);
-    }
-    else {
+    } else {
       this.viewContainer.clear();
     }
   }
 }
 
 @Component({
-  selector: 'if-template',
+  selector: "if-template",
   template: `
   <p class="file">misc-examples/components/templates/simple-ng-if.component.ts</p>
   <h4>Custom *ngBookIf template</h4>
@@ -52,5 +59,3 @@ export class IfTemplateSampleApp {
     this.display = !this.display;
   }
 }
-
-

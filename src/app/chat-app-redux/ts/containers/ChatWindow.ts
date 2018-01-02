@@ -1,15 +1,15 @@
-import {Component, ElementRef, Inject} from "@angular/core";
-import {AppStore} from "../app-store";
-import {Store} from "redux";
-import {Thread, User} from "../models";
-import {ThreadActions} from "../actions";
-import {AppState, getCurrentThread, getCurrentUser} from "../reducers";
+import { Component, ElementRef, Inject } from "@angular/core";
+import { AppStore } from "../app-store";
+import { Store } from "redux";
+import { Thread, User } from "../models";
+import { ThreadActions } from "../actions";
+import { AppState, getCurrentThread, getCurrentUser } from "../reducers";
 
 /**
  * ChatWindow is the container which handles the current chat
  */
 @Component({
-  selector: 'chat-window',
+  selector: "chat-window",
   template: `
     <div class="chat-window-container">
       <div class="chat-window">
@@ -61,10 +61,13 @@ export default class ChatWindow {
   draftMessage: { text: string };
   currentUser: User;
 
-  constructor(@Inject(AppStore) private store: Store<AppState>, private el: ElementRef) {
+  constructor(
+    @Inject(AppStore) private store: Store<AppState>,
+    private el: ElementRef
+  ) {
     store.subscribe(this.updateState.bind(this));
     this.updateState();
-    this.draftMessage = {text: ''};
+    this.draftMessage = { text: "" };
   }
 
   updateState() {
@@ -75,27 +78,27 @@ export default class ChatWindow {
   }
 
   scrollToBottom(): void {
-    let scrollPane: any = this.el.nativeElement.querySelector('.msg-container-base');
+    let scrollPane: any = this.el.nativeElement.querySelector(
+      ".msg-container-base"
+    );
     if (scrollPane) {
-      setTimeout(() => scrollPane.scrollTop = scrollPane.scrollHeight);
+      setTimeout(() => (scrollPane.scrollTop = scrollPane.scrollHeight));
     }
   }
 
   sendMessage(): void {
-    this.store.dispatch(ThreadActions.addMessage(
-      this.currentThread,
-      {
+    this.store.dispatch(
+      ThreadActions.addMessage(this.currentThread, {
         author: this.currentUser,
         isRead: true,
         text: this.draftMessage.text
-      }
-    ));
-    this.draftMessage = {text: ''};
+      })
+    );
+    this.draftMessage = { text: "" };
   }
 
   onEnter(event: any): void {
     this.sendMessage();
     event.preventDefault();
   }
-
 }

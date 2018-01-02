@@ -6,10 +6,10 @@ import {
   ElementRef,
   Input,
   ViewChild
-} from '@angular/core';
+} from "@angular/core";
 
 @Component({
-  selector: '[box]',
+  selector: "[box]",
   template: `
     <svg:rect
       #rect
@@ -30,15 +30,14 @@ export class BoxComponent implements AfterViewInit {
 
   // make the box component instance available on event.target,
   // where target is the underlying SVG rect element, so we can access it in speedy.component.ts
-  @ViewChild('rect')
+  @ViewChild("rect")
   set rect(value: ElementRef) {
     if (value) {
-      value.nativeElement['BoxComponent'] = this;
+      value.nativeElement["BoxComponent"] = this;
     }
   }
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) {
-  }
+  constructor(private changeDetectorRef: ChangeDetectorRef) {}
 
   ngAfterViewInit() {
     this.changeDetectorRef.detach();
@@ -48,4 +47,3 @@ export class BoxComponent implements AfterViewInit {
     this.changeDetectorRef.detectChanges();
   }
 }
-

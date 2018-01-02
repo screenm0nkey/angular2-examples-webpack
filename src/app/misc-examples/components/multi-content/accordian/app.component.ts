@@ -1,7 +1,7 @@
-import {Component} from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'accordian-component',
+  selector: "accordian-component",
   template: `
     <p class="file">misc-examples/components/multi-content/accordian/accordian.component.ts</p>
     <h4>This example uses ng-content and the Native shadowDOM</h4>
@@ -32,12 +32,12 @@ export class AccordianExample {
 
   groups: Array<any> = [
     {
-      heading: 'Dynamic 1',
-      content: 'I am dynamic!'
+      heading: "Dynamic 1",
+      content: "I am dynamic!"
     },
     {
-      heading: 'Dynamic 2',
-      content: 'Dynamic as well'
+      heading: "Dynamic 2",
+      content: "Dynamic as well"
     }
   ];
 

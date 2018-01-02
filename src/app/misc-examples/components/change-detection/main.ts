@@ -1,7 +1,7 @@
-import {Component} from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'change-detection-main',
+  selector: "change-detection-main",
   template: `
       <div class="comps">
         <change-component></change-component>
@@ -20,7 +20,6 @@ import {Component} from "@angular/core";
         
         <observable-change-detection-sample-app></observable-change-detection-sample-app>
       </div>
-    `,
+    `
 })
-export class ChangeDetectionMain {
-}
+export class ChangeDetectionMain {}

@@ -1,4 +1,4 @@
-import {Component, EventEmitter} from "@angular/core";
+import { Component, EventEmitter } from "@angular/core";
 
 class Product {
   sku: string;
@@ -7,11 +7,13 @@ class Product {
   department: Array<string>;
   price: number;
 
-  constructor(sku: string,
-              name: string,
-              image_url: string,
-              department: Array<string>,
-              price: number) {
+  constructor(
+    sku: string,
+    name: string,
+    image_url: string,
+    department: Array<string>,
+    price: number
+  ) {
     this.sku = sku;
     this.name = name;
     this.image_url = image_url;
@@ -24,8 +26,8 @@ class Product {
  * ProductImage
  */
 @Component({
-  selector: 'product-image',
-  inputs: ['product'],
+  selector: "product-image",
+  inputs: ["product"],
   template: `<img class="product-image" [src]="product.image_url">`
 })
 export class ProductImage {
@@ -36,8 +38,8 @@ export class ProductImage {
  * ProductDepartment
  */
 @Component({
-  selector: 'product-department',
-  inputs: ['product'],
+  selector: "product-department",
+  inputs: ["product"],
   template: `
         <div class="product-department">
             <span *ngFor="let name of product.department; let i=index">
@@ -53,8 +55,8 @@ export class ProductDepartment {
  * PriceDisplay
  */
 @Component({
-  selector: 'price-display',
-  inputs: ['price'],
+  selector: "price-display",
+  inputs: ["price"],
   template: `<div class="price-display">\${{ price }}</div>`
 })
 export class PriceDisplay {
@@ -65,9 +67,9 @@ export class PriceDisplay {
  * ProductRow
  */
 @Component({
-  selector: 'product-row',
-  inputs: ['product'],
-  outputs: ['pick'],
+  selector: "product-row",
+  inputs: ["product"],
+  outputs: ["pick"],
   template: `
   <div class="product-row cf" (click)="clicked($event)">
     <product-image [product]="product"></product-image>
@@ -93,9 +95,9 @@ export class ProductRow {
  * ProductsList
  */
 @Component({
-  selector: 'products-list',
-  inputs: ['productList: products', 'name'],
-  outputs: ['stick'], // stick is the name of the event the parent listens for
+  selector: "products-list",
+  inputs: ["productList: products", "name"],
+  outputs: ["stick"], // stick is the name of the event the parent listens for
   template: `
         <div class="products-list" style="display: table">
             <product-row 
@@ -120,7 +122,7 @@ export class ProductsList {
  * InventoryApp
  */
 @Component({
-  selector: 'inventory-app',
+  selector: "inventory-app",
   template: `
     <p class="file">misc-examples/components/input-binding/inputs.ts</p>
     <h4>Using different Inputs and Events</h4>
@@ -135,27 +137,36 @@ export class InventoryApp {
 
   constructor() {
     this.products = [];
-    this.products.push(new Product(
-      '104544-2', 'Nykee Running Shoes',
-      'http://media.kohls.com.edgesuite.net/is/image/kohls/1811809?wid=882&hei=882&op_sharpen=1',
-      ['Men', 'Shoes', 'Running Shoes'],
-      109.99
-    ));
-    this.products.push(new Product(
-      '187611-0', 'South Face Jacket',
-      'https://climbinggearreviewsuk.files.wordpress.com/2013/05/the-north-face-anti-matter-jacket.jpg',
-      ['Women', 'Apparel', 'Jackets & Vests'],
-      238.99
-    ));
-    this.products.push(new Product(
-      '443102-9', 'Addeds Active Hat',
-      'http://i.ebayimg.com/00/s/NDI5WDUwMA==/z/bUYAAOxycmBSsRxU/$_35.JPG?set_id=2',
-      ['Men', 'Accessories', 'Hats'],
-      29.99
-    ));
+    this.products.push(
+      new Product(
+        "104544-2",
+        "Nykee Running Shoes",
+        "http://media.kohls.com.edgesuite.net/is/image/kohls/1811809?wid=882&hei=882&op_sharpen=1",
+        ["Men", "Shoes", "Running Shoes"],
+        109.99
+      )
+    );
+    this.products.push(
+      new Product(
+        "187611-0",
+        "South Face Jacket",
+        "https://climbinggearreviewsuk.files.wordpress.com/2013/05/the-north-face-anti-matter-jacket.jpg",
+        ["Women", "Apparel", "Jackets & Vests"],
+        238.99
+      )
+    );
+    this.products.push(
+      new Product(
+        "443102-9",
+        "Addeds Active Hat",
+        "http://i.ebayimg.com/00/s/NDI5WDUwMA==/z/bUYAAOxycmBSsRxU/$_35.JPG?set_id=2",
+        ["Men", "Accessories", "Hats"],
+        29.99
+      )
+    );
   }
 
   productClicked(product) {
-    alert('Product clicked: ' + product.name);
+    alert("Product clicked: " + product.name);
   }
 }

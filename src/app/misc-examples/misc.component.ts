@@ -1,7 +1,7 @@
-import {Component} from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'misc-app',
+  selector: "misc-app",
   template: `
     <div class="miscellaneous">
       <nav>
@@ -22,6 +22,7 @@ import {Component} from "@angular/core";
         <a routerLink="./notifications" routerLinkActive="active">Notifications</a>
         <a routerLink="./socket-io" routerLinkActive="active">Socket-io and @Input getters/setters</a>
         <a routerLink="./tricks" routerLinkActive="active">Tricks</a>
+        <a routerLink="./tips" routerLinkActive="active">Tips</a>
         <a routerLink="./change-after-check" routerLinkActive="active" title="ExpressionChangedAfterItHasBeenCheckedError">ExpressionChangedAfterItHasBeenCheckedError</a>
         <a routerLink="./customers" routerLinkActive="active">Mini Customers App</a>
       </nav>
@@ -29,9 +30,6 @@ import {Component} from "@angular/core";
         <router-outlet></router-outlet>
       </div>
     </div>
-
-  `,
+  `
 })
-
-export class MiscExamplesComponent {
-}
+export class MiscExamplesComponent {}

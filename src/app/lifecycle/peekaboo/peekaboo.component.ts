@@ -11,14 +11,13 @@ import {
   OnInit,
   SimpleChange
 } from "@angular/core";
-import {LoggerService} from "../logger.service";
+import { LoggerService } from "../logger.service";
 
 let nextId = 1;
 
 export class PeekABoo implements OnInit {
   // this instance of the _logger is the same as the parent
-  constructor(private _logger: LoggerService) {
-  }
+  constructor(private _logger: LoggerService) {}
 
   // implement OnInit's `ngOnInit` method
   // Initialize the directive/component after Angular initializes the data-bound input properties.
@@ -31,21 +30,28 @@ export class PeekABoo implements OnInit {
   }
 }
 
-
 @Component({
-  selector: 'peek-a-boo',
-  template: '<p>Now you see my hero, {{name}}</p>',
-  styles: ['p {background: LightYellow; padding: 8px}']
+  selector: "peek-a-boo",
+  template: "<p>Now you see my hero, {{name}}</p>",
+  styles: ["p {background: LightYellow; padding: 8px}"]
 })
 // Don't HAVE to mention the Lifecycle Hook interfaces
 // unless we want typing and tool support.
-export class PeekABooComponent extends PeekABoo implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
+export class PeekABooComponent extends PeekABoo
+  implements OnChanges,
+    OnInit,
+    DoCheck,
+    AfterContentInit,
+    AfterContentChecked,
+    AfterViewInit,
+    AfterViewChecked,
+    OnDestroy {
   @Input() name: string;
-  private _verb = 'initialized';
+  private _verb = "initialized";
 
   constructor(logger: LoggerService) {
     super(logger);
-    let is = this.name ? 'is' : 'is not';
+    let is = this.name ? "is" : "is not";
     this._logIt(`name ${is} known at construction`);
   }
 
@@ -55,15 +61,15 @@ export class PeekABooComponent extends PeekABoo implements OnChanges, OnInit, Do
   ngOnChanges(changes: { [propertyName: string]: SimpleChange }) {
     let changesMsgs: string[] = [];
     for (let propName in changes) {
-      if (propName === 'name') {
-        let name = changes['name'].currentValue;
+      if (propName === "name") {
+        let name = changes["name"].currentValue;
         changesMsgs.push(`name ${this._verb} to "${name}"`);
       } else {
-        changesMsgs.push(propName + ' ' + this._verb);
+        changesMsgs.push(propName + " " + this._verb);
       }
     }
-    this._logIt(`OnChanges: ${changesMsgs.join('; ')}`);
-    this._verb = 'changed'; // next time$ it will be a change
+    this._logIt(`OnChanges: ${changesMsgs.join("; ")}`);
+    this._verb = "changed"; // next time$ it will be a change
   }
 
   // Beware! Called frequently!

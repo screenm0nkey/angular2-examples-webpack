@@ -1,7 +1,7 @@
-import {Component, EventEmitter, Output} from "@angular/core";
+import { Component, EventEmitter, Output } from "@angular/core";
 
 @Component({
-  selector: 'filter-select',
+  selector: "filter-select",
   template: `
       <div class="margin-bottom-10">
         <select #selectList (change)="updateFilter.emit(selectList.value)">
@@ -14,9 +14,9 @@ import {Component, EventEmitter, Output} from "@angular/core";
 })
 export class FilterSelect {
   public filters = [
-    {friendly: "All", action: 'SHOW_ALL'},
-    {friendly: "Attending", action: 'SHOW_ATTENDING'},
-    {friendly: "Guests", action: 'SHOW_WITH_GUESTS'}
+    { friendly: "All", action: "SHOW_ALL" },
+    { friendly: "Attending", action: "SHOW_ATTENDING" },
+    { friendly: "Guests", action: "SHOW_WITH_GUESTS" }
   ];
   @Output() updateFilter: EventEmitter<string> = new EventEmitter<string>();
 }

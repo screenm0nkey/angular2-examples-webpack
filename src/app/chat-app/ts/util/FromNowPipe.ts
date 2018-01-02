@@ -1,8 +1,8 @@
-import {Pipe} from "@angular/core";
+import { Pipe } from "@angular/core";
 import * as moment from "moment";
 
 @Pipe({
-  name: 'fromNow'
+  name: "fromNow"
 })
 export class FromNowPipe {
   transform(value: any, args: Array<any>): string {
@@ -10,7 +10,4 @@ export class FromNowPipe {
   }
 }
 
-export var fromNowPipeInjectables: Array<any> = [
-  FromNowPipe
-];
-
+export var fromNowPipeInjectables: Array<any> = [FromNowPipe];

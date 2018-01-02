@@ -11,8 +11,8 @@ import {
 } from "@angular/core";
 
 @Directive({
-  selector: '[ngBookRepeat]',
-  inputs: ['ngBookRepeatOf']
+  selector: "[ngBookRepeat]",
+  inputs: ["ngBookRepeatOf"]
 })
 export class NgBookRepeat implements DoCheck {
   // items holds the collection we’re iterating on
@@ -22,11 +22,12 @@ export class NgBookRepeat implements DoCheck {
   //views is a Map that will link a given item on the collection with the view that contains it
   private views: Map<any, ViewRef> = new Map<any, ViewRef>();
 
-  constructor(private viewContainer: ViewContainerRef,
-              private template: TemplateRef<any>,
-              private changeDetector: ChangeDetectorRef,
-              private differs: IterableDiffers) {
-  }
+  constructor(
+    private viewContainer: ViewContainerRef,
+    private template: TemplateRef<any>,
+    private changeDetector: ChangeDetectorRef,
+    private differs: IterableDiffers
+  ) {}
 
   // this will trigger when we set the ngBookRepeatOf input:
   set ngBookRepeatOf(items) {
@@ -40,11 +41,13 @@ export class NgBookRepeat implements DoCheck {
     if (this.differ) {
       let changes = this.differ.diff(this.items);
       if (changes) {
-        changes.forEachAddedItem((change) => {
-          let view = this.viewContainer.createEmbeddedView(this.template, {'$implicit': change.item});
+        changes.forEachAddedItem(change => {
+          let view = this.viewContainer.createEmbeddedView(this.template, {
+            $implicit: change.item
+          });
           this.views.set(change.item, view);
         });
-        changes.forEachRemovedItem((change) => {
+        changes.forEachRemovedItem(change => {
           let view = this.views.get(change.item);
           let idx = this.viewContainer.indexOf(view);
           this.viewContainer.remove(idx);
@@ -56,7 +59,7 @@ export class NgBookRepeat implements DoCheck {
 }
 
 @Component({
-  selector: 'for-template',
+  selector: "for-template",
   template: `
 <h4>Custom *ngBookRepeat template</h4>
 <p>
@@ -101,10 +104,10 @@ export class ForTemplateSampleApp {
 
   constructor() {
     this.people = [
-      {name: 'Joe', age: 10},
-      {name: 'Patrick', age: 21},
-      {name: 'Melissa', age: 12},
-      {name: 'Kate', age: 19}
+      { name: "Joe", age: 10 },
+      { name: "Patrick", age: 21 },
+      { name: "Melissa", age: 12 },
+      { name: "Kate", age: 19 }
     ];
   }
 
@@ -115,10 +118,8 @@ export class ForTemplateSampleApp {
   }
 
   add(name, age) {
-    this.people.push({name: name.value, age: age.value});
-    name.value = '';
-    age.value = '';
+    this.people.push({ name: name.value, age: age.value });
+    name.value = "";
+    age.value = "";
   }
 }
-
-

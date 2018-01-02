@@ -1,15 +1,24 @@
-import {AfterViewInit, Component, ElementRef, Injectable, ReflectiveInjector, ViewChild} from "@angular/core";
-import {ParamService} from "./services/some-service";
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Injectable,
+  ReflectiveInjector,
+  ViewChild
+} from "@angular/core";
+import { ParamService } from "./services/some-service";
 
 @Injectable()
 class MyService {
   getValue(): string {
-    return Math.round(Math.random() * 10) + " I'm a value from an injected service";
+    return (
+      Math.round(Math.random() * 10) + " I'm a value from an injected service"
+    );
   }
 }
 
 @Component({
-  selector: 'resolve-create-service',
+  selector: "resolve-create-service",
   template: `
   <p class="file">misc-examples/components/dependency-injection/resolve-create-service.ts</p>
   <h4>Manually Injecting a Service using <code>ReflectiveInjector.resolveAndCreate([MyService])</code></h4>
@@ -23,7 +32,7 @@ class MyService {
   `
 })
 export class DiSampleApp implements AfterViewInit {
-  @ViewChild('reffy') el: ElementRef;
+  @ViewChild("reffy") el: ElementRef;
   injector: ReflectiveInjector;
   myService: MyService;
 
@@ -34,7 +43,10 @@ export class DiSampleApp implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.addMessage('Same instance each time =' + (this.myService === this.injector.get(MyService)));
+    this.addMessage(
+      "Same instance each time =" +
+        (this.myService === this.injector.get(MyService))
+    );
   }
 
   invokeService(): void {

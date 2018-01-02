@@ -1,11 +1,11 @@
-import {ChangeDetectionStrategy, Component, OnInit} from "@angular/core";
-import {ThreadsService} from "../services/services";
-import {Observable} from "rxjs";
-import {Thread} from "../models";
+import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
+import { ThreadsService } from "../services/services";
+import { Observable } from "rxjs";
+import { Thread } from "../models";
 
 @Component({
-  inputs: ['thread'],
-  selector: 'chat-thread',
+  inputs: ["thread"],
+  selector: "chat-thread",
   template: `
   <div class="media conversation">
     <div class="pull-left">
@@ -26,16 +26,13 @@ export class ChatThread implements OnInit {
   thread: Thread;
   selected: boolean = false;
 
-  constructor(private threadsService: ThreadsService) {
-  }
+  constructor(private threadsService: ThreadsService) {}
 
   ngOnInit(): void {
-    this.threadsService.currentThread
-      .subscribe((currentThread: Thread) => {
-        this.selected = currentThread &&
-          this.thread &&
-          (currentThread.id === this.thread.id);
-      });
+    this.threadsService.currentThread.subscribe((currentThread: Thread) => {
+      this.selected =
+        currentThread && this.thread && currentThread.id === this.thread.id;
+    });
   }
 
   clicked(event: any): void {
@@ -44,9 +41,8 @@ export class ChatThread implements OnInit {
   }
 }
 
-
 @Component({
-  selector: 'chat-threads',
+  selector: "chat-threads",
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <!-- conversations -->

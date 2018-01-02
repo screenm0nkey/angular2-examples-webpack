@@ -1,8 +1,12 @@
-import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component} from "@angular/core";
-
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component
+} from "@angular/core";
 
 @Component({
-  selector: 'detect-changes',
+  selector: "detect-changes",
   changeDetection: ChangeDetectionStrategy.Default,
   template: `
     <p class="file">/misc-examples/components/immutable/detect-changes.ts</p>
@@ -45,8 +49,7 @@ export class DetectChanges implements AfterViewInit {
   id: any = 0;
   attached: boolean;
 
-  constructor(private ref: ChangeDetectorRef) {
-  }
+  constructor(private ref: ChangeDetectorRef) {}
 
   /**
    * We only want to detach the change detectors after change detection has been performed for the first time,
@@ -59,7 +62,7 @@ export class DetectChanges implements AfterViewInit {
   }
 
   ngDoCheck() {
-    console.log('%cngDoCheck detect-changes', 'color:pink');
+    console.log("%cngDoCheck detect-changes", "color:pink");
   }
 
   detectChanges() {
@@ -76,8 +79,7 @@ export class DetectChanges implements AfterViewInit {
     this.attached = !this.attached;
     if (this.attached) {
       this.ref.detach();
-    }
-    else {
+    } else {
       this.ref.reattach();
     }
   }
@@ -92,6 +94,3 @@ export class DetectChanges implements AfterViewInit {
     }
   }
 }
-
-
-

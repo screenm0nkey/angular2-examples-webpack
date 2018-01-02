@@ -1,15 +1,15 @@
-import {Component, ViewEncapsulation} from "@angular/core";
-import {AccordionGroup} from './accordian-group.component';
+import { Component, ViewEncapsulation } from "@angular/core";
+import { AccordionGroup } from "./accordian-group.component";
 
 @Component({
-  selector: 'accordion, [accordion]',
+  selector: "accordion, [accordion]",
   encapsulation: ViewEncapsulation.Native,
   host: {
     // below will add the 'panel-group' class to the host element
     // we can have dynamic classes by using "[class.panel-group]": "someComponentProperty",
-    'class': 'panel-group'
+    class: "panel-group"
   },
-  template: '<ng-content></ng-content>'
+  template: "<ng-content></ng-content>"
 })
 export class Accordion {
   private groups: Array<AccordionGroup> = [];

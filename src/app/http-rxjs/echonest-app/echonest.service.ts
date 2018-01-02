@@ -1,18 +1,19 @@
-import {Injectable} from "@angular/core";
-import {Artist, EchonestRepo} from "./echonest.repo";
-import {BehaviorSubject, Observable} from "rxjs";
-
+import { Injectable } from "@angular/core";
+import { Artist, EchonestRepo } from "./echonest.repo";
+import { BehaviorSubject, Observable } from "rxjs";
 
 @Injectable()
 export class EchonestService {
   private favourites: Artist[] = [];
   private artists: Artist[] = [];
-  private artists$: BehaviorSubject<Artist[]> = new BehaviorSubject(this.artists);
-  private favourites$: BehaviorSubject<Artist[]> = new BehaviorSubject(this.favourites);
+  private artists$: BehaviorSubject<Artist[]> = new BehaviorSubject(
+    this.artists
+  );
+  private favourites$: BehaviorSubject<Artist[]> = new BehaviorSubject(
+    this.favourites
+  );
 
-
-  constructor(private repo: EchonestRepo) {
-  }
+  constructor(private repo: EchonestRepo) {}
 
   getArtists(): Observable<Artist[]> {
     return this.artists$.asObservable();
@@ -27,7 +28,7 @@ export class EchonestService {
     const index = this.artists.indexOf(artist);
     this.artists = [
       ...this.artists.slice(0, index),
-      artist = {...artist},
+      (artist = { ...artist }),
       ...this.artists.slice(index + 1)
     ];
     this.favourites = this.favourites.filter((a: Artist) => a.id !== artist.id);
@@ -39,17 +40,15 @@ export class EchonestService {
   }
 
   fetchArtists(num: number): void {
-    this.repo
-      .get(num)
-      .subscribe((artists: Artist[]) => {
-        const ids = this.favourites.map((a: Artist) => a.id);
-        this.artists = artists.map((a: Artist) => {
-          if (ids.includes(a.id)) {
-            a.favourited = true;
-          }
-          return a;
-        });
-        this.artists$.next(this.artists);
-      })
+    this.repo.get(num).subscribe((artists: Artist[]) => {
+      const ids = this.favourites.map((a: Artist) => a.id);
+      this.artists = artists.map((a: Artist) => {
+        if (ids.includes(a.id)) {
+          a.favourited = true;
+        }
+        return a;
+      });
+      this.artists$.next(this.artists);
+    });
   }
 }

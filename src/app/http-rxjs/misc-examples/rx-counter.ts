@@ -1,8 +1,8 @@
-import {Component} from "@angular/core";
-import {Observable} from "rxjs/Rx";
+import { Component } from "@angular/core";
+import { Observable } from "rxjs/Rx";
 
 @Component({
-  selector: 'counter-component',
+  selector: "counter-component",
   template: `
         <p class="path">/http-rxjs/misc-examples/rx-counter.ts</p>
         <h4>RXJS Reactive data flow</h4>
@@ -42,4 +42,3 @@ export class CounterComponent {
       .scan((currentCount: number, value: number) => currentCount + value);
   }
 }
-

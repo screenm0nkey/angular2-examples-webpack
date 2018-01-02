@@ -1,14 +1,13 @@
-import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute} from "@angular/router";
-import {Location} from "@angular/common";
-import {SpotifyService} from "../SpotifyService";
-
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { Location } from "@angular/common";
+import { SpotifyService } from "../SpotifyService";
 
 // angular2 doesn't like 'track' as the selector
 // because apparently it's an existing HTML element
 // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track
 @Component({
-  selector: 'theTrack',
+  selector: "theTrack",
   template: `
   <div *ngIf="(track$ | async)?.album">
     <h1>{{ track$.name }}</h1>
@@ -26,10 +25,13 @@ export class TrackComponent implements OnInit {
   id: string;
   track$: Object;
 
-  constructor(private route: ActivatedRoute, private spotify: SpotifyService,
-              private location: Location) {
+  constructor(
+    private route: ActivatedRoute,
+    private spotify: SpotifyService,
+    private location: Location
+  ) {
     route.params.subscribe(params => {
-      this.id = params['id'];
+      this.id = params["id"];
     });
   }
 

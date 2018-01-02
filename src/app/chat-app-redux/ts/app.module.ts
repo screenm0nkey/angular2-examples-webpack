@@ -1,27 +1,25 @@
-import {Component, Inject, NgModule} from "@angular/core";
-import {compose, createStore, Store, StoreEnhancer} from "redux";
-import {SharedModule} from "../../shared/shared.module";
-import {AppStore} from "./app-store";
-import {AppState, default as reducer} from "./reducers";
+import { Component, Inject, NgModule } from "@angular/core";
+import { compose, createStore, Store, StoreEnhancer } from "redux";
+import { SharedModule } from "../../shared/shared.module";
+import { AppStore } from "./app-store";
+import { AppState, default as reducer } from "./reducers";
 import ChatPage from "./pages/ChatPage";
 import ChatThreads from "./containers/ChatThreads";
 import ChatNavBar from "./containers/ChatNavBar";
 import ChatWindow from "./containers/ChatWindow";
 import ChatThread from "./components/ChatThread";
 import ChatMessage from "./components/ChatMessage";
-import {FromNowPipe} from "./pipes/FromNowPipe";
+import { FromNowPipe } from "./pipes/FromNowPipe";
 import ChatExampleData from "./ChatExampleData";
 
-let devtools: StoreEnhancer<AppState> =
-  window['devToolsExtension'] ? window['devToolsExtension']() : f => f;
+let devtools: StoreEnhancer<AppState> = window["devToolsExtension"]
+  ? window["devToolsExtension"]()
+  : f => f;
 
-let store: Store<AppState> = createStore<AppState>(
-  reducer,
-  compose(devtools)
-);
+let store: Store<AppState> = createStore<AppState>(reducer, compose(devtools));
 
 @Component({
-  selector: 'chat-app-redux',
+  selector: "chat-app-redux",
   template: `
   <div>
     <chat-page></chat-page>
@@ -46,12 +44,6 @@ export class ChatAppRedux {
     ChatMessage,
     FromNowPipe
   ],
-  providers: [
-    {provide: AppStore, useFactory: () => store}
-  ]
+  providers: [{ provide: AppStore, useFactory: () => store }]
 })
-export class ChatAppReduxModule {
-}
-
-
-
+export class ChatAppReduxModule {}

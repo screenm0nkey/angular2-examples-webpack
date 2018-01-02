@@ -1,10 +1,10 @@
-import {Component} from "@angular/core";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import { Component } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import * as Rx from "rxjs/Rx";
-import {YoutubeService} from "./youtube-helpers/youtube-service";
+import { YoutubeService } from "./youtube-helpers/youtube-service";
 
 @Component({
-  selector: 'youtube-basic-example',
+  selector: "youtube-basic-example",
   providers: [FormBuilder],
   template: `
         <div class="search-results" style="padding-bottom: 10px;">
@@ -23,7 +23,6 @@ import {YoutubeService} from "./youtube-helpers/youtube-service";
         </div>
     `
 })
-
 export class YoutubeBasicExample {
   form: FormGroup;
   subject$: Rx.Subject<any>;
@@ -33,17 +32,17 @@ export class YoutubeBasicExample {
     this.subject$ = new Rx.Subject();
 
     this.form = fb.group({
-      "youtubeSearch": ['', Validators.required]
+      youtubeSearch: ["", Validators.required]
     });
 
-    this.form.controls['youtubeSearch'].valueChanges
+    this.form.controls["youtubeSearch"].valueChanges
       .filter(text => text && text.length >= 2)
-      .subscribe(text => this.subject$.next(text))
+      .subscribe(text => this.subject$.next(text));
 
     this.subject$
       .debounceTime(500)
       .switchMap((text: string) => this.youtube.search(text))
-      .subscribe((results: any[]) => this.results = results);
+      .subscribe((results: any[]) => (this.results = results));
   }
 
   onSubmit(val: FormGroup) {

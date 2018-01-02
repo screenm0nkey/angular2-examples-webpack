@@ -1,10 +1,10 @@
-import {Component} from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
-  selector: '[message]',
-  inputs: ['header'],
+  selector: "[message]",
+  inputs: ["header"],
   host: {
-    'class': 'ui message' // add class to host element
+    class: "ui message" // add class to host element
   },
   template: `
   <div>
@@ -19,12 +19,12 @@ export class Message {
   header: string;
 
   ngOnInit(): void {
-    console.log('header', this.header);
+    console.log("header", this.header);
   }
 }
 
 @Component({
-  selector: 'transclusion-simple',
+  selector: "transclusion-simple",
   template: `
   <p class="file">misc-examples/components/multi-content/transclusion.ts</p>
   <h4>Using Input and Transclusion on a directive</h4>
@@ -33,7 +33,4 @@ export class Message {
   </div>
   `
 })
-export class TransclusionSampleApp {
-}
-
-
+export class TransclusionSampleApp {}

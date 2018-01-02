@@ -1,11 +1,10 @@
-import {Component} from "@angular/core";
+import { Component } from "@angular/core";
 import * as Rx from "rxjs/Rx";
-import {YoutubeService} from "./youtube-helpers/youtube-service";
-import {SearchResult} from "./youtube-helpers/youtube-result-class";
-
+import { YoutubeService } from "./youtube-helpers/youtube-service";
+import { SearchResult } from "./youtube-helpers/youtube-result-class";
 
 @Component({
-  selector: 'local-ref-search',
+  selector: "local-ref-search",
   providers: [YoutubeService],
   template: `
         <div class="search-results">
@@ -21,17 +20,15 @@ import {SearchResult} from "./youtube-helpers/youtube-result-class";
 export class LocalRefSearch {
   source$: Rx.Subject<any>;
   results: SearchResult[] = [];
-  searchTerm: string = '';
+  searchTerm: string = "";
 
   constructor(public youtube: YoutubeService) {
     this.source$ = new Rx.Subject();
 
     this.source$
       .debounceTime(500)
-      .do((text: string) => this.searchTerm = text)
+      .do((text: string) => (this.searchTerm = text))
       .switchMap((text: string) => this.youtube.search(text)) //i think switchMap used to be flatMapLatest
-      .subscribe((results: SearchResult[]) => this.results = results);
+      .subscribe((results: SearchResult[]) => (this.results = results));
   }
-
-
 }

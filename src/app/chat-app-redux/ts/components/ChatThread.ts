@@ -1,14 +1,14 @@
-import {Component, EventEmitter} from "@angular/core";
-import {Thread} from "../models";
+import { Component, EventEmitter } from "@angular/core";
+import { Thread } from "../models";
 
 /**
  * ChatThread shows an individual thread in the ChatThreads. It indicates the
  * currently selected thread
  */
 @Component({
-  inputs: ['thread', 'selected'],
-  selector: 'chat-thread',
-  outputs: ['onThreadSelected'],
+  inputs: ["thread", "selected"],
+  selector: "chat-thread",
+  outputs: ["onThreadSelected"],
   template: `
   <div class="media conversation">
     <div class="pull-left">

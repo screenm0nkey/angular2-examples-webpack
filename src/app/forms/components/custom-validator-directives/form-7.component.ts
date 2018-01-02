@@ -1,8 +1,10 @@
-import {Component} from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'form-five',
-  styles: ['.label{ color : red; width : 250px; display : inline-block; text-align:left; font-size:12px;} .ng-dirty.ng-invalid {border: 1px red solid;}'],
+  selector: "form-five",
+  styles: [
+    ".label{ color : red; width : 250px; display : inline-block; text-align:left; font-size:12px;} .ng-dirty.ng-invalid {border: 1px red solid;}"
+  ],
   template: `
     <div class="comps">
       <div class="custom">
@@ -39,5 +41,4 @@ import {Component} from "@angular/core";
     </div>
   `
 })
-export class FormSevenComponent {
-}
+export class FormSevenComponent {}

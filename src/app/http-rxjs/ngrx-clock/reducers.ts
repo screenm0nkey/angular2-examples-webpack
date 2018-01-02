@@ -1,14 +1,17 @@
-import {Action, ActionReducer} from "@ngrx/store";
+import { Action, ActionReducer } from "@ngrx/store";
 
-export const HOUR = 'HOUR';
-export const SECOND = 'SECOND';
-export const ADVANCE = 'ADVANCE';
-export const RECALL = 'RECALL';
-export const DAY = 'DAY';
+export const HOUR = "HOUR";
+export const SECOND = "SECOND";
+export const ADVANCE = "ADVANCE";
+export const RECALL = "RECALL";
+export const DAY = "DAY";
 
-const defaultAction: Action = {type: '', payload: ''}
+const defaultAction: Action = { type: "", payload: "" };
 
-export const clock = (state: Date = new Date(), action: Action = defaultAction) => {
+export const clock = (
+  state: Date = new Date(),
+  action: Action = defaultAction
+) => {
   const date = new Date(state.getTime());
   switch (action.type) {
     case SECOND:
@@ -22,37 +25,35 @@ export const clock = (state: Date = new Date(), action: Action = defaultAction) 
   }
 };
 
-
 const defaultPeople = [
-  {name: "Sara", time: clock(undefined, defaultAction)},
-  {name: "John", time: clock(undefined, defaultAction)},
-  {name: "Nancy", time: clock(undefined, defaultAction)},
-  {name: "Drew", time: clock(undefined, defaultAction)},
+  { name: "Sara", time: clock(undefined, defaultAction) },
+  { name: "John", time: clock(undefined, defaultAction) },
+  { name: "Nancy", time: clock(undefined, defaultAction) },
+  { name: "Drew", time: clock(undefined, defaultAction) }
 ];
-export const peoplez = (state = defaultPeople, {type, payload}) => {
+export const peoplez = (state = defaultPeople, { type, payload }) => {
   switch (type) {
     case ADVANCE:
-      return state.map((person) => {
+      return state.map(person => {
         if (payload === person) {
           return {
             name: person.name,
-            time: clock(person.time, {type: HOUR, payload: 5})
-          }
+            time: clock(person.time, { type: HOUR, payload: 5 })
+          };
         }
         return person;
       });
     case RECALL:
-      return state.map((person) => {
+      return state.map(person => {
         return {
           name: person.name,
           time: payload
-        }
+        };
       });
     default:
       return state;
   }
 };
-
 
 export const tick = (state: Date = new Date(), action: Action) => {
   let d: Date;

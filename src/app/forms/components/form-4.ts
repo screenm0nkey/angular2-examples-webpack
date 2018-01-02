@@ -1,37 +1,39 @@
-import {Component} from "@angular/core";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import { Component } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
-  selector: 'form-four',
-  template: require('./form-4.html')
+  selector: "form-four",
+  template: require("./form-4.html")
 })
-
 export class FormFourComponent {
   myform: FormGroup;
-  payLoad: String = '';
-  cities: any[] = [{name: 'London'}, {name: 'Berlin'}, {name: 'Rotheram'}];
+  payLoad: String = "";
+  cities: any[] = [
+    { name: "London" },
+    { name: "Berlin" },
+    { name: "Rotheram" }
+  ];
   selectedCity;
 
-  constructor(private formBuilder: FormBuilder) {
-  }
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
     this.selectedCity = this.cities[2];
     // calling fb.group() returns a controlGroup
     this.myform = this.formBuilder.group({
-      "checkMe": [true, Validators.required],
-      "firstName": ['', Validators.required],
-      "streetAddress": ['', Validators.required],
-      "zip": ['', Validators.compose([this.zipValidator])],
-      "type": ['home'],
-      "city": []
+      checkMe: [true, Validators.required],
+      firstName: ["", Validators.required],
+      streetAddress: ["", Validators.required],
+      zip: ["", Validators.compose([this.zipValidator])],
+      type: ["home"],
+      city: []
     });
   }
 
   logit(evt, ngForm, myform) {
-    console.log('ngForm', ngForm.form);
-    console.log('myform', myform);
-    console.log(this.selectedCity)
+    console.log("ngForm", ngForm.form);
+    console.log("myform", myform);
+    console.log(this.selectedCity);
   }
 
   zipValidator(zip) {
@@ -39,7 +41,7 @@ export class FormFourComponent {
     if (valid) {
       return null;
     }
-    return {"invalidZip": true};
+    return { invalidZip: true };
   }
 
   onSubmit() {

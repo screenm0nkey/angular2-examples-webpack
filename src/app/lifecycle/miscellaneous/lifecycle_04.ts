@@ -10,9 +10,8 @@ import {
   OnInit
 } from "@angular/core";
 
-
 @Component({
-  selector: 'afters',
+  selector: "afters",
   template: `
   <div class="ui label">
     Counter: {{ counter }}
@@ -22,56 +21,64 @@ import {
   </button>
   `
 })
-export class AftersCmp implements OnInit, OnDestroy, DoCheck, OnChanges, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked {
+export class AftersCmp
+  implements OnInit,
+    OnDestroy,
+    DoCheck,
+    OnChanges,
+    AfterContentInit,
+    AfterContentChecked,
+    AfterViewInit,
+    AfterViewChecked {
   counter: number;
 
   constructor() {
-    console.log('%cAftersCmp [constructor]', 'color:white');
+    console.log("%cAftersCmp [constructor]", "color:white");
     this.counter = 1;
   }
 
   increment() {
-    console.log('%c[counter]', 'color:violet');
+    console.log("%c[counter]", "color:violet");
     this.counter += 1;
   }
 
   ngOnInit() {
-    console.log('%cOnInit', 'color:yellow');
+    console.log("%cOnInit", "color:yellow");
   }
 
   ngOnDestroy() {
-    console.log('%cOnDestroy', 'color:purple');
+    console.log("%cOnDestroy", "color:purple");
   }
 
   ngDoCheck() {
-    console.log('%cDoCheck', 'color:pink');
+    console.log("%cDoCheck", "color:pink");
   }
 
   ngOnChanges() {
-    console.log('%cOnChanges', 'color:lime');
+    console.log("%cOnChanges", "color:lime");
   }
 
   // this is used for <ng-content>
   ngAfterContentInit() {
-    console.log('%cAfterContentInit', 'color:red');
+    console.log("%cAfterContentInit", "color:red");
   }
 
   ngAfterContentChecked() {
-    console.log('%cAfterContentChecked', 'color:blue');
+    console.log("%cAfterContentChecked", "color:blue");
   }
 
   // this is used for viewChild /viewChildren
   ngAfterViewInit() {
-    console.log('%cAfterViewInit', 'color:orange');
+    console.log("%cAfterViewInit", "color:orange");
   }
 
   ngAfterViewChecked() {
-    console.log('%cAfterViewChecked', 'color:green');
+    console.log("%cAfterViewChecked", "color:green");
   }
 }
 
 @Component({
-  selector: 'lifecycle-sample-app-4',
+  selector: "lifecycle-sample-app-4",
   template: `
   <p class="path">/lifecycle/miscellaneous/lifecycle_04</p>
   <h4>AfterContentInit, AfterViewInit, AfterContentChecked and AfterViewChecked</h4>
@@ -98,7 +105,3 @@ export class LifecycleSampleApp4 {
     this.displayAfters = !this.displayAfters;
   }
 }
-
-
-
-

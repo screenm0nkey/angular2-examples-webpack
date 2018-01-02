@@ -1,5 +1,5 @@
-import {Injectable} from "@angular/core";
-import {TodoModel} from "./todo-model";
+import { Injectable } from "@angular/core";
+import { TodoModel } from "./todo-model";
 
 @Injectable()
 export class TodoService {
@@ -25,7 +25,7 @@ export class TodoService {
   toggleTodo(todo: TodoModel) {
     const i = this.todos.indexOf(todo);
     const status = todo.status == "started" ? "completed" : "started";
-    const toggledTodo = (<any>Object).assign({}, todo, {status});
+    const toggledTodo = (<any>Object).assign({}, todo, { status });
 
     this.todos = [
       ...this.todos.slice(0, i),

@@ -1,10 +1,10 @@
-import {Component} from "@angular/core";
-import {FormArray, FormControl, FormGroup} from "@angular/forms";
+import { Component } from "@angular/core";
+import { FormArray, FormControl, FormGroup } from "@angular/forms";
 
 @Component({
-  selector: 'my-app',
-  template: require('./form-9.html'),
-  styles: [require('./form-9.css')]
+  selector: "my-app",
+  template: require("./form-9.html"),
+  styles: [require("./form-9.css")]
 })
 export class FormNineComponent {
   form: FormGroup;
@@ -17,8 +17,8 @@ export class FormNineComponent {
     this.myModel = {
       name: "Joanna Jedrzejczyk",
       payOffs: [
-        {amount: 111.11, date: "Jan 1, 2016", number: 3, final: false},
-        {amount: 222.22, date: "Jan 2, 2016", number: 11, final: true}
+        { amount: 111.11, date: "Jan 1, 2016", number: 3, final: false },
+        { amount: 222.22, date: "Jan 2, 2016", number: 11, final: true }
       ]
     };
 
@@ -26,14 +26,13 @@ export class FormNineComponent {
 
     // initialize form with empty FormArray for payOffs
     this.form = new FormGroup({
-      name: new FormControl(''),
+      name: new FormControl(""),
       payOffs: this.payOffsFormArray
     });
 
     // now we manually use the model and push a FormGroup into the form's FormArray for each PayOff
-    this.myModel.payOffs.forEach(
-      (po) =>
-        this.payOffsFormArray.push(this.createPayOffFormGroup(po))
+    this.myModel.payOffs.forEach(po =>
+      this.payOffsFormArray.push(this.createPayOffFormGroup(po))
     );
   }
 
@@ -43,19 +42,19 @@ export class FormNineComponent {
       amount: new FormControl(payOffObj.amount),
       date: new FormControl(payOffObj.date),
       number: new FormControl(payOffObj.number),
-      final: new FormControl(payOffObj.final),
+      final: new FormControl(payOffObj.final)
     });
   }
 
   addPayOff(event) {
     event.preventDefault(); // ensure this button doesn't try to submit the form
-    var emptyPayOff = {amount: null, date: null, final: false};
+    var emptyPayOff = { amount: null, date: null, final: false };
 
     // add pay off to both the model and to form controls because
     // I don't think Angular has any way to do this automagically yet
     this.myModel.payOffs.push(emptyPayOff);
     this.payOffsFormArray.push(this.createPayOffFormGroup(emptyPayOff));
-    console.log("Added New Pay Off", this.payOffsFormArray)
+    console.log("Added New Pay Off", this.payOffsFormArray);
   }
 
   deletePayOff(index: number) {

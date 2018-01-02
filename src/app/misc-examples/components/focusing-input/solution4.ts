@@ -1,7 +1,13 @@
-import {AfterViewInit, Component, ElementRef, Renderer, ViewChild} from "@angular/core";
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Renderer,
+  ViewChild
+} from "@angular/core";
 
 @Component({
-  selector: 'solution-four',
+  selector: "solution-four",
   template: `
     <p class="file">misc-examples/components/focusing-input/solution4.ts</p>
     <h4>Correct Solution - Using local variable refs and @ViewChild</h4>
@@ -27,13 +33,11 @@ import {AfterViewInit, Component, ElementRef, Renderer, ViewChild} from "@angula
   `
 })
 export class SolutionFour implements AfterViewInit {
-  @ViewChild('myInput') input: ElementRef;
+  @ViewChild("myInput") input: ElementRef;
 
-  constructor(private _renderer: Renderer) {
-  }
+  constructor(private _renderer: Renderer) {}
 
   ngAfterViewInit() {
-    this._renderer.invokeElementMethod(this.input.nativeElement, 'focus', []);
-
+    this._renderer.invokeElementMethod(this.input.nativeElement, "focus", []);
   }
 }

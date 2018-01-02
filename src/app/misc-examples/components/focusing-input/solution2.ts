@@ -12,7 +12,7 @@ import {
 } from "@angular/core";
 
 @Directive({
-  selector: '[focusIt]'
+  selector: "[focusIt]"
 })
 export class FocusIt implements AfterViewInit, OnChanges {
   constructor(private elementRef: ElementRef) {
@@ -32,9 +32,8 @@ export class FocusIt implements AfterViewInit, OnChanges {
   }
 }
 
-
 @Component({
-  selector: 'solution-two',
+  selector: "solution-two",
   template: `
   <h4>Solution 2 @ViewChild and calling a method on the childview directive</h4>
  
@@ -60,7 +59,7 @@ export class SolutionTwo implements OnInit {
 
   toggle() {
     this.inputIsVisible = !this.inputIsVisible;
-    setTimeout(() => console.log(this), 0)
+    setTimeout(() => console.log(this), 0);
   }
 
   focusInput() {

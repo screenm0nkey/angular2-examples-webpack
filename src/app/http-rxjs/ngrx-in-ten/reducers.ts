@@ -1,4 +1,4 @@
-import {Action, ActionReducer} from "@ngrx/store";
+import { Action, ActionReducer } from "@ngrx/store";
 
 export const filter = (state = person => person, action: Action) => {
   switch (action.type) {
@@ -22,10 +22,7 @@ export const people = (state = [], action: Action) => {
   switch (action.type) {
     case "ADD_PERSON":
       action.id = Math.round(Math.random() * 100000);
-      return [
-        ...state,
-        action.payload
-      ];
+      return [...state, action.payload];
     case "REMOVE_PERSON":
       return state.filter(person => person.id !== action.payload);
     case "ADD_GUESTS":
@@ -33,7 +30,7 @@ export const people = (state = [], action: Action) => {
         if (person.id === action.payload) {
           return Object.assign({}, person, {
             guests: person.guests + 1
-          })
+          });
         }
         return person;
       });
@@ -42,7 +39,7 @@ export const people = (state = [], action: Action) => {
         if (person.id === action.payload) {
           return Object.assign({}, person, {
             guests: person.guests - 1
-          })
+          });
         }
         return person;
       });
@@ -51,7 +48,7 @@ export const people = (state = [], action: Action) => {
         if (person.id === action.payload) {
           return Object.assign({}, person, {
             attending: !person.attending
-          })
+          });
         }
         return person;
       });
@@ -59,4 +56,4 @@ export const people = (state = [], action: Action) => {
     default:
       return state;
   }
-}
+};

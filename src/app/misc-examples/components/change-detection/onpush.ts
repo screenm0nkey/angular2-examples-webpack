@@ -1,9 +1,7 @@
-import {ChangeDetectionStrategy, Component, Input} from "@angular/core";
-
+import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
 
 class Profile {
-  constructor(private first: string, private last: string) {
-  }
+  constructor(private first: string, private last: string) {}
 
   lastChanged() {
     return new Date();
@@ -11,7 +9,7 @@ class Profile {
 }
 
 @Component({
-  selector: 'default',
+  selector: "default",
   template: `
   <h5>
     Default Strategy
@@ -50,9 +48,8 @@ export class DefaultCmp {
   }
 }
 
-
 @Component({
-  selector: 'on-push',
+  selector: "on-push",
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
   <h5>
@@ -93,7 +90,7 @@ export class OnPushCmp {
 }
 
 @Component({
-  selector: 'change-detection-sample-app',
+  selector: "change-detection-sample-app",
   template: `
   <p class="file">/misc-examples/components/change-detection/onpush.ts</p>
   <h4>Change detection using ngModel</h4>
@@ -110,8 +107,6 @@ export class OnPushCmp {
   `
 })
 export class OnPushChangeDetectionSampleApp {
-  profile1: Profile = new Profile('Felipe', 'Coury');
-  profile2: Profile = new Profile('Nate', 'Murray');
+  profile1: Profile = new Profile("Felipe", "Coury");
+  profile2: Profile = new Profile("Nate", "Murray");
 }
-
-

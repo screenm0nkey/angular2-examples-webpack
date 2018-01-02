@@ -1,15 +1,13 @@
-import {Directive, OnDestroy, OnInit} from "@angular/core";
-import {LoggerService} from "../logger.service";
+import { Directive, OnDestroy, OnInit } from "@angular/core";
+import { LoggerService } from "../logger.service";
 
 let nextId = 1;
 
 // Spy on any element to which it is applied.
 // Usage: <div my-spy>...</div>
-@Directive({selector: '[my-spy]'})
+@Directive({ selector: "[my-spy]" })
 export class Spy implements OnInit, OnDestroy {
-
-  constructor(private _logger: LoggerService) {
-  }
+  constructor(private _logger: LoggerService) {}
 
   ngOnInit() {
     this._logIt(`onInit`);

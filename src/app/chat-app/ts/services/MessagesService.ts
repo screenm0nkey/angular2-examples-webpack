@@ -1,6 +1,6 @@
-import {Injectable} from "@angular/core";
-import {Observable, Subject} from "rxjs";
-import {Message, Thread, User} from "../models";
+import { Injectable } from "@angular/core";
+import { Observable, Subject } from "rxjs";
+import { Message, Thread, User } from "../models";
 
 let initialMessages: Message[] = [];
 
@@ -27,18 +27,15 @@ export class MessagesService {
 
   constructor() {
     this.messages = this.updates
-    // watch the updates and accumulate operations on the messages
-      .scan((messages: Message[],
-             operation: IMessagesOperation) => {
-          return operation(messages);
-        },
-        initialMessages)
+      // watch the updates and accumulate operations on the messages
+      .scan((messages: Message[], operation: IMessagesOperation) => {
+        return operation(messages);
+      }, initialMessages)
       .publishReplay(1)
       .refCount();
 
-
     this.create
-      .map(function (message: Message): IMessagesOperation {
+      .map(function(message: Message): IMessagesOperation {
         return (messages: Message[]) => {
           return messages.concat(message);
         };
@@ -46,7 +43,6 @@ export class MessagesService {
       .subscribe(this.updates);
 
     this.newMessages.subscribe(this.create);
-
 
     this.markThreadAsRead
       .map((thread: Thread) => {
@@ -60,7 +56,6 @@ export class MessagesService {
         };
       })
       .subscribe(this.updates);
-
   }
 
   // an imperative function call to this action stream
@@ -69,14 +64,11 @@ export class MessagesService {
   }
 
   messagesForThreadUser(thread: Thread, user: User): Observable<Message> {
-    return this.newMessages
-      .filter((message: Message) => {
-        // belongs to this thread and isn't authored by this user
-        return (message.thread.id === thread.id) && (message.author.id !== user.id);
-      });
+    return this.newMessages.filter((message: Message) => {
+      // belongs to this thread and isn't authored by this user
+      return message.thread.id === thread.id && message.author.id !== user.id;
+    });
   }
 }
 
-export const messagesServiceInjectables: Array<any> = [
-  MessagesService
-];
+export const messagesServiceInjectables: Array<any> = [MessagesService];

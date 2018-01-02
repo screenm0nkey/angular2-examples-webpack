@@ -1,5 +1,5 @@
-import {Component, OnInit} from "@angular/core";
-import {Http} from "@angular/http";
+import { Component, OnInit } from "@angular/core";
+import { Http } from "@angular/http";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/mergeMap";
 import "rxjs/add/operator/switchMap";
@@ -8,8 +8,8 @@ import "rxjs/add/operator/do";
 import "rxjs/add/operator/share";
 import "rxjs/add/observable/from";
 import "rxjs/add/observable/forkJoin";
-import {Observable} from "rxjs/Observable";
-import {Subject} from "rxjs/Subject";
+import { Observable } from "rxjs/Observable";
+import { Subject } from "rxjs/Subject";
 
 interface Person {
   vehicles: number[];
@@ -23,8 +23,9 @@ interface Vechicle {
 }
 
 @Component({
-  selector: 'forkjoin-app',
-  styles: [`
+  selector: "forkjoin-app",
+  styles: [
+    `
   :host{
     display: flex;
   }
@@ -35,7 +36,8 @@ interface Vechicle {
   .person:hover{
     color: blue;
   }
-`],
+`
+  ],
   template: `<div class="master">
 <p class="path">/http-rxjs/john-linquist/forkjoin-search.ts</p>
   <h4>  forkJoin() People and vehicles</h4>
@@ -57,13 +59,12 @@ interface Vechicle {
 `
 })
 export class ForkJoinComponent implements OnInit {
-  static API = 'https://starwars-json-server-aikiidixsl.now.sh';
+  static API = "https://starwars-json-server-aikiidixsl.now.sh";
   people$;
   peopleClick$ = new Subject();
   vehicles$;
 
-  constructor(public http: Http) {
-  }
+  constructor(public http: Http) {}
 
   // share() is the same as publish().refCount(). refCount() is built on connect().
   // publish creates a ConnectableObservable which shares a single subscription to the underlying source.
@@ -83,23 +84,29 @@ export class ForkJoinComponent implements OnInit {
   getPeopleWhoHaveVehicles() {
     this.people$ = this.http
       .get(`${ForkJoinComponent.API}/people`)
-      .map(res => res.json().filter((person: Person) => person.vehicles.length));
+      .map(res =>
+        res.json().filter((person: Person) => person.vehicles.length)
+      );
 
-    this.people$.subscribe(res => console.log(1333, res))
+    this.people$.subscribe(res => console.log(1333, res));
   }
 
   getVechicles(id: number): Observable<Vechicle[]> {
     return this.http
       .get(`${ForkJoinComponent.API}/vehicles/${id}`)
       .map(res => res.json())
-      .map(v => Object.assign({}, v, {image_path: `${ForkJoinComponent.API}/${v.image}`}))
+      .map(v =>
+        Object.assign({}, v, {
+          image_path: `${ForkJoinComponent.API}/${v.image}`
+        })
+      );
   }
 
   // forkJoin runs all observable sequences in parallel and collect their last elements.
   // forkJoin is similar to $q.all(). The person.vehicles.map below returns multiple requests
   getVehiclesFromPerson(person: Person) {
-    return Observable.forkJoin(person.vehicles.map((id: number) => this.getVechicles(id)))
+    return Observable.forkJoin(
+      person.vehicles.map((id: number) => this.getVechicles(id))
+    );
   }
 }
-
-

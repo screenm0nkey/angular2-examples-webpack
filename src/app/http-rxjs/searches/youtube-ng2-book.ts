@@ -1,19 +1,18 @@
-import {Component, ElementRef, EventEmitter, OnInit} from "@angular/core";
+import { Component, ElementRef, EventEmitter, OnInit } from "@angular/core";
 import * as Rx from "rxjs/Rx";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/switchMap";
 import "rxjs/add/operator/debounceTime";
 import "rxjs/add/operator/do";
-import {SearchResult} from "./youtube-helpers/youtube-result-class";
-import {YoutubeService} from "./youtube-helpers/youtube-service";
+import { SearchResult } from "./youtube-helpers/youtube-result-class";
+import { YoutubeService } from "./youtube-helpers/youtube-service";
 
-let loadingGif: string = require('../../../images/loading.gif');
-
+let loadingGif: string = require("../../../images/loading.gif");
 
 @Component({
-  selector: 'youtube-search',
+  selector: "youtube-search",
   template: `Search <input placeholder="Search Youtube">`,
-  outputs: ['loading', 'results'],
+  outputs: ["loading", "results"]
 })
 export class NgBookYoutubeSearch implements OnInit {
   loading: EventEmitter<any> = new EventEmitter();
@@ -48,7 +47,7 @@ export class NgBookYoutubeSearch implements OnInit {
 }
 
 @Component({
-  selector: 'ngbook-youtube-example',
+  selector: "ngbook-youtube-example",
   template: `
         <div class="search-results" style="padding-bottom:10px">
           <p class="path">/http-rxjs/searches/youtube-ng2-book.ts</p>

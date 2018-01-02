@@ -1,13 +1,20 @@
-import {Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output} from "@angular/core";
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  Output
+} from "@angular/core";
 
 declare var Notification;
 
 @Component({
-  selector: 'push-notification',
-  styles: [':host { display: none; }'],
-  template: ''
+  selector: "push-notification",
+  styles: [":host { display: none; }"],
+  template: ""
 })
-
 export class PushNotificationComponent implements OnInit, OnChanges, OnDestroy {
   // all of these will be instance properties
   @Input() public title: string;
@@ -16,8 +23,8 @@ export class PushNotificationComponent implements OnInit, OnChanges, OnDestroy {
   @Input() public sound: string;
   @Input() public data: any;
   @Input() public tag: string;
-  @Input() public dir: string = 'auto';
-  @Input() public lang: string = 'en-US';
+  @Input() public dir: string = "auto";
+  @Input() public lang: string = "en-US";
   @Input() public renotify: boolean = false;
   @Input() public sticky: boolean = false;
   @Input() public vibrate: Array<number>;
@@ -26,19 +33,19 @@ export class PushNotificationComponent implements OnInit, OnChanges, OnDestroy {
   @Input() public closeDelay: number = 0;
 
   // all of these will be instance properties
-  @Output('load') public onLoad: EventEmitter<any> = new EventEmitter();
-  @Output('show') public onShow: EventEmitter<any> = new EventEmitter();
-  @Output('close') public onClose: EventEmitter<any> = new EventEmitter();
-  @Output('error') public onError: EventEmitter<any> = new EventEmitter();
-  @Output('action') public onClick: EventEmitter<any> = new EventEmitter();
+  @Output("load") public onLoad: EventEmitter<any> = new EventEmitter();
+  @Output("show") public onShow: EventEmitter<any> = new EventEmitter();
+  @Output("close") public onClose: EventEmitter<any> = new EventEmitter();
+  @Output("error") public onError: EventEmitter<any> = new EventEmitter();
+  @Output("action") public onClick: EventEmitter<any> = new EventEmitter();
 
   // all methods below will be prototype properties
   public checkCompatibility() {
-    return !!('Notification' in window);
+    return !!("Notification" in window);
   }
 
   public isPermissionGranted(permission) {
-    return permission === 'granted';
+    return permission === "granted";
   }
 
   public requestPermission(callback) {
@@ -47,10 +54,10 @@ export class PushNotificationComponent implements OnInit, OnChanges, OnDestroy {
 
   public show() {
     if (!this.checkCompatibility()) {
-      return console.log('Notification API not available in this browser.');
+      return console.log("Notification API not available in this browser.");
     }
 
-    return this.requestPermission((permission) => {
+    return this.requestPermission(permission => {
       if (this.isPermissionGranted(permission)) {
         this.create();
       }
@@ -95,19 +102,19 @@ export class PushNotificationComponent implements OnInit, OnChanges, OnDestroy {
 
   attachEventHandlers(notification): void {
     notification.onshow = () => {
-      this.onShow.emit({notification});
+      this.onShow.emit({ notification });
     };
 
-    notification.onclick = (event) => {
-      this.onClick.emit({event, notification});
+    notification.onclick = event => {
+      this.onClick.emit({ event, notification });
     };
 
     notification.onerror = () => {
-      this.onError.emit({notification});
+      this.onError.emit({ notification });
     };
 
     notification.onclose = () => {
-      this.onClose.emit({notification});
+      this.onClose.emit({ notification });
     };
   }
 
@@ -119,7 +126,5 @@ export class PushNotificationComponent implements OnInit, OnChanges, OnDestroy {
     this.closeAll();
   }
 
-  public ngOnChanges(): void {
-  }
-
+  public ngOnChanges(): void {}
 }

@@ -1,10 +1,10 @@
-import {Component} from "@angular/core";
-import {ActivatedRoute, Params} from "@angular/router";
-import {DataService} from "./services/data.service";
-import {Customer} from "./services/customer.model";
+import { Component } from "@angular/core";
+import { ActivatedRoute, Params } from "@angular/router";
+import { DataService } from "./services/data.service";
+import { Customer } from "./services/customer.model";
 
 @Component({
-  selector: 'orders-component',
+  selector: "orders-component",
   template: `
     <div class="comps"><div>
     <p style="background-color: lightgrey">
@@ -22,22 +22,22 @@ import {Customer} from "./services/customer.model";
       <p>{{customer.state.name}}</p>
     </section>
     </div></div>
-  `,
+  `
 })
 export class CustomerDetailComponent {
   customer: Customer;
 
-  constructor(private route: ActivatedRoute, public dataService: DataService) {
-  }
+  constructor(private route: ActivatedRoute, public dataService: DataService) {}
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
-      let id = parseInt(params['id'], 10);
-      this.dataService.getCustomers()
+      let id = parseInt(params["id"], 10);
+      this.dataService
+        .getCustomers()
         .map(customers => {
           return customers.find(c => c.id === id);
-        }).subscribe(customer => this.customer = customer);
+        })
+        .subscribe(customer => (this.customer = customer));
     });
   }
-
 }

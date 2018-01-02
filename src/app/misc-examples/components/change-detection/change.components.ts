@@ -1,16 +1,22 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
-
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output
+} from "@angular/core";
 
 export class TodoItem {
   _text: String;
 
   get text() {
-    console.log(`%cgetting value for text "${this._text}"`, 'color:green');
+    console.log(`%cgetting value for text "${this._text}"`, "color:green");
     return this._text;
   }
 
   set text(value) {
-    console.log(`%csetting value for text "${this._text}"`, 'color:orange');
+    console.log(`%csetting value for text "${this._text}"`, "color:orange");
     this._text = value;
   }
 
@@ -18,7 +24,6 @@ export class TodoItem {
     this._text = text;
   }
 }
-
 
 export class TodoStore {
   private items: TodoItem[] = [];
@@ -34,10 +39,9 @@ export class TodoStore {
       ...this.items.slice(0, index),
       new TodoItem(todoStr),
       ...this.items.slice(index + 1)
-    ]
+    ];
   }
 }
-
 
 /*
  this component's model object is immutable, meaning the "item" object isn't updated by the view.
@@ -47,7 +51,7 @@ export class TodoStore {
 
 /* TODO ITEM COMPONENT */
 @Component({
-  selector: 'todoitem-component',
+  selector: "todoitem-component",
   template: `<span (click)="editme.emit(item)">{{item.text}}</span>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -56,15 +60,14 @@ export class TodoItemComponent implements OnInit {
   @Output() editme: EventEmitter<any> = new EventEmitter();
 
   ngOnInit() {
-    console.log(`%cNew ToDoItem`, 'color:pink', this.item.text);
+    console.log(`%cNew ToDoItem`, "color:pink", this.item.text);
   }
 }
 
-
 /* TODO LIST COMPONENT */
 @Component({
-  selector: 'todolist-component',
-  styles: ['li {cursor: pointer}'],
+  selector: "todolist-component",
+  styles: ["li {cursor: pointer}"],
   template: `
     <ul class="todo-list">
         <li *ngFor="let item of store.items">
@@ -77,12 +80,11 @@ export class TodoListComponent {
   @Output() editme: EventEmitter<any> = new EventEmitter();
 }
 
-
 /* MAIN COMPONENT */
 @Component({
-  selector: 'change-component',
+  selector: "change-component",
   template: `
-    ${require('./change.components.html')}
+    ${require("./change.components.html")}
     <input 
       type="text" 
       [(ngModel)]="todoStr" 
@@ -97,7 +99,7 @@ export class TodoListComponent {
       placeholder="Local Ref">
       
     <todolist-component [store]="store" (editme)="setTodoItem($event)"></todolist-component>
-  `,
+  `
 })
 export class ChangeComponent {
   todoStr: String;
@@ -105,7 +107,7 @@ export class ChangeComponent {
   store: TodoStore = new TodoStore();
 
   constructor() {
-    this.addItem('First Item');
+    this.addItem("First Item");
   }
 
   setTodoItem(todoItem) {
@@ -116,7 +118,7 @@ export class ChangeComponent {
   addItem(todoStr: string) {
     if (todoStr) {
       if (this.todoItem) {
-        this.store.updateItem(this.todoItem, todoStr)
+        this.store.updateItem(this.todoItem, todoStr);
       } else {
         this.store.addItem(new TodoItem(todoStr));
       }

@@ -1,8 +1,13 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input} from "@angular/core";
-import {Observable} from "rxjs/Rx";
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Input
+} from "@angular/core";
+import { Observable } from "rxjs/Rx";
 
 @Component({
-  selector: 'observable',
+  selector: "observable",
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
   <div>
@@ -14,12 +19,11 @@ export class ObservableCmp {
   @Input() items: Observable<number>;
   counter = 0;
 
-  constructor(private changeDetector: ChangeDetectorRef) {
-  }
+  constructor(private changeDetector: ChangeDetectorRef) {}
 
   ngOnInit() {
-    this.items.subscribe((v) => {
-      console.log('%cGot observable value ' + v, 'color:violet');
+    this.items.subscribe(v => {
+      console.log("%cGot observable value " + v, "color:violet");
       this.counter++;
       this.changeDetector.markForCheck();
     });
@@ -27,7 +31,7 @@ export class ObservableCmp {
 }
 
 @Component({
-  selector: 'observable-change-detection-sample-app',
+  selector: "observable-change-detection-sample-app",
   template: `
   <p class="file">/misc-examples/components/change-detection/observables.ts</p>
   <h4>changeDetector.markForCheck() with Observables</h4>
@@ -43,5 +47,3 @@ export class ObservableChangeDetectionSampleApp {
     this.itemObservable = Observable.timer(delay, repeatMs).take(5);
   }
 }
-
-

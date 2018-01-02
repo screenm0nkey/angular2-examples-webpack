@@ -1,7 +1,7 @@
-import {Component, EventEmitter, Input, Output} from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 
 @Component({
-  selector: 'filter-text-component',
+  selector: "filter-text-component",
   template: `
     	Filter:
     	<input 
@@ -9,7 +9,7 @@ import {Component, EventEmitter, Input, Output} from "@angular/core";
     		placeholder="{{placeholder}}"
     		[(ngModel)]="model.filter"
     		(keyup)="filterChanged($event)" />
-    `,
+    `
 })
 export class FilterTextComponent {
   model: { filter: any };
@@ -17,12 +17,12 @@ export class FilterTextComponent {
   @Output() changed: EventEmitter<any> = new EventEmitter();
 
   constructor() {
-    this.model = {filter: ''};
+    this.model = { filter: "" };
     console.log(this);
   }
 
   filterChanged(evt: Event) {
     evt.preventDefault();
-    this.changed.emit(this.model.filter)
+    this.changed.emit(this.model.filter);
   }
 }

@@ -1,30 +1,36 @@
-import {Component, ElementRef, EventEmitter, Injectable, OnInit, Output, ViewChild} from "@angular/core";
-import {Http, Response} from "@angular/http";
-import {Observable} from "rxjs/Rx";
-
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Injectable,
+  OnInit,
+  Output,
+  ViewChild
+} from "@angular/core";
+import { Http, Response } from "@angular/http";
+import { Observable } from "rxjs/Rx";
 
 @Injectable()
 export class ChickensService {
   chickens: Observable<any>;
 
   constructor(private http: Http) {
-    this.chickens = http.get('/json/chickens.json');
+    this.chickens = http.get("/json/chickens.json");
   }
 
   getBooksAndMovies() {
     // When all observables complete, emit the last value from each.
     // forkjoin() is like a little like $q.all()
     return Observable.forkJoin(
-      this.http.get('/json/chickens.json').map((res: Response) => res.json()),
-      this.http.get('/json/customers.json').map((res: Response) => res.json())
+      this.http.get("/json/chickens.json").map((res: Response) => res.json()),
+      this.http.get("/json/customers.json").map((res: Response) => res.json())
     );
   }
 }
 
-
 @Component({
-  selector: 'chick-component',
-  inputs: ['name'],
+  selector: "chick-component",
+  inputs: ["name"],
   template: `
         <div>
           <span>{{name}}</span>
@@ -45,10 +51,9 @@ export class ChickComponent {
   }
 }
 
-
 @Component({
-  selector: 'chicken-component',
-  inputs: ['name'],
+  selector: "chicken-component",
+  inputs: ["name"],
   template: `
       <p class="file">misc-examples/components/chickens/chicken.component.ts</p>
       <h4>Simple example using @ViewChild, @Inputs, @Outputs and Http to display data</h4>
@@ -62,12 +67,11 @@ export class ChickComponent {
     `
 })
 export class ChickenComponent implements OnInit {
-  @ViewChild('namey') namey: ElementRef;
+  @ViewChild("namey") namey: ElementRef;
   chickens: any = [];
   customers: any = [];
 
-  constructor(private chickensService: ChickensService) {
-  }
+  constructor(private chickensService: ChickensService) {}
 
   ngOnInit() {
     this.getBooksAndMovies();
@@ -79,11 +83,9 @@ export class ChickenComponent implements OnInit {
   }
 
   getBooksAndMovies() {
-    this.chickensService.getBooksAndMovies().subscribe(
-      data => {
-        this.chickens = data[0];
-        this.customers = data[1];
-      }
-    );
+    this.chickensService.getBooksAndMovies().subscribe(data => {
+      this.chickens = data[0];
+      this.customers = data[1];
+    });
   }
 }

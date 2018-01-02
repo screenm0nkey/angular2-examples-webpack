@@ -1,8 +1,14 @@
-import {ChangeDetectionStrategy, Component, Input, OnChanges, OnInit} from "@angular/core";
-import {Store, Todo} from "./StoreService";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnChanges,
+  OnInit
+} from "@angular/core";
+import { Store, Todo } from "./StoreService";
 
 @Component({
-  selector: 'test-component-list',
+  selector: "test-component-list",
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `<ul><li *ngFor="let todo of todos">{{todo.someval}}</li></ul>`
 })
@@ -23,9 +29,8 @@ export class TestComponentList implements OnInit, OnChanges {
   }
 }
 
-
 @Component({
-  selector: 'immutable-list-component',
+  selector: "immutable-list-component",
   template: `
         <p class="file">/misc-examples/components/immutable/immutable-list.ts</p>
         <h4>Immutable Lists</h4>
@@ -37,7 +42,7 @@ export class TestComponentList implements OnInit, OnChanges {
         <input #chk type="checkbox" (change)="checked=chk.checked; me.focus()"/><br>
         <input type="text" #me (keyup.enter)="addTodo(me, me.value)" placeholder="Press enter to add">
         <test-component-list [todos]="store.todos"></test-component-list>
-    `,
+    `
 })
 export class ImmutableList {
   checked: boolean = false;
@@ -56,6 +61,6 @@ export class ImmutableList {
       console.log(this.store.todos);
     }
     console.log(this.store);
-    el.value = '';
+    el.value = "";
   }
 }

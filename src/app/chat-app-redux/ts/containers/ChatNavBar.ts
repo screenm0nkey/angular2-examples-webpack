@@ -1,10 +1,10 @@
-import {Component, Inject} from "@angular/core";
-import {AppStore} from "../app-store";
-import {Store} from "redux";
-import {AppState, getUnreadMessagesCount} from "../reducers";
+import { Component, Inject } from "@angular/core";
+import { AppStore } from "../app-store";
+import { Store } from "redux";
+import { AppState, getUnreadMessagesCount } from "../reducers";
 
 @Component({
-  selector: 'chat-nav-bar',
+  selector: "chat-nav-bar",
   template: `
   <nav class="navbar navbar-default">
     <div class="container-fluid">

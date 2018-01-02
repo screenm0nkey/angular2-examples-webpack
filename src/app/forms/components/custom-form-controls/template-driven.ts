@@ -1,7 +1,7 @@
-import {Component} from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'template-driven',
+  selector: "template-driven",
   template: `
     <h4>Using it inside template-driven forms</h4>
      <a href="http://blog.thoughtram.io/angular/2016/07/27/custom-form-controls-in-angular-2.html" target="_blank">custom-form-controls</a>
@@ -46,7 +46,7 @@ import {Component} from "@angular/core";
     </form>
 
     <pre>{{ form.value | json }}</pre>
-  `,
+  `
 })
 export class FormTenTemplateDrivenComponent {
   counter2Value: number = 5;

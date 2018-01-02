@@ -1,16 +1,22 @@
 //our root app component
-import {AfterViewInit, Component, ComponentFactoryResolver, ViewChild, ViewContainerRef} from '@angular/core'
+import {
+  AfterViewInit,
+  Component,
+  ComponentFactoryResolver,
+  ViewChild,
+  ViewContainerRef
+} from "@angular/core";
 
 @Component({
-  selector: 'd-comp',
+  selector: "d-comp",
   template: `<span>{{name}}<br></span>`
 })
 export class DComponent {
-  name = 'I am dynamically inserted component';
+  name = "I am dynamically inserted component";
 }
 
 @Component({
-  selector: 'dynamic-component',
+  selector: "dynamic-component",
   template: `
     <p class="file">misc-examples/components/changed-after-check/dynamic.component.ts</p>
     <h4>Dynamic component instantiation</h4>
@@ -22,14 +28,14 @@ export class DComponent {
    
     <h1>Hello {{name}}</h1>
     <ng-container #vc></ng-container>
-  `,
+  `
 })
 export class DynamicComponent implements AfterViewInit {
-  @ViewChild('vc', {read: ViewContainerRef}) vc;
-  name: string = 'I am DynamicComponent';
+  @ViewChild("vc", { read: ViewContainerRef })
+  vc;
+  name: string = "I am DynamicComponent";
 
-  constructor(private r: ComponentFactoryResolver) {
-  }
+  constructor(private r: ComponentFactoryResolver) {}
 
   ngAfterViewInit() {
     const f = this.r.resolveComponentFactory(DComponent);
@@ -38,4 +44,3 @@ export class DynamicComponent implements AfterViewInit {
     this.vc.createComponent(f);
   }
 }
-

@@ -1,9 +1,9 @@
-import {NgModule} from "@angular/core";
-import {SharedModule} from "../../../shared/shared.module";
-import {FormTenComponent} from "./form-10.component";
-import {FormTenTemplateDrivenComponent} from "./template-driven";
-import {FormTenModelDrivenComponent} from "./model-driven";
-import {FormTenCounterInputComponent} from "./custom-form-control";
+import { NgModule } from "@angular/core";
+import { SharedModule } from "../../../shared/shared.module";
+import { FormTenComponent } from "./form-10.component";
+import { FormTenTemplateDrivenComponent } from "./template-driven";
+import { FormTenModelDrivenComponent } from "./model-driven";
+import { FormTenCounterInputComponent } from "./custom-form-control";
 
 @NgModule({
   imports: [SharedModule],
@@ -14,8 +14,6 @@ import {FormTenCounterInputComponent} from "./custom-form-control";
     FormTenCounterInputComponent
   ]
 })
-export class FormTenModule {
-}
+export class FormTenModule {}
 
-export {FormTenComponent}
-
+export { FormTenComponent };

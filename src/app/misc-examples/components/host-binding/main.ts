@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
   styles: [`h4 {font-weight: bold;color:darkred}`],
@@ -17,7 +17,6 @@ import {Component} from "@angular/core";
         <host-three-component></host-three-component>
      
         </div>
-    `,
+    `
 })
-export class HostBindingComponent {
-}
+export class HostBindingComponent {}

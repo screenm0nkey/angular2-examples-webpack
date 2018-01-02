@@ -1,9 +1,9 @@
-import {Component} from "@angular/core";
-import {LoggerService} from "../logger.service";
+import { Component } from "@angular/core";
+import { LoggerService } from "../logger.service";
 
 @Component({
-  selector: 'peek-a-boo-parent',
-  styles: ['.parent {background: moccasin}'],
+  selector: "peek-a-boo-parent",
+  styles: [".parent {background: moccasin}"],
   providers: [LoggerService],
   template: `
       <div class="parent">
@@ -35,7 +35,7 @@ export class PeekABooParentComponent {
   hasChild = false;
   hookLog: string[];
 
-  heroName = 'Windstorm';
+  heroName = "Windstorm";
   private _logger: LoggerService;
 
   constructor(logger: LoggerService) {
@@ -46,7 +46,7 @@ export class PeekABooParentComponent {
   toggleChild() {
     this.hasChild = !this.hasChild;
     if (this.hasChild) {
-      this.heroName = 'Windstorm';
+      this.heroName = "Windstorm";
       this._logger.clear(); // clear log on create
     }
     this._logger.tick();
@@ -57,8 +57,8 @@ export class PeekABooParentComponent {
   }
 
   updateHero() {
-    this._logger.log('---Update Hero---');
-    this.heroName += '!';
+    this._logger.log("---Update Hero---");
+    this.heroName += "!";
     this._logger.tick(); // causes the change detection to run
   }
 }

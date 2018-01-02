@@ -1,7 +1,7 @@
-import {Component} from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'chat-page',
+  selector: "chat-page",
   template: `
   <div>
     <chat-nav-bar></chat-nav-bar>
@@ -12,5 +12,4 @@ import {Component} from "@angular/core";
   </div>
   `
 })
-export default class ChatPage {
-}
+export default class ChatPage {}

@@ -1,12 +1,13 @@
-import {Component, Inject, Renderer2} from "@angular/core";
-import {DOCUMENT} from "@angular/platform-browser";
-
+import { Component, Inject, Renderer2 } from "@angular/core";
+import { DOCUMENT } from "@angular/platform-browser";
 
 @Component({
-  selector: 'dom-adapter-component',
-  styles: [`.test{
+  selector: "dom-adapter-component",
+  styles: [
+    `.test{
         color:green;
-      }`],
+      }`
+  ],
   template: `
         <div>
           <p class="file">misc-examples/components/chickens/dom-adapter.component.ts</p>
@@ -23,20 +24,18 @@ import {DOCUMENT} from "@angular/platform-browser";
     `
 })
 export class DomAdapterComponent {
-
-  constructor(@Inject(DOCUMENT) public dom, private renderer: Renderer2) {
-  }
+  constructor(@Inject(DOCUMENT) public dom, private renderer: Renderer2) {}
 
   add() {
-    const el: HTMLButtonElement = this.renderer.createElement('button');
-    this.renderer.addClass(el, 'test');
-    el.innerText = 'CLick me';
-    el.addEventListener('click', this.raiseEvent);
-    var compEl: any = this.dom.getElementsByTagName('dom-adapter-component')[0];
+    const el: HTMLButtonElement = this.renderer.createElement("button");
+    this.renderer.addClass(el, "test");
+    el.innerText = "CLick me";
+    el.addEventListener("click", this.raiseEvent);
+    var compEl: any = this.dom.getElementsByTagName("dom-adapter-component")[0];
     compEl.append(el);
   }
 
   raiseEvent(evt) {
-    alert('hi ' + evt.target.tagName);
+    alert("hi " + evt.target.tagName);
   }
 }

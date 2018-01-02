@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import { Component } from "@angular/core";
 
 // does not require a selector as its loaded by router
 @Component({
@@ -17,8 +17,6 @@ import {Component} from "@angular/core";
                 <router-outlet></router-outlet>
             </div>
         </div>   
-`,
+`
 })
-export class LifeCycleMainComponent {
-}
-
+export class LifeCycleMainComponent {}

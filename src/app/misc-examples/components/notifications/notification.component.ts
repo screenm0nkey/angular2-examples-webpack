@@ -1,12 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnDestroy,
-  OnInit,
-  Output
-} from "@angular/core";
+import {Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output} from "@angular/core";
 
 declare var Notification;
 
@@ -102,19 +94,19 @@ export class PushNotificationComponent implements OnInit, OnChanges, OnDestroy {
 
   attachEventHandlers(notification): void {
     notification.onshow = () => {
-      this.onShow.emit({ notification });
+      this.onShow.emit({notification});
     };
 
     notification.onclick = event => {
-      this.onClick.emit({ event, notification });
+      this.onClick.emit({event, notification});
     };
 
     notification.onerror = () => {
-      this.onError.emit({ notification });
+      this.onError.emit({notification});
     };
 
     notification.onclose = () => {
-      this.onClose.emit({ notification });
+      this.onClose.emit({notification});
     };
   }
 
@@ -126,5 +118,6 @@ export class PushNotificationComponent implements OnInit, OnChanges, OnDestroy {
     this.closeAll();
   }
 
-  public ngOnChanges(): void {}
+  public ngOnChanges(): void {
+  }
 }

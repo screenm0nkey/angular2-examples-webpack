@@ -1,5 +1,5 @@
-import { AfterViewInit, ChangeDetectorRef, Component } from "@angular/core";
-import { BoxComponent } from "./box.component";
+import {AfterViewInit, ChangeDetectorRef, Component} from "@angular/core";
+import {BoxComponent} from "./box.component";
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
@@ -8,14 +8,14 @@ function getRandomInt(min, max) {
 @Component({
   selector: "speed-up-app",
   template: `
-  <p class="file">misc-examples/components/speeding-up-app/speedy.component.ts</p>
+    <p class="file">misc-examples/components/speeding-up-app/speedy.component.ts</p>
     <p><a href="https://blog.thoughtram.io/angular/2017/02/02/making-your-angular-app-fast.html" target="_blank">
-    Making your angular app fast.
-  </a></p>
+      Making your angular app fast.
+    </a></p>
     <svg width="450" height="150"
-     (mousedown)="mouseDown($event)"
-     (mousemove)="mouseMove($event)"
-     (mouseup)="mouseUp($event)">
+         (mousedown)="mouseDown($event)"
+         (mousemove)="mouseMove($event)"
+         (mouseup)="mouseUp($event)">
       <svg:g
         *simpleNgFor="let box of boxes"
         [box]="box"
@@ -30,7 +30,8 @@ export class SpeedingComponent implements AfterViewInit {
   offsetX;
   offsetY;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) {}
+  constructor(private changeDetectorRef: ChangeDetectorRef) {
+  }
 
   ngOnInit() {
     for (let i = 0; i < 5000; i++) {

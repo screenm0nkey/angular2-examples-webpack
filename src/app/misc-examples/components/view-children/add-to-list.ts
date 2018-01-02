@@ -1,12 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  Input,
-  QueryList,
-  ViewChild,
-  ViewChildren
-} from "@angular/core";
+import {AfterViewInit, Component, ElementRef, Input, QueryList, ViewChild, ViewChildren} from "@angular/core";
 
 @Component({
   selector: "keep-count",

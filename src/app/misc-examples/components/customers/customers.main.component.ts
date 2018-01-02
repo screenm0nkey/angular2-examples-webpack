@@ -1,8 +1,8 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
-import { Customer } from "./services/customer.model";
-import { DataService } from "./services/data.service";
-import { Sorter } from "./services/sorter.service";
+import {Component, OnInit} from "@angular/core";
+import {ActivatedRoute, Router} from "@angular/router";
+import {Customer} from "./services/customer.model";
+import {DataService} from "./services/data.service";
+import {Sorter} from "./services/sorter.service";
 
 @Component({
   selector: "customers-component",
@@ -15,12 +15,10 @@ export class CustomersComponent implements OnInit {
   customers: Customer[];
   filteredCustomers: Customer[];
 
-  constructor(
-    public dataService: DataService,
-    private router: Router,
-    private route: ActivatedRoute,
-    public sorter: Sorter
-  ) {
+  constructor(public dataService: DataService,
+              private router: Router,
+              private route: ActivatedRoute,
+              public sorter: Sorter) {
     this.customers = [];
   }
 
@@ -66,6 +64,6 @@ export class CustomersComponent implements OnInit {
   }
 
   onClick(customerId) {
-    this.router.navigate([customerId], { relativeTo: this.route });
+    this.router.navigate([customerId], {relativeTo: this.route});
   }
 }

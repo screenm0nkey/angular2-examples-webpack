@@ -1,4 +1,4 @@
-import { Component, Directive, HostBinding, HostListener } from "@angular/core";
+import {Component, Directive, HostBinding, HostListener} from "@angular/core";
 
 /**
  * <input silly-input>
@@ -26,9 +26,7 @@ export class NgModelStatusOne {
   // and then invoke the method which follows the decorator
   // with the input's value ($event.target.value)
   @HostListener("input", ["$event.target.value"])
-  iCanBeCalledAnythingAsLongAsIFollowTheHostListenerDecorator(
-    updatedValue: string
-  ) {
+  iCanBeCalledAnythingAsLongAsIFollowTheHostListenerDecorator(updatedValue: string) {
     this.smvalue = updatedValue + ++this.count;
   }
 
@@ -43,15 +41,16 @@ export class NgModelStatusOne {
   selector: "host-one-component",
   styles: [".fixed-mixed {color: red}"],
   template: `
-        <p class="file">misc-examples/components/host-binding/host-one.ts</p>
-        <h4>@HostBinding && @HostListener</h4>
-        <code>@HostListener("input", ["$event.target.value"])</code>
-        <code>@HostBinding('value') smvalue: string;</code>
-        <p> @HostBinding binds the "smvalue" value of the directive to the host element's "value"
-            property. As the element is an &lt;input&gt;, it will change the value of the input when "smvalue" is changed.
-            Try typing into the input.
-        </p>
-        <input silly-input>
-    `
+    <p class="file">misc-examples/components/host-binding/host-one.ts</p>
+    <h4>@HostBinding && @HostListener</h4>
+    <code>@HostListener("input", ["$event.target.value"])</code>
+    <code>@HostBinding('value') smvalue: string;</code>
+    <p> @HostBinding binds the "smvalue" value of the directive to the host element's "value"
+      property. As the element is an &lt;input&gt;, it will change the value of the input when "smvalue" is changed.
+      Try typing into the input.
+    </p>
+    <input silly-input>
+  `
 })
-export class HostOne {}
+export class HostOne {
+}

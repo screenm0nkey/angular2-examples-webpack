@@ -1,7 +1,8 @@
-import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
+import {ChangeDetectionStrategy, Component, Input} from "@angular/core";
 
 class Profile {
-  constructor(private first: string, private last: string) {}
+  constructor(private first: string, private last: string) {
+  }
 
   lastChanged() {
     return new Date();
@@ -11,32 +12,32 @@ class Profile {
 @Component({
   selector: "default",
   template: `
-  <h5>
-    Default Strategy
-  </h5>
+    <h5>
+      Default Strategy
+    </h5>
 
-  <form class="ui form">
-    <div class="field">
-      <label>First Name</label>
-      <input
-        type="text"
-        [(ngModel)]="profile.first"
-        name="first"
-        placeholder="First Name">
+    <form class="ui form">
+      <div class="field">
+        <label>First Name</label>
+        <input
+          type="text"
+          [(ngModel)]="profile.first"
+          name="first"
+          placeholder="First Name">
+      </div>
+      <div class="field">
+        <label>Last Name</label>
+        <input
+          type="text"
+          [(ngModel)]="profile.last"
+          name="last"
+          placeholder="Last Name">
+      </div>
+    </form>
+    <div>
+      View checked {{count}} times <br>
+      {{profile.lastChanged() | date:'medium'}}
     </div>
-    <div class="field">
-      <label>Last Name</label>
-      <input
-        type="text"
-        [(ngModel)]="profile.last"
-        name="last"
-        placeholder="Last Name">
-    </div>
-  </form>
-  <div>
-    View checked {{count}} times <br>
-    {{profile.lastChanged() | date:'medium'}}
-  </div>
   `
 })
 export class DefaultCmp {
@@ -52,32 +53,32 @@ export class DefaultCmp {
   selector: "on-push",
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-  <h5>
-    OnPush Strategy
-  </h5>
+    <h5>
+      OnPush Strategy
+    </h5>
 
-  <form class="ui form">
-    <div class="field">
-      <label>First Name</label>
-      <input
-        type="text"
-        [(ngModel)]="profile.first"
-        name="first"
-        placeholder="First Name">
+    <form class="ui form">
+      <div class="field">
+        <label>First Name</label>
+        <input
+          type="text"
+          [(ngModel)]="profile.first"
+          name="first"
+          placeholder="First Name">
+      </div>
+      <div class="field">
+        <label>Last Name</label>
+        <input
+          type="text"
+          [(ngModel)]="profile.last"
+          name="last"
+          placeholder="Last Name">
+      </div>
+    </form>
+    <div>
+      View checked {{count}} times <br>
+      {{profile.lastChanged() | date:'medium'}}
     </div>
-    <div class="field">
-      <label>Last Name</label>
-      <input
-        type="text"
-        [(ngModel)]="profile.last"
-        name="last"
-        placeholder="Last Name">
-    </div>
-  </form>
-  <div>
-    View checked {{count}} times <br>
-    {{profile.lastChanged() | date:'medium'}}
-  </div>
   `
 })
 export class OnPushCmp {
@@ -92,18 +93,18 @@ export class OnPushCmp {
 @Component({
   selector: "change-detection-sample-app",
   template: `
-  <p class="file">/misc-examples/components/change-detection/onpush.ts</p>
-  <h4>Change detection using ngModel</h4>
-  <div class="ui page grid">
-    <div class="two column row">
-      <div class="column area">
-        <default [profile]="profile1"></default>
-      </div>
-      <div class="column area">
-        <on-push [profile]="profile2"></on-push>
+    <p class="file">/misc-examples/components/change-detection/onpush.ts</p>
+    <h4>Change detection using ngModel</h4>
+    <div class="ui page grid">
+      <div class="two column row">
+        <div class="column area">
+          <default [profile]="profile1"></default>
+        </div>
+        <div class="column area">
+          <on-push [profile]="profile2"></on-push>
+        </div>
       </div>
     </div>
-  </div>
   `
 })
 export class OnPushChangeDetectionSampleApp {

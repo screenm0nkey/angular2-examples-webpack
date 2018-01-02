@@ -1,10 +1,5 @@
 import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  Input,
+  AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input,
   ViewChild
 } from "@angular/core";
 
@@ -37,7 +32,8 @@ export class BoxComponent implements AfterViewInit {
     }
   }
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) {}
+  constructor(private changeDetectorRef: ChangeDetectorRef) {
+  }
 
   ngAfterViewInit() {
     this.changeDetectorRef.detach();

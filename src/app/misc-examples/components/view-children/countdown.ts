@@ -1,10 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  OnDestroy,
-  OnInit,
-  ViewChild
-} from "@angular/core";
+import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from "@angular/core";
 
 @Component({
   selector: "countdown-timer",
@@ -55,12 +49,12 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
 @Component({
   selector: "countdown-parent-vc",
   template: `
-  <p class="file">misc-examples/components/view-children/view-child.ts</p>
-  <h4>Countdown to Liftoff (via ViewChild)</h4>
-  <button (click)="start()">Start</button>
-  <button (click)="stop()">Stop</button>
-  <div class="seconds">{{ seconds() }}</div>
-  <countdown-timer></countdown-timer>
+    <p class="file">misc-examples/components/view-children/view-child.ts</p>
+    <h4>Countdown to Liftoff (via ViewChild)</h4>
+    <button (click)="start()">Start</button>
+    <button (click)="stop()">Stop</button>
+    <div class="seconds">{{ seconds() }}</div>
+    <countdown-timer></countdown-timer>
   `
 })
 export class CountdownViewChildParentComponent implements AfterViewInit {

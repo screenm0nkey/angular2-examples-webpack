@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Input } from "@angular/core";
+import {Directive, ElementRef, HostListener, Input} from "@angular/core";
 
 /**
  * <span [myHighlight]="color" [defaultColor]="'violet'">
@@ -22,7 +22,8 @@ export class Tooltip {
     this._defaultColor = colorName || this._defaultColor;
   }
 
-  constructor(private el: ElementRef) {}
+  constructor(private el: ElementRef) {
+  }
 
   onMouseEnter() {
     this._highlight(this.highlightColor || this._defaultColor);

@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import {Component} from "@angular/core";
 
 @Component({
   selector: "template-component",
@@ -9,4 +9,5 @@ import { Component } from "@angular/core";
     </div>
   `
 })
-export class TemplateComponent {}
+export class TemplateComponent {
+}

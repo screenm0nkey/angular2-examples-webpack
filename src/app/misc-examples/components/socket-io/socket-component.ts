@@ -1,5 +1,5 @@
-import { Component, Inject, Injectable } from "@angular/core";
-import { Observable, Subject } from "rxjs/Rx";
+import {Component, Inject, Injectable} from "@angular/core";
+import {Observable, Subject} from "rxjs/Rx";
 import * as io from "socket.io-client";
 
 @Injectable()
@@ -13,7 +13,7 @@ export class ChatRoom {
 
   constructor(@Inject("io") io) {
     this.socket$ = this.url$
-      // convert socket to observable
+    // convert socket to observable
       .switchMap(url => Observable.of(io(url)));
 
     this.message$ = this.socket$.switchMap(socket => {
@@ -39,7 +39,7 @@ export class ChatRoom {
 
     this.send$
       .withLatestFrom(this.socket$, (message, socket) => {
-        return { message, socket };
+        return {message, socket};
       })
       .subscribe(args => {
         let socket: any = args.socket;
@@ -51,17 +51,20 @@ export class ChatRoom {
 
 @Component({
   selector: "my-app",
-  providers: [ChatRoom, { provide: "io", useValue: io }],
-  styles: [`*{font-family: Monaco, Consolas;}`],
+  providers: [ChatRoom, {provide: "io", useValue: io}],
+  styles: [`* {
+    font-family: Monaco, Consolas;
+  }`],
   template: `
-        <a href="http://plnkr.co/edit/tqZFewX5ZdUYyxDp9LFO?p=preview" target="_blank">Original plunk</a>
-        <h4>{{(chatRoom.connected$ | async) ? "Connected!" : "Disconnected..."}}</h4>
-        <input #i (keyup.enter)="chatRoom.send$.next(i.value); i.value = ''">
-        <div *ngFor="let message of chatRoom.messages$ | async">
-            {{message}}
-        </div>
-    `
+    <a href="http://plnkr.co/edit/tqZFewX5ZdUYyxDp9LFO?p=preview" target="_blank">Original plunk</a>
+    <h4>{{(chatRoom.connected$ | async) ? "Connected!" : "Disconnected..."}}</h4>
+    <input #i (keyup.enter)="chatRoom.send$.next(i.value); i.value = ''">
+    <div *ngFor="let message of chatRoom.messages$ | async">
+      {{message}}
+    </div>
+  `
 })
 export class SocketApp {
-  constructor(private chatRoom: ChatRoom) {}
+  constructor(private chatRoom: ChatRoom) {
+  }
 }

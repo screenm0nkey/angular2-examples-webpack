@@ -1,5 +1,5 @@
-import { Component } from "@angular/core";
-import { Observable } from "rxjs/Observable";
+import {Component} from "@angular/core";
+import {Observable} from "rxjs/Observable";
 import "rxjs/add/observable/from";
 import "rxjs/add/observable/interval";
 import "rxjs/add/operator/scan";
@@ -7,8 +7,9 @@ import "rxjs/add/operator/zip";
 
 @Component({
   selector: "typewriter",
-  template: `<div>
-        {{typewriter$ | async}}
+  template: `
+    <div>
+      {{typewriter$ | async}}
     </div>`
 })
 export class Typewriter {

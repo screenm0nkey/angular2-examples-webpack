@@ -1,11 +1,5 @@
 //our root app component
-import {
-  AfterViewInit,
-  Component,
-  ComponentFactoryResolver,
-  ViewChild,
-  ViewContainerRef
-} from "@angular/core";
+import {AfterViewInit, Component, ComponentFactoryResolver, ViewChild, ViewContainerRef} from "@angular/core";
 
 @Component({
   selector: "d-comp",
@@ -21,25 +15,32 @@ export class DComponent {
     <p class="file">misc-examples/components/chickens/dynamic.component.ts</p>
     <h4>Dynamic component instantiation</h4>
     <div class="link">
-      <a href="https://medium.com/@tudorgergely/injecting-components-dynamically-in-angular-2-3d36594d49a0">Dynamic Comps</a>
+      <a href="https://medium.com/@tudorgergely/injecting-components-dynamically-in-angular-2-3d36594d49a0">Dynamic
+        Comps</a>
     </div>
-    
+
     <ul>
-      <li><strong>ComponentFactoryResolver</strong> — service used to get the factory of the component we want to inject</li>
+      <li><strong>ComponentFactoryResolver</strong> — service used to get the factory of the component we want to inject
+      </li>
       <li><strong>ViewContainerRef</strong> — the container of the parent of our component.</li>
-      <li><strong>createComponent(factory)</strong> is the part that actually injects our component into the viewContainerRef that calls it.</li>
-      <li>ref — Reference of the component we just injected. We call detectChanges on it so angular will call the necessary lifecycle hooks and start the change detection mechanism.</li>
-   </ul>
+      <li><strong>createComponent(factory)</strong> is the part that actually injects our component into the
+        viewContainerRef that calls it.
+      </li>
+      <li>ref — Reference of the component we just injected. We call detectChanges on it so angular will call the
+        necessary lifecycle hooks and start the change detection mechanism.
+      </li>
+    </ul>
     <h1>Hello {{name}}</h1>
     <ng-container #vc></ng-container>
   `
 })
 export class DynamicComponent implements AfterViewInit {
-  @ViewChild("vc", { read: ViewContainerRef })
+  @ViewChild("vc", {read: ViewContainerRef})
   vc;
   name: string = "I am DynamicComponent";
 
-  constructor(private r: ComponentFactoryResolver) {}
+  constructor(private r: ComponentFactoryResolver) {
+  }
 
   ngAfterViewInit() {
     const f = this.r.resolveComponentFactory(DComponent);

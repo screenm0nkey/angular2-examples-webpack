@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import {Component} from "@angular/core";
 
 @Component({
   template: `
@@ -8,12 +8,15 @@ import { Component } from "@angular/core";
       ${require("./speedy-with-zones.component.html")}
       <speed-up-app-with-zones></speed-up-app-with-zones>
       <p>
-        Using Zones is a great way to escape Angular’s change detection, without detaching change detectors and making 
-        the application code too complex. In fact, it turns out that Zones APIs are super easy to use, especially NgZone’s 
-        APIs to run code outside or inside Angular. Based on the numbers, we can even say that the NgZone example is about 
+        Using Zones is a great way to escape Angular’s change detection, without detaching change detectors and making
+        the application code too complex. In fact, it turns out that Zones APIs are super easy to use, especially
+        NgZone’s
+        APIs to run code outside or inside Angular. Based on the numbers, we can even say that the NgZone example is
+        about
         as fast as the fastest solution above it.
       </p>
-     <div>
-    `
+      <div>
+  `
 })
-export class SpeedyMainComponent {}
+export class SpeedyMainComponent {
+}

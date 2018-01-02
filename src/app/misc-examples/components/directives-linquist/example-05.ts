@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import {Component} from "@angular/core";
 
 @Component({
   selector: "example-05",
@@ -8,23 +8,23 @@ import { Component } from "@angular/core";
     <ng-template #foo let-whatever="message">
       <span>{{whatever}}</span>
     </ng-template>
-    
-    <div 
-        [ngTemplateOutlet]="foo"
-        [ngOutletContext]="one">    
+
+    <div
+      [ngTemplateOutlet]="foo"
+      [ngOutletContext]="one">
     </div>
-    <div 
-        [ngTemplateOutlet]="foo"
-        [ngOutletContext]="two">    
+    <div
+      [ngTemplateOutlet]="foo"
+      [ngOutletContext]="two">
     </div>
-    <div 
-        [ngTemplateOutlet]="foo"
-        [ngOutletContext]="three">    
+    <div
+      [ngTemplateOutlet]="foo"
+      [ngOutletContext]="three">
     </div>
   `
 })
 export class Example05AppComponent {
-  one = { message: "Hello One" };
-  two = { message: "Hello Two" };
-  three = { message: "Hello Three" };
+  one = {message: "Hello One"};
+  two = {message: "Hello Two"};
+  three = {message: "Hello Three"};
 }

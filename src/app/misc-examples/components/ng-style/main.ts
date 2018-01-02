@@ -1,8 +1,9 @@
-import { Component } from "@angular/core";
+import {Component} from "@angular/core";
 
 @Component({
   template: `
-      <ng-style-demo></ng-style-demo>
-    `
+    <ng-style-demo></ng-style-demo>
+  `
 })
-export class NgStyleMainComponent {}
+export class NgStyleMainComponent {
+}

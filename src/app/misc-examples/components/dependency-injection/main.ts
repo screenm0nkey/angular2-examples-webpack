@@ -1,23 +1,23 @@
-import { Component } from "@angular/core";
-import { MrTestyServiceOne, MrTestyServiceTwo } from "./services/more-services";
+import {Component} from "@angular/core";
+import {MrTestyServiceOne, MrTestyServiceTwo} from "./services/more-services";
 
 @Component({
   selector: "misc-app",
   template: `
-  <div class="comps">
-    ${require("./dependency.html")}
-    
-    ${require("./modules.html")}
-    
-    <inject-component></inject-component>
+    <div class="comps">
+      ${require("./dependency.html")}
 
-    <inject-parent-component></inject-parent-component>
+      ${require("./modules.html")}
 
-    <resolve-create-service></resolve-create-service>
+      <inject-component></inject-component>
 
-    <resolve-create-factory></resolve-create-factory>
-  </div>
-  
+      <inject-parent-component></inject-parent-component>
+
+      <resolve-create-service></resolve-create-service>
+
+      <resolve-create-factory></resolve-create-factory>
+    </div>
+
   `
 })
 export class DepInjectionApp {
@@ -28,5 +28,6 @@ export class DepInjectionApp {
   // Note there is only a single instance of MrTestyServiceOne being created.
   // Note that the MrTestyServiceOne provider is declared in the Shared module but
   // it's accessible here as ngModules use the root injector, which means it's available app wide
-  constructor(private ts1: MrTestyServiceOne, private ts2: MrTestyServiceTwo) {}
+  constructor(private ts1: MrTestyServiceOne, private ts2: MrTestyServiceTwo) {
+  }
 }

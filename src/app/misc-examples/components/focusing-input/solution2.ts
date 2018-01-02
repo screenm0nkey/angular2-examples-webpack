@@ -1,13 +1,5 @@
 import {
-  AfterViewInit,
-  Component,
-  Directive,
-  ElementRef,
-  OnChanges,
-  OnInit,
-  QueryList,
-  SimpleChange,
-  ViewChild,
+  AfterViewInit, Component, Directive, ElementRef, OnChanges, OnInit, QueryList, SimpleChange, ViewChild,
   ViewChildren
 } from "@angular/core";
 
@@ -35,13 +27,13 @@ export class FocusIt implements AfterViewInit, OnChanges {
 @Component({
   selector: "solution-two",
   template: `
-  <h4>Solution 2 @ViewChild and calling a method on the childview directive</h4>
- 
-  
-	<button (click)="toggle()">Make it {{isVisible ? 'invisible' : 'visible'}}</button>
-	<input *ngIf="inputIsVisible" focusIt>
-	<button (click)="focusInput()" *ngIf="inputIsVisible">Focus it</button>
-	`
+    <h4>Solution 2 @ViewChild and calling a method on the childview directive</h4>
+
+
+    <button (click)="toggle()">Make it {{isVisible ? 'invisible' : 'visible'}}</button>
+    <input *ngIf="inputIsVisible" focusIt>
+    <button (click)="focusInput()" *ngIf="inputIsVisible">Focus it</button>
+  `
 })
 export class SolutionTwo implements OnInit {
   // @ViewChild allows us access to the directive instance's api methods in the component.

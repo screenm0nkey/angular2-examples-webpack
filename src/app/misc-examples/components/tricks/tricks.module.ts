@@ -1,9 +1,9 @@
-import { NgModule } from "@angular/core";
-import { SharedModule } from "../../../shared/shared.module";
-import { TricksMainComponent } from "./main";
-import { ScrollComponent } from "./scroll-bottom";
-import { NextComponent } from "./next-input";
-import { Typewriter } from "./typewriter";
+import {NgModule} from "@angular/core";
+import {SharedModule} from "../../../shared/shared.module";
+import {TricksMainComponent} from "./main";
+import {ScrollComponent} from "./scroll-bottom";
+import {NextComponent} from "./next-input";
+import {Typewriter} from "./typewriter";
 
 @NgModule({
   imports: [SharedModule],
@@ -14,6 +14,7 @@ import { Typewriter } from "./typewriter";
     Typewriter
   ]
 })
-export class TricksModule {}
+export class TricksModule {
+}
 
-export { TricksMainComponent };
+export {TricksMainComponent};

@@ -1,11 +1,4 @@
-import {
-  Component,
-  Directive,
-  HostBinding,
-  HostListener,
-  Injectable,
-  Input
-} from "@angular/core";
+import {Component, Directive, HostBinding, HostListener, Injectable, Input} from "@angular/core";
 
 @Injectable()
 export class TrackingService {
@@ -29,8 +22,6 @@ export class OnlineService {
 }
 
 
-
-
 @Directive({
   selector: "[online]"
 })
@@ -45,10 +36,9 @@ export class OnlineDirective {
     return this.online.online;
   }
 
-  constructor(private online: OnlineService) {}
+  constructor(private online: OnlineService) {
+  }
 }
-
-
 
 
 @Directive({
@@ -59,17 +49,17 @@ export class TrackDirective {
 
   @HostListener("click")
   onClick() {
-    this.tracking.log({ event: "click", message: this.track });
+    this.tracking.log({event: "click", message: this.track});
   }
 
   @HostListener("mouseover")
   onMouseover() {
-    this.tracking.log({ event: "mouseover", message: this.track });
+    this.tracking.log({event: "mouseover", message: this.track});
   }
 
-  constructor(private tracking: TrackingService) {}
+  constructor(private tracking: TrackingService) {
+  }
 }
-
 
 
 @Component({
@@ -81,14 +71,15 @@ export class TrackDirective {
     <button online [track]="'One Button'">One</button>
     <button online [track]="'Two Button'">Two</button>
     <button online [track]="'Three Button'">Three</button>
-    
+
     <!-- Only for visuals-->
     <div *ngFor="let log of tracking.logs">
       {{log.event}} - {{log.message}}
-    </div>    
+    </div>
   `
 })
 export class Example03AppComponent {
   //only for visuals
-  constructor(private tracking: TrackingService) {}
+  constructor(private tracking: TrackingService) {
+  }
 }

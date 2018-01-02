@@ -1,11 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output
-} from "@angular/core";
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
 
 export class TodoItem {
   _text: String;
@@ -70,9 +63,9 @@ export class TodoItemComponent implements OnInit {
   styles: ["li {cursor: pointer}"],
   template: `
     <ul class="todo-list">
-        <li *ngFor="let item of store.items">
-            <todoitem-component [item]="item" (editme)="editme.emit($event)"></todoitem-component>
-        </li>
+      <li *ngFor="let item of store.items">
+        <todoitem-component [item]="item" (editme)="editme.emit($event)"></todoitem-component>
+      </li>
     </ul>`
 })
 export class TodoListComponent {
@@ -85,19 +78,19 @@ export class TodoListComponent {
   selector: "change-component",
   template: `
     ${require("./change.components.html")}
-    <input 
-      type="text" 
-      [(ngModel)]="todoStr" 
-      (keyup.enter)="addItem(todoStr)" 
+    <input
+      type="text"
+      [(ngModel)]="todoStr"
+      (keyup.enter)="addItem(todoStr)"
       placeholder="ngModel">
 
-    <input 
-      #inputty 
-      type="text" 
+    <input
+      #inputty
+      type="text"
       (keyup.enter)="addItem(inputty.value); 
-      inputty.value=''" 
+      inputty.value=''"
       placeholder="Local Ref">
-      
+
     <todolist-component [store]="store" (editme)="setTodoItem($event)"></todolist-component>
   `
 })

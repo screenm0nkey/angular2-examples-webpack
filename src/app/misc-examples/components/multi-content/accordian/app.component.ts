@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import {Component} from "@angular/core";
 
 @Component({
   selector: "accordian-component",
@@ -11,16 +11,16 @@ import { Component } from "@angular/core";
         Remove last dynamic
       </button>
     </p>
-    
+
     <accordion close-others="true">
       <accordion-group heading="This is the header Pete" isOpen="false">
         Note: The is isOpen here will always be a truthy as false will be passed in as a string
       </accordion-group>
-    
+
       <accordion-group [heading]="group.heading" *ngFor="let group of groups">
         {{group.content}}
       </accordion-group>
-    
+
       <accordion-group heading="Another group FormNick" [isOpen]="isOpen">
         More content
       </accordion-group>

@@ -1,10 +1,5 @@
-import {
-  Component,
-  Inject,
-  InjectionToken,
-  ReflectiveInjector
-} from "@angular/core";
-import { EngineService, SomeService } from "./services/some-service";
+import {Component, Inject, InjectionToken, ReflectiveInjector} from "@angular/core";
+import {EngineService, SomeService} from "./services/some-service";
 
 /**
  The 'whateverToken' is defined in the bootstrap.ts as "provide('whateverToken', {useClass : SomeService })"
@@ -22,14 +17,14 @@ const TOKEN_B = new InjectionToken<string>("UserConfig");
   providers: [
     SomeService,
     EngineService,
-    { provide: SOME_TOKEN, useValue: "dependency one", multi: true },
-    { provide: SOME_TOKEN, useValue: "dependency two", multi: true },
-    { provide: AnyObjectCanBeTheKey, useClass: SomeService },
-    { provide: "sausages", useClass: SomeService },
-    { provide: "helloWorld", useValue: "Hello World!!!" },
-    { provide: String, useValue: "come-on!" },
-    { provide: TOKEN_A, useValue: "TREX" },
-    { provide: TOKEN_B, useValue: "DINO" },
+    {provide: SOME_TOKEN, useValue: "dependency one", multi: true},
+    {provide: SOME_TOKEN, useValue: "dependency two", multi: true},
+    {provide: AnyObjectCanBeTheKey, useClass: SomeService},
+    {provide: "sausages", useClass: SomeService},
+    {provide: "helloWorld", useValue: "Hello World!!!"},
+    {provide: String, useValue: "come-on!"},
+    {provide: TOKEN_A, useValue: "TREX"},
+    {provide: TOKEN_B, useValue: "DINO"},
     // notice that SOME_TOKEN has multiple values
     {
       provide: "jeffFactory",
@@ -42,31 +37,30 @@ const TOKEN_B = new InjectionToken<string>("UserConfig");
     <p class="file">misc-examples/components/dependency-injection/injecting-token.ts</p>
     <h4>InjectionToken (was Opaque Token)</h4>
     <div class="links">
-      <a href="http://blog.thoughtram.io/angular/2016/05/23/opaque-tokens-in-angular-2.html" target="_blank">Opaque Tokens</a>
+      <a href="http://blog.thoughtram.io/angular/2016/05/23/opaque-tokens-in-angular-2.html" target="_blank">Opaque
+        Tokens</a>
     </div>
     <p>
-      InjectionToken does pretty much the same thing as OpaqueToken (in fact, it derives from it). However, it allows 
-      to attach type info on the token via TypeScript generics, plus, it adds a little bit of sugar that makes the 
+      InjectionToken does pretty much the same thing as OpaqueToken (in fact, it derives from it). However, it allows
+      to attach type info on the token via TypeScript generics, plus, it adds a little bit of sugar that makes the
       developer’s life a bit more pleasant when creating factory providers that come with their own dependencies.
     </p>
   `
 })
 export class InjectComponent {
-  constructor(
-    public some1: SomeService, // defined in bootstrap.ts
-    @Inject(SomeService) public some2, // longhand version of line above
-    @Inject("sausages") public some3,
-    @Inject("whateverToken") public some4, // see bootstrap.ts for how this is defined
-    @Inject(AnyObjectCanBeTheKey) public some5,
-    @Inject("helloWorld") public helloWorld, // injects a string
-    @Inject(String) public aString,
-    @Inject("EngineService") public engineFactory1, //injects a factory. notice that we have imported the service
-    @Inject("EngineService") public engineFactory2,
-    @Inject(SOME_TOKEN) public multiDependency,
-    @Inject(TOKEN_A) public dino1,
-    @Inject(TOKEN_B) public dino2,
-    @Inject("jeffFactory") public jeffFactory
-  ) {
+  constructor(public some1: SomeService, // defined in bootstrap.ts
+              @Inject(SomeService) public some2, // longhand version of line above
+              @Inject("sausages") public some3,
+              @Inject("whateverToken") public some4, // see bootstrap.ts for how this is defined
+              @Inject(AnyObjectCanBeTheKey) public some5,
+              @Inject("helloWorld") public helloWorld, // injects a string
+              @Inject(String) public aString,
+              @Inject("EngineService") public engineFactory1, //injects a factory. notice that we have imported the service
+              @Inject("EngineService") public engineFactory2,
+              @Inject(SOME_TOKEN) public multiDependency,
+              @Inject(TOKEN_A) public dino1,
+              @Inject(TOKEN_B) public dino2,
+              @Inject("jeffFactory") public jeffFactory) {
     this.someService();
     this.engineService();
     this.manuallyInject();
@@ -116,8 +110,8 @@ export class InjectComponent {
 
   manuallyInject() {
     let injector: any = ReflectiveInjector.resolveAndCreate([
-      { provide: SOME_TOKEN, useValue: "BMW one", multi: true },
-      { provide: SOME_TOKEN, useValue: "BMW two", multi: true }
+      {provide: SOME_TOKEN, useValue: "BMW one", multi: true},
+      {provide: SOME_TOKEN, useValue: "BMW two", multi: true}
     ]);
     var dependencies = injector.get(SOME_TOKEN);
     console.log(

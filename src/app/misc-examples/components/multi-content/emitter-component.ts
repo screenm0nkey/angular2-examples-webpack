@@ -1,5 +1,5 @@
-import { Component, Injectable } from "@angular/core";
-import { Subject } from "rxjs/Rx";
+import {Component, Injectable} from "@angular/core";
+import {Subject} from "rxjs/Rx";
 
 @Injectable()
 class BroadcasterService {
@@ -53,5 +53,6 @@ export class Comp2 {
   `
 })
 export class EmitterComponent {
-  constructor() {}
+  constructor() {
+  }
 }

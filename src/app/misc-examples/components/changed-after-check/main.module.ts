@@ -1,17 +1,10 @@
-import { NgModule } from "@angular/core";
-import { SharedModule } from "../../../shared/shared.module";
-import { ChangeAfterComponent } from "./main.component";
-import {
-  BComponent,
-  SharedService,
-  SharedServiceComponent
-} from "./shared-service.component";
-import { DComponent, DynamicComponent } from "./dynamic.component";
-import { EComponent, EventBroadcastingComponent } from "./event-broadcasting";
-import {
-  InjectParentComponent,
-  InjectChildComponent
-} from "./inject-parent-component";
+import {NgModule} from "@angular/core";
+import {SharedModule} from "../../../shared/shared.module";
+import {ChangeAfterComponent} from "./main.component";
+import {BComponent, SharedService, SharedServiceComponent} from "./shared-service.component";
+import {DComponent, DynamicComponent} from "./dynamic.component";
+import {EComponent, EventBroadcastingComponent} from "./event-broadcasting";
+import {InjectChildComponent, InjectParentComponent} from "./inject-parent-component";
 
 @NgModule({
   imports: [SharedModule],
@@ -31,6 +24,7 @@ import {
   entryComponents: [DComponent],
   providers: [SharedService]
 })
-export class ChangedAfterModule {}
+export class ChangedAfterModule {
+}
 
-export { ChangeAfterComponent };
+export {ChangeAfterComponent};

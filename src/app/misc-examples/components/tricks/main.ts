@@ -1,13 +1,14 @@
-import { Component } from "@angular/core";
+import {Component} from "@angular/core";
 
 @Component({
   selector: "tracks-main-component",
   template: `
-    <div class="comps">  
+    <div class="comps">
       <scroll-bottom></scroll-bottom>
       <next-input></next-input>
       <typewriter></typewriter>
-    </div> 
-	`
+    </div>
+  `
 })
-export class TricksMainComponent {}
+export class TricksMainComponent {
+}

@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import {Component} from "@angular/core";
 
 @Component({
   selector: "next-input",
@@ -10,4 +10,5 @@ import { Component } from "@angular/core";
     <input #next>
   `
 })
-export class NextComponent {}
+export class NextComponent {
+}

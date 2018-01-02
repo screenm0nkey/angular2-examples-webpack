@@ -1,4 +1,4 @@
-import { Component, Input, NgZone, OnChanges } from "@angular/core";
+import {Component, Input, NgZone, OnChanges} from "@angular/core";
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
@@ -32,22 +32,23 @@ export class BoxZoneComponent implements OnChanges {
   template: `
     <p class="file">misc-examples/components/speeding-up-app/speedy-with-zones.component.ts</p>
     <p><a href="https://blog.thoughtram.io/angular/2017/02/21/using-zones-in-angular-for-better-performance.html"
-     target="_blank">
-    Using Zones for better performance
-  </a></p>
+          target="_blank">
+      Using Zones for better performance
+    </a></p>
     <svg width="450" height="150"
-      (mousedown)="mouseDown($event)"
-      (mouseup)="mouseUp($event)">
+         (mousedown)="mouseDown($event)"
+         (mouseup)="mouseUp($event)">
       <svg:g
         *ngFor="let box of boxes"
         [boxZone]="box"
         [selected]="box.id == currentId"
-        ></svg:g>
+      ></svg:g>
     </svg>
   `
 })
 export class SpeedingZonesComponent {
-  constructor(private zone: NgZone) {}
+  constructor(private zone: NgZone) {
+  }
 
   currentId = null;
   boxes = [];

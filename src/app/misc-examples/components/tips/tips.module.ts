@@ -1,7 +1,7 @@
-import { NgModule } from "@angular/core";
-import { SharedModule } from "../../../shared/shared.module";
-import { TipsMainComponent } from "./main";
-import { UseNgIfComponent } from "./use-ngIf-to-hide";
+import {NgModule} from "@angular/core";
+import {SharedModule} from "../../../shared/shared.module";
+import {TipsMainComponent} from "./main";
+import {UseNgIfComponent} from "./use-ngIf-to-hide";
 
 @NgModule({
   imports: [SharedModule],
@@ -10,6 +10,7 @@ import { UseNgIfComponent } from "./use-ngIf-to-hide";
     UseNgIfComponent
   ]
 })
-export class TipsModule {}
+export class TipsModule {
+}
 
-export { TipsMainComponent };
+export {TipsMainComponent};

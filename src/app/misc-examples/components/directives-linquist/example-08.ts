@@ -1,11 +1,4 @@
-import {
-  Component,
-  Directive,
-  Injectable,
-  TemplateRef,
-  ViewChild,
-  ViewContainerRef
-} from "@angular/core";
+import {Component, Directive, Injectable, TemplateRef, ViewChild, ViewContainerRef} from "@angular/core";
 
 @Injectable()
 export class TemplateService {
@@ -23,7 +16,8 @@ export class TemplateStorage {
   @ViewChild("header") headerTemplate;
   @ViewChild("footer") footerTemplate;
 
-  constructor(private service: TemplateService) {}
+  constructor(private service: TemplateService) {
+  }
 
   ngAfterViewInit() {
     this.service.templates.set("header", this.headerTemplate);
@@ -35,11 +29,10 @@ export class TemplateStorage {
   selector: "[surround]"
 })
 export class SurroundDirective {
-  constructor(
-    private service: TemplateService,
-    private view: ViewContainerRef,
-    private template: TemplateRef<any>
-  ) {}
+  constructor(private service: TemplateService,
+              private view: ViewContainerRef,
+              private template: TemplateRef<any>) {
+  }
 
   ngAfterViewInit() {
     this.view.createEmbeddedView(this.service.templates.get("header"));
@@ -53,10 +46,11 @@ export class SurroundDirective {
   template: `
     <h4>Template Storage Service</h4>
     <template-storage></template-storage>
-  
+
     <button>One</button>
     <button *surround>Two</button>
-    <button>Three</button>    
+    <button>Three</button>
   `
 })
-export class Example08AppComponent {}
+export class Example08AppComponent {
+}

@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import {Component} from "@angular/core";
 
 @Component({
   selector: "multi-content",
@@ -6,7 +6,7 @@ import { Component } from "@angular/core";
     <p class="file">misc-examples/components/multi-content/named-content.ts</p>
     <h4>Multi content projection (transclusion)</h4>
     <div class="box">
-    <code>&lt;ng-content select="[header]"&gt;&lt;/ng-content&gt;</code>
+      <code>&lt;ng-content select="[header]"&gt;&lt;/ng-content&gt;</code>
       <ng-content select="[header]"></ng-content>
     </div>
     <div class="box">
@@ -16,17 +16,18 @@ import { Component } from "@angular/core";
     </div>
   `,
   styles: [
-    `
-        .box {
-          min-height: 30px;
-          border: 5px solid purple;
-          display: block;
-          margin-bottom : 10px;
-        }
+      `
+      .box {
+        min-height: 30px;
+        border: 5px solid purple;
+        display: block;
+        margin-bottom: 10px;
+      }
     `
   ]
 })
-export class ContentProjectionComponent {}
+export class ContentProjectionComponent {
+}
 
 @Component({
   template: `
@@ -38,13 +39,14 @@ export class ContentProjectionComponent {}
         </div>
         <emitter-component body></emitter-component>
       </multi-content>
-    
+
       <transclusion-simple></transclusion-simple>
-    
+
       <tabs-sample-app></tabs-sample-app>
-    
+
       <accordian-component></accordian-component>
     </div>
   `
 })
-export class MultiTransclusion {}
+export class MultiTransclusion {
+}

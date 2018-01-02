@@ -1,25 +1,21 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  Input
-} from "@angular/core";
-import { Observable } from "rxjs/Rx";
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input} from "@angular/core";
+import {Observable} from "rxjs/Rx";
 
 @Component({
   selector: "observable",
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-  <div>
-    <div>Total items: {{counter}}</div>
-  </div>
+    <div>
+      <div>Total items: {{counter}}</div>
+    </div>
   `
 })
 export class ObservableCmp {
   @Input() items: Observable<number>;
   counter = 0;
 
-  constructor(private changeDetector: ChangeDetectorRef) {}
+  constructor(private changeDetector: ChangeDetectorRef) {
+  }
 
   ngOnInit() {
     this.items.subscribe(v => {
@@ -33,9 +29,9 @@ export class ObservableCmp {
 @Component({
   selector: "observable-change-detection-sample-app",
   template: `
-  <p class="file">/misc-examples/components/change-detection/observables.ts</p>
-  <h4>changeDetector.markForCheck() with Observables</h4>
-  <observable [items]="itemObservable"></observable>
+    <p class="file">/misc-examples/components/change-detection/observables.ts</p>
+    <h4>changeDetector.markForCheck() with Observables</h4>
+    <observable [items]="itemObservable"></observable>
   `
 })
 export class ObservableChangeDetectionSampleApp {

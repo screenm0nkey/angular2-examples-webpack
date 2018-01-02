@@ -1,11 +1,11 @@
 //our root app component
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import {Component, EventEmitter, Input, Output} from "@angular/core";
 
 @Component({
   selector: "e-comp",
   template: `
-        <span>{{name}}</span>
-    `
+    <span>{{name}}</span>
+  `
 })
 export class EComponent {
   name = "I am E component";
@@ -20,16 +20,16 @@ export class EComponent {
 @Component({
   selector: "event-broadcasting",
   template: `
-      <p class="file">misc-examples/components/changed-after-check/event-broadcasting.ts</p>
-      <h4>Synchronous event broadcasting</h4>
-      <p>
-        This pattern is illustrated by this plunker. The application is designed to have a child component emitting 
-        an event and a parent component listening to this event. The event causes some of the parent properties to 
-        be updated. And these properties are used as input binding for the child component. This is also an indirect 
-        parent property update.
-      </p>
-      <h5>Hello {{name}}</h5>
-      <e-comp [text]="text" (change)="update($event)"></e-comp>
+    <p class="file">misc-examples/components/changed-after-check/event-broadcasting.ts</p>
+    <h4>Synchronous event broadcasting</h4>
+    <p>
+      This pattern is illustrated by this plunker. The application is designed to have a child component emitting
+      an event and a parent component listening to this event. The event causes some of the parent properties to
+      be updated. And these properties are used as input binding for the child component. This is also an indirect
+      parent property update.
+    </p>
+    <h5>Hello {{name}}</h5>
+    <e-comp [text]="text" (change)="update($event)"></e-comp>
   `
 })
 export class EventBroadcastingComponent {

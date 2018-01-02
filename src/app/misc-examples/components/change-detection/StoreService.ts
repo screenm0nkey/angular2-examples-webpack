@@ -1,7 +1,8 @@
-import { Injectable } from "@angular/core";
+import {Injectable} from "@angular/core";
 
 export class Todo {
-  constructor(public someval: string = "") {}
+  constructor(public someval: string = "") {
+  }
 }
 
 /*
@@ -11,5 +12,5 @@ export class Todo {
  * */
 @Injectable()
 export class Store {
-  todos: Array<Todo> = [{ someval: "hellyeah" }];
+  todos: Array<Todo> = [{someval: "hellyeah"}];
 }

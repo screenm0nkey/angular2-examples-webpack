@@ -1,11 +1,12 @@
-import { Component } from "@angular/core";
+import {Component} from "@angular/core";
 
 @Component({
   selector: "tips-main-component",
   template: `
     <div class="comps">
       <use-ngif></use-ngif>
-    </div> 
-	`
+    </div>
+  `
 })
-export class TipsMainComponent {}
+export class TipsMainComponent {
+}

@@ -1,4 +1,4 @@
-import { Component, EventEmitter } from "@angular/core";
+import {Component, EventEmitter} from "@angular/core";
 
 class Product {
   sku: string;
@@ -7,13 +7,11 @@ class Product {
   department: Array<string>;
   price: number;
 
-  constructor(
-    sku: string,
-    name: string,
-    image_url: string,
-    department: Array<string>,
-    price: number
-  ) {
+  constructor(sku: string,
+              name: string,
+              image_url: string,
+              department: Array<string>,
+              price: number) {
     this.sku = sku;
     this.name = name;
     this.image_url = image_url;
@@ -41,11 +39,11 @@ export class ProductImage {
   selector: "product-department",
   inputs: ["product"],
   template: `
-        <div class="product-department">
+    <div class="product-department">
             <span *ngFor="let name of product.department; let i=index">
             {{ name }}
             </span>
-        </div>`
+    </div>`
 })
 export class ProductDepartment {
   product: Product;
@@ -57,7 +55,8 @@ export class ProductDepartment {
 @Component({
   selector: "price-display",
   inputs: ["price"],
-  template: `<div class="price-display">\${{ price }}</div>`
+  template: `
+    <div class="price-display">\${{ price }}</div>`
 })
 export class PriceDisplay {
   price: number;
@@ -71,15 +70,15 @@ export class PriceDisplay {
   inputs: ["product"],
   outputs: ["pick"],
   template: `
-  <div class="product-row cf" (click)="clicked($event)">
-    <product-image [product]="product"></product-image>
-    <div class="product-info">
-      <div class="product-sku">SKU #{{ product.sku }}</div>
-      <div class="product-name">{{ product.name }}</div>
-      <product-department [product]="product"></product-department>
+    <div class="product-row cf" (click)="clicked($event)">
+      <product-image [product]="product"></product-image>
+      <div class="product-info">
+        <div class="product-sku">SKU #{{ product.sku }}</div>
+        <div class="product-name">{{ product.name }}</div>
+        <product-department [product]="product"></product-department>
+      </div>
+      <price-display [price]="product.price"></price-display>
     </div>
-    <price-display [price]="product.price"></price-display>
-  </div>
   `
 })
 export class ProductRow {
@@ -99,14 +98,14 @@ export class ProductRow {
   inputs: ["productList: products", "name"],
   outputs: ["stick"], // stick is the name of the event the parent listens for
   template: `
-        <div class="products-list" style="display: table">
-            <product-row 
-              *ngFor="let product of productList" 
-              [product]="product" 
-              (pick)='clicked(product)'>
-        </product-row>
-        </div>
-    `
+    <div class="products-list" style="display: table">
+      <product-row
+        *ngFor="let product of productList"
+        [product]="product"
+        (pick)='clicked(product)'>
+      </product-row>
+    </div>
+  `
 })
 export class ProductsList {
   productList: Array<Product>;
@@ -126,11 +125,11 @@ export class ProductsList {
   template: `
     <p class="file">misc-examples/components/input-binding/inputs.ts</p>
     <h4>Using different Inputs and Events</h4>
-        <div class="inventory-app">
-            <products-list [products]="products" (stick)="productClicked($event)">
-            </products-list>
-        </div>
-    `
+    <div class="inventory-app">
+      <products-list [products]="products" (stick)="productClicked($event)">
+      </products-list>
+    </div>
+  `
 })
 export class InventoryApp {
   products: Array<Product>;

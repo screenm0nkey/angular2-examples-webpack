@@ -6,17 +6,11 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
-import {
-  Directive,
-  DoCheck,
-  EmbeddedViewRef,
-  Input,
-  TemplateRef,
-  ViewContainerRef
-} from "@angular/core";
+import {Directive, DoCheck, EmbeddedViewRef, Input, TemplateRef, ViewContainerRef} from "@angular/core";
 
 class SimpleNgForRow {
-  constructor(public $implicit: any, public index: number) {}
+  constructor(public $implicit: any, public index: number) {
+  }
 
   get even(): boolean {
     return this.index % 2 === 0;
@@ -27,14 +21,13 @@ class SimpleNgForRow {
   }
 }
 
-@Directive({ selector: "[simpleNgFor][simpleNgForOf]" })
+@Directive({selector: "[simpleNgFor][simpleNgForOf]"})
 export class SimpleNgFor implements DoCheck {
   @Input() simpleNgForOf: any[];
 
-  constructor(
-    private _viewContainer: ViewContainerRef,
-    private _template: TemplateRef<SimpleNgForRow>
-  ) {}
+  constructor(private _viewContainer: ViewContainerRef,
+              private _template: TemplateRef<SimpleNgForRow>) {
+  }
 
   // see here for an explanation of this setter
   // https://angular.io/docs/ts/latest/guide/attribute-directives.html

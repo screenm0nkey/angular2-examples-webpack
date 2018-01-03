@@ -1,7 +1,7 @@
 {
-  "name": "angular2-project",
-  "version": "1.0.0",
-  "description": "A simple starter Angular2 project",
+  "name": "angular-examples",
+  "version": "5.0.0",
+  "description": "A bunch of angular examples",
   "scripts": {
     "build": "webpack --progress",
     "watch": "npm run build -- --watch",
@@ -10,8 +10,7 @@
     "start-www": "node $NODE_DEBUG_OPTION www/server"
   },
   "contributors": [
-    "Rob Wormald <robwormald@gmail.com>",
-    "PatrickJS <github@gdi2290.com>"
+    "Nick Lowman <nick@lowman.it>"
   ],
   "license": "MIT",
   "dependencies": {
@@ -65,17 +64,11 @@
     "webpack-merge": "^4.1.0"
   },
   "keywords": [
-    "Angular2",
-    "angular2-seed",
-    "official angular 2 seed",
-    "official angular2 seed"
+    "Angular"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/angular/angular2-seed.git"
+    "url": "git+https://github.com/screenm0nkey/angular2-examples-webpack.git"
   },
-  "bugs": {
-    "url": "https://github.com/angular/angular2-seed/issues"
-  },
-  "homepage": "https://github.com/angular/angular2-seed#readme"
+  "homepage": "https://github.com/screenm0nkey/angular2-examples-webpack"
 }

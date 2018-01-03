@@ -1,11 +1,5 @@
 import {
-  Component,
-  DoCheck,
-  EventEmitter,
-  Input,
-  IterableDiffer,
-  IterableDiffers,
-  KeyValueDiffer,
+  Component, DoCheck, EventEmitter, Input, IterableDiffer, IterableDiffers, KeyValueDiffer,
   KeyValueDiffers
 } from "@angular/core";
 
@@ -13,24 +7,24 @@ import {
   selector: "do-check-item",
   outputs: ["onRemove"],
   template: `
-  <div style="background-color: #8a6d3b; display: table; border-radius: 5px; border:solid 5px saddlebrown">
-    <div class="event">
-      <div class="content">
-        <div class="user" style="float: left">{{comment.author}} posted "<i>{{comment.comment}}</i>" [{{comment.likes}} Likes
-        
-        ]</div>
-        <div class="meta">
-          <button class="pull-left" (click)="remove()">
-           Remove
-          </button>
-          <button class="pull-left" (click)="clear()">
-            Clear post
-          </button>
-      
+    <div style="background-color: #8a6d3b; display: table; border-radius: 5px; border:solid 5px saddlebrown">
+      <div class="event">
+        <div class="content">
+          <div class="user" style="float: left">{{comment.author}} posted "<i>{{comment.comment}}</i>" [{{comment.likes}}
+            Likes ]
+          </div>
+          <div class="meta">
+            <button class="pull-left" (click)="remove()">
+              Remove
+            </button>
+            <button class="pull-left" (click)="clear()">
+              Clear post
+            </button>
+
+          </div>
         </div>
       </div>
     </div>
-  </div>
   `
 })
 export class DoCheckItem implements DoCheck {
@@ -39,7 +33,7 @@ export class DoCheckItem implements DoCheck {
   private differ: KeyValueDiffer<string, any>;
 
   constructor(differs: KeyValueDiffers) {
-    this.differ = differs.find([]).create(null);
+    this.differ = differs.find([]).create();
     this.onRemove = new EventEmitter();
   }
 
@@ -96,15 +90,16 @@ export class DoCheckItem implements DoCheck {
   template: `
     <p class="path">/lifecycle/miscellaneous/lifecycle_03.ts</p>
     <h4>ngDoCheck and IterableDiffers, KeyValueDiffers</h4>
-    <p>on every system event i.e. click, timeout etc ngDoCheck is called and the component is checked, which is quite a lot</p>
+    <p>on every system event i.e. click, timeout etc ngDoCheck is called and the component is checked, which is quite a
+      lot</p>
     <p>Use<strong>IterableDiffers on Arrays and KeyValueDiffers on Maps</strong></p>
     <p>
-      It’s important to note that the <strong>ngOnChanges() hook gets overriden by ngDoCheck()</strong> 
+      It’s important to note that the <strong>ngOnChanges() hook gets overriden by ngDoCheck()</strong>
       so if we implement both, OnChanges will be ignored.
     </p>
-    
-    <do-check-item 
-      *ngFor="let comment of comments" 
+
+    <do-check-item
+      *ngFor="let comment of comments"
       (onRemove)="removeComment($event)"
       [comment]="comment">
     </do-check-item>

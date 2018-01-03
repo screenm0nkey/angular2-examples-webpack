@@ -1,6 +1,6 @@
 import {
   ChangeDetectorRef, Component, Directive, DoCheck, IterableDiffer, IterableDiffers, TemplateRef,
-  ViewContainerRef, ViewRef
+  ViewContainerRef, ViewRef, IterableDifferFactory
 } from "@angular/core";
 
 @Directive({
@@ -25,7 +25,8 @@ export class NgBookRepeat implements DoCheck {
   set ngBookRepeatOf(items) {
     this.items = items;
     if (this.items && !this.differ) {
-      this.differ = this.differs.find(items).create(this.changeDetector);
+      const idf : IterableDifferFactory = this.differs.find(items);
+      this.differ = idf.create();
     }
   }
 

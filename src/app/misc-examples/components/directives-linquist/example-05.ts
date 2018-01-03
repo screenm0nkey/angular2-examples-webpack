@@ -11,15 +11,15 @@ import {Component} from "@angular/core";
 
     <div
       [ngTemplateOutlet]="foo"
-      [ngOutletContext]="one">
+      [ngTemplateOutletContext]="one">
     </div>
     <div
       [ngTemplateOutlet]="foo"
-      [ngOutletContext]="two">
+      [ngTemplateOutletContext]="two">
     </div>
     <div
       [ngTemplateOutlet]="foo"
-      [ngOutletContext]="three">
+      [ngTemplateOutletContext]="three">
     </div>
   `
 })

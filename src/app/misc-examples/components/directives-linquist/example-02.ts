@@ -1,7 +1,7 @@
 import {Component, Directive, HostBinding, HostListener, Input} from "@angular/core";
 
 @Directive({
-  selector: "[second]"
+  selector: "[second]",
 })
 export class Example02Directive {
   @Input() second;
@@ -18,16 +18,20 @@ export class Example02Directive {
   }
 }
 
+/**
+ * note how the template works without an empty template.
+ * the html element will be <basic-02>
+ */
 @Component({
   selector: "basic-02",
-  template: `
-    <div></div>`
+  template: ``
 })
 export class Example02BasicComponent {
 }
 
 @Component({
   selector: "example-02",
+  styles: ["basic-02 {cursor: pointer; text-decoration:underline}"],
   template: `
     <p class="path">src/app/misc-examples/components/directives-linquist/example-02</p>
     <h4>Combining directives</h4>

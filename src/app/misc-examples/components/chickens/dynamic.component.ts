@@ -35,8 +35,7 @@ export class DComponent {
   `
 })
 export class DynamicComponent implements AfterViewInit {
-  @ViewChild("vc", {read: ViewContainerRef})
-  vc;
+  @ViewChild("vc", {read: ViewContainerRef}) vc;
   name: string = "I am DynamicComponent";
 
   constructor(private r: ComponentFactoryResolver) {

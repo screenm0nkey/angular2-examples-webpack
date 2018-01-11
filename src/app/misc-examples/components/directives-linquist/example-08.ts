@@ -1,20 +1,26 @@
 import {Component, Directive, Injectable, TemplateRef, ViewChild, ViewContainerRef} from "@angular/core";
 
+/**
+ * TemplateService
+ */
 @Injectable()
 export class TemplateService {
   templates = new Map<string, TemplateRef<any>>();
 }
 
+/**
+ * TemplateStorageComponent
+ */
 @Component({
-  selector: "template-storage",
+  selector: "template-storage-component",
   template: `
     <ng-template #header><span>I'm a header</span></ng-template>
     <ng-template #footer><span>I'm a footer</span></ng-template>
   `
 })
-export class TemplateStorage {
-  @ViewChild("header") headerTemplate;
-  @ViewChild("footer") footerTemplate;
+export class TemplateStorageComponent {
+  @ViewChild("header") headerTemplate: TemplateRef<any>;
+  @ViewChild("footer") footerTemplate: TemplateRef<any>;
 
   constructor(private service: TemplateService) {
   }
@@ -25,6 +31,9 @@ export class TemplateStorage {
   }
 }
 
+/**
+ * SurroundDirective
+ */
 @Directive({
   selector: "[surround]"
 })
@@ -41,12 +50,14 @@ export class SurroundDirective {
   }
 }
 
+/**
+ * Example08AppComponent
+ */
 @Component({
   selector: "example-08",
   template: `
-    <h4>Template Storage Service</h4>
-    <template-storage></template-storage>
-
+    <h4>Template Storage Service using the TemplateService</h4>
+    <template-storage-component></template-storage-component>
     <button>One</button>
     <button *surround>Two</button>
     <button>Three</button>

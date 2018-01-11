@@ -7,8 +7,8 @@ import {Example03AppComponent, OnlineDirective, OnlineService, TrackDirective, T
 import {BasicComponent4, Example04AppComponent} from "./example-04";
 import {Example05AppComponent} from "./example-05";
 import {Example06AppComponent, ThreeDirective} from "./example-06";
-import {Example07AppComponent, SevenDirective} from "./example-07";
-import {Example08AppComponent, SurroundDirective, TemplateService, TemplateStorage} from "./example-08";
+import {Example07AppComponent, HooperDirective} from "./example-07";
+import {Example08AppComponent, SurroundDirective, TemplateService, TemplateStorageComponent} from "./example-08";
 
 @NgModule({
   imports: [SharedModule],
@@ -28,10 +28,10 @@ import {Example08AppComponent, SurroundDirective, TemplateService, TemplateStora
     Example06AppComponent,
     ThreeDirective,
     Example07AppComponent,
-    SevenDirective,
+    HooperDirective,
     Example08AppComponent,
     SurroundDirective,
-    TemplateStorage
+    TemplateStorageComponent
   ],
   providers: [TrackingService, OnlineService, TemplateService]
 })

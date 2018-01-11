@@ -1,7 +1,8 @@
 import { ModuleWithProviders, NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
-import { HttpModule, JsonpModule } from "@angular/http";
+import { JsonpModule } from "@angular/http";
+import { HttpClientModule } from "@angular/common/http";
 
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 /*
@@ -25,7 +26,7 @@ import {
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    HttpModule,
+    HttpClientModule,
     JsonpModule
   ],
   // this provider will be available app wide and will instantiated more than once

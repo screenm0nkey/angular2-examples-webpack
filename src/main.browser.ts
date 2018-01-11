@@ -33,5 +33,9 @@ Observable.prototype.debug = function(num: number, message: string) {
     }
   );
 };
-
+/**
+ * To make zones faster it is possible to bypass zones entirely for performance focused applications.
+ * To bypass zones, bootstrap your application with ‘noop’ as your ngZone.
+ * platformBrowserDynamic().bootstrapModule(AppModule, {ngZone: 'noop'}).then( ref => {} );
+ */
 platformBrowserDynamic().bootstrapModule(AppModule);

@@ -1,5 +1,8 @@
-import {Component, Directive, HostBinding, HostListener, Injectable, Input} from "@angular/core";
+import {Component, Directive, HostBinding, HostListener, Injectable, Input, OnDestroy} from "@angular/core";
 
+/**
+ * TrackingService
+ */
 @Injectable()
 export class TrackingService {
   logs = [];
@@ -10,24 +13,35 @@ export class TrackingService {
   }
 }
 
+/**
+ * OnlineService
+ */
 @Injectable()
 export class OnlineService {
   online = true;
+  interval:number;
 
   constructor() {
-    setInterval(() => {
+    this.interval = setInterval(() => {
       this.online = Math.random() > 0.5;
     }, 1000);
   }
+
+  clearInterval(){
+    clearInterval(this.interval);
+  }
 }
 
-
+/**
+ * OnlineDirective
+ */
 @Directive({
   selector: "[online]"
 })
-export class OnlineDirective {
+export class OnlineDirective implements OnDestroy {
   @HostBinding("disabled")
   get functionCanBeCalledAnything() {
+    // angular now watches the online property for changes
     return this.online.online;
   }
 
@@ -36,11 +50,16 @@ export class OnlineDirective {
     return this.online.online;
   }
 
-  constructor(private online: OnlineService) {
+  constructor(private online: OnlineService) {}
+
+  public ngOnDestroy(): void {
+    this.online.clearInterval();
   }
 }
 
-
+/**
+ * TrackDirective
+ */
 @Directive({
   selector: "[track]"
 })
@@ -51,26 +70,27 @@ export class TrackDirective {
   onClick() {
     this.tracking.log({event: "click", message: this.track});
   }
-
   @HostListener("mouseover")
   onMouseover() {
     this.tracking.log({event: "mouseover", message: this.track});
   }
 
-  constructor(private tracking: TrackingService) {
-  }
+  constructor(private tracking: TrackingService) {}
 }
 
-
+/**
+ * Example03AppComponent
+ */
 @Component({
   selector: "track-app",
   styles: [require("./styles.css")],
   template: `
     <p class="path">src/app/misc-examples/components/directives-linquist/example-03</p>
-    <h4>Combine @HostBinding with services</h4>
-    <button online [track]="'One Button'">One</button>
-    <button online [track]="'Two Button'">Two</button>
-    <button online [track]="'Three Button'">Three</button>
+    <h4>Combine Directive @HostBinding with Services</h4>
+    
+    <button online [track]="'1 Button'">One</button>
+    <button online [track]="'2 Button'">Two</button>
+    <button online [track]="'3 Button'">Three</button>
 
     <!-- Only for visuals-->
     <div *ngFor="let log of tracking.logs">
@@ -79,7 +99,6 @@ export class TrackDirective {
   `
 })
 export class Example03AppComponent {
-  //only for visuals
-  constructor(private tracking: TrackingService) {
-  }
+  //tracking is used in template
+  constructor(private tracking: TrackingService) {}
 }

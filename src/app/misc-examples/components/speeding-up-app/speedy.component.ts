@@ -9,6 +9,7 @@ function getRandomInt(min, max) {
   selector: "speed-up-app",
   template: `
     <p class="file">misc-examples/components/speeding-up-app/speedy.component.ts</p>
+    <h4>How to make an app faster using detaching the change detectors and using a simpleNgFor directive</h4>
     <p><a href="https://blog.thoughtram.io/angular/2017/02/02/making-your-angular-app-fast.html" target="_blank">
       Making your angular app fast.
     </a></p>
@@ -30,8 +31,7 @@ export class SpeedingComponent implements AfterViewInit {
   offsetX;
   offsetY;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) {
-  }
+  constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     for (let i = 0; i < 5000; i++) {
@@ -47,8 +47,15 @@ export class SpeedingComponent implements AfterViewInit {
     }
   }
 
+  /**
+   * The first thing we do is, we detach the component’s change detectors from the tree. We can inject a component’s
+   * ChangeDetectorRef using DI and use its detach() method for that. The only thing we need to keep in mind is that we
+   * only want to detach the change detectors after change detection has been performed for the first time, otherwise we
+   * won’t see any boxes. To call detach() in the right moment, we can take advantage of Angular’s AfterViewInit life
+   * cycle hook.
+   */
   ngAfterViewInit() {
-    this.changeDetectorRef.detach();
+    this.cdr.detach();
   }
 
   mouseDown(event) {
@@ -73,6 +80,7 @@ export class SpeedingComponent implements AfterViewInit {
         event.clientX + this.offsetX,
         event.clientY + this.offsetY
       );
+      console.log(this.currentBoxComponent)
     }
   }
 

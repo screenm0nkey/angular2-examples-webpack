@@ -19,7 +19,7 @@ import {NgZoneModule} from "./components/ng-zone/ngzone.module";
 import {SpeedyModule} from "./components/speeding-up-app/speedy.module";
 import {NotifcationModule} from "./components/notifications/notifications.module";
 import {SocketApp} from "./components/socket-io/socket-component";
-import {TemplatesModule} from "./components/templates/templates.module";
+import {TemplatesModule} from "./components/template-directives/templates.module";
 import {ChangedAfterModule} from "./components/changed-after-check/main.module";
 import {TipsModule} from "./components/tips/tips.module";
 

@@ -32,6 +32,9 @@ a {
   font-size: 11px;
   display: inline-block;
 }
+a:after {
+  content: ">>";
+}
 
 .links>a, nav > a {
   box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.58);
@@ -40,7 +43,7 @@ a {
   margin-right: 10px;
   display: table;
 }
-
+Øspeed
 a.block {
   display: table;
 }
@@ -349,14 +352,23 @@ div.comp:after {
   clear: both;
 }
 div.comps a[routerLink] {
-  background-color: #52042e;
-  font-size:13px;
+  background-color: #35e000;
+  font-size: 13px;
+  color: #000000;
+  box-shadow: none;
+  border: solid 3px #259e00;
+  border-radius: 3px;
+  font-style: normal;
+}
+div.comps a[routerLink]:hover {
+  background-color: darkcyan;
 }
 div.comps a[routerLink]:after {
   content: " [int]";
+  color:#259e00;
 }
 div.comps a {
-  margin-bottom: 5px;
+  margin-bottom: 2px;
 }
 
 

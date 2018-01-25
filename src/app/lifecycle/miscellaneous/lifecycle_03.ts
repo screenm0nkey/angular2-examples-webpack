@@ -1,5 +1,11 @@
 import {
-  Component, DoCheck, EventEmitter, Input, IterableDiffer, IterableDiffers, KeyValueDiffer,
+  Component,
+  DoCheck,
+  EventEmitter,
+  Input,
+  IterableDiffer,
+  IterableDiffers,
+  KeyValueDiffer,
   KeyValueDiffers
 } from "@angular/core";
 
@@ -90,7 +96,11 @@ export class DoCheckItem implements DoCheck {
   template: `
     <p class="path">/lifecycle/miscellaneous/lifecycle_03.ts</p>
     <h4>ngDoCheck and IterableDiffers, KeyValueDiffers</h4>
-    <p>on every system event i.e. click, timeout etc ngDoCheck is called and the component is checked, which is quite a
+    <div class="links">
+      <a routerLink="/misc/templates">Custom *ngBookRepeat template using IterableDiffer</a>
+    </div>
+
+    <p>On every system event i.e. click, timeout etc ngDoCheck is called and the component is checked, which is quite a
       lot</p>
     <p>Use<strong>IterableDiffers on Arrays and KeyValueDiffers on Maps</strong></p>
     <p>

@@ -2,7 +2,7 @@ import {NgModule} from "@angular/core";
 import {SharedModule} from "../../../shared/shared.module";
 import {TemplateComponent} from "./main.component";
 import {IfTemplateSampleApp, NgBookIf} from "./simple-ng-book-if.component";
-import {ForTemplateSampleApp, NgBookRepeat} from "./simple-ng-book-for.component";
+import {NgBookRepeatComponent, NgBookRepeatDirective} from "./simple-ng-book-repeat.component";
 
 @NgModule({
   imports: [SharedModule],
@@ -10,8 +10,8 @@ import {ForTemplateSampleApp, NgBookRepeat} from "./simple-ng-book-for.component
     TemplateComponent,
     IfTemplateSampleApp,
     NgBookIf,
-    ForTemplateSampleApp,
-    NgBookRepeat
+    NgBookRepeatComponent,
+    NgBookRepeatDirective
   ]
 })
 export class TemplatesModule {

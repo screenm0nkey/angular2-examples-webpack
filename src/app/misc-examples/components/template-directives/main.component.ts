@@ -4,8 +4,8 @@ import {Component} from "@angular/core";
   selector: "template-component",
   template: `
     <div class="comps">
-      <if-template></if-template>
-      <for-template></for-template>
+      <ng-book-if-template></ng-book-if-template>
+      <ng-book-repeat-template></ng-book-repeat-template>
     </div>
   `
 })

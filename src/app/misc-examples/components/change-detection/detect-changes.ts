@@ -14,7 +14,7 @@ import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component} fr
 
     <p>On push will stop the component's view bindings from being checked.
       It doesn’t prevent Angular from checking the components themselves, to see if the inputs have changed.
-      But turning of the components change detection stops the component and view from being checked.
+      But turning off the components change detection stops the component and view from being checked.
     </p>
 
     <p class="strong">ngDoCheck will get called even if the changeDetector is detached</p>

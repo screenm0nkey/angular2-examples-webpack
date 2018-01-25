@@ -27,7 +27,7 @@ export class HooperDirective {
 }
 
 
-/**
+/**w
  * Example07AppComponent
  */
 @Component({
@@ -35,9 +35,12 @@ export class HooperDirective {
   template: `
     <p class="path">misc-examples/components/directives-linquist/example-07.ts</p>
     <h4>Assign a structural directive dynamic content</h4>
+
+    See the example <a routerLink="../templates">Custom *ngBookRepeat template</a>
+    
     <pre>&lt;span *hooper="let message spoonzOf messages"&gt;{{message}}&lt;/span&gt;</pre>
     <b>gets converted to</b>
-    <pre>&lt;template [hooperSpoonzOf]="messages"&gt;&lt;/template&gt;</pre>
+    <pre>&lt;template [hooperSpoonzOf]="messages" let-message="$implicit"&gt;&lt;/template&gt;</pre>
     <br>
     <p>There's going to be an input called <code>hooperSpoonzOf</code> on the HooperDirective, a combination of the name of the
       directive, and the separator, which is going to take <code>messages</code> as the input. Remember, 

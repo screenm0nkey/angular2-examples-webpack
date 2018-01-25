@@ -19,7 +19,7 @@ import {SocketApp} from "./components/socket-io/socket-component";
 import {MainChildrenApp} from "./components/view-children/childviews.module";
 import {TricksMainComponent} from "./components/tricks/tricks.module";
 import {TipsMainComponent} from "./components/tips/tips.module";
-import {TemplateComponent} from "./components/templates/templates.module";
+import {TemplateComponent} from "./components/template-directives/templates.module";
 import {ChangeAfterComponent} from "./components/changed-after-check/main.module";
 
 export const formsRoutes: Routes = [

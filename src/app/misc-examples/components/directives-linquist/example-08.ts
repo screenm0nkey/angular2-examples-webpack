@@ -22,8 +22,7 @@ export class TemplateStorageComponent {
   @ViewChild("header") headerTemplate: TemplateRef<any>;
   @ViewChild("footer") footerTemplate: TemplateRef<any>;
 
-  constructor(private service: TemplateService) {
-  }
+  constructor(private service: TemplateService) {}
 
   ngAfterViewInit() {
     this.service.templates.set("header", this.headerTemplate);
@@ -56,6 +55,7 @@ export class SurroundDirective {
 @Component({
   selector: "example-08",
   template: `
+    <p class="file">misc-examples/components/directives-linquist/example-08.ts</p>
     <h4>Template Storage Service using the TemplateService</h4>
     <template-storage-component></template-storage-component>
     <button>One</button>

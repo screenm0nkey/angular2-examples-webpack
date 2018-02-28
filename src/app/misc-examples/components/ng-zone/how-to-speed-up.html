@@ -1,8 +1,13 @@
 <div>
-  <p class="path">misc-examples/components/speeding-up-app/speedy.component.html</p>
+  <p class="path">misc-examples/components/ng-zone/speedy.component.html</p>
   <h4>How to Speed Up an Application</h4>
 
   <ul class="bullets">
+    <li>
+      To make zones faster it is possible to bypass zones entirely for performance focused applications.
+      To bypass zones, bootstrap your application with ‘noop’ as your ngZone.
+      <code>platformBrowserDynamic().bootstrapModule(AppModule, &#123;ngZone: 'noop'&#125;).then( ref => &#123;&#125; );</code>
+    </li>
     <li>ChangeDetectionStrategy.OnPush - Use Angular’s OnPush change detection strategy to save view bindings being
       checked per change
       detection task. This can only be used on components which have a <code>@inputs</code>.

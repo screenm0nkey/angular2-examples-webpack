@@ -1,12 +1,24 @@
 import {Component, ElementRef, EventEmitter, Injectable, OnInit, Output, ViewChild} from "@angular/core";
-import {Http, Response} from "@angular/http";
+// import {Response} from "@angular/http";
+import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/Rx";
+
+interface Chicken {
+  id: number;
+  name: string
+}
+
+interface Customer {
+  id: number;
+  firstName: string;
+  lastName: string
+}
 
 @Injectable()
 export class ChickensService {
   chickens: Observable<any>;
 
-  constructor(private http: Http) {
+  constructor(private http: HttpClient) {
     this.chickens = http.get("/json/chickens.json");
   }
 
@@ -14,8 +26,8 @@ export class ChickensService {
     // When all observables complete, emit the last value from each.
     // forkjoin() is like a little like $q.all()
     return Observable.forkJoin(
-      this.http.get("/json/chickens.json").map((res: Response) => res.json()),
-      this.http.get("/json/customers.json").map((res: Response) => res.json())
+      this.http.get("/json/chickens.json").map((res:Chicken[]) => res),
+      this.http.get("/json/customers.json").map((res: Customer[]) => res)
     );
   }
 }
@@ -60,8 +72,8 @@ export class ChickComponent {
 })
 export class ChickenComponent implements OnInit {
   @ViewChild("namey") namey: ElementRef;
-  chickens: any = [];
-  customers: any = [];
+  chickens: Chicken[] = [];
+  customers: Customer[] = [];
 
   constructor(private chickensService: ChickensService) {
   }

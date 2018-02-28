@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, Output} from "@angular/core";
 
 @Component({
   selector: "misc-app",
@@ -12,15 +12,13 @@ import {Component} from "@angular/core";
         <a routerLink="./hostbinding" routerLinkActive="active">@HostListener @HostBinding</a>
         <a routerLink="./rookie-mistakes" routerLinkActive="active">@ContentChildren, ngAfterContentInit and ngContent</a>
         <a routerLink="./view-children" routerLinkActive="active">@ViewChildren @ViewChild ngAfterViewInit</a>
-        <a routerLink="./ngzone" routerLinkActive="active">The NgZone</a>
+        <a routerLink="./ngzone" routerLinkActive="active">The NgZone and Detaching Change Detectors</a>
         <a routerLink="./chickens" routerLinkActive="active">Dynamic Components, ExportAs, Renderer2, Directives and ForkJoin()</a>
         <a routerLink="./focus-input" routerLinkActive="active">Focus an Input @ViewChild</a>
         <a routerLink="./directives" routerLinkActive="active">Directives with John Linquist</a>
         <a routerLink="./templates" routerLinkActive="active">Template Directives and IterableDiffers</a>
-        <a routerLink="./speedyapp" routerLinkActive="active">How to Speed up an App</a>
         <a routerLink="./ngstyle" routerLinkActive="active">NgStyle</a>
-        <a routerLink="./notifications" routerLinkActive="active">Notifications</a>
-        <a routerLink="./socket-io" routerLinkActive="active">Socket-io and @Input getters/setters</a>
+        <a routerLink="./notifications" routerLinkActive="active">Notifications, Socket-io, @Input, @Output, getters/setters</a>
         <a routerLink="./tricks" routerLinkActive="active">Tricks</a>
         <a routerLink="./tips" routerLinkActive="active">Tips</a>
         <a routerLink="./change-after-check" routerLinkActive="active"

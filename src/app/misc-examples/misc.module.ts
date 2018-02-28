@@ -4,7 +4,7 @@ import {SharedModule} from "../shared/shared.module";
 import {MiscExamplesComponent} from "./misc.component";
 import {ChildViewsModule} from "./components/view-children/childviews.module";
 import {TricksModule} from "./components/tricks/tricks.module";
-import {ChickenModule} from "./components/chickens/chickens.module";
+import {ChickenModule} from "./components/chickens/main.module";
 import {ChangeModule} from "./components/change-detection/change.module";
 import {ContentChildModule} from "./components/content-children/content-child.module";
 import {CustomersModule} from "./components/customers/customers.module";
@@ -16,9 +16,7 @@ import {InputBindingModule} from "./components/input-binding/inputbinding.module
 import {MultiContentModule} from "./components/multi-content/multicontent.module";
 import {NgStyleModule} from "./components/ng-style/ngstyle.module";
 import {NgZoneModule} from "./components/ng-zone/ngzone.module";
-import {SpeedyModule} from "./components/speeding-up-app/speedy.module";
-import {NotifcationModule} from "./components/notifications/notifications.module";
-import {SocketApp} from "./components/socket-io/socket-component";
+import {NotifcationModule} from "./components/notifications/main.module";
 import {TemplatesModule} from "./components/template-directives/templates.module";
 import {ChangedAfterModule} from "./components/changed-after-check/main.module";
 import {TipsModule} from "./components/tips/tips.module";
@@ -40,14 +38,13 @@ import {TipsModule} from "./components/tips/tips.module";
     MultiContentModule,
     NgStyleModule,
     NgZoneModule,
-    SpeedyModule,
     NotifcationModule,
     TemplatesModule,
     DirectivesLinquistModule,
     ChangedAfterModule,
     TipsModule
   ],
-  declarations: [MiscExamplesComponent, SocketApp]
+  declarations: [MiscExamplesComponent]
 })
 export class MiscExamplesModule {
 }

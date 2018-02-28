@@ -1,7 +1,7 @@
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
 import {MiscExamplesComponent} from "./misc.component";
-import {MainComponent} from "./components/chickens/chickens.module";
+import {MainComponent} from "./components/chickens/main.module";
 import {ChangeDetectionMain} from "./components/change-detection/change.module";
 import {RookieComponent} from "./components/content-children/content-child.module";
 import {CustomerDetailComponent, CustomersComponent} from "./components/customers/customers.module";
@@ -13,9 +13,7 @@ import {MainInputBindingApp} from "./components/input-binding/inputbinding.modul
 import {MultiTransclusion} from "./components/multi-content/multicontent.module";
 import {NgStyleMainComponent} from "./components/ng-style/ngstyle.module";
 import {NgZoneMainComponent} from "./components/ng-zone/ngzone.module";
-import {SpeedyMainComponent} from "./components/speeding-up-app/speedy.module";
-import {AppComponent} from "./components/notifications/notifications.module";
-import {SocketApp} from "./components/socket-io/socket-component";
+import {AppComponent} from "./components/notifications/main.module";
 import {MainChildrenApp} from "./components/view-children/childviews.module";
 import {TricksMainComponent} from "./components/tricks/tricks.module";
 import {TipsMainComponent} from "./components/tips/tips.module";
@@ -42,11 +40,9 @@ export const formsRoutes: Routes = [
           {path: "directives", component: DirectivesLinquistMain},
           {path: "input-binding", component: MainInputBindingApp},
           {path: "emitter", component: MultiTransclusion},
-          {path: "speedyapp", component: SpeedyMainComponent},
           {path: "ngzone", component: NgZoneMainComponent},
           {path: "ngstyle", component: NgStyleMainComponent},
           {path: "notifications", component: AppComponent},
-          {path: "socket-io", component: SocketApp},
           {path: "templates", component: TemplateComponent},
           {path: "view-children", component: MainChildrenApp},
           {path: "tricks", component: TricksMainComponent},

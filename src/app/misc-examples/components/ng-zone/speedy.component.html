@@ -1,0 +1,12 @@
+<p class="file">misc-examples/components/ng-zone/speedy.component.ts</p>
+<h4>How to make an app faster using detaching the change detectors and using a simpleNgFor directive</h4>
+<p><a href="https://blog.thoughtram.io/angular/2017/02/02/making-your-angular-app-fast.html" target="_blank">
+  Making your angular app fast.
+</a></p>
+
+<p>The first thing, we detach the component’s change detectors from the tree. We can inject a component’s
+  ChangeDetectorRef using DI and use its <code>this.cdr.detach()</code> method for that. The only thing we need to keep in mind is that we
+  only want to detach the change detectors after change detection has been performed for the first time, otherwise we
+  won’t see any boxes. To call detach() in the right moment, we can take advantage of Angular’s <code>AfterViewInit</code> life
+  cycle hook.
+</p>

@@ -4,7 +4,7 @@ declare var Notification;
 
 @Component({
   selector: "push-notification",
-  styles: [":host { display: none; }"],
+  styles: [":host { display: none; font-family: Arial; }"],
   template: ""
 })
 export class PushNotificationComponent implements OnInit, OnChanges, OnDestroy {
@@ -48,15 +48,14 @@ export class PushNotificationComponent implements OnInit, OnChanges, OnDestroy {
     if (!this.checkCompatibility()) {
       return console.log("Notification API not available in this browser.");
     }
-
     return this.requestPermission(permission => {
       if (this.isPermissionGranted(permission)) {
-        this.create();
+        this.createNotification();
       }
     });
   }
 
-  public create() {
+  public createNotification() {
     let notification = new Notification(this.title, {
       dir: this.dir,
       lang: this.lang,
@@ -71,10 +70,8 @@ export class PushNotificationComponent implements OnInit, OnChanges, OnDestroy {
       vibrate: this.vibrate,
       noscreen: this.noscreen
     });
-
     this.attachEventHandlers(notification);
     this.close(notification);
-
     return notification;
   }
 

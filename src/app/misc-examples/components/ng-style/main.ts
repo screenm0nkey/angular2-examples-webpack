@@ -2,7 +2,9 @@ import {Component} from "@angular/core";
 
 @Component({
   template: `
-    <ng-style-demo></ng-style-demo>
+    <div class="comps">
+      <ng-style-demo></ng-style-demo>
+    </div>
   `
 })
 export class NgStyleMainComponent {

@@ -1,5 +1,11 @@
 import {Component, Input, NgZone, OnChanges} from "@angular/core";
 
+interface Box {
+  id: number;
+  x: number;
+  y: number;
+}
+
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
@@ -29,7 +35,7 @@ export class BoxZoneComponent implements OnChanges {
 
 @Component({
   selector: "speed-up-app-with-zones",
-  template: `    
+  template: `
     <svg width="450" height="150"
          (mousedown)="mouseDown($event)"
          (mouseup)="mouseUp($event)">
@@ -43,24 +49,25 @@ export class BoxZoneComponent implements OnChanges {
 })
 export class SpeedingZonesComponent {
   currentId = null;
-  boxes = [];
-  offsetX:number;
-  offsetY:number;
-  element:HTMLElement;
+  boxes : Box[] = [];
+  offsetX: number;
+  offsetY: number;
+  element: HTMLElement;
 
-  constructor(private zone: NgZone) {}
+  constructor(private zone: NgZone) {
+  }
 
   ngOnInit() {
     this.mouseMove = this.mouseMove.bind(this);
     this.generateBoxes(1000);
   }
 
-  generateBoxes(num:number) : void {
+  generateBoxes(num: number): void {
     for (let i = 0; i < num; i++) {
       const id = i;
       const x = getRandomInt(0, 500);
       const y = getRandomInt(0, 500);
-      const box = {id, x, y };
+      const box:Box = {id, x, y};
       this.boxes.push(box);
     }
   }
@@ -74,6 +81,8 @@ export class SpeedingZonesComponent {
     this.offsetY = box.y - mouseY;
     this.currentId = index;
     this.element = event.target;
+    // we are running the mousemove event outisde of ngzone to stop the change detection being invoked on every box
+    // each time the mouse move event occurs
     this.zone.runOutsideAngular(() => {
       window.document.addEventListener("mousemove", this.mouseMove);
     });

@@ -2,6 +2,14 @@
   <p class="file">/misc-examples/components/dependecy-injection/dependency.html</p>
   <h4>Dependency Injection</h4>
   <p class="links">
+    <a href="http://angularfirst.com/the-ngmodule-forroot-convention/" target="_blank">
+      The NgModule <code>forRoot()</code> Convention
+    </a>
+
+    <a href="https://blog.angular-university.io/angular2-ngmodule/" target="_blank">
+      Search this article for <code>forRoot()</code>
+    </a>
+
     <a target="_blank" href="http://blog.thoughtram.io/angular/2015/05/18/dependency-injection-in-angular-2.html"
        target="_blank">
       Dependency Injection
@@ -26,13 +34,13 @@
   <p class="strong">Every component comes with its own injector</p>
 
   <p class="strong">Providers are flattened, meaning that, if there are multiple providers with the same token, the
-    last one wins. Use Tokens to void this.</p>
+    last one wins. Use <code>InjectionToken</code> to void this.</p>
 
   <p class="strong">When using a string token we HAVE to use @Inject, i.e. <code>@Inject('whateverToken') public
     some3</code></p>
 
   <p class="strong">
-    multi providers basically extend the thing that is being injected for a particular token.
+    multi providers <code>multi: true</code> basically extend the thing that is being injected for a particular token.
     Angular uses this mechanism to provide pluggable hooks i.e extending NG_VALIDATORS
   </p>
 
@@ -70,7 +78,7 @@
   <i>We get a service from a dependency injector by giving it a token.</i>
 
   <code>constructor(logger: LoggerService) &#123;
-    logger.logInfo('Creating HeroBiosComponent');
+      logger.logInfo('Creating HeroBiosComponent');
     &#125;</code>
 
   <p>In the case above Angular asks the injector for the service associated

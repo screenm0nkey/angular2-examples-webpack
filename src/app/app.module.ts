@@ -32,8 +32,8 @@ import { SharedModule } from "./shared/shared.module";
     // loading dependencies example
     SomeService, // this is shorthand for provide(SomeService, {useClass : SomeService}),
     { provide: "whateverToken", useClass: SomeService }, // this is used by "injecting-token.ts" component,
-    {
-      provide: "EngineService",
+    // this factory creates a new instance each time
+    { provide: "EngineService",
       useFactory: () => {
         // this is used by "injecting-token.ts" component,
         return () => {

@@ -5,7 +5,9 @@
     <a href="http://blog.angular-university.io/angular2-ngmodule/" class="block" target="_blank">
       Angular 2 NgModule Intro - Ahead Of Time Compilation And Lazy Loading - Avoid Common Pitfalls
     </a>
-    <a href="http://angularfirst.com/the-ngmodule-forroot-convention/" target="_blank">.forRoot()</a>
+    <a href="http://angularfirst.com/the-ngmodule-forroot-convention/" target="_blank">
+      The NgModule ‘forRoot()’ Convention and why we use it...
+    </a>
   </p>
 
   <ul>
@@ -96,6 +98,27 @@ export class SharedModule &#123;
     };
   }
 }</pre>
+
+  <hr>
+
+  <p>
+    <strong>When to use <code>forRoot(): ModuleWithProviders</code><br></strong>
+    When lazy-loading an NgModule during routing, the providers registered in the lazy-loaded NgModule and its children
+    aren't available during the bootstrap process and Angular is unable to register them at that time. Therefore, they
+    are added as providers only when the route is loaded and furthermore they are scoped to be injected starting at the
+    lazily-loaded NgModule and its children. If there are multiple lazy-loaded NgModules attempting to register the same
+    providers, each of these nodes of the NgModule tree end up with different instances. By importing the providers at
+    the root, it helps ensure that all lazy-loaded NgModules get the same instance of the provider and is why forRoot()
+    is named as such.
+  </p>
+
+  <p>In summary, the forRoot() convention represents a way to import an NgModule along with its providers using the
+    ModuleWithProviders interface.</p>
+
+  <p>When a feature NgModule exports components and directives that require sharing the same custom provider instances,
+    consider registering these providers in the root NgModule with a forRoot() method. This can help ensure that all
+    child NgModules have access to the same provider instances without requiring the consumer to handle the provider
+    registration explicitly.</p>
 
 
 </section>

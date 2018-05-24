@@ -1,5 +1,5 @@
 import { Component, Injectable, OnInit } from "@angular/core";
-import { Http } from "@angular/http";
+import {HttpClient} from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
 
 export interface Character {
@@ -11,8 +11,8 @@ export interface Character {
 export class CharacterService {
   characters$: Observable<Character[]>;
 
-  constructor(http: Http) {
-    this.characters$ = http.get("/json/characters.json").map(res => res.json());
+  constructor(http: HttpClient) {
+    this.characters$ = http.get<Character[]>("/json/characters.json");
   }
 }
 

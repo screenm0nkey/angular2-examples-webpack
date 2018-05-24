@@ -19,7 +19,7 @@ class WikipediaService {
   }
 
   rawSearch(term: string) {
-    var search = new URLSearchParams();
+    const search = new URLSearchParams();
     search.set("action", "opensearch");
     search.set("search", term);
     search.set("format", "json");

@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Http, Response, URLSearchParams } from "@angular/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/map";
 
@@ -25,19 +25,23 @@ export class EchonestRepo {
   // https://itunes.apple.com/uk/rss/topsongs/limit=100/json
   private static url: string = "http://localhost:1970/uk/rss/topsongs/limit=100/json";
 
-  constructor(private _http: Http) {}
+  constructor(private _http: HttpClient) {}
 
   get(num: number): Observable<Artist[]> {
-    const search = new URLSearchParams();
-    search.set("api_key", "AAXIWZI0HTK1NYTWQ");
-    search.set("format", "json");
-    search.set("results", num + "");
-    search.set("start", "0");
-    search.set("bucket", "hotttnesss");
+    let headers = new HttpHeaders();
+    headers = headers.append('header-1', 'value-1');
+
+    let params = new HttpParams();
+    params = params.set("api_key", "AAXIWZI0HTK1NYTWQ");
+    params = params.set("format", "json");
+    params = params.set("results", num + "");
+    params = params.set("start", "0");
+    params = params.set("bucket", "hotttnesss");
+
 
     return this._http
-      .get(EchonestRepo.url, { search })
-      .map((res: Response) => res.json())
+      .get(EchonestRepo.url, {headers , params })
+      // .map((res: Response) => res.json())
       .map((data: ITunesResponse) => data.feed.entry)
       .map(arr =>
         arr.map((item: any, i: number) => {

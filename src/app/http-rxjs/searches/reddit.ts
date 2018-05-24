@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
-import { Http } from "@angular/http";
+import {HttpClient} from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/switchMap";
@@ -32,7 +32,7 @@ export class RedditExample {
   results$: Observable<any[]>;
   loading: boolean = false;
 
-  constructor(private http: Http) {
+  constructor(private http: HttpClient) {
     let searchField = new FormControl();
     this.searchForm = new FormGroup({ searchField });
 
@@ -51,7 +51,6 @@ export class RedditExample {
     let baseUrl = "https://www.reddit.com/r/pics/search.json?resct_sr=on&q=";
     return this.http
       .get(baseUrl + search)
-      .map(res => res.json())
       .map(this.normaliseRedditData)
       .map((items: any[]) => items.filter((item: any) => item.url));
   }

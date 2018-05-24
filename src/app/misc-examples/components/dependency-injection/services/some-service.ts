@@ -8,10 +8,7 @@ export class SomeService {
 
   callMe(s: String) {
     console.log(
-      `%cSomeService instance-id=${++SomeService.counter}`,
-      "color:green",
-      s
-    );
+      `%cSomeService instance-id=${++SomeService.counter}`, "color:green", s);
   }
 }
 
@@ -20,11 +17,7 @@ export class EngineService {
   static counter: number = 0;
 
   callMe(s: String) {
-    console.log(
-      `%cEngineService instance-id=${++SomeService.counter}`,
-      "color:orange",
-      s
-    );
+    console.log(`%cEngineService instance-id=${++SomeService.counter}`, "color:orange", s);
   }
 }
 
@@ -46,5 +39,11 @@ export class ParamService {
 
 @Injectable()
 export class RubbishService {
+  static counter: number = 0;
   imANumber: number = 11;
+  imAString  = "hello";
+
+  constructor() {
+    console.log(`%cRubbishService instance-id=${++RubbishService.counter}`, "color:lime");
+  }
 }

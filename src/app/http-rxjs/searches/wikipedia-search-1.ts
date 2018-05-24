@@ -14,7 +14,7 @@ class WikipediaService {
   constructor(private jsonp: Jsonp) {}
 
   search(term: string): Promise<string[]> {
-    var search = new URLSearchParams();
+    const search = new URLSearchParams();
     search.set("action", "opensearch");
     search.set("search", term);
     search.set("format", "json");

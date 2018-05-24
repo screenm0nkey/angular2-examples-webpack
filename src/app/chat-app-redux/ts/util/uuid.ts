@@ -3,8 +3,8 @@
 
 // taken from TodoMVC
 export function uuid() {
-  var i, random;
-  var result = "";
+  let i, random;
+  let result = "";
 
   for (i = 0; i < 32; i++) {
     random = (Math.random() * 16) | 0;

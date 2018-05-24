@@ -13,15 +13,16 @@
   <ul>
     <li>we can list the components, directives, and pipes that are part of the module in the declarations array</li>
     <li>we can import other modules by listing them in the imports array <code>imports : [SharedModule]</code></li>
-    <li>we can export a component so it's available to it's parent module. <code>exports : [MyComponent]</code></li>
-    <li>
+    <li>we can export a component so it's available to it's parent module or any module which imports the module.
+      <code>exports : [MyComponent]</code></li>
+    <li class="strong">
       Each module needs to define separately what it can 'see' in its context, so the solution here is to import all the
       modules it needs to render it's views.
     </li>
-    <li>they are essential for template parsing, both in the Just In Time or Ahead Of Time Compilation scenarios as we
+    <li>Modules are essential for template parsing, both in the Just In Time or Ahead Of Time Compilation scenarios as we
       will see
     </li>
-    <li>They can be used to clarify which components and directives are meant to be used publicly vs internal
+    <li>Modules can be used to clarify which components and directives are meant to be used publicly vs internal
       implementation details, as we will soon see
     </li>
     <li> Angular module allows Angular to define a context for compiling templates. Each HTML tag is compared to that

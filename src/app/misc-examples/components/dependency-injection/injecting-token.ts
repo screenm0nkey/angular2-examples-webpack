@@ -1,4 +1,4 @@
-import {Component, Inject, InjectionToken, ReflectiveInjector} from "@angular/core";
+import {Component, Inject, InjectionToken, Injector} from "@angular/core";
 import {EngineService, SomeService} from "./services/some-service";
 
 /**
@@ -109,15 +109,11 @@ export class InjectComponent {
   }
 
   manuallyInject() {
-    let injector: any = ReflectiveInjector.resolveAndCreate([
+    let injector: any = Injector.create([
       {provide: SOME_TOKEN, useValue: "BMW one", multi: true},
       {provide: SOME_TOKEN, useValue: "BMW two", multi: true}
     ]);
-    var dependencies = injector.get(SOME_TOKEN);
-    console.log(
-      "%cReflectiveInjector.resolveAndCreate()",
-      "color:purple",
-      dependencies
-    );
+    const dependencies = injector.get(SOME_TOKEN);
+    console.log("%cInjector.create()", "color:purple", dependencies);
   }
 }

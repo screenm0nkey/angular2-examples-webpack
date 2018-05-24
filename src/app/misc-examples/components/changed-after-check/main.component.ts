@@ -10,7 +10,6 @@ import {Component} from "@angular/core";
           Everything you need to know about the "ExpressionChangedAfterItHasBeenCheckedError" error
         </a>
       </div>
-      <inject-parent-component></inject-parent-component>
       <shared-service-component></shared-service-component>
       <dynamic-component></dynamic-component>
       <event-broadcasting></event-broadcasting>

@@ -1,6 +1,7 @@
 body {
   background-color: #37373c;
 }
+
 body * {
   padding: 0px;
   font-family: "Avenir";
@@ -8,10 +9,11 @@ body * {
   font-size: 13px;
 }
 
- li {
-   margin-bottom: 5px;
- }
-p code, h4 > code, li>code {
+li {
+  margin-bottom: 5px;
+}
+
+p code, h4 > code, li > code {
   display: inline-block;
   margin: 0;
 }
@@ -32,17 +34,19 @@ a {
   font-size: 11px;
   display: inline-block;
 }
+
 a:after {
   content: ">>";
 }
 
-.links>a, nav > a {
+.links > a, nav > a {
   box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.58);
   position: relative;
   left: 3px;
   margin-right: 10px;
   display: table;
 }
+
 Øspeed
 a.block {
   display: table;
@@ -92,6 +96,7 @@ h4 {
   margin: -2px 0 8px 0;
   font-family: Courier;
 }
+
 #container > ng-component > h4 {
   background-color: green;
   position: relative;
@@ -112,6 +117,7 @@ h5 {
   margin: 5px 0;
   display: table;
 }
+
 h5:before {
   content: "\2022";
   width: 10px;
@@ -144,6 +150,10 @@ strong, p.strong {
   padding: 0 4px;
   font-weight: bold;
 }
+i {
+  background-color: #ffffa4;
+}
+
 p.strong {
   display: table;
 }
@@ -161,6 +171,7 @@ button {
   padding: 3px 10px;
   text-decoration: none;
 }
+
 button[disabled] {
   background: dimgrey !important;
   opacity: 0.3;
@@ -175,6 +186,7 @@ hr {
   padding: 0;
   box-shadow: 0px 6px 14px 1px rgba(0, 0, 0, 0.58);
 }
+
 hr:after, hr:before {
   content: "";
   display: block;
@@ -182,13 +194,14 @@ hr:after, hr:before {
   height: 54px;
   background-color: #ababab;
   position: absolute;
-  right:0;
-}
-hr:before {
-  left:0;
+  right: 0;
 }
 
-p.file, p.path{
+hr:before {
+  left: 0;
+}
+
+p.file, p.path {
   font-family: "Courier";
   background: #827e9c;
   color: white;
@@ -208,6 +221,7 @@ nav {
   position: fixed;
   z-index: 99;
 }
+
 nav.main {
   white-space: nowrap;
   overflow: hidden;
@@ -215,7 +229,7 @@ nav.main {
 
 .miscellaneous nav {
   background-color: #AFC7D2;
-  margin-top:65px;
+  margin-top: 65px;
   margin-bottom: 15px;
   display: inline-block;
   float: left;
@@ -263,8 +277,8 @@ code {
   color: black;
   display: table;
   white-space: pre-line;
-  margin : 0 0 10px 0;
-  font-size:15px;
+  margin: 0 0 10px 0;
+  font-size: 15px;
 }
 
 pre {
@@ -274,7 +288,7 @@ pre {
   padding: 5px 10px;
   margin: 0;
   background-color: cornsilk;
-  font-size:15px;
+  font-size: 15px;
 }
 
 pre.limit-height {
@@ -329,28 +343,32 @@ section.main {
 #container {
   flex: 1;
   /*overflow: hidden;*/
-  padding-left:5px;
-  margin-top:65px;
-  margin-left:200px;
+  padding-left: 5px;
+  margin-top: 65px;
+  margin-left: 200px;
 }
 
 div.comps > * {
   display: block;
   padding: 5px;
   margin: 0 10px 20px 0;
-  border : solid 5px #c1c1c1;
+  border: solid 5px #c1c1c1;
 }
+
 div.comps > *:nth-child(odd) {
   background-color: #cacaca;
 }
+
 div.comps > *:nth-child(even) {
   background-color: #c5c5da;
 }
+
 div.comp:after {
   content: "";
   display: table;
   clear: both;
 }
+
 div.comps a[routerLink] {
   background-color: #35e000;
   font-size: 13px;
@@ -359,14 +377,19 @@ div.comps a[routerLink] {
   border: solid 3px #259e00;
   border-radius: 3px;
   font-style: normal;
+  margin-bottom: -3px;
+  margin-top: -3px;
 }
+
 div.comps a[routerLink]:hover {
   background-color: darkcyan;
 }
+
 div.comps a[routerLink]:after {
   content: " [int]";
-  color:#259e00;
+  color: #259e00;
 }
+
 div.comps a {
   margin-bottom: 2px;
 }

@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { Http } from "@angular/http";
-import { Observable } from "rxjs/Observable";
+import {Injectable} from "@angular/core";
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs/Observable";
 import "rxjs/Rx";
 import "rxjs/add/operator/map";
 
@@ -13,14 +13,15 @@ import "rxjs/add/operator/map";
 export class SpotifyService {
   static BASE_URL: string = "https://api.spotify.com/v1";
 
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {
+  }
 
-  query(URL: string, params?: Array<string>): Observable<any[]> {
+  query(URL: string, params?: Array<string>): Observable<any> {
     let queryURL: string = `${SpotifyService.BASE_URL}${URL}`;
     if (params) {
       queryURL = `${queryURL}?${params.join("&")}`;
     }
-    return this.http.request(queryURL).map((res: any) => res.json());
+    return this.http.get(queryURL);
   }
 
   search(query: string, type: string): Observable<any[]> {
@@ -28,7 +29,7 @@ export class SpotifyService {
   }
 
   searchTrack(query: string): Observable<any[]> {
-    return this.search(query, "track").map(function(res: any) {
+    return this.search(query, "track").map(function (res: any) {
       return res.tracks.items;
     });
   }
@@ -46,6 +47,6 @@ export class SpotifyService {
   }
 }
 
-export var SPOTIFY_PROVIDERS: Array<any> = [
-  { provide: SpotifyService, useClass: SpotifyService }
+export const SPOTIFY_PROVIDERS: Array<any> = [
+  {provide: SpotifyService, useClass: SpotifyService}
 ];

@@ -6,7 +6,7 @@ export * from "./MessagesService";
 export * from "./ThreadsService";
 export * from "./UserService";
 
-export var servicesInjectables: Array<any> = [
+export const servicesInjectables: Array<any> = [
   messagesServiceInjectables,
   threadsServiceInjectables,
   userServiceInjectables

@@ -14,4 +14,4 @@ export class FromNowPipe {
   }
 }
 
-export var fromNowPipeInjectables: Array<any> = [FromNowPipe];
+export const fromNowPipeInjectables: Array<any> = [FromNowPipe];

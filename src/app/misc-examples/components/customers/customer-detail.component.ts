@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 import {ActivatedRoute, Params} from "@angular/router";
-import {DataService} from "./services/data.service";
+import {CustomersDataService} from "./services/data.service";
 import {Customer} from "./services/customer.model";
 
 @Component({
@@ -29,7 +29,7 @@ import {Customer} from "./services/customer.model";
 export class CustomerDetailComponent {
   customer: Customer;
 
-  constructor(private route: ActivatedRoute, public dataService: DataService) {
+  constructor(private route: ActivatedRoute, public dataService: CustomersDataService) {
   }
 
   ngOnInit() {
@@ -37,9 +37,7 @@ export class CustomerDetailComponent {
       let id = parseInt(params["id"], 10);
       this.dataService
         .getCustomers()
-        .map(customers => {
-          return customers.find(c => c.id === id);
-        })
+        .map((customers: Customer[]) => customers.find(c => c.id === id))
         .subscribe(customer => (this.customer = customer));
     });
   }

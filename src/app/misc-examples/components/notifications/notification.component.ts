@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output} from "@angular/core";
 
-declare var Notification;
+declare const Notification;
 
 @Component({
   selector: "push-notification",

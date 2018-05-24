@@ -1,5 +1,6 @@
 import {Component} from "@angular/core";
-import {MrTestyServiceOne, MrTestyServiceTwo} from "./services/more-services";
+import {MrTestyServiceOne, MrTestyServiceTwo} from "./services/more-services.service";
+import {RubbishService} from "./services/some-service";
 
 @Component({
   selector: "misc-app",
@@ -21,7 +22,7 @@ import {MrTestyServiceOne, MrTestyServiceTwo} from "./services/more-services";
   `
 })
 export class DepInjectionApp {
-  /*
+  /**
    Multiple versions of the same injectable are possible.
    Because this service is injected via a lazy-loaded module it creates a new instance of the injectable,
    even though it's already been injected in the /app.component.ts
@@ -34,6 +35,6 @@ export class DepInjectionApp {
       it's accessible here as ngModules use the root injector, which means it's available app wide
    */
 
-  constructor(private ts1: MrTestyServiceOne, private ts2: MrTestyServiceTwo) {
+  constructor(private ts1: MrTestyServiceOne, private ts2: MrTestyServiceTwo, rubbishSerivce:RubbishService) {
   }
 }

@@ -3,10 +3,13 @@
   height: 20px;
 }
 
-.nav.active {
-  color: white;
-  background-color: darkblue;
+a.nav {
   cursor: pointer;
+}
+
+a.nav.active {
+  background-color: lightgrey;
+  cursor: default;
 }
 
 thead td {

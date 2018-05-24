@@ -48,7 +48,7 @@ export class FormNineComponent {
 
   addPayOff(event) {
     event.preventDefault(); // ensure this button doesn't try to submit the form
-    var emptyPayOff = { amount: null, date: null, final: false };
+    const emptyPayOff = { amount: null, date: null, final: false };
 
     // add pay off to both the model and to form controls because
     // I don't think Angular has any way to do this automagically yet

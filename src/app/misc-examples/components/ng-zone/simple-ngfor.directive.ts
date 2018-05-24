@@ -46,7 +46,7 @@ export class SimpleNgFor implements DoCheck {
     const minLen = Math.min(oldLen, newLen);
 
     // update existing rows
-    for (var i = 0; i < minLen; i++) {
+    for (let i = 0; i < minLen; i++) {
       const row = this.simpleNgForOf[i];
       const viewRef = <EmbeddedViewRef<SimpleNgForRow>>this._viewContainer.get(
         i
@@ -55,7 +55,7 @@ export class SimpleNgFor implements DoCheck {
     }
 
     // add missing rows
-    for (var i = oldLen; i < newLen; i++) {
+    for (let i = oldLen; i < newLen; i++) {
       const row = this.simpleNgForOf[i];
       this._viewContainer.createEmbeddedView(
         this._template,
@@ -64,7 +64,7 @@ export class SimpleNgFor implements DoCheck {
     }
 
     // remove superfluous rows
-    for (var i = oldLen - 1; i >= newLen; i--) {
+    for (let i = oldLen - 1; i >= newLen; i--) {
       this._viewContainer.remove(i);
     }
   }

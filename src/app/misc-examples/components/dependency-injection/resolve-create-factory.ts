@@ -1,5 +1,5 @@
-import {Component, ElementRef, Inject, InjectionToken, ReflectiveInjector, ViewChild} from "@angular/core";
-import {ApiService, ViewPortService} from "./services/more-services";
+import {Component, ElementRef, Inject, InjectionToken, Injector, ViewChild} from "@angular/core";
+import {ApiService, ViewPortService} from "./services/more-services.service";
 
 const SOME_TOKEN = new InjectionToken<string>(`SomeToken`);
 
@@ -37,12 +37,12 @@ export class DiSampleApp2 {
   }
 
   useInjectors(): void {
-    let injector: any = ReflectiveInjector.resolveAndCreate([
+    let injector: any = Injector.create([
       {
         provide: SOME_TOKEN,
         useValue: "Im a InjectionToken, which you are manually injecting"
       },
-      ViewPortService,
+      {provide: ViewPortService, useClass: ViewPortService, deps: []},
       {
         provide: "OtherSizeService",
         useFactory: (viewport: any, token: string) => {

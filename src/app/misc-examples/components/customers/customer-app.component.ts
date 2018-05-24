@@ -1,12 +1,12 @@
 import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Customer} from "./services/customer.model";
-import {DataService} from "./services/data.service";
+import {CustomersDataService} from "./services/data.service";
 import {Sorter} from "./services/sorter.service";
 
 @Component({
   selector: "customers-component",
-  templateUrl: "customers.tmpl.html",
+  templateUrl: "customer-app.html",
   styleUrls: ["./customers.css"]
 })
 export class CustomersComponent implements OnInit {
@@ -15,7 +15,7 @@ export class CustomersComponent implements OnInit {
   customers: Customer[];
   filteredCustomers: Customer[];
 
-  constructor(public dataService: DataService,
+  constructor(public dataService: CustomersDataService,
               private router: Router,
               private route: ActivatedRoute,
               public sorter: Sorter) {
@@ -28,10 +28,7 @@ export class CustomersComponent implements OnInit {
     this.filteredCustomers = this.customers = [];
     this.dataService
       .getCustomers()
-      .subscribe(
-        (customers: Customer[]) =>
-          (this.customers = this.filteredCustomers = customers)
-      );
+      .subscribe((customers: Customer[]) => this.customers = this.filteredCustomers = customers);
   }
 
   changeDisplayMode(type) {

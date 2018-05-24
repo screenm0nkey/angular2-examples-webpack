@@ -71,4 +71,4 @@ export class ThreadsService {
   }
 }
 
-export var threadsServiceInjectables: Array<any> = [ThreadsService];
+export const threadsServiceInjectables: Array<any> = [ThreadsService];

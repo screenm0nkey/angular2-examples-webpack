@@ -45,7 +45,7 @@ export class MrTestyServiceOne {
   constructor() {
     console.log(
       `%cCreated an instance of MrTestyServiceOne ${++MrTestyServiceOne.counter}`,
-      "color:violet"
+      "color:gold"
     );
   }
 }
@@ -57,7 +57,7 @@ export class MrTestyServiceTwo {
   constructor() {
     console.log(
       `%cCreated an instance of MrTestyServiceTwo ${++MrTestyServiceTwo.counter}`,
-      "color:deeppink"
+      "color:yellow"
     );
   }
 }

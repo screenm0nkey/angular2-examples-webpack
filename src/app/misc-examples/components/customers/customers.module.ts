@@ -1,12 +1,12 @@
 import {NgModule} from "@angular/core";
 import {SharedModule} from "../../../shared/shared.module";
-import {CustomersComponent} from "./customers.main.component";
+import {CustomersComponent} from "./customer-app.component";
 import {CustomerDetailComponent} from "./customer-detail.component";
 import {FilterTextComponent} from "./filter-textbox.component";
 import {CapitalizePipe} from "./services/capitalize.pipe";
 import {Sorter} from "./services/sorter.service";
 import {SortByDirective} from "./directives/sortby.directive";
-import {DataService} from "./services/data.service";
+import {CustomersDataService} from "./services/data.service";
 import {XLargeDirective} from "./directives/x-large.directive";
 
 @NgModule({
@@ -19,7 +19,7 @@ import {XLargeDirective} from "./directives/x-large.directive";
     SortByDirective,
     XLargeDirective
   ],
-  providers: [DataService, Sorter]
+  providers: [CustomersDataService, Sorter]
 })
 export class CustomersModule {
 }

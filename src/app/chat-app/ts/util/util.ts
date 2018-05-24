@@ -1,3 +1,3 @@
 import { fromNowPipeInjectables } from "./FromNowPipe";
 
-export var utilInjectables: Array<any> = [fromNowPipeInjectables];
+export const utilInjectables: Array<any> = [fromNowPipeInjectables];

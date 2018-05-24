@@ -1,5 +1,8 @@
 import {Component, Input} from "@angular/core";
 
+/**
+ * Parent
+ */
 @Component({
   selector: "inject-parent-component",
   template: `
@@ -16,23 +19,27 @@ import {Component, Input} from "@angular/core";
     <inject-child-component [text]="text"></inject-child-component>
   `
 })
-export class InjectParentComponent {
+export class ParentComponent {
   text: string = "A message for the child component";
   name: string = "I'm the parent component";
 }
 
+
+/**
+ * Child
+ */
 @Component({
   selector: "inject-child-component",
   template: `
     <div style="border:solid 2px green;">
       <h6 style="margin:0">I'm the child.</h6>
-      {{text}} <br>
-      {{parent.name}}
+      <strong>[@Input]</strong> {{text}} <br>
+      <strong>[property on parent]</strong> {{parent.name}}
     </div>`
 })
-export class InjectChildComponent {
+export class ChildComponent {
   @Input() text;
 
-  constructor(private parent: InjectParentComponent) {
+  constructor(private parent: ParentComponent) {
   }
 }

@@ -4,9 +4,9 @@ import {DepInjectionApp} from "./main";
 import {InjectComponent} from "./injecting-token";
 import {DiSampleApp} from "./resolve-create-service";
 import {ParamService, RubbishService} from "./services/some-service";
-import {ApiService, ViewPortService} from "./services/more-services";
+import {ApiService, ViewPortService} from "./services/more-services.service";
 import {DiSampleApp2} from "./resolve-create-factory";
-import {InjectChildComponent, InjectParentComponent} from "./inject-parent-component";
+import {ChildComponent, ParentComponent} from "./inject-parent-component";
 
 // if we provide services in the module they will be globally available
 // as all modules use the root injector.
@@ -19,8 +19,8 @@ import {InjectChildComponent, InjectParentComponent} from "./inject-parent-compo
     InjectComponent,
     DiSampleApp,
     DiSampleApp2,
-    InjectParentComponent,
-    InjectChildComponent
+    ParentComponent,
+    ChildComponent
   ],
   providers: [
     RubbishService,

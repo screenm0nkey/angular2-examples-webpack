@@ -2,7 +2,7 @@ const webpack = require("webpack");
 const path = require("path");
 const webpackMerge = require("webpack-merge");
 
-const excluded = [/node_modules/, /ms-components/];
+const excluded = [/node_modules/, /ms-components/, /backup-files/];
 
 // Webpack Config
 const webpackConfig = {

@@ -23,6 +23,6 @@ export class AuthService {
   }
 }
 
-export var AUTH_PROVIDERS: Array<any> = [
+export const AUTH_PROVIDERS: Array<any> = [
   { provide: AuthService, useClass: AuthService }
 ];

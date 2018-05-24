@@ -26,7 +26,8 @@
       "node_modules",
       "typings",
       "ms-components",
-      "www"
+      "www",
+      "backup-files"
     ],
     "paths": {
       "@angular/*": ["node_modules/@angular/*"],
@@ -50,7 +51,8 @@
     "dist",
     "typings",
     "ms-components",
-    "www"
+    "www",
+    "backup-files"
   ],
   "awesomeTypescriptLoaderOptions": {
     "forkChecker": true,

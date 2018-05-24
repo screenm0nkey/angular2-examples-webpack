@@ -1,8 +1,8 @@
-import {AfterViewInit, Component, ElementRef, Injectable, ReflectiveInjector, ViewChild} from "@angular/core";
+import {AfterViewInit, Component, ElementRef, Injectable, ViewChild, Injector} from "@angular/core";
 import {ParamService} from "./services/some-service";
 
 @Injectable()
-class MyService {
+class MyService{
   getValue(): string {
     return (
       Math.round(Math.random() * 10) + " I'm a value from an injected service"
@@ -14,7 +14,8 @@ class MyService {
   selector: "resolve-create-service",
   template: `
     <p class="file">misc-examples/components/dependency-injection/resolve-create-service.ts</p>
-    <h4>Manually Injecting a Service using <code>ReflectiveInjector.resolveAndCreate([MyService])</code></h4>
+    <h4>Manually Injecting a Service using <code>Injector.create([&#123;provide: MyService, useClass: MyService, deps: []&#125;])</code></h4>
+    
     <p class="strong">Notice in the code, since we’re using our own injector, we didn’t have to add MyService to the
       NgModule's "providers" list.</p>
     <p>
@@ -28,12 +29,12 @@ class MyService {
 })
 export class DiSampleApp implements AfterViewInit {
   @ViewChild("reffy") el: ElementRef;
-  injector: ReflectiveInjector;
+  injector: Injector;
   myService: MyService;
 
   constructor(public ps: ParamService) {
     // Notice that since we’re using our own injector, we didn’t have to add MyService to the NgModule providers list.
-    this.injector = ReflectiveInjector.resolveAndCreate([MyService]);
+    this.injector = Injector.create([{provide: MyService, useClass: MyService, deps: []}]);
     this.myService = this.injector.get(MyService);
   }
 

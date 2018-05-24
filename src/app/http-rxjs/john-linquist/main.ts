@@ -3,11 +3,11 @@ import { Component } from "@angular/core";
 @Component({
   selector: "app-component",
   template: `
+    <div class="comps">
         <john-linquist-wiki></john-linquist-wiki>
-        <hr>
         <star-wars></star-wars>
-        <hr>
         <forkjoin-app></forkjoin-app>
+    </div>
     `
 })
 export class JohnLinquistExamples {}

@@ -16,4 +16,4 @@ export class UserService {
   }
 }
 
-export var userServiceInjectables: Array<any> = [UserService];
+export const userServiceInjectables: Array<any> = [UserService];

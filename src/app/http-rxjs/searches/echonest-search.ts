@@ -7,26 +7,32 @@ import {
   Input,
   ViewEncapsulation
 } from "@angular/core";
-import { Http, Response } from "@angular/http";
+import { HttpClient } from "@angular/common/http";
 import * as Rx from "rxjs/Rx";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/switchMap";
 import "rxjs/add/operator/debounceTime";
 import "rxjs/add/operator/do";
 
+type Response = {
+    feed : {
+      entry : any
+    }
+}
+
 @Injectable()
 export class Echonest {
   url: string;
   format: string;
 
-  constructor(public http: Http) {}
+  constructor(public http: HttpClient) {}
 
   songSearch(name) {
     name = name.toLocaleLowerCase();
     let url = "http://localhost:1970/uk/rss/topsongs/limit=100/json";
     return this.http
       .get(url)
-      .map((res: Response) => res.json())
+      .map((res: Response) => res)
       .map(data => {
         return data.feed.entry
           .map((ent, x) => {

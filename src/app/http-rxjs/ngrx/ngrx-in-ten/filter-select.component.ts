@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from "@angular/core";
+import {Component, EventEmitter, Output} from "@angular/core";
 
 @Component({
   selector: "filter-select",
@@ -12,11 +12,11 @@ import { Component, EventEmitter, Output } from "@angular/core";
       </div>
     `
 })
-export class FilterSelect {
+export class FilterSelectComponent {
   public filters = [
-    { friendly: "All", action: "SHOW_ALL" },
-    { friendly: "Attending", action: "SHOW_ATTENDING" },
-    { friendly: "Guests", action: "SHOW_WITH_GUESTS" }
+    {friendly: "All", action: "SHOW_ALL"},
+    {friendly: "Attending", action: "SHOW_ATTENDING"},
+    {friendly: "Guests", action: "SHOW_WITH_GUESTS"}
   ];
   @Output() updateFilter: EventEmitter<string> = new EventEmitter<string>();
 }

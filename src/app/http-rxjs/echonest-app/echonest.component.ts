@@ -6,7 +6,6 @@ import { Observable } from "rxjs";
 @Component({
   selector: "echonest-app",
   providers: [
-    // provide(RequestOptions, {useClass: MyOptions})
     EchonestService
   ],
   template: `

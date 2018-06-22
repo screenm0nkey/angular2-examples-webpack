@@ -1,12 +1,4 @@
 import { Component } from "@angular/core";
-import { BaseRequestOptions } from "@angular/http";
-
-// these query strings will be added everywhere. note I've removed
-// provide(RequestOptions, {useClass: MyOptions}) as it's stopping some examples working
-class MyOptions extends BaseRequestOptions {
-  url: string = "format=json"; // this is added to all http requests as a query string
-  body: string = JSON.stringify({ name: "Ryan" }); // this doesn't seem to work
-}
 
 @Component({
   selector: "app-component",

@@ -1,6 +1,6 @@
-import { Component } from "@angular/core";
-import { Observable } from "rxjs/Rx";
-import { Jsonp } from "@angular/http";
+import {Component} from "@angular/core";
+import {Observable} from "rxjs/Rx";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: "auto-wiki-search",
@@ -25,7 +25,7 @@ export class AutoSearch {
   term$: Observable<any>;
   results$: Observable<any>;
 
-  constructor(public jsonp: Jsonp) {
+  constructor(public http: HttpClient) {
     this.text = `Beginning fish, firmament give have make years. Divide you're. Fill light, him firmament cattle face 
             Lights tree forth subdue beginning every, give signs itself likeness second whose there years abundantly 
             the, given can't together yielding midst was place that fruitful meat. And night. Kind spirit won't meat 
@@ -49,13 +49,9 @@ export class AutoSearch {
       .debounceTime(250)
       .filter(() => this.search)
       .switchMap(term =>
-        this.jsonp.get(
-          `https://en.wikipedia.org/w/api.php?callback=JSONP_CALLBACK&action=opensearch&format=json&search=${
-            term
-          }`
-        )
+        this.http.get(`https://en.wikipedia.org/w/api.php?callback=JSONP_CALLBACK&action=opensearch&format=json&search=${term}`)
       )
-      .map(res => res.json()[1]);
+      .map(res => res[1]);
   }
 
   searchWiki() {

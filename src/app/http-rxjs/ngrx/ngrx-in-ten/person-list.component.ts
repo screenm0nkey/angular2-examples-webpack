@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import {Component, EventEmitter, Input, Output} from "@angular/core";
 
 @Component({
   selector: "person-list",
@@ -17,7 +17,7 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
       </ul>
     `
 })
-export class PersonList {
+export class PersonListComponent {
   @Input() people;
   @Output() addGuest = new EventEmitter();
   @Output() removeGuest = new EventEmitter();

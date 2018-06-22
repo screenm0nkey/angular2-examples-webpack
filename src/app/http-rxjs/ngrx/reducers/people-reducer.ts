@@ -1,24 +1,6 @@
-import { Action, ActionReducer } from "@ngrx/store";
+import {MyAction} from "./clock-reducer";
 
-export const filter = (state = person => person, action: Action) => {
-  switch (action.type) {
-    case "SHOW_ATTENDING":
-      return person => person.attending;
-    case "SHOW_ALL":
-      return person => person;
-    case "SHOW_WITH_GUESTS":
-      return person => person.guests;
-    default:
-      return state;
-  }
-};
-
-// Action only has payload and type properties
-interface NickAction extends Action {
-  id: number;
-}
-
-export const people = (state = [], action: Action) => {
+export const people = (state = [], action: MyAction) => {
   switch (action.type) {
     case "ADD_PERSON":
       action.id = Math.round(Math.random() * 100000);

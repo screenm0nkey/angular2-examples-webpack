@@ -24,9 +24,9 @@
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-2.2.1.tgz#0e7154acc5127c583b4b52c59eac45d672c29da4"
 
-"@angular/http@~2.2.1":
+"@angular/common/http@~2.2.1":
   version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@angular/http/-/http-2.2.1.tgz#1626884a6c5f0cc602ce9d81e7420fcc02db3353"
+  resolved "https://registry.yarnpkg.com/@angular/common/http/-/http-2.2.1.tgz#1626884a6c5f0cc602ce9d81e7420fcc02db3353"
 
 "@angular/platform-browser-dynamic@~2.2.1":
   version "2.2.1"

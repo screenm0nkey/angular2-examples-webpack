@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from "@angular/core";
+import {Component, EventEmitter, Output} from "@angular/core";
 
 @Component({
   selector: "person-input",
@@ -7,7 +7,7 @@ import { Component, EventEmitter, Output } from "@angular/core";
       <button (click)="add(personName)">Add Person</button>
     `
 })
-export class PersonInput {
+export class PersonInputComponent {
   @Output() addPerson = new EventEmitter();
 
   add(personInput: HTMLInputElement) {

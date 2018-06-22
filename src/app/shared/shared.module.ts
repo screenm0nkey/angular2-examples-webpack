@@ -1,8 +1,7 @@
 import {ModuleWithProviders, NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {RouterModule} from "@angular/router";
-import {JsonpModule} from "@angular/http";
-import {HttpClientModule} from "@angular/common/http";
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 /**
  FormsModule gives us template driven directives such as:
@@ -32,7 +31,7 @@ import {
     ReactiveFormsModule,
     RouterModule,
     HttpClientModule,
-    JsonpModule
+    HttpClientJsonpModule
   ],
   /**
    *  this provider will be available app wide and will instantiated more than once when used on a lazy-loaded module.

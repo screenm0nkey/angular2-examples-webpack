@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Jsonp } from "@angular/http";
+import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
 
 const CALLBACK = "callback=JSONP_CALLBACK";
@@ -13,14 +13,14 @@ const PROP_URL = "iiprop=url";
 
 @Injectable()
 export class WikipediaService {
-  constructor(private _jsonp: Jsonp) {}
+  constructor(private http: HttpClient) {}
 
   search = (term: string): Observable<string> => {
-    let json$: Observable<string> = this._jsonp
+    let json$: Observable<string> = this.http
       .get(`${API}&${ALLIMAGES}&aifrom=${term}`)
       .map(res => {
-        console.log(3, res.json());
-        return res.json();
+        console.log(3, res);
+        return <string>res;
       });
     return json$;
   };
@@ -32,12 +32,12 @@ export class WikipediaService {
   };
 
   getImageInfoFromTitle = title => {
-    let json$ = this._jsonp.get(
+    let json$ = this.http.get(
       `${API}&${IMAGEINFO}&${PROP_URL}&titles=${title}`
     );
     return json$.map(res => {
-      console.log(5, res.json());
-      return res.json();
+      console.log(5, res);
+      return res;
     });
   };
 

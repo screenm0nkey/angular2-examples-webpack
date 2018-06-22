@@ -15,7 +15,7 @@ interface Person {
   vehicles: number[];
 }
 
-interface Vechicle {
+interface Vehicle {
   image: string;
   image_path: string;
   name: string;
@@ -83,7 +83,6 @@ export class ForkJoinComponent implements OnInit {
    */
   ngOnInit() {
     this.getPeopleWhoHaveVehicles();
-
     this.vehicles$ = this.peopleClick$
       .switchMap(this.getVehiclesFromPerson.bind(this))
       .share();
@@ -98,13 +97,13 @@ export class ForkJoinComponent implements OnInit {
     this.people$.subscribe(res => console.log(1333, res));
   }
 
-  getVechicle(vehicleUrl: string): Observable<Vechicle> {
-    return this.http.get(vehicleUrl)
+  getVechicle(vehicleUrl: string): Observable<Vehicle> {
+    return <Observable<Vehicle>>this.http.get(vehicleUrl)
   }
 
   // forkJoin runs all observable sequences in parallel and collect their last elements.
   // forkJoin is similar to $q.all(). The person.vehicles.map below returns multiple requests
-  getVehiclesFromPerson(person: Person) {
+  getVehiclesFromPerson(person: Person):Observable<Vehicle[]>  {
     return Observable.forkJoin(
       person.vehicles.map((id: any) => this.getVechicle(id))
     );

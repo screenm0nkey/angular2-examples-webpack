@@ -5,7 +5,7 @@ import {
   EventEmitter,
   OnInit
 } from "@angular/core";
-import { Headers, Http } from "@angular/http";
+import { HttpHeaders, HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
 import * as Rx from "rxjs/Rx";
 import "rxjs/add/operator/map";
@@ -51,7 +51,7 @@ export class Auth0Component {
   searchTerm: string = "";
   jsonny: JSON;
 
-  constructor(private _http: Http) {
+  constructor(private _http: HttpClient) {
     this.updates$
       .filter(text => typeof text === "string")
       .do(text => (this.searchTerm = text))
@@ -59,18 +59,16 @@ export class Auth0Component {
       .subscribe((results: JSON) => (this.jsonny = results));
   }
 
-  getJSON(text): Observable<JSON> {
+  getJSON(text): Observable<Object> {
     // this will be converted into the body of the post
     let formBody = "username=gonto&password=" + text;
-    let headers = new Headers();
+    let headers = new HttpHeaders();
     // this is a custom header and Express needs this configuration to make it work
     headers.append("Content-Type", "application/x-www-form-urlencoded");
     // Custom-FormNick is defined in express config in www/server
     headers.append("Custom-FormNick", "love-it");
     return this._http
-      .post("//localhost:1970/data", formBody, {
-        headers: headers
-      })
-      .map(res => res.json());
+      .post("//localhost:1970/data", formBody, {headers})
+      .map(res => res);
   }
 }

@@ -1,7 +1,7 @@
-import { Component, Injectable } from "@angular/core";
-import { Jsonp, URLSearchParams } from "@angular/http";
-import { Observable } from "rxjs/Observable";
-import { FormControl } from "@angular/forms";
+import {Component, Injectable} from "@angular/core";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Observable} from "rxjs/Observable";
+import {FormControl} from "@angular/forms";
 import "rxjs/add/operator/delay";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/toPromise";
@@ -11,19 +11,18 @@ import "rxjs/add/operator/switchMap";
 
 @Injectable()
 class WikipediaService {
-  constructor(private jsonp: Jsonp) {}
+  constructor(private http: HttpClient) {
+  }
 
   search(term: string): Promise<string[]> {
-    const search = new URLSearchParams();
-    search.set("action", "opensearch");
-    search.set("search", term);
-    search.set("format", "json");
-    return this.jsonp
-      .get("http://en.wikipedia.org/w/api.php?callback=JSONP_CALLBACK", {
-        search
-      })
+    const headers = new HttpHeaders();
+    headers.append("action", "opensearch");
+    headers.append("search", term);
+    headers.append("format", "json");
+    return this.http
+      .get("http://en.wikipedia.org/w/api.php?callback=JSONP_CALLBACK", {headers})
       .toPromise()
-      .then(request => request.json()[1]);
+      .then(request => request[1]);
   }
 }
 
@@ -54,7 +53,8 @@ class WikipediaService {
 export class JsonpWikipediaPromise {
   items: Array<string>;
 
-  constructor(private wikipediaService: WikipediaService) {}
+  constructor(private wikipediaService: WikipediaService) {
+  }
 
   search(term: string) {
     this.wikipediaService.search(term).then(items => (this.items = items));

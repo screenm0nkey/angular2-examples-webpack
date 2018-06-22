@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import { Http, Response } from "@angular/http";
-import { SearchResult } from "./youtube-result-class";
-import { Observable } from "rxjs/Observable";
+import {Injectable} from "@angular/core";
+import {HttpClient} from "@angular/common/http";
+import {SearchResult} from "./youtube-result-class";
+import {Observable} from "rxjs/Observable";
 import "rxjs/add/operator/map";
 
 @Injectable()
@@ -9,7 +9,7 @@ export class YoutubeService {
   BASE_URL: string = "https://www.googleapis.com/youtube/v3/search";
   API_TOKEN: string = "AIzaSyAJk1xUI72YYfBMgEc84gjHUX-k2AN6-B0";
 
-  constructor(private http: Http) {
+  constructor(private http: HttpClient) {
     console.log(this);
   }
 
@@ -35,12 +35,10 @@ export class YoutubeService {
 
     return this.http
       .get(queryUrl)
-      .map((res: Response) => res.json())
+      .map(res => res)
       .map((json: any) => {
         let arr = [];
-        json.items.forEach(item => {
-          arr.push(this.normaliseData(item));
-        });
+        json.items.forEach(item => arr.push(this.normaliseData(item)));
         return arr;
       });
   }

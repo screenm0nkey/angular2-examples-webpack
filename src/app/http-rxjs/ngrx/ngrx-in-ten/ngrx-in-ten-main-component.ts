@@ -1,12 +1,14 @@
-import { Component } from "@angular/core";
-import { Store } from "@ngrx/store";
-import { Observable } from "rxjs/Observable";
+import {Component} from "@angular/core";
+import {Store} from "@ngrx/store";
+import {Observable} from "rxjs/Observable";
 
 @Component({
-  selector: "app",
+  selector: "ngrx-in-ten",
   template: `
-      <h4>Party Planner</h4>
+  <p class="path">src/app/http-rxjs/ngrx/ngrx-in-ten/ngrx-in-ten-main-component.ts</p>
+      <h4>NgRx in Ten - Party Planner</h4>
       <a href="https://egghead.io/lessons/angular-2-ngrx-store-in-10-minutes" target="_blank">NgRx in Ten Minutes Egghead</a>
+      
       <filter-select (updateFilter)="updateFilter($event)"></filter-select>
       <person-input (addPerson)="addPerson($event)"></person-input>
       <person-list
@@ -18,7 +20,7 @@ import { Observable } from "rxjs/Observable";
       </person-list>
     `
 })
-export class NgRxInTenMinsComponent {
+export class NgrxInTenMainComponent {
   public people$: Observable<any>;
   private id = 0;
 
@@ -46,23 +48,23 @@ export class NgRxInTenMinsComponent {
     });
   }
 
-  addGuest({ id }) {
-    this._store.dispatch({ type: "ADD_GUESTS", payload: id });
+  addGuest({id}) {
+    this._store.dispatch({type: "ADD_GUESTS", payload: id});
   }
 
-  removeGuest({ id }) {
-    this._store.dispatch({ type: "REMOVE_GUESTS", payload: id });
+  removeGuest({id}) {
+    this._store.dispatch({type: "REMOVE_GUESTS", payload: id});
   }
 
-  removePerson({ id }) {
-    this._store.dispatch({ type: "REMOVE_PERSON", payload: id });
+  removePerson({id}) {
+    this._store.dispatch({type: "REMOVE_PERSON", payload: id});
   }
 
-  toggleAttending({ id }) {
-    this._store.dispatch({ type: "TOGGLE_ATTENDING", payload: id });
+  toggleAttending({id}) {
+    this._store.dispatch({type: "TOGGLE_ATTENDING", payload: id});
   }
 
   updateFilter(filter) {
-    this._store.dispatch({ type: filter });
+    this._store.dispatch({type: filter});
   }
 }

@@ -41,7 +41,7 @@ export class EchonestRepo {
 
     return this._http
       .get(EchonestRepo.url, {headers , params })
-      // .map((res: Response) => res.json())
+      // .map((res: Response) => res)
       .map((data: ITunesResponse) => data.feed.entry)
       .map(arr =>
         arr.map((item: any, i: number) => {

@@ -1,11 +1,11 @@
-import { Component, ElementRef, EventEmitter, OnInit } from "@angular/core";
+import {Component, ElementRef, EventEmitter, OnInit} from "@angular/core";
 import * as Rx from "rxjs/Rx";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/switchMap";
 import "rxjs/add/operator/debounceTime";
 import "rxjs/add/operator/do";
-import { SearchResult } from "./youtube-helpers/youtube-result-class";
-import { YoutubeService } from "./youtube-helpers/youtube-service";
+import {SearchResult} from "./youtube-helpers/youtube-result-class";
+import {YoutubeService} from "./youtube-helpers/youtube-service";
 
 let loadingGif: string = require("../../../images/loading.gif");
 
@@ -22,11 +22,16 @@ export class NgBookYoutubeSearch implements OnInit {
     console.log(this, ytService);
   }
 
+  isLongerThanOneChar(text: string) {
+    if (text.length <= 1) this.results.emit([]);
+    return text.length > 1;
+  }
+
   ngOnInit() {
     Rx.Observable.fromEvent(this.el.nativeElement, "keyup")
       .debounceTime(500)
       .map((e: any) => e.target.value)
-      .filter((text: string) => text.length > 1)
+      .filter(this.isLongerThanOneChar.bind(this))
       .do(() => this.loading.emit(true))
       .map((query: string) => this.ytService.search(query))
       .switch() // .map().switch() === switchMap()

@@ -3,6 +3,8 @@ import {Component} from "@angular/core";
 @Component({
   template: `
         <div class="comps">
+          <ngrx-stater-app></ngrx-stater-app>
+        
           <ngrx-clock-one></ngrx-clock-one>
           
           <ngrx-time-machine></ngrx-time-machine>

@@ -10,10 +10,10 @@ import { SpotifyModule } from "./spotify/spotify.module";
 //NGRX
 import { StoreModule } from "@ngrx/store";
 import { NgrxModule } from "./ngrx/ngrx.module";
-import { queue , peoplez, tick, people, filter, unit, clock} from "./ngrx/reducers/reducer.service";
-import { wordsReducer } from "./misc-examples/ngrx-starter";
+import { queue , peoplez, tick, people, filter, unit, clock, wordsReducer} from "./ngrx/reducers/reducer.service";
 import { UnitEffects } from "./ngrx/ngrx-queue/effects";
 import { EffectsModule } from "@ngrx/effects";
+import {WikiSearchService} from "./searches/wikipedia-search.service";
 
 @NgModule({
   imports: [
@@ -37,6 +37,7 @@ import { EffectsModule } from "@ngrx/effects";
     }),
     EffectsModule.forRoot([UnitEffects])
   ],
-  declarations: [MainHttpRxJs]
+  declarations: [MainHttpRxJs],
+  providers: [WikiSearchService]
 })
 export class HttpRxJsModule {}

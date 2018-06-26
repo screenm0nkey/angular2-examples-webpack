@@ -3,25 +3,18 @@ import { Component } from "@angular/core";
 @Component({
   selector: "app-component",
   template: `
+    <div class="comps">
         <wikipedia-super-search></wikipedia-super-search>
         <wikipedia-promise></wikipedia-promise>
         <wikipedia-observable></wikipedia-observable>
-        <hr>
-        <echonest-search></echonest-search>
-        <hr>
+        <echonest-search-component></echonest-search-component>
         <auth0-example></auth0-example>
-        <hr>
         <ngbook-youtube-example></ngbook-youtube-example>
-        <hr>
         <youtube-basic-example></youtube-basic-example>
-        <hr>
         <local-ref-search></local-ref-search>
-        <hr>
         <reddit-example></reddit-example>
-    `
+      </div>
+  `
 })
 export class HttpExamples {
-  constructor() {
-    console.log(this);
-  }
 }

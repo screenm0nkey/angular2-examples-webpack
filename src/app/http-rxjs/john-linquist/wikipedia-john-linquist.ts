@@ -1,9 +1,7 @@
 import {Component} from "@angular/core";
-import "rxjs/add/operator/map";
+import {map,scan,concatAll, mergeMap, mapTo} from 'rxjs/operators'
 import "rxjs/add/operator/do";
-import "rxjs/add/operator/concatAll";
 import "rxjs/add/operator/mergeMap";
-import "rxjs/add/operator/scan";
 import "rxjs/add/operator/filter";
 import "rxjs/add/operator/debounceTime";
 import "rxjs/add/operator/reduce";
@@ -16,49 +14,16 @@ import "rxjs/add/operator/switchMap";
 import "rxjs/add/operator/concat";
 import "rxjs/add/operator/takeUntil";
 import "rxjs/add/operator/race";
-import "rxjs/add/operator/mapTo";
 import "rxjs/add/observable/bindCallback";
 import "rxjs/add/observable/merge";
 import {Subject} from "rxjs/Subject";
-import {WikipediaService} from "../searches/wikipedia-search.service";
+import {WikiSearchService} from "../searches/wikipedia-search.service";
 import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: "john-linquist-wiki",
-  providers: [WikipediaService],
-  template: `
-    <style>
-      a {
-        display: inline-block
-      }
-
-      img {
-        height: 90px;
-        width: 90px;
-        border: 5px solid black;
-      }
-
-      img:hover {
-        width: 90px;
-        border: 5px solid gray;
-      }
-    </style>
-    <div>
-      <p class="path">/http-rxjs/john-linquist/wikipedia-john-linquist.ts</p>
-      <h4>John Linquist Wiki Image Search</h4>
-      <a href="http://plnkr.co/edit/NXT6JPgr7QoR4SEYva7N?p=preview" target="_blank">Original Plunk</a>
-
-      <input type="text" (input)="input$.next($event)">
-      <span style="color: red">{{(searchTerm$ | async)}}</span>
-
-      <h3>{{imageCount$ | async}} results</h3>
-      <div class="container">
-        <a *ngFor="let image of images$ | async" [href]="image.descriptionurl" [title]="image.title">
-          <img [src]="image.url" alt="">
-        </a>
-      </div>
-    </div>
-  `
+  providers: [WikiSearchService],
+  template: require("./wikipedia-john-linquist.html"),
 })
 export class JohnLinquistWikiSearch {
   input$ = new Subject().map((event: Event) => (<HTMLInputElement>event.target).value);
@@ -66,7 +31,7 @@ export class JohnLinquistWikiSearch {
   images$;
   imageCount$;
 
-  constructor(private wikipediaService: WikipediaService) {
+  constructor(private wikipediaService: WikiSearchService) {
     // hot observable
     const term$ = this.input$
       .distinctUntilChanged()

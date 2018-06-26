@@ -9,13 +9,15 @@ import {PersonListComponent} from "./ngrx-in-ten/person-list.component";
 import {PersonInputComponent} from "./ngrx-in-ten/person-input.component";
 import {FilterSelectComponent} from "./ngrx-in-ten/filter-select.component";
 import {NgrxQueueComponent} from "./ngrx-queue/app.component";
+import {NgRxStarterApp} from "./ngrx-starter";
 
 @NgModule({
   imports: [SharedModule],
   declarations: [
     NgrxMainComponent, NgRxClock1, NgrxTimeMachine, NgrxClockComponent,
     NgrxInTenMainComponent, PersonListComponent, PersonInputComponent, FilterSelectComponent,
-    NgrxQueueComponent
+    NgrxQueueComponent,
+    NgRxStarterApp
   ]
 })
 export class NgrxModule {

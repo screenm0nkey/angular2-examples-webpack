@@ -1,56 +1,43 @@
-import { Component, Injectable } from "@angular/core";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import { Observable } from "rxjs/Observable";
-import { FormControl } from "@angular/forms";
+import {Component} from "@angular/core";
+import {Observable} from "rxjs/Observable";
+import {FormControl} from "@angular/forms";
+import "rxjs/add/operator/delay";
 import "rxjs/add/operator/map";
+import "rxjs/add/operator/toPromise";
 import "rxjs/add/operator/debounceTime";
 import "rxjs/add/operator/distinctUntilChanged";
 import "rxjs/add/operator/switchMap";
+import {WikiSearchService} from "./wikipedia-search.service";
 
-@Injectable()
-class WikipediaService {
-  constructor(private http: HttpClient) {}
 
-  search(terms$: Observable<string>, debounceDuration = 400) {
-    return terms$
-      .debounceTime(debounceDuration)
-      .distinctUntilChanged()
-      .switchMap((term: string) => this.rawSearch(term));
-  }
-
-  rawSearch(term: string) {
-    const headers = new HttpHeaders();
-    headers.append("action", "opensearch");
-    headers.append("search", term);
-    headers.append("format", "json");
-    return this.http
-      .get("http://en.wikipedia.org/w/api.php?callback=JSONP_CALLBACK", {headers})
-      .map(request => request[1]);
-  }
-}
-
+// same as wikipedia-search-1.ts but built with observables
 @Component({
-  selector: "wikipedia-super-search",
-  providers: [WikipediaService],
+  selector: "wikipedia-observable",
+  // providers: [WikipediaService],
   template: `
     <div>
-      <hr>
-      <p class="path">/http-rxjs/searches/wikipedia-search-2.ts</p>
-      <h4>Using the formControl.valueChanges Observable and JSONP</h4>
-      Search <input type="text" [formControl]="term" placeholder="Wikipedia Search"/>
-      <ul>
-        <li *ngFor="let item of items$ | async">{{item}}</li>
-      </ul>
-      <hr>
+    <p class="path">app/http-rxjs/searches/wikipedia-search-2.ts</p>
+      <h4>Search using angular <strong>async filter</strong>, <strong>input.valueChanges</strong> and a loading icon</h4>
+      
+      <input type="text" [formControl]="term" placeholder="Wikipedia Search"/> 
+      <span *ngIf="loading" style="background-color: red">loading</span>
+      <ul><li *ngFor="let item of items | async">{{item}}</li></ul>
     </div>
   `
 })
-export class WikipediaSuperSearch {
-  items$: Observable<Array<string>>;
+export class WikipediaObservable {
+  items: Observable<Array<string>>;
   term = new FormControl();
-  valueChanges$: Observable<any> = this.term.valueChanges; //
+  loading: boolean = false;
 
-  constructor(private wikipediaService: WikipediaService) {
-    this.items$ = wikipediaService.search(this.valueChanges$, 350);
+  constructor(private wikiSearch: WikiSearchService) {
+    this.items = this.term.valueChanges
+      .do(() => (this.loading = true))
+      .debounceTime(400)
+      .distinctUntilChanged()
+      // you should always use switchMap when making http requests
+      .switchMap((sterm: string) => this.wikiSearch.defaultSearch(sterm))
+      .delay(1000) // add a delay to see the loading icon
+      .do(() => (this.loading = false));
   }
 }

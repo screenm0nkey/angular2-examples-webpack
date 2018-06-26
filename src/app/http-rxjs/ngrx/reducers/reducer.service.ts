@@ -5,4 +5,5 @@ export {queue} from "./queue-reducer";
 export {tick} from "./tick-reducer";
 export {unit} from "./unit-reducer";
 export {clock} from "./clock-reducer";
+export {wordsReducer} from "./words-reducer";
 

@@ -1,7 +1,7 @@
-import { Component } from "@angular/core";
-import { FormControl, FormGroup } from "@angular/forms";
+import {Component} from "@angular/core";
+import {FormControl, FormGroup} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
-import { Observable } from "rxjs/Observable";
+import {Observable} from "rxjs/Observable";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/switchMap";
 import "rxjs/add/operator/debounceTime";
@@ -34,23 +34,20 @@ export class RedditExample {
 
   constructor(private http: HttpClient) {
     let searchField = new FormControl();
-    this.searchForm = new FormGroup({ searchField });
+    this.searchForm = new FormGroup({searchField});
 
     this.results$ = searchField.valueChanges
       .debounceTime(500)
       .do(() => (this.loading = true))
-      .switchMap((val: string) => {
-        return this.searchRedditPics(val);
-      })
+      .switchMap((val: string) => this.searchRedditPics(val))
       .do(() => (this.loading = false));
 
     this.results$.subscribe(x => console.log(x));
   }
 
-  searchRedditPics(search: string) {
-    let baseUrl = "https://www.reddit.com/r/pics/search.json?resct_sr=on&q=";
+  searchRedditPics(search: string): Observable<any> {
     return this.http
-      .get(baseUrl + search)
+      .get(`https://www.reddit.com/r/pics/search.json?resct_sr=on&q=${search}`)
       .map(this.normaliseRedditData)
       .map((items: any[]) => items.filter((item: any) => item.url));
   }

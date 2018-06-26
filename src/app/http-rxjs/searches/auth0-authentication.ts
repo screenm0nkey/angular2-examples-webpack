@@ -1,12 +1,6 @@
-import {
-  Component,
-  Directive,
-  ElementRef,
-  EventEmitter,
-  OnInit
-} from "@angular/core";
-import { HttpHeaders, HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs/Observable";
+import {Component, Directive, ElementRef, EventEmitter, OnInit} from "@angular/core";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Observable} from "rxjs/Observable";
 import * as Rx from "rxjs/Rx";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/switchMap";
@@ -20,7 +14,8 @@ import "rxjs/add/operator/do";
 export class AutosearchAuth implements OnInit {
   results: EventEmitter<any> = new EventEmitter();
 
-  constructor(private elementRef: ElementRef) {}
+  constructor(private elementRef: ElementRef) {
+  }
 
   ngOnInit() {
     Rx.Observable.fromEvent(this.elementRef.nativeElement, "keyup")
@@ -34,27 +29,35 @@ export class AutosearchAuth implements OnInit {
 @Component({
   selector: "auth0-example",
   template: `
-        <div class="search-results">
+    <div class="search-results">
         <p class="path">/http-rxjs/searches/auth0-authentication.ts</p>
         <h4>POSTing form data with custom headers example</h4>
         <pre>headers.append('Content-Type', "application/x-www-form-urlencoded");</pre>
         <p>Type anything in the input. It's just posting the data.<br>You need to run the www/server for this to work)</p>
         
-        <input type="text" autosearch (results)="updates$.next($event)"><h3>{{searchTerm}}</h3>
+        <input 
+          type="text" 
+          autosearch 
+          (results)="updates$.next($event)">
+          
+        <h3>{{searchTerm}}</h3>
         
         <pre *ngIf="jsonny">{{jsonny | json}}</pre>
     </div>
     `
 })
-export class Auth0Component {
+export class Auth0Component implements OnInit {
   updates$: Rx.Subject<any> = new Rx.Subject<any>();
   searchTerm: string = "";
   jsonny: JSON;
 
   constructor(private _http: HttpClient) {
+  }
+
+  ngOnInit(){
     this.updates$
       .filter(text => typeof text === "string")
-      .do(text => (this.searchTerm = text))
+      .do(text => this.searchTerm = text)
       .switchMap(text => this.getJSON(text))
       .subscribe((results: JSON) => (this.jsonny = results));
   }

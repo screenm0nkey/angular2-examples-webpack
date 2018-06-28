@@ -1,10 +1,5 @@
-import {
-  AfterViewChecked,
-  AfterViewInit,
-  Component,
-  ViewChild
-} from "@angular/core";
-import { LoggerService } from "../logger.service";
+import {AfterViewChecked, AfterViewInit, Component, ViewChild} from "@angular/core";
+import {LoggerService} from "../logger.service";
 
 //////////////////
 @Component({
@@ -15,6 +10,7 @@ export class ChildViewComponent {
   hero = "Magneta";
 }
 
+
 //////////////////////
 @Component({
   selector: "after-view",
@@ -23,9 +19,9 @@ export class ChildViewComponent {
       <after-my-child></after-my-child>
     <div>-- child view ends --</div>
     
-    <h2 *ngIf="comment" class="comment">
+    <h4 *ngIf="comment" class="comment">
       {{comment}}
-    </h2>
+    </h4>
   `
 })
 export class AfterViewComponent implements AfterViewChecked, AfterViewInit {
@@ -36,7 +32,7 @@ export class AfterViewComponent implements AfterViewChecked, AfterViewInit {
   @ViewChild(ChildViewComponent) viewChild: ChildViewComponent;
 
   constructor(private _logger: LoggerService) {
-    this._logIt("AfterView constructor");
+    this._logIt("AfterViewComponent constructor");
   }
 
   ngAfterViewInit() {
@@ -67,7 +63,8 @@ export class AfterViewComponent implements AfterViewChecked, AfterViewInit {
 
   private _logIt(method: string) {
     let vc = this.viewChild;
-    let message = `${method}: "${vc ? vc.hero : "no"}" child view`;
-    console.log(message);
+    let message = `"${vc ? vc.hero : "no"}" child view`;
+    this._logger.log(method+message);
+    console.log('%c'+ method, 'color:deeppink', message);
   }
 }

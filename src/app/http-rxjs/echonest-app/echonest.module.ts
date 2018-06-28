@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { SharedModule } from "../../shared/shared.module";
-import { EchonestAppComponent } from "./echonest.component";
+import { EchonestAppComponent } from "./echonest-app.component";
 import { ArtistComponent } from "./artist.component";
 import { DropdownComponent } from "./dropdown.component";
 import { EchonestRepo } from "./echonest.repo";

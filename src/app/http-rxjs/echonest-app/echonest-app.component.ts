@@ -9,37 +9,41 @@ import { Observable } from "rxjs";
     EchonestService
   ],
   template: `
+    <div class="comps clearfix">
+      <section>
         <p class="path">/http-rxjs/echonest-app/echonest-app.ts</p>
         <h4>A not particularly well written RxJs Mini App</h4>
         <a routerLink="/misc/change-detection/">See change-detection example</a>
         <br>
         <span class="red">Need to run the www/server for this</span>
         <header>
-            Top 100 
-            <dropdown-component 
-                [results]="[5,15,30,50,100]" 
-                (select)="service.fetchArtists($event)">
-            </dropdown-component>
+          Top 100
+          <dropdown-component
+            [results]="[5,15,30,50,100]"
+            (select)="service.fetchArtists($event)">
+          </dropdown-component>
         </header>
-        <div style="clear: both">
+        <div class="clearfix">
           <div style="float: left">
-            <artist-component 
-              *ngFor="let artist of artists$ | async" 
+            <artist-component
+              *ngFor="let artist of artists$ | async"
               [type]="'all'"
-              [artist]="artist" 
+              [artist]="artist"
               (select)="service.onArtistSelected($event)">
             </artist-component>
           </div>
           <div style="float: right">
-            <artist-component 
-              *ngFor="let artist of favourites$ | async" 
+            <artist-component
+              *ngFor="let artist of favourites$ | async"
               [type]="'favourite'"
               [artist]="artist"
               (select)="service.onArtistSelected($event)">
-             </artist-component>
+            </artist-component>
           </div>
         </div>
-    `
+      </section>
+    </div>
+   `
 })
 export class EchonestAppComponent {
   private artists$: Observable<Artist[]>;

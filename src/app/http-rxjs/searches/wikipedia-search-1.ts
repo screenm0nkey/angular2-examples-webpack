@@ -32,7 +32,7 @@ export class JsonpWikipediaPromise {
   }
 
   search(term: string) {
-    return this.wikiSearch.defaultSearch(term)
+    return this.wikiSearch.search(term)
       .toPromise()
       .then(request => this.items = request[1]);
   }

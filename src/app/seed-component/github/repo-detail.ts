@@ -1,18 +1,24 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Params } from "@angular/router";
-import { Github } from "../shared/github";
+import { GithubHttp } from "./github.http";
 
 @Component({
   selector: "repo-detail",
-  styleUrls: ["./repo-detail.css"],
-  templateUrl: "./repo-detail.html"
+  styleUrls:  ["./repo-detail.css"],
+  template: `
+    <section class="repo-details">
+      <p class="path">seed-component/github/repo-detail.ts</p>
+      <h4>{{ repoDetails.full_name }}</h4>
+      <pre>this.repoDetails = {{ repoDetails | json }}</pre>
+    </section>
+  `
 })
 export class RepoDetail implements OnInit {
   private org: string;
   private repo: string;
   public repoDetails: any = {};
 
-  constructor(public github: Github, private route: ActivatedRoute) {}
+  constructor(public github: GithubHttp, private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {

@@ -1,11 +1,12 @@
-<h4><strong>Template driven forms</strong> - ngForm, ngModel, ngModelGroup</h4>
+<p class="path">forms/components/form-2.ts</p>
+<h4>Template driven forms - <code>ngForm, ngModel, ngModelGroup</code></h4>
 
 
-<pre style="padding: 0;"><h5 style="margin: 0;">
-        &lt;form #form="ngForm" (ngSubmit)="logForm(form.value, n)" #n="ngNickForm" formnick&gt;
-            &lt;input type="text" name="lastname" [(ngModel)]="lastname" #last_name="ngModel"&gt;
-        &lt;/form&gt;
-    </h5></pre>
+<code style="padding: 0;">
+  &lt;form #form="ngForm" (ngSubmit)="logForm(form.value, n)" #n="ngNickForm" formnick&gt;
+  &lt;input type="text" name="lastname" [(ngModel)]="lastname" #last_name="ngModel"&gt;
+  &lt;/form&gt;
+</code>
 
 <pre>
 Now things get interesting: because we imported FormsModule, that makes NgForm available to our view.
@@ -21,17 +22,20 @@ behind the scenes. There are two important pieces of functionality that NgForm g
 
 If ngModel is used within a form tag, either the name attribute must be set or
 the form control must be defined as 'standalone' in ngModelOptions.
-Example 1: &lt;input [(ngModel)]="person.firstName" name="first"&gt;
+<code>
+  Example 1: &lt;input [(ngModel)]="person.firstName" name="first"&gt;
 Example 2: &lt;input [(ngModel)]="person.firstName" [ngModelOptions]="&#123;standalone: true&#125;"&gt;
+</code>
 
 
 Every form control that is registered with ngModel will automatically show up in form.value
-
-&lt;input type="text" name="lastname" ngModel&gt; // registering it on the form
-&lt;input type="text" name="lastname" [ngModel]="lastname"&gt; // one-way binding
-&lt;input type="text" name="lastname" [(ngModel)]="lastname"&gt; // two-way binding
-
 </pre>
+
+<code>
+  &lt;input type="text" name="lastname" ngModel&gt; // registering it on the form
+  &lt;input type="text" name="lastname" [ngModel]="lastname"&gt; // one-way binding
+  &lt;input type="text" name="lastname" [(ngModel)]="lastname"&gt; // two-way binding
+</code>
 
 
 <a href="http://blog.thoughtram.io/angular/2016/03/21/template-driven-forms-in-angular-2.html">

@@ -5,7 +5,7 @@ import { ArtistComponent } from "./components/ArtistComponent";
 import { TrackComponent } from "./components/TrackComponent";
 import { AlbumComponent } from "./components/AlbumComponent";
 import { SpotifyDemoApp } from "./spotify.component";
-import { SPOTIFY_PROVIDERS } from "./SpotifyService";
+import { SPOTIFY_PROVIDERS } from "./spotify.service";
 import { SpotifyRoutingModule } from "./spotify.routes.module";
 
 @NgModule({

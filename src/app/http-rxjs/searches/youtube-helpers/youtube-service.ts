@@ -6,7 +6,7 @@ import "rxjs/add/operator/map";
 
 @Injectable()
 export class YoutubeService {
-  BASE_URL: string = "https://www.googleapis.com/youtube/v3/search";
+  BASE_URL: string = "https://www.googleapis.com/youtube/v3/searchForImages";
   API_TOKEN: string = "AIzaSyAJk1xUI72YYfBMgEc84gjHUX-k2AN6-B0";
 
   constructor(private http: HttpClient) {

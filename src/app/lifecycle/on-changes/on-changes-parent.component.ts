@@ -9,13 +9,14 @@ class Hero {
   selector: "on-changes-parent",
   styles: [".parent {background: Lavender;}"],
   template: `
+     <div class="comps">
         <div class="parent">
-          <h2>{{title}}</h2>
-          <pre>
-            Notice that updating hero doesn't cause the onChange to be invoked. this is because
-            we are changing a property on the @input object and not the object reference.
-            so we would need to introduce Immutability for this to work.
-          </pre>
+          <h4>{{title}}</h4>
+          <p>
+            Notice that updating hero's name doesn't cause the onChange to be invoked but changing the power does. 
+            <strong>this is because we are changing a property on the @input object and not the object reference.
+            so we would need to introduce Immutability for this to work.</strong>
+          </p>
           <table>
             <tr><td>Power: </td><td><input [(ngModel)]="power"></td></tr>
             <tr><td>Hero.name: </td><td><input [(ngModel)]="hero.name"></td></tr>
@@ -23,8 +24,8 @@ class Hero {
           <p><button (click)="reset()">Reset Log</button></p>
         
           <on-changes [hero]="hero" [power]="power"></on-changes>
-          <!--<do-check [hero]="hero" [power]="power"></do-check>-->iv
         </div>
+      </div>
     `
 })
 export class OnChangesParentComponent {

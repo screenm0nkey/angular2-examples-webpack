@@ -4,16 +4,19 @@ import { LoggerService } from "../logger.service";
 @Component({
   selector: "after-view-parent",
   template: `
+    <div class="comps">
       <div class="parent">
-        <h2>AfterView</h2>
+        <p class="path">src/app/lifecycle/after-view/after-view-parent.component.ts</p>
+        <h4>AfterViewChecked, AfterViewInit</h4>
         <a href="https://angular.io/docs/ts/latest/guide/lifecycle-hooks.html#!#afterview" target="_blank">Docs</a>
     
         <after-view *ngIf="show"></after-view>
     
-        <h4>-- AfterView Logs --</h4>
+        <h5>-- AfterView Logs --</h5>
         <p><button (click)="reset()">Reset</button></p>
         <div *ngFor="let msg of logs">{{msg}}</div>
-      </div>
+      </div>  
+    </div>
   `,
   styles: [".parent {background: burlywood}"],
   providers: [LoggerService]

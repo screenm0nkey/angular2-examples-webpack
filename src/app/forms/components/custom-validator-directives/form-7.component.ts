@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import {Component} from "@angular/core";
 
 @Component({
   selector: "form-five",
@@ -9,7 +9,7 @@ import { Component } from "@angular/core";
     <div class="comps">
       <div class="custom">
       <p class="file">forms/components/custom-validator-directives/form-7.component.ts</p>
-        <h4>Custom validateMyCounter directives for template driven forms</h4>
+      <h4>Custom validateMyCounter directives for template driven forms</h4>
 
       <p>
       <a href="https://hackernoon.com/what-is-forwardref-in-angular-and-why-we-need-it-6ecefb417d48" target="_blank">
@@ -41,4 +41,5 @@ import { Component } from "@angular/core";
     </div>
   `
 })
-export class FormSevenComponent {}
+export class FormSevenComponent {
+}

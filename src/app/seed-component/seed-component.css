@@ -1,3 +1,8 @@
+div.comps {
+  position: relative;
+  top:47px;
+}
+
 ul {
   border: solid 2px blue;
   float: left;
@@ -13,4 +18,8 @@ ul, li {
 
 ul li a::after {
   content: '>>';
+}
+
+main {
+  border-top:3px solid green;
 }

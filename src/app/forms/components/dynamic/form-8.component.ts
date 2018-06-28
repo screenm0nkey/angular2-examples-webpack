@@ -7,7 +7,8 @@ import { DropDownQuestion } from "./dropdown-question";
   selector: "survey-demo",
   template: `
         <div>
-            <h1>Survey using Dynamic Form</h1>
+          <p class="path">src/app/forms/components/dynamic/form-8.component.ts</p>
+            <h4>Survey using Dynamic Form</h4>
             <survey [model]="questionModel"></survey></div>
         `
 })

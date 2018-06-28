@@ -41,7 +41,7 @@ export class WikiSearchService {
   };
 
 
-  defaultSearch = (term: string): Observable<any> => {
+  search = (term: string): Observable<any> => {
     return this.get(WIKIPEDIA_URL, {
       responseType: 'text',
       params: {
@@ -53,7 +53,7 @@ export class WikiSearchService {
     })
   };
 
-  search = (term: string): Observable<JSON> => {
+  searchForImages = (term: string): Observable<JSON> => {
     return this.get(`${API}&${ALLIMAGES}&aifrom=${term}`, {});
   };
 

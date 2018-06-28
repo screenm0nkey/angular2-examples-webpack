@@ -1,3 +1,9 @@
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 body {
   background-color: #37373c;
 }
@@ -7,6 +13,10 @@ body * {
   font-family: "Avenir";
   line-height: normal;
   font-size: 13px;
+}
+
+router-outlet {
+  display: none;
 }
 
 li {
@@ -47,7 +57,6 @@ a:after {
   display: table;
 }
 
-Øspeed
 a.block {
   display: table;
 }
@@ -222,6 +231,10 @@ nav {
   z-index: 99;
 }
 
+nav.sub {
+  position: relative;
+}
+
 nav.main {
   white-space: nowrap;
   overflow: hidden;
@@ -240,16 +253,16 @@ nav.main {
 }
 
 nav > a {
-  max-width: 188px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 13px;
-  display: inline-block;
-  margin-right: 10px;
-  background-color: #333;
-  color: white;
-  padding: 2px 10px;
-  text-decoration: none;
+  max-width: 188px !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  font-size: 13px !important;
+  display: inline-block !important;
+  margin-right: 10px !important;
+  background-color: #333 !important;
+  color: white !important;
+  padding: 2px 10px !important;
+  text-decoration: none !important;
 }
 
 nav > a:visited {
@@ -258,27 +271,28 @@ nav > a:visited {
 
 nav .router-link-active,
 nav .active {
-  background-color: red;
+  background-color: red  !important;
 }
 
 nav .router-link-active:hover,
 nav .active:hover {
-  background-color: red;
+  background-color: red !important;
 }
 
 nav a:hover {
-  background-color: #666;
+  background-color: #666 !important;
 }
 
 code {
-  font-family: Courier;
-  background-color: cornsilk;
+  font-family: "Courier New";
+  background-color: black;
   padding: 0 2px;
-  color: black;
+  color: #f5cf00;
   display: table;
   white-space: pre-line;
   margin: 0 0 10px 0;
-  font-size: 15px;
+  font-size: 13px;
+  font-weight: normal;
 }
 
 pre {

@@ -4,10 +4,11 @@ import { TodoModel } from "../services/todo-model";
 
 @Component({
   selector: "new-todo",
-  template: `<div>
-    <form (submit)="onSubmit()">
-        <input type="text" [(ngModel)]="todoModel.title" name="title" placeholder="New item">
-    </form>
+  template: `
+    <div>
+      <form (submit)="onSubmit()">
+          <input type="text" [(ngModel)]="todoModel.title" name="title" placeholder="New item">
+      </form>
     </div>`
 })
 export class TodoInput {

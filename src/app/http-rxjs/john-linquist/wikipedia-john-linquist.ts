@@ -62,7 +62,7 @@ export class JohnLinquistWikiSearch {
 
   wikipediaImageSearch(term): Observable<any[]> {
     return this.wikipediaService
-      .search(term) //3
+      .searchForImages(term) //3
       .map(this.wikipediaService.getImageTitles) //4
       .concatAll()
       .mergeMap(this.wikipediaService.getImageInfoFromTitle) //5

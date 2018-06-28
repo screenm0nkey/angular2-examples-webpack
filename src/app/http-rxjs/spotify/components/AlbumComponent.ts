@@ -7,7 +7,7 @@ import { Location } from "@angular/common";
 /*
  * Services
  */
-import { SpotifyService } from "../SpotifyService";
+import { SpotifyService } from "../spotify.service";
 
 @Component({
   selector: "album$",

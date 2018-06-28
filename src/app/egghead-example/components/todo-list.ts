@@ -6,7 +6,7 @@ import { TodoService } from "../services/todo-service";
   template: `
     <div>
         <ul>
-            <li *ngFor="let todo of todoService.todos | started : status | search : term">
+            <li *ngFor="let todo of todoService.todos | startedPipe : status | searchPipe : term">
                 <todo-item-renderer
                     [todo]="todo"
                     (toggle)="todoService.toggleTodo($event)">

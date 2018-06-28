@@ -1,10 +1,11 @@
-import { Component, Input } from "@angular/core";
+import {Component, Input} from "@angular/core";
 
 @Component({
   selector: "my-component",
   template: `
-  LifeCycle Hooks {{message}} <br>
-  <ng-content></ng-content>
+    <p><code>@Input() message</code> LifeCycle Hooks <strong>{{message}}</strong></p>
+    <br><br>
+    <ng-content></ng-content>
   `
 })
 export class MyComponent {
@@ -27,7 +28,7 @@ export class MyComponent {
   }
 
   ngOnChanges() {
-    console.log("%cOnChanges", "color:lime");
+    console.log("%c\n\nOnChanges", "color:lime");
   }
 
   // this is used for <ng-content>
@@ -36,7 +37,7 @@ export class MyComponent {
   }
 
   ngAfterContentChecked() {
-    console.log("%cAfterContentChecked", "color:blue");
+    console.log("%cAfterContentChecked", "color:turquoise");
   }
 
   // this is used for viewChild /viewChildren
@@ -45,24 +46,34 @@ export class MyComponent {
   }
 
   ngAfterViewChecked() {
-    console.log("%cAfterViewChecked", "color:green");
+    console.log("%cAfterViewChecked", "color:orangered");
   }
 }
 
 @Component({
   selector: "my-app",
   template: `
-  <p class="path">/lifecycle/basic-overview/index.ts</p>
-  <h4>Basic <pre>Check the Console for LifeCycle Hooks</pre></h4>
-  <pre>great article on writing custom logic when things change 
-  <a href="http://teropa.info/blog/2016/03/06/writing-an-angular-2-template-directive.html">Writing A Structural Directive in Angular 2</a></pre>
-  <input [(ngModel)]="appMessage">
-  
-  <my-component [message]="appMessage">
-    This is content is transposed using &lt;ng-content&gt;: {{appMessage}}
-  </my-component>
+    <div class="comps">
+      <section>
+        <p class="path">/lifecycle/basic-overview/index.ts</p>
+        <h4>Basic <strong>Check the Console for LifeCycle Hooks</strong></h4>
+      
+        <p>
+          <a href="http://teropa.info/blog/2016/03/06/writing-an-angular-2-template-directive.html" target="_blank">
+            Great article on writing custom logic when things change. (Writing A Structural Directive in Angular 2)
+          </a>
+        </p>
+        
+        <input [(ngModel)]="appMessage">
+      
+        <my-component [message]="appMessage">
+          This is content is transposed using &lt;ng-content&gt;: <strong>{{appMessage}}</strong>
+        </my-component>
+      </section>
+    </div>
+    
   `
 })
 export class BasicExample {
-  appMessage = "hello";
+  appMessage = "Type message here";
 }

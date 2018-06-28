@@ -10,7 +10,7 @@ import "rxjs/add/operator/switchMap";
 import {WikiSearchService} from "./wikipedia-search.service";
 
 
-// same as wikipedia-search-1.ts but built with observables
+// same as wikipedia-searchForImages-1.ts but built with observables
 @Component({
   selector: "wikipedia-observable",
   // providers: [WikipediaService],
@@ -36,7 +36,7 @@ export class WikipediaObservable {
       .debounceTime(400)
       .distinctUntilChanged()
       // you should always use switchMap when making http requests
-      .switchMap((sterm: string) => this.wikiSearch.defaultSearch(sterm))
+      .switchMap((sterm: string) => this.wikiSearch.search(sterm))
       .delay(1000) // add a delay to see the loading icon
       .do(() => (this.loading = false));
   }

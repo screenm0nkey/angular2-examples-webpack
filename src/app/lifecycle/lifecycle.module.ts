@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { LifeCycleRoutingModule } from "./lifecycle.routes.module";
 import { SharedModule } from "../shared/shared.module";
 import { LifeCycleMainComponent } from "./lifecycle.component";
-import { BasicExample, MyComponent } from "./basic-overview/index";
+import { BasicExample, MyComponent } from "./basic-overview";
 import { PeekABooParentComponent } from "./peekaboo/peekaboo-parent.component";
 import { PeekABooComponent } from "./peekaboo/peekaboo.component";
 import { SpyParentComponent } from "./spy/spy.component";

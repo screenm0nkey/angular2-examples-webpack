@@ -3,7 +3,7 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 import "rxjs/add/operator/map";
 
 @Injectable()
-export class Github {
+export class GithubHttp {
   constructor(private http: HttpClient) {}
 
   getOrg(org: string) : any {

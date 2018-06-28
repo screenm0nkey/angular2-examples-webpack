@@ -8,7 +8,7 @@ import { Observable } from "rxjs/Rx";
 /*
  * Services
  */
-import { SpotifyService } from "../SpotifyService";
+import { SpotifyService } from "../spotify.service";
 
 @Component({
   selector: "artist$",

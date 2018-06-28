@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { LifeCycleMainComponent } from "./lifecycle.component";
-import { BasicExample } from "./basic-overview/index";
+import { BasicExample } from "./basic-overview";
 import { PeekABooParentComponent } from "./peekaboo/peekaboo-parent.component";
 import { SpyParentComponent } from "./spy/spy.component";
 import { OnChangesParentComponent } from "./on-changes/on-changes-parent.component";

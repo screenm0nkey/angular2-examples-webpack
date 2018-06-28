@@ -29,7 +29,7 @@ const appRoutes: Routes = [
   },
   {
     path: "seed",
-    loadChildren: "./seed/seed.module.ts#SeedModule"
+    loadChildren: "./seed-component/seed.module.ts#SeedModule"
   },
   {
     path: "lifecycle",

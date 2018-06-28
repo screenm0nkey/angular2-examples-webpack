@@ -6,28 +6,32 @@ import { LoggerService } from "../logger.service";
   styles: [".parent {background: moccasin}"],
   providers: [LoggerService],
   template: `
-      <div class="parent">
-        <h4>Peek-A-Boo</h4>
-    
-        <button (click)="toggleChild()">
-          {{hasChild ? 'Destroy' : 'Create'}} PeekABooComponent
-        </button>
-        <button (click)="updateHero()" [hidden]="!hasChild">Update Hero</button>
-        <button (click)="triggerChangeDetection()" [hidden]="!hasChild">Trigger change dectection()</button>
-    
-        <peek-a-boo *ngIf="hasChild" [name]="heroName">
-        </peek-a-boo>
-    
-        <h4>-- Lifecycle Hook Log --</h4>
-        <p>
-            The logging in the view seems to be a little out of sync with the contents of the log. 
-            see the console. This is because we explicity call this._logger.tick(), which triggers
-            a timeout, which in turn triggers the change detection to run. 
-        </p>
-        <p>
-          Every time the change detection runs these lifecycle methods are run;
-          DoCheck(), AfterContentChecked(), AfterViewChecked(), which are added to the logger output.</p>
-        <div *ngFor="let msg of hookLog">{{msg}}</div>
+      <div class="comps">
+        <div class="parent">
+        <p class="path">src/app/lifecycle/peekaboo/peekaboo-parent.component.ts</p>
+          <h4>Peek-A-Boo</h4>
+      
+          <button (click)="toggleChild()">
+            {{hasChild ? 'Destroy' : 'Create'}} PeekABooComponent
+          </button>
+          <button (click)="updateHero()" [hidden]="!hasChild">Update Hero</button>
+          <button (click)="triggerChangeDetection()" [hidden]="!hasChild">Trigger change dectection()</button>
+      
+          <peek-a-boo *ngIf="hasChild" [name]="heroName"></peek-a-boo>
+      
+          <p>
+              The logging in the view seems to be a little out of sync with the contents of the log. 
+              see the console. This is because we explicitly call this._logger.tick(), which triggers
+              a timeout, which in turn triggers the change detection to run. 
+          </p>
+          <p>
+            <strong>Every time the change detection runs these lifecycle methods are run;</strong>
+            <code>DoCheck(), AfterContentChecked(), AfterViewChecked()</code>, which are added to the logger output.
+          </p>
+            
+          <h6>-- Lifecycle Hook Log --</h6>
+          <div *ngFor="let msg of hookLog">{{msg}}</div>
+        </div>
       </div>
   `
 })

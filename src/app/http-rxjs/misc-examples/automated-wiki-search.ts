@@ -1,6 +1,7 @@
 import {Component} from "@angular/core";
 import {Observable} from "rxjs/Rx";
 import {HttpClient} from "@angular/common/http";
+import {WikiSearchService} from "../searches/wikipedia-search.service";
 
 @Component({
   selector: "auto-wiki-search",
@@ -12,9 +13,9 @@ import {HttpClient} from "@angular/common/http";
       <button (click)="searchWiki()" *ngIf="!search">Start Http wiki search</button>
       <button (click)="searchWiki()" *ngIf="search">Stop Http wiki search</button>
       <input type="text" [value]="term$ | async">
-      <ul *ngFor="let result of results$ | async">
-          {{result}}
-      </ul> 
+      <ul>
+        <li *ngFor="let result of results$ | async">{{result}}</li> 
+      </ul>
     </div>
 `
 })
@@ -25,7 +26,7 @@ export class AutoSearch {
   term$: Observable<any>;
   results$: Observable<any>;
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, private wiki:WikiSearchService) {
     this.text = `Beginning fish, firmament give have make years. Divide you're. Fill light, him firmament cattle face 
             Lights tree forth subdue beginning every, give signs itself likeness second whose there years abundantly 
             the, given can't together yielding midst was place that fruitful meat. And night. Kind spirit won't meat 
@@ -48,9 +49,7 @@ export class AutoSearch {
     this.results$ = this.term$
       .debounceTime(250)
       .filter(() => this.search)
-      .switchMap(term =>
-        this.http.get(`https://en.wikipedia.org/w/api.php?callback=JSONP_CALLBACK&action=opensearch&format=json&search=${term}`)
-      )
+      .switchMap(term => this.wiki.search(term))
       .map(res => res[1]);
   }
 

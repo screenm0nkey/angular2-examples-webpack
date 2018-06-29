@@ -12,11 +12,12 @@ import { AuthService } from "./services/AuthService";
       <a [routerLink]="['./protected']" routerLinkActive="active" *ngIf="isLoggedIn()">Protected</a>
     </nav>
 
-    <div id="container">
-      <h4>Router Sample</h4>
-      <login></login>
-      <hr>
-      <router-outlet></router-outlet>
+    <div id="container" class="special">
+      <h4>Routing Example</h4>
+      <login-component></login-component>
+      <section style="border:solid 5px lime">
+        <router-outlet></router-outlet>
+      </section>
     </div>
   </div>
   `

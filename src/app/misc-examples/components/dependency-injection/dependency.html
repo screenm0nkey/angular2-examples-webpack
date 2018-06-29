@@ -31,26 +31,55 @@
     </a>
   </p>
 
-  <p class="strong">Every component comes with its own injector</p>
+  <ul>
 
-  <p class="strong">Providers are flattened, meaning that, if there are multiple providers with the same token, the
-    last one wins. Use <code>InjectionToken</code> to void this.</p>
+    <li>Every component comes with its own injector</li>
 
-  <p class="strong">When using a string token we HAVE to use @Inject, i.e. <code>@Inject('whateverToken') public
-    some3</code></p>
+    <li>Providers are flattened, meaning that, if there are multiple providers with the same token, the
+      last one wins. Use <code>InjectionToken</code> to avoid overwriting provider.
+    </li>
 
-  <p class="strong">
-    multi providers <code>multi: true</code> basically extend the thing that is being injected for a particular token.
-    Angular uses this mechanism to provide pluggable hooks i.e extending NG_VALIDATORS
+    <li>When using a string token we HAVE to use <code>@Inject</code>, i.e. <code>@Inject('whateverToken') public
+      some3</code></li>
+
+    <li>
+      multi providers <code>multi: true</code> basically extend the thing that is being injected for a particular token.
+      Angular uses this mechanism to provide pluggable hooks i.e extending <code>NG_VALIDATORS</code>
+    </li>
+
+    <li>If we provide services in a module they will be globally available as all modules use the root
+      injector. This is NOT the case with Lazy loaded modules. See <a routerLink="./modules"
+                                                                      routerLinkActive="active">Modules</a> for more
+      info
+    </li>
+    <li>
+      When a module is loaded at application launch, its providers (services) have application-wide scope. They are
+      available for injection throughout the application, which is why you should try load the module lazily if you can.
+      <strong>Angular gives a lazy-loaded module its own child injector. The module's providers are visible only within
+        the component tree created with this injector. If you must load the module eagerly, when the application starts,
+        provide the service in a component instead i.e. <code>@Component(&#123;providers : [...&#125;)</code> </strong>
+      <a
+        href="https://stackoverflow.com/questions/39828246/angular-2-how-to-isolate-service-provider-in-a-feature-module"
+        target="_blank">Taken from here</a>
+    </li>
+
+    <li>If the injector doesn't have a provider for the requested token, it delegates
+      the request to its parent injector, where the process repeats until there are
+      no more injectors.
+    </li>
+
+    <li>A new injector has no providers. Each component has it's own injector or child-injector</li>
+
+  </ul>
+
+  <p class="well">
+    Take a look at the RubbishService. It is defined in the DIModule but is used in both the <a
+    routerLink="./tricks" routerLinkActive="active">Tricks</a> and <a routerLink="./tips"
+                                                                      routerLinkActive="active">Tips</a>
+    Components but it is not declared in their modules.
   </p>
 
   <p>
-    <strong>If we provide services in a module they will be globally available as all modules use the root
-      injector. This is NOT the case with Lazy loaded modules.</strong>.
-    <i>Take a look at the RubbishService. It is defined in the DIModule but is used in both the <a
-      routerLink="./tricks" routerLinkActive="active">Tricks</a> and <a routerLink="./tips" routerLinkActive="active">Tips</a>
-      Components but it is not declared in their modules.
-    </i><br>
     Essentially lazy loading could trigger
     certain bugs related to services overriding each other in the global context
     that are hard to reproduce due to accidental overwrites of injectables.
@@ -58,25 +87,9 @@
     This context will contain the service, but this service will not be visible to the rest of the application.
   </p>
 
-  <p>
-    <strong>When a module is loaded at application launch, its @NgModule.providers have application-wide scope.
-      They are available for injection throughout the application.</strong> Load the module lazily if you can.
-    Angular gives a lazy-loaded module its own child injector. The module's providers are visible only
-    within the component tree created with this injector. <strong>If you must load the module eagerly, when the
-    application starts, provide the service in a component instead</strong> <a
-    href="https://stackoverflow.com/questions/39828246/angular-2-how-to-isolate-service-provider-in-a-feature-module"
-    target="_blank">Taken
-    from here</a>
-  </p>
 
-  <p><strong>If the injector doesn't have a provider for the requested token, it delegates
-    the request to its parent injector, where the process repeats until there are
-    no more injectors.</strong></p>
-
-  <p>A new injector has no providers. <strong>Each component has it's own injector or child-injector</strong>.</p>
-
+  <p class="title">The DI in Angular 2 basically consists of three things:</p>
   <ul>
-    The DI in Angular 2 basically consists of three things:<br>
     <li>
       <span class="red">Injector</span> - The injector object that exposes APIs to allow us to create instances of
       dependencies
@@ -93,21 +106,23 @@
     </li>
   </ul>
 
-  <span>We get a service from a dependency injector by giving it a token. <br>In the example below Angular asks the
+  <p class="code-example">We get a service from a dependency injector by giving it a token. <br>In the example below
+    Angular asks the
     injector for
     the service associated
     with the token called "LoggerService" and assigns the returned value
-    to the logger parameter.</span>
+    to the logger parameter.</p>
 
   <code>constructor(logger: LoggerService) &#123;
     logger.logInfo('Creating HeroBiosComponent');
     &#125;</code>
 
 
-  <span>The simple "class" Provider is the most typical by far. <br> The example below takes a token and a
-    definition object. The token is usually a class but it doesn't have to be.</span>
+  <p class="code-example">The simple "class" Provider is the most typical by far. <br> The example below takes a token and a
+    definition object. The token is usually a class but it doesn't have to be.</p>
   <code>&#123; provide: LoggerService, useClass: DateLoggerService &#125;</code>
-  <p class="strong">The “LoggerService” is the token, the “DateLoggerService” is the Definition Object or Factory</p>
+
+  <p>The “LoggerService” is the token, the “DateLoggerService” is the Definition Object or Factory</p>
 
 
   <p><strong>Set the "useValue" property to a fixed value that the provider can return as the dependency

@@ -1,11 +1,12 @@
-import {Component, Output} from "@angular/core";
+import {Component} from "@angular/core";
 
 @Component({
   selector: "misc-app",
   template: `
     <div class="miscellaneous">
       <nav>
-        <a routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Dependency Injection and Modules</a>
+        <a routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Dependency Injection</a>
+        <a routerLink="./modules" routerLinkActive="active">Modules</a>
         <a routerLink="./change-detection" routerLinkActive="active">Change Detection</a>
         <a routerLink="./emitter" routerLinkActive="active">Content Projection (transclusion)</a>
         <a routerLink="./input-binding" routerLinkActive="active">Component Communication</a>
@@ -25,7 +26,15 @@ import {Component, Output} from "@angular/core";
            title="ExpressionChangedAfterItHasBeenCheckedError">ExpressionChangedAfterItHasBeenCheckedError</a>
         <a routerLink="./customers" routerLinkActive="active">Mini Customers App</a>
       </nav>
+     
       <div id="container">
+        <ul class="todos">
+          <li>Add example for http transformer</li>
+          <li>Spotify example is broken</li>
+          <li>add dependency example for @Host, @SkipSelf and @Optional</li>
+          <li>animations are deprecated in routing example</li>
+        </ul>
+     
         <router-outlet></router-outlet>
       </div>
     </div>

@@ -8,7 +8,7 @@ import {CustomerDetailComponent, CustomersComponent} from "./components/customer
 import {FocusInput} from "./components/focusing-input/focusing.module";
 import {HostBindingComponent} from "./components/host-binding/hosting.module";
 import {DirectivesLinquistMain} from "./components/directives-linquist/directives.module";
-import {DepInjectionApp} from "./components/dependency-injection/main.module";
+import {DepInjectionComponent} from "./components/dependency-injection/main.module";
 import {MainInputBindingApp} from "./components/input-binding/inputbinding.module";
 import {MultiTransclusion} from "./components/multi-content/multicontent.module";
 import {NgStyleMainComponent} from "./components/ng-style/ngstyle.module";
@@ -19,6 +19,7 @@ import {TricksMainComponent} from "./components/tricks/tricks.module";
 import {TipsMainComponent} from "./components/tips/tips.module";
 import {TemplateComponent} from "./components/template-directives/templates.module";
 import {ChangeAfterComponent} from "./components/changed-after-check/main.module";
+import {ModulesComponent} from "./components/dependency-injection/modules";
 
 export const formsRoutes: Routes = [
   {
@@ -28,7 +29,8 @@ export const formsRoutes: Routes = [
       {
         path: "",
         children: [
-          {path: "", component: DepInjectionApp},
+          {path: "", component: DepInjectionComponent},
+          {path: "modules", component: ModulesComponent},
           {path: "chickens", component: MainComponent},
           {path: "change-after-check", component: ChangeAfterComponent},
           {path: "change-detection", component: ChangeDetectionMain},

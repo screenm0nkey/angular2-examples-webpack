@@ -8,7 +8,7 @@ import { SelectivePreloadingStrategy } from "../../selective-preloading-strategy
 @Component({
   selector: "contact",
   template: `
-    <h1>Preloaded Modules</h1>
+    <h5>Preloaded Modules</h5>
     <ul>
       <li *ngFor="let module of modules">{{ module }}</li>
     </ul>

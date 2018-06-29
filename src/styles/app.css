@@ -19,8 +19,11 @@ router-outlet {
   display: none;
 }
 
+
+
 li {
-  margin-bottom: 5px;
+  margin-bottom: 15px;
+  line-height: 14px;
 }
 
 p code, h4 > code, li > code {
@@ -31,7 +34,8 @@ p code, h4 > code, li > code {
 p {
   font-family: "Avenir";
   padding-right: 20px;
-  margin-bottom: 7px;
+  margin-bottom: 15px;
+  line-height: 14px;
 }
 
 a {
@@ -50,7 +54,7 @@ a:after {
 }
 
 .links > a, nav > a {
-  box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.58);
+  /*box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.58);*/
   position: relative;
   left: 3px;
   margin-right: 10px;
@@ -135,7 +139,19 @@ h5:before {
 }
 
 ul {
-  margin-left: 20px;
+  margin: 0 0 0 20px;
+  padding: 0;
+}
+
+ul.todos {
+  background-color: #07bd07;
+  padding: 3px;
+  border: solid 3px #259e00;
+  margin-right: 10px;
+}
+ul.todos li {
+  font-size: 10px;
+  margin: 0px;
 }
 
 ul.bullets {
@@ -153,18 +169,10 @@ ul.bullets li {
   display: table;
 }
 
-strong, p.strong {
-  color: black;
-  background: orange;
-  padding: 0 4px;
-  font-weight: bold;
-}
+
+
 i {
   background-color: #ffffa4;
-}
-
-p.strong {
-  display: table;
 }
 
 button {
@@ -210,19 +218,6 @@ hr:before {
   left: 0;
 }
 
-p.file, p.path {
-  font-family: "Courier";
-  background: #827e9c;
-  color: white;
-  margin: 0;
-  border-radius: 2px;
-  padding: 0 3px;
-  display: inline-block;
-  top: -2px;
-  position: relative;
-  font-size: 10px;
-}
-
 nav {
   background-color: #466c94;
   padding: 7px 3px 3px;
@@ -238,18 +233,6 @@ nav.sub {
 nav.main {
   white-space: nowrap;
   overflow: hidden;
-}
-
-.miscellaneous nav {
-  background-color: #AFC7D2;
-  margin-top: 65px;
-  margin-bottom: 15px;
-  display: inline-block;
-  float: left;
-  min-width: 150px;
-  max-width: 200px;
-  margin-right: 10px;
-  position: fixed;
 }
 
 nav > a {
@@ -271,7 +254,7 @@ nav > a:visited {
 
 nav .router-link-active,
 nav .active {
-  background-color: red  !important;
+  background-color: red !important;
 }
 
 nav .router-link-active:hover,
@@ -289,10 +272,14 @@ code {
   padding: 0 2px;
   color: #f5cf00;
   display: table;
-  white-space: pre-line;
+  white-space: pre-wrap;
   margin: 0 0 10px 0;
   font-size: 13px;
   font-weight: normal;
+}
+p code, li code {
+  white-space: normal;
+  display: inline-block;
 }
 
 pre {
@@ -349,17 +336,35 @@ section.main {
   border-color: red;
 }
 
-.miscellaneous {
-  display: flex;
-  height: 100%;
-}
-
 #container {
   flex: 1;
   /*overflow: hidden;*/
   padding-left: 5px;
   margin-top: 65px;
   margin-left: 200px;
+}
+
+#container.special {
+  background-color: #cacaca;
+  border: solid 5px #c1c1c1;
+  margin-right: 10px;
+}
+
+.miscellaneous {
+  display: flex;
+  height: 100%;
+}
+
+.miscellaneous nav {
+  background-color: #AFC7D2;
+  margin-top: 65px;
+  margin-bottom: 15px;
+  display: inline-block;
+  float: left;
+  min-width: 150px;
+  max-width: 200px;
+  margin-right: 10px;
+  position: fixed;
 }
 
 div.comps > * {
@@ -385,14 +390,15 @@ div.comp:after {
 
 div.comps a[routerLink] {
   background-color: #35e000;
-  font-size: 13px;
   color: #000000;
   box-shadow: none;
-  border: solid 3px #259e00;
+  border: solid 2px #259e00;
   border-radius: 3px;
   font-style: normal;
   margin-bottom: -3px;
   margin-top: -3px;
+  padding: 0 2px;
+  font-size: 11px;
 }
 
 div.comps a[routerLink]:hover {
@@ -407,6 +413,52 @@ div.comps a[routerLink]:after {
 div.comps a {
   margin-bottom: 2px;
 }
+
+p.title, span.title {
+  font-weight: bold;
+  font-size: 15px;
+  display: block;
+  color: #3a3a3a;
+}
+
+p.code-example {
+  font-style: italic;
+  margin-bottom: 0px;
+  font-size: 11px;
+}
+
+strong, p.strong {
+  color: #fffae8;
+  background: #bf7c00;
+  padding: 0;
+  font-weight: normal;
+  font-size: 12px;
+}
+
+p.strong {
+  display: table;
+}
+
+p.file, p.path {
+  font-family: "Courier";
+  background: #827e9c;
+  color: white;
+  margin: 0;
+  border-radius: 2px;
+  padding: 0 3px;
+  display: inline-block;
+  top: -2px;
+  position: relative;
+  font-size: 10px;
+}
+
+p.well {
+  background-color: #a5a5a5;
+  border-radius: 5px;
+  border: solid 3px #949494;
+  padding: 5px;
+}
+
 
 
 

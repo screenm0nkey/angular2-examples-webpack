@@ -8,13 +8,13 @@ const SOME_TOKEN = new InjectionToken<string>(`SomeToken`);
   template: `
     <p class="file">misc-examples/components/dependency-injection/resolve-create-factory.ts</p>
     <h4>Manually Injecting a Factory with Dependencies</h4>
-    <pre>&#123;
+    <code>&#123;
     provide: 'OtherSizeService',
     useFactory: (viewport: any) => &#123;
       return viewport.determineService();
     &#125;,
     deps: [ViewPortService, SOME_TOKEN]
-  &#125;</pre>
+  &#125;</code>
 
     <button (click)="invokeApi()">Invoke API</button>
     <button (click)="useInjectors()">Use Injectors</button>
@@ -22,7 +22,7 @@ const SOME_TOKEN = new InjectionToken<string>(`SomeToken`);
     <p #reffy></p>
   `
 })
-export class DiSampleApp2 {
+export class DiSampleComponent2 {
   @ViewChild("reffy") el: ElementRef;
 
   constructor(private apiService: ApiService,
@@ -46,7 +46,7 @@ export class DiSampleApp2 {
       {
         provide: "OtherSizeService",
         useFactory: (viewport: any, token: string) => {
-          console.log(`%c${token}`, "color:purple");
+          console.log(`%c${token}`, "color:mediumorchid");
           return viewport.determineService();
         },
         deps: [ViewPortService, SOME_TOKEN]

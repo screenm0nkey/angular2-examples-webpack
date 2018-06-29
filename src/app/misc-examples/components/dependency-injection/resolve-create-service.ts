@@ -27,7 +27,7 @@ class MyService{
     <p #reffy></p>
   `
 })
-export class DiSampleApp implements AfterViewInit {
+export class DiSampleComponent implements AfterViewInit {
   @ViewChild("reffy") el: ElementRef;
   injector: Injector;
   myService: MyService;

@@ -44,6 +44,6 @@ export class RubbishService {
   imAString  = "hello";
 
   constructor() {
-    console.log(`%cRubbishService instance-id=${++RubbishService.counter}`, "color:lime");
+    console.log(`%cRubbishService instance-id=${++RubbishService.counter}`, "color:yellow");
   }
 }

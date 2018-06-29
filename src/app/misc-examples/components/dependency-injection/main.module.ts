@@ -1,24 +1,25 @@
 import {NgModule} from "@angular/core";
 import {SharedModule} from "../../../shared/shared.module";
-import {DepInjectionApp} from "./main";
+import {DepInjectionComponent} from "./main";
+import {ModulesComponent} from "./modules";
 import {InjectComponent} from "./injecting-token";
-import {DiSampleApp} from "./resolve-create-service";
+import {DiSampleComponent} from "./resolve-create-service";
 import {ParamService, RubbishService} from "./services/some-service";
 import {ApiService, ViewPortService} from "./services/more-services.service";
-import {DiSampleApp2} from "./resolve-create-factory";
+import {DiSampleComponent2} from "./resolve-create-factory";
 import {ChildComponent, ParentComponent} from "./inject-parent-component";
 
-// if we provide services in the module they will be globally available
-// as all modules use the root injector.
+// if we provide services in the module they will be globally available as all modules use the root injector.
 // http://blog.thoughtram.io/angular/2016/09/14/bypassing-providers-in-angular-2.html
 // http://blog.thoughtram.io/angular/2015/05/18/dependency-injection-in-angular-2.html
 @NgModule({
   imports: [SharedModule],
   declarations: [
-    DepInjectionApp,
+    DepInjectionComponent,
+    ModulesComponent,
     InjectComponent,
-    DiSampleApp,
-    DiSampleApp2,
+    DiSampleComponent,
+    DiSampleComponent2,
     ParentComponent,
     ChildComponent
   ],
@@ -46,4 +47,4 @@ import {ChildComponent, ParentComponent} from "./inject-parent-component";
 export class DIModule {
 }
 
-export {DepInjectionApp};
+export {DepInjectionComponent};

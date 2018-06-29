@@ -85,8 +85,8 @@ export class AftersCmp
   <a href="http://teropa.info/blog/2016/03/06/writing-an-angular-2-template-directive.html">Writing A Structural Directive Using Differs</a>
   <p>See the Console. It displays all the life cycle events</p>
 
-  <pre>use <strong>ngAfterViewInit()</strong> if you're using viewChild /viewChildren</pre>
-  <pre>use <strong>ngAfterContentInit()</strong> if you're injecting the content using ngcontent</pre>
+  <p>use <code>ngAfterViewInit()</code> if you're using viewChild /viewChildren</p>
+  <p>use <code>ngAfterContentInit()</code> if you're injecting the content using ngcontent</p>
   
   <p>The increment button click triggers an event which causes angular to invoke the lifecycle handlers</p>
 

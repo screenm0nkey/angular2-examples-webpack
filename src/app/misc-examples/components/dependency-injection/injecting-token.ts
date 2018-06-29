@@ -83,7 +83,7 @@ export class InjectComponent {
     );
     console.log(
       "%c@Inject('jeffFactory') public jeffFactory",
-      "color:purple",
+      "color:mediumorchid",
       jeffFactory
     );
     console.log(
@@ -114,6 +114,6 @@ export class InjectComponent {
       {provide: SOME_TOKEN, useValue: "BMW two", multi: true}
     ]);
     const dependencies = injector.get(SOME_TOKEN);
-    console.log("%cInjector.create()", "color:purple", dependencies);
+    console.log("%cInjector.create()", "color:mediumorchid", dependencies);
   }
 }

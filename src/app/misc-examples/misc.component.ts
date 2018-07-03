@@ -1,12 +1,12 @@
 import {Component} from "@angular/core";
 
 @Component({
-  selector: "misc-app",
   template: `
     <div class="miscellaneous">
       <nav>
         <a routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Dependency Injection</a>
         <a routerLink="./modules" routerLinkActive="active">Modules</a>
+        <a routerLink="./pipes" routerLinkActive="active">Pipes</a>
         <a routerLink="./change-detection" routerLinkActive="active">Change Detection</a>
         <a routerLink="./emitter" routerLinkActive="active">Content Projection (transclusion)</a>
         <a routerLink="./input-binding" routerLinkActive="active">Component Communication</a>
@@ -24,11 +24,12 @@ import {Component} from "@angular/core";
         <a routerLink="./tips" routerLinkActive="active">Tips</a>
         <a routerLink="./change-after-check" routerLinkActive="active"
            title="ExpressionChangedAfterItHasBeenCheckedError">ExpressionChangedAfterItHasBeenCheckedError</a>
-        <a routerLink="./customers" routerLinkActive="active">Mini Customers App</a>
+       
       </nav>
      
       <div id="container">
         <ul class="todos">
+          <li>Add pure and inpure pipe example (see angular docs)</li>
           <li>Add example for http transformer</li>
           <li>Spotify example is broken</li>
           <li>add dependency example for @Host, @SkipSelf and @Optional</li>

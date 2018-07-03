@@ -7,7 +7,6 @@ import {TricksModule} from "./components/tricks/tricks.module";
 import {ChickenModule} from "./components/chickens/main.module";
 import {ChangeModule} from "./components/change-detection/change.module";
 import {ContentChildModule} from "./components/content-children/content-child.module";
-import {CustomersModule} from "./components/customers/customers.module";
 import {FocusingInputModule} from "./components/focusing-input/focusing.module";
 import {HostBindingModule} from "./components/host-binding/hosting.module";
 import {DirectivesLinquistModule} from "./components/directives-linquist/directives.module";
@@ -30,7 +29,6 @@ import {TipsModule} from "./components/tips/tips.module";
     ChickenModule,
     ChangeModule,
     ContentChildModule,
-    CustomersModule,
     FocusingInputModule,
     HostBindingModule,
     DIModule,

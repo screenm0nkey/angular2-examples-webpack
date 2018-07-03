@@ -1,8 +1,9 @@
 import {ModuleWithProviders, NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {RouterModule} from "@angular/router";
-import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {sharedPipes} from "./pipes";
 /**
  FormsModule gives us template driven directives such as:
  • ngModel and
@@ -31,12 +32,13 @@ import {
     ReactiveFormsModule,
     RouterModule,
     HttpClientModule,
-    HttpClientJsonpModule
+    HttpClientJsonpModule,
+    ...sharedPipes
   ],
+  declarations: [, ...sharedPipes],
   /**
-   *  this provider will be available app wide and will instantiated more than once when used on a lazy-loaded module.
-   *  look at console for "Created an instance of MrTestyServiceTwo"
-   */
+   *  These providers will be available app wide and will instantiated more than once when used on a lazy-loaded module.
+   *  look at console for "Created an instance of MrTestyServiceTwo" */
   providers: [MrTestyServiceTwo]
 })
 export class SharedModule {

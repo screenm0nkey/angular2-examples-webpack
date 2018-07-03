@@ -27,6 +27,7 @@
     <li> Angular module allows Angular to define a context for compiling templates. Each HTML tag is compared to that
       list to see if a component should be applied on top of it, the same goes for each attribute.
     </li>
+    <li>modules only need to be imported into another module using <code>&#123;imports: [SomeModule]&#125;</code> if they are not lazy loaded</li>
     <li>
       <strong>Each application only has one root module</strong>, and each component, directive and pipe should only be
       associated with a single module.

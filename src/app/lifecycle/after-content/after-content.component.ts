@@ -33,7 +33,7 @@ export class AfterContentComponent
   private _prevHero = "";
   public comment = "";
 
-  // Query for a CONTENT child of type `ChildComponent`
+  // Query for a CONTENT child of type `InjectParentInChildComponent`
   @ContentChild(ChildComponent) contentChild: ChildComponent;
 
   constructor(private _logger: LoggerService) {

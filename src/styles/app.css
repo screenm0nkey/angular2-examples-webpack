@@ -344,7 +344,8 @@ section.main {
   margin-left: 200px;
 }
 
-#container.special {
+#container.special, .special {
+  margin-top: 65px;
   background-color: #cacaca;
   border: solid 5px #c1c1c1;
   margin-right: 10px;

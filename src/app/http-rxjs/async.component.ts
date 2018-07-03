@@ -10,6 +10,8 @@ import { Component } from "@angular/core";
         <a routerLink="./echonest-app" routerLinkActive="active">Echonest RxJs</a>
         <a routerLink="./spotify" routerLinkActive="active">Spotify</a>
         <a routerLink="./ngrx" routerLinkActive="active">NgRx</a>
+        <a routerLink="./chat-app-rxjs" routerLinkActive="active">RxJs Chat App</a>
+
       </nav>
       <div id="container">
         <router-outlet></router-outlet>

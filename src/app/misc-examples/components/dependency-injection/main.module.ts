@@ -7,7 +7,8 @@ import {DiSampleComponent} from "./resolve-create-service";
 import {ParamService, RubbishService} from "./services/some-service";
 import {ApiService, ViewPortService} from "./services/more-services.service";
 import {DiSampleComponent2} from "./resolve-create-factory";
-import {ChildComponent, ParentComponent} from "./inject-parent-component";
+import {InjectParentInChildComponent, InjectParentComponent} from "./inject-parent-component";
+import {PipesComponent} from "./pipes.component";
 
 // if we provide services in the module they will be globally available as all modules use the root injector.
 // http://blog.thoughtram.io/angular/2016/09/14/bypassing-providers-in-angular-2.html
@@ -16,12 +17,13 @@ import {ChildComponent, ParentComponent} from "./inject-parent-component";
   imports: [SharedModule],
   declarations: [
     DepInjectionComponent,
-    ModulesComponent,
     InjectComponent,
     DiSampleComponent,
     DiSampleComponent2,
-    ParentComponent,
-    ChildComponent
+    InjectParentComponent,
+    InjectParentInChildComponent,
+    ModulesComponent,
+    PipesComponent
   ],
   providers: [
     RubbishService,

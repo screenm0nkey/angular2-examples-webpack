@@ -7,6 +7,7 @@ import { EchonestModule } from "./echonest-app/echonest.module";
 import { JohnLinquistModule } from "./john-linquist/john.module";
 import { MiscHttpModule } from "./misc-examples/misc.module";
 import { SpotifyModule } from "./spotify/spotify.module";
+import { ChatAppRxJsModule } from "./chat-app-rxjs/ts/app.module";
 //NGRX
 import { StoreModule } from "@ngrx/store";
 import { NgrxModule } from "./ngrx/ngrx.module";
@@ -19,6 +20,7 @@ import {WikiSearchService} from "./searches/wikipedia-search.service";
   imports: [
     SharedModule,
     AsyncRoutingModule,
+    ChatAppRxJsModule,
     SpotifyModule,
     SearchesModule,
     EchonestModule,

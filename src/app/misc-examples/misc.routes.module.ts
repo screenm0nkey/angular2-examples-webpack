@@ -4,7 +4,6 @@ import {MiscExamplesComponent} from "./misc.component";
 import {MainComponent} from "./components/chickens/main.module";
 import {ChangeDetectionMain} from "./components/change-detection/change.module";
 import {RookieComponent} from "./components/content-children/content-child.module";
-import {CustomerDetailComponent, CustomersComponent} from "./components/customers/customers.module";
 import {FocusInput} from "./components/focusing-input/focusing.module";
 import {HostBindingComponent} from "./components/host-binding/hosting.module";
 import {DirectivesLinquistMain} from "./components/directives-linquist/directives.module";
@@ -20,6 +19,7 @@ import {TipsMainComponent} from "./components/tips/tips.module";
 import {TemplateComponent} from "./components/template-directives/templates.module";
 import {ChangeAfterComponent} from "./components/changed-after-check/main.module";
 import {ModulesComponent} from "./components/dependency-injection/modules";
+import {PipesComponent} from "./components/dependency-injection/pipes.component";
 
 export const formsRoutes: Routes = [
   {
@@ -31,12 +31,11 @@ export const formsRoutes: Routes = [
         children: [
           {path: "", component: DepInjectionComponent},
           {path: "modules", component: ModulesComponent},
+          {path: "pipes", component: PipesComponent},
           {path: "chickens", component: MainComponent},
           {path: "change-after-check", component: ChangeAfterComponent},
           {path: "change-detection", component: ChangeDetectionMain},
           {path: "rookie-mistakes", component: RookieComponent},
-          {path: "customers", component: CustomersComponent},
-          {path: "customers/:id", component: CustomerDetailComponent},
           {path: "focus-input", component: FocusInput},
           {path: "hostbinding", component: HostBindingComponent},
           {path: "directives", component: DirectivesLinquistMain},

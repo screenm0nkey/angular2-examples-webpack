@@ -19,7 +19,7 @@ import {Component, Input} from "@angular/core";
     <inject-child-component [text]="text"></inject-child-component>
   `
 })
-export class ParentComponent {
+export class InjectParentComponent {
   text: string = "A message for the child component";
   name: string = "I'm the parent component";
 }
@@ -37,9 +37,9 @@ export class ParentComponent {
       <strong>[property on parent]</strong> {{parent.name}}
     </div>`
 })
-export class ChildComponent {
+export class InjectParentInChildComponent {
   @Input() text;
 
-  constructor(private parent: ParentComponent) {
+  constructor(private parent: InjectParentComponent) {
   }
 }

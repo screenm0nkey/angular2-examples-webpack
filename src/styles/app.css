@@ -428,12 +428,13 @@ p.code-example {
   font-size: 11px;
 }
 
-strong, p.strong {
-  color: #fffae8;
-  background: #bf7c00;
-  padding: 0;
+strong, p.strong, li.strong {
+  color: white;
+  background: #88621d;
+  padding: 0 4px;
   font-weight: normal;
   font-size: 12px;
+  border-radius: 4px;
 }
 
 p.strong {

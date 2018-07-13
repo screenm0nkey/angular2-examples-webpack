@@ -3,7 +3,7 @@ import {RouterModule, Routes} from "@angular/router";
 import {MainHttpRxJs} from "./async.component";
 import {HttpExamples} from "./searches/searches.module";
 import {EchonestAppComponent} from "./echonest-app/echonest.module";
-import {JohnLinquistExamples} from "./john-linquist/john.module";
+import {JohnLinquistExamples} from "./john-linquist/index.module";
 import {MiscHttpExamples} from "./misc-examples/misc.module";
 import {NgrxMainComponent} from "./ngrx/ngrx-main.component";
 import {ChatAppComponent} from "./chat-app-rxjs/ts/app";

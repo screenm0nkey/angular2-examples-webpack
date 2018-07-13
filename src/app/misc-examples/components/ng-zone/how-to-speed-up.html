@@ -8,7 +8,7 @@
       To bypass zones, bootstrap your application with ‘noop’ as your ngZone.
       <code>platformBrowserDynamic().bootstrapModule(AppModule, &#123;ngZone: 'noop'&#125;).then( ref => &#123;&#125; );</code>
     </li>
-    <li>ChangeDetectionStrategy.OnPush - Use Angular’s OnPush change detection strategy to save view bindings being
+    <li><code>ChangeDetectionStrategy.OnPush</code> - Use Angular’s OnPush change detection strategy to save view bindings being
       checked per change
       detection task. This can only be used on components which have a <code>@inputs</code>.
     </li>

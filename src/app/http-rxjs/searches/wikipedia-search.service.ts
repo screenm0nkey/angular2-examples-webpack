@@ -29,6 +29,7 @@ export class WikiSearchService {
 
 
   handleJSONPResponse(res): JSON {
+    debugger
     const newRes = res.replace('/**/JSONP_CALLBACK(', '');
     const json = JSON.parse(newRes.substr(0, newRes.length - 1));
     console.log(11, json);

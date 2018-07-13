@@ -5,8 +5,8 @@ import { Component } from "@angular/core";
   template: `
     <div class="comps">
         <john-linquist-wiki></john-linquist-wiki>
-        <star-wars></star-wars>
         <forkjoin-app></forkjoin-app>
+        <star-wars></star-wars>
     </div>
     `
 })

@@ -13,20 +13,20 @@
   limit the results to children of your component, using queries to filter is the best way.
 </p>
 
-<p class="strong">Using ngOnChanges to detect query list changes is similar to $scope.$watch</p>
+<p class="strong">Using <code>ngOnChanges</code> to detect query list changes is similar to $scope.$watch</p>
 
 <p>In Angular 1, if you wanted to be notified when a value changed, you'd have to set a
   $scope.$watch and manually check for changes each digest cycle. In Angular 2, the
-  ngOnChanges hook greatly simplifies this process. Once you define an ngOnChanges method
+  <code>ngOnChanges</code> hook greatly simplifies this process. Once you define an <code>ngOnChanges</code> method
   in your component class, it will be called whenever the component's inputs change.
   This comes in very handy.</p>
 
-<p>However, the ngOnChanges method executes only when the component's inputs change -- specifically,
+<p>However, the <code>ngOnChanges</code> method executes only when the component's inputs change -- specifically,
   those items you have included in your inputs array or explicitly labeled with an @Input decorator.
   <strong>It will not be called when items are added or removed from @ViewChildren or @ContentChildren query
     lists.</strong></p>
 
-<p class="strong">If you want to be notified of changes in a query list, don't use ngOnChanges. Instead subscribe
+<p class="strong">If you want to be notified of changes in a query list, don't use <code>ngOnChanges</code>. Instead subscribe
   to the query list's built-in observable, its "changes" property. As long as you do so in the
   proper lifecycle hook, not the constructor, you will be notified whenever an item is added or removed.</p>
 

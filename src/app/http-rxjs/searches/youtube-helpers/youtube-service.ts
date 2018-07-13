@@ -23,6 +23,7 @@ export class YoutubeService {
   }
 
   search(query: string): Observable<SearchResult[]> {
+    debugger
     let params: string = [
       `q=${query}`,
       `key=${this.API_TOKEN}`,

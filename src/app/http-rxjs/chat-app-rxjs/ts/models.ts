@@ -1,4 +1,4 @@
-import { uuid } from "../../../shared/shared-utils.service";
+import { uuid } from "../../../shared/shared-utils";
 
 export class User {
   id: string;

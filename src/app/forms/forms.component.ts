@@ -5,7 +5,7 @@ import { Component } from "@angular/core";
   template: `
   <div class="miscellaneous">
       <nav>
-        <a routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Form 1 - Template driven not using ngForm</a>
+        <a routerLink="./form-one" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Form 1 - Template driven not using ngForm</a>
         <a routerLink="./form-two" routerLinkActive="active">Form 2 - Template driven using ngForm, ngModel, ngModelGroup</a>
         <a routerLink="./form-three" routerLinkActive="active">Form 3 Model driven - FormGroup and FormControl, formGroup, formGroupName and formControlName</a>
         <a routerLink="./form-four" routerLinkActive="active">Form 4 - Model-driven - FormBuilder, formGroup, formGroupName Custom Validator and formControlName</a>

@@ -7,7 +7,7 @@ import { ActivatedRoute, Router } from "@angular/router";
   template: `
 <div class="miscellaneous">
   <nav class="navLinks" style="min-width: 500px;position: absolute;top: -10px;">
-      <a routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+      <a routerLink="./home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
       <a [routerLink]="['./aboutus', getId()]" routerLinkActive="active">About Us</a>
       <a [routerLink]="['./contact']" routerLinkActive="active">Selective Preloading Strategy</a>
       <a [routerLink]="['./protected']" routerLinkActive="active" *ngIf="isLoggedIn()">Protected</a>

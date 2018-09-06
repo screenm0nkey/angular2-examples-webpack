@@ -4,7 +4,7 @@ import { Component } from "@angular/core";
   template: `
     <div class="miscellaneous">
       <nav>
-        <a routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">John Linquist</a>
+        <a routerLink="./john-linquist" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">John Linquist</a>
         <a routerLink="./http-examples" routerLinkActive="active">Http/RxJs Searches</a>
         <a routerLink="./misc-examples" routerLinkActive="active">Http/RxJs Misc Examples</a>
         <a routerLink="./echonest-app" routerLinkActive="active">Echonest RxJs</a>

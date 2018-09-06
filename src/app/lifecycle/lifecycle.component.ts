@@ -5,7 +5,7 @@ import { Component } from "@angular/core";
   template: `
     <div class="miscellaneous">
             <nav>
-                <a routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Miscellaneous examples</a>
+                <a routerLink="./misc" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Miscellaneous examples</a>
                 <a routerLink="./basic" routerLinkActive="active">Basic</a>
                 <a routerLink="./peekaboo" routerLinkActive="active">Peekaboo</a>
                 <a routerLink="./spy" routerLinkActive="active">Spy</a>

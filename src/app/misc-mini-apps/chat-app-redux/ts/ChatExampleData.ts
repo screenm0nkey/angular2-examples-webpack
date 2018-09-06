@@ -3,7 +3,7 @@ import { AppState, getAllMessages } from "./reducers/index";
 import * as moment from "moment";
 import { Thread, User } from "./models/index";
 import { ThreadActions, UserActions } from "./actions/index";
-import {uuid} from "../../../shared/shared-utils.service";
+import {uuid} from "../../../shared/shared-utils";
 
 /**
  * ChatExampleData sets up the initial data for our chats as well as

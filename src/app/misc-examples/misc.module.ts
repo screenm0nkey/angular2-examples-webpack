@@ -1,5 +1,5 @@
 import {NgModule} from "@angular/core";
-import {MiscRoutingModule} from "./misc.routes.module";
+import {MiscRoutingModule} from "./misc.routes";
 import {SharedModule} from "../shared/shared.module";
 import {MiscExamplesComponent} from "./misc.component";
 import {ChildViewsModule} from "./components/view-children/childviews.module";

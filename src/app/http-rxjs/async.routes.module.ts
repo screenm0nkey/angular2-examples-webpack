@@ -13,21 +13,14 @@ const asyncRoutes: Routes = [
     path: "",
     component: MainHttpRxJs,
     children: [
-      {
-        path: "",
-        children: [
-          {path: "", component: JohnLinquistExamples},
-          {path: "http-examples", component: HttpExamples},
-          {path: "echonest-app", component: EchonestAppComponent},
-          {path: "misc-examples", component: MiscHttpExamples},
-          {path: 'ngrx', component: NgrxMainComponent},
-          {path: "chat-app-rxjs", component: ChatAppComponent},
-          {
-            path: "spotify",
-            loadChildren: "./spotify/spotify.module#SpotifyModule"
-          }
-        ]
-      }
+      {path: "", redirectTo: "john-linquist", pathMatch: "full" },
+      {path: "john-linquist", component: JohnLinquistExamples},
+      {path: "http-examples", component: HttpExamples},
+      {path: "echonest-app", component: EchonestAppComponent},
+      {path: "misc-examples", component: MiscHttpExamples},
+      {path: 'ngrx', component: NgrxMainComponent},
+      {path: "chat-app-rxjs", component: ChatAppComponent},
+      {path: "spotify", loadChildren: "./spotify/spotify.module#SpotifyModule"}
     ]
   }
 ];

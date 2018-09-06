@@ -35,7 +35,7 @@ import {
     HttpClientJsonpModule,
     ...sharedPipes
   ],
-  declarations: [, ...sharedPipes],
+  declarations: [...sharedPipes],
   /**
    *  These providers will be available app wide and will instantiated more than once when used on a lazy-loaded module.
    *  look at console for "Created an instance of MrTestyServiceTwo" */

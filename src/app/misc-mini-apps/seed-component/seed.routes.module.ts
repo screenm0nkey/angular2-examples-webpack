@@ -12,24 +12,20 @@ const seedRoutes: Routes = [
     path: "",
     component: SeedComponent,
     children: [
+      {path: "", redirectTo: "home", pathMatch: "full" },
+      { path: "home", component: HomeComponent },
+      { path: "about", component: AboutComponent },
       {
-        path: "",
+        path: "github",
+        component: RepoBrowser,
         children: [
-          { path: "", component: HomeComponent },
-          { path: "about", component: AboutComponent },
+          { path: "", component: RepoList },
           {
-            path: "github",
-            component: RepoBrowser,
+            path: ":org",
+            component: RepoList,
             children: [
-              { path: "", component: RepoList },
-              {
-                path: ":org",
-                component: RepoList,
-                children: [
-                  { path: "", component: RepoDetail },
-                  { path: ":repo", component: RepoDetail }
-                ]
-              }
+              { path: "", component: RepoDetail },
+              { path: ":repo", component: RepoDetail }
             ]
           }
         ]

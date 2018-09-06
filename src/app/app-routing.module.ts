@@ -7,7 +7,7 @@ import { SelectivePreloadingStrategy } from "./selective-preloading-strategy";
 const appRoutes: Routes = [
   {
     path: "",
-    redirectTo: "/misc",
+    redirectTo: "misc",
     pathMatch: "full"
   },
   {
@@ -45,6 +45,7 @@ const appRoutes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(appRoutes, {
+      enableTracing : true,
       preloadingStrategy: SelectivePreloadingStrategy
     })
   ],

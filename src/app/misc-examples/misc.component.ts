@@ -4,7 +4,7 @@ import {Component} from "@angular/core";
   template: `
     <div class="miscellaneous">
       <nav>
-        <a routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Dependency Injection</a>
+        <a routerLink="./dep-injection" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Dependency Injection</a>
         <a routerLink="./modules" routerLinkActive="active">Modules</a>
         <a routerLink="./pipes" routerLinkActive="active">Pipes</a>
         <a routerLink="./change-detection" routerLinkActive="active">Change Detection</a>

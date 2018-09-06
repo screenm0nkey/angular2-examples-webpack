@@ -6,7 +6,7 @@ import { Component } from "@angular/core";
   template: `
     <div class="comps">
       <nav style="max-width: 500px;position: absolute;top: -55px;">
-        <a routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a> |
+        <a routerLink="./home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a> |
         <a routerLink="about" routerLinkActive="active">About</a> |
         <a [routerLink]="['github', 'angular']" routerLinkActive="active">Github Repos</a>
       </nav>

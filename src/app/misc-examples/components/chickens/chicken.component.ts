@@ -1,7 +1,8 @@
 import {Component, ElementRef, EventEmitter, Injectable, OnInit, Output, ViewChild} from "@angular/core";
 // import {Response} from "@angular/common/http";
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs/Rx";
+import {Observable, forkJoin} from "rxjs";
+import {map} from 'rxjs/operators';
 
 interface Chicken {
   id: number;
@@ -23,11 +24,11 @@ export class ChickensService {
   }
 
   getBooksAndMovies() {
-    // When all observables complete, emit the last value from each.
     // forkjoin() is like a little like $q.all()
-    return Observable.forkJoin(
-      this.http.get("/json/chickens.json").map((res:Chicken[]) => res),
-      this.http.get("/json/customers.json").map((res: Customer[]) => res)
+    // When all observables complete, emit the last value from each.
+    return forkJoin(
+      this.http.get("/json/chickens.json").pipe(map((res:Chicken[]) => res)),
+      this.http.get("/json/customers.json").pipe(map((res: Customer[]) => res))
     );
   }
 }

@@ -1,12 +1,9 @@
 import {Component, Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs/Observable";
+import {Observable} from "rxjs";
 import {FormControl} from "@angular/forms";
 import {WikiSearchService} from "./wikipedia-search.service";
-import "rxjs/add/operator/map";
-import "rxjs/add/operator/debounceTime";
-import "rxjs/add/operator/distinctUntilChanged";
-import "rxjs/add/operator/switchMap";
+import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
 
 @Injectable()
 class WikipediaService2 {
@@ -15,9 +12,9 @@ class WikipediaService2 {
 
   search(terms$: Observable<string>, debounceDuration = 400) {
     return terms$
-      .debounceTime(debounceDuration)
-      .distinctUntilChanged()
-      .switchMap((term: string) => this.rawSearch(term));
+      .pipe(debounceTime(debounceDuration))
+      .pipe(distinctUntilChanged())
+      .pipe(switchMap((term: string) => this.rawSearch(term)));
   }
 
   rawSearch(term: string) {

@@ -1,7 +1,8 @@
 import {Component} from "@angular/core";
-import * as Rx from "rxjs/Rx";
 import {YoutubeService} from "./youtube-helpers/youtube-service";
 import {SearchResult} from "./youtube-helpers/youtube-result-class";
+import {Subject} from 'rxjs';
+import {debounceTime, filter, switchMap, tap} from 'rxjs/operators';
 
 @Component({
   selector: "local-ref-search",
@@ -10,7 +11,6 @@ import {SearchResult} from "./youtube-helpers/youtube-result-class";
         <div class="search-results">
           <p class="path">/http-rxjs/searches/local-ref-search.ts</p>
            <h4>Local ref on input and observer.next(value) Youtube search example </h4>
-            
             <input #inny (keyup)="source$.next(inny.value)" placeholder="Youtube Search">
             <pre>There are {{results.length}} search results for {{searchTerm}}</pre>
             <youtube-result-component *ngFor="let result of results" [result]="result"></youtube-result-component>
@@ -18,18 +18,18 @@ import {SearchResult} from "./youtube-helpers/youtube-result-class";
     `
 })
 export class LocalRefSearch {
-  source$: Rx.Subject<any>;
+  source$: Subject<any>;
   results: SearchResult[] = [];
   searchTerm: string = "";
 
   constructor(public youtube: YoutubeService) {
-    this.source$ = new Rx.Subject();
+    this.source$ = new Subject();
 
     this.source$
-      .debounceTime(500)
-      .do((text: string) => (this.searchTerm = text))
-      .filter(this.isLongerThanOneChar.bind(this))
-      .switchMap((text: string) => this.youtube.search(text)) //i think switchMap used to be flatMapLatest
+      .pipe(debounceTime(500))
+      .pipe(tap((text: string) => (this.searchTerm = text)))
+      .pipe(filter(this.isLongerThanOneChar.bind(this)))
+      .pipe(switchMap((text: string) => this.youtube.search(text))) //i think switchMap used to be flatMapLatest
       .subscribe((results: SearchResult[]) => (this.results = results));
   }
 

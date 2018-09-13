@@ -1,11 +1,7 @@
 import {Component, Directive, ElementRef, EventEmitter, OnInit} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs/Observable";
-import * as Rx from "rxjs/Rx";
-import "rxjs/add/operator/map";
-import "rxjs/add/operator/switchMap";
-import "rxjs/add/operator/debounceTime";
-import "rxjs/add/operator/do";
+import {fromEvent, Observable, Subject} from "rxjs";
+import {debounceTime, filter, map, switchMap, tap} from 'rxjs/operators';
 
 @Directive({
   selector: "input[type=text][autosearch]",
@@ -18,10 +14,10 @@ export class AutosearchAuth implements OnInit {
   }
 
   ngOnInit() {
-    Rx.Observable.fromEvent(this.elementRef.nativeElement, "keyup")
-      .debounceTime(500)
-      .map((e: any) => e.target.value)
-      .filter(text => text.length >= 2)
+    fromEvent(this.elementRef.nativeElement, "keyup")
+      .pipe(debounceTime(500))
+      .pipe(map((e: any) => e.target.value))
+      .pipe(filter(text => text.length >= 2))
       .subscribe(data => this.results.emit(data));
   }
 }
@@ -39,26 +35,24 @@ export class AutosearchAuth implements OnInit {
           type="text" 
           autosearch 
           (results)="updates$.next($event)">
-          
         <h3>{{searchTerm}}</h3>
-        
         <pre *ngIf="jsonny">{{jsonny | json}}</pre>
     </div>
     `
 })
 export class Auth0Component implements OnInit {
-  updates$: Rx.Subject<any> = new Rx.Subject<any>();
+  updates$: Subject<any> = new Subject<any>();
   searchTerm: string = "";
   jsonny: JSON;
 
   constructor(private _http: HttpClient) {
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.updates$
-      .filter(text => typeof text === "string")
-      .do(text => this.searchTerm = text)
-      .switchMap(text => this.getJSON(text))
+      .pipe(filter(text => typeof text === "string"))
+      .pipe(tap(text => this.searchTerm = text))
+      .pipe(switchMap(text => this.getJSON(text)))
       .subscribe((results: JSON) => (this.jsonny = results));
   }
 
@@ -72,6 +66,6 @@ export class Auth0Component implements OnInit {
     headers.append("Custom-FormNick", "love-it");
     return this._http
       .post("//localhost:1970/data", formBody, {headers})
-      .map(res => res);
+      .pipe(map(res => res));
   }
 }

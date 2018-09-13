@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs/Observable";
+import {Observable} from "rxjs";
+import {map} from 'rxjs/operators';
 
 const CALLBACK = "callback=JSONP_CALLBACK";
 const WIKIPEDIA_URL = "https://en.wikipedia.org/w/api.php";
@@ -27,9 +28,7 @@ export class WikiSearchService {
   constructor(private http: HttpClient) {
   }
 
-
   handleJSONPResponse(res): JSON {
-    debugger
     const newRes = res.replace('/**/JSONP_CALLBACK(', '');
     const json = JSON.parse(newRes.substr(0, newRes.length - 1));
     console.log(11, json);
@@ -38,7 +37,7 @@ export class WikiSearchService {
 
   get = (url: string, options): Observable<JSON> => {
     const opts = Object.assign({responseType: 'text'}, options);
-    return this.http.get(url, opts).map(this.handleJSONPResponse);
+    return this.http.get(url, opts).pipe(map(this.handleJSONPResponse));
   };
 
 

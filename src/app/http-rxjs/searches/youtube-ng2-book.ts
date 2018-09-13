@@ -1,9 +1,6 @@
 import {Component, ElementRef, EventEmitter, OnInit} from "@angular/core";
-import * as Rx from "rxjs/Rx";
-import "rxjs/add/operator/map";
-import "rxjs/add/operator/switchMap";
-import "rxjs/add/operator/debounceTime";
-import "rxjs/add/operator/do";
+import {fromEvent} from "rxjs";
+import {debounceTime, filter, map, switchMap, tap} from 'rxjs/operators';
 import {SearchResult} from "./youtube-helpers/youtube-result-class";
 import {YoutubeService} from "./youtube-helpers/youtube-service";
 
@@ -28,26 +25,19 @@ export class NgBookYoutubeSearch implements OnInit {
   }
 
   ngOnInit() {
-    Rx.Observable.fromEvent(this.el.nativeElement, "keyup")
-      .debounceTime(500)
-      .map((e: any) => e.target.value)
-      .filter(this.isLongerThanOneChar.bind(this))
-      .do(() => this.loading.emit(true))
-      .map((query: string) => this.ytService.search(query))
-      .switch() // .map().switch() === switchMap()
+    fromEvent(this.el.nativeElement, "keyup")
+      .pipe(debounceTime(500))
+      .pipe(map((e: any) => e.target.value))
+      .pipe(filter(this.isLongerThanOneChar.bind(this)))
+      .pipe(tap(() => this.loading.emit(true)))
+      .pipe(switchMap(map((query: string) => this.ytService.search(query))))
       .subscribe(
-        (results: SearchResult[]) => {
+        (results: any) => {
           this.loading.emit(false);
           this.results.emit(results);
         },
-        (err: any) => {
-          console.log(err);
-          this.loading.emit(false);
-        },
-        () => {
-          this.loading.emit(false);
-        }
-      );
+        (err: any) => this.loading.emit(false),
+        () => this.loading.emit(false));
   }
 }
 

@@ -1,7 +1,8 @@
 import {Component, OnInit} from "@angular/core";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import * as Rx from "rxjs/Rx";
 import {YoutubeService} from "./youtube-helpers/youtube-service";
+import {Subject} from 'rxjs';
+import {filter, debounceTime, switchMap} from 'rxjs/operators';
 
 @Component({
   selector: "youtube-basic-example",
@@ -28,11 +29,11 @@ import {YoutubeService} from "./youtube-helpers/youtube-service";
 })
 export class YoutubeBasicExample implements OnInit {
   form: FormGroup;
-  subject$: Rx.Subject<any>;
+  subject$: Subject<any>;
   results: any[] = [];
 
   constructor(private fb: FormBuilder, public youtube: YoutubeService) {
-    this.subject$ = new Rx.Subject();
+    this.subject$ = new Subject();
   }
 
   ngOnInit() {
@@ -41,12 +42,12 @@ export class YoutubeBasicExample implements OnInit {
     });
 
     this.form.controls.youtubeSearch.valueChanges
-      .filter(this.isLongerThanOneChar.bind(this))
+      .pipe(filter(this.isLongerThanOneChar.bind(this)))
       .subscribe(text => this.subject$.next(text));
 
     this.subject$
-      .debounceTime(500)
-      .switchMap((text: string) => this.youtube.search(text))
+      .pipe(debounceTime(500))
+      .pipe(switchMap((text: string) => this.youtube.search(text)))
       .subscribe((results: any[]) => this.results = results);
   }
 

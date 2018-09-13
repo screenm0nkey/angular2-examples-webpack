@@ -1,11 +1,8 @@
 import {Component} from "@angular/core";
 import {FormControl, FormGroup} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs/Observable";
-import "rxjs/add/operator/map";
-import "rxjs/add/operator/switchMap";
-import "rxjs/add/operator/debounceTime";
-import "rxjs/add/operator/do";
+import {Observable} from "rxjs";
+import {map, debounceTime, switchMap, tap} from 'rxjs/operators';
 
 @Component({
   selector: "reddit-example",
@@ -37,10 +34,10 @@ export class RedditExample {
     this.searchForm = new FormGroup({searchField});
 
     this.results$ = searchField.valueChanges
-      .debounceTime(500)
-      .do(() => (this.loading = true))
-      .switchMap((val: string) => this.searchRedditPics(val))
-      .do(() => (this.loading = false));
+      .pipe(debounceTime(500))
+      .pipe(tap(() => (this.loading = true)))
+      .pipe(switchMap((val: string) => this.searchRedditPics(val)))
+      .pipe(tap(() => (this.loading = false)));
 
     this.results$.subscribe(x => console.log(x));
   }
@@ -48,8 +45,8 @@ export class RedditExample {
   searchRedditPics(search: string): Observable<any> {
     return this.http
       .get(`https://www.reddit.com/r/pics/search.json?resct_sr=on&q=${search}`)
-      .map(this.normaliseRedditData)
-      .map((items: any[]) => items.filter((item: any) => item.url));
+      .pipe(map(this.normaliseRedditData))
+      .pipe(map((items: any[]) => items.filter((item: any) => item.url)));
   }
 
   normaliseRedditData(items: any) {

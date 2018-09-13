@@ -26,10 +26,8 @@ export const externalLinks : {[key:string]:ExtLink} = Object.keys(linkData).redu
     </a>
   `
 })
-export class ExternalLinksComponent {
+export class ExternalLinksComponent implements OnInit {
   @Input() id: string;
-  private link:
-
-
-
+  
+  ngOnInit(){}
 }

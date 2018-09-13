@@ -1,10 +1,11 @@
 import {Component, Inject, Injectable} from "@angular/core";
-import {Observable, Subject} from "rxjs/Rx";
+import {fromEvent, merge, of, Subject} from "rxjs";
+import {switchMap, withLatestFrom} from 'rxjs/operators'
 import * as io from "socket.io-client";
 
 @Injectable()
 export class ChatRoom {
-  url$ = Observable.of("https://socket-chat-example-qsaokhakmv.now.sh/");
+  url$ = of("https://socket-chat-example-qsaokhakmv.now.sh/");
   private socket$;
   public connected$;
   public message$;
@@ -12,12 +13,11 @@ export class ChatRoom {
   public send$ = new Subject();
 
   constructor(@Inject("io") io) {
-    this.socket$ = this.url$
     // convert socket to observable
-      .switchMap(url => Observable.of(io(url)));
+    this.socket$ = this.url$.pipe(switchMap(url => of(io(url))));
 
     this.message$ = this.socket$.switchMap(socket => {
-      return Observable.fromEvent(socket, "chat message");
+      return fromEvent(socket, "chat message");
     });
 
     this.messages$ = this.message$.startWith([]).scan((acc, curr) => {
@@ -25,27 +25,25 @@ export class ChatRoom {
     });
 
     const disconnect$ = this.socket$.switchMap(socket =>
-      Observable.fromEvent(socket, "disconnect")
+      fromEvent(socket, "disconnect")
     );
 
     const connect$ = this.socket$.switchMap(socket =>
-      Observable.fromEvent(socket, "connect")
+      fromEvent(socket, "connect")
     );
 
-    this.connected$ = Observable.merge(
+    this.connected$ = merge(
       connect$.mapTo(true),
       disconnect$.mapTo(false)
     );
 
-    this.send$
-      .withLatestFrom(this.socket$, (message, socket) => {
-        return {message, socket};
-      })
-      .subscribe(args => {
-        let socket: any = args.socket;
-        let message: any = args.message;
-        socket.emit("chat message", message);
-      });
+    this.send$.pipe(withLatestFrom(this.socket$, (message, socket) => {
+      return {message, socket};
+    })).subscribe(args => {
+      let socket: any = args.socket;
+      let message: any = args.message;
+      socket.emit("chat message", message);
+    });
   }
 }
 

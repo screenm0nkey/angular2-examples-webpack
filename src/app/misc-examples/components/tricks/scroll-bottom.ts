@@ -1,14 +1,11 @@
 import {Component} from "@angular/core";
-import {Observable} from "rxjs/Observable";
-import "rxjs/add/observable/interval";
-import "rxjs/add/operator/map";
-import "rxjs/add/operator/startWith";
-import "rxjs/add/operator/scan";
+import {interval} from "rxjs";
+import {map, scan, zip} from 'rxjs/operators';
 
 @Component({
   selector: "scroll-bottom",
   styles: [
-      `
+    `
       .list {
         height: 200px;
         overflow-y: scroll;
@@ -33,7 +30,8 @@ import "rxjs/add/operator/scan";
   `
 })
 export class ScrollComponent {
-  items$ = Observable.interval(1000)
-    .map((_: number) => Math.random())
-    .scan((acc, curr) => [...acc, curr], []);
+  items$ = interval(1000)
+    //@ts-ignore
+    .pipe(zip(map((num: number) => Math.random())))
+    .pipe(scan((acc, curr) => [...acc, curr], []))
 }

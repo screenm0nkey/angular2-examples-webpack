@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { GithubHttp } from "./github.http";
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs";
 import { ActivatedRoute, Params } from "@angular/router";
 
 @Component({

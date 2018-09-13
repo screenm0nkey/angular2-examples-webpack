@@ -1,7 +1,7 @@
 import "rxjs/add/observable/of";
 import { Injectable } from "@angular/core";
 import { PreloadingStrategy, Route } from "@angular/router";
-import { Observable } from "rxjs/Observable";
+import { Observable, of } from "rxjs";
 
 // https://angular.io/guide/router
 @Injectable()
@@ -15,7 +15,7 @@ export class SelectivePreloadingStrategy implements PreloadingStrategy {
       console.log("%cPRELOADED-ROUTES: " + route.path, "color:deeppink");
       return load();
     } else {
-      return Observable.of(null);
+      return of(null);
     }
   }
 }

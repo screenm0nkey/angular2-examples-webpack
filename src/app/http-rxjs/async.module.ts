@@ -9,11 +9,11 @@ import { MiscHttpModule } from "./misc-examples/misc.module";
 import { SpotifyModule } from "./spotify/spotify.module";
 import { ChatAppRxJsModule } from "./chat-app-rxjs/ts/app.module";
 //NGRX
-import { StoreModule } from "@ngrx/store";
-import { NgrxModule } from "./ngrx/ngrx.module";
-import { queue , peoplez, tick, people, filter, unit, clock, wordsReducer} from "./ngrx/reducers/reducer.service";
-import { UnitEffects } from "./ngrx/ngrx-queue/effects";
-import { EffectsModule } from "@ngrx/effects";
+// import { StoreModule } from "@ngrx/store";
+// import { NgrxModule } from "./ngrx/ngrx.module";
+// import { queue , peoplez, tick, people, filter, unit, clock, wordsReducer} from "./ngrx/reducers/reducer.service";
+// import { UnitEffects } from "./ngrx/ngrx-queue/effects";
+// import { EffectsModule } from "@ngrx/effects";
 import {WikiSearchService} from "./searches/wikipedia-search.service";
 
 @NgModule({
@@ -26,6 +26,7 @@ import {WikiSearchService} from "./searches/wikipedia-search.service";
     EchonestModule,
     JohnLinquistModule,
     MiscHttpModule,
+    /*ngrx
     NgrxModule,
     StoreModule.forRoot({
       unit,
@@ -38,6 +39,7 @@ import {WikiSearchService} from "./searches/wikipedia-search.service";
       wordsReducer
     }),
     EffectsModule.forRoot([UnitEffects])
+    ngrx-end*/
   ],
   declarations: [MainHttpRxJs],
   providers: [WikiSearchService]

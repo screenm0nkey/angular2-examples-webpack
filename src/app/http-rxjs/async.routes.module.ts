@@ -5,7 +5,7 @@ import {HttpExamples} from "./searches/searches.module";
 import {EchonestAppComponent} from "./echonest-app/echonest.module";
 import {JohnLinquistExamples} from "./john-linquist/index.module";
 import {MiscHttpExamples} from "./misc-examples/misc.module";
-import {NgrxMainComponent} from "./ngrx/ngrx-main.component";
+// import {NgrxMainComponent} from "./ngrx/ngrx-main.component";
 import {ChatAppComponent} from "./chat-app-rxjs/ts/app";
 
 const asyncRoutes: Routes = [
@@ -18,7 +18,7 @@ const asyncRoutes: Routes = [
       {path: "http-examples", component: HttpExamples},
       {path: "echonest-app", component: EchonestAppComponent},
       {path: "misc-examples", component: MiscHttpExamples},
-      {path: 'ngrx', component: NgrxMainComponent},
+      // {path: 'ngrx', component: NgrxMainComponent},
       {path: "chat-app-rxjs", component: ChatAppComponent},
       {path: "spotify", loadChildren: "./spotify/spotify.module#SpotifyModule"}
     ]

@@ -1,5 +1,6 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input} from "@angular/core";
-import {Observable} from "rxjs/Rx";
+import {Observable, timer} from "rxjs";
+import {take} from 'rxjs/operators';
 
 @Component({
   selector: "observable",
@@ -40,6 +41,6 @@ export class ObservableChangeDetectionSampleApp {
   constructor() {
     const delay = 100;
     const repeatMs = 200;
-    this.itemObservable = Observable.timer(delay, repeatMs).take(5);
+    this.itemObservable = timer(delay, repeatMs).pipe(take(5));
   }
 }

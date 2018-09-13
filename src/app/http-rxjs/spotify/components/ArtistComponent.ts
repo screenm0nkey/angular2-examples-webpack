@@ -4,7 +4,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Location } from "@angular/common";
-import { Observable } from "rxjs/Rx";
+import { Observable } from "rxjs";
 /*
  * Services
  */

@@ -1,6 +1,7 @@
 import {Directive, ElementRef, EventEmitter} from "@angular/core";
 import {EchonestService} from "./echonest.service"
-import * as Rx from "rxjs/Rx";
+import {fromEvent} from "rxjs";
+import {debounceTime, distinctUntilChanged, filter, map, mergeMap} from 'rxjs/operators';
 
 @Directive({
   selector: "input[type=text][autosearch]",
@@ -16,12 +17,12 @@ export class EchonestDirective {
   // mergeAll merges an observable sequence of observable sequences into an
   // observable sequence with the data values of the observables.
   ngOnInit() {
-    Rx.Observable.fromEvent(this.elementRef.nativeElement, "keyup")
-      .map((e: Event) => (<HTMLInputElement>e.target).value)
-      .distinctUntilChanged()
-      .debounceTime(500)
-      .filter(text => text.length > 1)
-      .mergeMap(name => this.service.songSearch(name))
+    fromEvent(this.elementRef.nativeElement, "keyup")
+      .pipe(map((e: Event) => (<HTMLInputElement>e.target).value))
+      .pipe(distinctUntilChanged())
+      .pipe(debounceTime(500))
+      .pipe(filter(text => text.length > 1))
+      .pipe(mergeMap(name => this.service.songSearch(name)))
       .subscribe(data => this.results.emit(data));
   }
 }

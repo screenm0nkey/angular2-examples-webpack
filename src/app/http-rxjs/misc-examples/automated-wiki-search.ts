@@ -2,7 +2,7 @@ import {Component} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {WikiSearchService} from "../searches/wikipedia-search.service";
 import {from, Observable, of, range, zip} from "rxjs";
-import {concatMap, debounceTime, delay, filter, map, scan, switchMap, tap} from 'rxjs/operators';
+import {concatMap, debounceTime, delay, filter, map, scan, switchMap, tap, share} from 'rxjs/operators';
 
 @Component({
   selector: "auto-wiki-search",
@@ -46,7 +46,7 @@ export class AutoSearch {
       .pipe(tap(data => console.log("%czip " + data, "color:green")))
       .pipe(scan((a: string, c: string) => (c === " " ? "" : a + c)))
       .pipe(tap(data => console.log("%cscan " + data, "color:orange")))
-      .share();
+      .pipe(share());
 
     this.results$ = this.term$
       .pipe(debounceTime(250))

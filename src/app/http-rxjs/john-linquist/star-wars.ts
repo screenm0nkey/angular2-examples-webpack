@@ -1,13 +1,13 @@
 import {Component, Inject} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {Subject} from "rxjs/Subject";
-import {Observable} from "rxjs/Observable";
+import {combineLatest, merge, Observable, Subject} from "rxjs";
+import {debounceTime, filter, map, mapTo, share, startWith, switchMap, tap} from 'rxjs/operators';
 
 
 @Component({
   selector: "star-wars",
   styles: [
-      `
+    `
       input {
         border: 1px solid black;
       }
@@ -39,34 +39,34 @@ export class StarWarsComponent {
   noResults$;
 
   constructor(public http: HttpClient, @Inject("URL") public api) {
-    const term$ = this.input$.map((ev: any) => ev.target.value);
-    const clear$ = term$.filter(term => term.length < 2);
+    const term$ = this.input$.pipe(map((ev: any) => ev.target.value));
+    const clear$ = term$.pipe(filter(term => term.length < 2));
 
     const results$ = term$
-      .debounceTime(250)
-      .filter((term: string) => term.length > 1)
-      .switchMap(this.getStarWarsCharacter.bind(this))
-      .do(console.log.bind(console))
-      .share();
+      .pipe(debounceTime(250))
+      .pipe(filter((term: string) => term.length > 1))
+      .pipe(switchMap(this.getStarWarsCharacter.bind(this)))
+      .pipe(tap(console.log.bind(console)))
+      .pipe(share());
+    //@ts-ignore
+    this.people$ = merge(clear$.pipe(mapTo([]), results$)).pipe(startWith([]));
 
-    this.people$ = Observable.merge(clear$.mapTo([]), results$).startWith([]);
-
-    this.noResults$ = Observable.combineLatest(
+    this.noResults$ = combineLatest(
       results$,
       term$,
       (results: any[], term: string) => {
         return results.length == 0 && term.length > 1;
       }
-    ).startWith(false);
+    ).pipe(startWith(false));
   }
 
   getStarWarsCharacter(term: string): Observable<any> {
     return this.http
       .get(`${this.api}/people?name_like=${term}`)
-      .map((res: {results:any[]}) => res.results)
-      .map((results: any[]) =>
+      .pipe(map((res: { results: any[] }) => res.results))
+      .pipe(map((results: any[]) =>
         results.map(person =>
           Object.assign({}, person, {image: `${this.api}/${person.image}`})
-        ));
+        )));
   }
 }

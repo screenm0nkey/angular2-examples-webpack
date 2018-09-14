@@ -1,15 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import "rxjs/add/operator/map";
-import "rxjs/add/operator/mergeMap";
-import "rxjs/add/operator/switchMap";
-import "rxjs/add/operator/toArray";
-import "rxjs/add/operator/do";
-import "rxjs/add/operator/share";
-import "rxjs/add/observable/from";
-import "rxjs/add/observable/forkJoin";
-import {Observable} from "rxjs/Observable";
-import {Subject} from "rxjs/Subject";
+import {forkJoin, Observable, Subject} from "rxjs";
+import {map, switchMap, share} from 'rxjs/operators';
 
 interface Person {
   vehicles: number[];
@@ -25,7 +17,7 @@ interface Vehicle {
 @Component({
   selector: "forkjoin-app",
   styles: [
-      `
+    `
       :host {
         display: flex;
       }
@@ -84,15 +76,15 @@ export class ForkJoinComponent implements OnInit {
   ngOnInit() {
     this.getPeopleWhoHaveVehicles();
     this.vehicles$ = this.peopleClick$
-      .switchMap(this.getVehiclesFromPerson.bind(this))
-      .share();
+      .pipe(switchMap(this.getVehiclesFromPerson.bind(this)))
+      .pipe(share());
   }
 
   getPeopleWhoHaveVehicles() {
     this.people$ = this.http
       .get(`${ForkJoinComponent.API}/people`)
-      .map((res:{results:any[]})=>res.results)
-      .map((results: Person[]) => results.filter((person: Person) => person.vehicles.length));
+      .pipe(map((res: { results: any[] }) => res.results))
+      .pipe(map((results: Person[]) => results.filter((person: Person) => person.vehicles.length)));
 
     this.people$.subscribe(res => console.log(1333, res));
   }
@@ -103,9 +95,7 @@ export class ForkJoinComponent implements OnInit {
 
   // forkJoin runs all observable sequences in parallel and collect their last elements.
   // forkJoin is similar to $q.all(). The person.vehicles.map below returns multiple requests
-  getVehiclesFromPerson(person: Person):Observable<Vehicle[]>  {
-    return Observable.forkJoin(
-      person.vehicles.map((id: any) => this.getVechicle(id))
-    );
+  getVehiclesFromPerson(person: Person): Observable<Vehicle[]> {
+    return forkJoin(person.vehicles.map((id: any) => this.getVechicle(id)));
   }
 }

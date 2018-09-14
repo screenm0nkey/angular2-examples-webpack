@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
+import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
-import { Observable } from "rxjs/Observable";
-import "rxjs/add/operator/map";
+import {Observable} from "rxjs";
+import {map} from 'rxjs/operators';
 
 export interface Artist {
   hotttnesss: number;
@@ -25,7 +25,8 @@ export class EchonestRepo {
   // https://itunes.apple.com/uk/rss/topsongs/limit=100/json
   private static url: string = "http://localhost:1970/uk/rss/topsongs/limit=100/json";
 
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient) {
+  }
 
   get(num: number): Observable<Artist[]> {
     let headers = new HttpHeaders();
@@ -40,10 +41,10 @@ export class EchonestRepo {
 
 
     return this._http
-      .get(EchonestRepo.url, {headers , params })
+      .get(EchonestRepo.url, {headers, params})
       // .map((res: Response) => res)
-      .map((data: ITunesResponse) => data.feed.entry)
-      .map(arr =>
+      .pipe(map((data: ITunesResponse) => data.feed.entry))
+      .pipe(map(arr =>
         arr.map((item: any, i: number) => {
           let artist = <Artist>{};
           artist.favourited = false;
@@ -52,6 +53,6 @@ export class EchonestRepo {
           artist.name = item["im:artist"].label;
           return artist;
         })
-      );
+      ));
   }
 }

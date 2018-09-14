@@ -1,7 +1,8 @@
 import {Component} from "@angular/core";
-import {Observable} from "rxjs/Rx";
 import {HttpClient} from "@angular/common/http";
 import {WikiSearchService} from "../searches/wikipedia-search.service";
+import {from, Observable, of, range, zip} from "rxjs";
+import {concatMap, debounceTime, delay, filter, map, scan, switchMap, tap} from 'rxjs/operators';
 
 @Component({
   selector: "auto-wiki-search",
@@ -26,7 +27,7 @@ export class AutoSearch {
   term$: Observable<any>;
   results$: Observable<any>;
 
-  constructor(public http: HttpClient, private wiki:WikiSearchService) {
+  constructor(public http: HttpClient, private wiki: WikiSearchService) {
     this.text = `Beginning fish, firmament give have make years. Divide you're. Fill light, him firmament cattle face 
             Lights tree forth subdue beginning every, give signs itself likeness second whose there years abundantly 
             the, given can't together yielding midst was place that fruitful meat. And night. Kind spirit won't meat 
@@ -34,23 +35,24 @@ export class AutoSearch {
             Image you meat bearing one of herb living called waters he seasons his have him. God multiply one multiply 
             their. His air gathered kind bearing fowl One years fruit days to living place and.`;
 
-    this.randomInterval$ = Observable.range(0, this.text.length)
-      .concatMap(x => Observable.of(x).delay(Math.random() * 2000))
-      .do(data => console.log("%c" + data, "color:pink"));
+    this.randomInterval$ = range(0, this.text.length)
+      .pipe(concatMap(x => of(x).pipe(delay(Math.random() * 2000))))
+      .pipe(tap(data => console.log("%c" + data, "color:pink")));
 
-    this.term$ = Observable.from(this.text)
-      .do(data => console.log("%c" + data, "color:red"))
-      .zip(this.randomInterval$, x => x)
-      .do(data => console.log("%czip " + data, "color:green"))
-      .scan((a, c) => (c === " " ? "" : a + c))
-      .do(data => console.log("%cscan " + data, "color:orange"))
+    this.term$ = from(this.text)
+      .pipe(tap(data => console.log("%c" + data, "color:red")))
+      //@ts-ignore
+      .pipe(zip(this.randomInterval$, x => x))
+      .pipe(tap(data => console.log("%czip " + data, "color:green")))
+      .pipe(scan((a: string, c: string) => (c === " " ? "" : a + c)))
+      .pipe(tap(data => console.log("%cscan " + data, "color:orange")))
       .share();
 
     this.results$ = this.term$
-      .debounceTime(250)
-      .filter(() => this.search)
-      .switchMap(term => this.wiki.search(term))
-      .map(res => res[1]);
+      .pipe(debounceTime(250))
+      .pipe(filter(() => this.search))
+      .pipe(switchMap(term => this.wiki.search(term)))
+      .pipe(map(res => res[1]));
   }
 
   searchWiki() {

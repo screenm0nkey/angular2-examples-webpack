@@ -1,5 +1,6 @@
-import { Component } from "@angular/core";
-import { Observable } from "rxjs/Rx";
+import {Component} from "@angular/core";
+import {merge, Observable} from "rxjs";
+import {map, scan, startWith} from 'rxjs/operators';
 
 @Component({
   selector: "counter-component",
@@ -23,22 +24,22 @@ export class CounterComponent {
 
   constructor() {
     // convert event listeners into observables
-    const decrementCounter$ = Observable.create(observer => {
+    const decrementCounter$: Observable<number> = Observable.create(observer => {
       this.decrement = () => observer.next();
     });
-    const incrementCounter$ = Observable.create(observer => {
+    const incrementCounter$: Observable<number> = Observable.create(observer => {
       this.increment = () => observer.next();
     });
 
     // set up the intent
-    const intent$ = Observable.merge(
-      decrementCounter$.map(() => -1),
-      incrementCounter$.map(() => +1)
+    const intent$ = merge(
+      decrementCounter$.pipe(map(() => -1)),
+      incrementCounter$.pipe(map(() => +1))
     );
 
     // declare how the intent is transformed into a model
     this.count = intent$
-      .startWith(0)
-      .scan((currentCount: number, value: number) => currentCount + value);
+      .pipe(startWith(0))
+      .pipe(scan((currentCount: number, value: number) => currentCount + value));
   }
 }

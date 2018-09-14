@@ -79,11 +79,11 @@ export class ChatExampleData {
     threadsService: ThreadsService,
     userService: UserService
   ): void {
-    // TODO make `messages` hot
-    messagesService.messages.subscribe(() => ({}));
+    // TODO make `messages$` hot
+    messagesService.messages$.subscribe(() => ({}));
     // set "Juliet" as the current user
     userService.setCurrentUser(me);
-    // create the initial messages
+    // create$ the initial messages$
     initialMessages.map((message: Message) => messagesService.addMessage(message));
     threadsService.setCurrentThread(tEcho);
     this.setupBots(messagesService);

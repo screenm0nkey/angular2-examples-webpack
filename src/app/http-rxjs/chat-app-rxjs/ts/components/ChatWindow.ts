@@ -71,7 +71,7 @@ export class ChatWindow implements OnInit {
   ngOnInit(): void {
     this.messages = this.threadsService.currentThreadMessages;
     this.draftMessage = new Message();
-    this.threadsService.currentThread.subscribe((thread: Thread) => {
+    this.threadsService.currentThread$.subscribe((thread: Thread) => {
       this.currentThread = thread;
     });
     this.userService.currentUser.subscribe((user: User) => {

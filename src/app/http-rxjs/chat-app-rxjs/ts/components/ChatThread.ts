@@ -27,7 +27,7 @@ export class ChatThread implements OnInit {
   }
 
   ngOnInit(): void {
-    this.threadsService.currentThread.subscribe((currentThread: Thread) => {
+    this.threadsService.currentThread$.subscribe((currentThread: Thread) => {
       this.selected =
         currentThread && this.thread && currentThread.id === this.thread.id;
     });

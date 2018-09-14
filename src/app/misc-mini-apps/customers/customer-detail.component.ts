@@ -2,6 +2,7 @@ import {Component} from "@angular/core";
 import {ActivatedRoute, Params} from "@angular/router";
 import {CustomersDataService} from "./services/data.service";
 import {Customer} from "./services/customer.model";
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: "orders-component",
@@ -37,7 +38,7 @@ export class CustomerDetailComponent {
       let id = parseInt(params["id"], 10);
       this.dataService
         .getCustomers()
-        .map((customers: Customer[]) => customers.find(c => c.id === id))
+        .pipe(map((customers: Customer[]) => customers.find(c => c.id === id)))
         .subscribe(customer => (this.customer = customer));
     });
   }

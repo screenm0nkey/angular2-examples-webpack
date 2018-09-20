@@ -19,7 +19,7 @@ export class TrackingService {
 @Injectable()
 export class OnlineService {
   online = true;
-  interval:number;
+  interval:any;
 
   constructor() {
     this.interval = setInterval(() => {
@@ -88,9 +88,9 @@ export class TrackDirective {
     <p class='path'>src/app/misc-examples/components/directives-linquist/example-03</p>
     <h4>Combine Directive @HostBinding with Services</h4>
     
-    <button online [track]=''1 Button''>One</button>
-    <button online [track]=''2 Button''>Two</button>
-    <button online [track]=''3 Button''>Three</button>
+    <button online [track]="'1 Button'">One</button>
+    <button online [track]="'2 Button'">Two</button>
+    <button online [track]="'3 Button'">Three</button>
 
     <!-- Only for visuals-->
     <div *ngFor='let log of tracking.logs'>

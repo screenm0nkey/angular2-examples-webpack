@@ -61,7 +61,7 @@ export class ChatRoom {
       
       <p>Go to this <a href='https:// socket-chat-example-qsaokhakmv.now.sh/' target='_blank'>website</a> and post something once it's connected</p>
 
-      <input #i (keyup.enter)='chatRoom.send$.next(i.value); i.value = '''>
+      <input #i (keyup.enter)="chatRoom.send$.next(i.value); i.value='';">
       <div *ngFor='let message of chatRoom.messages$ | async'>
         {{message}}
       </div>

@@ -4,7 +4,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
   selector: 'toggle-button',
   styles: ['button.off { background : black; color : white;}'],
   template: `
-    <button (click)='onClick($event)' [ngClass]='nick ? 'on' : 'off''>
+    <button (click)="onClick($event)" [ngClass]="nick ? 'on' : 'off'">
       <ng-content></ng-content>
     </button>
   `

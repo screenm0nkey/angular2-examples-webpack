@@ -31,7 +31,7 @@ export class BasicComponent4 {
     <p class='file'>misc-examples/components/directives-linquist/example-04.ts</p>
     <h4>Using &lt;template/&gt; elements, @ViewChild, TemplateRef and createEmbeddedView</h4>
     <p>templates (ng-template) do not render when used in the markup </p>
-    <p>Also see <a [routerLink]='['/misc', 'templates']'>Misc Templates</a> for similar examples.</p>
+    <p>Also see <a [routerLink]="['/misc', 'templates']">Misc Templates</a> for similar examples.</p>
     
     <basic-04></basic-04>
   `

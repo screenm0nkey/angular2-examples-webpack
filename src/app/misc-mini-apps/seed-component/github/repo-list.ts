@@ -15,7 +15,7 @@ import { ActivatedRoute, Params } from '@angular/router';
       <h4>Repo list</h4>
       <ul>
         <li *ngFor='let repo of repos | async'>
-          <a [routerLink]='[repo.name]' routerLinkActive='active'>
+          <a [routerLink]="[repo.name]' routerLinkActive='active'>
             {{ repo.name }}
           </a>
         </li>

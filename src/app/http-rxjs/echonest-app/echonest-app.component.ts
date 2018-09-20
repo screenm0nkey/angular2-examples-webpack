@@ -27,7 +27,7 @@ import { Observable } from 'rxjs';
           <div style='float: left'>
             <artist-component
               *ngFor='let artist of artists$ | async'
-              [type]=''all''
+              [type]="'all'"
               [artist]='artist'
               (select)='service.onArtistSelected($event)'>
             </artist-component>
@@ -35,7 +35,7 @@ import { Observable } from 'rxjs';
           <div style='float: right'>
             <artist-component
               *ngFor='let artist of favourites$ | async'
-              [type]=''favourite''
+              [type]="'favourite'"
               [artist]='artist'
               (select)='service.onArtistSelected($event)'>
             </artist-component>

@@ -24,7 +24,6 @@ import {Component} from '@angular/core';
             Click to Show Notification (look at console)
         </button>
       </section>
-
     </div>
   `
 })

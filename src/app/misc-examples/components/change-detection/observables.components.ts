@@ -60,7 +60,7 @@ export class ChildObsList {
       see the example below
     </p>
     <input type='text' #message>
-    <button (click)='update(message.value); message.value=''; message.focus()'>Add Message</button>
+    <button (click)="update(message.value); message.value='';">message.focus()'>Add Message</button>
     <button *ngIf='!off' (click)='turnOffChangeDetection()'>Turn Off Change Detection</button>
     <button *ngIf='off' (click)='turnOnChangeDetection()'>Turn On Change Detection</button>
     <child-obs-list></child-obs-list>

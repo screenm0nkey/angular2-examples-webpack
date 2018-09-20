@@ -6,7 +6,7 @@ import {Accordion} from './accordian.component';
   encapsulation: ViewEncapsulation.ShadowDom,
   inputs: ['isOpen'],
   template: `
-    <div class='panel panel-default' [ngClass]='{'panel-open': isOpen}'>
+    <div class='panel panel-default' [ngClass]="{'panel-open': isOpen}">
       <div class='panel-heading' (click)='toggleOpen($event)'>
         <h5 class='panel-title' style='background-color: #2e6da4;'>
           <a href tabindex='0'><span>{{heading}} !!!!</span></a>

@@ -34,20 +34,20 @@ import { SpotifyService } from '../spotify.service';
                 <img src='{{ t.album.images[0].url }}' class='img-responsive'>
                 <div class='caption'>
                   <h3>
-                    <a [routerLink]='['./artists', t.artists[0].id]'>
+                    <a [routerLink]="['./artists', t.artists[0].id]'>
                       {{ t.artists[0].name }}
                     </a>
                   </h3>
                   <br>
                   <p>
-                    <a [routerLink]='['tracks', t.id]'>
+                    <a [routerLink]="['tracks', t.id]'>
                       {{ t.name }}
                     </a>
                   </p>
                 </div>
                 <div class='attribution'>
                   <h4>
-                    <a [routerLink]='['./albums', t.album.id]'>
+                    <a [routerLink]="['./albums', t.album.id]'>
                       {{ t.album.name }}
                     </a>
                   </h4>

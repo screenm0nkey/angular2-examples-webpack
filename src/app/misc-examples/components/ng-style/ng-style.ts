@@ -6,14 +6,14 @@ import {Component} from '@angular/core';
     <section>
       <p class='path'>misc-examples/components/ng-style/ng-style.ts</p>
       <h4>Using ngStyle demo</h4>
-      <div [style.background-color]=''yellow''>
+      <div [style.background-color]="yellow">
         Uses fixed yellow background
       </div>
-      <div [ngStyle]='{color: 'white', 'background-color': 'blue'}'>
+      <div [ngStyle]="{color: 'white', 'background-color': 'blue'}">
         Uses fixed white text on blue background
       </div>
       <div>
-          <span [ngStyle]='{color: 'red'}' [style.font-size.px]='fontSize'>
+          <span [ngStyle]="{color: 'red'}" [style.font-size.px]='fontSize'>
             red text
           </span>
       </div>

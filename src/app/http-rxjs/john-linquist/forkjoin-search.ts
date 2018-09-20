@@ -50,7 +50,7 @@ interface Vehicle {
       <h2 *ngIf='vehicles$ | async'>Vehicles</h2>
       <div *ngFor='let vehicle of vehicles$ | async'>
         <div>{{vehicle.name}} - {{vehicle.manufacturer}}</div>
-        <img [src]='vehicle.image_path' alt=''>
+        <img [src]='vehicle.image_path'>
       </div>
     </div>
   `

@@ -36,9 +36,9 @@ export class Example02BasicComponent {
     <p class='path'>src/app/misc-examples/components/directives-linquist/example-02</p>
     <h4>Combining directives</h4>
     <p>Click the text below</p>
-    <basic-02 [second]=''Something''></basic-02>
-    <basic-02 [second]=''Another''></basic-02>
-    <basic-02 [second]=''Third''></basic-02>
+    <basic-02 [second]="'Something'"></basic-02>
+    <basic-02 [second]="'Another'"></basic-02>
+    <basic-02 [second]="'Third'"></basic-02>
   `
 })
 export class Example02AppComponent {

@@ -11,7 +11,7 @@ import { Message } from '../models/index';
   selector: 'chat-message',
   template: `
   <div class='msg-container'
-       [ngClass]='{'base-sent': !incoming, 'base-receive': incoming}'>
+       [ngClass]="{'base-sent': !incoming, 'base-receive': incoming}">
 
     <div class='avatar'
          *ngIf='!incoming'>
@@ -19,7 +19,7 @@ import { Message } from '../models/index';
     </div>
 
     <div class='messages'
-      [ngClass]='{'msg-sent': !incoming, 'msg-receive': incoming}'>
+      [ngClass]="{'msg-sent': !incoming, 'msg-receive': incoming}">
       <p>{{message.text}}</p>
       <p class='time'>{{message.sender}} • {{message.sentAt | fromNow}}</p>
     </div>

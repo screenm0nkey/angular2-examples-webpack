@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
       <nav style='max-width: 500px;position: absolute;top: -55px;'>
         <a routerLink='./home' routerLinkActive='active' [routerLinkActiveOptions]='{ exact: true }'>Home</a> |
         <a routerLink='about' routerLinkActive='active'>About</a> |
-        <a [routerLink]='['github', 'angular']' routerLinkActive='active'>Github Repos</a>
+        <a [routerLink]="['github', 'angular']" routerLinkActive='active'>Github Repos</a>
       </nav>
       <section>
         <p class='path'>seed-component/seed.component.ts</p>

@@ -6,13 +6,13 @@ import {Message, User} from '../models';
   inputs: ['message'],
   selector: 'chat-message',
   template: `
-  <div class='msg-container' [ngClass]='{'base-sent': !incoming, 'base-receive': incoming}'>
+  <div class='msg-container' [ngClass]="{'base-sent': !incoming, 'base-receive': incoming}">
      <p class='path'>src/app/chat-app/ts/components/ChatMessage.ts</p>
     <div class='avatar' *ngIf='!incoming'>
       <img src='{{message.author.avatarSrc}}'>
     </div>
 
-    <div class='messages' [ngClass]='{'msg-sent': !incoming, 'msg-receive': incoming}'>
+    <div class='messages' [ngClass]="{'msg-sent': !incoming, 'msg-receive': incoming}">
       <p>{{message.text}}</p>
       <p class='time'>{{message.sender}} • {{message.sentAt | fromNow}}</p>
     </div>

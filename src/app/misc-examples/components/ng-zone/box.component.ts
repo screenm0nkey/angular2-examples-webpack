@@ -14,7 +14,7 @@ import {
       width='20'
       height='20'
       stroke='black'
-      [attr.fill]='selected ? 'red' : 'transparent''
+      [attr.fill]="selected ? 'red' : 'transparent'"
       strokeWidth='1'></svg:rect>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush

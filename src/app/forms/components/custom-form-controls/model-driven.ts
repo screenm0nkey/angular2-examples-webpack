@@ -1,28 +1,28 @@
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
-import { createCounterRangeValidator } from "./custom-form-control";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { createCounterRangeValidator } from './custom-form-control';
 
 @Component({
-  selector: "model-driven",
+  selector: 'model-driven',
   template: `
     <h4>Using it inside model-driven forms</h4>
     
-    <form [formGroup]="form">
+    <form [formGroup]='form'>
       <p>ngModel value: {{outerCounterValue}}</p>
       <counter-input
-        formControlName="counter1"
-        [(ngModel)]="outerCounterValue">
+        formControlName='counter1'
+        [(ngModel)]='outerCounterValue'>
       </counter-input>
       <br>
       <counter-input
-        formControlName="counter2"
-        [counterRangeMax]="maxValue"
-        [counterRangeMin]="minValue"
-        [counterValue]="50"
+        formControlName='counter2'
+        [counterRangeMax]='maxValue'
+        [counterRangeMin]='minValue'
+        [counterValue]='50'
         ></counter-input>
     </form>
     
-    <p *ngIf="!form.valid">Counter is invalid!</p>
+    <p *ngIf='!form.valid'>Counter is invalid!</p>
     <pre>{{ form.value | json }}</pre>
   `
 })

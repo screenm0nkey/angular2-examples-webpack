@@ -1,7 +1,7 @@
-import { Action } from "redux";
-import { Message, Thread } from "../models/index";
-import { ThreadActions } from "../actions/index";
-import { createSelector } from "reselect";
+import { Action } from 'redux';
+import { Message, Thread } from '../models/index';
+import { ThreadActions } from '../actions/index';
+import { createSelector } from 'reselect';
 
 export interface ThreadsEntities {
   [id: string]: Thread;

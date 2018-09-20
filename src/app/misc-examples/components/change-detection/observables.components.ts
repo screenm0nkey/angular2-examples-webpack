@@ -1,5 +1,5 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Injectable} from "@angular/core";
-import {BehaviorSubject, Subject} from "rxjs";
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Injectable} from '@angular/core';
+import {BehaviorSubject, Subject} from 'rxjs';
 
 class Thread {
   constructor(public message?: string) {
@@ -8,7 +8,7 @@ class Thread {
 
 @Injectable()
 class ThreadsService {
-  messages: Thread[] = [{message: "First one"}];
+  messages: Thread[] = [{message: 'First one'}];
   threads: Subject<Thread[]> = new BehaviorSubject<Thread[]>(this.messages);
 
   addThread(thread: Thread): void {
@@ -18,11 +18,11 @@ class ThreadsService {
 }
 
 @Component({
-  selector: "child-obs-list",
+  selector: 'child-obs-list',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <ul>
-      <li *ngFor="let thread of threads$ | async">{{thread.message}}</li>
+      <li *ngFor='let thread of threads$ | async'>{{thread.message}}</li>
     </ul>
   `
 })
@@ -36,21 +36,21 @@ export class ChildObsList {
 }
 
 @Component({
-  selector: "parent-obs",
+  selector: 'parent-obs',
   providers: [ThreadsService],
   template: `
-    <p class="file">/misc-examples/components/change-detection/observables.components.ts</p>
+    <p class='file'>/misc-examples/components/change-detection/observables.components.ts</p>
     <h4><code>ChangeDetectionStrategy.OnPush</code> with Observables and how to turn off ChangeDetection</h4>
-    <a href="http://blog.angular-university.io/how-does-angular-2-change-detection-really-work/" target="_blank">How
+    <a href='http:// blog.angular-university.io/how-does-angular-2-change-detection-really-work/' target='_blank'>How
       does change detection really work</a>
 
-    <p *ngIf="off">
+    <p *ngIf='off'>
       <strong>Change detection turned off for this component</strong>
     </p>
     <p>
-      Even though the child view <code>ChildObsList</code> is set to "OnPush" it will still update as it's using
+      Even though the child view <code>ChildObsList</code> is set to 'OnPush' it will still update as it's using
       observables.
-      <strong>Angular will run the change detection on an "OnPush component"
+      <strong>Angular will run the change detection on an 'OnPush component'
         when any of its input properties changes, when it fires an event, or when an observable fires an event.
         This can also be stopped using this.ref.detach();</strong>
     </p>
@@ -59,10 +59,10 @@ export class ChildObsList {
       Simply having an Obseravble @Input will not work unless you call <code>changeDetector.markForCheck()</code>
       see the example below
     </p>
-    <input type="text" #message>
-    <button (click)="update(message.value); message.value=''; message.focus()">Add Message</button>
-    <button *ngIf="!off" (click)="turnOffChangeDetection()">Turn Off Change Detection</button>
-    <button *ngIf="off" (click)="turnOnChangeDetection()">Turn On Change Detection</button>
+    <input type='text' #message>
+    <button (click)='update(message.value); message.value=''; message.focus()'>Add Message</button>
+    <button *ngIf='!off' (click)='turnOffChangeDetection()'>Turn Off Change Detection</button>
+    <button *ngIf='off' (click)='turnOnChangeDetection()'>Turn On Change Detection</button>
     <child-obs-list></child-obs-list>
   `
 })

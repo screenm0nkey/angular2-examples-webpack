@@ -1,9 +1,9 @@
-import {Component, DoCheck, ElementRef, NgZone, ViewChild} from "@angular/core";
+import {Component, DoCheck, ElementRef, NgZone, ViewChild} from '@angular/core';
 
 @Component({
-  selector: "solution-three",
+  selector: 'solution-three',
   template: `
-    <p class="file">misc-examples/components/focusing-input/solution3.ts</p>
+    <p class='file'>misc-examples/components/focusing-input/solution3.ts</p>
     <h4>Solution 3 using ngZone and @ViewChild with local reference</h4>
 
     <p>We run the setTimeout outside of the NgZone so that we don't cause Angular's change detection algorithm to run
@@ -17,13 +17,13 @@ import {Component, DoCheck, ElementRef, NgZone, ViewChild} from "@angular/core";
     <p>It will still work if you use settimeout in the NgZone but the ngDoCheck will be called a few more times as the
       component is checked</p>
 
-    <button (click)="showInput()">Make it visible</button>
-    <input *ngIf="input1IsVisible" #input1>
-    <button *ngIf="input1IsVisible" (click)="focusInput1()">Focus it</button>
+    <button (click)='showInput()'>Make it visible</button>
+    <input *ngIf='input1IsVisible' #input1>
+    <button *ngIf='input1IsVisible' (click)='focusInput1()'>Focus it</button>
   `
 })
 export class SolutionThree implements DoCheck {
-  @ViewChild("input1") input1ElementRef: ElementRef;
+  @ViewChild('input1') input1ElementRef: ElementRef;
   private input1IsVisible: boolean = false;
 
   constructor(private _ngZone: NgZone) {
@@ -48,9 +48,9 @@ export class SolutionThree implements DoCheck {
 
   // if you remove the ngZone stuff above, you'll see
   // this log 3 times instead of 1 when you click the
-  // "Make it visible" button.
+  // 'Make it visible' button.
   ngDoCheck(): any {
-    console.log(13001, "doCheck");
+    console.log(13001, 'doCheck');
   }
 
   focusInput1() {

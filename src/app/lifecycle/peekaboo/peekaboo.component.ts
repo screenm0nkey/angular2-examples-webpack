@@ -10,8 +10,8 @@ import {
   OnDestroy,
   OnInit,
   SimpleChange
-} from "@angular/core";
-import { LoggerService } from "../logger.service";
+} from '@angular/core';
+import { LoggerService } from '../logger.service';
 
 let nextId = 1;
 
@@ -31,9 +31,9 @@ export class PeekABoo implements OnInit {
 }
 
 @Component({
-  selector: "peek-a-boo",
-  template: "<p>Now you see my hero, {{name}}</p>",
-  styles: ["p {background: LightYellow; padding: 8px}"]
+  selector: 'peek-a-boo',
+  template: '<p>Now you see my hero, {{name}}</p>',
+  styles: ['p {background: LightYellow; padding: 8px}']
 })
 // Don't HAVE to mention the Lifecycle Hook interfaces
 // unless we want typing and tool support.
@@ -47,11 +47,11 @@ export class PeekABooComponent extends PeekABoo
     AfterViewChecked,
     OnDestroy {
   @Input() name: string;
-  private _verb = "initialized";
+  private _verb = 'initialized';
 
   constructor(logger: LoggerService) {
     super(logger);
-    let is = this.name ? "is" : "is not";
+    let is = this.name ? 'is' : 'is not';
     this._logIt(`name ${is} known at construction`);
   }
 
@@ -61,15 +61,15 @@ export class PeekABooComponent extends PeekABoo
   ngOnChanges(changes: { [propertyName: string]: SimpleChange }) {
     let changesMsgs: string[] = [];
     for (let propName in changes) {
-      if (propName === "name") {
-        let name = changes["name"].currentValue;
-        changesMsgs.push(`name ${this._verb} to "${name}"`);
+      if (propName === 'name') {
+        let name = changes['name'].currentValue;
+        changesMsgs.push(`name ${this._verb} to '${name}'`);
       } else {
-        changesMsgs.push(propName + " " + this._verb);
+        changesMsgs.push(propName + ' ' + this._verb);
       }
     }
-    this._logIt(`OnChanges: ${changesMsgs.join("; ")}`);
-    this._verb = "changed"; // next time$ it will be a change
+    this._logIt(`OnChanges: ${changesMsgs.join('; ')}`);
+    this._verb = 'changed'; // next time$ it will be a change
   }
 
   // Beware! Called frequently!

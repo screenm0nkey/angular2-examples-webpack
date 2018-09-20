@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 /**
  * Async modal dialog service
@@ -13,7 +13,7 @@ export class DialogService {
    */
   confirm(message?: string) {
     return new Promise<boolean>(resolve => {
-      return resolve(window.confirm(message || "Is it OK?"));
+      return resolve(window.confirm(message || 'Is it OK?'));
     });
   }
 }

@@ -1,38 +1,38 @@
-import {Component, Directive, HostListener} from "@angular/core";
+import {Component, Directive, HostListener} from '@angular/core';
 
 @Directive({
-  selector: "button[counting]",
+  selector: 'button[counting]',
   host: {
-    "(mouseenter)": "showEvent($event)"
+    '(mouseenter)': 'showEvent($event)'
   }
 })
 export class CountClicks {
   numberOfClicks = 0;
 
-  @HostListener("mouseup", ["$event"])
+  @HostListener('mouseup', ['$event'])
   onMouseup(evt: EventListenerObject) {
-    console.log("mouseUp", evt);
+    console.log('mouseUp', evt);
   }
 
-  @HostListener("click", ["$event.target"])
+  @HostListener('click', ['$event.target'])
   onClick(btnElement: HTMLElement) {
     console.log(
-      "button",
+      'button',
       btnElement,
-      "number of clicks:",
+      'number of clicks:',
       this.numberOfClicks++
     );
   }
 
   showEvent(evt: EventListenerObject) {
-    console.log("mouseenter", evt);
+    console.log('mouseenter', evt);
   }
 }
 
 @Component({
-  selector: "host-two-component",
+  selector: 'host-two-component',
   template: `
-    <p class="file">misc-examples/components/host-binding/host-two.ts</p>
+    <p class='file'>misc-examples/components/host-binding/host-two.ts</p>
     <h4>host:&#123;&#125; and @HostListener</h4>
     <p>Show different ways to bind to a host elements events. <strong>Look at console output</strong></p>
     <button counting>@HostListener Increment</button>

@@ -1,11 +1,11 @@
-//our root app component
-import {AfterViewInit, Component, ComponentFactoryResolver, ViewChild, ViewContainerRef} from "@angular/core";
+// our root app component
+import {AfterViewInit, Component, ComponentFactoryResolver, ViewChild, ViewContainerRef} from '@angular/core';
 
 const TMPL = `
-  <p class="file">misc-examples/components/chickens/dynamic.component.ts</p>
+  <p class='file'>misc-examples/components/chickens/dynamic.component.ts</p>
   <h4>Dynamic component instantiation</h4>
-  <div class="link">
-    <a href="https://medium.com/@tudorgergely/injecting-components-dynamically-in-angular-2-3d36594d49a0">Dynamic
+  <div class='link'>
+    <a href='https:// medium.com/@tudorgergely/injecting-components-dynamically-in-angular-2-3d36594d49a0'>Dynamic
       Comps</a>
   </div>
 
@@ -32,7 +32,7 @@ const TMPL = `
   template: `<span>{{name}}<br></span>`
 })
 export class DComponent {
-  name = "I am a dynamically inserted component";
+  name = 'I am a dynamically inserted component';
 }
 
 
@@ -40,12 +40,12 @@ export class DComponent {
  *
  */
 @Component({
-  selector: "dynamic-component",
+  selector: 'dynamic-component',
   template: TMPL
 })
 export class DynamicComponent implements AfterViewInit {
-  @ViewChild("vc", {read: ViewContainerRef}) vc;
-  name: string = "I am a Component";
+  @ViewChild('vc', {read: ViewContainerRef}) vc;
+  name: string = 'I am a Component';
 
   constructor(private r: ComponentFactoryResolver) {
   }

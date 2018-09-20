@@ -1,8 +1,8 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
 @Component({
   template: `
-      <div class="comps">
+      <div class='comps'>
         <lifecycle-sample-app-4></lifecycle-sample-app-4>
         <lifecycle-sample-app-1></lifecycle-sample-app-1>
         <lifecycle-sample-app-2></lifecycle-sample-app-2>

@@ -1,4 +1,4 @@
-import {Component, Input, NgZone, OnChanges} from "@angular/core";
+import {Component, Input, NgZone, OnChanges} from '@angular/core';
 
 interface Box {
   id: number;
@@ -11,17 +11,17 @@ function getRandomInt(min, max) {
 }
 
 @Component({
-  selector: "[boxZone]",
+  selector: '[boxZone]',
   template: `
     <svg:rect
-      [attr.dataId]="boxZone.id"
-      [attr.x]="boxZone.x"
-      [attr.y]="boxZone.y"
-      width="20"
-      height="20"
-      stroke="black"
-      [attr.fill]="selected ? 'red' : 'transparent'"
-      strokeWidth="1"></svg:rect>
+      [attr.dataId]='boxZone.id'
+      [attr.x]='boxZone.x'
+      [attr.y]='boxZone.y'
+      width='20'
+      height='20'
+      stroke='black'
+      [attr.fill]='selected ? 'red' : 'transparent''
+      strokeWidth='1'></svg:rect>
   `
 })
 export class BoxZoneComponent implements OnChanges {
@@ -34,15 +34,15 @@ export class BoxZoneComponent implements OnChanges {
 }
 
 @Component({
-  selector: "speed-up-app-with-zones",
+  selector: 'speed-up-app-with-zones',
   template: `
-    <svg width="450" height="150"
-         (mousedown)="mouseDown($event)"
-         (mouseup)="mouseUp($event)">
+    <svg width='450' height='150'
+         (mousedown)='mouseDown($event)'
+         (mouseup)='mouseUp($event)'>
       <svg:g
-        *ngFor="let box of boxes"
-        [boxZone]="box"
-        [selected]="box.id == currentId"
+        *ngFor='let box of boxes'
+        [boxZone]='box'
+        [selected]='box.id == currentId'
       ></svg:g>
     </svg>
   `
@@ -73,7 +73,7 @@ export class SpeedingZonesComponent {
   }
 
   mouseDown(event) {
-    const index = Number(event.target.getAttribute("dataId"));
+    const index = Number(event.target.getAttribute('dataId'));
     const box = this.boxes[index];
     const mouseX = event.clientX;
     const mouseY = event.clientY;
@@ -84,14 +84,14 @@ export class SpeedingZonesComponent {
     // we are running the mousemove event outisde of ngzone to stop the change detection being invoked on every box
     // each time the mouse move event occurs
     this.zone.runOutsideAngular(() => {
-      window.document.addEventListener("mousemove", this.mouseMove);
+      window.document.addEventListener('mousemove', this.mouseMove);
     });
   }
 
   mouseMove(event) {
     event.preventDefault();
-    this.element.setAttribute("x", event.clientX + this.offsetX + "px");
-    this.element.setAttribute("y", event.clientY + this.offsetY + "px");
+    this.element.setAttribute('x', event.clientX + this.offsetX + 'px');
+    this.element.setAttribute('y', event.clientY + this.offsetY + 'px');
   }
 
   mouseUp($event) {
@@ -103,7 +103,7 @@ export class SpeedingZonesComponent {
       );
       this.currentId = null;
     });
-    window.document.removeEventListener("mousemove", this.mouseMove);
+    window.document.removeEventListener('mousemove', this.mouseMove);
   }
 
   updateBox(id, x, y) {

@@ -1,18 +1,18 @@
-import { Component, Inject } from "@angular/core";
-import { AppStore } from "../app-store";
-import { Store } from "redux";
-import { AppState, getUnreadMessagesCount } from "../reducers/index";
+import { Component, Inject } from '@angular/core';
+import { AppStore } from '../app-store';
+import { Store } from 'redux';
+import { AppState, getUnreadMessagesCount } from '../reducers/index';
 
 @Component({
-  selector: "chat-nav-bar",
+  selector: 'chat-nav-bar',
   template: `
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
+  <nav class='navbar navbar-default'>
+    <div class='container-fluid'>
+      <div class='navbar-header'>
       </div>
-      <p class="navbar-text navbar-right">
-        <button class="btn btn-primary" type="button">
-          Messages <span class="badge">{{ unreadMessagesCount }}</span>
+      <p class='navbar-text navbar-right'>
+        <button class='btn btn-primary' type='button'>
+          Messages <span class='badge'>{{ unreadMessagesCount }}</span>
         </button>
       </p>
     </div>

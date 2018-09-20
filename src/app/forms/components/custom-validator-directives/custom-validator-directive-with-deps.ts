@@ -1,5 +1,5 @@
-import { Directive, forwardRef, Injectable } from "@angular/core";
-import { FormControl, NG_VALIDATORS, Validator } from "@angular/forms";
+import { Directive, forwardRef, Injectable } from '@angular/core';
+import { FormControl, NG_VALIDATORS, Validator } from '@angular/forms';
 
 @Injectable()
 class EmailBlackListService {
@@ -23,11 +23,11 @@ function validateEmailFactory(emailBlackList: EmailBlackListService) {
 }
 
 @Directive({
-  selector: "[validateEmailDeps][ngModel],[validateEmailDeps][formControl]",
+  selector: '[validateEmailDeps][ngModel],[validateEmailDeps][formControl]',
   providers: [
     EmailBlackListService,
     {
-      // we're extending NG_VALIDATORS https://blog.thoughtram.io/angular2/2015/11/23/multi-providers-in-angular-2.html
+      // we're extending NG_VALIDATORS https:// blog.thoughtram.io/angular2/2015/11/23/multi-providers-in-angular-2.html
       provide: NG_VALIDATORS,
       useExisting: forwardRef(() => FormSevenEmailValidatorWithDeps),
       multi: true

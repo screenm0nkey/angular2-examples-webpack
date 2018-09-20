@@ -1,16 +1,16 @@
-import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators'
 
 /**
  * SpotifyService works querying the Spotify Web API
- * https://developer.spotify.com/web-api/
+ * https:// developer.spotify.com/web-api/
  */
 
 @Injectable()
 export class SpotifyService {
-  static BASE_URL: string = "https://api.spotify.com/v1";
+  static BASE_URL: string = 'https:// api.spotify.com/v1';
 
   constructor(private http: HttpClient) {
   }
@@ -18,7 +18,7 @@ export class SpotifyService {
   query(URL: string, params?: Array<string>): Observable<any> {
     let queryURL: string = `${SpotifyService.BASE_URL}${URL}`;
     if (params) {
-      queryURL = `${queryURL}?${params.join("&")}`;
+      queryURL = `${queryURL}?${params.join('&')}`;
     }
     return this.http.get(queryURL);
   }
@@ -28,7 +28,7 @@ export class SpotifyService {
   }
 
   searchTrack(query: string): Observable<any[]> {
-    return this.search(query, "track")
+    return this.search(query, 'track')
       .pipe(map((res: any) => res.tracks.items));
   }
 

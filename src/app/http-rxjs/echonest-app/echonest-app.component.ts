@@ -1,43 +1,43 @@
-import { Component } from "@angular/core";
-import { EchonestService } from "./echonest.service";
-import { Artist } from "./echonest.repo";
-import { Observable } from "rxjs";
+import { Component } from '@angular/core';
+import { EchonestService } from './echonest.service';
+import { Artist } from './echonest.repo';
+import { Observable } from 'rxjs';
 
 @Component({
-  selector: "echonest-app",
+  selector: 'echonest-app',
   providers: [
     EchonestService
   ],
   template: `
-    <div class="comps clearfix">
+    <div class='comps clearfix'>
       <section>
-        <p class="path">/http-rxjs/echonest-app/echonest-app.ts</p>
+        <p class='path'>/http-rxjs/echonest-app/echonest-app.ts</p>
         <h4>A not particularly well written RxJs Mini App</h4>
-        <a routerLink="/misc/change-detection/">See change-detection example</a>
+        <a routerLink='/misc/change-detection/'>See change-detection example</a>
         <br>
-        <span class="red">Need to run the www/server for this</span>
+        <span class='red'>Need to run the www/server for this</span>
         <header>
           Top 100
           <dropdown-component
-            [results]="[5,15,30,50,100]"
-            (select)="service.fetchArtists($event)">
+            [results]='[5,15,30,50,100]'
+            (select)='service.fetchArtists($event)'>
           </dropdown-component>
         </header>
-        <div class="clearfix">
-          <div style="float: left">
+        <div class='clearfix'>
+          <div style='float: left'>
             <artist-component
-              *ngFor="let artist of artists$ | async"
-              [type]="'all'"
-              [artist]="artist"
-              (select)="service.onArtistSelected($event)">
+              *ngFor='let artist of artists$ | async'
+              [type]=''all''
+              [artist]='artist'
+              (select)='service.onArtistSelected($event)'>
             </artist-component>
           </div>
-          <div style="float: right">
+          <div style='float: right'>
             <artist-component
-              *ngFor="let artist of favourites$ | async"
-              [type]="'favourite'"
-              [artist]="artist"
-              (select)="service.onArtistSelected($event)">
+              *ngFor='let artist of favourites$ | async'
+              [type]=''favourite''
+              [artist]='artist'
+              (select)='service.onArtistSelected($event)'>
             </artist-component>
           </div>
         </div>

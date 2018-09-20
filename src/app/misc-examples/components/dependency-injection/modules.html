@@ -1,132 +1,153 @@
-<section>
-  <p class="file">/misc-examples/components/dependecy-injection/modules.html</p>
-  <h4>Modules</h4>
-  <p class="links">
-    <a href="http://blog.angular-university.io/angular2-ngmodule/" class="block" target="_blank">
-      Angular 2 NgModule Intro - Ahead Of Time Compilation And Lazy Loading - Avoid Common Pitfalls
-    </a>
-    <a href="http://angularfirst.com/the-ngmodule-forroot-convention/" target="_blank">
-      The NgModule ‘<code>forRoot()</code>’ Convention and why we use it...
-    </a>
-  </p>
+<div class="comps">
+  <section>
+    <p class="file">/misc-examples/components/dependecy-injection/modules.html</p>
+    <h4>Modules</h4>
+    <p class="links">
+      <a href="http:// blog.angular-university.io/angular2-ngmodule/" class="block" target="_blank">
+        Angular 2 NgModule Intro - Ahead Of Time Compilation And Lazy Loading - Avoid Common Pitfalls
+      </a>
+      <a href="http:// angularfirst.com/the-ngmodule-forroot-convention/" target="_blank">
+        The NgModule ‘<code>forRoot()</code>’ Convention and why we use it...
+      </a>
+    </p>
 
-  <ul>
-    <li>we can list the components, directives, and pipes that are part of the module in the declarations array</li>
-    <li>we can import other modules by listing them in the imports array <code>imports : [SharedModule]</code></li>
-    <li>we can export a component so it's available to it's parent module or any module which imports the module.
-      <code>exports : [MyComponent]</code></li>
-    <li class="strong">
-      Each module needs to define separately what it can 'see' in its context, so the solution here is to import all the
-      modules it needs to render it's views.
-    </li>
-    <li>Modules are essential for template parsing, both in the JIT or AOT Compilation scenarios.
-    </li>
-    <li>Modules can be used to clarify which components and directives are meant to be used publicly vs internal
-      implementation details.
-    </li>
-    <li> Angular module allows Angular to define a context for compiling templates. Each HTML tag is compared to that
-      list to see if a component should be applied on top of it, the same goes for each attribute.
-    </li>
-    <li>modules only need to be imported into another module using <code>&#123;imports: [SomeModule]&#125;</code> if they are not lazy loaded</li>
-    <li>
-      <strong>Each application only has one root module</strong>, and each component, directive and pipe should only be
-      associated with a single module.
-    </li>
-    <li><strong>When the module is lazy loaded, the providers in the module don't become globally available.</strong>
-      they are only visible within the scope of the lazy loaded module as a child context is created. so if you create a
-      shared module and load it into a several lazy loaded modules, a new instance of the Providers will be created (see
-      <code>forRoot()</code> below).
-    </li>
-    <li>
-      In order to avoid accidental overwrites of injectables when lazy loading, Angular will create a child
-      dependency injection context. This Component DI context will contain the Service, but this Service will not be
-      visible to the rest of the application.
-    </li>
-    <li>
-      Sometime we don't want two instances of a service being created when module is lazy loaded. This is where the
-      <code>forRoot()</code> and <code>forChild()</code> methods comes in.
-    </li>
-    <li>
-      When a module is loaded at application launch, its providers (services) have application-wide scope. They are
-      available for injection throughout the application, which is why you should try load the module lazily if you can.
-      <strong>Angular gives a lazy-loaded module its own child injector. The module's providers are visible only within
-        the component tree created with this injector. If you must load the module eagerly, when the application starts,
-        provide the service in a component instead i.e. <code>@Component(&#123;providers : [...&#125;)</code> </strong>
-      <a
-        href="https://stackoverflow.com/questions/39828246/angular-2-how-to-isolate-service-provider-in-a-feature-module"
-        target="_blank">Taken from here</a>
-    </li>
-    <li>Components are not visible outside of their modules unless the module exports the component</li>
-    <li>
-      <strong>Components can be exported without adding it to declarations</strong>. This would happen in the case where the component
-      is not used internally inside the module. Take a look at the shared module where we are doing this.
-      src/app/shared/shared.module.ts
-    </li>
-    <li>
-      You cannot import a component directly. it has to be part of a module.
-    </li>
-    <li>Services loaded in modules are available globally. Modules that are directly imported are usually meant to
-      enrich the global application and the injectables received are in most of the cases meant as application-wide
-      singletons.
-    </li>
-    <li>
-      Each module needs to define separately what it can 'see' in its context, so the solution is to import the
-      modules i.e CommonModule or SharedModule
-    </li>
-    <li>
-      When Angular bootstraps the root NgModule, all available providers in all NgModules are registered at that time
-      and made available to the whole application. This is why providers registered in a child NgModule are available
-      throughout the whole application.
-    </li>
-    <li>
-      <strong>Components and directives are scoped to the NgModule in which they are imported to prevent naming conflicts</strong> where
-      two components might have the same selector for example.
-    </li>
-    <li>
-      In short, consider using the convention when you have multiple custom components or directives that all take a
-      dependency on a global UI concern and need to work together to manage this global state.
-      <strong>To be clear, the <code>forRoot()</code> convention is a form of coupling which should only be used after
-        careful design consideration.</strong>
-    </li>
-  </ul>
+    <ul>
+      <li>we can list the components, directives, and pipes that are part of the module in the declarations array</li>
+      <li>we can import other modules by listing them in the imports array <code>imports : [SharedModule]</code></li>
+      <li>we can export a component so it's available to it's parent module or any module which imports the module.
+        <code>exports : [MyComponent]</code></li>
+      <li class="strong">
+        Each module needs to define separately what it can 'see' in its context, so the solution here is to import all
+        the
+        modules it needs to render it's views.
+      </li>
+      <li>Modules are essential for template parsing, both in the JIT or AOT Compilation scenarios.
+      </li>
+      <li>Modules can be used to clarify which components and directives are meant to be used publicly vs internal
+        implementation details.
+      </li>
+      <li> Angular module allows Angular to define a context for compiling templates. Each HTML tag is compared to that
+        list to see if a component should be applied on top of it, the same goes for each attribute.
+      </li>
+      <li>modules only need to be imported into another module using <code>&#123;imports: [SomeModule]&#125;</code> if
+        they are not lazy loaded
+      </li>
+      <li>
+        <strong>Each application only has one root module</strong>, and each component, directive and pipe should only
+        be
+        associated with a single module.
+      </li>
+      <li><strong>When the module is lazy loaded, the providers in the module don't become globally available.</strong>
+        they are only visible within the scope of the lazy loaded module as a child context is created. so if you create
+        a
+        shared module and load it into a several lazy loaded modules, a new instance of the Providers will be created
+        (see
+        <code>forRoot()</code> below).
+      </li>
+      <li>
+        In order to avoid accidental overwrites of injectables when lazy loading, Angular will create a child
+        dependency injection context. This Component DI context will contain the Service, but this Service will not be
+        visible to the rest of the application.
+      </li>
+      <li>
+        Sometime we don't want two instances of a service being created when module is lazy loaded. This is where the
+        <code>forRoot()</code> and <code>forChild()</code> methods comes in.
+      </li>
+      <li>
+        When a module is loaded at application launch, its providers (services) have application-wide scope. They are
+        available for injection throughout the application, which is why you should try load the module lazily if you
+        can.
+        <strong>Angular gives a lazy-loaded module its own child injector. The module's providers are visible only
+          within
+          the component tree created with this injector. If you must load the module eagerly, when the application
+          starts,
+          provide the service in a component instead i.e. <code>@Component(&#123;providers : [...&#125;)</code>
+        </strong>
+        <a
+          href="https:// stackoverflow.com/questions/39828246/angular-2-how-to-isolate-service-provider-in-a-feature-module"
+          target="_blank">Taken from here</a>
+      </li>
+      <li>Components are not visible outside of their modules unless the module exports the component</li>
+      <li>
+        <strong>Components can be exported without adding it to declarations</strong>. This would happen in the case
+        where the component
+        is not used internally inside the module. Take a look at the shared module where we are doing this.
+        src/app/shared/shared.module.ts
+      </li>
+      <li>
+        You cannot import a component directly. it has to be part of a module.
+      </li>
+      <li>Services loaded in modules are available globally. Modules that are directly imported are usually meant to
+        enrich the global application and the injectables received are in most of the cases meant as application-wide
+        singletons.
+      </li>
+      <li>
+        Each module needs to define separately what it can 'see' in its context, so the solution is to import the
+        modules i.e CommonModule or SharedModule
+      </li>
+      <li>
+        When Angular bootstraps the root NgModule, all available providers in all NgModules are registered at that time
+        and made available to the whole application. This is why providers registered in a child NgModule are available
+        throughout the whole application.
+      </li>
+      <li>
+        <strong>Components and directives are scoped to the NgModule in which they are imported to prevent naming
+          conflicts</strong> where
+        two components might have the same selector for example.
+      </li>
+      <li>
+        In short, consider using the convention when you have multiple custom components or directives that all take a
+        dependency on a global UI concern and need to work together to manage this global state.
+        <strong>To be clear, the <code>forRoot()</code> convention is a form of coupling which should only be used after
+          careful design consideration.</strong>
+      </li>
+    </ul>
 
-  <p class="code-example">The code below <strong>allows SharedModule to be loaded into lazy loaded without a new
-    instance of it's services, in this case MrTestyServiceOne, being created</strong>. It will be instantiated only
-    once. This is due to
-    MrTestyServiceOne being removed from the providers array. This means that when we import this module we will no
-    longer create a
-    duplicate service instance.
-  </p>
+    <p class="code-example">The code below <strong>allows SharedModule to be loaded into lazy loaded without a new
+      instance of it's services, in this case MrTestyServiceOne, being created</strong>. It will be instantiated only
+      once. This is due to
+      MrTestyServiceOne being removed from the providers array. This means that when we import this module we will no
+      longer create a
+      duplicate service instance.
+    </p>
 
-  <code>export class SharedModule &#123;
-  public static forRoot(): ModuleWithProviders &#123;
-    return &#123;
+    <code>export class SharedModule &#123;
+      public static forRoot(): ModuleWithProviders &#123;
+      return &#123;
       ngModule: SharedModule,
       providers: [MrTestyServiceOne]
-    };
-  }
-}</code>
+      };
+      }
+      }</code>
 
-  <p>
-    <span class="title">When to use <code>forRoot()</code>: ModuleWithProviders</span>
-    When lazy-loading an NgModule during routing, the providers registered in the lazy-loaded NgModule and its children
-    aren't available during the bootstrap process and Angular is unable to register them at that time. Therefore, they
-    are added as providers only when the route is loaded and furthermore they are scoped to be injected starting at the
-    lazily-loaded NgModule and its children. If there are multiple lazy-loaded NgModules attempting to register the same
-    providers, each of these nodes of the NgModule tree end up with different instances. By importing the providers at
-    the root, it helps ensure that all lazy-loaded NgModules get the same instance of the provider and is why
-    <code>forRoot()</code>is named as such.
-  </p>
+    <p>
+      <span class="title">When to use <code>forRoot()</code>: ModuleWithProviders</span>
+      When lazy-loading an NgModule during routing, the providers registered in the lazy-loaded NgModule and its
+      children
+      aren't available during the bootstrap process and Angular is unable to register them at that time. Therefore, they
+      are added as providers only when the route is loaded and furthermore they are scoped to be injected starting at
+      the
+      lazily-loaded NgModule and its children. If there are multiple lazy-loaded NgModules attempting to register the
+      same
+      providers, each of these nodes of the NgModule tree end up with different instances. By importing the providers at
+      the root, it helps ensure that all lazy-loaded NgModules get the same instance of the provider and is why
+      <code>forRoot()</code>is named as such.
+    </p>
 
-  <p>The <code>forRoot()</code> convention represents a way to import an NgModule along with its providers
-    using the ModuleWithProviders interface. Sometime we don't want two instances of a service being created when module
-    is lazy loaded. This is where the
-    <code>forRoot()</code> and <code>forChild()</code> methods comes in.</p>
+    <p>The <code>forRoot()</code> convention represents a way to import an NgModule along with its providers
+      using the ModuleWithProviders interface. Sometime we don't want two instances of a service being created when
+      module
+      is lazy loaded. This is where the
+      <code>forRoot()</code> and <code>forChild()</code> methods comes in.</p>
 
-  <p>When a feature NgModule exports components and directives that require sharing the same custom provider instances,
-    consider registering these providers in the root NgModule with a <code>forRoot()</code> method. This can help ensure
-    that all child NgModules have access to the same provider instances without requiring the consumer to handle the provider
-    registration explicitly.</p>
+    <p>When a feature NgModule exports components and directives that require sharing the same custom provider
+      instances,
+      consider registering these providers in the root NgModule with a <code>forRoot()</code> method. This can help
+      ensure
+      that all child NgModules have access to the same provider instances without requiring the consumer to handle the
+      provider
+      registration explicitly.</p>
 
 
-</section>
+  </section>
+</div>

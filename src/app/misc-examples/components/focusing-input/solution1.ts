@@ -1,11 +1,11 @@
-import {AfterViewInit, Component, Directive, ElementRef, Input, OnChanges, SimpleChange} from "@angular/core";
+import {AfterViewInit, Component, Directive, ElementRef, Input, OnChanges, SimpleChange} from '@angular/core';
 
 @Directive({
-  selector: "[focusMe]"
+  selector: '[focusMe]'
 })
 export class FocusMe implements AfterViewInit, OnChanges {
   // notice that we can alias the focusMe variable to hasFocus
-  @Input("focusMe") hasFocus: boolean;
+  @Input('focusMe') hasFocus: boolean;
 
   constructor(private elementRef: ElementRef) {
     console.log(this);
@@ -15,9 +15,9 @@ export class FocusMe implements AfterViewInit, OnChanges {
     this.elementRef.nativeElement.focus();
   }
 
-  // this is called if the input value "focusMe" changes
+  // this is called if the input value 'focusMe' changes
   ngOnChanges(changes: { [propName: string]: SimpleChange }): void {
-    console.log("ngOnChanges", changes);
+    console.log('ngOnChanges', changes);
     if (changes.hasFocus && changes.hasFocus.currentValue === true) {
       this.elementRef.nativeElement.focus();
     }
@@ -25,14 +25,14 @@ export class FocusMe implements AfterViewInit, OnChanges {
 }
 
 @Component({
-  selector: "solution-one",
+  selector: 'solution-one',
   template: `
-    <p class="file">misc-examples/components/focusing-input/solution1.ts</p>
+    <p class='file'>misc-examples/components/focusing-input/solution1.ts</p>
     <h4>Solution 1 using ngOnChanges ElementRef, directive and @Input</h4>
 
-    <button (click)="showInput()">Make it visible</button>
-    <input *ngIf="inputIsVisible" [focusMe]="inputHasFocus">
-    <button *ngIf="inputIsVisible" (click)="focusInput()">Focus it</button>
+    <button (click)='showInput()'>Make it visible</button>
+    <input *ngIf='inputIsVisible' [focusMe]='inputHasFocus'>
+    <button *ngIf='inputIsVisible' (click)='focusInput()'>Focus it</button>
   `
 })
 export class SolutionOne {
@@ -45,6 +45,6 @@ export class SolutionOne {
 
   focusInput() {
     this.inputHasFocus = true;
-    setTimeout(() => (this.inputHasFocus = false), 50); //reset value
+    setTimeout(() => (this.inputHasFocus = false), 50); // reset value
   }
 }

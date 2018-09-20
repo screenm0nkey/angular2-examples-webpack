@@ -1,9 +1,9 @@
-import {ModuleWithProviders, NgModule} from "@angular/core";
-import {CommonModule} from "@angular/common";
-import {RouterModule} from "@angular/router";
+import {ModuleWithProviders, NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterModule} from '@angular/router';
 import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {sharedPipes} from "./pipes";
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {sharedPipes} from './pipes';
 /**
  FormsModule gives us template driven directives such as:
  • ngModel and
@@ -15,11 +15,12 @@ import {sharedPipes} from "./pipes";
 import {
   MrTestyServiceOne,
   MrTestyServiceTwo
-} from "../misc-examples/components/dependency-injection/services/more-services.service";
+} from '../misc-examples/components/dependency-injection/services/more-services.service';
+import {ExternalLinksComponent} from './directives/external-links.component';
 
 /**
- * http://angularfirst.com/the-ngmodule-forroot-convention
- * https://blog.angular-universit y.io/angular2-ngmodule
+ * http:// angularfirst.com/the-ngmodule-forroot-convention
+ * https:// blog.angular-universit y.io/angular2-ngmodule
  * NgModule containing components and directives
  * ModuleWithProviders containing components, directives, and providers
  */
@@ -33,12 +34,13 @@ import {
     RouterModule,
     HttpClientModule,
     HttpClientJsonpModule,
+    ExternalLinksComponent,
     ...sharedPipes
   ],
-  declarations: [...sharedPipes],
+  declarations: [...sharedPipes, ExternalLinksComponent],
   /**
    *  These providers will be available app wide and will instantiated more than once when used on a lazy-loaded module.
-   *  look at console for "Created an instance of MrTestyServiceTwo" */
+   *  look at console for 'Created an instance of MrTestyServiceTwo' */
   providers: [MrTestyServiceTwo]
 })
 export class SharedModule {
@@ -46,7 +48,7 @@ export class SharedModule {
     return {
       ngModule: SharedModule,
       // this provider will be available app wide but will only be instantiated once
-      // look at the console for "Created an instance of MrTestyServiceOne 1"
+      // look at the console for 'Created an instance of MrTestyServiceOne 1'
       providers: [MrTestyServiceOne]
     };
   }

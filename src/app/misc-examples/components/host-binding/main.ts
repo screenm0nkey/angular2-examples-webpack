@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component} from '@angular/core';
 
 @Component({
   styles: [`h4 {
@@ -6,7 +6,7 @@ import {Component} from "@angular/core";
     color: darkred
   }`],
   template: `
-    <div class="comps">
+    <div class='comps'>
 
       <host-one-component></host-one-component>
 

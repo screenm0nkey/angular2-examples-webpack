@@ -1,21 +1,21 @@
-import { Component, Inject } from "@angular/core";
-import { AppStore } from "../app-store";
-import { Store } from "redux";
-import { Thread } from "../models/index";
-import { ThreadActions } from "../actions/index";
-import { AppState, getAllThreads, getCurrentThread } from "../reducers/index";
+import { Component, Inject } from '@angular/core';
+import { AppStore } from '../app-store';
+import { Store } from 'redux';
+import { Thread } from '../models/index';
+import { ThreadActions } from '../actions/index';
+import { AppState, getAllThreads, getCurrentThread } from '../reducers/index';
 
 @Component({
-  selector: "chat-threads",
+  selector: 'chat-threads',
   template: `
   <!-- conversations -->
-  <div class="row">
-    <div class="conversation-wrap">
+  <div class='row'>
+    <div class='conversation-wrap'>
       <chat-thread
-           *ngFor="let thread of threads"
-           [thread]="thread"
-           [selected]="thread.id === currentThreadId"
-           (onThreadSelected)="handleThreadClicked($event)">
+           *ngFor='let thread of threads'
+           [thread]='thread'
+           [selected]='thread.id === currentThreadId'
+           (onThreadSelected)='handleThreadClicked($event)'>
       </chat-thread>
     </div>
   </div>

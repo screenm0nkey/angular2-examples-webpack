@@ -1,5 +1,5 @@
-import { Component, OnInit } from "@angular/core";
-import { Message } from "../models/index";
+import { Component, OnInit } from '@angular/core';
+import { Message } from '../models/index';
 
 /**
  * ChatMessage is a component that shows a single Message in the ChatWindow.
@@ -7,26 +7,26 @@ import { Message } from "../models/index";
  * incoming or outgoing
  */
 @Component({
-  inputs: ["message"],
-  selector: "chat-message",
+  inputs: ['message'],
+  selector: 'chat-message',
   template: `
-  <div class="msg-container"
-       [ngClass]="{'base-sent': !incoming, 'base-receive': incoming}">
+  <div class='msg-container'
+       [ngClass]='{'base-sent': !incoming, 'base-receive': incoming}'>
 
-    <div class="avatar"
-         *ngIf="!incoming">
-      <img src="{{message.author.avatarSrc}}">
+    <div class='avatar'
+         *ngIf='!incoming'>
+      <img src='{{message.author.avatarSrc}}'>
     </div>
 
-    <div class="messages"
-      [ngClass]="{'msg-sent': !incoming, 'msg-receive': incoming}">
+    <div class='messages'
+      [ngClass]='{'msg-sent': !incoming, 'msg-receive': incoming}'>
       <p>{{message.text}}</p>
-      <p class="time">{{message.sender}} • {{message.sentAt | fromNow}}</p>
+      <p class='time'>{{message.sender}} • {{message.sentAt | fromNow}}</p>
     </div>
 
-    <div class="avatar"
-         *ngIf="incoming">
-      <img src="{{message.author.avatarSrc}}">
+    <div class='avatar'
+         *ngIf='incoming'>
+      <img src='{{message.author.avatarSrc}}'>
     </div>
   </div>
   `

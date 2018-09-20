@@ -1,7 +1,7 @@
-import {Injectable} from "@angular/core";
-import {Message, Thread, User} from "../models";
+import {Injectable} from '@angular/core';
+import {Message, Thread, User} from '../models';
 
-import {Observable, Subject} from "rxjs";
+import {Observable, Subject} from 'rxjs';
 import {map, publishReplay, refCount, scan, filter} from 'rxjs/operators';
 
 

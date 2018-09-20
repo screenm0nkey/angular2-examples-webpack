@@ -1,0 +1,98 @@
+<div class='comps'>
+  <div>
+    <p class="path">misc-examples/components/ng-zone/speedy.component.html</p>
+    <h4>How to Speed Up an Application</h4>
+
+    <ul class="bullets">
+      <li>
+        To make zones faster it is possible to bypass zones entirely for performance focused applications.
+        To bypass zones, bootstrap your application with ‘noop’ as your ngZone.
+        <code>platformBrowserDynamic().bootstrapModule(AppModule, &#123;ngZone: 'noop'&#125;).then( ref => &#123;&#125;
+          );</code>
+      </li>
+      <li><code>ChangeDetectionStrategy.OnPush</code> - Use Angular’s OnPush change detection strategy to save view
+        bindings being
+        checked per change
+        detection task. This can only be used on components which have a <code>@inputs</code>.
+      </li>
+      <li>“Simple” NgFor - Angular’s NgFor directive is sometimes a little bit too smart. A simpler version of it could
+        be
+        faster
+      </li>
+      <li>Detach change detectors - Another option is to detach all change detectors from the tree and only perform
+        change
+        detection for the components that is actually changing
+      </li>
+      <li>Avoid using the ngZone using runOutsideAngular()</li>
+    </ul>
+  </div>
+
+  <ng-zone-demo></ng-zone-demo>
+  <section>
+    <p class="file">misc-examples/components/ng-zone/speedy.component.ts</p>
+    <h4>How to make an app faster using detaching the change detectors and using a simpleNgFor directive</h4>
+    <p><a href="https:// blog.thoughtram.io/angular/2017/02/02/making-your-angular-app-fast.html" target="_blank">
+      Making your angular app fast.
+    </a></p>
+
+    <p>The first thing, we detach the component’s change detectors from the tree. We can inject a component’s
+      ChangeDetectorRef using DI and use its <code>this.cdr.detach()</code> method for that. The only thing we need to
+      keep in mind is that we
+      only want to detach the change detectors after change detection has been performed for the first time, otherwise
+      we
+      won’t see any boxes. To call detach() in the right moment, we can take advantage of Angular’s
+      <code>AfterViewInit</code> life
+      cycle hook.
+    </p>
+    <speedy-component></speedy-component>
+  </section>
+  <section>
+    <div>
+      <p class="file">misc-examples/components/ng-zone/speedy-with-zones.component.ts</p>
+      <h4>Using Zones to speed up an Application</h4>
+      <p><a href="https:// blog.thoughtram.io/angular/2017/02/21/using-zones-in-angular-for-better-performance.html"
+            target="_blank">
+        Using Zones for better performance
+      </a></p>
+
+      <code>this.zone.runOutsideAngular()</code>
+
+      <p>
+        So the reason it's faster outside of the NgZone is because when you add a handler to an event like "mousemove"
+        it is
+        actually using
+        Zone.onmousemove, which triggers the change detection when the event occurs. <strong>Binding the event handler
+        outside
+        of Zone stops the change detection being triggered.</strong> If you look at the console you will only see the
+        change
+        detection
+        happening a few times when it's outside.
+      </p>
+
+      <p class="strong">
+        One interesting point is that the change detection for a component won't be invoked unless it is using
+        any of the monkey-patched events. i.e. if there if there are no event handlers used like
+        <code>(mousedown)="mouseDown($event)"</code>
+        then the <code>ngDoCheck()</code> will not be called.
+      </p>
+
+      <p>
+        <span style="font-weight: bold">Monkey-patched Hooks</span><br>
+        For example, when we call setTimeout() we actually call Zone.setTimeout(), which in turn creates a new zone
+        using
+        zone.fork() in which the given handler is executed. And that’s why our hooks are executed as well, because the
+        forked zone in which the handler will be executed, simply inherits from the parent zone.
+      </p>
+
+      <p>
+        <strong>Using Zones is a great way to escape Angular’s change detection, without detaching change detectors and
+          making
+          the application code too complex.</strong> In fact, it turns out that Zones APIs are super easy to use,
+        especially NgZone’s
+        APIs to run code outside or inside Angular. Based on the numbers, we can even say that the NgZone example is
+        about as fast as the fastest solution above it.
+      </p>
+    </div>
+    <speed-up-app-with-zones></speed-up-app-with-zones>
+  </section>
+</div>

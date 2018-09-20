@@ -1,9 +1,9 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input} from "@angular/core";
-import {Observable, timer} from "rxjs";
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input} from '@angular/core';
+import {Observable, timer} from 'rxjs';
 import {take} from 'rxjs/operators';
 
 @Component({
-  selector: "observable",
+  selector: 'observable',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div>
@@ -20,7 +20,7 @@ export class ObservableCmp {
 
   ngOnInit() {
     this.items.subscribe(v => {
-      console.log("%cGot observable value " + v, "color:violet");
+      console.log('%cGot observable value ' + v, 'color:violet');
       this.counter++;
       this.changeDetector.markForCheck();
     });
@@ -28,11 +28,11 @@ export class ObservableCmp {
 }
 
 @Component({
-  selector: "observable-change-detection-sample-app",
+  selector: 'observable-change-detection-sample-app',
   template: `
-    <p class="file">/misc-examples/components/change-detection/observables.ts</p>
+    <p class='file'>/misc-examples/components/change-detection/observables.ts</p>
     <h4>changeDetector.markForCheck() with Observables</h4>
-    <observable [items]="itemObservable"></observable>
+    <observable [items]='itemObservable'></observable>
   `
 })
 export class ObservableChangeDetectionSampleApp {

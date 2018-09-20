@@ -1,5 +1,5 @@
-import {AfterViewInit, ChangeDetectorRef, Component} from "@angular/core";
-import {BoxComponent} from "./box.component";
+import {AfterViewInit, ChangeDetectorRef, Component} from '@angular/core';
+import {BoxComponent} from './box.component';
 
 interface Box {
   x: number;
@@ -12,16 +12,16 @@ function getRandomInt(min, max) {
 }
 
 @Component({
-  selector: "speedy-component",
+  selector: 'speedy-component',
   template: `
-    <svg width="450" height="150"
-         (mousedown)="mouseDown($event)"
-         (mousemove)="mouseMove($event)"
-         (mouseup)="mouseUp($event)">
+    <svg width='450' height='150'
+         (mousedown)='mouseDown($event)'
+         (mousemove)='mouseMove($event)'
+         (mouseup)='mouseUp($event)'>
       <svg:g
-        *simpleNgFor="let box of boxes"
-        [box]="box"
-        [selected]="box.id == currentId">
+        *simpleNgFor='let box of boxes'
+        [box]='box'
+        [selected]='box.id == currentId'>
       </svg:g>
     </svg>
   `
@@ -49,7 +49,7 @@ export class SpeedingComponent implements AfterViewInit {
   }
 
   mouseDown(event) {
-    const boxComponent: BoxComponent = event.target["BoxComponent"];
+    const boxComponent: BoxComponent = event.target['BoxComponent'];
     if (boxComponent) {
       const box: Box = boxComponent.box;
       const mouseX = event.clientX;

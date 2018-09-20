@@ -18,7 +18,7 @@ const webpackConfig = {
   plugins: [
     new webpack.ContextReplacementPlugin(
       // The (\\|\/) piece accounts for path separators in *nix and Windows
-      /\@angular(\\|\/)core(\\|\/)esm5/,
+      /\@angular(\\|\/)core(\\|\/)(\@angular|esm5)/,
       path.join(__dirname, './src'),
       {
         // your Angular Async Route paths relative to this root directory
@@ -28,6 +28,12 @@ const webpackConfig = {
 
   module: {
     loaders: [
+      {
+        // Mark files inside `@angular/core` as using SystemJS style dynamic imports.
+        // Removing this will cause deprecation warnings to appear.
+        test: /[\/\\]@angular[\/\\]core[\/\\].+\.js$/,
+        parser: { system: true },
+      },
       // .ts files for TypeScript
       {
         test: /\.ts$/,

@@ -1,8 +1,8 @@
-import {Component, Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {FormControl} from "@angular/forms";
-import {WikiSearchService} from "./wikipedia-search.service";
+import {Component, Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {FormControl} from '@angular/forms';
+import {WikiSearchService} from './wikipedia-search.service';
 import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
 
 @Injectable()
@@ -19,27 +19,27 @@ class WikipediaService2 {
 
   rawSearch(term: string) {
     const params = {
-      callback: "JSONP_CALLBACK",
-      action: "opensearch",
+      callback: 'JSONP_CALLBACK',
+      action: 'opensearch',
       search: term,
-      format: "json"
+      format: 'json'
     };
-    return this.wikiSearch.get("http://en.wikipedia.org/w/api.php", {params});
+    return this.wikiSearch.get('http:// en.wikipedia.org/w/api.php', {params});
   }
 }
 
 @Component({
-  selector: "wikipedia-super-search",
+  selector: 'wikipedia-super-search',
   providers: [WikipediaService2],
   template: `
     <div>
-      <p class="path">/http-rxjs/searches/wikipedia-super-search.ts</p>
+      <p class='path'>/http-rxjs/searches/wikipedia-super-search.ts</p>
       <h4>Using the <strong>formControl.valueChanges</strong> Observable and JSONP</h4>
       
-      Search <input type="text" [formControl]="term" placeholder="Wikipedia Search"/>
+      Search <input type='text' [formControl]='term' placeholder='Wikipedia Search'/>
       
       <ul>
-        <li *ngFor="let item of items$ | async">{{item}}</li>
+        <li *ngFor='let item of items$ | async'>{{item}}</li>
       </ul>
     </div>
   `

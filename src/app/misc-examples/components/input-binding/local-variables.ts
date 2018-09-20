@@ -1,12 +1,12 @@
-import {Component, OnDestroy, OnInit} from "@angular/core";
+import {Component, OnDestroy, OnInit} from '@angular/core';
 
 @Component({
-  selector: "countdown-timer",
-  template: "<p>{{message}}</p>"
+  selector: 'countdown-timer',
+  template: '<p>{{message}}</p>'
 })
 export class CountdownTimerComponent implements OnInit, OnDestroy {
   intervalId = 0;
-  message = "";
+  message = '';
   seconds = 11;
 
   clearTimer() {
@@ -35,7 +35,7 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
     this.intervalId = window.setInterval(() => {
       this.seconds -= 1;
       if (this.seconds === 0) {
-        this.message = "Blast off!";
+        this.message = 'Blast off!';
       } else {
         if (this.seconds < 0) {
           this.seconds = 10;
@@ -47,16 +47,16 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
 }
 
 @Component({
-  selector: "countdown-parent-lv",
+  selector: 'countdown-parent-lv',
   template: `
-    <p class="file">misc-examples/components/input-binding/local-variables.ts</p>
+    <p class='file'>misc-examples/components/input-binding/local-variables.ts</p>
     <h4>Access a child component from the parent using local variable</h4>
-    <p><a routerLink="/misc/view-children">@viewChild @viewChildren</a></p>
+    <p><a routerLink='/misc/view-children'>@viewChild @viewChildren</a></p>
     <code>&lt;countdown-timer #timer&gt;</code>
 
-    <button (click)="timer.start()">Start</button>
-    <button (click)="timer.stop()">Stop</button>
-    <div class="seconds">{{timer.seconds}}</div>
+    <button (click)='timer.start()'>Start</button>
+    <button (click)='timer.stop()'>Stop</button>
+    <div class='seconds'>{{timer.seconds}}</div>
 
     <countdown-timer #timer></countdown-timer>
   `

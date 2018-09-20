@@ -1,8 +1,8 @@
-import { Action, ActionCreator } from "redux";
-import { uuid } from "../../../../shared/shared-utils";
-import { Message, Thread } from "../models/index";
+import { Action, ActionCreator } from 'redux';
+import { uuid } from '../../../../shared/shared-utils';
+import { Message, Thread } from '../models/index';
 
-export const ADD_THREAD = "[Thread] Add";
+export const ADD_THREAD = '[Thread] Add';
 
 export interface AddThreadAction extends Action {
   thread: Thread;
@@ -13,7 +13,7 @@ export const addThread: ActionCreator<AddThreadAction> = thread => ({
   thread: thread
 });
 
-export const ADD_MESSAGE = "[Thread] Add Message";
+export const ADD_MESSAGE = '[Thread] Add Message';
 
 export interface AddMessageAction extends Action {
   thread: Thread;
@@ -39,7 +39,7 @@ export const addMessage: ActionCreator<AddMessageAction> = (
   };
 };
 
-export const SELECT_THREAD = "[Thread] Select";
+export const SELECT_THREAD = '[Thread] Select';
 
 export interface SelectThreadAction extends Action {
   thread: Thread;

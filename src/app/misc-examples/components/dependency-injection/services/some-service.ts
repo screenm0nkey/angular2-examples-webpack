@@ -1,4 +1,4 @@
-import {Injectable} from "@angular/core";
+import {Injectable} from '@angular/core';
 
 // These services are used in the injecting-token.ts examples
 
@@ -8,7 +8,7 @@ export class SomeService {
 
   callMe(s: String) {
     console.log(
-      `%cSomeService instance-id=${++SomeService.counter}`, "color:green", s);
+      `%cSomeService instance-id=${++SomeService.counter}`, 'color:green', s);
   }
 }
 
@@ -17,7 +17,7 @@ export class EngineService {
   static counter: number = 0;
 
   callMe(s: String) {
-    console.log(`%cEngineService instance-id=${++SomeService.counter}`, "color:orange", s);
+    console.log(`%cEngineService instance-id=${++SomeService.counter}`, 'color:orange', s);
   }
 }
 
@@ -25,8 +25,8 @@ export class EngineService {
 export class ParamService {
   constructor(private phrase: string, num: number) {
     console.log(
-      "%cParamService is being created with phrase",
-      "color:violet",
+      '%cParamService is being created with phrase',
+      'color:violet',
       phrase,
       num
     );
@@ -41,9 +41,9 @@ export class ParamService {
 export class RubbishService {
   static counter: number = 0;
   imANumber: number = 11;
-  imAString  = "hello";
+  imAString  = 'hello';
 
   constructor() {
-    console.log(`%cRubbishService instance-id=${++RubbishService.counter}`, "color:yellow");
+    console.log(`%cRubbishService instance-id=${++RubbishService.counter}`, 'color:yellow');
   }
 }

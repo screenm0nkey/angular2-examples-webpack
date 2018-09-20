@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from "@angular/core";
+import {Component, Input, OnInit} from '@angular/core';
 
 interface ExtLink {
   title: string;
@@ -6,7 +6,7 @@ interface ExtLink {
 }
 
 const linkData = {
-  whatsNewInNg6: ["What's new in Angular6"]
+  whatsNewInNg6: ['Whats new in Angular6']
 };
 
 export const externalLinks : {[key:string]:ExtLink} = Object.keys(linkData).reduce((prev, key): {[key:string]:ExtLink} => {
@@ -21,7 +21,7 @@ export const externalLinks : {[key:string]:ExtLink} = Object.keys(linkData).redu
 @Component({
   selector: 'ext-links',
   template: `
-    <a href="http://angularfirst.com/the-ngmodule-forroot-convention/" target="_blank">
+    <a href='http:// angularfirst.com/the-ngmodule-forroot-convention/' target='_blank'>
       The NgModule <code>forRoot()</code> Convention
     </a>
   `

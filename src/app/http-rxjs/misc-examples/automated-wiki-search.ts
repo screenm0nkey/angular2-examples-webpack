@@ -1,24 +1,24 @@
-import {Component} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {WikiSearchService} from "../searches/wikipedia-search.service";
-import {from, Observable, of, range, zip} from "rxjs";
-import {concatMap, debounceTime, delay, filter, map, scan, switchMap, tap, share} from 'rxjs/operators';
+import {Component} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {WikiSearchService} from '../searches/wikipedia-search.service';
+import {from, Observable, of, range} from 'rxjs';
+import {concatMap, debounceTime, delay, filter, map, scan, share, switchMap, tap} from 'rxjs/operators';
 
 @Component({
-  selector: "auto-wiki-search",
+  selector: 'auto-wiki-search',
   template: `
     <div>
-      <p class="path">/http-rxjs/misc-examples/automated-wiki-search.ts</p>
+      <p class='path'>/http-rxjs/misc-examples/automated-wiki-search.ts</p>
       <h4>Automated Wiki Search</h4>
-      
-      <button (click)="searchWiki()" *ngIf="!search">Start Http wiki search</button>
-      <button (click)="searchWiki()" *ngIf="search">Stop Http wiki search</button>
-      <input type="text" [value]="term$ | async">
+
+      <button (click)='searchWiki()' *ngIf='!search'>Start Http wiki search</button>
+      <button (click)='searchWiki()' *ngIf='search'>Stop Http wiki search</button>
+      <input type='text' [value]='term$ | async'>
       <ul>
-        <li *ngFor="let result of results$ | async">{{result}}</li> 
+        <li *ngFor='let result of results$ | async'>{{result}}</li>
       </ul>
     </div>
-`
+  `
 })
 export class AutoSearch {
   search: boolean = false;
@@ -37,15 +37,15 @@ export class AutoSearch {
 
     this.randomInterval$ = range(0, this.text.length)
       .pipe(concatMap(x => of(x).pipe(delay(Math.random() * 2000))))
-      .pipe(tap(data => console.log("%c" + data, "color:pink")));
+      .pipe(tap(data => console.log('%c' + data, 'color:pink')));
 
     this.term$ = from(this.text)
-      .pipe(tap(data => console.log("%c" + data, "color:red")))
-      //@ts-ignore
-      .pipe(zip(this.randomInterval$, x => x))
-      .pipe(tap(data => console.log("%czip " + data, "color:green")))
-      .pipe(scan((a: string, c: string) => (c === " " ? "" : a + c)))
-      .pipe(tap(data => console.log("%cscan " + data, "color:orange")))
+      .pipe(tap(data => console.log('%c' + data, 'color:red')))
+      // @ts-ignore
+      .pipe(map(this.randomInterval$, x => x))
+      .pipe(tap(data => console.log('%czip ' + data, 'color:green')))
+      .pipe(scan((a: string, c: string) => (c === ' ' ? '' : a + c)))
+      .pipe(tap(data => console.log('%cscan ' + data, 'color:orange')))
       .pipe(share());
 
     this.results$ = this.term$

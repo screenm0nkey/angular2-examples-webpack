@@ -1,5 +1,5 @@
-import { Directive } from "@angular/core";
-import { FormControl, NG_VALIDATORS } from "@angular/forms";
+import { Directive } from '@angular/core';
+import { FormControl, NG_VALIDATORS } from '@angular/forms';
 
 function validateEmail(c: FormControl) {
   let EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
@@ -18,7 +18,7 @@ function validateEmail(c: FormControl) {
  It maintains a multi provider for a dependency token called NG_VALIDATORS.
  * */
 @Directive({
-  selector: "[validateEmail][ngModel]",
+  selector: '[validateEmail][ngModel]',
   providers: [
     {
       provide: NG_VALIDATORS,

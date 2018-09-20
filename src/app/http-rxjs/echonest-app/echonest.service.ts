@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { Artist, EchonestRepo } from "./echonest.repo";
-import { BehaviorSubject, Observable } from "rxjs";
+import { Injectable } from '@angular/core';
+import { Artist, EchonestRepo } from './echonest.repo';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable()
 export class EchonestService {

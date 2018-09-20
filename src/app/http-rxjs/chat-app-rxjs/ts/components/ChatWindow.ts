@@ -1,48 +1,48 @@
-import {ChangeDetectionStrategy, Component, ElementRef, OnInit} from "@angular/core";
-import {MessagesService, ThreadsService, UserService} from "../services/services";
-import {Observable} from "rxjs";
-import {Message, Thread, User} from "../models";
+import {ChangeDetectionStrategy, Component, ElementRef, OnInit} from '@angular/core';
+import {MessagesService, ThreadsService, UserService} from '../services/services';
+import {Observable} from 'rxjs';
+import {Message, Thread, User} from '../models';
 
 
 @Component({
-  selector: "chat-window",
+  selector: 'chat-window',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div class="chat-window-container" style="border: solid 5px red;">
-      <div class="chat-window">
-      <p class="path">src/app/chat-app/ts/components/ChatWindow.ts</p>
-        <div class="panel-container">
-          <div class="panel panel-default">
+    <div class='chat-window-container' style='border: solid 5px red;'>
+      <div class='chat-window'>
+      <p class='path'>src/app/chat-app/ts/components/ChatWindow.ts</p>
+        <div class='panel-container'>
+          <div class='panel panel-default'>
 
-            <div class="panel-heading top-bar">
-              <div class="panel-title-container">
-                <h3 class="panel-title">
-                  <span class="glyphicon glyphicon-comment"></span>
+            <div class='panel-heading top-bar'>
+              <div class='panel-title-container'>
+                <h3 class='panel-title'>
+                  <span class='glyphicon glyphicon-comment'></span>
                   Chat - {{currentThread.name}}
                 </h3>
               </div>
-              <div class="panel-buttons-container">
+              <div class='panel-buttons-container'>
                 <!-- you could put minimize or close buttons here -->
               </div>
             </div>
 
-            <div class="panel-body msg-container-base">
+            <div class='panel-body msg-container-base'>
               <chat-message
-                   *ngFor="let message of messages | async"
-                   [message]="message">
+                   *ngFor='let message of messages | async'
+                   [message]='message'>
               </chat-message>
             </div>
 
-            <div class="panel-footer">
-              <div class="input-group">
-                <input type="text" 
-                       class="chat-input"
-                       placeholder="Write your message here..."
-                       (keydown.enter)="onEnter($event)"
-                       [(ngModel)]="draftMessage.text" />
-                <span class="input-group-btn">
-                  <button class="btn-chat"
-                     (click)="onEnter($event)"
+            <div class='panel-footer'>
+              <div class='input-group'>
+                <input type='text' 
+                       class='chat-input'
+                       placeholder='Write your message here...'
+                       (keydown.enter)='onEnter($event)'
+                       [(ngModel)]='draftMessage.text' />
+                <span class='input-group-btn'>
+                  <button class='btn-chat'
+                     (click)='onEnter($event)'
                      >Send</button>
                 </span>
               </div>
@@ -100,7 +100,7 @@ export class ChatWindow implements OnInit {
 
   scrollToBottom(): void {
     let scrollPane: any = this.el.nativeElement.querySelector(
-      ".msg-container-base"
+      '.msg-container-base'
     );
     scrollPane.scrollTop = scrollPane.scrollHeight;
   }

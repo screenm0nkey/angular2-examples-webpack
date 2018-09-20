@@ -1,12 +1,12 @@
-import {Directive, ElementRef} from "@angular/core";
+import {Directive, ElementRef} from '@angular/core';
 
 @Directive({
-  selector: "[popup]",
-  inputs: ["message"],
-  exportAs: "popuppy",
+  selector: '[popup]',
+  inputs: ['message'],
+  exportAs: 'popuppy',
   // host is the element using the directive
   host: {
-    "(click)": "displayMessage()"
+    '(click)': 'displayMessage()'
   }
 })
 export class PopupDirective {

@@ -1,9 +1,9 @@
-import {Component, OnInit} from "@angular/core";
-import {from, interval, Observable} from "rxjs";
-import {scan, zip} from 'rxjs/operators';
+import {Component, OnInit} from '@angular/core';
+import {from, interval, Observable} from 'rxjs';
+import {scan, map} from 'rxjs/operators';
 
 @Component({
-  selector: "typewriter",
+  selector: 'typewriter',
   template: `
     <div>
       {{typewriter$ | async}}
@@ -19,8 +19,9 @@ export class Typewriter implements OnInit {
             sirloin kielbasa jowl chuck sausage jerky short loin chicken. Flank sirloin frankfurter 
             corned beef turducken. Beef ribs salami ribeye, t-bone meatloaf flank jerky tongue turkey`;
 
-    this.typewriter$ = from(this.text.split(""))
+    this.typewriter$ = from(this.text.split(''))
       .pipe(scan((acc, curr) => acc + curr))
-      .pipe(zip(interval(50), x => x));
+      // @ts-ignore
+      .pipe(map(interval(50), x => x));
   }
 }

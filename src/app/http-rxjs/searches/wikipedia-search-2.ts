@@ -1,22 +1,22 @@
-import {Component} from "@angular/core";
-import {Observable} from "rxjs";
-import {FormControl} from "@angular/forms";
-import {WikiSearchService} from "./wikipedia-search.service";
+import {Component} from '@angular/core';
+import {Observable} from 'rxjs';
+import {FormControl} from '@angular/forms';
+import {WikiSearchService} from './wikipedia-search.service';
 import {tap, debounceTime, distinctUntilChanged, switchMap, delay} from 'rxjs/operators';
 
 
 // same as wikipedia-searchForImages-1.ts but built with observables
 @Component({
-  selector: "wikipedia-observable",
+  selector: 'wikipedia-observable',
   // providers: [WikipediaService],
   template: `
     <div>
-    <p class="path">app/http-rxjs/searches/wikipedia-search-2.ts</p>
+    <p class='path'>app/http-rxjs/searches/wikipedia-search-2.ts</p>
       <h4>Search using angular <strong>async filter</strong>, <strong>input.valueChanges</strong> and a loading icon</h4>
       
-      <input type="text" [formControl]="term" placeholder="Wikipedia Search"/> 
-      <span *ngIf="loading" style="background-color: red">loading</span>
-      <ul><li *ngFor="let item of items | async">{{item}}</li></ul>
+      <input type='text' [formControl]='term' placeholder='Wikipedia Search'/> 
+      <span *ngIf='loading' style='background-color: red'>loading</span>
+      <ul><li *ngFor='let item of items | async'>{{item}}</li></ul>
     </div>
   `
 })

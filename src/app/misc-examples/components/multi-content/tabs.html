@@ -13,3 +13,14 @@
   This annotation will tell Angular to inject all the direct child directives (of the Tab type) into the tabs parameter.
   We then assign it to the tabs property of our component. With this we now have access to all the child Tab components.
 </p>
+<tabset>
+  <tab title='First tab'>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    Quibusdam magni quia ut harum facilis, ullam deleniti porro
+    dignissimos quasi at molestiae sapiente natus, neque voluptatum
+    ad consequuntur cupiditate nemo sunt.
+  </tab>
+  <tab *ngFor='let tab of tabs' [title]='tab.title'>
+    {{ tab.content }}
+  </tab>
+</tabset>

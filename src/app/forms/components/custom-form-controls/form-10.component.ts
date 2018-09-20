@@ -1,7 +1,7 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
 @Component({
-  selector: "form-ten-component",
+  selector: 'form-ten-component',
   template: `
         <template-driven></template-driven>
         <hr>

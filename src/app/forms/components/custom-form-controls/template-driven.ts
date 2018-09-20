@@ -1,47 +1,47 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
 @Component({
-  selector: "template-driven",
+  selector: 'template-driven',
   template: `
     <h4>Using it inside template-driven forms</h4>
-     <a href="http://blog.thoughtram.io/angular/2016/07/27/custom-form-controls-in-angular-2.html" target="_blank">custom-form-controls</a>
+     <a href='http:// blog.thoughtram.io/angular/2016/07/27/custom-form-controls-in-angular-2.html' target='_blank'>custom-form-controls</a>
      
      <p>These are the min max values for the custom for control. the they become invalid. try changing the values and increasing the </p>
     <div>
       <label>Change min value:</label>
-      <input type="number" [(ngModel)]="minValue">
+      <input type='number' [(ngModel)]='minValue'>
     </div>
     <div>
       <label>Change max value:</label>
-      <input type="number" [(ngModel)]="maxValue">
+      <input type='number' [(ngModel)]='maxValue'>
     </div>
     
     
-    <form #form="ngForm">
-        <label for="counter1">Without model initialization</label>
+    <form #form='ngForm'>
+        <label for='counter1'>Without model initialization</label>
         <counter-input 
-            name="counter1"
-            [counterRangeMax]="maxValue"
-            [counterRangeMin]="minValue"
+            name='counter1'
+            [counterRangeMax]='maxValue'
+            [counterRangeMin]='minValue'
              ngModel>
         </counter-input>
         <br>
         
-        <label for="counter2">Model initialization with property binding</label>
+        <label for='counter2'>Model initialization with property binding</label>
         <counter-input 
-            name="counter2"
-            [counterRangeMax]="maxValue"
-            [counterRangeMin]="minValue"
-            [ngModel]="counter2Value">
+            name='counter2'
+            [counterRangeMax]='maxValue'
+            [counterRangeMin]='minValue'
+            [ngModel]='counter2Value'>
         </counter-input>
         <br>
         
-        <label for="counter3">Model initialization with property binding</label>
+        <label for='counter3'>Model initialization with property binding</label>
         <counter-input 
-            name="counter3" 
-            [counterRangeMax]="maxValue"
-            [counterRangeMin]="minValue"
-            [(ngModel)]="counter3Value"></counter-input>
+            name='counter3' 
+            [counterRangeMax]='maxValue'
+            [counterRangeMin]='minValue'
+            [(ngModel)]='counter3Value'></counter-input>
         <span>ngModel value: {{counter3Value}}</span>
     </form>
 

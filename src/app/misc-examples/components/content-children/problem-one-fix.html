@@ -26,7 +26,12 @@
   <strong>It will not be called when items are added or removed from @ViewChildren or @ContentChildren query
     lists.</strong></p>
 
-<p class="strong">If you want to be notified of changes in a query list, don't use <code>ngOnChanges</code>. Instead subscribe
+<p class="strong">If you want to be notified of changes in a query list, don't use <code>ngOnChanges</code>. Instead
+  subscribe
   to the query list's built-in observable, its "changes" property. As long as you do so in the
   proper lifecycle hook, not the constructor, you will be notified whenever an item is added or removed.</p>
 
+<button (click)='addItem()'>Add an Item</button><br>
+<fix-super-list>
+  <li *ngFor='let item of items'> {{item}}</li>
+</fix-super-list>

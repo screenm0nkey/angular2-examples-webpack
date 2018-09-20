@@ -1,6 +1,6 @@
-import { Component, Injectable, OnInit } from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import { Observable } from "rxjs";
+import { Component, Injectable, OnInit } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 export interface Character {
   id: number;
@@ -12,17 +12,17 @@ export class CharacterService {
   characters$: Observable<Character[]>;
 
   constructor(http: HttpClient) {
-    this.characters$ = http.get<Character[]>("/json/characters.json");
+    this.characters$ = http.get<Character[]>('/json/characters.json');
   }
 }
 
 @Component({
-  selector: "subscribe-example",
+  selector: 'subscribe-example',
   template: `
-        <div class="search-results">
-          <p class="path">/http-rxjs/misc-examples/subscribe.ts</p>
+        <div class='search-results'>
+          <p class='path'>/http-rxjs/misc-examples/subscribe.ts</p>
             <h4>Subscribe example</h4> 
-            <pre class="limit-height">{{characters | json}}</pre>
+            <pre class='limit-height'>{{characters | json}}</pre>
         </div>
     `,
   providers: [CharacterService]

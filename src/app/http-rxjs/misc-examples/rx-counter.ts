@@ -1,19 +1,19 @@
-import {Component} from "@angular/core";
-import {merge, Observable} from "rxjs";
+import {Component} from '@angular/core';
+import {merge, Observable} from 'rxjs';
 import {map, scan, startWith} from 'rxjs/operators';
 
 @Component({
-  selector: "counter-component",
+  selector: 'counter-component',
   template: `
-        <p class="path">/http-rxjs/misc-examples/rx-counter.ts</p>
+        <p class='path'>/http-rxjs/misc-examples/rx-counter.ts</p>
         <h4>RXJS Reactive data flow</h4>
-        <a target="_blank" href="http://blog.lambda-it.ch/reactive-data-flow-in-angular-2">
+        <a target='_blank' href='http:// blog.lambda-it.ch/reactive-data-flow-in-angular-2'>
           reactive-data-flow-in-angular-2
         </a>
         <br>
-        <div style="margin-bottom: 10px">
-            <button (click)="decrement()">Decrement</button>
-            <button (click)="increment()">Increment</button>
+        <div style='margin-bottom: 10px'>
+            <button (click)='decrement()'>Decrement</button>
+            <button (click)='increment()'>Increment</button>
             <p> Counter: {{ count | async }} </p>
         </div>`
 })

@@ -1,9 +1,9 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
 @Component({
-  selector: "app-component",
+  selector: 'app-component',
   template: `
-    <div class="comps">
+    <div class='comps'>
         <john-linquist-wiki></john-linquist-wiki>
         <forkjoin-app></forkjoin-app>
         <star-wars></star-wars>

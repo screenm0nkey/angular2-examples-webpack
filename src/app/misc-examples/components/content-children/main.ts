@@ -1,8 +1,8 @@
-import {Component} from "@angular/core";
+import {Component} from '@angular/core';
 
 @Component({
   template: `
-    <div class="comps">
+    <div class='comps'>
       <my-component></my-component>
       <fix-my-component></fix-my-component>
     </div>

@@ -1,24 +1,24 @@
-import { Component } from "@angular/core";
-import { LoggerService } from "../logger.service";
+import { Component } from '@angular/core';
+import { LoggerService } from '../logger.service';
 
 @Component({
-  selector: "after-view-parent",
+  selector: 'after-view-parent',
   template: `
-    <div class="comps">
-      <div class="parent">
-        <p class="path">src/app/lifecycle/after-view/after-view-parent.component.ts</p>
+    <div class='comps'>
+      <div class='parent'>
+        <p class='path'>src/app/lifecycle/after-view/after-view-parent.component.ts</p>
         <h4>AfterViewChecked, AfterViewInit</h4>
-        <a href="https://angular.io/docs/ts/latest/guide/lifecycle-hooks.html#!#afterview" target="_blank">Docs</a>
+        <a href='https:// angular.io/docs/ts/latest/guide/lifecycle-hooks.html#!#afterview' target='_blank'>Docs</a>
     
-        <after-view *ngIf="show"></after-view>
+        <after-view *ngIf='show'></after-view>
     
         <h5>-- AfterView Logs --</h5>
-        <p><button (click)="reset()">Reset</button></p>
-        <div *ngFor="let msg of logs">{{msg}}</div>
+        <p><button (click)='reset()'>Reset</button></p>
+        <div *ngFor='let msg of logs'>{{msg}}</div>
       </div>  
     </div>
   `,
-  styles: [".parent {background: burlywood}"],
+  styles: ['.parent {background: burlywood}'],
   providers: [LoggerService]
 })
 export class AfterViewParentComponent {

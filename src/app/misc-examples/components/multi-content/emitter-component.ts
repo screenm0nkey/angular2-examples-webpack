@@ -1,5 +1,5 @@
-import {Component, Injectable} from "@angular/core";
-import {Subject} from "rxjs";
+import {Component, Injectable} from '@angular/core';
+import {Subject} from 'rxjs';
 
 @Injectable()
 class BroadcasterService {
@@ -15,8 +15,8 @@ class BroadcasterService {
 }
 
 @Component({
-  selector: "comp1",
-  template: "<div>Generated number: {{ generatedNumber }}</div>"
+  selector: 'comp1',
+  template: '<div>Generated number: {{ generatedNumber }}</div>'
 })
 export class Comp1 {
   generatedNumber: number = 0;
@@ -29,8 +29,8 @@ export class Comp1 {
 }
 
 @Component({
-  selector: "comp2",
-  template: "<div>Received number: {{ receivedNumber }}</div>"
+  selector: 'comp2',
+  template: '<div>Received number: {{ receivedNumber }}</div>'
 })
 export class Comp2 {
   receivedNumber: number = 0;
@@ -43,7 +43,7 @@ export class Comp2 {
 }
 
 @Component({
-  selector: "emitter-component",
+  selector: 'emitter-component',
   viewProviders: [BroadcasterService],
   template: `
     <div>

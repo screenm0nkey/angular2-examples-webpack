@@ -1,9 +1,9 @@
-import {Component} from "@angular/core";
+import {Component} from '@angular/core';
 
 @Component({
-  selector: "template-component",
+  selector: 'template-component',
   template: `
-    <div class="comps">
+    <div class='comps'>
       <ng-book-if-template></ng-book-if-template>
       <ng-book-repeat-template></ng-book-repeat-template>
     </div>

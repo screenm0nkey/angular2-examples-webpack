@@ -1,24 +1,24 @@
 /*
  * Angular
  */
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { Location } from "@angular/common";
-import { Observable } from "rxjs";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { Observable } from 'rxjs';
 /*
  * Services
  */
-import { SpotifyService } from "../spotify.service";
+import { SpotifyService } from '../spotify.service';
 
 @Component({
-  selector: "artist$",
+  selector: 'artist$',
   template: `
-  <div *ngIf="(artist$ | async)?.name">
+  <div *ngIf='(artist$ | async)?.name'>
     <h1>{{ (artist$ | async)?.name }}</h1>
     <p>
-      <img src="{{ (artist$ | async)?.images[0].url }}">
+      <img src='{{ (artist$ | async)?.images[0].url }}'>
     </p>
-    <p><a href (click)="back()">Back</a></p>
+    <p><a href (click)='back()'>Back</a></p>
   </div>
   `
 })
@@ -32,7 +32,7 @@ export class ArtistComponent implements OnInit {
     private location: Location
   ) {
     route.params.subscribe(params => {
-      this.id = params["id"];
+      this.id = params['id'];
     });
   }
 

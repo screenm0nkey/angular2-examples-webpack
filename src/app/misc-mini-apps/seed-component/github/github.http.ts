@@ -1,5 +1,5 @@
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpParams } from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import {map} from 'rxjs/operators';
 
 
@@ -21,9 +21,9 @@ export class GithubHttp {
 
   private makeRequest(path: string) {
     let params = new HttpParams();
-    params.set("per_page", "100");
+    params.set('per_page', '100');
 
-    let url = `https://api.github.com/${path}`;
+    let url = `https:// api.github.com/${path}`;
     return this.http.get(url, { params }).pipe(map(res => res));
   }
 }

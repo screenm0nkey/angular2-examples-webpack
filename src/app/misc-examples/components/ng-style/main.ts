@@ -1,8 +1,8 @@
-import {Component} from "@angular/core";
+import {Component} from '@angular/core';
 
 @Component({
   template: `
-    <div class="comps">
+    <div class='comps'>
       <ng-style-demo></ng-style-demo>
     </div>
   `

@@ -1,40 +1,40 @@
-import { Component } from "@angular/core";
-import { AuthService } from "../services/AuthService";
-import { ActivatedRoute, Router } from "@angular/router";
+import { Component } from '@angular/core';
+import { AuthService } from '../services/AuthService';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: "login-component",
+  selector: 'login-component',
   template: `
-    <div style="border:solid 3px goldenrod">
-       <div class="alert alert-danger" role="alert" *ngIf="message">
+    <div style='border:solid 3px goldenrod'>
+       <div class='alert alert-danger' role='alert' *ngIf='message'>
         {{ message }}
       </div>
     
-      <form class="form-inline" *ngIf="!authService.getUser()">
-        <div class="form-group">
-          <label for="username">User:</label>
-          <input class="form-control" name="username" value="user" #username>
+      <form class='form-inline' *ngIf='!authService.getUser()'>
+        <div class='form-group'>
+          <label for='username'>User:</label>
+          <input class='form-control' name='username' value='user' #username>
         </div>
     
-        <div class="form-group">
-          <label for="password">Password:</label>
-          <input class="form-control" type="password" name="password" value="password" #password>
+        <div class='form-group'>
+          <label for='password'>Password:</label>
+          <input class='form-control' type='password' name='password' value='password' #password>
         </div>
     
-        <a class="btn btn-default" (click)="login(username.value, password.value)">
+        <a class='btn btn-default' (click)='login(username.value, password.value)'>
           Login
         </a>
       </form>
     
-      <div class="well" *ngIf="authService.getUser()">
+      <div class='well' *ngIf='authService.getUser()'>
         Logged in as <b>{{ authService.getUser() }}</b>
-        <a href (click)="logout()">Log out</a>
+        <a href (click)='logout()'>Log out</a>
       </div>
     </div>
   `
 })
 export class LoginComponent {
-  message: string = "";
+  message: string = '';
 
   constructor(
     private authService: AuthService,
@@ -43,9 +43,9 @@ export class LoginComponent {
   ) {}
 
   login(username: string, password: string): boolean {
-    this.message = "";
+    this.message = '';
     if (!this.authService.login(username, password)) {
-      this.message = "Incorrect credentials.";
+      this.message = 'Incorrect credentials.';
       setTimeout(()=>this.message = '', 2500);
     }
     return false;
@@ -53,8 +53,8 @@ export class LoginComponent {
 
   logout(): boolean {
     this.authService.logout();
-    if (this.router.url.endsWith("protected")) {
-      this.router.navigate(["./aboutus", 34], { relativeTo: this.route });
+    if (this.router.url.endsWith('protected')) {
+      this.router.navigate(['./aboutus', 34], { relativeTo: this.route });
     }
     return false;
   }

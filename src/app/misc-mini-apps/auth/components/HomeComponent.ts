@@ -1,8 +1,8 @@
-import { Component } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
+import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: "home",
+  selector: 'home',
   template: `
     <h1>Welcome!</h1>
     <p>Sign in and you get access to the protected</p>
@@ -14,7 +14,7 @@ resolve data, global query params and the global fragment.
 <strong>RouterState</strong> The current state of the router including a tree of the 
 currently activated routes together with convenience methods for traversing the route tree.</pre>
 
-    <button (click)="goToProduct(id)">Go to About Us with fragment and queryparams</button>
+    <button (click)='goToProduct(id)'>Go to About Us with fragment and queryparams</button>
   `
 })
 export class HomeComponent {
@@ -23,10 +23,10 @@ export class HomeComponent {
   constructor(private router: Router, private route: ActivatedRoute) {}
 
   goToProduct(id: string): void {
-    this.router.navigate(["./aboutus", id], {
+    this.router.navigate(['./aboutus', id], {
       relativeTo: this.route,
       queryParams: { session_id: 111111 },
-      fragment: "anchor"
+      fragment: 'anchor'
     });
   }
 }

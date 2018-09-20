@@ -1,13 +1,13 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
   CanDeactivate,
   RouterStateSnapshot
-} from "@angular/router";
-import { AuthService } from "../services/AuthService";
-import { DialogService } from "../services/dialog.service";
-import { Observable } from "rxjs";
+} from '@angular/router';
+import { AuthService } from '../services/AuthService';
+import { DialogService } from '../services/dialog.service';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class LoggedInGuard implements CanActivate {
@@ -37,7 +37,7 @@ export class UserCanDeactivate
     nextState?: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
     return this.dialogService.confirm(
-      "Are you sure you want to leave " + currentRoute.params["id"]
+      'Are you sure you want to leave ' + currentRoute.params['id']
     );
   }
 }

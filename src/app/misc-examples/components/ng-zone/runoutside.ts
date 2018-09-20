@@ -1,16 +1,16 @@
-import {Component, DoCheck, NgZone} from "@angular/core";
+import {Component, DoCheck, NgZone} from '@angular/core';
 
 @Component({
-  selector: "ng-zone-demo",
+  selector: 'ng-zone-demo',
   template: `
-    <p class="path">misc-examples/components/ng-zone/runoutside.ts</p>
+    <p class='path'>misc-examples/components/ng-zone/runoutside.ts</p>
     <h4>Demo: NgZone (watch console log)</h4>
-    <a href="http://blog.thoughtram.io/angular/2016/02/01/zones-in-angular-2.html" target="_blank">
+    <a href='http:// blog.thoughtram.io/angular/2016/02/01/zones-in-angular-2.html' target='_blank'>
       Zones in Angular 2
     </a>
 
     <p>NgZone comes with an API runOutsideAngular() <strong>which performs a
-      given task outside NgZone’s parent zone. This means it does not emit an "onTurnDone"
+      given task outside NgZone’s parent zone. This means it does not emit an 'onTurnDone'
       event, hence no change detection is performed.</strong> This means it will be faster.</p>
 
     <p>ngDoCheck() is called every time the component is checked.
@@ -20,10 +20,10 @@ import {Component, DoCheck, NgZone} from "@angular/core";
     <p>Running processes outside of the Angular zone stops ngDoCheck() being called.</p>
 
     <p>Progress: {{progress}}%</p>
-    <p *ngIf="progress >= 100">Done processing {{label}} of Angular zone!</p>
+    <p *ngIf='progress >= 100'>Done processing {{label}} of Angular zone!</p>
 
-    <button (click)="processWithinAngularZone()">Process within Angular zone</button>
-    <button (click)="processOutsideOfAngularZone()">Process outside of Angular zone</button>
+    <button (click)='processWithinAngularZone()'>Process within Angular zone</button>
+    <button (click)='processOutsideOfAngularZone()'>Process outside of Angular zone</button>
   `
 })
 export class NgZoneDemo implements DoCheck {
@@ -43,21 +43,21 @@ export class NgZoneDemo implements DoCheck {
   // Loop inside the Angular zone
   // so the UI DOES refresh after each setTimeout cycle
   processWithinAngularZone() {
-    this.label = "inside";
+    this.label = 'inside';
     this.progress = 0;
-    this.increaseProgress(() => console.log("Inside Done!"));
+    this.increaseProgress(() => console.log('Inside Done!'));
   }
 
   // Loop outside of the Angular zone
   // so the UI DOES NOT refresh after each setTimeout cycle
   processOutsideOfAngularZone() {
-    this.label = "outside";
+    this.label = 'outside';
     this.progress = 0;
     this.zone.runOutsideAngular(() => {
       this.increaseProgress(() => {
         // reenter the Angular zone and display done
         this.zone.run(() => {
-          console.log("Outside Done!");
+          console.log('Outside Done!');
         });
       });
     });

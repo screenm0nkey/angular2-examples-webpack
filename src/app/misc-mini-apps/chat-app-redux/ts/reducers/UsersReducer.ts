@@ -1,7 +1,7 @@
-import { Action } from "redux";
-import { User } from "../models/index";
-import { UserActions } from "../actions/index";
-import { createSelector } from "reselect";
+import { Action } from 'redux';
+import { User } from '../models/index';
+import { UserActions } from '../actions/index';
+import { createSelector } from 'reselect';
 
 /**
  * This file describes the state concerning Users, how to modify it through

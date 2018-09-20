@@ -1,56 +1,56 @@
 /* tslint:disable:max-line-length */
-import {Message, Thread, User} from "./models";
-import {MessagesService, ThreadsService, UserService} from "./services/services";
-import * as moment from "moment";
+import {Message, Thread, User} from './models';
+import {MessagesService, ThreadsService, UserService} from './services/services';
+import * as moment from 'moment';
 
 // the person using the app us Juliet
 let me: User = new User(
-  "Juliet",
-  require("../images/avatars/female-avatar-1.png")
+  'Juliet',
+  '../images/avatars/female-avatar-1.png'
 );
 let ladycap: User = new User(
-  "Lady Capulet",
-  require("../images/avatars/female-avatar-2.png")
+  'Lady Capulet',
+  '../images/avatars/female-avatar-2.png'
 );
 let echo: User = new User(
-  "Echo Bot",
-  require("../images/avatars/male-avatar-1.png")
+  'Echo Bot',
+  '../images/avatars/male-avatar-1.png'
 );
 let rev: User = new User(
-  "Reverse Bot",
-  require("../images/avatars/female-avatar-4.png")
+  'Reverse Bot',
+  '../images/avatars/female-avatar-4.png'
 );
 let wait: User = new User(
-  "Waiting Bot",
-  require("../images/avatars/male-avatar-2.png")
+  'Waiting Bot',
+  '../images/avatars/male-avatar-2.png'
 );
 
-let tLadycap: Thread = new Thread("tLadycap", ladycap.name, ladycap.avatarSrc);
-let tEcho: Thread = new Thread("tEcho", echo.name, echo.avatarSrc);
-let tRev: Thread = new Thread("tRev", rev.name, rev.avatarSrc);
-let tWait: Thread = new Thread("tWait", wait.name, wait.avatarSrc);
+let tLadycap: Thread = new Thread('tLadycap', ladycap.name, ladycap.avatarSrc);
+let tEcho: Thread = new Thread('tEcho', echo.name, echo.avatarSrc);
+let tRev: Thread = new Thread('tRev', rev.name, rev.avatarSrc);
+let tWait: Thread = new Thread('tWait', wait.name, wait.avatarSrc);
 
 let initialMessages: Array<Message> = [
   new Message({
     author: me,
     sentAt: moment()
-      .subtract(45, "minutes")
+      .subtract(45, 'minutes')
       .toDate(),
-    text: "Yet let me weep for such a feeling loss.",
+    text: 'Yet let me weep for such a feeling loss.',
     thread: tLadycap
   }),
   new Message({
     author: ladycap,
     sentAt: moment()
-      .subtract(20, "minutes")
+      .subtract(20, 'minutes')
       .toDate(),
-    text: "So shall you feel the loss, but not the friend which you weep for.",
+    text: 'So shall you feel the loss, but not the friend which you weep for.',
     thread: tLadycap
   }),
   new Message({
     author: echo,
     sentAt: moment()
-      .subtract(1, "minutes")
+      .subtract(1, 'minutes')
       .toDate(),
     text: `I\'ll echo whatever you send me`,
     thread: tEcho
@@ -58,7 +58,7 @@ let initialMessages: Array<Message> = [
   new Message({
     author: rev,
     sentAt: moment()
-      .subtract(3, "minutes")
+      .subtract(3, 'minutes')
       .toDate(),
     text: `I\'ll reverse whatever you send me`,
     thread: tRev
@@ -66,7 +66,7 @@ let initialMessages: Array<Message> = [
   new Message({
     author: wait,
     sentAt: moment()
-      .subtract(4, "minutes")
+      .subtract(4, 'minutes')
       .toDate(),
     text: `I\'ll wait however many seconds you send to me before responding. Try sending '3'`,
     thread: tWait
@@ -81,7 +81,7 @@ export class ChatExampleData {
   ): void {
     // TODO make `messages$` hot
     messagesService.messages$.subscribe(() => ({}));
-    // set "Juliet" as the current user
+    // set 'Juliet' as the current user
     userService.setCurrentUser(me);
     // create$ the initial messages$
     initialMessages.map((message: Message) => messagesService.addMessage(message));
@@ -111,9 +111,9 @@ export class ChatExampleData {
           new Message({
             author: rev,
             text: message.text
-              .split("")
+              .split('')
               .reverse()
-              .join(""),
+              .join(''),
             thread: tRev
           })
         );
@@ -128,7 +128,7 @@ export class ChatExampleData {
 
         if (isNaN(waitTime)) {
           waitTime = 0;
-          reply = `I didn\'t understand ${
+          reply = `I didnt understand ${
             message.text
             }. Try sending me a number`;
         } else {

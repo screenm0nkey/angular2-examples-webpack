@@ -1,5 +1,5 @@
-import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 
 type Response = {
@@ -15,11 +15,11 @@ export class EchonestService {
 
   songSearch(name) {
     return this.http
-      .get('http://localhost:1970/uk/rss/topsongs/limit=100/json')
+      .get('http:// localhost:1970/uk/rss/topsongs/limit=100/json')
       .pipe(map((data: Response) => {
         return data.feed.entry
           .map((ent, x) => {
-            return {id: x, label: ent["im:name"].label};
+            return {id: x, label: ent['im:name'].label};
           })
           .filter(item => {
             return item.label.toLocaleLowerCase().indexOf(name.toLocaleLowerCase()) >= 0;

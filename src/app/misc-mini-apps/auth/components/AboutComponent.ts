@@ -1,8 +1,8 @@
-import { Component } from "@angular/core";
-import { ActivatedRoute, Params } from "@angular/router";
+import { Component } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
-  selector: "about",
+  selector: 'about',
   styles : ['{code {display:inline-block}}'],
   template: `
    <h4>About</h4>
@@ -36,7 +36,7 @@ import { ActivatedRoute, Params } from "@angular/router";
 <code>children:</code> contains all the child routes activated under the current route.
 </p>
 
-<a id="anchor">I'm an achor</a>
+<a id='anchor'>I'm an achor</a>
   `
 })
 export class AboutComponent {
@@ -47,12 +47,12 @@ export class AboutComponent {
 
   constructor(private route: ActivatedRoute) {
     route.params.subscribe((params: Params) => {
-      //route.snapshot.parent.params['org'];
-      this.params = params["id"];
+      // route.snapshot.parent.params['org'];
+      this.params = params['id'];
     });
 
     route.queryParams.subscribe((data: any) => {
-      this.queryParams = data["session_id"];
+      this.queryParams = data['session_id'];
     });
 
     route.fragment.subscribe((fragment: string) => {

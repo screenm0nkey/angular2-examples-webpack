@@ -1,134 +1,154 @@
-<section>
-  <p class="file">/misc-examples/components/dependecy-injection/dependency.html</p>
-  <h4>Dependency Injection</h4>
-  <p class="links">
+<div class='comps'>
+  <section>
+    <p class="file">/misc-examples/components/dependecy-injection/dependency.html</p>
+    <h4>Dependency Injection</h4>
+    <p class="links">
 
-    <a href="http://angularfirst.com/the-ngmodule-forroot-convention/" target="_blank">
-      The NgModule <code>forRoot()</code> Convention
-    </a>
+      <a href="http:// angularfirst.com/the-ngmodule-forroot-convention/" target="_blank">
+        The NgModule <code>forRoot()</code> Convention
+      </a>
 
-    <a href="https://blog.angular-university.io/angular2-ngmodule/" target="_blank">
-      Search this article for <code>forRoot()</code>
-    </a>
+      <a href="https:// blog.angular-university.io/angular2-ngmodule/" target="_blank">
+        Search this article for <code>forRoot()</code>
+      </a>
 
-    <a target="_blank" href="http://blog.thoughtram.io/angular/2015/05/18/dependency-injection-in-angular-2.html"
-       target="_blank">
-      Dependency Injection
-    </a>
-    <a href="http://blog.thoughtram.io/angular/2016/05/23/opaque-tokens-in-angular-2.html" target="_blank">
-      InjectionToken (was OpaqueToken)
-    </a>
-    <a href="https://blog.thoughtram.io/angular2/2015/11/23/multi-providers-in-angular-2.html" target="_blank">
-      Multi Providers
-    </a>
-    <a target="_blank" href="http://blog.thoughtram.io/angular/2016/09/14/bypassing-providers-in-angular-2.html"
-       class="block" target="_blank">
-      BYPASSINGPROVIDERS IN ANGULAR 2
-    </a>
-    <a
-      href="http://stackoverflow.com/questions/39828246/angular-2-how-to-isolate-service-provider-in-a-feature-module"
-      target="_blank" class="block" target="_blank">
-      Angular 2 how to isolate service provider in a feature module
-    </a>
-  </p>
-
-  <ul>
-
-    <li>Every component comes with its own injector</li>
-
-    <li>Providers are flattened, meaning that, if there are multiple providers with the same token, the
-      last one wins. Use <code>InjectionToken</code> to avoid overwriting provider.
-    </li>
-
-    <li>When using a string token we HAVE to use <code>@Inject</code>, i.e. <code>@Inject('whateverToken') public
-      some3</code></li>
-
-    <li>
-      multi providers <code>multi: true</code> basically extend the thing that is being injected for a particular token.
-      Angular uses this mechanism to provide pluggable hooks i.e extending <code>NG_VALIDATORS</code>
-    </li>
-
-    <li>If we provide services in a module they will be globally available as all modules use the root
-      injector. This is NOT the case with Lazy loaded modules. See <a routerLink="./modules"
-                                                                      routerLinkActive="active">Modules</a> for more
-      info
-    </li>
-    <li>
-      When a module is loaded at application launch, its providers (services) have application-wide scope. They are
-      available for injection throughout the application, which is why you should try load the module lazily if you can.
-      <strong>Angular gives a lazy-loaded module its own child injector. The module's providers are visible only within
-        the component tree created with this injector. If you must load the module eagerly, when the application starts,
-        provide the service in a component instead i.e. <code>@Component(&#123;providers : [...&#125;)</code> </strong>
+      <a target="_blank" href="http:// blog.thoughtram.io/angular/2015/05/18/dependency-injection-in-angular-2.html"
+         target="_blank">
+        Dependency Injection
+      </a>
+      <a href="http:// blog.thoughtram.io/angular/2016/05/23/opaque-tokens-in-angular-2.html" target="_blank">
+        InjectionToken (was OpaqueToken)
+      </a>
+      <a href="https:// blog.thoughtram.io/angular2/2015/11/23/multi-providers-in-angular-2.html" target="_blank">
+        Multi Providers
+      </a>
+      <a target="_blank" href="http:// blog.thoughtram.io/angular/2016/09/14/bypassing-providers-in-angular-2.html"
+         class="block" target="_blank">
+        BYPASSINGPROVIDERS IN ANGULAR 2
+      </a>
       <a
-        href="https://stackoverflow.com/questions/39828246/angular-2-how-to-isolate-service-provider-in-a-feature-module"
-        target="_blank">Taken from here</a>
-    </li>
+        href="http:// stackoverflow.com/questions/39828246/angular-2-how-to-isolate-service-provider-in-a-feature-module"
+        target="_blank" class="block" target="_blank">
+        Angular 2 how to isolate service provider in a feature module
+      </a>
+    </p>
 
-    <li>If the injector doesn't have a provider for the requested token, it delegates
-      the request to its parent injector, where the process repeats until there are
-      no more injectors.
-    </li>
+    <ul>
 
-    <li>A new injector has no providers. Each component has it's own injector or child-injector</li>
+      <li>Every component comes with its own injector</li>
 
-  </ul>
+      <li>Providers are flattened, meaning that, if there are multiple providers with the same token, the
+        last one wins. Use <code>InjectionToken</code> to avoid overwriting provider.
+      </li>
 
-  <p class="well">
-    Take a look at the RubbishService. It is defined in the DIModule but is used in both the <a
-    routerLink="./tricks" routerLinkActive="active">Tricks</a> and <a routerLink="./tips"
-                                                                      routerLinkActive="active">Tips</a>
-    Components but it is not declared in their modules.
-  </p>
+      <li>When using a string token we HAVE to use <code>@Inject</code>, i.e. <code>@Inject('whateverToken') public
+        some3</code></li>
 
-  <p>
-    Essentially lazy loading could trigger
-    certain bugs related to services overriding each other in the global context
-    that are hard to reproduce due to accidental overwrites of injectables.
-    In order to avoid this this, angular will create a child dependency injection context.
-    This context will contain the service, but this service will not be visible to the rest of the application.
-  </p>
+      <li>
+        multi providers <code>multi: true</code> basically extend the thing that is being injected for a particular
+        token.
+        Angular uses this mechanism to provide pluggable hooks i.e extending <code>NG_VALIDATORS</code>
+      </li>
+
+      <li>If we provide services in a module they will be globally available as all modules use the root
+        injector. This is NOT the case with Lazy loaded modules. See <a routerLink="./modules"
+                                                                        routerLinkActive="active">Modules</a> for more
+        info
+      </li>
+      <li>
+        When a module is loaded at application launch, its providers (services) have application-wide scope. They are
+        available for injection throughout the application, which is why you should try load the module lazily if you
+        can.
+        <strong>Angular gives a lazy-loaded module its own child injector. The module's providers are visible only
+          within
+          the component tree created with this injector. If you must load the module eagerly, when the application
+          starts,
+          provide the service in a component instead i.e. <code>@Component(&#123;providers : [...&#125;)</code>
+        </strong>
+        <a
+          href="https:// stackoverflow.com/questions/39828246/angular-2-how-to-isolate-service-provider-in-a-feature-module"
+          target="_blank">Taken from here</a>
+      </li>
+
+      <li>If the injector doesn't have a provider for the requested token, it delegates
+        the request to its parent injector, where the process repeats until there are
+        no more injectors.
+      </li>
+
+      <li>A new injector has no providers. Each component has it's own injector or child-injector</li>
+
+    </ul>
+
+    <p class="well">
+      Take a look at the RubbishService. It is defined in the DIModule but is used in both the <a
+      routerLink="./tricks" routerLinkActive="active">Tricks</a> and <a routerLink="./tips"
+                                                                        routerLinkActive="active">Tips</a>
+      Components but it is not declared in their modules.
+    </p>
+
+    <p>
+      Essentially lazy loading could trigger
+      certain bugs related to services overriding each other in the global context
+      that are hard to reproduce due to accidental overwrites of injectables.
+      In order to avoid this this, angular will create a child dependency injection context.
+      This context will contain the service, but this service will not be visible to the rest of the application.
+    </p>
 
 
-  <p class="title">The DI in Angular 2 basically consists of three things:</p>
-  <ul>
-    <li>
-      <span class="red">Injector</span> - The injector object that exposes APIs to allow us to create instances of
-      dependencies
-    </li>
-    <li><span class="red">Token</span> - -A token is the key in the key/value pair of a provider.
-      All Providers are flattened, meaning that, if there are multiple providers with the same token, the
-      last one wins. Use <code>InjectionToken</code> to void this
-    </li>
-    <li><span class="red">Provider</span> - A provider is a recipe for delivering a service associated with a
-      token. It tells the injector how to create an
-      instance of a dependency. A provider takes a token and maps that to a factory function that creates an object.
-    <li>
-      <span class="red">Dependency</span> - A dependency is the type of which an object should be created.
-    </li>
-  </ul>
+    <p class="title">The DI in Angular 2 basically consists of three things:</p>
+    <ul>
+      <li>
+        <span class="red">Injector</span> - The injector object that exposes APIs to allow us to create instances of
+        dependencies
+      </li>
+      <li><span class="red">Token</span> - -A token is the key in the key/value pair of a provider.
+        All Providers are flattened, meaning that, if there are multiple providers with the same token, the
+        last one wins. Use <code>InjectionToken</code> to void this
+      </li>
+      <li><span class="red">Provider</span> - A provider is a recipe for delivering a service associated with a
+        token. It tells the injector how to create an
+        instance of a dependency. A provider takes a token and maps that to a factory function that creates an object.
+      <li>
+        <span class="red">Dependency</span> - A dependency is the type of which an object should be created.
+      </li>
+    </ul>
 
-  <p class="code-example">We get a service from a dependency injector by giving it a token. <br>In the example below
-    Angular asks the
-    injector for
-    the service associated
-    with the token called "LoggerService" and assigns the returned value
-    to the logger parameter.</p>
+    <p class="code-example">We get a service from a dependency injector by giving it a token. <br>In the example below
+      Angular asks the
+      injector for
+      the service associated
+      with the token called "LoggerService" and assigns the returned value
+      to the logger parameter.</p>
 
-  <code>constructor(logger: LoggerService) &#123;
-    logger.logInfo('Creating HeroBiosComponent');
-    &#125;</code>
-
-
-  <p class="code-example">The simple "class" Provider is the most typical by far. <br> The example below takes a token and a
-    definition object. The token is usually a class but it doesn't have to be.</p>
-  <code>&#123; provide: LoggerService, useClass: DateLoggerService &#125;</code>
-
-  <p>The “LoggerService” is the token, the “DateLoggerService” is the Definition Object or Factory</p>
+    <code>constructor(logger: LoggerService) &#123;
+      logger.logInfo('Creating HeroBiosComponent');
+      &#125;</code>
 
 
-  <p><strong>Set the "useValue" property to a fixed value that the provider can return as the dependency
-    object.</strong>
-    Use this technique to provide runtime configuration constants such as web-site
-    base addresses and feature flags. We often use a value provider in a unit test
-    to replace a production service with a fake or mock.</p>
-</section>
+    <p class="code-example">The simple "class" Provider is the most typical by far. <br> The example below takes a token
+      and a
+      definition object. The token is usually a class but it doesn't have to be.</p>
+    <code>&#123; provide: LoggerService, useClass: DateLoggerService &#125;</code>
+
+    <p>The “LoggerService” is the token, the “DateLoggerService” is the Definition Object or Factory</p>
+
+
+    <p><strong>Set the "useValue" property to a fixed value that the provider can return as the dependency
+      object.</strong>
+      Use this technique to provide runtime configuration constants such as web-site
+      base addresses and feature flags. We often use a value provider in a unit test
+      to replace a production service with a fake or mock.</p>
+  </section>
+
+  <inject-component></inject-component>
+
+  <inject-parent-component></inject-parent-component>
+
+  <resolve-create-service></resolve-create-service>
+
+  <resolve-create-factory></resolve-create-factory>
+</div>
+
+
+
+

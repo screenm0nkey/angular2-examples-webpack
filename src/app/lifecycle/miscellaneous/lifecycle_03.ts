@@ -7,23 +7,23 @@ import {
   IterableDiffers,
   KeyValueDiffer,
   KeyValueDiffers
-} from "@angular/core";
+} from '@angular/core';
 
 @Component({
-  selector: "do-check-item",
-  outputs: ["onRemove"],
+  selector: 'do-check-item',
+  outputs: ['onRemove'],
   template: `
-    <div style="background-color: #8a6d3b; display: table; border-radius: 5px; border:solid 5px saddlebrown">
-      <div class="event">
-        <div class="content">
-          <div class="user" style="float: left">{{comment.author}} posted "<i>{{comment.comment}}</i>" [{{comment.likes}}
+    <div style='background-color: #8a6d3b; display: table; border-radius: 5px; border:solid 5px saddlebrown'>
+      <div class='event'>
+        <div class='content'>
+          <div class='user' style='float: left'>{{comment.author}} posted '<i>{{comment.comment}}</i>' [{{comment.likes}}
             Likes ]
           </div>
-          <div class="meta">
-            <button class="pull-left" (click)="remove()">
+          <div class='meta'>
+            <button class='pull-left' (click)='remove()'>
               Remove
             </button>
-            <button class="pull-left" (click)="clear()">
+            <button class='pull-left' (click)='clear()'>
               Clear post
             </button>
 
@@ -34,7 +34,7 @@ import {
   `
 })
 export class DoCheckItem implements DoCheck {
-  @Input("comment") comment: any;
+  @Input('comment') comment: any;
   onRemove: EventEmitter<any>;
   private differ: KeyValueDiffer<string, any>;
 
@@ -46,34 +46,34 @@ export class DoCheckItem implements DoCheck {
   ngDoCheck(): void {
     const changes = this.differ.diff(this.comment);
     if (changes) {
-      console.log("%cKeyValueDiffers", "color:pink", changes);
-      changes.forEachAddedItem(r => this.logChange("added", r));
-      changes.forEachRemovedItem(r => this.logChange("removed", r));
-      changes.forEachChangedItem(r => this.logChange("changed", r));
+      console.log('%cKeyValueDiffers', 'color:pink', changes);
+      changes.forEachAddedItem(r => this.logChange('added', r));
+      changes.forEachRemovedItem(r => this.logChange('removed', r));
+      changes.forEachChangedItem(r => this.logChange('changed', r));
     }
   }
 
   logChange(action, r) {
-    if (action === "changed") {
+    if (action === 'changed') {
       console.log(
-        "%cChanged",
-        "color:pink",
+        '%cChanged',
+        'color:pink',
         r.key,
-        "from",
+        'from',
         r.previousValue,
-        "to",
+        'to',
         r.currentValue
       );
     }
-    if (action === "added") {
-      console.log("%cAdded", "color:pink", r.key, "with", r.currentValue);
+    if (action === 'added') {
+      console.log('%cAdded', 'color:pink', r.key, 'with', r.currentValue);
     }
-    if (action === "removed") {
+    if (action === 'removed') {
       console.log(
-        "%cRemoved",
-        "color:pink",
+        '%cRemoved',
+        'color:pink',
         r.key,
-        "(was " + r.previousValue + ")"
+        '(was ' + r.previousValue + ')'
       );
     }
   }
@@ -92,12 +92,12 @@ export class DoCheckItem implements DoCheck {
 }
 
 @Component({
-  selector: "do-check",
+  selector: 'do-check',
   template: `
-    <p class="path">/lifecycle/miscellaneous/lifecycle_03.ts</p>
+    <p class='path'>/lifecycle/miscellaneous/lifecycle_03.ts</p>
     <h4>ngDoCheck and IterableDiffers, KeyValueDiffers</h4>
-    <div class="links">
-      <a routerLink="/misc/templates">Custom *ngBookRepeat template using IterableDiffer</a>
+    <div class='links'>
+      <a routerLink='/misc/templates'>Custom *ngBookRepeat template using IterableDiffer</a>
     </div>
 
     <p>On every system event i.e. click, timeout etc ngDoCheck is called and the component is checked, which is quite a
@@ -109,11 +109,11 @@ export class DoCheckItem implements DoCheck {
     </p>
 
     <do-check-item
-      *ngFor="let comment of comments"
-      (onRemove)="removeComment($event)"
-      [comment]="comment">
+      *ngFor='let comment of comments'
+      (onRemove)='removeComment($event)'
+      [comment]='comment'>
     </do-check-item>
-    <button style="margin-bottom: 10px" (click)="addComment()">Add More Comments</button>
+    <button style='margin-bottom: 10px' (click)='addComment()'>Add More Comments</button>
   `
 })
 export class DoCheckCmp implements DoCheck {
@@ -125,11 +125,11 @@ export class DoCheckCmp implements DoCheck {
   constructor(differs: IterableDiffers) {
     this.differ = differs.find([]).create(null);
     this.comments = [];
-    this.authors = ["Elliot", "Helen", "Jenny", "Joe", "Justen", "Matt"];
+    this.authors = ['Elliot', 'Helen', 'Jenny', 'Joe', 'Justen', 'Matt'];
     this.texts = [
-      "Ours is a life of constant reruns",
-      "Really cool!",
-      "Thanks!"
+      'Ours is a life of constant reruns',
+      'Really cool!',
+      'Thanks!'
     ];
     // setTimeout will trigger ngDoCheck
     setTimeout(() => this.addComment(), 1000);
@@ -157,16 +157,16 @@ export class DoCheckCmp implements DoCheck {
     this.comments.splice(pos, 1);
   }
 
-  //ngDoCheck is called every time the component is checked, which is quite a lot as it's checked on every event
+  // ngDoCheck is called every time the component is checked, which is quite a lot as it's checked on every event
   ngDoCheck(): void {
     const changes = this.differ.diff(this.comments);
     if (changes) {
-      console.log("%cIterableDiffers", "color:orange", changes);
+      console.log('%cIterableDiffers', 'color:orange', changes);
       changes.forEachAddedItem(r =>
-        console.log("%cAdded", "color:orange", r.item)
+        console.log('%cAdded', 'color:orange', r.item)
       );
       changes.forEachRemovedItem(r =>
-        console.log("%cRemoved", "color:orange", r.item)
+        console.log('%cRemoved', 'color:orange', r.item)
       );
     }
   }

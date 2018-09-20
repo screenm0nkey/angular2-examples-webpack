@@ -1,5 +1,5 @@
-import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class CustomersDataService {
@@ -7,6 +7,6 @@ export class CustomersDataService {
   }
 
   getCustomers() {
-    return this._http.get("/json/customers.json");
+    return this._http.get('/json/customers.json');
   }
 }

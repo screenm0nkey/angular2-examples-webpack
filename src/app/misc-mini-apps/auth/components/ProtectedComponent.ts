@@ -1,10 +1,10 @@
 /*
  * Angular
  */
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
 @Component({
-  selector: "protected",
+  selector: 'protected',
   template: `
     <h1>Protected content</h1>
     <p>This is protected content</p>

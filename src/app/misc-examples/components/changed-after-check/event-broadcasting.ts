@@ -1,26 +1,26 @@
-//our root app component
-import {Component, EventEmitter, Input, Output} from "@angular/core";
+// our root app component
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
-  selector: "e-comp",
+  selector: 'e-comp',
   template: `
     <span>{{name}}</span>
   `
 })
 export class EComponent {
-  name = "I am E component";
+  name = 'I am E component';
   @Input() text;
   @Output() change = new EventEmitter();
 
   ngOnInit() {
-    this.change.emit("updated text");
+    this.change.emit('updated text');
   }
 }
 
 @Component({
-  selector: "event-broadcasting",
+  selector: 'event-broadcasting',
   template: `
-    <p class="file">misc-examples/components/changed-after-check/event-broadcasting.ts</p>
+    <p class='file'>misc-examples/components/changed-after-check/event-broadcasting.ts</p>
     <h4>Synchronous event broadcasting</h4>
     <p>
       This pattern is illustrated by this plunker. The application is designed to have a child component emitting
@@ -29,12 +29,12 @@ export class EComponent {
       parent property update.
     </p>
     <h5>Hello {{name}}</h5>
-    <e-comp [text]="text" (change)="update($event)"></e-comp>
+    <e-comp [text]='text' (change)='update($event)'></e-comp>
   `
 })
 export class EventBroadcastingComponent {
-  name = "I am A component";
-  text = "A message for the child component";
+  name = 'I am A component';
+  text = 'A message for the child component';
 
   update(value) {
     this.text = value;

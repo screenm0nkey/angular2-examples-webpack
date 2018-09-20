@@ -1,8 +1,8 @@
-import {Injectable} from "@angular/core";
-import {Message, Thread} from "../models";
-import {MessagesService} from "./MessagesService";
-import * as _ from "lodash";
-import {BehaviorSubject, combineLatest, Observable, Subject} from "rxjs";
+import {Injectable} from '@angular/core';
+import {Message, Thread} from '../models';
+import {MessagesService} from './MessagesService';
+import * as _ from 'lodash';
+import {BehaviorSubject, combineLatest, Observable, Subject} from 'rxjs';
 import {map} from 'rxjs/operators';
 
 @Injectable()
@@ -41,15 +41,12 @@ export class ThreadsService {
         return _.sortBy(threads, (t: Thread) => t.lastMessage.sentAt).reverse();
       }));
 
-    // @ts-ignore
-    this.currentThreadMessages = this.currentThread$.pipe(combineLatest(
-      messagesService.messages$,
+
+    this.currentThreadMessages = combineLatest(this.currentThread$, messagesService.messages$,
       (currentThread: Thread, messages: Message[]) => {
         if (currentThread && messages.length > 0) {
           return _.chain(messages)
-            .filter(
-              (message: Message) => message.thread.id === currentThread.id
-            )
+            .filter((message: Message) => message.thread.id === currentThread.id)
             .map((message: Message) => {
               message.isRead = true;
               return message;
@@ -58,7 +55,7 @@ export class ThreadsService {
         } else {
           return [];
         }
-      }));
+      });
 
     this.currentThread$.subscribe(this.messagesService.markThreadAsRead$);
   }

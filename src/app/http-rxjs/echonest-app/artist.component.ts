@@ -1,15 +1,15 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange } from "@angular/core";
-import { Artist } from "./echonest.repo";
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange } from '@angular/core';
+import { Artist } from './echonest.repo';
 
 @Component({
-  selector: "artist-component",
-  styles: [require("./echonest.css")],
+  selector: 'artist-component',
+  styleUrls: ['./echonest.css'],
   template: `
-        <div class="artist">
-            <span style="font-size:11px">[{{artist.hotttnesss}}] {{artist.name}}</span>
-            <button style="height:22px;line-height:22px;padding:0"
-                [disabled]="this.disabled"
-                (click)="select.emit(artist)">
+        <div class='artist'>
+            <span style='font-size:11px'>[{{artist.hotttnesss}}] {{artist.name}}</span>
+            <button style='height:22px;line-height:22px;padding:0'
+                [disabled]='this.disabled'
+                (click)='select.emit(artist)'>
                 {{buttonText}}
             </button>
         </div>`
@@ -18,8 +18,8 @@ export class ArtistComponent implements OnInit, OnChanges {
   @Output() select = new EventEmitter();
   @Input() artist: Artist;
   @Input() type: string;
-  private readonly ADD: string = "Add";
-  private readonly REMOVE: string = "Remove";
+  private readonly ADD: string = 'Add';
+  private readonly REMOVE: string = 'Remove';
   private buttonText: string;
   private disabled: boolean = false;
 
@@ -40,10 +40,10 @@ export class ArtistComponent implements OnInit, OnChanges {
   setButtonText(favourited: boolean) {
     this.buttonText = this.ADD;
     this.disabled = false;
-    if (this.type === "all" && favourited) {
+    if (this.type === 'all' && favourited) {
       this.disabled = true;
     }
-    if (this.type === "favourite" && favourited) {
+    if (this.type === 'favourite' && favourited) {
       this.buttonText = this.REMOVE;
     }
   }

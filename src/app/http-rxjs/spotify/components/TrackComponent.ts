@@ -1,23 +1,23 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { Location } from "@angular/common";
-import { SpotifyService } from "../spotify.service";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { SpotifyService } from '../spotify.service';
 
 // angular2 doesn't like 'track' as the selector
 // because apparently it's an existing HTML element
-// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track
+// https:// developer.mozilla.org/en-US/docs/Web/HTML/Element/track
 @Component({
-  selector: "theTrack",
+  selector: 'theTrack',
   template: `
-  <div *ngIf="(track$ | async)?.album">
+  <div *ngIf='(track$ | async)?.album'>
     <h1>{{ track$.name }}</h1>
     <p>
-      <img src="{{ (track$ | async)?.album.images[1].url }}">
+      <img src='{{ (track$ | async)?.album.images[1].url }}'>
     </p>
     <p>
-      <audio controls src="{{ (track$ | async)?.preview_url }}"></audio>
+      <audio controls src='{{ (track$ | async)?.preview_url }}'></audio>
     </p>
-    <p><a href (click)="back()">Back</a></p>
+    <p><a href (click)='back()'>Back</a></p>
   </div>
   `
 })
@@ -31,7 +31,7 @@ export class TrackComponent implements OnInit {
     private location: Location
   ) {
     route.params.subscribe(params => {
-      this.id = params["id"];
+      this.id = params['id'];
     });
   }
 

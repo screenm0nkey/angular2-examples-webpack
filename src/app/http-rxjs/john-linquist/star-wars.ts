@@ -1,11 +1,11 @@
-import {Component, Inject} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {combineLatest, merge, Observable, Subject} from "rxjs";
+import {Component, Inject} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {combineLatest, merge, Observable, Subject} from 'rxjs';
 import {debounceTime, filter, map, mapTo, share, startWith, switchMap, tap} from 'rxjs/operators';
 
 
 @Component({
-  selector: "star-wars",
+  selector: 'star-wars',
   styles: [
     `
       input {
@@ -19,18 +19,18 @@ import {debounceTime, filter, map, mapTo, share, startWith, switchMap, tap} from
     `
   ],
   template: `
-    <p class="path">/http-rxjs/john-linquist/star-wars.ts</p>
+    <p class='path'>/http-rxjs/john-linquist/star-wars.ts</p>
     <h4>Search for a Star Wars character (supports regex)</h4>
 
-    <input (keyup)="input$.next($event)">
+    <input (keyup)='input$.next($event)'>
     <h3>{{(people$ | async)?.length}} results</h3>
-    <div class="container">
-      <h5 *ngFor="let person of people$ | async" style="display: block">{{person.name}}</h5>
-      <h3 *ngIf="noResults$ | async">No one matched your search</h3>
+    <div class='container'>
+      <h5 *ngFor='let person of people$ | async' style='display: block'>{{person.name}}</h5>
+      <h3 *ngIf='noResults$ | async'>No one matched your search</h3>
     </div>
   `,
   providers: [
-    {provide: "URL", useValue: "https://swapi.co/api"}
+    {provide: 'URL', useValue: 'https:// swapi.co/api'}
   ]
 })
 export class StarWarsComponent {
@@ -38,7 +38,7 @@ export class StarWarsComponent {
   people$;
   noResults$;
 
-  constructor(public http: HttpClient, @Inject("URL") public api) {
+  constructor(public http: HttpClient, @Inject('URL') public api) {
     const term$ = this.input$.pipe(map((ev: any) => ev.target.value));
     const clear$ = term$.pipe(filter(term => term.length < 2));
 
@@ -48,7 +48,7 @@ export class StarWarsComponent {
       .pipe(switchMap(this.getStarWarsCharacter.bind(this)))
       .pipe(tap(console.log.bind(console)))
       .pipe(share());
-    //@ts-ignore
+    // @ts-ignore
     this.people$ = merge(clear$.pipe(mapTo([]), results$)).pipe(startWith([]));
 
     this.noResults$ = combineLatest(

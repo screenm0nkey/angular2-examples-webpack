@@ -1,27 +1,27 @@
-import {Component, OnInit} from "@angular/core";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {YoutubeService} from "./youtube-helpers/youtube-service";
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {YoutubeService} from './youtube-helpers/youtube-service';
 import {Subject} from 'rxjs';
 import {filter, debounceTime, switchMap} from 'rxjs/operators';
 
 @Component({
-  selector: "youtube-basic-example",
+  selector: 'youtube-basic-example',
   providers: [FormBuilder],
   template: `
-        <div class="search-results" style="padding-bottom: 10px;">
-        <p class="path">/http-rxjs/searches/youtube-basic.ts</p>
+        <div class='search-results' style='padding-bottom: 10px;'>
+        <p class='path'>/http-rxjs/searches/youtube-basic.ts</p>
         <h4>Youtube basic search example </h4>
-            <form [formGroup]="form" #f="ngForm" (ngSubmit)="onSubmit(f)">
-                <div style="max-height: 300px; overflow: hidden; overflow-y: scroll">
+            <form [formGroup]='form' #f='ngForm' (ngSubmit)='onSubmit(f)'>
+                <div style='max-height: 300px; overflow: hidden; overflow-y: scroll'>
                     <input 
-                      type="text" 
-                      class="form-control" 
-                      placeholder="Youtube Search" 
-                      formControlName="youtubeSearch">
+                      type='text' 
+                      class='form-control' 
+                      placeholder='Youtube Search' 
+                      formControlName='youtubeSearch'>
                 </div>
                 <youtube-result-component 
-                  *ngFor="let result of results" 
-                  [result]="result">
+                  *ngFor='let result of results' 
+                  [result]='result'>
                 </youtube-result-component>
             </form>
         </div>
@@ -38,7 +38,7 @@ export class YoutubeBasicExample implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      youtubeSearch: ["", Validators.required]
+      youtubeSearch: ['', Validators.required]
     });
 
     this.form.controls.youtubeSearch.valueChanges

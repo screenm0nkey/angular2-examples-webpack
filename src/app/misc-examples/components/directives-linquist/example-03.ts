@@ -1,4 +1,4 @@
-import {Component, Directive, HostBinding, HostListener, Injectable, Input, OnDestroy} from "@angular/core";
+import {Component, Directive, HostBinding, HostListener, Injectable, Input, OnDestroy} from '@angular/core';
 
 /**
  * TrackingService
@@ -36,16 +36,16 @@ export class OnlineService {
  * OnlineDirective
  */
 @Directive({
-  selector: "[online]"
+  selector: '[online]'
 })
 export class OnlineDirective implements OnDestroy {
-  @HostBinding("disabled")
+  @HostBinding('disabled')
   get functionCanBeCalledAnything() {
     // angular now watches the online property for changes
     return this.online.online;
   }
 
-  @HostBinding("class.offline")
+  @HostBinding('class.offline')
   get thisCanBeCalledAnything() {
     return this.online.online;
   }
@@ -61,18 +61,18 @@ export class OnlineDirective implements OnDestroy {
  * TrackDirective
  */
 @Directive({
-  selector: "[track]"
+  selector: '[track]'
 })
 export class TrackDirective {
   @Input() track;
 
-  @HostListener("click")
+  @HostListener('click')
   onClick() {
-    this.tracking.log({event: "click", message: this.track});
+    this.tracking.log({event: 'click', message: this.track});
   }
-  @HostListener("mouseover")
+  @HostListener('mouseover')
   onMouseover() {
-    this.tracking.log({event: "mouseover", message: this.track});
+    this.tracking.log({event: 'mouseover', message: this.track});
   }
 
   constructor(private tracking: TrackingService) {}
@@ -82,23 +82,23 @@ export class TrackDirective {
  * Example03AppComponent
  */
 @Component({
-  selector: "track-app",
-  styles: [require("./styles.css")],
+  selector: 'track-app',
+  styleUrls: ['./styles.css'],
   template: `
-    <p class="path">src/app/misc-examples/components/directives-linquist/example-03</p>
+    <p class='path'>src/app/misc-examples/components/directives-linquist/example-03</p>
     <h4>Combine Directive @HostBinding with Services</h4>
     
-    <button online [track]="'1 Button'">One</button>
-    <button online [track]="'2 Button'">Two</button>
-    <button online [track]="'3 Button'">Three</button>
+    <button online [track]=''1 Button''>One</button>
+    <button online [track]=''2 Button''>Two</button>
+    <button online [track]=''3 Button''>Three</button>
 
     <!-- Only for visuals-->
-    <div *ngFor="let log of tracking.logs">
+    <div *ngFor='let log of tracking.logs'>
       {{log.event}} - {{log.message}}
     </div>
   `
 })
 export class Example03AppComponent {
-  //tracking is used in template
+  // tracking is used in template
   constructor(private tracking: TrackingService) {}
 }

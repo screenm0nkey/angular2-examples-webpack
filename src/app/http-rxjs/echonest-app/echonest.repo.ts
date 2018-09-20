@@ -1,6 +1,6 @@
-import {Injectable} from "@angular/core";
-import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
 export interface Artist {
@@ -22,8 +22,8 @@ export interface ITunesResponse {
  * */
 @Injectable()
 export class EchonestRepo {
-  // https://itunes.apple.com/uk/rss/topsongs/limit=100/json
-  private static url: string = "http://localhost:1970/uk/rss/topsongs/limit=100/json";
+  // https:// itunes.apple.com/uk/rss/topsongs/limit=100/json
+  private static url: string = 'http:// localhost:1970/uk/rss/topsongs/limit=100/json';
 
   constructor(private _http: HttpClient) {
   }
@@ -33,11 +33,11 @@ export class EchonestRepo {
     headers = headers.append('header-1', 'value-1');
 
     let params = new HttpParams();
-    params = params.set("api_key", "AAXIWZI0HTK1NYTWQ");
-    params = params.set("format", "json");
-    params = params.set("results", num + "");
-    params = params.set("start", "0");
-    params = params.set("bucket", "hotttnesss");
+    params = params.set('api_key', 'AAXIWZI0HTK1NYTWQ');
+    params = params.set('format', 'json');
+    params = params.set('results', num + '');
+    params = params.set('start', '0');
+    params = params.set('bucket', 'hotttnesss');
 
 
     return this._http
@@ -49,8 +49,8 @@ export class EchonestRepo {
           let artist = <Artist>{};
           artist.favourited = false;
           artist.hotttnesss = i + 1;
-          artist.id = item.id.attributes["im:id"];
-          artist.name = item["im:artist"].label;
+          artist.id = item.id.attributes['im:id'];
+          artist.name = item['im:artist'].label;
           return artist;
         })
       ));

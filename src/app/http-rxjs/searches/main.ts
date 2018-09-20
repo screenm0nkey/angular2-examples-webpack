@@ -1,9 +1,9 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
 @Component({
-  selector: "app-component",
+  selector: 'app-component',
   template: `
-    <div class="comps">
+    <div class='comps'>
         <wikipedia-super-search></wikipedia-super-search>
         <wikipedia-promise></wikipedia-promise>
         <wikipedia-observable></wikipedia-observable>

@@ -1,14 +1,14 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component} from "@angular/core";
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component} from '@angular/core';
 
 @Component({
-  selector: "mark-for-check",
+  selector: 'mark-for-check',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <p class="file">/misc-examples/components/immutable/mark-for-check-component.ts</p>
+    <p class='file'>/misc-examples/components/immutable/mark-for-check-component.ts</p>
     <h4>this.ref.markForCheck()</h4>
 
     <p>The tickes below wouldn't update without calling markForCheck()
-      as the change detection is set to "ChangeDetectionStrategy.OnPush"
+      as the change detection is set to 'ChangeDetectionStrategy.OnPush'
     </p>
 
     <p>
@@ -17,7 +17,7 @@ import {ChangeDetectionStrategy, ChangeDetectorRef, Component} from "@angular/co
       doesn't have any inputs <strong>so it will never update unless we call markForCheck()</strong>.
     </p>
 
-    <button (click)="startStopInterval()">{{start ? 'Stop' : 'Start'}} Interval</button>
+    <button (click)='startStopInterval()'>{{start ? 'Stop' : 'Start'}} Interval</button>
 
     Number of ticks: {{numberOfTicks}}
   `
@@ -38,7 +38,7 @@ export class MarkForCheck {
       this.id = setInterval(() => {
         this.numberOfTicks++;
         // if you don't call markForCheck(), the view wont update as the
-        // change detection is set to "ChangeDetectionStrategy.OnPush"
+        // change detection is set to 'ChangeDetectionStrategy.OnPush'
         this.ref.markForCheck();
       }, 1000);
     }

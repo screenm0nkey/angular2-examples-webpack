@@ -1,9 +1,9 @@
-import { Component, Input, OnInit } from "@angular/core";
-import { FormGroup } from "@angular/forms";
+import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
-  selector: "survey",
-  template: require("./survey.html")
+  selector: 'survey',
+  template: './survey.html'
 })
 export class FormEightSurvey implements OnInit {
   @Input() model: any;

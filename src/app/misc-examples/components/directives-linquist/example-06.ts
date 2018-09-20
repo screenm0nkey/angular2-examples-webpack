@@ -1,14 +1,14 @@
-import {Component, Directive, ElementRef, TemplateRef, ViewContainerRef, AfterViewInit} from "@angular/core";
+import {Component, Directive, ElementRef, TemplateRef, ViewContainerRef, AfterViewInit} from '@angular/core';
 
 /**
  * ThreeDirective
  */
 @Directive({
-  selector: "[mrNick]"
+  selector: '[mrNick]'
 })
 export class ThreeDirective implements AfterViewInit{
   constructor(el: ElementRef, private view: ViewContainerRef, private template: TemplateRef<any>) {
-    console.log(123, "el.nativeElement", el.nativeElement);
+    console.log(123, 'el.nativeElement', el.nativeElement);
   }
 
   ngAfterViewInit() {
@@ -22,12 +22,12 @@ export class ThreeDirective implements AfterViewInit{
  * Example06AppComponent
  */
 @Component({
-  selector: "example-06",
+  selector: 'example-06',
   template: `
-    <p class="file">misc-examples/components/directives-linquist/example-06.ts</p>
+    <p class='file'>misc-examples/components/directives-linquist/example-06.ts</p>
     <h4> A Structural Directive</h4>
-    <p><a href="https://egghead.io/lessons/angular-2-write-a-structural-directive-in-angular" target="_blank">Lesson</a></p>
-    <strong>"let-" is only supported on template elements</strong>
+    <p><a href='https:// egghead.io/lessons/angular-2-write-a-structural-directive-in-angular' target='_blank'>Lesson</a></p>
+    <strong>'let-' is only supported on template elements</strong>
     
     <pre>&lt;span *mrNick&gt;Hello, Angular&lt;/span&gt;</pre>
     is the same as

@@ -1,11 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: "dropdown-component",
+  selector: 'dropdown-component',
   template: `
         <form>
-            <select #sel (change)="select.emit(sel.value)">
-            <option *ngFor="let result of results">
+            <select #sel (change)='select.emit(sel.value)'>
+            <option *ngFor='let result of results'>
                 {{result}}
             </option>
         </select>

@@ -1,13 +1,13 @@
-import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {SearchResult} from "./youtube-result-class";
-import {Observable} from "rxjs";
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {SearchResult} from './youtube-result-class';
+import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
 @Injectable()
 export class YoutubeService {
-  BASE_URL: string = "https://www.googleapis.com/youtube/v3/searchForImages";
-  API_TOKEN: string = "AIzaSyAJk1xUI72YYfBMgEc84gjHUX-k2AN6-B0";
+  BASE_URL: string = 'https:// www.googleapis.com/youtube/v3/searchForImages';
+  API_TOKEN: string = 'AIzaSyAJk1xUI72YYfBMgEc84gjHUX-k2AN6-B0';
 
   constructor(private http: HttpClient) {
     console.log(this);
@@ -29,7 +29,7 @@ export class YoutubeService {
       `part=snippet`,
       `type=video`,
       `maxResults=10`
-    ].join("&");
+    ].join('&');
 
     let queryUrl: string = `${this.BASE_URL}?${params}`;
 

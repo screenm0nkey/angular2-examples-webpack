@@ -1,9 +1,9 @@
-import { Injectable, NgZone } from "@angular/core";
+import { Injectable, NgZone } from '@angular/core';
 
 @Injectable()
 export class LoggerService {
   logs: string[] = [];
-  prevMsg: string = "";
+  prevMsg: string = '';
   prevMsgCount: number = 1;
   tid;
 
@@ -27,7 +27,7 @@ export class LoggerService {
     this.zone.runOutsideAngular(() => {
       let self = this;
       this.tid = setTimeout(() => {
-        self.logs.push("Idle");
+        self.logs.push('Idle');
         console.log(self.logs);
         // self.tick();
       }, 100);

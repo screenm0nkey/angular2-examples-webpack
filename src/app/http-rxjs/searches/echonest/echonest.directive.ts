@@ -1,12 +1,12 @@
-import {Directive, ElementRef, EventEmitter} from "@angular/core";
-import {EchonestService} from "./echonest.service"
-import {fromEvent} from "rxjs";
+import {Directive, ElementRef, EventEmitter} from '@angular/core';
+import {EchonestService} from './echonest.service'
+import {fromEvent} from 'rxjs';
 import {debounceTime, distinctUntilChanged, filter, map, mergeMap} from 'rxjs/operators';
 
 @Directive({
-  selector: "input[type=text][autosearch]",
+  selector: 'input[type=text][autosearch]',
   providers: [EchonestService],
-  outputs: ["results"]
+  outputs: ['results']
 })
 export class EchonestDirective {
   results: EventEmitter<any> = new EventEmitter();
@@ -17,7 +17,7 @@ export class EchonestDirective {
   // mergeAll merges an observable sequence of observable sequences into an
   // observable sequence with the data values of the observables.
   ngOnInit() {
-    fromEvent(this.elementRef.nativeElement, "keyup")
+    fromEvent(this.elementRef.nativeElement, 'keyup')
       .pipe(map((e: Event) => (<HTMLInputElement>e.target).value))
       .pipe(distinctUntilChanged())
       .pipe(debounceTime(500))

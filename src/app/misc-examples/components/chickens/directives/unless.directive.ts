@@ -1,7 +1,7 @@
-import {Directive, ElementRef, TemplateRef, ViewContainerRef} from "@angular/core";
+import {Directive, ElementRef, TemplateRef, ViewContainerRef} from '@angular/core';
 
 @Directive({
-  selector: "[unless]"
+  selector: '[unless]'
 })
 export class Unless {
   constructor(viewContainer: ViewContainerRef,

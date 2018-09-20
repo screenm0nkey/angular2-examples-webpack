@@ -1,15 +1,15 @@
-import {Component, ElementRef, EventEmitter, OnInit} from "@angular/core";
-import {fromEvent} from "rxjs";
+import {Component, ElementRef, EventEmitter, OnInit} from '@angular/core';
+import {fromEvent} from 'rxjs';
 import {debounceTime, filter, map, switchMap, tap} from 'rxjs/operators';
-import {SearchResult} from "./youtube-helpers/youtube-result-class";
-import {YoutubeService} from "./youtube-helpers/youtube-service";
-
-let loadingGif: string = require("../../../images/loading.gif");
+import {SearchResult} from './youtube-helpers/youtube-result-class';
+import {YoutubeService} from './youtube-helpers/youtube-service';
+// @ts-ignore
+let loadingGif: string = ''; // require('../../../images/loading.gif');
 
 @Component({
-  selector: "youtube-search",
-  template: `Search <input placeholder="Search Youtube">`,
-  outputs: ["loading", "results"]
+  selector: 'youtube-search',
+  template: `Search <input placeholder='Search Youtube'>`,
+  outputs: ['loading', 'results']
 })
 export class NgBookYoutubeSearch implements OnInit {
   loading: EventEmitter<any> = new EventEmitter();
@@ -25,7 +25,7 @@ export class NgBookYoutubeSearch implements OnInit {
   }
 
   ngOnInit() {
-    fromEvent(this.el.nativeElement, "keyup")
+    fromEvent(this.el.nativeElement, 'keyup')
       .pipe(debounceTime(500))
       .pipe(map((e: any) => e.target.value))
       .pipe(filter(this.isLongerThanOneChar.bind(this)))
@@ -42,17 +42,17 @@ export class NgBookYoutubeSearch implements OnInit {
 }
 
 @Component({
-  selector: "ngbook-youtube-example",
+  selector: 'ngbook-youtube-example',
   template: `
-        <div class="search-results" style="padding-bottom:10px">
-          <p class="path">/http-rxjs/searches/youtube-ng2-book.ts</p>
+        <div class='search-results' style='padding-bottom:10px'>
+          <p class='path'>/http-rxjs/searches/youtube-ng2-book.ts</p>
             <h4>NG2-Book YouTube search example:</h4>
             <youtube-search
-                (loading)="loading = $event"
-                (results)="updateResults($event)">
+                (loading)='loading = $event'
+                (results)='updateResults($event)'>
             </youtube-search>
-            <img src="${loadingGif}" *ngIf="loading">
-            <youtube-result-component *ngFor="let result of results" [result]="result"></youtube-result-component>
+            <img src='${loadingGif}' *ngIf='loading'>
+            <youtube-result-component *ngFor='let result of results' [result]='result'></youtube-result-component>
         </div>
     `
 })

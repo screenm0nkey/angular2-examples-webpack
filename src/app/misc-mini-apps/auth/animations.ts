@@ -5,32 +5,32 @@ import {
   style,
   transition,
   trigger
-} from "@angular/animations";
+} from '@angular/animations';
 
 // Component transition animations
 export const slideInDownAnimation: AnimationTriggerMetadata = trigger(
-  "routeAnimation",
+  'routeAnimation',
   [
     state(
-      "*",
+      '*',
       style({
         opacity: 1,
-        transform: "translateX(0)"
+        transform: 'translateX(0)'
       })
     ),
-    transition(":enter", [
+    transition(':enter', [
       style({
         opacity: 0,
-        transform: "translateX(-100%)"
+        transform: 'translateX(-100%)'
       }),
-      animate("0.2s ease-in")
+      animate('0.2s ease-in')
     ]),
-    transition(":leave", [
+    transition(':leave', [
       animate(
-        "0.5s ease-out",
+        '0.5s ease-out',
         style({
           opacity: 0,
-          transform: "translateY(100%)"
+          transform: 'translateY(100%)'
         })
       )
     ])

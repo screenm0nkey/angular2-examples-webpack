@@ -1,9 +1,9 @@
-//our root app component
-import {Component, Input} from "@angular/core";
+// our root app component
+import {Component, Input} from '@angular/core';
 
 export class SharedService {
   listeners = [];
-  _text = "";
+  _text = '';
 
   onNameChange(fn) {
     this.listeners.push(fn);
@@ -18,9 +18,9 @@ export class SharedService {
 }
 
 @Component({
-  selector: "shared-service-component",
+  selector: 'shared-service-component',
   template: `
-    <p class="file">misc-examples/components/changed-after-check/shared-service.component.ts</p>
+    <p class='file'>misc-examples/components/changed-after-check/shared-service.component.ts</p>
     <h4>Shared Service</h4>
     <p>This pattern is illustrated by this plunker. The application is designed to have a service shared between a
       parent and a child component. A child component sets a value to the service which in turn reacts by updating the
@@ -28,12 +28,12 @@ export class SharedService {
       it isn’t evident right away that a child component updates a parent component property.</p>
 
     <h1>Hello {{name}}</h1>
-    <b-comp [text]="text"></b-comp>
+    <b-comp [text]='text'></b-comp>
   `
 })
 export class SharedServiceComponent {
-  name = "I am A component";
-  text = "A message for the child component";
+  name = 'I am A component';
+  text = 'A message for the child component';
 
   constructor(sharedService: SharedService) {
     sharedService.onNameChange(value => {
@@ -43,17 +43,17 @@ export class SharedServiceComponent {
 }
 
 @Component({
-  selector: "b-comp",
+  selector: 'b-comp',
   template: `<span>{{name}}</span>`
 })
 export class BComponent {
-  name = "I am B component";
+  name = 'I am B component';
   @Input() text;
 
   constructor(private sharedService: SharedService) {
   }
 
   ngOnInit() {
-    this.sharedService.text = "updated name";
+    this.sharedService.text = 'updated name';
   }
 }

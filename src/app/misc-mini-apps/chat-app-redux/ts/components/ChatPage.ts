@@ -1,11 +1,11 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
 @Component({
-  selector: "chat-page",
+  selector: 'chat-page',
   template: `
-  <div class="special">
+  <div class='special'>
     <chat-nav-bar></chat-nav-bar>
-    <div class="container">
+    <div class='container'>
       <chat-threads></chat-threads>
       <chat-window></chat-window>
     </div>

@@ -1,13 +1,13 @@
-import {Component} from "@angular/core";
-import {LoggerService} from "../logger.service";
+import {Component} from '@angular/core';
+import {LoggerService} from '../logger.service';
 
 @Component({
-  selector: "spy-parent",
+  selector: 'spy-parent',
   template:
   `
-  <div class="comps">
-    <div class="parent">
-      <p class="path">src/app/lifecycle/spy/spy.component.ts</p>
+  <div class='comps'>
+    <div class='parent'>
+      <p class='path'>src/app/lifecycle/spy/spy.component.ts</p>
       <h4>Spy Directive</h4>
       <p>
         <strong>Directives have lifecycle hooks too</strong>. We create a SpyDirective that logs when
@@ -19,29 +19,29 @@ import {LoggerService} from "../logger.service";
       </p>
       <p>
         <input
-          [(ngModel)]="newName"
-          (keyup.enter)="addHero()"
-          placeholder="Hero name">
-        <button (click)="addHero()">Add Hero</button>
-        <button (click)="reset()">Reset Heroes</button>
+          [(ngModel)]='newName'
+          (keyup.enter)='addHero()'
+          placeholder='Hero name'>
+        <button (click)='addHero()'>Add Hero</button>
+        <button (click)='reset()'>Reset Heroes</button>
       </p>
-      <div *ngFor="let hero of heroes" class="heroes" my-spy>
+      <div *ngFor='let hero of heroes' class='heroes' my-spy>
       {{hero}}
     </div>
       <h4>-- Spy Lifecycle Hook Log --</h4>
-      <div *ngFor="let msg of spyLog">{{msg}}</div>
+      <div *ngFor='let msg of spyLog'>{{msg}}</div>
     </div>
   </div>
   `,
   styles: [
-    ".parent {background: khaki;}",
-    ".heroes {background: LightYellow; padding: 0 8px}"
+    '.parent {background: khaki;}',
+    '.heroes {background: LightYellow; padding: 0 8px}'
   ],
   providers: [LoggerService]
 })
 export class SpyParentComponent {
-  newName = "Herbie";
-  heroes: string[] = ["Windstorm", "Magenta"];
+  newName = 'Herbie';
+  heroes: string[] = ['Windstorm', 'Magenta'];
   spyLog: string[];
 
   constructor(private _logger: LoggerService) {
@@ -51,7 +51,7 @@ export class SpyParentComponent {
   addHero() {
     if (this.newName.trim()) {
       this.heroes.push(this.newName.trim());
-      this.newName = "";
+      this.newName = '';
       this._logger.tick();
     }
   }
@@ -62,7 +62,7 @@ export class SpyParentComponent {
   }
 
   reset() {
-    this._logger.log("-- reset --");
+    this._logger.log('-- reset --');
     this.heroes.length = 0;
     this._logger.tick();
   }

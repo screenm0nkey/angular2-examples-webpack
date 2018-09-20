@@ -1,6 +1,6 @@
-import {Component, OnInit} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {forkJoin, Observable, Subject} from "rxjs";
+import {Component, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {forkJoin, Observable, Subject} from 'rxjs';
 import {map, switchMap, share} from 'rxjs/operators';
 
 interface Person {
@@ -15,7 +15,7 @@ interface Vehicle {
 }
 
 @Component({
-  selector: "forkjoin-app",
+  selector: 'forkjoin-app',
   styles: [
     `
       :host {
@@ -33,30 +33,30 @@ interface Vehicle {
     `
   ],
   template: `
-    <div class="master">
-      <p class="path">/http-rxjs/john-linquist/forkjoin-search.ts</p>
+    <div class='master'>
+      <p class='path'>/http-rxjs/john-linquist/forkjoin-search.ts</p>
       <h4> forkJoin() People and vehicles</h4>
-      <a href="http://plnkr.co/edit/fOhgiYQyKtjGCAeWvi5U?p=preview&open=app%2Fapp.component.ts" target="_blank">Original
+      <a href='http:// plnkr.co/edit/fOhgiYQyKtjGCAeWvi5U?p=preview&open=app%2Fapp.component.ts' target='_blank'>Original
         Plunk</a>
-      <a href="https://blog.thoughtram.io/angular/2016/06/16/cold-vs-hot-observables.html">share() is a shortcut for
+      <a href='https:// blog.thoughtram.io/angular/2016/06/16/cold-vs-hot-observables.html'>share() is a shortcut for
         publish().refCount()</a>
 
-      <div *ngFor="let person of people$ | async">
-        <div class="person" (click)="peopleClick$.next(person)">{{person.name}} ({{person.vehicles.length}})</div>
+      <div *ngFor='let person of people$ | async'>
+        <div class='person' (click)='peopleClick$.next(person)'>{{person.name}} ({{person.vehicles.length}})</div>
       </div>
     </div>
 
-    <div class="detail">
-      <h2 *ngIf="vehicles$ | async">Vehicles</h2>
-      <div *ngFor="let vehicle of vehicles$ | async">
+    <div class='detail'>
+      <h2 *ngIf='vehicles$ | async'>Vehicles</h2>
+      <div *ngFor='let vehicle of vehicles$ | async'>
         <div>{{vehicle.name}} - {{vehicle.manufacturer}}</div>
-        <img [src]="vehicle.image_path" alt="">
+        <img [src]='vehicle.image_path' alt=''>
       </div>
     </div>
   `
 })
 export class ForkJoinComponent implements OnInit {
-  static API = "https://swapi.co/api";
+  static API = 'https:// swapi.co/api';
   people$;
   peopleClick$ = new Subject();
   vehicles$;

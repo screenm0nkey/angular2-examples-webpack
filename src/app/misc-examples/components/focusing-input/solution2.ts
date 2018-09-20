@@ -1,10 +1,10 @@
 import {
   AfterViewInit, Component, Directive, ElementRef, OnChanges, OnInit, QueryList, SimpleChange, ViewChild,
   ViewChildren
-} from "@angular/core";
+} from '@angular/core';
 
 @Directive({
-  selector: "[focusIt]"
+  selector: '[focusIt]'
 })
 export class FocusIt implements AfterViewInit, OnChanges {
   constructor(private elementRef: ElementRef) {
@@ -25,15 +25,15 @@ export class FocusIt implements AfterViewInit, OnChanges {
 }
 
 @Component({
-  selector: "solution-two",
+  selector: 'solution-two',
   template: `
-    <p class="path">misc-examples/components/focusing-input/solution2.ts</p>
+    <p class='path'>misc-examples/components/focusing-input/solution2.ts</p>
     <h4>Solution 2 @ViewChild and calling a method on the childview directive</h4>
 
 
-    <button (click)="toggle()">Make it {{isVisible ? 'invisible' : 'visible'}}</button>
-    <input *ngIf="inputIsVisible" focusIt>
-    <button (click)="focusInput()" *ngIf="inputIsVisible">Focus it</button>
+    <button (click)='toggle()'>Make it {{isVisible ? 'invisible' : 'visible'}}</button>
+    <input *ngIf='inputIsVisible' focusIt>
+    <button (click)='focusInput()' *ngIf='inputIsVisible'>Focus it</button>
   `
 })
 export class SolutionTwo implements OnInit {
@@ -45,7 +45,7 @@ export class SolutionTwo implements OnInit {
   private inputIsVisible: boolean = false;
 
   ngOnInit() {
-    // notice that the "child" directive object instance is still not available as a property
+    // notice that the 'child' directive object instance is still not available as a property
     // it wont be available until the input is made visible by NgIf
     console.log(133, this);
   }

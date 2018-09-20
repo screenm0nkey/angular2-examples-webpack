@@ -1,14 +1,14 @@
-import {Component, EventEmitter, Input, Output} from "@angular/core";
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
-  selector: "filter-text-component",
+  selector: 'filter-text-component',
   template: `
     Filter:
     <input
-      type="text"
-      placeholder="{{placeholder}}"
-      [(ngModel)]="model.filter"
-      (keyup)="filterChanged($event)"/>
+      type='text'
+      placeholder='{{placeholder}}'
+      [(ngModel)]='model.filter'
+      (keyup)='filterChanged($event)'/>
   `
 })
 export class FilterTextComponent {
@@ -17,7 +17,7 @@ export class FilterTextComponent {
   @Output() changed: EventEmitter<any> = new EventEmitter();
 
   constructor() {
-    this.model = {filter: ""};
+    this.model = {filter: ''};
     console.log(this);
   }
 

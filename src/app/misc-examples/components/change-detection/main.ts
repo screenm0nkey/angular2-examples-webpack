@@ -1,9 +1,9 @@
-import {Component} from "@angular/core";
+import {Component} from '@angular/core';
 
 @Component({
-  selector: "change-detection-main",
+  selector: 'change-detection-main',
   template: `
-    <div class="comps">
+    <div class='comps'>
       <change-component></change-component>
 
       <immutable-object-component></immutable-object-component>

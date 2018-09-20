@@ -1,11 +1,11 @@
-import {NgModule} from "@angular/core";
-import {SharedModule} from "../../../shared/shared.module";
-import {NgZoneMainComponent} from "./ngzone.main";
-import {NgZoneDemo} from "./runoutside";
-import {BoxComponent} from "./box.component";
-import {BoxZoneComponent, SpeedingZonesComponent} from "./speedy-with-zones.component";
-import {SimpleNgFor} from "./simple-ngfor.directive";
-import {SpeedingComponent} from "./speedy.component";
+import {NgModule} from '@angular/core';
+import {SharedModule} from '../../../shared/shared.module';
+import {NgZoneMainComponent} from './ngzone-main.component';
+import {NgZoneDemo} from './runoutside';
+import {BoxComponent} from './box.component';
+import {BoxZoneComponent, SpeedingZonesComponent} from './speedy-with-zones.component';
+import {SimpleNgFor} from './simple-ngfor.directive';
+import {SpeedingComponent} from './speedy.component';
 
 @NgModule({
   imports: [SharedModule],

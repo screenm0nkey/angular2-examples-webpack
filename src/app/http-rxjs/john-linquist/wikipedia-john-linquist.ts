@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component} from '@angular/core';
 import {
   concatAll,
   debounceTime,
@@ -12,13 +12,13 @@ import {
   switchMap,
   takeUntil
 } from 'rxjs/operators'
-import {merge, Observable, Subject} from "rxjs";
-import {WikiSearchService} from "../searches/wikipedia-search.service";
+import {merge, Observable, Subject} from 'rxjs';
+import {WikiSearchService} from '../searches/wikipedia-search.service';
 
 @Component({
-  selector: "john-linquist-wiki",
+  selector: 'john-linquist-wiki',
   providers: [WikiSearchService],
-  template: require("./wikipedia-john-linquist.html"),
+  templateUrl: './wikipedia-john-linquist.html',
 })
 export class JohnLinquistWikiSearch {
   input$ = new Subject().pipe(map((event: Event) => (<HTMLInputElement>event.target).value));
@@ -37,7 +37,7 @@ export class JohnLinquistWikiSearch {
     // hot observable
     const lessThanTwoChars$ = this.input$
       .pipe(filter(term => term.length <= 2))
-      .pipe(map(term => !term.length ? "" : "Enter a term longer than 2 letters"))
+      .pipe(map(term => !term.length ? '' : 'Enter a term longer than 2 letters'))
       .pipe(share())
 
     this.searchTerm$ = merge(term$, lessThanTwoChars$);
@@ -54,12 +54,12 @@ export class JohnLinquistWikiSearch {
 
   wikipediaImageSearch(term): Observable<any[]> {
     return this.wikipediaService
-      .searchForImages(term) //3
-      .pipe(map(this.wikipediaService.getImageTitles)) //4
+      .searchForImages(term) // 3
+      .pipe(map(this.wikipediaService.getImageTitles)) // 4
       .pipe(concatAll())
-      .pipe(mergeMap(this.wikipediaService.getImageInfoFromTitle)) //5
+      .pipe(mergeMap(this.wikipediaService.getImageInfoFromTitle)) // 5
       .pipe(takeUntil(this.input$))
-      .pipe(map(this.wikipediaService.mapImageInfoToUrls)) //6
+      .pipe(map(this.wikipediaService.mapImageInfoToUrls)) // 6
       .pipe(scan((acc, curr) => [...acc, ...curr]));
   }
 }

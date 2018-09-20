@@ -1,21 +1,21 @@
-import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
-const CALLBACK = "callback=JSONP_CALLBACK";
-const WIKIPEDIA_URL = "https://en.wikipedia.org/w/api.php";
-const QUERY = "action=query";
-const ALLIMAGES = "list=allimages";
-const IMAGEINFO = "prop=imageinfo";
-const API = `${WIKIPEDIA_URL}?${QUERY}&${"format=json"}&${CALLBACK}&${ALLIMAGES}`;
-const PROP_URL = "iiprop=url";
+const CALLBACK = 'callback=JSONP_CALLBACK';
+const WIKIPEDIA_URL = 'https:// en.wikipedia.org/w/api.php';
+const QUERY = 'action=query';
+const ALLIMAGES = 'list=allimages';
+const IMAGEINFO = 'prop=imageinfo';
+const API = `${WIKIPEDIA_URL}?${QUERY}&${'format=json'}&${CALLBACK}&${ALLIMAGES}`;
+const PROP_URL = 'iiprop=url';
 
 
 const defaultParams = {
-  callback: "JSONP_CALLBACK",
-  action: "opensearch",
-  format: "json"
+  callback: 'JSONP_CALLBACK',
+  action: 'opensearch',
+  format: 'json'
 };
 
 const defaultOptions = {
@@ -45,9 +45,9 @@ export class WikiSearchService {
     return this.get(WIKIPEDIA_URL, {
       responseType: 'text',
       params: {
-        callback: "JSONP_CALLBACK",
-        action: "opensearch",
-        format: "json",
+        callback: 'JSONP_CALLBACK',
+        action: 'opensearch',
+        format: 'json',
         search: term,
       }
     })
@@ -70,7 +70,7 @@ export class WikiSearchService {
 
   mapImageInfoToUrls = body => {
     return Object.keys(body.query.pages)
-      .filter((page: any) => page > 0) //page -1 means no images
+      .filter((page: any) => page > 0) // page -1 means no images
       .map((page: any) => {
         page = body.query.pages[page];
         let imageInfo = page.imageinfo[0];

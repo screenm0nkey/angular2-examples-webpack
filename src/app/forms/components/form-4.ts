@@ -1,17 +1,17 @@
-import { Component } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: "form-four",
-  template: require("./form-4.html")
+  selector: 'form-four',
+  templateUrl: './form-4.html'
 })
 export class FormFourComponent {
   myform: FormGroup;
-  payLoad: String = "";
+  payLoad: String = '';
   cities: any[] = [
-    { name: "London" },
-    { name: "Berlin" },
-    { name: "Rotheram" }
+    { name: 'London' },
+    { name: 'Berlin' },
+    { name: 'Rotheram' }
   ];
   selectedCity;
 
@@ -22,17 +22,17 @@ export class FormFourComponent {
     // calling fb.group() returns a controlGroup
     this.myform = this.formBuilder.group({
       checkMe: [true, Validators.required],
-      firstName: ["", Validators.required],
-      streetAddress: ["", Validators.required],
-      zip: ["", Validators.compose([this.zipValidator])],
-      type: ["home"],
+      firstName: ['', Validators.required],
+      streetAddress: ['', Validators.required],
+      zip: ['', Validators.compose([this.zipValidator])],
+      type: ['home'],
       city: []
     });
   }
 
   logit(evt, ngForm, myform) {
-    console.log("ngForm", ngForm.form);
-    console.log("myform", myform);
+    console.log('ngForm', ngForm.form);
+    console.log('myform', myform);
     console.log(this.selectedCity);
   }
 
@@ -49,4 +49,4 @@ export class FormFourComponent {
   }
 }
 
-//this.registerForm.controls.address.controls.street.valid
+// this.registerForm.controls.address.controls.street.valid

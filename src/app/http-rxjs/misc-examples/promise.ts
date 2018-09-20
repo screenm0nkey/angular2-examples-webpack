@@ -1,5 +1,5 @@
-import { Component, Injectable, OnInit } from "@angular/core";
-import {HttpClient} from "@angular/common/http";
+import { Component, Injectable, OnInit } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 export interface Character {
   id: number;
@@ -15,7 +15,7 @@ export class CharacterService {
   getCharacters(): Promise<Character[]> {
     this.characters.length = 0;
     let promise = this._http
-      .get("/json/characters.json")
+      .get('/json/characters.json')
       .toPromise(null)
       .then((characters: Character[]) => {
         this.characters.push(...characters);
@@ -26,11 +26,11 @@ export class CharacterService {
 }
 
 @Component({
-  selector: "promise-example",
+  selector: 'promise-example',
   template: `
-    <p class="path"> /http-rxjs/misc-examples/promise.ts</p>
+    <p class='path'> /http-rxjs/misc-examples/promise.ts</p>
     <h4>Promise example</h4> 
-     <p style="margin-bottom: 10px">There are {{characters.length}} characters <br/>{{characters | json}}</p>
+     <p style='margin-bottom: 10px'>There are {{characters.length}} characters <br/>{{characters | json}}</p>
   `,
   providers: [CharacterService]
 })

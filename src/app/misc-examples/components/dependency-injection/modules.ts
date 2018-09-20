@@ -1,13 +1,8 @@
-import {Component} from "@angular/core";
+import {Component} from '@angular/core';
 
 @Component({
-  selector: "modules-component",
-  template: `
-    <div class="comps">
-      ${require("./modules.html")}
-    </div>
-
-  `
+  selector: 'modules-component',
+  templateUrl: './modules.html'
 })
 export class ModulesComponent {
 }

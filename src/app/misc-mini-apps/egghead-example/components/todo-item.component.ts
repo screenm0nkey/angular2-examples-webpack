@@ -1,7 +1,7 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: "todo-item-renderer",
+  selector: 'todo-item-renderer',
   template: `
     <style>
         .completed{
@@ -13,8 +13,8 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
         }
     </style>
     <div>
-        <span [ngClass]="todo.status" class="text">{{todo.title | initialCapsPipe }}</span>
-        <button (click)="toggle.emit(todo)">Set As Completed</button>
+        <span [ngClass]='todo.status' class='text'>{{todo.title | initialCapsPipe }}</span>
+        <button (click)='toggle.emit(todo)'>Set As Completed</button>
     </div>`
 })
 export class TodoItem {

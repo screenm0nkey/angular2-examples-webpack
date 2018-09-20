@@ -1,10 +1,10 @@
-import {Component} from "@angular/core";
-import {Hero} from "../../../shared/pipes/flying-heros.pipe";
+import {Component} from '@angular/core';
+import {Hero} from '../../../shared/pipes/flying-heros.pipe';
 
 @Component({
-  selector: "pipes-component",
+  selector: 'pipes-component',
   template: `
-    <div class="comps">
+    <div class='comps'>
       <section>
         <p><strong>There are two categories of pipes: pure and impure</strong>. 
          Pipes are pure by default. You make a pipe impure by setting its pure flag to false.
@@ -28,15 +28,15 @@ import {Hero} from "../../../shared/pipes/flying-heros.pipe";
       
       <section>
         <p>See the console for out put.</p>
-        <input type="text" placeholder="Type Name" #name>
-        <button (click)="addHero(name)">Add Impure Hero</button>
-        <button (click)="addPureHero(name)">Add Pure Hero. </button>
-        <span class="title">Pure</span>
-        <div *ngFor="let hero of (heroes | flyingHeroes)">
+        <input type='text' placeholder='Type Name' #name>
+        <button (click)='addHero(name)'>Add Impure Hero</button>
+        <button (click)='addPureHero(name)'>Add Pure Hero. </button>
+        <span class='title'>Pure</span>
+        <div *ngFor='let hero of (heroes | flyingHeroes)'>
           {{hero.name}}
         </div>
-        <span class="title">ImPure</span>
-        <div *ngFor="let hero of (heroes | flyingHeroesImpure)">
+        <span class='title'>ImPure</span>
+        <div *ngFor='let hero of (heroes | flyingHeroesImpure)'>
           {{hero.name}}
         </div>
       </section>

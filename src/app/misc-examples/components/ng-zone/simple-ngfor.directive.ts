@@ -3,10 +3,10 @@
  * Copyright Google Inc. All Rights Reserved.
  *
  * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
+ * found in the LICENSE file at https:// angular.io/license
  */
 
-import {Directive, DoCheck, EmbeddedViewRef, Input, TemplateRef, ViewContainerRef} from "@angular/core";
+import {Directive, DoCheck, EmbeddedViewRef, Input, TemplateRef, ViewContainerRef} from '@angular/core';
 
 class SimpleNgForRow {
   constructor(public $implicit: any, public index: number) {
@@ -21,7 +21,7 @@ class SimpleNgForRow {
   }
 }
 
-@Directive({selector: "[simpleNgFor][simpleNgForOf]"})
+@Directive({selector: '[simpleNgFor][simpleNgForOf]'})
 export class SimpleNgFor implements DoCheck {
   @Input() simpleNgForOf: any[];
 
@@ -30,11 +30,11 @@ export class SimpleNgFor implements DoCheck {
   }
 
   // see here for an explanation of this setter
-  // https://angular.io/docs/ts/latest/guide/attribute-directives.html
+  // https:// angular.io/docs/ts/latest/guide/attribute-directives.html
   // or see the highlight directive example in this app
   @Input()
   set ngForTemplate(value: TemplateRef<SimpleNgForRow>) {
-    console.log(`%c${value}`, "color:lime");
+    console.log(`%c${value}`, 'color:lime');
     if (value) {
       this._template = value;
     }

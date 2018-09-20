@@ -1,26 +1,26 @@
-import {Injectable} from "@angular/core";
+import {Injectable} from '@angular/core';
 
 @Injectable()
 export class SmallService {
   run(): string {
-    console.log("Small service...");
-    return "Small service...";
+    console.log('Small service...');
+    return 'Small service...';
   }
 }
 
 @Injectable()
 export class LargeService {
   run(): string {
-    console.log("Large service...");
-    return "Large service...";
+    console.log('Large service...');
+    return 'Large service...';
   }
 }
 
 @Injectable()
 export class ApiService {
   run(): string {
-    console.log("API Service...");
-    return "API service...";
+    console.log('API Service...');
+    return 'API service...';
   }
 }
 
@@ -42,7 +42,7 @@ export class ViewPortService {
 export class MrTestyServiceOne {
   static counter: number = 0;
   constructor() {
-    console.log(`%cCreated an instance of MrTestyServiceOne ${++MrTestyServiceOne.counter}`, "color:deeppink");
+    console.log(`%cCreated an instance of MrTestyServiceOne ${++MrTestyServiceOne.counter}`, 'color:deeppink');
   }
 }
 
@@ -50,6 +50,6 @@ export class MrTestyServiceOne {
 export class MrTestyServiceTwo {
   static counter: number = 0;
   constructor() {
-    console.log(`%cCreated an instance of MrTestyServiceTwo ${++MrTestyServiceTwo.counter}`, "color:lime");
+    console.log(`%cCreated an instance of MrTestyServiceTwo ${++MrTestyServiceTwo.counter}`, 'color:lime');
   }
 }

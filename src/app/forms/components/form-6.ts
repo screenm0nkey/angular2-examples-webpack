@@ -1,10 +1,10 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
   FormGroup,
   Validators
-} from "@angular/forms";
+} from '@angular/forms';
 
 interface ValidationResult {
   [key: string]: boolean;
@@ -12,7 +12,7 @@ interface ValidationResult {
 
 class UsernameValidator {
   static startsWithNumber(control: FormControl): ValidationResult {
-    if (control.value != "" && !isNaN(control.value.charAt(0))) {
+    if (control.value != '' && !isNaN(control.value.charAt(0))) {
       return { startsWithNumber: true };
     }
     return null;
@@ -21,7 +21,7 @@ class UsernameValidator {
   static usernameTaken(control: FormControl): Promise<ValidationResult> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        if (control.value === "nick") {
+        if (control.value === 'nick') {
           resolve({ usernameTaken: true });
         } else {
           resolve(null);
@@ -32,8 +32,8 @@ class UsernameValidator {
 }
 
 @Component({
-  selector: "form-six",
-  template: require("./form-6.html")
+  selector: 'form-six',
+  templateUrl: './form-6.html'
 })
 export class FormSixComponent {
   form: FormGroup;
@@ -43,7 +43,7 @@ export class FormSixComponent {
 
   ngOnInit() {
     this.username = new FormControl(
-      "",
+      '',
       Validators.compose([
         Validators.required,
         UsernameValidator.startsWithNumber

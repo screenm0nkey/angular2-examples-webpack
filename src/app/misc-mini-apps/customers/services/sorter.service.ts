@@ -1,5 +1,5 @@
-//Based on https://github.com/thelgevold/angular-2-samples/blob/master/components/grid/sorter
-import {Injectable} from "@angular/core";
+// Based on https:// github.com/thelgevold/angular-2-samples/blob/master/components/grid/sorter
+import {Injectable} from '@angular/core';
 
 @Injectable()
 export class Sorter {
@@ -16,10 +16,10 @@ export class Sorter {
     collection.sort((a, b) => {
       a = a[prop];
       b = b[prop];
-      if (Object.prototype.toString.call(a).slice(8, -1) === "String") {
+      if (Object.prototype.toString.call(a).slice(8, -1) === 'String') {
         a = a.toLowerCase();
       }
-      if (Object.prototype.toString.call(b).slice(8, -1) === "String") {
+      if (Object.prototype.toString.call(b).slice(8, -1) === 'String') {
         b = b.toLowerCase();
       }
       if (a === b) {

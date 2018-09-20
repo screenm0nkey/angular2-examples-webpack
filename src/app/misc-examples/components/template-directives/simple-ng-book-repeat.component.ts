@@ -10,7 +10,7 @@ import {
   IterableDiffers,
   IterableChanges,
   IterableChangeRecord,
-} from "@angular/core";
+} from '@angular/core';
 
 interface Person {
   name: string;
@@ -21,15 +21,15 @@ interface Person {
  * NgBookRepeatDirective
  */
 @Directive({
-  selector: "[ngBookRepeat]",
-  inputs: ["ngBookRepeatOf"]
+  selector: '[ngBookRepeat]',
+  inputs: ['ngBookRepeatOf']
 })
 export class NgBookRepeatDirective implements DoCheck {
   // items holds the collection we’re iterating on
   private items: Person[];
   // differ is used for change detection purposes
   private differ: IterableDiffer<Person>;
-  //views is a Map that will link a given item on the collection with the view that contains it
+  // views is a Map that will link a given item on the collection with the view that contains it
   private views: Map<any, ViewRef> = new Map<any, ViewRef>();
 
   constructor(private viewContainer: ViewContainerRef,
@@ -81,18 +81,18 @@ export class NgBookRepeatDirective implements DoCheck {
  * NgBookRepeatDirective
  */
 @Component({
-  selector: "ng-book-repeat-template",
-  template: require("./simple-ng-book-repeat.component.html")
+  selector: 'ng-book-repeat-template',
+  templateUrl: './simple-ng-book-repeat.component.html'
 })
 export class NgBookRepeatComponent {
   people: Person[];
 
   constructor() {
     this.people = [
-      {name: "Joe", age: 10},
-      {name: "Patrick", age: 21},
-      {name: "Melissa", age: 12},
-      {name: "Kate", age: 19}
+      {name: 'Joe', age: 10},
+      {name: 'Patrick', age: 21},
+      {name: 'Melissa', age: 12},
+      {name: 'Kate', age: 19}
     ];
   }
 
@@ -105,8 +105,8 @@ export class NgBookRepeatComponent {
   add(name: HTMLInputElement, age: HTMLInputElement) {
     if (name.value && age.value) {
       this.people.push({name: name.value, age: Number(age.value)});
-      name.value = "";
-      age.value = "";
+      name.value = '';
+      age.value = '';
     }
   }
 }

@@ -1,13 +1,13 @@
-import { Component } from "@angular/core";
-import { TodoService } from "../services/todo-service";
-import { TodoModel } from "../services/todo-model";
+import { Component } from '@angular/core';
+import { TodoService } from '../services/todo-service';
+import { TodoModel } from '../services/todo-model';
 
 @Component({
-  selector: "new-todo",
+  selector: 'new-todo',
   template: `
     <div>
-      <form (submit)="onSubmit()">
-          <input type="text" [(ngModel)]="todoModel.title" name="title" placeholder="New item">
+      <form (submit)='onSubmit()'>
+          <input type='text' [(ngModel)]='todoModel.title' name='title' placeholder='New item'>
       </form>
     </div>`
 })

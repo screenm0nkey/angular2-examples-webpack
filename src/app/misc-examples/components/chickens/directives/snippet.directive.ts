@@ -1,4 +1,4 @@
-import {Directive, Input} from "@angular/core";
+import {Directive, Input} from '@angular/core';
 
 export interface Snippet {
   id?: number;
@@ -7,13 +7,13 @@ export interface Snippet {
 }
 
 @Directive({
-  selector: "[uiSnippets]",
+  selector: '[uiSnippets]',
   host: {
-    "(input)": "onChange($event)" // map the input event to the onChange handler
+    '(input)': 'onChange($event)' // map the input event to the onChange handler
   }
 })
 export class UISnippets {
-  @Input("uiSnippets") snippetsList: Array<Snippet>;
+  @Input('uiSnippets') snippetsList: Array<Snippet>;
   private _snippetRegex: RegExp;
 
   constructor() {
@@ -41,7 +41,7 @@ export class UISnippets {
         s.name.toLowerCase() ===
         snippet
           .trim()
-          .replace("`", "")
+          .replace('`', '')
           .toLowerCase()
       ) {
         snippet = s.content;

@@ -1,10 +1,10 @@
-import {Component} from "@angular/core";
+import {Component} from '@angular/core';
 
 @Component({
-  selector: "app",
-  styles: [require("./main.css")],
+  selector: 'app',
+  styleUrls: ['./main.css'],
   template: `
-    <div  class="comps">
+    <div  class='comps'>
       <socket-io-app></socket-io-app>
       
       <section>
@@ -12,15 +12,15 @@ import {Component} from "@angular/core";
 
         <push-notification
           #notification
-          title="ng2-notifications"
-          body="Native Push Notifications in Angular 2"
-          icon="https://goo.gl/3eqeiE"
-          closeDelay="4000"
-          (load)="notification.show()">
+          title='ng2-notifications'
+          body='Native Push Notifications in Angular 2'
+          icon='https:// goo.gl/3eqeiE'
+          closeDelay='4000'
+          (load)='notification.show()'>
         </push-notification>
 
         <button 
-          (click)="notification.show(); logit(notification)">
+          (click)='notification.show(); logit(notification)'>
             Click to Show Notification (look at console)
         </button>
       </section>
@@ -29,8 +29,8 @@ import {Component} from "@angular/core";
   `
 })
 export class AppComponent {
-  title: string = "ng2-notifications";
-  description: string = "Angular 2 Component for Native Push Notifications";
+  title: string = 'ng2-notifications';
+  description: string = 'Angular 2 Component for Native Push Notifications';
 
   logit(arg) {
     console.log(arg);

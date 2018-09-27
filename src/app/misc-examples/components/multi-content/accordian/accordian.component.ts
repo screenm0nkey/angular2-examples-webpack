@@ -3,7 +3,7 @@ import {AccordionGroup} from './accordian-group.component';
 
 @Component({
   selector: 'accordion, [accordion]',
-  encapsulation: ViewEncapsulation.ShadowDom,
+  encapsulation: ViewEncapsulation.Emulated,
   host: {
     // below will add the 'panel-group' class to the host element
     // we can have dynamic classes by using '[class.panel-group]': 'someComponentProperty',

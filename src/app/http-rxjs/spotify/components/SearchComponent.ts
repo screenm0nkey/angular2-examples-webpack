@@ -1,13 +1,13 @@
 /*
  * Angular
  */
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Observable} from 'rxjs';
 /*
  * Services
  */
-import { SpotifyService } from '../spotify.service';
+import {SpotifyService} from '../spotify.service';
 
 @Component({
   selector: 'search',
@@ -34,22 +34,16 @@ import { SpotifyService } from '../spotify.service';
                 <img src='{{ t.album.images[0].url }}' class='img-responsive'>
                 <div class='caption'>
                   <h3>
-                    <a [routerLink]="['./artists', t.artists[0].id]'>
-                      {{ t.artists[0].name }}
-                    </a>
+                    <a [routerLink]="['./artists', t.artists[0].id]">{{ t.artists[0].name }}</a>
                   </h3>
                   <br>
                   <p>
-                    <a [routerLink]="['tracks', t.id]'>
-                      {{ t.name }}
-                    </a>
+                    <a [routerLink]="['tracks', t.id]">{{ t.name }}</a>
                   </p>
                 </div>
                 <div class='attribution'>
                   <h4>
-                    <a [routerLink]="['./albums', t.album.id]'>
-                      {{ t.album.name }}
-                    </a>
+                    <a [routerLink]="['./albums', t.album.id]">{{ t.album.name }}</a>
                   </h4>
                 </div>
               </div>
@@ -82,7 +76,7 @@ export class SearchComponent implements OnInit {
 
   submit(query: string): void {
     this.router
-      .navigate(['httprx', 'spotify'], { queryParams: { query: query } })
+      .navigate(['httprx', 'spotify'], {queryParams: {query: query}})
       .then(this.search);
   }
 

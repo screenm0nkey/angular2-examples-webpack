@@ -4,7 +4,7 @@ import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
 const CALLBACK = 'callback=JSONP_CALLBACK';
-const WIKIPEDIA_URL = 'https:// en.wikipedia.org/w/api.php';
+const WIKIPEDIA_URL = 'https://en.wikipedia.org/w/api.php';
 const QUERY = 'action=query';
 const ALLIMAGES = 'list=allimages';
 const IMAGEINFO = 'prop=imageinfo';
@@ -18,6 +18,8 @@ const defaultParams = {
   format: 'json'
 };
 
+//https://en.wikipedia.org/w/api.php?action=query&format=json&callback=JSONP_CALLBACK&list=allimages&list=allimages&aifrom=car'
+
 const defaultOptions = {
   params: defaultParams,
   responseType: 'text'
@@ -28,18 +30,17 @@ export class WikiSearchService {
   constructor(private http: HttpClient) {
   }
 
+  get(url: string, options): Observable<JSON> {
+    const opts = Object.assign({responseType: 'text'}, options);
+    return this.http.get(url, opts).pipe(map(this.handleJSONPResponse));
+  }
+
   handleJSONPResponse(res): JSON {
     const newRes = res.replace('/**/JSONP_CALLBACK(', '');
     const json = JSON.parse(newRes.substr(0, newRes.length - 1));
     console.log(11, json);
     return json;
   }
-
-  get = (url: string, options): Observable<JSON> => {
-    const opts = Object.assign({responseType: 'text'}, options);
-    return this.http.get(url, opts).pipe(map(this.handleJSONPResponse));
-  };
-
 
   search = (term: string): Observable<any> => {
     return this.get(WIKIPEDIA_URL, {

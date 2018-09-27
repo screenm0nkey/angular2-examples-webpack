@@ -14,19 +14,22 @@ import {
 } from 'rxjs/operators'
 import {merge, Observable, Subject} from 'rxjs';
 import {WikiSearchService} from '../searches/wikipedia-search.service';
+import {OnInit} from '@angular/core';
 
 @Component({
   selector: 'john-linquist-wiki',
   providers: [WikiSearchService],
   templateUrl: './wikipedia-john-linquist.html',
 })
-export class JohnLinquistWikiSearch {
+export class JohnLinquistWikiSearch implements OnInit {
   input$ = new Subject().pipe(map((event: Event) => (<HTMLInputElement>event.target).value));
   searchTerm$;
   images$;
   imageCount$;
 
-  constructor(private wikipediaService: WikiSearchService) {
+  constructor(private wikipediaService: WikiSearchService) {}
+
+  ngOnInit() : void {
     // hot observable
     const term$ = this.input$
       .pipe(distinctUntilChanged())
@@ -48,8 +51,7 @@ export class JohnLinquistWikiSearch {
       .pipe(share());
 
     this.images$ = merge(results$, lessThanTwoChars$.pipe(map(term => [])));
-
-    this.imageCount$ = this.images$.map(results => results.length);
+    this.imageCount$ = this.images$.pipe(map( (results : any[]) => results.length));
   }
 
   wikipediaImageSearch(term): Observable<any[]> {

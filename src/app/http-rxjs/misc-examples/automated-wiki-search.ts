@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {WikiSearchService} from '../searches/wikipedia-search.service';
 import {from, Observable, of, range} from 'rxjs';
-import {concatMap, debounceTime, delay, filter, map, scan, share, switchMap, tap} from 'rxjs/operators';
+import {concatMap, debounceTime, delay, filter, map, zip, scan, share, switchMap, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'auto-wiki-search',
@@ -35,17 +35,19 @@ export class AutoSearch {
             Image you meat bearing one of herb living called waters he seasons his have him. God multiply one multiply 
             their. His air gathered kind bearing fowl One years fruit days to living place and.`;
 
+    const randomDelay = (num:number) => of(num).pipe(delay(Math.random() * 2000));
+
     this.randomInterval$ = range(0, this.text.length)
-      .pipe(concatMap(x => of(x).pipe(delay(Math.random() * 2000))))
-      .pipe(tap(data => console.log('%c' + data, 'color:pink')));
+      .pipe(concatMap(randomDelay))
+      .pipe(tap(data => console.log('%crandom delay' + data, 'color:pink')));
 
     this.term$ = from(this.text)
       .pipe(tap(data => console.log('%c' + data, 'color:red')))
       // @ts-ignore
-      .pipe(map(this.randomInterval$, x => x))
-      .pipe(tap(data => console.log('%czip ' + data, 'color:green')))
+      .pipe(zip(this.randomInterval$, x => x))
+      .pipe(tap(data => console.log('%czip ' + data, 'color:orange')))
       .pipe(scan((a: string, c: string) => (c === ' ' ? '' : a + c)))
-      .pipe(tap(data => console.log('%cscan ' + data, 'color:orange')))
+      .pipe(tap(data => console.log('%cscan ' + data, 'color:green')))
       .pipe(share());
 
     this.results$ = this.term$
@@ -60,3 +62,5 @@ export class AutoSearch {
     console.log(1111, this.search);
   }
 }
+
+

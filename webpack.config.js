@@ -32,7 +32,7 @@ const webpackConfig = {
         // Mark files inside `@angular/core` as using SystemJS style dynamic imports.
         // Removing this will cause deprecation warnings to appear.
         test: /[\/\\]@angular[\/\\]core[\/\\].+\.js$/,
-        parser: { system: true },
+        parser: {system: true},
       },
       // .ts files for TypeScript
       {
@@ -49,8 +49,8 @@ const webpackConfig = {
         loaders: ["to-string-loader", "css-loader"],
         exclude: excluded
       },
-      { test: /\.html$/, loader: "raw-loader", exclude: excluded },
-      { test: /\.json$/, loader: "json-loader", exclude: excluded },
+      {test: /\.html$/, loader: "raw-loader", exclude: excluded},
+      {test: /\.json$/, loader: "json-loader", exclude: excluded},
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         loaders: [
@@ -97,12 +97,11 @@ const defaultConfig = {
 
   devServer: {
     historyApiFallback: true,
-    watchOptions: { aggregateTimeout: 300, poll: 1000 },
+    watchOptions: {aggregateTimeout: 300, poll: 1000},
     headers: {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-      "Access-Control-Allow-Headers":
-        "X-Requested-With, content-type, Authorization"
+      "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
     }
   },
 

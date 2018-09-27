@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
+  styleUrls:['./inputs.css'],
   template: `
     <div class='comps'>
       <div class='links'>

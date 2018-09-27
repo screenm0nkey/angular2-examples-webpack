@@ -144,14 +144,21 @@ ul {
 }
 
 ul.todos {
+  width: calc(100% - 10px);
   background-color: #07bd07;
   padding: 3px;
   border: solid 3px #259e00;
   margin-right: 10px;
+  list-style: none;
+  margin-left: 0px;
+  margin-bottom: 3px;
+  position: fixed;
+  z-index: 2;
 }
 ul.todos li {
-  font-size: 10px;
+  font-size: 11px;
   margin: 0px;
+  font-family: monospace;
 }
 
 ul.bullets {
@@ -168,8 +175,6 @@ ul.bullets li {
   margin: 5px 0 5px 18px;
   display: table;
 }
-
-
 
 i {
   background-color: #ffffa4;

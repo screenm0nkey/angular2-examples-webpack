@@ -38,7 +38,7 @@ export const formsRoutes: Routes = [
       {path: 'hostbinding', component: HostBindingComponent},
       {path: 'directives', component: DirectivesLinquistMain},
       {path: 'input-binding', component: MainInputBindingApp},
-      {path: 'emitter', component: MultiTransclusion},
+      {path: 'content-projection', component: MultiTransclusion},
       {path: 'ngzone', component: NgZoneMainComponent},
       {path: 'ngstyle', component: NgStyleMainComponent},
       {path: 'notifications', component: AppComponent},

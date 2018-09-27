@@ -6,6 +6,7 @@ import {
 
 @Component({
   selector: 'app-root',
+  styleUrls:['./app.css'],
   template: `
     <nav class='main'>
       <a routerLink='/misc' routerLinkActive='active'>Misc Examples</a>

@@ -23,7 +23,7 @@ import { SpotifyService } from '../spotify.service';
     <h3>Tracks</h3>
     <ol>
       <li *ngFor='let t of (album$ | async)?.tracks.items'>
-        <a [routerLink]="['/httprx','spotify', 'tracks', t.id]'>
+        <a [routerLink]="['/httprx','spotify', 'tracks', t.id]">
           {{ t.name }}
         </a>
       </li>

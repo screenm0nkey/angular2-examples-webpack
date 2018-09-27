@@ -26,9 +26,6 @@
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
-    "core-js": "^2.5.4",
-    "rxjs": "^6.0.0",
-    "zone.js": "~0.8.26",
     "@ngrx/core": "^1.2.0",
     "@ngrx/effects": "^6.1.0",
     "@ngrx/store": "^6.1.0",
@@ -36,6 +33,7 @@
     "@types/source-map": "0.5.0",
     "angular-router-loader": "^0.8.5",
     "bootstrap": "^3.3.7",
+    "core-js": "^2.5.4",
     "http-server": "^0.11.1",
     "ie-shim": "^0.1.0",
     "lodash": "^4.17.2",
@@ -43,8 +41,11 @@
     "redux": "^3.5.2",
     "reflect-metadata": "^0.1.12",
     "reselect": "^3.0.0",
+    "rxjs": "^6.0.0",
+    "rxjs-compat": "^6.3.2",
     "socket.io-client": "^2.0.3",
-    "source-map": "^0.7.3"
+    "source-map": "^0.7.3",
+    "zone.js": "~0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.7.0",

@@ -8,7 +8,7 @@ import {Component} from '@angular/core';
         <a routerLink='./modules' routerLinkActive='active'>Modules</a>
         <a routerLink='./pipes' routerLinkActive='active'>Pipes</a>
         <a routerLink='./change-detection' routerLinkActive='active'>Change Detection</a>
-        <a routerLink='./emitter' routerLinkActive='active'>Content Projection (transclusion)</a>
+        <a routerLink='./content-projection' routerLinkActive='active'>Content Projection (transclusion)</a>
         <a routerLink='./input-binding' routerLinkActive='active'>Component Communication</a>
         <a routerLink='./hostbinding' routerLinkActive='active'>@HostListener @HostBinding</a>
         <a routerLink='./rookie-mistakes' routerLinkActive='active'>@ContentChildren, ngAfterContentInit and ngContent</a>

@@ -1,43 +1,37 @@
-import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
-import { PageNotFoundComponent } from "./not-found.component";
-import { ComposeMessageComponent } from "./misc-mini-apps/auth/components/compose-message.component";
-import { SelectivePreloadingStrategy } from "./selective-preloading-strategy";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { PageNotFoundComponent } from './not-found.component';
+import { SelectivePreloadingStrategy } from './selective-preloading-strategy';
 
 const appRoutes: Routes = [
   {
-    path: "",
-    redirectTo: "misc",
-    pathMatch: "full"
+    path: '',
+    redirectTo: 'httprx',
+    pathMatch: 'full'
   },
   {
-    path: "compose",
-    component: ComposeMessageComponent,
-    outlet: "popup"
-  },
-  {
-    path: "forms",
-    loadChildren: "./forms/forms.module#NickFormsModule",
+    path: 'forms',
+    loadChildren: '../app/forms/forms.module#NickFormsModule',
     data: { preload: true }
   },
   {
-    path: "misc",
-    loadChildren: "./misc-examples/misc.module#MiscExamplesModule"
-  },
-  {
-    path: "lifecycle",
-    loadChildren: "./lifecycle/lifecycle.module.ts#LifeCycleModule"
+    path: 'misc',
+    loadChildren: '../app/misc-examples/misc.module#MiscExamplesModule'
   },
   {
     path: "httprx",
-    loadChildren: "./http-rxjs/async.module.ts#HttpRxJsModule"
+    loadChildren: "../app/http-rxjs/async.module#HttpRxJsModule"
+  },
+  {
+    path: "lifecycle",
+    loadChildren: "../app/lifecycle/lifecycle.module#LifeCycleModule"
   },
   {
     path: "mini-apps",
-    loadChildren: "./misc-mini-apps/mini-apps.module.ts#MiniAppsModule"
+    loadChildren: "./misc-mini-apps/mini-apps.module#MiniAppsModule"
   },
   {
-    path: "**",
+    path: '**',
     component: PageNotFoundComponent
   }
 ];

@@ -1,6 +1,9 @@
 import {Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output} from '@angular/core';
-
 declare const Notification;
+
+// this is a bug fix to stop this issue
+// https://github.com/socketio/socket.io-client/issues/1166
+(window as any).global = window;
 
 @Component({
   selector: 'push-notification',

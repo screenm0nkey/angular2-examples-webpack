@@ -1,65 +1,21 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "es2015",
     "moduleResolution": "node",
-    "preserveWhitespaces" : "off",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
-    "skipLibCheck" : true,
-    "noEmit": true,
-    "noEmitHelpers": true,
-    "importHelpers": true,
-    "strictNullChecks": false,
-    "compileOnSave": false,
-    "buildOnSave": false,
-    "outDir": "dist",
-    "rootDir": ".",
-    "baseUrl": ".",
-    "lib": [
-      "dom",
-      "es7"
-    ],
-    "exclude": [
-      "node_modules",
-      "typings",
-      "ms-components",
-      "www",
-      "backup-files"
-    ],
-    "paths": {
-      "@angular/*": ["node_modules/@angular/*"],
-      "@ngrx/effects": ["./modules/effects"],
-      "@ngrx/store": ["./modules/store"],
-      "@ngrx/store-devtools": ["./modules/store-devtools"],
-      "@ngrx/router-store": ["./modules/router-store"],
-      "@ngrx/entity": ["./modules/entity"]
-    },
+    "target": "es5",
     "typeRoots": [
       "node_modules/@types"
     ],
-    "types": [
-      "node",
-      "source-map",
-      "webpack"
+    "lib": [
+      "es2017",
+      "dom"
     ]
-  },
-  "exclude": [
-    "node_modules",
-    "dist",
-    "typings",
-    "ms-components",
-    "www",
-    "backup-files",
-    "ngrx-to-be-fixed"
-  ],
-  "awesomeTypescriptLoaderOptions": {
-    "forkChecker": true,
-    "useWebpackText": true
-  },
-  "atom": {
-    "rewriteTsconfig": false
   }
 }

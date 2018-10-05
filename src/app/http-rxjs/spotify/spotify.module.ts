@@ -6,10 +6,9 @@ import { TrackComponent } from './components/TrackComponent';
 import { AlbumComponent } from './components/AlbumComponent';
 import { SpotifyDemoApp } from './spotify.component';
 import { SPOTIFY_PROVIDERS } from './spotify.service';
-import { SpotifyRoutingModule } from './spotify.routes.module';
 
 @NgModule({
-  imports: [SpotifyRoutingModule, SharedModule],
+  imports: [SharedModule],
   declarations: [
     SpotifyDemoApp,
     SearchComponent,

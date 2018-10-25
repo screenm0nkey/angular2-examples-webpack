@@ -5,7 +5,7 @@ import {Component} from '@angular/core';
     <div class='comps'>
       <div>
         <a
-          href='https:// hackernoon.com/everything-you-need-to-know-about-the-expressionchangedafterithasbeencheckederror-error-e3fd9ce7dbb4'
+          href='https://hackernoon.com/everything-you-need-to-know-about-the-expressionchangedafterithasbeencheckederror-error-e3fd9ce7dbb4'
           target='_blank'>
           Everything you need to know about the 'ExpressionChangedAfterItHasBeenCheckedError' error
         </a>

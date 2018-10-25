@@ -6,9 +6,9 @@ import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component} fr
   template: `
     <p class='file'>/misc-examples/components/immutable/detect-changes.ts</p>
     <h4>this.ref.detectChanges()</h4>
-    <a href='https:// stackoverflow.com/questions/41364386/whats-the-difference-between-markforcheck-and-detectchanges'
+    <a href='https://stackoverflow.com/questions/41364386/whats-the-difference-between-markforcheck-and-detectchanges'
        target='_blank'>detectChanges vs markForCheck</a>
-    <a href='https:// blog.thoughtram.io/angular/2017/02/02/making-your-angular-app-fast.html' target='_blank'>Making
+    <a href='https://blog.thoughtram.io/angular/2017/02/02/making-your-angular-app-fast.html' target='_blank'>Making
       your angular app fast</a>
     <a routerLink='../speedyapp'>Speeding up app</a>
 
@@ -54,7 +54,7 @@ export class DetectChanges implements AfterViewInit {
    * We only want to detach the change detectors after change detection has been performed for the first time,
    * otherwise we won’t see any text in the buttons.
    * To call detach() we can take advantage of Angular’s AfterViewInit life cycle hook.
-   * https:// hackernoon.com/everything-you-need-to-know-about-the-expressionchangedafterithasbeencheckederror-error-e3fd9ce7dbb4
+   * https://hackernoon.com/everything-you-need-to-know-about-the-expressionchangedafterithasbeencheckederror-error-e3fd9ce7dbb4
    */
   ngAfterViewInit() {
     this.ref.detach();

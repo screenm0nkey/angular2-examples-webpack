@@ -5,12 +5,12 @@ import {map} from 'rxjs/operators'
 
 /**
  * SpotifyService works querying the Spotify Web API
- * https:// developer.spotify.com/web-api/
+ * https://developer.spotify.com/web-api/
  */
 
 @Injectable()
 export class SpotifyService {
-  static BASE_URL: string = 'https:// api.spotify.com/v1';
+  static BASE_URL: string = 'https://api.spotify.com/v1';
 
   constructor(private http: HttpClient) {
   }

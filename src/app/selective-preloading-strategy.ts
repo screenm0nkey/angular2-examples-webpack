@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { PreloadingStrategy, Route } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {PreloadingStrategy, Route} from '@angular/router';
+import {Observable, of} from 'rxjs';
 
-// https:// angular.io/guide/router
+// https://angular.io/guide/router
 @Injectable()
 export class SelectivePreloadingStrategy implements PreloadingStrategy {
   preloadedModules: string[] = [];

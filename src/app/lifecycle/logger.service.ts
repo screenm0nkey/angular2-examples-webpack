@@ -1,4 +1,4 @@
-import { Injectable, NgZone } from '@angular/core';
+import {Injectable, NgZone} from '@angular/core';
 
 @Injectable()
 export class LoggerService {
@@ -7,7 +7,8 @@ export class LoggerService {
   prevMsgCount: number = 1;
   tid;
 
-  constructor(private zone: NgZone) {}
+  constructor(private zone: NgZone) {
+  }
 
   log(msg: string) {
     if (this.tid) {

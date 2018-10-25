@@ -30,7 +30,7 @@ import {debounceTime, filter, map, mapTo, share, startWith, switchMap, tap} from
     </div>
   `,
   providers: [
-    {provide: 'URL', useValue: 'https:// swapi.co/api'}
+    {provide: 'URL', useValue: 'https://swapi.co/api'}
   ]
 })
 export class StarWarsComponent {
@@ -48,8 +48,8 @@ export class StarWarsComponent {
       .pipe(switchMap(this.getStarWarsCharacter.bind(this)))
       .pipe(tap(console.log.bind(console)))
       .pipe(share());
-    // @ts-ignore
-    this.people$ = merge(clear$.pipe(mapTo([]), results$)).pipe(startWith([]));
+
+    this.people$ = merge(clear$.pipe(mapTo  ([])), results$).pipe(startWith([]));
 
     this.noResults$ = combineLatest(
       results$,

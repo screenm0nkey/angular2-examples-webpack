@@ -15,7 +15,7 @@ export class EchonestService {
 
   songSearch(name) {
     return this.http
-      .get('http:// localhost:1970/uk/rss/topsongs/limit=100/json')
+      .get('/api/uk/rss/topsongs/limit=100/json')
       .pipe(map((data: Response) => {
         return data.feed.entry
           .map((ent, x) => {

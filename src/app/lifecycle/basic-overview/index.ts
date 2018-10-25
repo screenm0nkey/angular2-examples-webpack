@@ -59,7 +59,7 @@ export class MyComponent {
         <h4>Basic <strong>Check the Console for LifeCycle Hooks</strong></h4>
       
         <p>
-          <a href='http:// teropa.info/blog/2016/03/06/writing-an-angular-2-template-directive.html' target='_blank'>
+          <a href='http://teropa.info/blog/2016/03/06/writing-an-angular-2-template-directive.html' target='_blank'>
             Great article on writing custom logic when things change. (Writing A Structural Directive in Angular 2)
           </a>
         </p>

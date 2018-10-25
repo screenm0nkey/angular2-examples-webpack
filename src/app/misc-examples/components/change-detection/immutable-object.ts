@@ -10,7 +10,7 @@ import {Todo} from './StoreService';
 export class TestComponentObject implements OnChanges, DoCheck {
   @Input() todoItem;
   // this will only be called when object is reference is changed as we've set ChangeDetectionStrategy to OnPush
-  // http:// victorsavkin.com/post/133936129316/angular-immutability-and-encapsulation
+  // http://victorsavkin.com/post/133936129316/angular-immutability-and-encapsulation
   ngOnChanges(inputChanges) {
     console.log('inputChanges', inputChanges.todoItem.currentValue);
   }

@@ -6,7 +6,7 @@ import {Component} from '@angular/core';
     <div class='comps'>
       <div class='links'>
         <a routerLink='/misc/view-children'>@viewChild, @viewChildren</a>
-        <a href='http:// mean.expert/2016/05/21/angular-2-component-communication/' target='_blank'>How components
+        <a href='http://mean.expert/2016/05/21/angular-2-component-communication/' target='_blank'>How components
           Communicate (READ THIS IT'S VERY GOOD)</a>
       </div>
       <toggle-component></toggle-component>

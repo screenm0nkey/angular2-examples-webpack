@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { PageNotFoundComponent } from './not-found.component';
-import { SelectivePreloadingStrategy } from './selective-preloading-strategy';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {PageNotFoundComponent} from './not-found.component';
+import {SelectivePreloadingStrategy} from './selective-preloading-strategy';
 
 const appRoutes: Routes = [
   {
@@ -11,20 +11,20 @@ const appRoutes: Routes = [
   },
   {
     path: 'forms',
-    loadChildren: '../app/forms/forms.module#NickFormsModule',
-    data: { preload: true }
+    loadChildren: './forms/forms.module#NickFormsModule',
+    data: {preload: true}
   },
   {
     path: 'misc',
-    loadChildren: '../app/misc-examples/misc.module#MiscExamplesModule'
+    loadChildren: './misc-examples/misc.module#MiscExamplesModule'
   },
   {
     path: "httprx",
-    loadChildren: "../app/http-rxjs/async.module#HttpRxJsModule"
+    loadChildren: "./http-rxjs/async.module#HttpRxJsModule"
   },
   {
     path: "lifecycle",
-    loadChildren: "../app/lifecycle/lifecycle.module#LifeCycleModule"
+    loadChildren: "./lifecycle/lifecycle.module#LifeCycleModule"
   },
   {
     path: "mini-apps",
@@ -39,11 +39,12 @@ const appRoutes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(appRoutes, {
-      enableTracing : true,
+      enableTracing: false, // this logs the route information
       preloadingStrategy: SelectivePreloadingStrategy
     })
   ],
   providers: [SelectivePreloadingStrategy],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}

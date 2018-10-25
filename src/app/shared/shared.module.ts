@@ -19,8 +19,8 @@ import {
 import {ExternalLinksComponent} from './directives/external-links.component';
 
 /**
- * http:// angularfirst.com/the-ngmodule-forroot-convention
- * https:// blog.angular-universit y.io/angular2-ngmodule
+ * http://angularfirst.com/the-ngmodule-forroot-convention
+ * https://blog.angular-universit y.io/angular2-ngmodule
  * NgModule containing components and directives
  * ModuleWithProviders containing components, directives, and providers
  */

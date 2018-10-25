@@ -13,7 +13,7 @@ import {DOCUMENT} from '@angular/common';
       <p class='file'>misc-examples/components/chickens/dom-adapter.component.ts</p>
       <h4>Accessing the DOM using Renderer2 and <code>@Inject(DOCUMENT)</code></h4>
       <div class='links'>
-        <a href='https:// www.yearofmoo.com/2016/02/rendering-in-angular2.html#why-rendering'>
+        <a href='https://www.yearofmoo.com/2016/02/rendering-in-angular2.html#why-rendering'>
           Rendering in Angular2
         </a>
       </div>

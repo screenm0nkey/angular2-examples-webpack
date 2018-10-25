@@ -21,7 +21,7 @@ export const externalLinks : {[key:string]:ExtLink} = Object.keys(linkData).redu
 @Component({
   selector: 'ext-links',
   template: `
-    <a href='http:// angularfirst.com/the-ngmodule-forroot-convention/' target='_blank'>
+    <a href='http://angularfirst.com/the-ngmodule-forroot-convention/' target='_blank'>
       The NgModule <code>forRoot()</code> Convention
     </a>
   `

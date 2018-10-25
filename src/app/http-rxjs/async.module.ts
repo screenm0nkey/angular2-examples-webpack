@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 import {SharedModule} from '../shared/shared.module';
 import {AsyncRoutingModule} from './async.routes.module';
 import {MiscHttpModule} from './misc-examples/misc.module';
@@ -24,8 +24,9 @@ import {ChatAppRxJsModule} from './chat-app-rxjs/ts/app.module';
     JohnLinquistModule,
     MiscHttpModule,
   ],
-  exports:[],
+  exports: [],
   declarations: [MainHttpRxJs],
   providers: [WikiSearchService]
 })
-export class HttpRxJsModule {}
+export class HttpRxJsModule {
+}

@@ -39,7 +39,7 @@ export class TodoStore {
 /*
  this component's model object is immutable, meaning the 'item' object isn't updated by the view.
  the view gets the values and doesn't change so we can use 'OnPush'
- http:// victorsavkin.com/post/110170125256/change-detection-in-angular-2
+ http://victorsavkin.com/post/110170125256/change-detection-in-angular-2
  */
 
 /* TODO ITEM COMPONENT */

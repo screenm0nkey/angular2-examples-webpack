@@ -16,7 +16,7 @@ export class Tooltip {
 
   /**
    * see here for an explanation of this setter
-   * https:// angular.io/docs/ts/latest/guide/attribute-directives.html
+   * https://angular.io/docs/ts/latest/guide/attribute-directives.html
    * example <span [myHighlight]='color' [defaultColor]="'violet'">
    * @param {string} colorName
    */

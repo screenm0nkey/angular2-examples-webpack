@@ -1,10 +1,11 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
 const CALLBACK = 'callback=JSONP_CALLBACK';
-const WIKIPEDIA_URL = 'https://en.wikipedia.org/w/api.php';
+// https://github.com/angular/angular-cli/blob/master/docs/documentation/stories/proxy.md
+const WIKIPEDIA_URL = '/wikipedia-proxy';
 const QUERY = 'action=query';
 const ALLIMAGES = 'list=allimages';
 const IMAGEINFO = 'prop=imageinfo';
@@ -31,7 +32,12 @@ export class WikiSearchService {
   }
 
   get(url: string, options): Observable<JSON> {
-    const opts = Object.assign({responseType: 'text'}, options);
+    let headers = new HttpHeaders();
+    headers = headers.append('Access-Control-Allow-Origin', '*');
+    headers = headers.append('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+    headers = headers.append('Access-Control-Allow-Headers', 'X-Requested-With, content-type, Authorization');
+
+    const opts = Object.assign({responseType: 'text', headers}, options);
     return this.http.get(url, opts).pipe(map(this.handleJSONPResponse));
   }
 
@@ -43,7 +49,7 @@ export class WikiSearchService {
   }
 
   search = (term: string): Observable<any> => {
-    return this.get(WIKIPEDIA_URL, {
+    const res$ = this.get(WIKIPEDIA_URL, {
       responseType: 'text',
       params: {
         callback: 'JSONP_CALLBACK',
@@ -51,7 +57,8 @@ export class WikiSearchService {
         format: 'json',
         search: term,
       }
-    })
+    });
+    return res$;
   };
 
   searchForImages = (term: string): Observable<JSON> => {

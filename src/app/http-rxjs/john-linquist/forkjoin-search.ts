@@ -36,9 +36,9 @@ interface Vehicle {
     <div class='master'>
       <p class='path'>/http-rxjs/john-linquist/forkjoin-search.ts</p>
       <h4> forkJoin() People and vehicles</h4>
-      <a href='http:// plnkr.co/edit/fOhgiYQyKtjGCAeWvi5U?p=preview&open=app%2Fapp.component.ts' target='_blank'>Original
+      <a href='http://plnkr.co/edit/fOhgiYQyKtjGCAeWvi5U?p=preview&open=app%2Fapp.component.ts' target='_blank'>Original
         Plunk</a>
-      <a href='https:// blog.thoughtram.io/angular/2016/06/16/cold-vs-hot-observables.html'>share() is a shortcut for
+      <a href='https://blog.thoughtram.io/angular/2016/06/16/cold-vs-hot-observables.html'>share() is a shortcut for
         publish().refCount()</a>
 
       <div *ngFor='let person of people$ | async'>
@@ -56,7 +56,7 @@ interface Vehicle {
   `
 })
 export class ForkJoinComponent implements OnInit {
-  static API = 'https:// swapi.co/api';
+  static API = 'https://swapi.co/api';
   people$;
   peopleClick$ = new Subject();
   vehicles$;

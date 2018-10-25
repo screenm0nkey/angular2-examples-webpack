@@ -22,7 +22,7 @@ export class NgModelStatusThree {
   template: `
     <p class='file'>misc-examples/components/host-binding/host-three.ts</p>
     <h4>@HostBinding and ngModel</h4>
-    <a href='https:// angular.io/docs/ts/latest/api/core/index/HostBinding-var.html' target='_blank'>
+    <a href='https://angular.io/docs/ts/latest/api/core/index/HostBinding-var.html' target='_blank'>
       HostBinding
     </a>
     <form [formGroup]='myForm'>

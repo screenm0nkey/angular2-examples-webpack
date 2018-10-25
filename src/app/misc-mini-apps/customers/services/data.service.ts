@@ -7,6 +7,6 @@ export class CustomersDataService {
   }
 
   getCustomers() {
-    return this._http.get('/json/customers.json');
+    return this._http.get('/assets/json/customers.json');
   }
 }

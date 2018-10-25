@@ -5,7 +5,7 @@ import {Component, DoCheck, NgZone} from '@angular/core';
   template: `
     <p class='path'>misc-examples/components/ng-zone/runoutside.ts</p>
     <h4>Demo: NgZone (watch console log)</h4>
-    <a href='http:// blog.thoughtram.io/angular/2016/02/01/zones-in-angular-2.html' target='_blank'>
+    <a href='http://blog.thoughtram.io/angular/2016/02/01/zones-in-angular-2.html' target='_blank'>
       Zones in Angular 2
     </a>
 

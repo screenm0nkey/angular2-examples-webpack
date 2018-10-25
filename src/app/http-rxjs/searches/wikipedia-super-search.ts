@@ -24,7 +24,7 @@ class WikipediaService2 {
       search: term,
       format: 'json'
     };
-    return this.wikiSearch.get('http:// en.wikipedia.org/w/api.php', {params});
+    return this.wikiSearch.get('/wikipedia-proxy', {params});
   }
 }
 

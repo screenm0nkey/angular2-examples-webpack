@@ -7,7 +7,7 @@ import {EngineService, SomeService} from './services/some-service';
 
 const AnyObjectCanBeTheKey = {};
 
-// http:// blog.thoughtram.io/angular/2016/05/23/opaque-tokens-in-angular-2.html
+// http://blog.thoughtram.io/angular/2016/05/23/opaque-tokens-in-angular-2.html
 const SOME_TOKEN = new InjectionToken<string>('SomeToken');
 const TOKEN_A = new InjectionToken<string>('UserConfig');
 const TOKEN_B = new InjectionToken<string>('UserConfig');
@@ -37,7 +37,7 @@ const TOKEN_B = new InjectionToken<string>('UserConfig');
     <p class='file'>misc-examples/components/dependency-injection/injecting-token.ts</p>
     <h4>InjectionToken (was Opaque Token)</h4>
     <div class='links'>
-      <a href='http:// blog.thoughtram.io/angular/2016/05/23/opaque-tokens-in-angular-2.html' target='_blank'>Opaque
+      <a href='http://blog.thoughtram.io/angular/2016/05/23/opaque-tokens-in-angular-2.html' target='_blank'>Opaque
         Tokens</a>
     </div>
     <p>

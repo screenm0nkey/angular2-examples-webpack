@@ -82,7 +82,7 @@ export class AftersCmp
   template: `
   <p class='path'>/lifecycle/miscellaneous/lifecycle_04</p>
   <h4>AfterContentInit, AfterViewInit, AfterContentChecked and AfterViewChecked</h4>
-  <a href='http:// teropa.info/blog/2016/03/06/writing-an-angular-2-template-directive.html'>Writing A Structural Directive Using Differs</a>
+  <a href='http://teropa.info/blog/2016/03/06/writing-an-angular-2-template-directive.html'>Writing A Structural Directive Using Differs</a>
   <p>See the Console. It displays all the life cycle events</p>
 
   <p>use <code>ngAfterViewInit()</code> if you're using viewChild /viewChildren</p>

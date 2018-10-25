@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
      <div class='spotify-component'>
      <p class='path'>src/app/http-rxjs/spotify/spotify.component.ts</p>
          <h4>Spotify</h4>
-         yes
         <router-outlet></router-outlet>
     </div>
     </div>

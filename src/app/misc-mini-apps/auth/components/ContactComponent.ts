@@ -3,7 +3,7 @@ import { SelectivePreloadingStrategy } from '../../../selective-preloading-strat
 
 /**
  * ALl we're doing here is displaying the preloaded modules.
- * Taken from here https:// angular.io/guide/router
+ * Taken from here https://angular.io/guide/router
  */
 @Component({
   selector: 'contact',

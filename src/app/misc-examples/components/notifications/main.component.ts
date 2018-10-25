@@ -14,7 +14,7 @@ import {Component} from '@angular/core';
           #notification
           title='ng2-notifications'
           body='Native Push Notifications in Angular 2'
-          icon='https:// goo.gl/3eqeiE'
+          icon='https://goo.gl/3eqeiE'
           closeDelay='4000'
           (load)='notification.show()'>
         </push-notification>

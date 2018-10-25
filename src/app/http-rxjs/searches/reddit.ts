@@ -44,7 +44,7 @@ export class RedditExample {
 
   searchRedditPics(search: string): Observable<any> {
     return this.http
-      .get(`https:// www.reddit.com/r/pics/search.json?resct_sr=on&q=${search}`)
+      .get(`https://www.reddit.com/r/pics/search.json?resct_sr=on&q=${search}`)
       .pipe(map(this.normaliseRedditData))
       .pipe(map((items: any[]) => items.filter((item: any) => item.url)));
   }

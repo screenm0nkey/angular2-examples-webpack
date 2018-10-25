@@ -27,7 +27,7 @@ export class NgBookIf {
  
     <h4>Custom *ngBookIf template</h4>
     
-    <a href='http:// teropa.info/blog/2016/03/06/writing-an-angular-2-template-directive.html' target='_blank'>
+    <a href='http://teropa.info/blog/2016/03/06/writing-an-angular-2-template-directive.html' target='_blank'>
           Writing A Structural Directive in Angular 2
         </a>
     

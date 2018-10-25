@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   styles: ['router-outlet {display: none}'],
@@ -19,9 +19,9 @@ import { Component } from '@angular/core';
       <div id='container'>
         <div class='comps'>
           <div class='links'>
-             <a href='http:// blog.ng-book.com/the-ultimate-guide-to-forms-in-angular-2/' target='_blank'>The Ultimate Guide to Forms</a>
-              <a href='http:// blog.thoughtram.io/angular/2016/03/21/template-driven-forms-in-angular-2.html' target='_blank'>Template-driven Forms</a>
-              <a href='http:// blog.thoughtram.io/angular/2016/03/14/custom-validators-in-angular-2.html' target='_blank'>Custom Validators in Angular 2</a>
+             <a href='http://blog.ng-book.com/the-ultimate-guide-to-forms-in-angular-2/' target='_blank'>The Ultimate Guide to Forms</a>
+              <a href='http://blog.thoughtram.io/angular/2016/03/21/template-driven-forms-in-angular-2.html' target='_blank'>Template-driven Forms</a>
+              <a href='http://blog.thoughtram.io/angular/2016/03/14/custom-validators-in-angular-2.html' target='_blank'>Custom Validators in Angular 2</a>
           </div>
           <router-outlet></router-outlet>
         </div>
@@ -29,4 +29,5 @@ import { Component } from '@angular/core';
     </div>
  `
 })
-export class FormExamplesComponent {}
+export class FormExamplesComponent {
+}

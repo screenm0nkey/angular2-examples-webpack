@@ -11,6 +11,6 @@ export class SearchResult {
     this.description = (obj && obj.description) || null;
     this.thumbnailUrl = (obj && obj.thumbnailUrl) || null;
     this.videoUrl =
-      (obj && obj.videoUrl) || `https:// www.youtube.com/watch?v=${this.id}`;
+      (obj && obj.videoUrl) || `https://www.youtube.com/watch?v=${this.id}`;
   }
 }

@@ -26,7 +26,7 @@ export class ThreeDirective implements AfterViewInit{
   template: `
     <p class='file'>misc-examples/components/directives-linquist/example-06.ts</p>
     <h4> A Structural Directive</h4>
-    <p><a href='https:// egghead.io/lessons/angular-2-write-a-structural-directive-in-angular' target='_blank'>Lesson</a></p>
+    <p><a href='https://egghead.io/lessons/angular-2-write-a-structural-directive-in-angular' target='_blank'>Lesson</a></p>
     <strong>'let-' is only supported on template elements</strong>
     
     <pre>&lt;span *mrNick&gt;Hello, Angular&lt;/span&gt;</pre>

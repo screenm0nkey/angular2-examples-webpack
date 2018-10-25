@@ -5,7 +5,7 @@ import { SpotifyService } from '../spotify.service';
 
 // angular2 doesn't like 'track' as the selector
 // because apparently it's an existing HTML element
-// https:// developer.mozilla.org/en-US/docs/Web/HTML/Element/track
+// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track
 @Component({
   selector: 'theTrack',
   template: `

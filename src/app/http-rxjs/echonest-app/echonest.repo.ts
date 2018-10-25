@@ -22,8 +22,8 @@ export interface ITunesResponse {
  * */
 @Injectable()
 export class EchonestRepo {
-  // https:// itunes.apple.com/uk/rss/topsongs/limit=100/json
-  private static url: string = 'http:// localhost:1970/uk/rss/topsongs/limit=100/json';
+  // https://itunes.apple.com/uk/rss/topsongs/limit=100/json
+  private static url: string = '/api/uk/rss/topsongs/limit=100/json';
 
   constructor(private _http: HttpClient) {
   }

@@ -3,7 +3,7 @@
  * Copyright Google Inc. All Rights Reserved.
  *
  * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https:// angular.io/license
+ * found in the LICENSE file at https://angular.io/license
  */
 
 import {Directive, DoCheck, EmbeddedViewRef, Input, TemplateRef, ViewContainerRef} from '@angular/core';
@@ -30,7 +30,7 @@ export class SimpleNgFor implements DoCheck {
   }
 
   // see here for an explanation of this setter
-  // https:// angular.io/docs/ts/latest/guide/attribute-directives.html
+  // https://angular.io/docs/ts/latest/guide/attribute-directives.html
   // or see the highlight directive example in this app
   @Input()
   set ngForTemplate(value: TemplateRef<SimpleNgForRow>) {

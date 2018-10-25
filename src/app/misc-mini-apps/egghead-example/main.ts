@@ -18,7 +18,7 @@ import { TodoService } from './services/todo-service';
           <p>Take a look at the <strong>Todo Service (segghead-example/services/todo-service.ts) </strong>and see how the it keeps the data immutable.</p>
           <p>Also see how the pipes work by creating a new data array rather than mutating the array</p>
 
-            <p><a target='_blank' href='https:// egghead.io/series/angular-2-fundamentals'>Fundamentals videos</a> </p>
+            <p><a target='_blank' href='https://egghead.io/series/angular-2-fundamentals'>Fundamentals videos</a> </p>
         
             <search-box (update)='term = $event'></search-box>
             <new-todo></new-todo>

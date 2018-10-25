@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
 import {
   MrTestyServiceOne,
   MrTestyServiceTwo
@@ -6,7 +6,7 @@ import {
 
 @Component({
   selector: 'app-root',
-  styleUrls:['./app.css'],
+  styleUrls: ['./app.css'],
   template: `
     <nav class='main'>
       <a routerLink='/misc' routerLinkActive='active'>Misc Examples</a>
@@ -25,5 +25,6 @@ import {
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
-  constructor(private ts1: MrTestyServiceOne, private ts2: MrTestyServiceTwo) {}
+  constructor(private ts1: MrTestyServiceOne, private ts2: MrTestyServiceTwo) {
+  }
 }

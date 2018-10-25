@@ -7,20 +7,22 @@ import {JohnLinquistExamples} from './john-linquist/index.module';
 import {MiscHttpExamples} from './misc-examples/misc.module';
 // import {NgrxMainComponent} from './ngrx/ngrx-main.component';
 import {ChatAppComponent} from './chat-app-rxjs/ts/app';
+import {SpotifyDemoApp} from "./spotify/spotify.module";
 
-const asyncRoutes: Routes = [
+export const asyncRoutes: Routes = [
   {
     path: '',
     component: MainHttpRxJs,
     children: [
-      {path: '', redirectTo: 'john-linquist', pathMatch: 'full' },
+      {path: '', redirectTo: 'john-linquist', pathMatch: 'full'},
       {path: 'john-linquist', component: JohnLinquistExamples},
       {path: 'http-examples', component: HttpExamples},
       {path: 'echonest-app', component: EchonestAppComponent},
       {path: 'misc-examples', component: MiscHttpExamples},
       // {path: 'ngrx', component: NgrxMainComponent},
       {path: 'chat-app-rxjs', component: ChatAppComponent},
-      {path: 'spotify', loadChildren: './spotify/spotify.module#SpotifyModule'}
+      // {path: 'spotify', loadChildren: './spotify/spotify.module#SpotifyModule'}
+      {path: 'spotify', component: SpotifyDemoApp}
     ]
   }
 ];

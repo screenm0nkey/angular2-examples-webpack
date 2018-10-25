@@ -15,7 +15,7 @@ export class DComponent {
     <p class='file'>misc-examples/components/changed-after-check/dynamic.component.ts</p>
     <h4>Dynamic component instantiation</h4>
     <p><a
-      href='https:// stackoverflow.com/questions/41519481/angular2-material-dialog-has-issues-did-you-add-it-to-ngmodule-entrycomponent#'>entryComponents</a>
+      href='https://stackoverflow.com/questions/41519481/angular2-material-dialog-has-issues-did-you-add-it-to-ngmodule-entrycomponent#'>entryComponents</a>
     </p>
     <p>This pattern is different because unlike the previous ones where input bindings were affected this pattern
       causes DOM update operation to throw the error. This pattern is illustrated by this plunker. The application is

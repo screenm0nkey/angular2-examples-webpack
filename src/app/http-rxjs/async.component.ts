@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   template: `
@@ -19,4 +19,5 @@ import { Component } from '@angular/core';
     </div>
 `
 })
-export class MainHttpRxJs {}
+export class MainHttpRxJs {
+}

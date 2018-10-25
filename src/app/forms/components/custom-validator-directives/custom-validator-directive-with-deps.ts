@@ -27,7 +27,7 @@ function validateEmailFactory(emailBlackList: EmailBlackListService) {
   providers: [
     EmailBlackListService,
     {
-      // we're extending NG_VALIDATORS https:// blog.thoughtram.io/angular2/2015/11/23/multi-providers-in-angular-2.html
+      // we're extending NG_VALIDATORS https://blog.thoughtram.io/angular2/2015/11/23/multi-providers-in-angular-2.html
       provide: NG_VALIDATORS,
       useExisting: forwardRef(() => FormSevenEmailValidatorWithDeps),
       multi: true

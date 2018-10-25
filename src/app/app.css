@@ -19,8 +19,6 @@ router-outlet {
   display: none;
 }
 
-
-
 li {
   margin-bottom: 15px;
   line-height: 14px;
@@ -155,6 +153,7 @@ ul.todos {
   position: fixed;
   z-index: 2;
 }
+
 ul.todos li {
   font-size: 11px;
   margin: 0px;
@@ -282,6 +281,7 @@ code {
   font-size: 13px;
   font-weight: normal;
 }
+
 p code, li code {
   white-space: normal;
   display: inline-block;

@@ -15,18 +15,9 @@ export const formsRoutes: Routes = [
         path: '',
         children: [
           {path: '', component: EggheadAppComponent},
-          {
-            path: 'auth-app',
-            loadChildren: './auth/auth.module#AuthAppModule'
-          },
-          {
-            path: 'redux-chat-app',
-            component: ReduxChatAppComponent
-          },
-          {
-            path: 'seed-app',
-            loadChildren: './seed-component/seed.module#SeedModule'
-          },
+          {path: 'auth-app', loadChildren: './auth/auth.module#AuthAppModule'},
+          {path: 'redux-chat-app', component: ReduxChatAppComponent},
+          {path: 'seed-app', loadChildren: './seed-component/seed.module#SeedModule'},
           {path: 'customers', component: CustomersComponent},
           {path: 'customers/:id', component: CustomerDetailComponent}
         ]

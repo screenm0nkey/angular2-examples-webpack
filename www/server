@@ -1,0 +1,51 @@
+#!/usr/bin/env node
+const fs = require('fs');
+const path = require('path');
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
+const cors = require('express-cors');
+
+// bodyParser needed to parse POST form data
+app.use(bodyParser.urlencoded({extended: true}));
+
+app.use(cors({
+  headers: ['X-Requested-With', 'Content-Type', 'Custom-FormNick'],
+  allowedOrigins: ['127.0.0.1:*', 'localhost:*']
+}));
+
+app.get('/', function (req, res) {
+  res.send('This is a dev server used for the Angular 2 examples');
+});
+
+app.get('/data', function (req, res) {
+  const json = path.join(__dirname, '../src/json/characters.json');
+  const readable = fs.createReadStream(json);
+  readable.pipe(res);
+});
+
+const APPLETOP100 = path.join(__dirname, '../src/assets/json/top100itunes.json');
+app.get('/uk/rss/topsongs/limit=100/json', function (req, res) {
+  fs.readFile(APPLETOP100, function (err, data) {
+    if (err) {
+      console.error(err);
+      process.exit(1);
+    }
+    const results = parseInt(req.query.results, 10);
+    if (isNaN(results)) {
+      results = 100;
+    }
+    data = JSON.parse(data);
+    data.feed.entry = data.feed.entry.slice(0, results);
+    res.json(data);
+  });
+});
+
+
+app.post('/data', function (req, res) {
+  res.send(req.body)
+});
+
+const server = app.listen(1970, function () {
+  console.log('Server running at http://localhost:' + server.address().port)
+});

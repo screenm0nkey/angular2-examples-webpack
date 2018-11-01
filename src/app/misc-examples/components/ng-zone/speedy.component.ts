@@ -32,7 +32,8 @@ export class SpeedingComponent implements AfterViewInit {
   offsetX;
   offsetY;
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(private cdr: ChangeDetectorRef) {
+  }
 
   ngOnInit() {
     for (let i = 0; i < 1000; i++) {

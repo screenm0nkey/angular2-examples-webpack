@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange } from '@angular/core';
-import { Artist } from './echonest.repo';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange} from '@angular/core';
+import {Artist} from './echonest.repo';
 
 @Component({
   selector: 'artist-component',

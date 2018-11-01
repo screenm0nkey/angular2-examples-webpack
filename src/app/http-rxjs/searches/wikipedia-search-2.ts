@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {Observable} from 'rxjs';
 import {FormControl} from '@angular/forms';
 import {WikiSearchService} from './wikipedia-search.service';
-import {tap, debounceTime, distinctUntilChanged, switchMap, delay} from 'rxjs/operators';
+import {debounceTime, delay, distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
 
 
 // same as wikipedia-searchForImages-1.ts but built with observables

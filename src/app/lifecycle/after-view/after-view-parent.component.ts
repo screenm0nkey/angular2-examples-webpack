@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { LoggerService } from '../logger.service';
+import {Component} from '@angular/core';
+import {LoggerService} from '../logger.service';
 
 @Component({
   selector: 'after-view-parent',

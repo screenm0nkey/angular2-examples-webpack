@@ -4,7 +4,7 @@ import {DOCUMENT} from '@angular/common';
 @Component({
   selector: 'dom-adapter-component',
   styles: [
-      `.test {
+    `.test {
       color: green;
     }`
   ],

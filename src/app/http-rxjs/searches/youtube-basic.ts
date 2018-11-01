@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {YoutubeService} from './youtube-helpers/youtube-service';
 import {Subject} from 'rxjs';
-import {filter, debounceTime, switchMap} from 'rxjs/operators';
+import {debounceTime, filter, switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'youtube-basic-example',

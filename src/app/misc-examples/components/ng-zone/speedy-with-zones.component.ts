@@ -49,7 +49,7 @@ export class BoxZoneComponent implements OnChanges {
 })
 export class SpeedingZonesComponent {
   currentId = null;
-  boxes : Box[] = [];
+  boxes: Box[] = [];
   offsetX: number;
   offsetY: number;
   element: HTMLElement;
@@ -67,7 +67,7 @@ export class SpeedingZonesComponent {
       const id = i;
       const x = getRandomInt(0, 500);
       const y = getRandomInt(0, 500);
-      const box:Box = {id, x, y};
+      const box: Box = {id, x, y};
       this.boxes.push(box);
     }
   }

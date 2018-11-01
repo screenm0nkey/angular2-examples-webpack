@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Component} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'form-four',
@@ -9,13 +9,14 @@ export class FormFourComponent {
   myform: FormGroup;
   payLoad: String = '';
   cities: any[] = [
-    { name: 'London' },
-    { name: 'Berlin' },
-    { name: 'Rotheram' }
+    {name: 'London'},
+    {name: 'Berlin'},
+    {name: 'Rotheram'}
   ];
   selectedCity;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder) {
+  }
 
   ngOnInit() {
     this.selectedCity = this.cities[2];
@@ -41,7 +42,7 @@ export class FormFourComponent {
     if (valid) {
       return null;
     }
-    return { invalidZip: true };
+    return {invalidZip: true};
   }
 
   onSubmit() {

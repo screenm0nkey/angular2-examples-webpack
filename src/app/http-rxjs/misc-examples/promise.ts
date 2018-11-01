@@ -1,4 +1,4 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import {Component, Injectable, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 export interface Character {
@@ -10,12 +10,13 @@ export interface Character {
 export class CharacterService {
   characters: Character[] = [];
 
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient) {
+  }
 
   getCharacters(): Promise<Character[]> {
     this.characters.length = 0;
     let promise = this._http
-      .get('/json/characters.json')
+      .get('/assets/json/characters.json')
       .toPromise(null)
       .then((characters: Character[]) => {
         this.characters.push(...characters);

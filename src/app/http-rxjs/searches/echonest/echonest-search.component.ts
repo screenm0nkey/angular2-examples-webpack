@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import { EchonestService} from './echonest.service';
-import { EchonestArtistCardComponent} from './echonest-artist-card.component';
+import {EchonestService} from './echonest.service';
+import {EchonestArtistCardComponent} from './echonest-artist-card.component';
 
 @Component({
   selector: 'echonest-search-component',

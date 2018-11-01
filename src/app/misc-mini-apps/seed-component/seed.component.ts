@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app',
@@ -25,4 +25,5 @@ import { Component } from '@angular/core';
     </div>
   `
 })
-export class SeedComponent {}
+export class SeedComponent {
+}

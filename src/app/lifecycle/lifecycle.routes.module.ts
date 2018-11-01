@@ -14,7 +14,7 @@ const formsRoutes: Routes = [
     path: '',
     component: LifeCycleMainComponent,
     children: [
-      {path: '', redirectTo: 'misc', pathMatch: 'full' },
+      {path: '', redirectTo: 'misc', pathMatch: 'full'},
       {path: 'misc', component: MiscLifecycleMain},
       {path: 'basic', component: BasicExample},
       {path: 'peekaboo', component: PeekABooParentComponent},

@@ -9,7 +9,7 @@ const linkData = {
   whatsNewInNg6: ['Whats new in Angular6']
 };
 
-export const externalLinks : {[key:string]:ExtLink} = Object.keys(linkData).reduce((prev, key): {[key:string]:ExtLink} => {
+export const externalLinks: { [key: string]: ExtLink } = Object.keys(linkData).reduce((prev, key): { [key: string]: ExtLink } => {
   prev[key] = {
     title: linkData[0],
     href: linkData[1]
@@ -28,6 +28,7 @@ export const externalLinks : {[key:string]:ExtLink} = Object.keys(linkData).redu
 })
 export class ExternalLinksComponent implements OnInit {
   @Input() id: string;
-  
-  ngOnInit(){}
+
+  ngOnInit() {
+  }
 }

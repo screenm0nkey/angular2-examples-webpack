@@ -41,7 +41,7 @@ export class ParamService {
 export class RubbishService {
   static counter: number = 0;
   imANumber: number = 11;
-  imAString  = 'hello';
+  imAString = 'hello';
 
   constructor() {
     console.log(`%cRubbishService instance-id=${++RubbishService.counter}`, 'color:yellow');

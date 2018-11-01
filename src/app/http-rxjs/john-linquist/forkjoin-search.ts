@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {forkJoin, Observable, Subject} from 'rxjs';
-import {map, switchMap, share} from 'rxjs/operators';
+import {map, share, switchMap} from 'rxjs/operators';
 
 interface Person {
   vehicles: number[];

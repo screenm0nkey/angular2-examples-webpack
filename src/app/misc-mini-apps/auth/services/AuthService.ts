@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable()
 export class AuthService {
@@ -24,5 +24,5 @@ export class AuthService {
 }
 
 export const AUTH_PROVIDERS: Array<any> = [
-  { provide: AuthService, useClass: AuthService }
+  {provide: AuthService, useClass: AuthService}
 ];

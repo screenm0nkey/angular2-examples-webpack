@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { EchonestService } from './echonest.service';
-import { Artist } from './echonest.repo';
-import { Observable } from 'rxjs';
+import {Component} from '@angular/core';
+import {EchonestService} from './echonest.service';
+import {Artist} from './echonest.repo';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'echonest-app',

@@ -64,7 +64,7 @@ export class AfterViewComponent implements AfterViewChecked, AfterViewInit {
   private _logIt(method: string) {
     let vc = this.viewChild;
     let message = `'${vc ? vc.hero : 'no'}' child view`;
-    this._logger.log(method+message);
-    console.log('%c'+ method, 'color:deeppink', message);
+    this._logger.log(method + message);
+    console.log('%c' + method, 'color:deeppink', message);
   }
 }

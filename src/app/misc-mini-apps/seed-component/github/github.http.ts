@@ -1,13 +1,14 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 
 
 @Injectable()
 export class GithubHttp {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
-  getOrg(org: string) : any {
+  getOrg(org: string): any {
     return this.makeRequest(`orgs/${org}`);
   }
 
@@ -24,6 +25,6 @@ export class GithubHttp {
     params.set('per_page', '100');
 
     let url = `https://api.github.com/${path}`;
-    return this.http.get(url, { params }).pipe(map(res => res));
+    return this.http.get(url, {params}).pipe(map(res => res));
   }
 }

@@ -16,6 +16,7 @@ import {AutoSearch} from './automated-wiki-search';
     AutoSearch
   ]
 })
-export class MiscHttpModule {}
+export class MiscHttpModule {
+}
 
-export { MiscHttpExamples };
+export {MiscHttpExamples};

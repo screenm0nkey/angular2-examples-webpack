@@ -1,6 +1,6 @@
-import { Action, ActionCreator } from 'redux';
-import { uuid } from '../../../../shared/shared-utils';
-import { Message, Thread } from '../models/index';
+import {Action, ActionCreator} from 'redux';
+import {uuid} from '../../../../shared/shared-utils';
+import {Message, Thread} from '../models/index';
 
 export const ADD_THREAD = '[Thread] Add';
 

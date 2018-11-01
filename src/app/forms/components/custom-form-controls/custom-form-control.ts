@@ -1,10 +1,5 @@
-import { Component, forwardRef, Input, OnChanges } from '@angular/core';
-import {
-  ControlValueAccessor,
-  FormControl,
-  NG_VALIDATORS,
-  NG_VALUE_ACCESSOR
-} from '@angular/forms';
+import {Component, forwardRef, Input, OnChanges} from '@angular/core';
+import {ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 export function createCounterRangeValidator(maxValue, minValue) {
   return (c: FormControl) => {
@@ -47,8 +42,10 @@ export class FormTenCounterInputComponent
   @Input() counterRangeMax;
   @Input() counterRangeMin;
 
-  propagateChange: any = (newValue: any) => {};
-  validateFn: any = (c: FormControl) => {}; // this is replaced
+  propagateChange: any = (newValue: any) => {
+  };
+  validateFn: any = (c: FormControl) => {
+  }; // this is replaced
 
   get counterValue() {
     return this._counterValue;
@@ -92,7 +89,8 @@ export class FormTenCounterInputComponent
     this.propagateChange = fn;
   }
 
-  registerOnTouched() {}
+  registerOnTouched() {
+  }
 
   increase() {
     this.counterValue++;

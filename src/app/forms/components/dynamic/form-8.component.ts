@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { QuestionModel } from './question-model';
-import { TextboxQuestion } from './textbox-question';
-import { DropDownQuestion } from './dropdown-question';
+import {Component} from '@angular/core';
+import {QuestionModel} from './question-model';
+import {TextboxQuestion} from './textbox-question';
+import {DropDownQuestion} from './dropdown-question';
 
 @Component({
   selector: 'survey-demo',
@@ -41,10 +41,10 @@ export class FormEightComponent {
     let ddQuestion = new DropDownQuestion();
     ddQuestion.key = 'country';
     ddQuestion.text = 'Country';
-    ddQuestion.options.push({ key: 'usa', value: 'USA' });
-    ddQuestion.options.push({ key: 'germany', value: 'Germany' });
-    ddQuestion.options.push({ key: 'canada', value: 'Canada' });
-    ddQuestion.options.push({ key: 'australia', value: 'Australia' });
+    ddQuestion.options.push({key: 'usa', value: 'USA'});
+    ddQuestion.options.push({key: 'germany', value: 'Germany'});
+    ddQuestion.options.push({key: 'canada', value: 'Canada'});
+    ddQuestion.options.push({key: 'australia', value: 'Australia'});
     ddQuestion.order = 4;
     this.questionModel.questions.push(ddQuestion);
 

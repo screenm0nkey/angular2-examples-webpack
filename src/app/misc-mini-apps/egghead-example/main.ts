@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { TodoService } from './services/todo-service';
+import {Component} from '@angular/core';
+import {TodoService} from './services/todo-service';
 
 @Component({
   providers: [TodoService], // this provides the service to all of it's children components
@@ -30,4 +30,5 @@ import { TodoService } from './services/todo-service';
       </div>
     `
 })
-export class EggheadAppComponent {}
+export class EggheadAppComponent {
+}

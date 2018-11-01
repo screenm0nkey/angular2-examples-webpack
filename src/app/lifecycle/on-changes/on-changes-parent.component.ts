@@ -1,8 +1,9 @@
-import { Component, ViewChild } from '@angular/core';
-import { OnChangesComponent } from './on-changes.component';
+import {Component, ViewChild} from '@angular/core';
+import {OnChangesComponent} from './on-changes.component';
 
 class Hero {
-  constructor(public name: string) {}
+  constructor(public name: string) {
+  }
 }
 
 @Component({

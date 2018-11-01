@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { AuthService } from '../services/AuthService';
-import { ActivatedRoute, Router } from '@angular/router';
+import {Component} from '@angular/core';
+import {AuthService} from '../services/AuthService';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'login-component',
@@ -40,13 +40,14 @@ export class LoginComponent {
     private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) {
+  }
 
   login(username: string, password: string): boolean {
     this.message = '';
     if (!this.authService.login(username, password)) {
       this.message = 'Incorrect credentials.';
-      setTimeout(()=>this.message = '', 2500);
+      setTimeout(() => this.message = '', 2500);
     }
     return false;
   }
@@ -54,7 +55,7 @@ export class LoginComponent {
   logout(): boolean {
     this.authService.logout();
     if (this.router.url.endsWith('protected')) {
-      this.router.navigate(['./aboutus', 34], { relativeTo: this.route });
+      this.router.navigate(['./aboutus', 34], {relativeTo: this.route});
     }
     return false;
   }

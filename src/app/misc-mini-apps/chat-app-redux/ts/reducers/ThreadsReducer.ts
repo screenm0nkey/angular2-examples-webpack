@@ -1,7 +1,7 @@
-import { Action } from 'redux';
-import { Message, Thread } from '../models/index';
-import { ThreadActions } from '../actions/index';
-import { createSelector } from 'reselect';
+import {Action} from 'redux';
+import {Message, Thread} from '../models/index';
+import {ThreadActions} from '../actions/index';
+import {createSelector} from 'reselect';
 
 export interface ThreadsEntities {
   [id: string]: Thread;
@@ -12,6 +12,7 @@ export interface ThreadsState {
   entities: ThreadsEntities;
   currentThreadId?: string;
 }
+
 const initialState: ThreadsState = {
   ids: [],
   currentThreadId: null,
@@ -22,7 +23,7 @@ const initialState: ThreadsState = {
  * The `ThreadsReducer` describes how to modify the `ThreadsState` given a
  * particular action.
  */
-export const ThreadsReducer = function(
+export const ThreadsReducer = function (
   state: ThreadsState = initialState,
   action: Action
 ): ThreadsState {
@@ -53,7 +54,7 @@ export const ThreadsReducer = function(
       // mark it as read
       const isRead =
         message.thread.id === state.currentThreadId ? true : message.isRead;
-      const newMessage = Object.assign({}, message, { isRead: isRead });
+      const newMessage = Object.assign({}, message, {isRead: isRead});
 
       // grab the old thraed from entities
       const oldThread = state.entities[thread.id];
@@ -79,7 +80,7 @@ export const ThreadsReducer = function(
 
       // mark the messages as read
       const newMessages = oldThread.messages.map(message =>
-        Object.assign({}, message, { isRead: true })
+        Object.assign({}, message, {isRead: true})
       );
 
       // give them to this new thread

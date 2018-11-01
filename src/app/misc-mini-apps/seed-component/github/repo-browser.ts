@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { GithubHttp } from './github.http';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {GithubHttp} from './github.http';
 
 @Component({
   selector: 'repo-browser',
@@ -17,10 +17,11 @@ import { GithubHttp } from './github.http';
   `
 })
 export class RepoBrowser {
-  constructor(private router: Router, private github: GithubHttp) {}
+  constructor(private router: Router, private github: GithubHttp) {
+  }
 
   searchForOrg(orgName: string) {
-    this.github.getOrg(orgName).subscribe(({ name }) => {
+    this.github.getOrg(orgName).subscribe(({name}) => {
       this.router.navigate(['seed', 'github', orgName]);
     });
   }

@@ -1,11 +1,5 @@
-import { Component } from '@angular/core';
-import {
-  AbstractControl,
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators
-} from '@angular/forms';
+import {Component} from '@angular/core';
+import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'form-five',
@@ -17,7 +11,8 @@ export class FormFiveComponent {
   productName: string;
   payLoad: string = '';
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder) {
+  }
 
   ngOnInit() {
     // 'Validators.compose' is used to add multiple validators to a control
@@ -56,7 +51,7 @@ export class FormFiveComponent {
   // custom validateMyCounter
   skuValidator(control: FormControl) {
     if (!control.value.match(/^123/)) {
-      return { invalidSku: true };
+      return {invalidSku: true};
     }
   }
 }

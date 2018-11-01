@@ -22,7 +22,8 @@ export class TemplateStorageComponent {
   @ViewChild('header') headerTemplate: TemplateRef<any>;
   @ViewChild('footer') footerTemplate: TemplateRef<any>;
 
-  constructor(private service: TemplateService) {}
+  constructor(private service: TemplateService) {
+  }
 
   ngAfterViewInit() {
     this.service.templates.set('header', this.headerTemplate);

@@ -6,14 +6,19 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
-import {Directive, EmbeddedViewRef, Input, DoCheck, OnChanges, SimpleChanges, TemplateRef, ViewContainerRef} from '@angular/core';
+import {Directive, DoCheck, EmbeddedViewRef, Input, TemplateRef, ViewContainerRef} from '@angular/core';
 
 export class SimpleNgForRow {
-  constructor(public $implicit: any, public index: number) {}
+  constructor(public $implicit: any, public index: number) {
+  }
 
-  get even(): boolean { return this.index % 2 === 0; }
+  get even(): boolean {
+    return this.index % 2 === 0;
+  }
 
-  get odd(): boolean { return !this.even; }
+  get odd(): boolean {
+    return !this.even;
+  }
 }
 
 @Directive({selector: '[simpleNgFor][simpleNgForOf]'})
@@ -21,7 +26,8 @@ export class SimpleNgFor implements DoCheck {
   @Input() simpleNgForOf: any[];
 
   constructor(
-    private _viewContainer: ViewContainerRef, private _template: TemplateRef<SimpleNgForRow>) {}
+    private _viewContainer: ViewContainerRef, private _template: TemplateRef<SimpleNgForRow>) {
+  }
 
   @Input()
   set ngForTemplate(value: TemplateRef<SimpleNgForRow>) {
@@ -36,21 +42,21 @@ export class SimpleNgFor implements DoCheck {
     const minLen = Math.min(oldLen, newLen);
 
     // update existing rows
-    for(let i=0; i<minLen; i++) {
+    for (let i = 0; i < minLen; i++) {
       const row = this.simpleNgForOf[i];
       const viewRef = <EmbeddedViewRef<SimpleNgForRow>>this._viewContainer.get(i);
       viewRef.context.$implicit = row;
     }
 
     // add missing rows
-    for(let i=oldLen; i<newLen; i++) {
+    for (let i = oldLen; i < newLen; i++) {
       const row = this.simpleNgForOf[i];
       this._viewContainer.createEmbeddedView(
         this._template, new SimpleNgForRow(row, i));
     }
 
     // remove superfluous rows
-    for(let i=oldLen-1; i>=newLen; i--) {
+    for (let i = oldLen - 1; i >= newLen; i--) {
       this._viewContainer.remove(i);
     }
   }

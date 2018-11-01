@@ -19,7 +19,7 @@ export class TrackingService {
 @Injectable()
 export class OnlineService {
   online = true;
-  interval:any;
+  interval: any;
 
   constructor() {
     this.interval = setInterval(() => {
@@ -27,7 +27,7 @@ export class OnlineService {
     }, 1000);
   }
 
-  clearInterval(){
+  clearInterval() {
     clearInterval(this.interval);
   }
 }
@@ -50,7 +50,8 @@ export class OnlineDirective implements OnDestroy {
     return this.online.online;
   }
 
-  constructor(private online: OnlineService) {}
+  constructor(private online: OnlineService) {
+  }
 
   public ngOnDestroy(): void {
     this.online.clearInterval();
@@ -70,12 +71,14 @@ export class TrackDirective {
   onClick() {
     this.tracking.log({event: 'click', message: this.track});
   }
+
   @HostListener('mouseover')
   onMouseover() {
     this.tracking.log({event: 'mouseover', message: this.track});
   }
 
-  constructor(private tracking: TrackingService) {}
+  constructor(private tracking: TrackingService) {
+  }
 }
 
 /**
@@ -100,5 +103,6 @@ export class TrackDirective {
 })
 export class Example03AppComponent {
   // tracking is used in template
-  constructor(private tracking: TrackingService) {}
+  constructor(private tracking: TrackingService) {
+  }
 }

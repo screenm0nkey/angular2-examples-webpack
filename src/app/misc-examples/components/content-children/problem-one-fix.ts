@@ -42,7 +42,7 @@ export class FixSuperListComponent implements AfterContentInit {
 // this is how the end user might implement the external component
 @Component({
   selector: 'fix-my-component',
-  templateUrl:'./problem-one-fix.html'
+  templateUrl: './problem-one-fix.html'
 })
 export class FixMyComponent {
   public items: string[] = ['hello', 'world', 'today'];

@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { TodoService } from '../services/todo-service';
+import {Component, Input} from '@angular/core';
+import {TodoService} from '../services/todo-service';
 
 @Component({
   selector: 'todo-list',
@@ -19,5 +19,6 @@ export class TodoList {
   @Input() status;
   @Input() term;
 
-  constructor(public todoService: TodoService) {}
+  constructor(public todoService: TodoService) {
+  }
 }

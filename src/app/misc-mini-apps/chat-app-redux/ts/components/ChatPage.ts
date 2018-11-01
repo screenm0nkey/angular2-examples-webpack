@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'chat-page',
@@ -12,4 +12,5 @@ import { Component } from '@angular/core';
   </div>
   `
 })
-export default class ChatPage {}
+export default class ChatPage {
+}

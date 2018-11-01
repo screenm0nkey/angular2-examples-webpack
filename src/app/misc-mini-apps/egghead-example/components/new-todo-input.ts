@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { TodoService } from '../services/todo-service';
-import { TodoModel } from '../services/todo-model';
+import {Component} from '@angular/core';
+import {TodoService} from '../services/todo-service';
+import {TodoModel} from '../services/todo-model';
 
 @Component({
   selector: 'new-todo',
@@ -14,7 +14,8 @@ import { TodoModel } from '../services/todo-model';
 export class TodoInput {
   todoModel: TodoModel = new TodoModel();
 
-  constructor(public todoService: TodoService) {}
+  constructor(public todoService: TodoService) {
+  }
 
   onSubmit() {
     this.todoService.addTodo(this.todoModel);

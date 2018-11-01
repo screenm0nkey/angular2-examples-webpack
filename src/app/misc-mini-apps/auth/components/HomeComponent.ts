@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import {Component} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'home',
@@ -20,12 +20,13 @@ currently activated routes together with convenience methods for traversing the 
 export class HomeComponent {
   id: number = 1;
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(private router: Router, private route: ActivatedRoute) {
+  }
 
   goToProduct(id: string): void {
     this.router.navigate(['./aboutus', id], {
       relativeTo: this.route,
-      queryParams: { session_id: 111111 },
+      queryParams: {session_id: 111111},
       fragment: 'anchor'
     });
   }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'form-ten-component',
@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
         <model-driven></model-driven>        
     `
 })
-export class FormTenComponent {}
+export class FormTenComponent {
+}

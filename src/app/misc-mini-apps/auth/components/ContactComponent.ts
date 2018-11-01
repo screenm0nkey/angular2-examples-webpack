@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { SelectivePreloadingStrategy } from '../../../selective-preloading-strategy';
+import {Component} from '@angular/core';
+import {SelectivePreloadingStrategy} from '../../../selective-preloading-strategy';
 
 /**
  * ALl we're doing here is displaying the preloaded modules.

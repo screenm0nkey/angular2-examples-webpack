@@ -4,7 +4,7 @@ import {SearchComponent} from './components/SearchComponent';
 import {ArtistComponent} from './components/ArtistComponent';
 import {TrackComponent} from './components/TrackComponent';
 import {AlbumComponent} from './components/AlbumComponent';
-import {SpotifyDemoApp} from './spotify.module';
+import {SpotifyDemoApp} from "./spotify.component";
 
 const spotifyRoutes: Routes = [
   {

@@ -1,7 +1,7 @@
-import { Component, Inject } from '@angular/core';
-import { AppStore } from '../app-store';
-import { Store } from 'redux';
-import { AppState, getUnreadMessagesCount } from '../reducers/index';
+import {Component, Inject} from '@angular/core';
+import {AppStore} from '../app-store';
+import {Store} from 'redux';
+import {AppState, getUnreadMessagesCount} from '../reducers/index';
 
 @Component({
   selector: 'chat-nav-bar',

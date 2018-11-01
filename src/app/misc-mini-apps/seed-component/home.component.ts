@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'home',
@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
     <p>Welcome to Angular Seed</p>
   `
 })
-export class HomeComponent {}
+export class HomeComponent {
+}

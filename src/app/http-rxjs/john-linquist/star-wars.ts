@@ -49,7 +49,7 @@ export class StarWarsComponent {
       .pipe(tap(console.log.bind(console)))
       .pipe(share());
 
-    this.people$ = merge(clear$.pipe(mapTo  ([])), results$).pipe(startWith([]));
+    this.people$ = merge(clear$.pipe(mapTo([])), results$).pipe(startWith([]));
 
     this.noResults$ = combineLatest(
       results$,

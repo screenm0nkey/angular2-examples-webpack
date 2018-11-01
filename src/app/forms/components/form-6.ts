@@ -1,10 +1,5 @@
-import { Component } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators
-} from '@angular/forms';
+import {Component} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 interface ValidationResult {
   [key: string]: boolean;
@@ -13,7 +8,7 @@ interface ValidationResult {
 class UsernameValidator {
   static startsWithNumber(control: FormControl): ValidationResult {
     if (control.value != '' && !isNaN(control.value.charAt(0))) {
-      return { startsWithNumber: true };
+      return {startsWithNumber: true};
     }
     return null;
   }
@@ -22,7 +17,7 @@ class UsernameValidator {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         if (control.value === 'nick') {
-          resolve({ usernameTaken: true });
+          resolve({usernameTaken: true});
         } else {
           resolve(null);
         }
@@ -39,7 +34,8 @@ export class FormSixComponent {
   form: FormGroup;
   username: FormControl;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder) {
+  }
 
   ngOnInit() {
     this.username = new FormControl(

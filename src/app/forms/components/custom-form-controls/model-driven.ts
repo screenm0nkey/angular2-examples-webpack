@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { createCounterRangeValidator } from './custom-form-control';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {createCounterRangeValidator} from './custom-form-control';
 
 @Component({
   selector: 'model-driven',
@@ -32,7 +32,8 @@ export class FormTenModelDrivenComponent implements OnInit {
   maxValue: number = 7;
   minValue: number = 3;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) {
+  }
 
   ngOnInit() {
     this.form = this.fb.group({

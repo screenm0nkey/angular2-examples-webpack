@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {
   concatAll,
   debounceTime,
@@ -14,7 +14,6 @@ import {
 } from 'rxjs/operators'
 import {merge, Observable, Subject} from 'rxjs';
 import {WikiSearchService} from '../searches/wikipedia-search.service';
-import {OnInit} from '@angular/core';
 
 @Component({
   selector: 'john-linquist-wiki',
@@ -27,9 +26,10 @@ export class JohnLinquistWikiSearch implements OnInit {
   images$;
   imageCount$;
 
-  constructor(private wikipediaService: WikiSearchService) {}
+  constructor(private wikipediaService: WikiSearchService) {
+  }
 
-  ngOnInit() : void {
+  ngOnInit(): void {
     // hot observable
     const term$ = this.input$
       .pipe(distinctUntilChanged())
@@ -51,7 +51,7 @@ export class JohnLinquistWikiSearch implements OnInit {
       .pipe(share());
 
     this.images$ = merge(results$, lessThanTwoChars$.pipe(map(term => [])));
-    this.imageCount$ = this.images$.pipe(map( (results : any[]) => results.length));
+    this.imageCount$ = this.images$.pipe(map((results: any[]) => results.length));
   }
 
   wikipediaImageSearch(term): Observable<any[]> {

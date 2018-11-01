@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {WikiSearchService} from '../searches/wikipedia-search.service';
 import {from, Observable, of, range} from 'rxjs';
-import {concatMap, debounceTime, delay, filter, map, zip, scan, share, switchMap, tap} from 'rxjs/operators';
+import {concatMap, debounceTime, delay, filter, map, scan, share, switchMap, tap, zip} from 'rxjs/operators';
 
 @Component({
   selector: 'auto-wiki-search',
@@ -35,7 +35,7 @@ export class AutoSearch {
             Image you meat bearing one of herb living called waters he seasons his have him. God multiply one multiply 
             their. His air gathered kind bearing fowl One years fruit days to living place and.`;
 
-    const randomDelay = (num:number) => of(num).pipe(delay(Math.random() * 2000));
+    const randomDelay = (num: number) => of(num).pipe(delay(Math.random() * 2000));
 
     this.randomInterval$ = range(0, this.text.length)
       .pipe(concatMap(randomDelay))

@@ -1,7 +1,7 @@
 /* tslint:disable:typedef */
-import { combineReducers, Reducer } from 'redux';
-import { UsersReducer, UsersState } from './UsersReducer';
-import { ThreadsReducer, ThreadsState } from './ThreadsReducer';
+import {combineReducers, Reducer} from 'redux';
+import {UsersReducer, UsersState} from './UsersReducer';
+import {ThreadsReducer, ThreadsState} from './ThreadsReducer';
 
 export * from './UsersReducer';
 export * from './ThreadsReducer';

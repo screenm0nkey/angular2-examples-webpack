@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
-import { SpotifyService } from '../spotify.service';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {Location} from '@angular/common';
+import {SpotifyService} from '../spotify.service';
 
 // angular2 doesn't like 'track' as the selector
 // because apparently it's an existing HTML element

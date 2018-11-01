@@ -1,11 +1,4 @@
-import {
-  animate,
-  AnimationTriggerMetadata,
-  state,
-  style,
-  transition,
-  trigger
-} from '@angular/animations';
+import {animate, AnimationTriggerMetadata, state, style, transition, trigger} from '@angular/animations';
 
 // Component transition animations
 export const slideInDownAnimation: AnimationTriggerMetadata = trigger(

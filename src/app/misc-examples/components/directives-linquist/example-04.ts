@@ -14,7 +14,8 @@ import {Component, TemplateRef, ViewChild, ViewContainerRef} from '@angular/core
 export class BasicComponent4 {
   @ViewChild('foo') template: TemplateRef<any>;
 
-  constructor(private view: ViewContainerRef) {}
+  constructor(private view: ViewContainerRef) {
+  }
 
   ngAfterContentInit() {
     this.view.createEmbeddedView(this.template);

@@ -1,8 +1,8 @@
-import {AfterViewInit, Component, ElementRef, Injectable, ViewChild, Injector} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Injectable, Injector, ViewChild} from '@angular/core';
 import {ParamService} from './services/some-service';
 
 @Injectable()
-class MyService{
+class MyService {
   getValue(): string {
     return (
       Math.round(Math.random() * 10) + ' Im a value from an injected service');

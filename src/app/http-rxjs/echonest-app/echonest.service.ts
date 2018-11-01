@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { Artist, EchonestRepo } from './echonest.repo';
-import { BehaviorSubject, Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {Artist, EchonestRepo} from './echonest.repo';
+import {BehaviorSubject, Observable} from 'rxjs';
 
 @Injectable()
 export class EchonestService {
@@ -13,7 +13,8 @@ export class EchonestService {
     this.favourites
   );
 
-  constructor(private repo: EchonestRepo) {}
+  constructor(private repo: EchonestRepo) {
+  }
 
   getArtists(): Observable<Artist[]> {
     return this.artists$.asObservable();
@@ -28,7 +29,7 @@ export class EchonestService {
     const index = this.artists.indexOf(artist);
     this.artists = [
       ...this.artists.slice(0, index),
-      (artist = { ...artist }),
+      (artist = {...artist}),
       ...this.artists.slice(index + 1)
     ];
     this.favourites = this.favourites.filter((a: Artist) => a.id !== artist.id);

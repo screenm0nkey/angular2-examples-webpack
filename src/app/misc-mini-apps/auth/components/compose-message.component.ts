@@ -1,6 +1,6 @@
-import { Component, HostBinding } from '@angular/core';
-import { Router } from '@angular/router';
-import { slideInDownAnimation } from '../animations';
+import {Component, HostBinding} from '@angular/core';
+import {Router} from '@angular/router';
+import {slideInDownAnimation} from '../animations';
 
 @Component({
   template: `
@@ -34,7 +34,8 @@ export class ComposeMessageComponent {
   details: string;
   sending: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+  }
 
   send() {
     this.sending = true;
@@ -52,6 +53,6 @@ export class ComposeMessageComponent {
 
   closePopup() {
     // Providing a `null` value to the named outlet clears the contents of the named outlet
-    this.router.navigate([{ outlets: { popup: null } }]);
+    this.router.navigate([{outlets: {popup: null}}]);
   }
 }

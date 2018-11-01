@@ -2,14 +2,14 @@ import {
   Component,
   Directive,
   DoCheck,
-  ViewRef,
+  IterableChangeRecord,
+  IterableChanges,
+  IterableDiffer,
+  IterableDifferFactory,
+  IterableDiffers,
   TemplateRef,
   ViewContainerRef,
-  IterableDifferFactory,
-  IterableDiffer,
-  IterableDiffers,
-  IterableChanges,
-  IterableChangeRecord,
+  ViewRef,
 } from '@angular/core';
 
 interface Person {

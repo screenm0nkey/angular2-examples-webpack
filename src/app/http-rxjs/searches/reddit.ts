@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {map, debounceTime, switchMap, tap} from 'rxjs/operators';
+import {debounceTime, map, switchMap, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'reddit-example',

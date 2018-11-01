@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {interval} from 'rxjs';
-import {map, scan, zip} from 'rxjs/operators';
+import {map, scan} from 'rxjs/operators';
 
 @Component({
   selector: 'scroll-bottom',

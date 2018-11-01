@@ -1,5 +1,5 @@
-import { Action, ActionCreator } from 'redux';
-import { User } from '../models/index';
+import {Action, ActionCreator} from 'redux';
+import {User} from '../models/index';
 
 export const SET_CURRENT_USER = '[User] Set Current';
 

@@ -11,13 +11,14 @@ import {
   OnInit,
   SimpleChange
 } from '@angular/core';
-import { LoggerService } from '../logger.service';
+import {LoggerService} from '../logger.service';
 
 let nextId = 1;
 
 export class PeekABoo implements OnInit {
   // this instance of the _logger is the same as the parent
-  constructor(private _logger: LoggerService) {}
+  constructor(private _logger: LoggerService) {
+  }
 
   // implement OnInit's `ngOnInit` method
   // Initialize the directive/component after Angular initializes the data-bound input properties.

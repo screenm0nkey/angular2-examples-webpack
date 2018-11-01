@@ -1,8 +1,8 @@
-import { Component, Inject, NgModule } from '@angular/core';
-import { compose, createStore, Store, StoreEnhancer } from 'redux';
-import { SharedModule } from '../../../shared/shared.module';
-import { AppStore } from './app-store';
-import { AppState, default as reducer } from './reducers/index';
+import {Component, Inject, NgModule} from '@angular/core';
+import {compose, createStore, Store, StoreEnhancer} from 'redux';
+import {SharedModule} from '../../../shared/shared.module';
+import {AppStore} from './app-store';
+import {AppState, default as reducer} from './reducers/index';
 import ChatPage from './components/ChatPage';
 import ChatThreads from './containers/ChatThreads';
 import ChatNavBar from './containers/ChatNavBar';
@@ -42,6 +42,7 @@ export class ReduxChatAppComponent {
     ChatThread,
     ChatMessage
   ],
-  providers: [{ provide: AppStore, useFactory: () => store }]
+  providers: [{provide: AppStore, useFactory: () => store}]
 })
-export class ReduxChatAppModule {}
+export class ReduxChatAppModule {
+}

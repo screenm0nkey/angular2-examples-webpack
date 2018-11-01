@@ -1,5 +1,13 @@
 import {
-  AfterViewInit, Component, Directive, ElementRef, OnChanges, OnInit, QueryList, SimpleChange, ViewChild,
+  AfterViewInit,
+  Component,
+  Directive,
+  ElementRef,
+  OnChanges,
+  OnInit,
+  QueryList,
+  SimpleChange,
+  ViewChild,
   ViewChildren
 } from '@angular/core';
 

@@ -14,12 +14,12 @@ export class DepInjectionComponent {
    See the console.log 'Created an instance of MrTestyServiceTwo'
    Note :
    1) there is only a single instance of MrTestyServiceOne being created but multiple MrTestyServiceTwo.
-      This is due to the way they are declared in the shared.module.ts.
-      MrTestyServiceOne is configured using 'forRoot'
+   This is due to the way they are declared in the shared.module.ts.
+   MrTestyServiceOne is configured using 'forRoot'
    2) that the MrTestyServiceOne provider is declared in the Shared module but
-      it's accessible here as ngModules use the root injector, which means it's available app wide
+   it's accessible here as ngModules use the root injector, which means it's available app wide
    */
 
-  constructor(private ts1: MrTestyServiceOne, private ts2: MrTestyServiceTwo, rubbishService:RubbishService) {
+  constructor(private ts1: MrTestyServiceOne, private ts2: MrTestyServiceTwo, rubbishService: RubbishService) {
   }
 }

@@ -3,15 +3,16 @@ import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 
 type Response = {
-  feed : {
-    entry : any
+  feed: {
+    entry: any
   }
 }
 
 @Injectable()
 export class EchonestService {
 
-  constructor(public http: HttpClient) {}
+  constructor(public http: HttpClient) {
+  }
 
   songSearch(name) {
     return this.http

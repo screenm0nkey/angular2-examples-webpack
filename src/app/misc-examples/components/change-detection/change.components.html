@@ -103,7 +103,7 @@
   #inputty
   type='text'
   (keyup.enter)="addItem(inputty.value);inputty.value=''"
-placeholder='Local Ref'>
+  placeholder='Local Ref'>
 
 <todolist-component [store]='store' (editme)='setTodoItem($event)'></todolist-component>
 

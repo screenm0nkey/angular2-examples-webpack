@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output} from '@angular/core';
+
 declare const Notification;
 
 // this is a bug fix to stop this issue

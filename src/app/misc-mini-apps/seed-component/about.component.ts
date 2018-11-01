@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'about',
@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
     <p>This is the about component!</p>
   `
 })
-export class AboutComponent {}
+export class AboutComponent {
+}

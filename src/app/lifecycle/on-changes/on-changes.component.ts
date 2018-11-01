@@ -1,7 +1,8 @@
-import { Component, Input, OnChanges, SimpleChange } from '@angular/core';
+import {Component, Input, OnChanges, SimpleChange} from '@angular/core';
 
 class Hero {
-  constructor(public name: string) {}
+  constructor(public name: string) {
+  }
 }
 
 @Component({

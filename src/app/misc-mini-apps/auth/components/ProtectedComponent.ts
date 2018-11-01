@@ -1,7 +1,7 @@
 /*
  * Angular
  */
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'protected',
@@ -10,4 +10,5 @@ import { Component } from '@angular/core';
     <p>This is protected content</p>
   `
 })
-export class ProtectedComponent {}
+export class ProtectedComponent {
+}

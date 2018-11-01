@@ -1,4 +1,4 @@
-import {Component, Directive, ElementRef, TemplateRef, ViewContainerRef, AfterViewInit} from '@angular/core';
+import {AfterViewInit, Component, Directive, ElementRef, TemplateRef, ViewContainerRef} from '@angular/core';
 
 /**
  * ThreeDirective
@@ -6,7 +6,7 @@ import {Component, Directive, ElementRef, TemplateRef, ViewContainerRef, AfterVi
 @Directive({
   selector: '[mrNick]'
 })
-export class ThreeDirective implements AfterViewInit{
+export class ThreeDirective implements AfterViewInit {
   constructor(el: ElementRef, private view: ViewContainerRef, private template: TemplateRef<any>) {
     console.log(123, 'el.nativeElement', el.nativeElement);
   }

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {Component} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 function validateEmail(c: FormControl) {
   let EMAIL_REGEXP = /abcd/;
@@ -9,10 +9,10 @@ function validateEmail(c: FormControl) {
   return valid
     ? null
     : {
-        validateEmail: {
-          valid: false
-        }
-      };
+      validateEmail: {
+        valid: false
+      }
+    };
 }
 
 @Component({
@@ -36,7 +36,8 @@ export class FormThreeComponent {
     })
   });
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   submit() {
     console.log(this.registerForm.value);

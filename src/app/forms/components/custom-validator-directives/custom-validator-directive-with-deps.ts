@@ -1,5 +1,5 @@
-import { Directive, forwardRef, Injectable } from '@angular/core';
-import { FormControl, NG_VALIDATORS, Validator } from '@angular/forms';
+import {Directive, forwardRef, Injectable} from '@angular/core';
+import {FormControl, NG_VALIDATORS, Validator} from '@angular/forms';
 
 @Injectable()
 class EmailBlackListService {
@@ -15,10 +15,10 @@ function validateEmailFactory(emailBlackList: EmailBlackListService) {
     return EMAIL_REGEXP.test(c.value)
       ? null
       : {
-          validateEmail: {
-            valid: false
-          }
-        };
+        validateEmail: {
+          valid: false
+        }
+      };
   };
 }
 

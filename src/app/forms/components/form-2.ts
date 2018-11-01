@@ -1,5 +1,5 @@
-import { Component, Directive } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import {Component, Directive} from '@angular/core';
+import {NgForm} from '@angular/forms';
 
 // expose directive to be used in template. this is what NgForm is doing.
 @Directive({
@@ -21,7 +21,7 @@ export class NickForm {
 export class FormTwoComponent {
   firstname: string = 'Hello';
   lastname: string = 'World';
-  employee: any = { first_name: 'kara' };
+  employee: any = {first_name: 'kara'};
   formStr: string = '';
 
   logForm(form: NgForm, nick: NickForm) {

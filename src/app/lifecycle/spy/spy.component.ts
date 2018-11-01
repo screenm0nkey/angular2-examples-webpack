@@ -4,7 +4,7 @@ import {LoggerService} from '../logger.service';
 @Component({
   selector: 'spy-parent',
   template:
-  `
+    `
   <div class='comps'>
     <div class='parent'>
       <p class='path'>src/app/lifecycle/spy/spy.component.ts</p>

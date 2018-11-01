@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { GithubHttp } from './github.http';
-import { Observable } from 'rxjs';
-import { ActivatedRoute, Params } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {GithubHttp} from './github.http';
+import {Observable} from 'rxjs';
+import {ActivatedRoute, Params} from '@angular/router';
 
 @Component({
   selector: 'repo-list',
@@ -30,7 +30,8 @@ export class RepoList implements OnInit {
   org: string;
   repos: Observable<any>;
 
-  constructor(public github: GithubHttp, private route: ActivatedRoute) {}
+  constructor(public github: GithubHttp, private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {

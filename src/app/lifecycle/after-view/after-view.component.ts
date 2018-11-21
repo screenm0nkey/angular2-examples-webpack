@@ -56,7 +56,7 @@ export class AfterViewComponent implements AfterViewChecked, AfterViewInit {
   private _doSomething() {
     let c = this.viewChild.hero.length > 10 ? 'Thats a long name' : '';
     if (c !== this.comment) {
-      // Wait a tick because the component's view has already been checked
+      // Wait a tickReducer because the component's view has already been checked
       setTimeout(() => (this.comment = c), 0);
     }
   }

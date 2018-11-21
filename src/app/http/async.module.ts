@@ -9,6 +9,7 @@ import {EchonestModule} from './echonest-app/echonest.module';
 import {SearchesModule} from './searches/searches.module';
 import {SpotifyModule} from './spotify/spotify.module';
 import {ChatAppRxJsModule} from './chat-app-rxjs/ts/app.module';
+import {NgrxModule} from './ngrx/ngrx.module';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import {ChatAppRxJsModule} from './chat-app-rxjs/ts/app.module';
     EchonestModule,
     JohnLinquistModule,
     MiscHttpModule,
+    NgrxModule
   ],
   exports: [],
   declarations: [MainHttpRxJs],

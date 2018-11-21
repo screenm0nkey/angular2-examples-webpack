@@ -30,7 +30,7 @@ export class LoggerService {
       this.tid = setTimeout(() => {
         self.logs.push('Idle');
         console.log(self.logs);
-        // self.tick();
+        // self.tickReducer();
       }, 100);
     });
   }

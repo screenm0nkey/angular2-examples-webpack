@@ -20,7 +20,7 @@ const appRoutes: Routes = [
   },
   {
     path: "httprx",
-    loadChildren: "./http-rxjs/async.module#HttpRxJsModule"
+    loadChildren: "./http/async.module#HttpRxJsModule"
   },
   {
     path: "lifecycle",

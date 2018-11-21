@@ -7,7 +7,7 @@ import {JohnLinquistExamples} from './john-linquist/main';
 import {MiscHttpExamples} from './misc-examples/main';
 import {ChatAppComponent} from './chat-app-rxjs/ts/app';
 import {SpotifyDemoApp} from "./spotify/spotify.module";
-// import {NgrxMainComponent} from './ngrx/ngrx-main.component';
+import {NgrxMainComponent} from './ngrx/ngrx-main.component';
 
 export const asyncRoutes: Routes = [
   {
@@ -22,7 +22,7 @@ export const asyncRoutes: Routes = [
       {path: 'chat-app-rxjs', component: ChatAppComponent},
       {path: 'spotify', loadChildren: './spotify/spotify.module#SpotifyModule'},
       {path: 'spotify', component: SpotifyDemoApp},
-      // {path: 'ngrx', component: NgrxMainComponent}
+      {path: 'ngrx', component: NgrxMainComponent}
     ]
   }
 ];

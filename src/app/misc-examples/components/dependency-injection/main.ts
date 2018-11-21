@@ -10,7 +10,7 @@ export class DepInjectionComponent {
   /**
    Multiple versions of the same injectable are possible, as it the case with 'MrTestyServiceTwo'
    Because the service is injected via a lazy-loaded module it creates a new instance of the injectable,
-   even though it's already been injected in the /app.component.ts
+   even though it's already been injected in the /ngrx-queue.component.ts
    See the console.log 'Created an instance of MrTestyServiceTwo'
    Note :
    1) there is only a single instance of MrTestyServiceOne being created but multiple MrTestyServiceTwo.

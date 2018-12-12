@@ -9,7 +9,7 @@ import "rxjs/add/operator/mapTo";
 import "rxjs/add/operator/withLatestFrom";
 import {Store} from "@ngrx/store";
 import {HOUR, SECOND} from "./actions";
-import {AnyPayload, MyAction} from "./reducers/_reducers.service";
+import { MyAction} from "./reducers/_reducers.service";
 
 /**
  * ngrx-clock-two-component
@@ -32,10 +32,10 @@ import {AnyPayload, MyAction} from "./reducers/_reducers.service";
     `
 })
 export class NgrxClockTwoComponent implements OnInit {
-  updateHours$: Observable<AnyPayload>;
+  updateHours$: any;
   seconds$: Observable<MyAction>;
   time$: Observable<Date>;
-  merged$: Observable<MyAction>;
+  merged$: Observable<{}|MyAction>;
 
   constructor(private store: Store<any>) {
     this.dispatch = this.dispatch.bind(this);

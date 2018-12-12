@@ -37,12 +37,12 @@ import {MyAction} from "./reducers/_reducers.service";
     `
 })
 export class NgrxPeopleComponent implements OnInit {
-  recall$: Observable<any>;
-  person$: Observable<any>;
+  recall$: any;
+  person$: any;
   seconds$: Observable<MyAction>;
   time$: Observable<Date>;
-  peopleReducer$;
-  merged$: Observable<{type:string, payload: any}>;
+  people$;
+  merged$: Observable<any>;
 
   constructor(private store: Store<any>) {
   }
@@ -50,7 +50,7 @@ export class NgrxPeopleComponent implements OnInit {
   ngOnInit() {
     const recallSubject$ = new Subject()
     this.time$ = this.store.select("clockReducer");
-    this.peopleReducer$ = this.store.select("peoplezReducer");
+    this.people$ = this.store.select("peoplezReducer");
 
     this.person$ = new Subject().map(value => ({payload: value, type: ADVANCE}));
     this.seconds$ = Observable.interval(1000).mapTo({type: SECOND, payload: 1});

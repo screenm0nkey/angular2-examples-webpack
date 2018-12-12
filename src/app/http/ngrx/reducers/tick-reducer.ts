@@ -1,5 +1,5 @@
-import {MyAction} from "./clock-reducer";
 import {DAY_TICK, HOUR_TICK, SECOND_TICK} from "../actions";
+import {MyAction} from "./_reducers.service";
 
 export const tickReducer = (state: Date = new Date(), action: MyAction) => {
   let d: Date;

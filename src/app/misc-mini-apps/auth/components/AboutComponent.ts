@@ -3,7 +3,7 @@ import {ActivatedRoute, Params} from '@angular/router';
 
 @Component({
   selector: 'about',
-  styles: ['{code {display:inline-block}}'],
+  styles: ['code {display : inline-block;}'],
   template: `
    <h4>About</h4>
     <p>

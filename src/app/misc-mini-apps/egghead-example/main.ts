@@ -3,13 +3,6 @@ import {TodoService} from './services/todo-service';
 
 @Component({
   providers: [TodoService], // this provides the service to all of it's children components
-  styles: [
-    `   .comps {    
-            position:relative;
-            top : 46px;
-        }
-    `
-  ],
   template: `
       <div class='comps'>
         <section>
@@ -31,4 +24,6 @@ import {TodoService} from './services/todo-service';
     `
 })
 export class EggheadAppComponent {
+  status : any;
+  term: string;
 }

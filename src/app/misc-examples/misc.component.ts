@@ -33,7 +33,9 @@ import {Component} from '@angular/core';
           <li>Add example for http transformer</li>
           <li>Spotify example is broken</li>
           <li>add dependency example for @Host, @SkipSelf and @Optional</li>
-          <li>animations are deprecated in routing example</li>
+          <li>Animations are deprecated in routing example</li>
+          <li>Named router outlet button is broken</li>
+          <li>Upgrade socket.io example so it doesn't use rxjs-compat</li>
         </ul>
      
         <router-outlet></router-outlet>

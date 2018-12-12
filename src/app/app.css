@@ -342,11 +342,10 @@ section.main {
 }
 
 #container {
+  margin: 65px 0 0 200px;
   flex: 1;
   /*overflow: hidden;*/
   padding-left: 5px;
-  margin-top: 65px;
-  margin-left: 200px;
 }
 
 #container.special, .special {

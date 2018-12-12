@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {PageNotFoundComponent} from './not-found.component';
 import {SelectivePreloadingStrategy} from './selective-preloading-strategy';
+import {ComposeMessageComponent} from "./misc-mini-apps/auth/components/compose-message.component";
 
 const appRoutes: Routes = [
   {
@@ -33,7 +34,12 @@ const appRoutes: Routes = [
   {
     path: '**',
     component: PageNotFoundComponent
-  }
+  },
+  {
+    path: "compose",
+    component: ComposeMessageComponent,
+    outlet: "popup"
+  },
 ];
 
 @NgModule({

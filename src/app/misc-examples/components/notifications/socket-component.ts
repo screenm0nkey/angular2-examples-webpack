@@ -71,6 +71,6 @@ export class ChatRoom {
   `
 })
 export class SocketApp {
-  constructor(private chatRoom: ChatRoom) {
+  constructor(public chatRoom: ChatRoom) {
   }
 }

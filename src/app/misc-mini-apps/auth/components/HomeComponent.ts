@@ -24,7 +24,7 @@ export class HomeComponent {
   }
 
   goToProduct(id: string): void {
-    this.router.navigate(['./aboutus', id], {
+    this.router.navigate(['../aboutus', id], {
       relativeTo: this.route,
       queryParams: {session_id: 111111},
       fragment: 'anchor'

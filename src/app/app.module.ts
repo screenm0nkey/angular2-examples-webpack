@@ -8,6 +8,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 // this is for the angular2 services example
 import {EngineService, SomeService} from './misc-examples/components/dependency-injection/services/some-service';
 import {SharedModule} from './shared/shared.module';
+import {ComposeMessageComponent} from "./misc-mini-apps/auth/components/compose-message.component";
 
 @NgModule({
   // modules only need to be imported if they are not lazy loaded
@@ -17,7 +18,7 @@ import {SharedModule} from './shared/shared.module';
     AppRoutingModule,
     SharedModule.forRoot()
   ],
-  declarations: [AppComponent, PageNotFoundComponent],
+  declarations: [AppComponent, PageNotFoundComponent, ComposeMessageComponent],
   providers: [
     {provide: APP_BASE_HREF, useValue: '/'}, // is the equivalent of using <base href='/'>
     // {provide: LocationStrategy, useClass: HashLocationStrategy},

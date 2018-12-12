@@ -46,10 +46,10 @@ import {Observable} from 'rxjs';
    `
 })
 export class EchonestAppComponent {
-  private artists$: Observable<Artist[]>;
-  private favourites$: Observable<Artist[]>;
+  public artists$: Observable<Artist[]>;
+  public favourites$: Observable<Artist[]>;
 
-  constructor(private service: EchonestService) {
+  constructor(public service: EchonestService) {
     this.artists$ = service.getArtists();
     this.favourites$ = service.getFavourites();
   }

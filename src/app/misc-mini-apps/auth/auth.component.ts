@@ -6,7 +6,7 @@ import {ActivatedRoute, Router} from '@angular/router';
   selector: 'router-app',
   template: `
 <div class='miscellaneous'>
-  <nav class='navLinks' style='min-width: 500px;position: absolute;top: -10px;'>
+  <nav class='navLinks' style='position: absolute;left: 0;top: 148px;'>
       <a routerLink='./home' routerLinkActive='active' [routerLinkActiveOptions]='{ exact: true }'>Home</a>
       <a [routerLink]="['./aboutus', getId()]" routerLinkActive='active'>About Us</a>
       <a [routerLink]="['./contact']" routerLinkActive='active'>Selective Preloading Strategy</a>

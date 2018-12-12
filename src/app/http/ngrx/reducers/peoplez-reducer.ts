@@ -1,5 +1,6 @@
-import {clockReducer, MyAction} from "./clock-reducer";
+import {clockReducer} from "./clock-reducer";
 import {ADVANCE, HOUR, RECALL} from "../actions";
+import {MyAction} from "./_reducers.service";
 
 const defaultAction = {type: '', payload: ''};
 const defaultPeople = [

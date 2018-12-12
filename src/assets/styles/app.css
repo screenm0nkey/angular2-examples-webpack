@@ -108,12 +108,6 @@ h4 {
   font-family: Courier;
 }
 
-#container > ng-component > h4 {
-  background-color: green;
-  position: relative;
-  top: -8px;
-}
-
 h4:first-child {
   margin: 8px 0;
 }
@@ -332,21 +326,6 @@ section.main {
 
 .has-error {
   border-color: red;
-}
-
-#container {
-  flex: 1;
-  /*overflow: hidden;*/
-  padding-left: 5px;
-  margin-top: 65px;
-  margin-left: 200px;
-}
-
-#container.special, .special {
-  margin-top: 65px;
-  background-color: #cacaca;
-  border: solid 5px #c1c1c1;
-  margin-right: 10px;
 }
 
 .miscellaneous {

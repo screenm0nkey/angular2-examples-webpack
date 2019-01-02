@@ -5,7 +5,10 @@ export type Hero = {
   canFly: boolean;
 }
 
-@Pipe({name: 'flyingHeroes'})
+@Pipe({
+  name: 'flyingHeroesPure',
+  pure : true // this is the default
+})
 export class FlyingHeroesPipe implements PipeTransform {
   transform(allHeroes: Hero[]) {
     console.log('%cPure filter', 'color:green');
@@ -19,7 +22,7 @@ export class FlyingHeroesPipe implements PipeTransform {
 })
 export class FlyingHeroesImpurePipe implements PipeTransform {
   transform(allHeroes: Hero[]) {
-    console.log('Impure filter');
+    console.log('%cImpure filter', 'color:red');
     return allHeroes.filter(hero => hero.canFly);
   }
 }

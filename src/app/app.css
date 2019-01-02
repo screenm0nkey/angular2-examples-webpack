@@ -148,16 +148,15 @@ ul.todos {
   border: solid 3px #259e00;
   margin-right: 10px;
   list-style: none;
-  margin-left: 0px;
+  margin-left: 0;
   margin-bottom: 3px;
-  position: fixed;
   z-index: 2;
+  cursor: pointer;
 }
 
-ul.todos li {
-  font-size: 11px;
-  margin: 0px;
-  font-family: monospace;
+ul.todos.collapsed {
+  height:10px;
+  overflow: hidden;
 }
 
 ul.bullets {

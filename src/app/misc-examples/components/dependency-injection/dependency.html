@@ -1,5 +1,5 @@
 <div class='comps'>
-  <section>
+<section>
     <p class="file">/misc-examples/components/dependecy-injection/dependency.html</p>
     <h4>Dependency Injection</h4>
     <p class="links">
@@ -47,11 +47,12 @@
       <li>
         multi providers <code>multi: true</code> basically extend the thing that is being injected for a particular
         token.
-        Angular uses this mechanism to provide pluggable hooks i.e extending <code>NG_VALIDATORS</code>
+        Angular uses this mechanism to provide pluggable hooks i.e extending <code>NG_VALIDATORS,
+        HTTP_INTERCEPTORS</code>
       </li>
 
       <li>If we provide services in a module they will be globally available as all modules use the root
-        injector. This is NOT the case with Lazy loaded modules. See <a routerLink="./modules"
+        injector. This is NOT the case with Lazy loaded modules. See <a routerLink="../modules"
                                                                         routerLinkActive="active">Modules</a> for more
         info
       </li>
@@ -80,10 +81,9 @@
     </ul>
 
     <p class="well">
-      Take a look at the RubbishService. It is defined in the DIModule but is used in both the <a
-      routerLink="./tricks" routerLinkActive="active">Tricks</a> and <a routerLink="./tips"
-                                                                        routerLinkActive="active">Tips</a>
-      Components but it is not declared in their modules.
+      Take a look at the RubbishService. It is defined in the DependencyModule but it's used in both the <a
+      routerLink="../tricks" routerLinkActive="active">Tricks</a> and
+      <a routerLink="../tips" routerLinkActive="active">Tips</a>Components but it is not declared in either of their modules.
     </p>
 
     <p>
@@ -91,7 +91,7 @@
       certain bugs related to services overriding each other in the global context
       that are hard to reproduce due to accidental overwrites of injectables.
       In order to avoid this this, angular will create a child dependency injection context.
-      This context will contain the service, but this service will not be visible to the rest of the application.
+      This context will contain the service, but <strong>this service will not be visible to the rest of the application.</strong>
     </p>
 
 
@@ -134,19 +134,22 @@
 
 
     <p><strong>Set the "useValue" property to a fixed value that the provider can return as the dependency
-      object.</strong>
-      Use this technique to provide runtime configuration constants such as web-site
+      object.</strong></p>
+
+  <code> providers: [&#123;provide: 'URL', useValue: 'https://swapi.co/api'&#125;]</code>
+
+      <p>Use this technique to provide runtime configuration constants such as web-site
       base addresses and feature flags. We often use a value provider in a unit test
       to replace a production service with a fake or mock.</p>
-  </section>
+</section>
 
-  <inject-component></inject-component>
+<inject-component></inject-component>
 
-  <inject-parent-component></inject-parent-component>
+<inject-parent-component></inject-parent-component>
 
-  <resolve-create-service></resolve-create-service>
+<resolve-create-service></resolve-create-service>
 
-  <resolve-create-factory></resolve-create-factory>
+<resolve-create-factory></resolve-create-factory>
 </div>
 
 

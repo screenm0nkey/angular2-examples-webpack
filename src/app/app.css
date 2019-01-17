@@ -155,7 +155,7 @@ ul.todos {
 }
 
 ul.todos.collapsed {
-  height:10px;
+  height:21px;
   overflow: hidden;
 }
 
@@ -464,6 +464,16 @@ p.well {
   padding: 5px;
 }
 
+.cdk-overlay-container {
+  margin-left : 200px;
+}
 
+.cdk-overlay-container p {
+  color:white;
+}
 
+.mat-dialog-container {
+  background-color: darkcyan;
+  border:solid 10px #0E566C;
+}
 

@@ -29,9 +29,7 @@ import {debounceTime, filter, map, mapTo, share, startWith, switchMap, tap} from
       <h3 *ngIf='noResults$ | async'>No one matched your search</h3>
     </div>
   `,
-  providers: [
-    {provide: 'URL', useValue: 'https://swapi.co/api'}
-  ]
+  providers: [{provide: 'URL', useValue: 'https://swapi.co/api'}]
 })
 export class StarWarsComponent {
   input$ = new Subject();

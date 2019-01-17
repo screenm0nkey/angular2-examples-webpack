@@ -39,7 +39,7 @@ import {Store} from './StoreService';
   ],
   providers: [Store]
 })
-export class ChangeModule {
+export class _changeModule {
 }
 
 export {ChangeDetectionMain};

@@ -46,6 +46,12 @@ app.post('/data', function (req, res) {
   res.send(req.body)
 });
 
+app.post('/login', function (req, res) {
+  res.json(JSON.stringify({
+    reason:'I got ya bro'
+  }));
+});
+
 const server = app.listen(1970, function () {
   console.log('Server running at http://localhost:' + server.address().port)
 });

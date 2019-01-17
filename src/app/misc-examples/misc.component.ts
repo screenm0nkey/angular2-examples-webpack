@@ -26,15 +26,16 @@ import {Component} from '@angular/core';
           getters/setters</a>
         <a routerLink='./tricks' routerLinkActive='active'>Tricks</a>
         <a routerLink='./tips' routerLinkActive='active'>Tips</a>
+        <a routerLink='./interceptor' routerLinkActive='active'>Interceptor</a>
         <a routerLink='./change-after-check' routerLinkActive='active'
            title='ExpressionChangedAfterItHasBeenCheckedError'>ExpressionChangedAfterItHasBeenCheckedError</a>
       </nav>
 
       <div id='container'>
         <ul class='todos collapsed' #todolist (click)="toggleVisibility(todolist)">
-          <li>Add example for http transformer</li>
-          <li>Spotify example is broken</li>
+          <li class="path"><p class="path">src/app/misc-examples/misc.component.ts</p></li>
           <li>add dependency example for @Host, @SkipSelf and @Optional</li>
+          <li>Spotify example is broken</li>
           <li>Animations are deprecated in routing example</li>
           <li>Upgrade socket.io example so it doesn't use rxjs-compat</li>
           <li>Upgrade to Ng7</li>

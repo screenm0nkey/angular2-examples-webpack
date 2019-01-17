@@ -46,7 +46,7 @@ import {PipesComponent} from './pipes.component';
     }
   ]
 })
-export class DIModule {
+export class DependencyModule {
 }
 
 export {DepInjectionComponent};

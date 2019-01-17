@@ -2,24 +2,25 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {MiscExamplesComponent} from './misc.component';
 import {MainComponent} from './components/chickens/main.module';
-import {ChangeDetectionMain} from './components/change-detection/change.module';
-import {RookieComponent} from './components/content-children/content-child.module';
-import {FocusInput} from './components/focusing-input/focusing.module';
-import {HostBindingComponent} from './components/host-binding/hosting.module';
-import {DirectivesLinquistMain} from './components/directives-linquist/directives.module';
-import {DepInjectionComponent} from './components/dependency-injection/main.module';
-import {MainInputBindingApp} from './components/input-binding/inputbinding.module';
-import {MultiTransclusion} from './components/multi-content/multicontent.module';
-import {NgStyleMainComponent} from './components/ng-style/ngstyle.module';
+import {ChangeDetectionMain} from './components/change-detection/main';
+import {RookieComponent} from './components/content-children/main';
+import {FocusInput} from './components/focusing-input/main';
+import {HostBindingComponent} from './components/host-binding/main';
+import {DirectivesLinquistMain} from './components/directives-linquist/main';
+import {DepInjectionComponent} from './components/dependency-injection/main';
+import {MainInputBindingApp} from './components/input-binding/main';
+import {MultiTransclusion} from './components/multi-content/named-content';
+import {NgStyleMainComponent} from './components/ng-style/main';
 import {NgZoneMainComponent} from './components/ng-zone/ngzone.module';
 import {AppComponent} from './components/notifications/main.module';
-import {MainChildrenApp} from './components/view-children/childviews.module';
-import {TricksMainComponent} from './components/tricks/tricks.module';
-import {TipsMainComponent} from './components/tips/tips.module';
-import {TemplateComponent} from './components/template-directives/templates.module';
-import {ChangeAfterComponent} from './components/changed-after-check/main.module';
+import {MainChildrenApp} from './components/view-children/main';
+import {TricksMainComponent} from './components/tricks/main';
+import {TipsMainComponent} from './components/tips/main';
+import {TemplateComponent} from './components/template-directives/main.component';
+import {ChangeAfterComponent} from './components/changed-after-check/_main.module';
 import {ModulesComponent} from './components/dependency-injection/modules';
 import {PipesComponent} from './components/dependency-injection/pipes.component';
+import {InterceptorComponent} from "./components/interceptors/interceptor.component";
 
 export const formsRoutes: Routes = [
   {
@@ -45,7 +46,8 @@ export const formsRoutes: Routes = [
       {path: 'templates', component: TemplateComponent},
       {path: 'view-children', component: MainChildrenApp},
       {path: 'tricks', component: TricksMainComponent},
-      {path: 'tips', component: TipsMainComponent}
+      {path: 'tips', component: TipsMainComponent},
+      {path: 'interceptor', component: InterceptorComponent}
     ]
   }
 ];

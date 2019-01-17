@@ -17,7 +17,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'misc',
-    loadChildren: './misc-examples/misc.module#MiscExamplesModule'
+    loadChildren: './misc-examples/_misc.module#MiscExamplesModule'
   },
   {
     path: "httprx",

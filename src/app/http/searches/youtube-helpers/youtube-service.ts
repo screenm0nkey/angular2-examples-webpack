@@ -4,7 +4,7 @@ import {SearchResult} from './youtube-result-class';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class YoutubeService {
   BASE_URL: string = 'https://www.googleapis.com/youtube/v3/searchForImages';
   API_TOKEN: string = 'AIzaSyAJk1xUI72YYfBMgEc84gjHUX-k2AN6-B0';

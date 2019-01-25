@@ -34,7 +34,6 @@ import {Component} from '@angular/core';
       <div id='container'>
         <ul class='todos collapsed' #todolist (click)="toggleVisibility(todolist)">
           <li class="path"><p class="path">src/app/misc-examples/misc.component.ts</p></li>
-          <li>add dependency example for @Host, @SkipSelf and @Optional</li>
           <li>Spotify example is broken</li>
           <li>Animations are deprecated in routing example</li>
           <li>Upgrade socket.io example so it doesn't use rxjs-compat</li>

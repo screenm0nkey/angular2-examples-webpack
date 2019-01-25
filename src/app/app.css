@@ -457,12 +457,14 @@ p.file, p.path {
   font-size: 10px;
 }
 
-p.well {
+.well {
   background-color: #a5a5a5;
   border-radius: 5px;
   border: solid 3px #949494;
   padding: 5px;
 }
+.well h6 { margin: 0}
+.well p:last-child { margin-bottom: 0}
 
 .cdk-overlay-container {
   margin-left : 200px;

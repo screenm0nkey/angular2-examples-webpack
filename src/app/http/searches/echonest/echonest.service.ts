@@ -8,7 +8,7 @@ type Response = {
   }
 }
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class EchonestService {
 
   constructor(public http: HttpClient) {

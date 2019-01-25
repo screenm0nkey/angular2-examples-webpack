@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 
 // import 'rxjs/operator/map';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class LoginService {
 
   constructor(private http: HttpClient) {

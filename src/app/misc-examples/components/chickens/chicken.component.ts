@@ -18,7 +18,7 @@ interface Customer {
 /**
  * HttpDataService
  */
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class HttpDataService {
   chickens: Observable<any>;
 

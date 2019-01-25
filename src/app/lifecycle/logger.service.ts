@@ -1,6 +1,6 @@
 import {Injectable, NgZone} from '@angular/core';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class LoggerService {
   logs: string[] = [];
   prevMsg: string = '';

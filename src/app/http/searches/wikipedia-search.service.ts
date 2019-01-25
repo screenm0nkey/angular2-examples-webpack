@@ -26,7 +26,7 @@ const defaultOptions = {
   responseType: 'text'
 };
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class WikiSearchService {
   constructor(private http: HttpClient) {
   }

@@ -7,7 +7,7 @@ import {RookieComponent} from './components/content-children/main';
 import {FocusInput} from './components/focusing-input/main';
 import {HostBindingComponent} from './components/host-binding/main';
 import {DirectivesLinquistMain} from './components/directives-linquist/main';
-import {DepInjectionComponent} from './components/dependency-injection/main';
+import {DepInjectionComponent} from './components/dependency-injection/dependency.component';
 import {MainInputBindingApp} from './components/input-binding/main';
 import {MultiTransclusion} from './components/multi-content/named-content';
 import {NgStyleMainComponent} from './components/ng-style/main';
@@ -18,7 +18,7 @@ import {TricksMainComponent} from './components/tricks/main';
 import {TipsMainComponent} from './components/tips/main';
 import {TemplateComponent} from './components/template-directives/main.component';
 import {ChangeAfterComponent} from './components/changed-after-check/_main.module';
-import {ModulesComponent} from './components/dependency-injection/modules';
+import {ModulesComponent} from './components/dependency-injection/modules.component';
 import {PipesComponent} from './components/dependency-injection/pipes.component';
 import {InterceptorComponent} from "./components/interceptors/interceptor.component";
 

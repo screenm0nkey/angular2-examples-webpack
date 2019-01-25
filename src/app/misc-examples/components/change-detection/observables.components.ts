@@ -6,7 +6,7 @@ class Thread {
   }
 }
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 class ThreadsService {
   messages: Thread[] = [{message: 'First one'}];
   threads: Subject<Thread[]> = new BehaviorSubject<Thread[]>(this.messages);

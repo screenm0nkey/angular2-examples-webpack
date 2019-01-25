@@ -12,7 +12,7 @@ import {
 import {Observable, throwError} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class HttpConfigInterceptor implements HttpInterceptor {
   constructor(public errorDialogService: ErrorDialogService) {
     this.onSuccess = this.onSuccess.bind(this);

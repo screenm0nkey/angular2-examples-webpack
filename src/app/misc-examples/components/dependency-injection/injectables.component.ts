@@ -1,14 +1,21 @@
 import {Component, Inject, InjectionToken, Injector} from '@angular/core';
-import {EngineService, SomeService} from './services/some-service';
+import {
+  ConsoleWriter,
+  EngineService,
+  loggerFactory,
+  LoggerService,
+  SomeService,
+  someTokensFactory
+} from './injectables.service';
 
 /**
  The 'whateverToken' is defined in the bootstrap.ts as 'provide('whateverToken', {useClass : SomeService })'
  */
 
 const AnyObjectCanBeTheKey = {};
-
 // http://blog.thoughtram.io/angular/2016/05/23/opaque-tokens-in-angular-2.html
 const SOME_TOKEN = new InjectionToken<string>('SomeToken');
+// notice that they both have the same description but are still valid
 const TOKEN_A = new InjectionToken<string>('UserConfig');
 const TOKEN_B = new InjectionToken<string>('UserConfig');
 
@@ -17,28 +24,28 @@ const TOKEN_B = new InjectionToken<string>('UserConfig');
   providers: [
     SomeService,
     EngineService,
+    ConsoleWriter,
     {provide: SOME_TOKEN, useValue: 'dependency one', multi: true},
     {provide: SOME_TOKEN, useValue: 'dependency two', multi: true},
-    {provide: AnyObjectCanBeTheKey, useClass: SomeService},
-    {provide: 'sausages', useClass: SomeService},
     {provide: 'helloWorld', useValue: 'Hello World!!!'},
     {provide: String, useValue: 'come-on!'},
-    {provide: TOKEN_A, useValue: 'TREX'},
-    {provide: TOKEN_B, useValue: 'DINO'},
-    // notice that SOME_TOKEN has multiple values
-    {
-      provide: 'jeffFactory',
-      useFactory: (someTokens: string[]) =>
-        someTokens.map(str => str.toUpperCase()),
-      deps: [SOME_TOKEN]
-    } // no `new Inject(SOME_TOKEN)` required as we're using InjectionToken
+    {provide: TOKEN_A, useValue: 'TOKEN_A'},
+    {provide: TOKEN_B, useValue: 'TOKEN_B'},
+    {provide: 'sausages', useClass: SomeService},
+    {provide: AnyObjectCanBeTheKey, useClass: SomeService},
+    {provide: 'MrHooty', useExisting: TOKEN_B},
+    // https://egghead.io/lessons/angular-pass-dependencies-to-a-factory-provider-in-angular
+    {provide: LoggerService, useFactory: loggerFactory, deps: [ConsoleWriter]},
+    {provide: 'jeffFactory', useFactory: someTokensFactory, deps: [SOME_TOKEN]}
   ],
   template: `
-    <p class='file'>misc-examples/components/dependency-injection/injecting-token.ts</p>
+    <p class='file'>misc-examples/components/dependency-injection/injectables.component.ts</p>
     <h4>InjectionToken (was Opaque Token)</h4>
+    <p>Since Angular version 4.x OpaqueToken is considered deprecated in favour of InjectionToken.</p>
     <div class='links'>
-      <a href='http://blog.thoughtram.io/angular/2016/05/23/opaque-tokens-in-angular-2.html' target='_blank'>Opaque
-        Tokens</a>
+      <a
+        href='https://blog.thoughtram.io/angular/2016/05/23/opaque-tokens-in-angular-2.html#injectiontoken-since-angular-4x'
+        target='_blank'>Opaque Tokens</a>
     </div>
     <p>
       InjectionToken does pretty much the same thing as OpaqueToken (in fact, it derives from it). However, it allows
@@ -60,38 +67,19 @@ export class InjectComponent {
               @Inject(SOME_TOKEN) public multiDependency,
               @Inject(TOKEN_A) public dino1,
               @Inject(TOKEN_B) public dino2,
+              @Inject('MrHooty') public MrHooty,
+              public loggerFactory: LoggerService,
               @Inject('jeffFactory') public jeffFactory) {
     this.someService();
     this.engineService();
     this.manuallyInject();
-
-    // inject string
-    console.log(
-      '%cString provide("helloWorld", {useValue : "Hello World" }',
-      'color:pink',
-      helloWorld
-    );
-    console.log(
-      '%cString @Inject(String) public aString',
-      'color:pink',
-      aString
-    );
-    console.log(
-      '%cprovide(SOME_TOKEN, {useValue: "dependency one", multi: true})',
-      'color:red',
-      multiDependency
-    );
-    console.log(
-      '%c@Inject("jeffFactory") public jeffFactory',
-      'color:mediumorchid',
-      jeffFactory
-    );
-    console.log(
-      '%c{provide : TOKEN_B, useValue : "DINO"}',
-      'color:red',
-      dino1,
-      dino2
-    );
+    console.log('%cprovide(SOME_TOKEN, {useValue: "dependency one", multi: true})', 'color:red', multiDependency);
+    console.log('%cString provide("helloWorld", {useValue : "Hello World" }', 'color:pink', helloWorld);
+    console.log('%cString @Inject(String) public aString', 'color:pink', aString);
+    console.log('%c@Inject("jeffFactory") public jeffFactory', 'color:mediumorchid', jeffFactory);
+    console.log('%c{provide : TOKEN_B, useValue : "DINO"}', 'color:red', dino1, dino2);
+    console.log('%c{provide: \'MrHooty\', useExisting: TOKEN_B}', 'color:red', MrHooty);
+    loggerFactory.log('public loggerFactory: LoggerService')
   }
 
   someService() {
@@ -109,11 +97,13 @@ export class InjectComponent {
   }
 
   manuallyInject() {
+    // notice that SOME_TOKEN is already declared as a token but this becomes a child token
+    // so you wont see any values provided above.
     const injector: any = Injector.create([
       {provide: SOME_TOKEN, useValue: 'BMW one', multi: true},
       {provide: SOME_TOKEN, useValue: 'BMW two', multi: true}
     ]);
     const dependencies = injector.get(SOME_TOKEN);
-    console.log('%cInjector.create()', 'color:mediumorchid', dependencies);
+    console.log('%cInjector.create() SOME_TOKEN', 'color:mediumorchid', dependencies);
   }
 }

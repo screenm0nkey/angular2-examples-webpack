@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Artist, EchonestRepo} from './echonest.repo';
 import {BehaviorSubject, Observable} from 'rxjs';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class EchonestService {
   private favourites: Artist[] = [];
   private artists: Artist[] = [];

@@ -1,7 +1,7 @@
 import {Component, Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 class BroadcasterService {
   subject: Subject<any> = new Subject<any>();
 

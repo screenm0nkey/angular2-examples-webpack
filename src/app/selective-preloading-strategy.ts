@@ -3,7 +3,7 @@ import {PreloadingStrategy, Route} from '@angular/router';
 import {Observable, of} from 'rxjs';
 
 // https://angular.io/guide/router
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class SelectivePreloadingStrategy implements PreloadingStrategy {
   preloadedModules: string[] = [];
 

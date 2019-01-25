@@ -5,7 +5,7 @@ import * as _ from 'lodash';
 import {BehaviorSubject, combineLatest, Observable, Subject} from 'rxjs';
 import {map} from 'rxjs/operators';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class ThreadsService {
   // `threads$` is a observable that contains the most up to date list of threads$
   threads$: Observable<{ [key: string]: Thread }>;

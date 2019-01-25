@@ -4,7 +4,7 @@ import {AuthService} from '../services/AuthService';
 import {DialogService} from '../services/dialog.service';
 import {Observable} from 'rxjs';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class LoggedInGuard implements CanActivate {
   constructor(private authService: AuthService) {
   }
@@ -21,7 +21,7 @@ export interface CanComponentDeactivate {
   canDeactivate: () => Observable<boolean> | Promise<boolean> | boolean;
 }
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class UserCanDeactivate
   implements CanDeactivate<CanComponentDeactivate> {
   constructor(public dialogService: DialogService) {

@@ -11,7 +11,7 @@ import {Observable} from "rxjs";
 import {ADD_TO_QUEUE, GROW_QUEUE} from "../actions";
 import {AddUnitAction, Unit} from "./ngrx-queue.component";
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class UnitEffects {
   constructor(private actions$: Actions) {}
 

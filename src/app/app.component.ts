@@ -2,7 +2,7 @@ import {Component, ViewEncapsulation} from '@angular/core';
 import {
   MrTestyServiceOne,
   MrTestyServiceTwo
-} from './misc-examples/components/dependency-injection/services/more-services.service';
+} from './misc-examples/components/dependency-injection/injectables.service';
 
 @Component({
   selector: 'app-root',

@@ -11,7 +11,7 @@ interface IMessagesOperation extends Function {
   (messages: Message[]): Message[];
 }
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class MessagesService {
   // a stream that publishes new messages$ only once
   newMessages$: Subject<Message> = new Subject<Message>();

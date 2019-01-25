@@ -1,5 +1,5 @@
 import {Component, ElementRef, Inject, InjectionToken, Injector, ViewChild} from '@angular/core';
-import {ApiService, ViewPortService} from './services/more-services.service';
+import {ApiService, ViewPortService} from './injectables.service';
 
 const SOME_TOKEN = new InjectionToken<string>(`SomeToken`);
 

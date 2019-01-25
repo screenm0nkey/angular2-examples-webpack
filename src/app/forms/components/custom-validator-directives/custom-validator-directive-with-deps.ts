@@ -1,7 +1,7 @@
 import {Directive, forwardRef, Injectable} from '@angular/core';
 import {FormControl, NG_VALIDATORS, Validator} from '@angular/forms';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 class EmailBlackListService {
   getRegex() {
     return /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;

@@ -5,7 +5,7 @@ import {User} from '../models';
 /**
  * UserService manages our current user
  */
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class UserService {
   // BehaviourSubject stores the last value.
   currentUser: Subject<User> = new BehaviorSubject<User>(null);

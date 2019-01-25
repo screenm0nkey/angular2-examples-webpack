@@ -3,7 +3,7 @@ import {Component, Directive, Injectable, TemplateRef, ViewChild, ViewContainerR
 /**
  * TemplateService
  */
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class TemplateService {
   templates = new Map<string, TemplateRef<any>>();
 }

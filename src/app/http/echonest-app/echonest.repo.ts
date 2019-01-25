@@ -20,7 +20,7 @@ export interface ITunesResponse {
 /*
  * Gets artists data from the echonest api
  * */
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class EchonestRepo {
   // https://itunes.apple.com/uk/rss/topsongs/limit=100/json
   private static url: string = '/api/uk/rss/topsongs/limit=100/json';

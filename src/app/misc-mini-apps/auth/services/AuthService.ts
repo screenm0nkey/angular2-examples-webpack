@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class AuthService {
   login(user: string, password: string): boolean {
     if (user === 'user' && password === 'password') {

@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, ElementRef, Injectable, Injector, ViewChild} from '@angular/core';
-import {ParamService} from './services/some-service';
+import {ParamService} from './injectables.service';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 class MyService {
   getValue(): string {
     return (
@@ -13,7 +13,8 @@ class MyService {
   selector: 'resolve-create-service',
   template: `
     <p class='file'>misc-examples/components/dependency-injection/resolve-create-service.ts</p>
-    <h4>Manually Injecting a Service using <code>Injector.create([&#123;provide: MyService, useClass: MyService, deps: []&#125;])</code></h4>
+    <h4>Manually Injecting a Service using Injector.create()</h4>
+    <code>Injector.create([&#123;provide: MyService, useClass: MyService, deps: []&#125;])</code>
     
     <p class='strong'>Notice in the code, since we’re using our own injector, we didn’t have to add MyService to the
       NgModule's 'providers' list.</p>

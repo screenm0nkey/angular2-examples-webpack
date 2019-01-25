@@ -15,7 +15,7 @@ import {sharedPipes} from './pipes';
 import {
   MrTestyServiceOne,
   MrTestyServiceTwo
-} from '../misc-examples/components/dependency-injection/services/more-services.service';
+} from '../misc-examples/components/dependency-injection/injectables.service';
 import {ExternalLinksComponent} from './directives/external-links.component';
 
 /**

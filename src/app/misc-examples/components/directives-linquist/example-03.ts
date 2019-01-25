@@ -3,7 +3,7 @@ import {Component, Directive, HostBinding, HostListener, Injectable, Input, OnDe
 /**
  * TrackingService
  */
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class TrackingService {
   logs = [];
 
@@ -16,7 +16,7 @@ export class TrackingService {
 /**
  * OnlineService
  */
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class OnlineService {
   online = true;
   interval: any;

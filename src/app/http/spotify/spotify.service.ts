@@ -8,7 +8,7 @@ import {map} from 'rxjs/operators'
  * https://developer.spotify.com/web-api/
  */
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class SpotifyService {
   static BASE_URL: string = 'https://api.spotify.com/v1';
 

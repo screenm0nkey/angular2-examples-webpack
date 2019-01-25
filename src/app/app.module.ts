@@ -6,7 +6,7 @@ import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 // this is for the angular2 services example
-import {EngineService, SomeService} from './misc-examples/components/dependency-injection/services/some-service';
+import {EngineService, SomeService} from './misc-examples/components/dependency-injection/injectables.service';
 import {SharedModule} from './shared/shared.module';
 import {ComposeMessageComponent} from "./misc-mini-apps/auth/components/compose-message.component";
 
@@ -24,12 +24,12 @@ import {ComposeMessageComponent} from "./misc-mini-apps/auth/components/compose-
     // {provide: LocationStrategy, useClass: HashLocationStrategy},
     // loading dependencies example
     SomeService, // this is shorthand for provide(SomeService, {useClass : SomeService}),
-    {provide: 'whateverToken', useClass: SomeService}, // this is used by 'injecting-token.ts' component,
+    {provide: 'whateverToken', useClass: SomeService}, // this is used by 'injectables.component.ts' component,
     // this factory creates a new instance each time
     {
       provide: 'EngineService',
       useFactory: () => {
-        // this is used by 'injecting-token.ts' component,
+        // this is used by 'injectables.component.ts' component,
         return () => {
           return new EngineService();
         };

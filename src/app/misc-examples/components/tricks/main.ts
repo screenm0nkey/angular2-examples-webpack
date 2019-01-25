@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {RubbishService} from '../dependency-injection/services/some-service';
+import {RubbishService} from '../dependency-injection/injectables.service';
 
 @Component({
   selector: 'tracks-main-component',

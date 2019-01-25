@@ -10,7 +10,7 @@ export class Todo {
  * for the entire application, but providers at the component level result in new instances
  * at the component level.
  * */
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class Store {
   todos: Array<Todo> = [{someval: 'hellyeah'}];
 }

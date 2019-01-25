@@ -1,14 +1,21 @@
 import {NgModule} from '@angular/core';
 import {SharedModule} from '../../../shared/shared.module';
-import {DepInjectionComponent} from './main';
-import {ModulesComponent} from './modules';
-import {InjectComponent} from './injecting-token';
-import {DiSampleComponent} from './resolve-create-service';
-import {ParamService, RubbishService} from './services/some-service';
-import {ApiService, ViewPortService} from './services/more-services.service';
-import {DiSampleComponent2} from './resolve-create-factory';
+import {DepInjectionComponent} from './dependency.component';
+import {ModulesComponent} from './modules.component';
+import {InjectComponent} from './injectables.component';
+import {DiSampleComponent} from './resolve-create-service.component';
+import {
+  ApiService,
+  bloggerFactory,
+  BloggerService,
+  ParamService,
+  RubbishService,
+  ViewPortService
+} from './injectables.service';
+import {DiSampleComponent2} from './resolve-create-factory.component';
 import {InjectParentComponent, InjectParentInChildComponent} from './inject-parent-component';
 import {PipesComponent} from './pipes.component';
+import {ParentPersonComponent, PersonComponent} from "./control-lookup.component";
 
 // if we provide services in the module they will be globally available as all modules use the root injector.
 // http://blog.thoughtram.io/angular/2016/09/14/bypassing-providers-in-angular-2.html
@@ -23,7 +30,9 @@ import {PipesComponent} from './pipes.component';
     InjectParentComponent,
     InjectParentInChildComponent,
     ModulesComponent,
-    PipesComponent
+    PipesComponent,
+    PersonComponent,
+    ParentPersonComponent
   ],
   providers: [
     RubbishService,
@@ -35,7 +44,8 @@ import {PipesComponent} from './pipes.component';
     },
     ApiService,
     ViewPortService,
-    // useExisting https://blog.thoughtram.io/angular/2016/09/14/bypassing-providers-in-angular-2.html
+    // https://blog.thoughtram.io/angular/2016/09/14/bypassing-providers-in-angular-2.html
+    // https://egghead.io/lessons/angular-define-an-aliased-class-provider-in-angular
     {provide: 'ApiServiceAlias', useExisting: ApiService},
     {
       provide: 'SizeService',
@@ -43,6 +53,10 @@ import {PipesComponent} from './pipes.component';
         return viewport.determineService();
       },
       deps: [ViewPortService]
+    },
+    {
+      provide: BloggerService,
+      useFactory: bloggerFactory('AppModule')
     }
   ]
 })

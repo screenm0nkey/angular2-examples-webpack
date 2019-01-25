@@ -1,5 +1,6 @@
 <div class='comps'>
-<section>
+
+  <section>
     <p class="file">/misc-examples/components/dependecy-injection/dependency.html</p>
     <h4>Dependency Injection</h4>
     <p class="links">
@@ -33,8 +34,28 @@
       </a>
     </p>
 
-    <ul>
+    <section class="well">
+      <a href="https://blog.ninja-squad.com/2018/05/04/what-is-new-angular-6/" target="_blank">New to Ng6</a>
+      <p>There is now a new, recommended, way to register a provider, directly inside the <code>@Injectable()</code>
+        decorator, using
+        the
+        new providedIn attribute. It accepts 'root' as a value or any module of your application. When you use 'root',
+        your
+        injectable will be registered as a singleton in the application, and you don’t need to add it to the providers
+        of
+        the root module. Similarly, if you use <code>providedIn: UsersModule</code>, the injectable is registered as a
+        provider of the
+        UsersModule without adding it to the providers of the module.</p>
 
+      <code>
+        @Injectable(&#123;
+        providedIn: 'root'
+        &#125;)
+      </code>
+
+
+    </section>
+    <ul>
       <li>Every component comes with its own injector</li>
 
       <li>Providers are flattened, meaning that, if there are multiple providers with the same token, the
@@ -52,9 +73,9 @@
       </li>
 
       <li>If we provide services in a module they will be globally available as all modules use the root
-        injector. This is NOT the case with Lazy loaded modules. See <a routerLink="../modules"
-                                                                        routerLinkActive="active">Modules</a> for more
-        info
+        injector. This is NOT the case with Lazy loaded modules, who get their own injector.
+        See <a routerLink="../modules" routerLinkActive="active">Modules</a> for more info.
+        This can be avoided and a singleton can be created if you <code>forRoot()</code>
       </li>
       <li>
         When a module is loaded at application launch, its providers (services) have application-wide scope. They are
@@ -77,51 +98,92 @@
       </li>
 
       <li>A new injector has no providers. Each component has it's own injector or child-injector</li>
-
     </ul>
 
-    <p class="well">
+    <div class="well">
+      <h6>Create Multiple Angular Service Instances</h6>
+      <a href="https://egghead.io/lessons/angular-create-multiple-angular-service-instances" target="_blank">Egghead
+        Lesson</a>
+      <p>An Angular service registered on the NgModule is globally visible on the entire application.
+        Moreover it is a singleton instance, so every component that requires it via its constructor, will get the same
+        instance. However this is not always the desired behavior.
+        Rather you may like to get a fresh instance of a given service every time a component requests it.</p>
+      <p>To Accomplish that, provide the service directly in the component <code>providers: [PersonService]</code></p>
+    </div>
+
+    <section class="well">
+      <h6>Create a true singleton</h6>
+      <p>Multiple versions of the same injectable are possible, as it the case with 'MrTestyServiceTwo'
+        Because the service is injected via a lazy-loaded module it creates a new instance of the injectable,
+        even though it's already been injected in the /ngrx-queue.component.ts
+        <i>See the console.log 'Created an instance of MrTestyServiceTwo'</i></p>
+      <p>
+        1) there is only a single instance of MrTestyServiceOne being created but multiple MrTestyServiceTwo.
+        This is due to the way they are declared in the module src/app/shared/shared.module.ts
+        MrTestyServiceOne is configured using <code>forRoot</code>, which will only ever produce a single instance of
+        the
+        service.
+      </p>
+    </section>
+
+    <section class="well">
+      <h6>Define an Aliased Class Provider with useExisting.</h6>
+      <div class="links">
+        <a href="https://blog.thoughtram.io/angular/2016/09/14/bypassing-providers-in-angular-2.html" target="_blank">bypassing-providers-in-angular-2</a>
+        <a href="https://egghead.io/lessons/angular-define-an-aliased-class-provider-in-angular" target="_blank">Alias
+          classes</a>
+      </div>
+      <code>providers: [NewLoggerService,&#123; provide: LoggerService, useExisting: NewLoggerService &#125;]</code>
+      <p>useExisting is a bit different than the other provider strategies. It’s the only strategy that doesn’t actually
+        create an instance, but instead, it points to another token which in turn will create the instance.</p>
+    </section>
+
+    <section class="well">
       Take a look at the RubbishService. It is defined in the DependencyModule but it's used in both the <a
       routerLink="../tricks" routerLinkActive="active">Tricks</a> and
-      <a routerLink="../tips" routerLinkActive="active">Tips</a>Components but it is not declared in either of their modules.
-    </p>
+      <a routerLink="../tips" routerLinkActive="active">Tips</a>Components but it is not declared in either of their
+      modules.
+    </section>
 
     <p>
       Essentially lazy loading could trigger
       certain bugs related to services overriding each other in the global context
       that are hard to reproduce due to accidental overwrites of injectables.
       In order to avoid this this, angular will create a child dependency injection context.
-      This context will contain the service, but <strong>this service will not be visible to the rest of the application.</strong>
+      This context will contain the service, but <strong>this service will not be visible to the rest of the
+      application.</strong>
     </p>
 
+    <section class="well">
+      <h6>The DI in Angular 2 basically consists of three things:</h6>
+      <ul>
+        <li>
+          <span class="red">Injector</span> - The injector object that exposes APIs to allow us to create instances of
+          dependencies
+        </li>
+        <li><span class="red">Token</span> - -A token is the key in the key/value pair of a provider.
+          All Providers are flattened, meaning that, if there are multiple providers with the same token, the
+          last one wins. Use <code>InjectionToken</code> to void this
+        </li>
+        <li><span class="red">Provider</span> - A provider is a recipe for delivering a service associated with a
+          token. It tells the injector how to create an
+          instance of a dependency. A provider takes a token and maps that to a factory function that creates an object.
+        <li>
+          <span class="red">Dependency</span> - A dependency is the type of which an object should be created.
+        </li>
+      </ul>
 
-    <p class="title">The DI in Angular 2 basically consists of three things:</p>
-    <ul>
-      <li>
-        <span class="red">Injector</span> - The injector object that exposes APIs to allow us to create instances of
-        dependencies
-      </li>
-      <li><span class="red">Token</span> - -A token is the key in the key/value pair of a provider.
-        All Providers are flattened, meaning that, if there are multiple providers with the same token, the
-        last one wins. Use <code>InjectionToken</code> to void this
-      </li>
-      <li><span class="red">Provider</span> - A provider is a recipe for delivering a service associated with a
-        token. It tells the injector how to create an
-        instance of a dependency. A provider takes a token and maps that to a factory function that creates an object.
-      <li>
-        <span class="red">Dependency</span> - A dependency is the type of which an object should be created.
-      </li>
-    </ul>
+    </section>
 
     <p class="code-example">We get a service from a dependency injector by giving it a token. <br>In the example below
       Angular asks the
       injector for
       the service associated
       with the token called "LoggerService" and assigns the returned value
-      to the logger parameter.</p>
+      to the loggerFactory parameter.</p>
 
-    <code>constructor(logger: LoggerService) &#123;
-      logger.logInfo('Creating HeroBiosComponent');
+    <code>constructor(loggerFactory: LoggerService) &#123;
+      loggerFactory.logInfo('Creating HeroBiosComponent');
       &#125;</code>
 
 
@@ -136,20 +198,44 @@
     <p><strong>Set the "useValue" property to a fixed value that the provider can return as the dependency
       object.</strong></p>
 
-  <code> providers: [&#123;provide: 'URL', useValue: 'https://swapi.co/api'&#125;]</code>
+    <code> providers: [&#123;provide: 'URL', useValue: 'https://swapi.co/api'&#125;]</code>
 
-      <p>Use this technique to provide runtime configuration constants such as web-site
+    <p>Use this technique to provide runtime configuration constants such as web-site
       base addresses and feature flags. We often use a value provider in a unit test
       to replace a production service with a fake or mock.</p>
-</section>
 
-<inject-component></inject-component>
+    <section class="well">
+      <h6>Element Injectors</h6>
+      <p>Angular resolves dependencies in 3 stages starting with the hierarchy of element injectors and moving up to
+        component injectors and then module injectors.</p>
 
-<inject-parent-component></inject-parent-component>
+      <p>The last two stages of the resolution process that goes upwards through module and component injectors.
+        Angular creates a hierarchy of module injectors when you lazy load a module. The hierarchy of component
+        injectors
+        is created by nesting components in templates. Internally, <strong>component injectors are also referred to as
+          View
+          Injectors</strong></p>
+      <p>A hierarchy of element injectors, on the other hand, is a lesser-known feature of Angular’s DI system mostly
+        because it’s not really documented anywhere. But exactly this kind of injectors is the first stage of the DI
+        resolution process. And these injectors make up a hierarchy that is used to resolve dependencies decorated with
+        the <code>@Host</code> decorator. </p>
+      <a
+        href="https://blog.angularindepth.com/a-curios-case-of-the-host-decorator-and-element-injectors-in-angular-582562abcf0a"
+        target="_blank">
+        Indepth guide to @Host
+      </a>
+    </section>
+  </section>
 
-<resolve-create-service></resolve-create-service>
+  <app-person-parent></app-person-parent>
 
-<resolve-create-factory></resolve-create-factory>
+  <inject-component></inject-component>
+
+  <inject-parent-component></inject-parent-component>
+
+  <resolve-create-service></resolve-create-service>
+
+  <resolve-create-factory></resolve-create-factory>
 </div>
 
 

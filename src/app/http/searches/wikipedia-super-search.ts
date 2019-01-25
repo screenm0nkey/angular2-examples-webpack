@@ -5,7 +5,7 @@ import {FormControl} from '@angular/forms';
 import {WikiSearchService} from './wikipedia-search.service';
 import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 class WikipediaService2 {
   constructor(private http: HttpClient, private wikiSearch: WikiSearchService) {
   }

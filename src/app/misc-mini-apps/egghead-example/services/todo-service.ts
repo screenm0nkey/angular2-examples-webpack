@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {TodoModel} from './todo-model';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class TodoService {
   todos: TodoModel[] = [
     new TodoModel('eat'),

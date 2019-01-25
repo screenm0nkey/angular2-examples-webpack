@@ -7,7 +7,7 @@ export interface Character {
   name: string;
 }
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class CharacterService {
   characters$: Observable<Character[]>;
 

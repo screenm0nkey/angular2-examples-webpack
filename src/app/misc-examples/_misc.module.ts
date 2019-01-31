@@ -15,7 +15,7 @@ import {InputBindingModule} from './components/input-binding/inputbinding.module
 import {MultiContentModule} from './components/multi-content/multicontent.module';
 import {NgStyleModule} from './components/ng-style/ngstyle.module';
 import {NgZoneModule} from './components/ng-zone/ngzone.module';
-import {NotifcationModule} from './components/notifications/main.module';
+import {NotifcationModule} from './components/notifications/_notifications.module';
 import {TemplatesModule} from './components/template-directives/templates.module';
 import {ChangedAfterModule} from './components/changed-after-check/_main.module';
 import {TipsModule} from './components/tips/tips.module';

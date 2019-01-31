@@ -52,12 +52,14 @@ export class ChatRoom {
 @Component({
   selector: "socket-io-app",
   providers: [ChatRoom, {provide: "io", useValue: io}],
-  styles: [`* {font-family: Monaco, Consolas;}`],
+  styles: [`h6 {font-family: Monaco, Consolas;}`],
   template: `
     <section>
       <p class="path">misc-examples/components/notifications/socket-component.ts</p>
-      <h4>{{(chatRoom.connected$ | async) ? "Connected!" : "Disconnected."}}</h4>
-      <h4>{{!(chatRoom.connected$ | async) && "Connecting..."}}</h4>
+      <h4>socket.io</h4>
+      
+      <h6>{{(chatRoom.connected$ | async) ? "Connected!" : "Disconnected."}}</h6>
+      <h6>{{!(chatRoom.connected$ | async) && "Connecting..."}}</h6>
       
       <a href="http://plnkr.co/edit/tqZFewX5ZdUYyxDp9LFO?p=preview" target="_blank">Original plunk</a>
       

@@ -68,7 +68,7 @@ export class PersonComponent implements OnInit {
   providers: [
     {
       provide: BloggerService,
-      useFactory: bloggerFactory('AppComponent')
+      useFactory: bloggerFactory('Ng6SocketAppComponent')
     }
   ]
 })

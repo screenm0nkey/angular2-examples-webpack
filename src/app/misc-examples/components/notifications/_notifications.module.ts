@@ -1,11 +1,12 @@
 import {NgModule} from '@angular/core';
-import {SocketIoConfig, SocketIoModule} from 'ng6-socket-io';
+import {SocketIoConfig, SocketIoModule} from 'ngx-socket-io';
 import {SharedModule} from '../../../shared/shared.module';
 import {AppComponent} from './main.component';
 import {PushNotificationComponent} from './notification.component';
-import {SocketApp} from './socket-component';
+import {Ng6SocketAppComponent} from "./ng6-socket-app.component";
+import {ChatService} from "./chat.service";
 
-const config: SocketIoConfig = { url: 'https://socket-chat-example-qsaokhakmv.now.sh', options: {} };
+const config: SocketIoConfig = {url: 'http://localhost:1970', options: {}};
 
 @NgModule({
   imports: [
@@ -15,8 +16,9 @@ const config: SocketIoConfig = { url: 'https://socket-chat-example-qsaokhakmv.no
   declarations: [
     AppComponent,
     PushNotificationComponent,
-    SocketApp
+    Ng6SocketAppComponent
   ],
+  providers: [ChatService]
 })
 export class NotifcationModule {
 }

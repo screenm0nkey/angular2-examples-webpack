@@ -5,7 +5,7 @@ import {Component} from '@angular/core';
   styleUrls: ['./main.css'],
   template: `
     <div  class='comps'>
-      <socket-io-app></socket-io-app>
+      <ngx-socket-example></ngx-socket-example>
       
       <section>
         <h4>{{ description }}</h4>

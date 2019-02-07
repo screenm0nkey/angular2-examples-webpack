@@ -7,7 +7,7 @@ import {Message, User} from '../models';
   selector: 'chat-message',
   template: `
   <div class='msg-container' [ngClass]="{'base-sent': !incoming, 'base-receive': incoming}">
-     <p class='path'>src/app/chat-app/ts/components/ChatMessage.ts</p>
+     <p class='path'>chat-app/ts/components/ChatMessage.ts</p>
     <div class='avatar' *ngIf='!incoming'>
       <img src='{{message.author.avatarSrc}}'>
     </div>

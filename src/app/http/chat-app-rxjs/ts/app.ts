@@ -5,7 +5,7 @@ import {ChatExampleData} from './ChatExampleData';
 @Component({
   selector: 'chat-app',
   template: `
-    <p class='path'>src/app/chat-app/ts/app.ts</p>
+    <p class='path'>chat-app/ts/app.ts</p>
     <nav-bar></nav-bar>
     <div class='special'>
       <chat-threads></chat-threads>

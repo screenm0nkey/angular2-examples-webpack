@@ -7,21 +7,22 @@ import "rxjs/add/operator/takeUntil";
 import "rxjs/add/observable/interval";
 import {Injectable} from "@angular/core";
 import {Actions, Effect} from "@ngrx/effects";
-import {Observable} from "rxjs";
+import {interval} from "rxjs";
 import {ADD_TO_QUEUE, GROW_QUEUE} from "../actions";
 import {AddUnitAction, Unit} from "./ngrx-queue.component";
+import {map, mapTo, mergeMap} from "rxjs/operators";
 
 @Injectable({providedIn: 'root'})
 export class UnitEffects {
-  constructor(private actions$: Actions) {}
+  constructor(private actions$: Actions) {
+  }
 
   @Effect()
   growUnit$ = this.actions$
     .ofType(ADD_TO_QUEUE)
-    .map((action: AddUnitAction) => action.payload)
-    .mergeMap((unit: Unit) => {
-      return Observable
-        .interval(Math.random() * 250 + 100)
-        .mapTo({type: GROW_QUEUE, payload: unit.id});
-    });
+    .pipe(map((action: AddUnitAction) => action.payload))
+    .pipe(mergeMap((unit: Unit) => {
+      return interval(Math.random() * 250 + 100)
+        .pipe(mapTo({type: GROW_QUEUE, payload: unit.id}));
+    }));
 }

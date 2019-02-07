@@ -8,7 +8,7 @@ import {combineLatest} from 'rxjs';
   selector: 'nav-bar',
   template: `
     <div>
-      <p class='path'>src/app/chat-app/ts/components/ChatNavBar.ts</p>
+      <p class='path'>chat-app/ts/components/ChatNavBar.ts</p>
       <button class='btn btn-primary' type='button'>
         Messages <span class='badge'>{{unreadMessagesCount}}</span>
       </button>

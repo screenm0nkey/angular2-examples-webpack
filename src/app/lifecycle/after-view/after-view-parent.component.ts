@@ -6,7 +6,7 @@ import {LoggerService} from '../logger.service';
   template: `
     <div class='comps'>
       <div class='parent'>
-        <p class='path'>src/app/lifecycle/after-view/after-view-parent.component.ts</p>
+        <p class='path'>lifecycle/after-view/after-view-parent.component.ts</p>
         <h4>AfterViewChecked, AfterViewInit</h4>
         <a href='https://angular.io/docs/ts/latest/guide/lifecycle-hooks.html#!#afterview' target='_blank'>Docs</a>
     

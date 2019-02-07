@@ -7,7 +7,7 @@ import {Thread} from '../models';
   selector: 'chat-thread',
   template: `
   <div class='media conversation' (click)='clicked($event)'>
-    <p class='path'>src/app/chat-app/ts/components/ChatThread.ts</p>
+    <p class='path'>chat-app/ts/components/ChatThread.ts</p>
     <div class='pull-left'>
       <img class='media-object avatar' 
            src='{{thread.avatarSrc}}'>

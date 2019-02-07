@@ -10,7 +10,7 @@ import {Message, Thread, User} from '../models';
   template: `
     <div class='chat-window-container' style='border: solid 5px red;'>
       <div class='chat-window'>
-      <p class='path'>src/app/chat-app/ts/components/ChatWindow.ts</p>
+      <p class='path'>chat-app/ts/components/ChatWindow.ts</p>
         <div class='panel-container'>
           <div class='panel panel-default'>
 

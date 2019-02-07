@@ -88,7 +88,7 @@ export class TrackDirective {
   selector: 'track-app',
   styleUrls: ['./styles.css'],
   template: `
-    <p class='path'>src/app/misc-examples/components/directives-linquist/example-03</p>
+    <p class='path'>misc-examples/components/directives-linquist/example-03</p>
     <h4>Combine Directive @HostBinding with Services</h4>
     
     <button online [track]="'1 Button'">One</button>

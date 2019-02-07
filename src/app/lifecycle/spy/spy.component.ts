@@ -7,7 +7,7 @@ import {LoggerService} from '../logger.service';
     `
   <div class='comps'>
     <div class='parent'>
-      <p class='path'>src/app/lifecycle/spy/spy.component.ts</p>
+      <p class='path'>lifecycle/spy/spy.component.ts</p>
       <h4>Spy Directive</h4>
       <p>
         <strong>Directives have lifecycle hooks too</strong>. We create a SpyDirective that logs when

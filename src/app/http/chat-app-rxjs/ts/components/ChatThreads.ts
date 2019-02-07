@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class='row'>
-      <p class='path'>src/app/chat-app/ts/components/ChatThreads.ts</p>
+      <p class='path'>chat-app/ts/components/ChatThreads.ts</p>
       <div class='conversation-wrap'>
         <chat-thread
              *ngFor='let thread of threads | async' [thread]='thread'>

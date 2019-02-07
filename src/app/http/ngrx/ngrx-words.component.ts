@@ -3,6 +3,7 @@ import {Store} from '@ngrx/store';
 import {interval, Observable} from 'rxjs';
 import 'rxjs/add/observable/interval';
 import 'rxjs/add/operator/mapTo';
+import {mapTo} from "rxjs/operators";
 
 
 @Component({
@@ -19,7 +20,7 @@ import 'rxjs/add/operator/mapTo';
   `
 })
 export class NgrxWordsComponent implements OnInit {
-  private word$: Observable<string>;
+  public word$: Observable<string>;
   public interval$: Observable<string>;
 
   constructor(private store: Store<string>) {
@@ -27,7 +28,7 @@ export class NgrxWordsComponent implements OnInit {
 
   ngOnInit() {
     this.word$ = this.store.select('wordsReducer');
-    this.interval$ = interval(500).mapTo('random');
+    this.interval$ = interval(500).pipe(mapTo('random'));
   }
 
   dispatch(type) {

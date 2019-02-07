@@ -5,7 +5,7 @@ import {ChatService} from "./chat.service";
 @Component({
   selector: 'ngx-socket-example',
   template: `
-    <p class="path">src/app/misc-examples/components/notifications/ng6-socket-app.component.ts</p>
+    <p class="path">misc-examples/components/notifications/ng6-socket-app.component.ts</p>
     <h4>Single Socket</h4>
     
     <div>

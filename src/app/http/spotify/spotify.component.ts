@@ -4,7 +4,7 @@ import {Component} from '@angular/core';
   template: `
     <div class='comps'>
      <div class='spotify-component'>
-     <p class='path'>src/app/http-rxjs/spotify/spotify.component.ts</p>
+     <p class='path'>http-rxjs/spotify/spotify.component.ts</p>
          <h4>Spotify</h4>
         <router-outlet></router-outlet>
     </div>

@@ -1,6 +1,7 @@
 import {Socket} from 'ngx-socket-io';
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
+import {merge, Observable} from "rxjs";
+import {map, mapTo, scan, startWith} from "rxjs/operators";
 
 export interface SocketMessage {
   msg: string;
@@ -9,22 +10,24 @@ export interface SocketMessage {
 @Injectable()
 export class ChatService {
 
-  public connected$ : Observable<boolean>;
-  public message$ : Observable<string>;
-  public messages$ : any;
+  public connected$: Observable<boolean>;
+  public message$: Observable<string>;
+  public messages$: any;
 
   constructor(private socket$: Socket) {
     const disconnect$ = this.socket$.fromEvent("disconnect");
     const connect$ = this.socket$.fromEvent("connect");
-    this.connected$ = Observable.merge(connect$.mapTo(true), disconnect$.mapTo(false));
+    this.connected$ = merge(connect$.pipe(mapTo(true)), disconnect$.pipe(mapTo(false)));
 
     this.message$ = this.socket$
       .fromEvent("msg")
-      .map((data: SocketMessage) => data.msg);
+      .pipe(map((data: SocketMessage) => data.msg));
 
-    this.messages$ = this.message$.startWith([]).scan((acc:string[], curr:string) => {
-      return [...acc, curr];
-    });
+    this.messages$ = this.message$
+      .pipe(startWith([]))
+      .pipe(scan((acc: string[], curr: string) => {
+        return [...acc, curr];
+      }));
   }
 
   sendMessage(msg: string) {
@@ -34,6 +37,6 @@ export class ChatService {
   getMessage() {
     return this.socket$
       .fromEvent("msg")
-      .map((data: SocketMessage) => data.msg);
+      .pipe(map((data: SocketMessage) => data.msg));
   }
 }

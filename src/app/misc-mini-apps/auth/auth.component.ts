@@ -15,7 +15,7 @@ import {ActivatedRoute, Router} from '@angular/router';
     </nav>
     <div class='comps'>
     <div id='container'>
-    <p class='path'>src/app/misc-mini-apps/auth/auth.component.ts</p>
+    <p class='path'>misc-mini-apps/auth/auth.component.ts</p>
       <h4>Routing Example</h4>
       <login-component></login-component>
       <section style='border:solid 5px lime'>

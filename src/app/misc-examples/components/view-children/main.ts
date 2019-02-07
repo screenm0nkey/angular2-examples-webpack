@@ -4,7 +4,7 @@ import {Component} from '@angular/core';
   template: `
     <div class='comps'>
       <div class='info'>
-        <p class='file'>src/app/misc-examples/components/view-children/main.ts</p>
+        <p class='file'>misc-examples/components/view-children/main.ts</p>
         <div class='links'>
           <a routerLink='/misc/input-binding'>Access a child component from the parent using local variable</a>
           <a routerLink='/misc/directives'>Linquists directive examples 6,7 and 8 have good @viewChild uses.</a>

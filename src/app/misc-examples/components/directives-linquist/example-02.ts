@@ -33,7 +33,7 @@ export class Example02BasicComponent {
   selector: 'example-02',
   styles: ['basic-02 {cursor: pointer; text-decoration:underline}'],
   template: `
-    <p class='path'>src/app/misc-examples/components/directives-linquist/example-02</p>
+    <p class='path'>misc-examples/components/directives-linquist/example-02</p>
     <h4>Combining directives</h4>
     <p>Click the text below</p>
     <basic-02 [second]="'Something'"></basic-02>

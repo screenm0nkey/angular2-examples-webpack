@@ -1,18 +1,8 @@
 import {Store} from "@ngrx/store";
 import {Component} from "@angular/core";
 import {ADD_TO_QUEUE} from "../actions";
-import "rxjs/add/operator/filter";
-import "rxjs/add/operator/switchMap";
-import "rxjs/add/operator/switchMapTo";
-import "rxjs/add/operator/mapTo";
-import "rxjs/add/operator/map";
-import "rxjs/add/operator/do";
-import "rxjs/add/operator/takeUntil";
-import "rxjs/add/operator/mergeMap";
-import "rxjs/add/operator/distinctUntilKeyChanged";
-import "rxjs/add/observable/interval";
-import "rxjs/add/observable/from";
 import {Observable} from "rxjs/internal/Observable";
+import {map} from "rxjs/operators";
 
 export interface Unit {
   id: number;
@@ -43,7 +33,7 @@ const createUnit = (health = 0): Unit => ({
   `
   ],
   template: `
-    <p class="file">src/app/http-rxjs/ngrx/ngrx-queue/app.component.ts</p>
+    <p class="file">http/ngrx/ngrx-queue/ngrx-queue.component.ts</p>
     <h4>NgRx Queue</h4>
     <a href="http://plnkr.co/edit/E57afQC5zwSQFt2oH5Z0?p=preview" target="_blank">Plunk</a>
     
@@ -68,10 +58,10 @@ export class NgrxQueueComponent {
 
   constructor(public store: Store<any>) {
     this.unitsInProgress$ = this.store.select("queueReducer")
-      .map((queue: Unit[]) => queue.filter(u => !u.completed));
+      .pipe(map((queue: Unit[]) => queue.filter(u => !u.completed)));
 
     this.unitsReady$ = this.store.select("queueReducer")
-      .map((queue: Unit[]) => queue.filter(u => u.completed));
+      .pipe(map((queue: Unit[]) => queue.filter(u => u.completed)));
   }
 
   onClick() {

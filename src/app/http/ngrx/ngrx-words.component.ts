@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {interval, Observable} from 'rxjs';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/mapTo';
+
+
 import {mapTo} from "rxjs/operators";
 
 

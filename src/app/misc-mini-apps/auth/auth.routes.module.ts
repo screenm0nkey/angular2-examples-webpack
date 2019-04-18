@@ -38,7 +38,7 @@ const formsRoutes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(formsRoutes)],
-  providers: [UserCanDeactivate, LoggedInGuard]
+  providers: []
 })
 export class AuthRoutingModule {
 }

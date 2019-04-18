@@ -6,6 +6,8 @@ import {TodoInput} from './components/new-todo-input';
 import {TodoList} from './components/todo-list';
 import {StatusSelector} from './components/status-selector';
 import {TodoItem} from './components/todo-item.component';
+import {SearchPipe} from "./pipes/search-pipe";
+import {StartedPipe} from "./pipes/started-pipe";
 
 @NgModule({
   imports: [SharedModule],
@@ -15,10 +17,12 @@ import {TodoItem} from './components/todo-item.component';
     TodoList,
     StatusSelector,
     SearchBox,
-    TodoItem
+    TodoItem,
+    SearchPipe,
+    StartedPipe
   ]
 })
-export class EggheadExamplesModule {
+export class EggheadMiniAppModule {
 }
 
 export {EggheadAppComponent};

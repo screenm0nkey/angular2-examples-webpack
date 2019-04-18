@@ -1,5 +1,5 @@
 import {Pipe, PipeTransform} from '@angular/core';
-import {TodoModel} from '../../misc-mini-apps/egghead-example/services/todo-model';
+import {TodoModel} from "../services/todo-model";
 
 @Pipe({name: 'searchPipe'})
 export class SearchPipe implements PipeTransform {

@@ -3,9 +3,7 @@ import {SharedModule} from '../../shared/shared.module';
 import {CustomersComponent} from './customer-app.component';
 import {CustomerDetailComponent} from './customer-detail.component';
 import {FilterTextComponent} from './filter-textbox.component';
-import {Sorter} from './services/sorter.service';
 import {SortByDirective} from './directives/sortby.directive';
-import {CustomersDataService} from './services/data.service';
 import {XLargeDirective} from './directives/x-large.directive';
 
 @NgModule({
@@ -17,7 +15,7 @@ import {XLargeDirective} from './directives/x-large.directive';
     SortByDirective,
     XLargeDirective
   ],
-  providers: [CustomersDataService, Sorter]
+  providers: []
 })
 export class CustomersModule {
 }

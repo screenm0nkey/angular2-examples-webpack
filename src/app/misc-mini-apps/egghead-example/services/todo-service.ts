@@ -1,20 +1,20 @@
 import {Injectable} from '@angular/core';
-import {TodoModel} from './todo-model';
+import {COMPLETED, STARTED, TodoModel} from './todo-model';
 
 @Injectable({providedIn: 'root'})
 export class TodoService {
   todos: TodoModel[] = [
     new TodoModel('eat'),
     new TodoModel('sleep'),
-    new TodoModel('dance', 'completed'),
+    new TodoModel('dance', COMPLETED),
     new TodoModel('party'),
     new TodoModel('work'),
     new TodoModel('play'),
-    new TodoModel('record', 'completed'),
+    new TodoModel('record', COMPLETED),
     new TodoModel('earn'),
-    new TodoModel('charm', 'completed'),
+    new TodoModel('charm', COMPLETED),
     new TodoModel('exercise'),
-    new TodoModel('swim', 'completed'),
+    new TodoModel('swim', COMPLETED),
     new TodoModel('code')
   ];
 
@@ -24,7 +24,7 @@ export class TodoService {
 
   toggleTodo(todo: TodoModel) {
     const i = this.todos.indexOf(todo);
-    const status = todo.status == 'started' ? 'completed' : 'started';
+    const status = todo.status == STARTED ? COMPLETED : STARTED;
     const toggledTodo = (<any>Object).assign({}, todo, {status});
 
     this.todos = [

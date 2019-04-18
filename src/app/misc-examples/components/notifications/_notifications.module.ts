@@ -4,7 +4,6 @@ import {SharedModule} from '../../../shared/shared.module';
 import {AppComponent} from './main.component';
 import {PushNotificationComponent} from './notification.component';
 import {Ng6SocketAppComponent} from "./ng6-socket-app.component";
-import {ChatService} from "./chat.service";
 
 const config: SocketIoConfig = {url: 'http://localhost:1970', options: {}};
 
@@ -18,7 +17,7 @@ const config: SocketIoConfig = {url: 'http://localhost:1970', options: {}};
     PushNotificationComponent,
     Ng6SocketAppComponent
   ],
-  providers: [ChatService]
+  providers: []
 })
 export class NotifcationModule {
 }

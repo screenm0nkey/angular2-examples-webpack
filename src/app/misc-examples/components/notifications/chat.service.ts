@@ -7,7 +7,7 @@ export interface SocketMessage {
   msg: string;
 }
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class ChatService {
 
   public connected$: Observable<boolean>;

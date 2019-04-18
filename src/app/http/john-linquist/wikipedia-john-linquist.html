@@ -23,7 +23,7 @@
   <span style="color: red">{{(searchTerm$ | async)}}</span>
 
   <h3>{{imageCount$ | async}} results</h3>
-  <div class="container">
+  <div class="ngx-container">
     <a *ngFor="let image of images$ | async" [href]="image.descriptionurl" [title]="image.title">
       <img [src]="image.url" alt="">
     </a>

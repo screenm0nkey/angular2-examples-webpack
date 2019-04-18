@@ -3,16 +3,7 @@ import {Component} from "@angular/core";
 import {ADD_TO_QUEUE} from "../actions";
 import {Observable} from "rxjs/internal/Observable";
 import {map} from "rxjs/operators";
-
-export interface Unit {
-  id: number;
-  health: number;
-  completed: boolean;
-}
-export interface AddUnitAction {
-  type: string;
-  payload : Unit
-}
+import {MyNgRxStore, Unit} from "../reducers/_reducers.service";
 
 let id = 0;
 let next = () => ++id;
@@ -56,7 +47,7 @@ export class NgrxQueueComponent {
   unitsInProgress$: Observable<Unit[]>;
   unitsReady$: Observable<Unit[]>;
 
-  constructor(public store: Store<any>) {
+  constructor(public store: Store<MyNgRxStore>) {
     this.unitsInProgress$ = this.store.select("queueReducer")
       .pipe(map((queue: Unit[]) => queue.filter(u => !u.completed)));
 

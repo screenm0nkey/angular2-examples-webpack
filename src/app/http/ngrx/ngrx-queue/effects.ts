@@ -3,8 +3,8 @@ import {Injectable} from "@angular/core";
 import {Actions, Effect, ofType} from "@ngrx/effects";
 import {interval} from "rxjs";
 import {ADD_TO_QUEUE, GROW_QUEUE} from "../actions";
-import {AddUnitAction, Unit} from "./ngrx-queue.component";
 import {map, mapTo, mergeMap} from "rxjs/operators";
+import {AddUnitAction, Unit} from "../reducers/_reducers.service";
 
 @Injectable({providedIn: 'root'})
 export class UnitEffects {

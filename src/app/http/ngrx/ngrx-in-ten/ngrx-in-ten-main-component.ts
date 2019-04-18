@@ -2,13 +2,7 @@ import {Component} from "@angular/core";
 import {Store} from "@ngrx/store";
 import {combineLatest, map} from "rxjs/operators";
 import {Observable} from 'rxjs';
-
-interface PersonAction {
-  id: number;
-  name: string;
-  guests: number;
-  attending: boolean;
-}
+import {MyNgRxStore, PersonAction} from "../reducers/_reducers.service";
 
 @Component({
   selector: "ngrx-in-ten",
@@ -31,7 +25,7 @@ interface PersonAction {
 export class NgrxInTenMainComponent {
   public peoples$: Observable<PersonAction[]>;
 
-  constructor(private store: Store<any>) {
+  constructor(private store: Store<MyNgRxStore>) {
     this.peoples$ = store
       .select("peopleReducer")
       .pipe(combineLatest(store.select("filterReducer")))

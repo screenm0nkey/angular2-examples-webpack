@@ -13,7 +13,7 @@ import {Component} from '@angular/core';
                 <a routerLink='./after-view' routerLinkActive='active'>AfterView</a>
                 <a routerLink='./after-content' routerLinkActive='active'>AfterContent</a>
             </nav>
-            <div id='container'>
+            <div class="ngx-container">
                 <router-outlet></router-outlet>
             </div>
         </div>   

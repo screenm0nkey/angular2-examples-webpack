@@ -13,7 +13,6 @@ import {LocalRefSearch} from './local-ref-search';
 import {RedditExample} from './reddit';
 import {NgBookYoutubeExample, NgBookYoutubeSearch} from './youtube-ng2-book';
 import {YoutubeResultComponent} from './youtube-helpers/youtube-result-component';
-import {YoutubeService} from './youtube-helpers/youtube-service';
 
 @NgModule({
   imports: [SharedModule],
@@ -32,7 +31,7 @@ import {YoutubeService} from './youtube-helpers/youtube-service';
     NgBookYoutubeSearch,
     YoutubeResultComponent
   ],
-  providers: [YoutubeService]
+  providers: []
 })
 export class SearchesModule {
 }

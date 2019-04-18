@@ -12,25 +12,25 @@ import {SpotifyService} from '../spotify.service';
 @Component({
   selector: 'album$',
   template: `
-  <div *ngIf='(album$ | async)?.name'>
-    <h1>{{ (album$ | async)?.name }}</h1>
-    <h2>{{ (album$ | async)?.artists[0].name }}</h2>
+    <div *ngIf='(album$ | async)?.name'>
+      <h1>{{ (album$ | async)?.name }}</h1>
+      <h2>{{ (album$ | async)?.artists[0].name }}</h2>
 
-    <p>
-      <img src='{{ (album$ | async)?.images[1].url }}'>
-    </p>
+      <p>
+        <img src='{{ (album$ | async)?.images[1].url }}'>
+      </p>
 
-    <h3>Tracks</h3>
-    <ol>
-      <li *ngFor='let t of (album$ | async)?.tracks.items'>
-        <a [routerLink]="['/httprx','spotify', 'tracks', t.id]">
-          {{ t.name }}
-        </a>
-      </li>
-    </ol>
+      <h3>Tracks</h3>
+      <ol>
+        <li *ngFor='let t of (album$ | async)?.tracks.items'>
+          <a [routerLink]="['/httprx','spotify', 'tracks', t.id]">
+            {{ t.name }}
+          </a>
+        </li>
+      </ol>
 
-    <p><a href (click)='back()'>Back</a></p>
-  </div>
+      <p><a href (click)='back()'>Back</a></p>
+    </div>
   `
 })
 export class AlbumComponent implements OnInit {

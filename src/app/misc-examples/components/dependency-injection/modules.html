@@ -103,23 +103,6 @@
       </li>
     </ul>
 
-    <p class="code-example">The code below <strong>allows SharedModule to be loaded into lazy loaded without a new
-      instance of it's services, in this case MrTestyServiceOne, being created</strong>. It will be instantiated only
-      once. This is due to
-      MrTestyServiceOne being removed from the providers array. This means that when we import this module we will no
-      longer create a
-      duplicate service instance.
-    </p>
-
-    <code>export class SharedModule &#123;
-      public static forRoot(): ModuleWithProviders &#123;
-      return &#123;
-      ngModule: SharedModule,
-      providers: [MrTestyServiceOne]
-      };
-      }
-      }</code>
-
     <p>
       <span class="title">When to use <code>forRoot()</code>: ModuleWithProviders</span>
       When lazy-loading an NgModule during routing, the providers registered in the lazy-loaded NgModule and its

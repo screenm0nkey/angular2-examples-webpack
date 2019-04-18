@@ -20,9 +20,9 @@ let store: Store<AppState> = createStore<AppState>(reducer, compose(devtools));
 @Component({
   selector: 'chat-app-redux',
   template: `
-  <div class='comps'>
-    <chat-page></chat-page>
-  </div>
+    <div class='comps'>
+      <chat-page></chat-page>
+    </div>
   `
 })
 export class ReduxChatAppComponent {

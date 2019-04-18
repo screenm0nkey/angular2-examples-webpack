@@ -1,3 +1,6 @@
+/**
+ * This file is longer necessary as we're using providedIn to
+ */
 import {messagesService} from './MessagesService';
 import {threadsService} from './ThreadsService';
 import {userService} from './UserService';

@@ -7,7 +7,7 @@ import {ComposeMessageComponent} from "./misc-mini-apps/auth/components/compose-
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: 'httprx',
+    redirectTo: 'misc',
     pathMatch: 'full'
   },
   {
@@ -49,7 +49,7 @@ const appRoutes: Routes = [
       preloadingStrategy: SelectivePreloadingStrategy
     })
   ],
-  providers: [SelectivePreloadingStrategy],
+  providers: [],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

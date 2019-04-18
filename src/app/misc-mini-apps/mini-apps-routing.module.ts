@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {EggheadAppComponent} from './egghead-example/egghead.module';
+import {EggheadAppComponent} from './egghead-example/main';
 import {MiniAppsComponent} from './mini-apps.component';
 import {CustomerDetailComponent, CustomersComponent} from './customers/customers.module';
 import {ReduxChatAppComponent} from './chat-app-redux/ts/app.module';

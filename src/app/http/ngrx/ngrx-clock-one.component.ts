@@ -2,7 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {interval, merge, Observable, Subject} from "rxjs";
 import {Store} from "@ngrx/store";
 import {DAY_TICK, HOUR_TICK, SECOND_TICK} from "./actions";
-import {MyAction} from "./reducers/_reducers.service";
+import {MyAction, MyNgRxStore} from "./reducers/_reducers.service";
 import {mapTo} from "rxjs/operators";
 
 /**
@@ -34,7 +34,7 @@ export class NgRxClockOneComponent implements OnInit {
   dayForward$: Subject<MyAction>;
   merged$: Observable<MyAction>;
 
-  constructor(private store: Store<any>) {
+  constructor(private store: Store<MyNgRxStore>) {
   }
 
   ngOnInit() {

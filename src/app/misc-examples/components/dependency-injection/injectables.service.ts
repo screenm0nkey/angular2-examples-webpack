@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 
 //private
-@Injectable()
+@Injectable({providedIn: 'root'})
 class _SmallService {
   run(): string {
     console.log('Small service...');
@@ -9,14 +9,16 @@ class _SmallService {
   }
 }
 
+
 //private
-@Injectable()
+@Injectable({providedIn: 'root'})
 class _LargeService {
   run(): string {
     console.log('Large service...');
     return 'Large service...';
   }
 }
+
 
 @Injectable({providedIn: 'root'})
 export class ViewPortService {
@@ -31,6 +33,7 @@ export class ViewPortService {
     return new _LargeService();
   }
 }
+
 
 @Injectable({providedIn: 'root'})
 export class ApiService {
@@ -63,6 +66,7 @@ export class MrTestyServiceTwo {
 @Injectable({providedIn: 'root'})
 export class SomeService {
   static counter: number = 0;
+
   callMe(s: String) {
     console.log(
       `%cSomeService instance-id=${++SomeService.counter}`, 'color:green', s);
@@ -72,6 +76,7 @@ export class SomeService {
 @Injectable({providedIn: 'root'})
 export class EngineService {
   static counter: number = 0;
+
   callMe(s: String) {
     console.log(`%cEngineService instance-id=${++SomeService.counter}`, 'color:orange', s);
   }
@@ -82,6 +87,7 @@ export class ParamService {
   constructor(private phrase: string, num: number) {
     console.log('%cParamService is being created with phrase', 'color:violet', phrase, num);
   }
+
   getValue(): string {
     return this.phrase;
   }
@@ -92,25 +98,28 @@ export class RubbishService {
   static counter: number = 0;
   imANumber: number = 11;
   imAString = 'hello';
+
   constructor() {
     console.log(`%cRubbishService instance-id=${++RubbishService.counter}`, 'color:yellow');
   }
 }
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class ConsoleWriter {
   public write(msg: string) {
     console.log(msg);
   }
 }
 
-export const loggerFactory = (writer: ConsoleWriter):LoggerService => {
+export const loggerFactory = (writer: ConsoleWriter): LoggerService => {
   return new LoggerService(true, writer);
 };
-@Injectable()
+
+@Injectable({providedIn: 'root'})
 export class LoggerService {
   constructor(private isEnabled: boolean, private writer: ConsoleWriter) {
   }
+
   log(msg: string) {
     if (this.isEnabled) {
       this.writer.write(msg);
@@ -118,18 +127,21 @@ export class LoggerService {
   }
 }
 
-export const bloggerFactory = (prefix):Function => {
+export const bloggerFactory = (prefix): Function => {
   return () => new BloggerService(prefix);
 };
-@Injectable()
+
+@Injectable({providedIn: 'root'})
 export class BloggerService {
-  constructor(private prefix: string) {}
+  constructor(private prefix: string) {
+  }
+
   log(msg: string) {
     console.log(`Logger (${this.prefix}): ${msg}`);
   }
 }
 
-export const someTokensFactory = (someTokens: string[]):string[] => {
+export const someTokensFactory = (someTokens: string[]): string[] => {
   return someTokens.map(str => str.toUpperCase());
 };
 

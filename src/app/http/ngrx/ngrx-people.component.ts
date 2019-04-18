@@ -3,6 +3,7 @@ import {interval, merge, Observable, Subject} from "rxjs";
 import {Store} from "@ngrx/store";
 import {ADVANCE, RECALL, SECOND} from "./actions";
 import {map, mapTo, withLatestFrom} from "rxjs/operators";
+import {MyNgRxStore, PersonAction} from "./reducers/_reducers.service";
 
 /**
  * ngrx-clockReducer-two-component
@@ -35,10 +36,10 @@ export class NgrxPeopleComponent implements OnInit {
   person$: Subject<any>;
   seconds$: Observable<number>;
   time$: Observable<Date>;
-  people$ : Observable<any>;
+  people$: Observable<PersonAction>;
   merged$: Observable<any>;
 
-  constructor(private store: Store<any>) {
+  constructor(private store: Store<MyNgRxStore>) {
   }
 
   ngOnInit() {

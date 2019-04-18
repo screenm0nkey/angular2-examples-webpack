@@ -6,26 +6,26 @@ import {ActivatedRoute, Router} from '@angular/router';
   selector: 'login-component',
   template: `
     <div style='border:solid 3px goldenrod'>
-       <div class='alert alert-danger' role='alert' *ngIf='message'>
+      <div class='alert alert-danger' role='alert' *ngIf='message'>
         {{ message }}
       </div>
-    
+
       <form class='form-inline' *ngIf='!authService.getUser()'>
         <div class='form-group'>
           <label for='username'>User:</label>
           <input class='form-control' name='username' value='user' #username>
         </div>
-    
+
         <div class='form-group'>
           <label for='password'>Password:</label>
           <input class='form-control' type='password' name='password' value='password' #password>
         </div>
-    
+
         <a class='btn btn-default' (click)='login(username.value, password.value)'>
           Login
         </a>
       </form>
-    
+
       <div class='well' *ngIf='authService.getUser()'>
         Logged in as <b>{{ authService.getUser() }}</b>
         <a href (click)='logout()'>Log out</a>

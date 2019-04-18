@@ -16,7 +16,7 @@ import {Component} from '@angular/core';
         <a routerLink='./form-nine' routerLinkActive='active'>Form 9 - Dynamic nested form elements [(ngModel)]</a>
         <a routerLink='./form-ten' routerLinkActive='active'>Form 10 - Custom form controls</a>
       </nav>
-      <div id='container'>
+      <div class="ngx-container">
         <div class='comps'>
           <div class='links'>
              <a href='http://blog.ng-book.com/the-ultimate-guide-to-forms-in-angular-2/' target='_blank'>The Ultimate Guide to Forms</a>

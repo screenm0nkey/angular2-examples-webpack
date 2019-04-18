@@ -7,7 +7,7 @@ export type Hero = {
 
 @Pipe({
   name: 'flyingHeroesPure',
-  pure : true // this is the default
+  pure: true // this is the default
 })
 export class FlyingHeroesPipe implements PipeTransform {
   transform(allHeroes: Hero[]) {

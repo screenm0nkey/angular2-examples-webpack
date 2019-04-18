@@ -1,7 +1,6 @@
 import {ADD_TO_QUEUE, GROW_QUEUE, GROW_UNIT} from "../actions";
 import {unitReducer} from "./unit-reducer";
-import {NumberAction} from "./_reducers.service";
-import {Unit} from "../ngrx-queue/ngrx-queue.component";
+import {NumberAction, Unit} from "./_reducers.service";
 
 export const queueReducer = (state: Unit[] = [], action: NumberAction) => {
   switch (action.type) {

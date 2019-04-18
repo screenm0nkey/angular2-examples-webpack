@@ -13,7 +13,7 @@ import {Component} from '@angular/core';
         <a routerLink='./chat-app-rxjs' routerLinkActive='active'>RxJs Chat App</a>
 
       </nav>
-      <div id='container'>
+      <div class="ngx-container">
         <router-outlet></router-outlet>
       </div>
     </div>

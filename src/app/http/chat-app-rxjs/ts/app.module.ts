@@ -5,7 +5,6 @@ import {ChatThreads} from './components/ChatThreads';
 import {ChatThread} from './components/ChatThread';
 import {ChatWindow} from './components/ChatWindow';
 import {ChatMessage} from './components/ChatMessage';
-import {servicesInjectables} from './services/services';
 import {ChatAppComponent} from './app';
 
 @NgModule({
@@ -18,7 +17,7 @@ import {ChatAppComponent} from './app';
     ChatWindow,
     ChatMessage
   ],
-  providers: [servicesInjectables]
+  providers: []
 })
 export class ChatAppRxJsModule {
 }

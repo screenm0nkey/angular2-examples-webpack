@@ -22,9 +22,6 @@ const TOKEN_B = new InjectionToken<string>('UserConfig');
 @Component({
   selector: 'inject-component',
   providers: [
-    SomeService,
-    EngineService,
-    ConsoleWriter,
     {provide: SOME_TOKEN, useValue: 'dependency one', multi: true},
     {provide: SOME_TOKEN, useValue: 'dependency two', multi: true},
     {provide: 'helloWorld', useValue: 'Hello World!!!'},

@@ -4,6 +4,7 @@ import {RouterModule} from '@angular/router';
 import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {sharedPipes} from './pipes';
+import {ExternalLinkComponent} from './directives/external-links.component';
 /**
  FormsModule gives us template driven directives such as:
  • ngModel and
@@ -12,11 +13,6 @@ import {sharedPipes} from './pipes';
  • formControl and
  • ngFormGroup
  */
-import {
-  MrTestyServiceOne,
-  MrTestyServiceTwo
-} from '../misc-examples/components/dependency-injection/injectables.service';
-import {ExternalLinksComponent} from './directives/external-links.component';
 
 /**
  * http://angularfirst.com/the-ngmodule-forroot-convention
@@ -34,22 +30,24 @@ import {ExternalLinksComponent} from './directives/external-links.component';
     RouterModule,
     HttpClientModule,
     HttpClientJsonpModule,
-    ExternalLinksComponent,
+    ExternalLinkComponent,
     ...sharedPipes
   ],
-  declarations: [...sharedPipes, ExternalLinksComponent],
-  /**
-   *  These providers will be available app wide and will instantiated more than once when used on a lazy-loaded module.
-   *  look at console for 'Created an instance of MrTestyServiceTwo' */
-  providers: [MrTestyServiceTwo]
+  declarations: [
+    ...sharedPipes,
+    ExternalLinkComponent
+  ]
 })
 export class SharedModule {
+  /**
+   * The forRoot() example below is deprecated in favour of 'providedIn'
+   * If we ever used SomeModule.forRoot() to prevent creation of additional instances of the service
+   * by the lazy loaded modules we can simply use providedIn: 'root' instead.
+   */
   public static forRoot(): ModuleWithProviders {
     return {
       ngModule: SharedModule,
-      // this provider will be available app wide but will only be instantiated once
-      // look at the console for 'Created an instance of MrTestyServiceOne 1'
-      providers: [MrTestyServiceOne]
+      providers: [/*MrTestyServiceOne*/]
     };
   }
 }

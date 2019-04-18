@@ -12,20 +12,20 @@ import {SpotifyService} from '../spotify.service';
 @Component({
   selector: 'search',
   template: `
-  <h1>Search</h1>
-  <p>
-    <input type='text' #newquery
-      [value]='query'
-      (keydown.enter)='submit(newquery.value)'>
-    <button (click)='submit(newquery.value)'>Search</button>
-  </p>
-  
-  <section>
-    <div *ngIf='(results$ | async)?.length===0'>
+    <h1>Search</h1>
+    <p>
+      <input type='text' #newquery
+             [value]='query'
+             (keydown.enter)='submit(newquery.value)'>
+      <button (click)='submit(newquery.value)'>Search</button>
+    </p>
+
+    <section>
+      <div *ngIf='(results$ | async)?.length===0'>
         No tracks were found with the term '{{ query }}'
       </div>
-  
-    <div *ngIf='(results$ | async)?.length'>
+
+      <div *ngIf='(results$ | async)?.length'>
         <h1>Results</h1>
         <div class='row'>
           <div class='col-sm-6 col-md-4' *ngFor='let t of results$ | async'>

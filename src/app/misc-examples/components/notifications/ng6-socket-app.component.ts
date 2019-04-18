@@ -32,7 +32,7 @@ export class Ng6SocketAppComponent implements OnInit {
   ngOnInit() {
     this.chatService
       .getMessage()
-      .subscribe((msg:string) => this.msg = msg);
+      .subscribe((msg: string) => this.msg = msg);
   }
 
   sendMsg(msg) {

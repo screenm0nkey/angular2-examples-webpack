@@ -5,14 +5,14 @@ import {TodoService} from '../services/todo-service';
   selector: 'todo-list',
   template: `
     <div>
-        <ul>
-            <li *ngFor='let todo of todoService.todos | startedPipe : status | searchPipe : term'>
-                <todo-item-renderer
-                    [todo]='todo'
-                    (toggle)='todoService.toggleTodo($event)'>
-                </todo-item-renderer>
-            </li>
-        </ul>
+      <ul>
+        <li *ngFor='let todo of todoService.todos | startedPipe : status | searchPipe : term'>
+          <todo-item-renderer
+            [todo]='todo'
+            (toggle)='todoService.toggleTodo($event)'>
+          </todo-item-renderer>
+        </li>
+      </ul>
     </div>`
 })
 export class TodoList {

@@ -9,7 +9,6 @@ import {DefaultCmp, OnPushChangeDetectionSampleApp, OnPushCmp} from './onpush';
 import {ObservableChangeDetectionSampleApp, ObservableCmp} from './observables';
 import {ImmutableObject, TestComponentObject} from './immutable-object';
 import {ImmutableList, TestComponentList} from './immutable-list';
-import {Store} from './StoreService';
 
 /*
  * The 'Store' service dependency for the components below has to be a injected as a dependency
@@ -37,7 +36,7 @@ import {Store} from './StoreService';
     ImmutableList,
     TestComponentList
   ],
-  providers: [Store]
+  providers: []
 })
 export class _changeModule {
 }

@@ -5,7 +5,7 @@ import {Component, TemplateRef, ViewChild, ViewContainerRef} from '@angular/core
  */
 @Component({
   selector: 'basic-04',
-  template: `    
+  template: `
     <ng-template #foo>
       This is is a template instance was created using ViewContainerRef's createEmbeddedView() method <br>
     </ng-template>
@@ -33,7 +33,7 @@ export class BasicComponent4 {
     <h4>Using &lt;template/&gt; elements, @ViewChild, TemplateRef and createEmbeddedView</h4>
     <p>templates (ng-template) do not render when used in the markup </p>
     <p>Also see <a [routerLink]="['/misc', 'templates']">Misc Templates</a> for similar examples.</p>
-    
+
     <basic-04></basic-04>
   `
 })

@@ -25,7 +25,6 @@
               "src/assets/fonts"
             ],
             "styles": [
-              "src/assets/styles/app.css",
               "src/assets/styles/bootstrap.css",
               "src/assets/styles/chat.css"
             ],

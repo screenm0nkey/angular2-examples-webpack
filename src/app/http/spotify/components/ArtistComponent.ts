@@ -13,13 +13,13 @@ import {SpotifyService} from '../spotify.service';
 @Component({
   selector: 'artist$',
   template: `
-  <div *ngIf='(artist$ | async)?.name'>
-    <h1>{{ (artist$ | async)?.name }}</h1>
-    <p>
-      <img src='{{ (artist$ | async)?.images[0].url }}'>
-    </p>
-    <p><a href (click)='back()'>Back</a></p>
-  </div>
+    <div *ngIf='(artist$ | async)?.name'>
+      <h1>{{ (artist$ | async)?.name }}</h1>
+      <p>
+        <img src='{{ (artist$ | async)?.images[0].url }}'>
+      </p>
+      <p><a href (click)='back()'>Back</a></p>
+    </div>
   `
 })
 export class ArtistComponent implements OnInit {

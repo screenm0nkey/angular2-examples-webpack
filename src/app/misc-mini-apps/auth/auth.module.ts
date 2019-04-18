@@ -8,7 +8,6 @@ import {ContactComponent} from './components/ContactComponent';
 import {ProtectedComponent} from './components/ProtectedComponent';
 import {AuthAppComponent} from './auth.component';
 import {AUTH_PROVIDERS} from './services/AuthService';
-import {DialogService} from './services/dialog.service';
 
 
 @NgModule({
@@ -21,7 +20,7 @@ import {DialogService} from './services/dialog.service';
     ProtectedComponent,
     LoginComponent
   ],
-  providers: [AUTH_PROVIDERS, DialogService]
+  providers: [AUTH_PROVIDERS]
 })
 export class AuthAppModule {
 }

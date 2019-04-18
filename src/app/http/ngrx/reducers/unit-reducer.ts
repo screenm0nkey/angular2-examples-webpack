@@ -1,6 +1,5 @@
 import {GROW_UNIT} from "../actions";
-import {Unit} from "../ngrx-queue/ngrx-queue.component";
-import {NumberAction} from "./_reducers.service";
+import {NumberAction, Unit} from "./_reducers.service";
 
 export const unitReducer = (state: Unit, action: NumberAction) => {
   if (!state) {

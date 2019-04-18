@@ -9,8 +9,8 @@ body {
 }
 
 body * {
-  padding: 0px;
-  font-family: "Avenir";
+  padding: 0;
+  font-family: Avenir;
   line-height: normal;
   font-size: 13px;
 }
@@ -30,7 +30,7 @@ p code, h4 > code, li > code {
 }
 
 p {
-  font-family: "Avenir";
+  font-family: Avenir;
   padding-right: 20px;
   margin-bottom: 15px;
   line-height: 14px;
@@ -41,7 +41,7 @@ a {
   color: #fbff73;
   text-decoration: none;
   background-color: #ce0271;
-  padding: 0px 7px 1px;
+  padding: 0 7px 1px;
   border-radius: 2px;
   font-size: 11px;
   display: inline-block;
@@ -52,7 +52,6 @@ a:after {
 }
 
 .links > a, nav > a {
-  /*box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.58);*/
   position: relative;
   left: 3px;
   margin-right: 10px;
@@ -74,7 +73,7 @@ a.big {
 
 a:hover {
   background-color: #6b003a;
-  color: white;
+  color: #fff;
 }
 
 h1 {
@@ -86,7 +85,7 @@ h1 {
 h4, h3, h2 {
   margin: 10px 0 0;
   padding: 0;
-  color: lightslategrey;
+  color: #789;
   font-size: 20px;
 }
 
@@ -95,20 +94,20 @@ h4, h3 {
 }
 
 h4 {
-  background: rgb(125, 125, 134);
+  background: #7d7d86;
   display: table;
   padding: 3px 15px;
   color: #f0ff37;
   border-radius: 3px;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 16px;
-  box-shadow: 0px 6px 14px 1px rgba(0, 0, 0, 0.58);
+  box-shadow: 0 6px 14px 1px rgba(0, 0, 0, .58);
   z-index: 2;
   margin: -2px 0 8px 0;
   font-family: Courier;
 }
 
-#container > ng-component > h4 {
+.ngx-container > ng-component > h4 {
   background-color: green;
   position: relative;
   top: -8px;
@@ -123,7 +122,7 @@ h5 {
   background-color: #464861;
   padding: 1px 10px;
   border-radius: 4px;
-  color: white;
+  color: #fff;
   font-weight: lighter;
   margin: 5px 0;
   display: table;
@@ -155,7 +154,7 @@ ul.todos {
 }
 
 ul.todos.collapsed {
-  height:21px;
+  height: 21px;
   overflow: hidden;
 }
 
@@ -168,7 +167,7 @@ ul.bullets li {
   background-color: #464861;
   padding: 1px 10px;
   border-radius: 4px;
-  color: white;
+  color: #fff;
   font-weight: lighter;
   margin: 5px 0 5px 18px;
   display: table;
@@ -187,14 +186,14 @@ button {
   background-image: linear-gradient(to bottom, #3498db, #2980b9);
   border-radius: 4px;
   font-family: Arial;
-  color: #ffffff;
+  color: #fff;
   padding: 3px 10px;
   text-decoration: none;
 }
 
 button[disabled] {
   background: dimgrey !important;
-  opacity: 0.3;
+  opacity: .3;
 }
 
 hr {
@@ -204,7 +203,7 @@ hr {
   border-top: solid 3px #ababab;
   margin: 40px 0 0;
   padding: 0;
-  box-shadow: 0px 6px 14px 1px rgba(0, 0, 0, 0.58);
+  box-shadow: 0 6px 14px 1px rgba(0, 0, 0, .58);
 }
 
 hr:after, hr:before {
@@ -225,7 +224,6 @@ nav {
   background-color: #466c94;
   padding: 7px 3px 3px;
   border-radius: 3px;
-  position: fixed;
   z-index: 99;
 }
 
@@ -246,22 +244,16 @@ nav > a {
   display: inline-block !important;
   margin-right: 10px !important;
   background-color: #333 !important;
-  color: white !important;
+  color: #fff !important;
   padding: 2px 10px !important;
   text-decoration: none !important;
 }
 
 nav > a:visited {
-  color: white
+  color: #fff;
 }
 
-nav .router-link-active,
-nav .active {
-  background-color: red !important;
-}
-
-nav .router-link-active:hover,
-nav .active:hover {
+nav .router-link-active, nav .active, nav .router-link-active:hover, nav .active:hover {
   background-color: red !important;
 }
 
@@ -270,15 +262,15 @@ nav a:hover {
 }
 
 code {
-  font-family: "Courier New";
-  background-color: black;
+  font-family: Courier New;
+  background-color: #000;
   padding: 0 2px;
   color: #f5cf00;
   display: table;
   white-space: pre-wrap;
   margin: 0 0 10px 0;
   font-size: 13px;
-  font-weight: normal;
+  font-weight: 400;
 }
 
 p code, li code {
@@ -288,11 +280,11 @@ p code, li code {
 
 pre {
   font-family: Courier;
-  color: black;
+  color: #000;
   line-height: 15px;
   padding: 5px 10px;
   margin: 0;
-  background-color: cornsilk;
+  background-color: #fff8dc;
   font-size: 15px;
 }
 
@@ -304,7 +296,7 @@ pre.limit-height {
 
 h4 pre {
   font-family: Courier;
-  background-color: cornsilk;
+  background-color: #fff8dc;
   display: inline;
   border: none;
   padding: 0;
@@ -323,52 +315,56 @@ h4 pre:after {
   content: ")";
 }
 
+h6 {
+  color: #f7ff00;
+}
+
 section.main {
   padding-right: 3px;
 }
 
 .red {
   color: #e02828;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .ng-dirty.ng-invalid {
-  border: 1px red solid
+  border: 1px red solid;
 }
 
 .has-error {
   border-color: red;
 }
 
-#container {
-  margin: 65px 0 0 200px;
-  flex: 1;
-  /*overflow: hidden;*/
-  padding-left: 5px;
+.miscellaneous {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+  height: calc(100vh - 40px);
 }
 
-#container.special, .special {
+.miscellaneous > div:last-child {
+  flex: 1;
+  padding: 10px;
+}
+
+.miscellaneous > nav {
+  width: 200px;
+  margin-right: 0;
+  background-color: #afc7d2;
+}
+
+.ngx-container {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.ngx-container.special, .special {
   margin-top: 65px;
   background-color: #cacaca;
   border: solid 5px #c1c1c1;
   margin-right: 10px;
-}
-
-.miscellaneous {
-  display: flex;
-  height: 100%;
-}
-
-.miscellaneous nav {
-  background-color: #AFC7D2;
-  margin-top: 65px;
-  margin-bottom: 15px;
-  display: inline-block;
-  float: left;
-  min-width: 150px;
-  max-width: 200px;
-  margin-right: 10px;
-  position: fixed;
 }
 
 div.comps > * {
@@ -394,7 +390,7 @@ div.comp:after {
 
 div.comps a[routerLink] {
   background-color: #35e000;
-  color: #000000;
+  color: #000;
   box-shadow: none;
   border: solid 2px #259e00;
   border-radius: 3px;
@@ -406,7 +402,7 @@ div.comps a[routerLink] {
 }
 
 div.comps a[routerLink]:hover {
-  background-color: darkcyan;
+  background-color: #008b8b;
 }
 
 div.comps a[routerLink]:after {
@@ -419,7 +415,7 @@ div.comps a {
 }
 
 p.title, span.title {
-  font-weight: bold;
+  font-weight: 700;
   font-size: 15px;
   display: block;
   color: #3a3a3a;
@@ -427,15 +423,15 @@ p.title, span.title {
 
 p.code-example {
   font-style: italic;
-  margin-bottom: 0px;
+  margin-bottom: 0;
   font-size: 11px;
 }
 
 strong, p.strong, li.strong {
-  color: white;
+  color: #fff;
   background: #88621d;
   padding: 0 4px;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 12px;
   border-radius: 4px;
 }
@@ -445,9 +441,9 @@ p.strong {
 }
 
 p.file, p.path {
-  font-family: "Courier";
+  font-family: Courier;
   background: #827e9c;
-  color: white;
+  color: #fff;
   margin: 0;
   border-radius: 2px;
   padding: 0 3px;
@@ -463,19 +459,24 @@ p.file, p.path {
   border: solid 3px #949494;
   padding: 5px;
 }
-.well h6 { margin: 0}
-.well p:last-child { margin-bottom: 0}
+
+.well h6 {
+  margin: 0;
+}
+
+.well p:last-child {
+  margin-bottom: 0;
+}
 
 .cdk-overlay-container {
-  margin-left : 200px;
+  margin-left: 200px;
 }
 
 .cdk-overlay-container p {
-  color:white;
+  color: #fff;
 }
 
 .mat-dialog-container {
-  background-color: darkcyan;
-  border:solid 10px #0E566C;
+  background-color: #008b8b;
+  border: solid 10px #0e566c;
 }
-

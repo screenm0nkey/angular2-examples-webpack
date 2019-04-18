@@ -103,6 +103,6 @@ export class TrackDirective {
 })
 export class Example03AppComponent {
   // tracking is used in template
-  constructor(private tracking: TrackingService) {
+  constructor(protected tracking: TrackingService) {
   }
 }

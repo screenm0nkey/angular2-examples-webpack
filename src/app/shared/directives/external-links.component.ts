@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 
-interface ExtLink {
+export interface ExtLink {
   title: string;
   href: string;
 }
@@ -19,16 +19,12 @@ export const externalLinks: { [key: string]: ExtLink } = Object.keys(linkData).r
 
 
 @Component({
-  selector: 'ext-links',
+  selector: 'ext-link',
+  styles:[':host { display: block; }'],
   template: `
-    <a href='http://angularfirst.com/the-ngmodule-forroot-convention/' target='_blank'>
-      The NgModule <code>forRoot()</code> Convention
-    </a>
+    <a href='{{linkObj.href}}' target='_blank'>{{linkObj.title}}</a>
   `
 })
-export class ExternalLinksComponent implements OnInit {
-  @Input() id: string;
-
-  ngOnInit() {
-  }
+export class ExternalLinkComponent {
+  @Input() linkObj: ExtLink;
 }

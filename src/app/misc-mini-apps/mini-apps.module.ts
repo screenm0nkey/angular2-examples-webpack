@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {EggheadExamplesModule} from './egghead-example/egghead.module';
+import {EggheadMiniAppModule} from './egghead-example/egghead.module';
 import {SharedModule} from '../shared/shared.module';
 import {MiniAppsRoutingModule} from './mini-apps-routing.module';
 import {MiniAppsComponent} from './mini-apps.component';
@@ -11,7 +11,7 @@ import {ReduxChatAppModule} from './chat-app-redux/ts/app.module';
   imports: [
     SharedModule,
     MiniAppsRoutingModule,
-    EggheadExamplesModule,
+    EggheadMiniAppModule,
     CustomersModule,
     ReduxChatAppModule
   ],

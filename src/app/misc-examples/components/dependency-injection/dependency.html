@@ -1,104 +1,138 @@
 <div class='comps'>
 
   <section>
-    <p class="file">/misc-examples/components/dependecy-injection/dependency.html</p>
+    <p class="file">misc-examples/components/dependency-injection/dependency.component.ts</p>
     <h4>Dependency Injection</h4>
+
     <p class="links">
-
-      <a href="http://angularfirst.com/the-ngmodule-forroot-convention/" target="_blank">
-        The NgModule <code>forRoot()</code> Convention
-      </a>
-
-      <a href="https://blog.angular-university.io/angular2-ngmodule/" target="_blank">
-        Search this article for <code>forRoot()</code>
-      </a>
-
-      <a target="_blank" href="http://blog.thoughtram.io/angular/2015/05/18/dependency-injection-in-angular-2.html"
-         target="_blank">
-        Dependency Injection
-      </a>
-      <a href="http://blog.thoughtram.io/angular/2016/05/23/opaque-tokens-in-angular-2.html" target="_blank">
-        InjectionToken (was OpaqueToken)
-      </a>
-      <a href="https://blog.thoughtram.io/angular2/2015/11/23/multi-providers-in-angular-2.html" target="_blank">
-        Multi Providers
-      </a>
-      <a target="_blank" href="http://blog.thoughtram.io/angular/2016/09/14/bypassing-providers-in-angular-2.html"
-         class="block" target="_blank">
-        BYPASSINGPROVIDERS IN ANGULAR 2
-      </a>
-      <a
-        href="http://stackoverflow.com/questions/39828246/angular-2-how-to-isolate-service-provider-in-a-feature-module"
-        target="_blank" class="block" target="_blank">
-        Angular 2 how to isolate service provider in a feature module
-      </a>
+      <ext-link *ngFor="let link of links" [linkObj]="link"></ext-link>
     </p>
 
     <section class="well">
+      <h6>providedIn</h6>
       <a href="https://blog.ninja-squad.com/2018/05/04/what-is-new-angular-6/" target="_blank">New to Ng6</a>
       <p>There is now a new, recommended, way to register a provider, directly inside the <code>@Injectable()</code>
-        decorator, using
-        the
-        new providedIn attribute. It accepts 'root' as a value or any module of your application. When you use 'root',
-        your
-        injectable will be registered as a singleton in the application, and you don’t need to add it to the providers
-        of
-        the root module. Similarly, if you use <code>providedIn: UsersModule</code>, the injectable is registered as a
-        provider of the
-        UsersModule without adding it to the providers of the module.</p>
+        decorator, using the new <code>providedIn</code> attribute. It accepts 'root' as a value or any module of your
+        application. When you use 'root',
+        your injectable will be registered as a singleton in the application, and you don’t need to add it to the
+        providers of the root module. Similarly, if you use <code>providedIn: UsersModule</code>, the injectable is
+        registered as
+        a provider of the UsersModule without adding it to the providers of the module.</p>
 
       <code>
         @Injectable(&#123;
         providedIn: 'root'
         &#125;)
       </code>
-
-
     </section>
-    <ul>
-      <li>Every component comes with its own injector</li>
 
-      <li>Providers are flattened, meaning that, if there are multiple providers with the same token, the
-        last one wins. Use <code>InjectionToken</code> to avoid overwriting provider.
-      </li>
 
-      <li>When using a string token we HAVE to use <code>@Inject</code>, i.e. <code>@Inject('whateverToken') public
-        some3</code></li>
+    <section class="well">
+      <p>Using <code>providers: []</code> property in a @NgModule can lead to four different scenarios based on specific
+        circumstances…</p>
 
-      <li>
-        multi providers <code>multi: true</code> basically extend the thing that is being injected for a particular
-        token.
-        Angular uses this mechanism to provide pluggable hooks i.e extending <code>NG_VALIDATORS,
-        HTTP_INTERCEPTORS</code>
-      </li>
+      <h6>Eager @NgModule</h6>
+      <p>In this case, service will be registered as a global singleton. Service will be provided as a singleton even if
+        it is included in the providers:[] of multiple eager modules. Only one instance will be created by the injector
+        and this is because they will all end up registered with the root level injector.</p>
 
-      <li>If we provide services in a module they will be globally available as all modules use the root
-        injector. This is NOT the case with Lazy loaded modules, who get their own injector.
-        See <a routerLink="../modules" routerLinkActive="active">Modules</a> for more info.
-        This can be avoided and a singleton can be created if you <code>forRoot()</code>
-      </li>
-      <li>
-        When a module is loaded at application launch, its providers (services) have application-wide scope. They are
-        available for injection throughout the application, which is why you should try load the module lazily if you
-        can.
-        <strong>Angular gives a lazy-loaded module its own child injector. The module's providers are visible only
-          within
-          the component tree created with this injector. If you must load the module eagerly, when the application
-          starts,
-          provide the service in a component instead i.e. <code>@Component(&#123;providers : [...&#125;)</code>
-        </strong>
-        <a
-          href="https://stackoverflow.com/questions/39828246/angular-2-how-to-isolate-service-provider-in-a-feature-module"
-          target="_blank">Taken from here</a>
-      </li>
+      <h6>Lazy @NgModule</h6>
+      <p>Instance of the service provided in the lazy module will be created on the child injector (of the lazy module)
+        when initialized later during the application run-time. Injecting such a service into the eager part would lead
+        to No provider for MyService! error.</p>
 
-      <li>If the injector doesn't have a provider for the requested token, it delegates
-        the request to its parent injector, where the process repeats until there are
-        no more injectors.
-      </li>
+      <h6>Declarables — @Component or @Directive</h6>
+      <p>Component providers are made available to the component and all its view AND content child components
+        (i.e. components in its template but also projected components rendered by <code>ng-content</code>).</p>
 
-      <li>A new injector has no providers. Each component has it's own injector or child-injector</li>
-    </ul>
+      <h6>View providers</h6>
+      <p>They are only made available for the component and its view child components. They are declared by the
+        viewProviders option in the component decorator.</p>
+    </section>
+
+    <h6>Lazy loading & The providedIn: ‘root’ solution</h6>
+    <p>What would happen if we used providedIn: 'root' to implement service which we want to use in lazy loaded
+      module?</p>
+
+    <p>Technically, <strong>the 'root' stands for AppModule</strong> but Angular is smart enough to bundle service in
+      the lazy loaded
+      bundle if it is only injected in the lazy components / services. But there is a catch.
+      If we later additionally inject service which is meant to belong to lazy module in any eager part of the
+      application it will be then automatically bundled in the main bundle. To summarize…</p>
+
+    <p>If the service is only injected in the lazy part, it will be bundled in lazy bundle
+      If the service is injected in the eager part (while still possibly being injected in the lazy part), it will be
+      bundled in the eager main bundle
+      The problem with this behavior is that it can get quite unpredictable in the larger applications with tons of
+      modules and hundreds of services.</p>
+
+
+    <section class="well">
+      <h6>Summarization for providedIn</h6>
+      <ul>
+        <li>Use providedIn: 'root' for services which should be available in whole application as singletons</li>
+        <li>Use providedIn: LazyServiceModule to prevent service injection in the eagerly imported part of the
+          application
+        </li>
+        <li>To prevent usage of a services outside of the desired module, use LazyServiceModule which will be imported
+          by LazyModule to prevent circular dependency warning. LazyModule will then be lazy loaded using Angular Router
+          for some route in a standard fashion <a href="https://medium.com/@tomastrajan/total-guide-to-angular-6-dependency-injection-providedin-vs-providers-85b7a347b59f" target="_blank">See how to</a>.
+        </li>
+        <li class="strong">Use providers: [] inside of @Component or @Directive to scope service only for the particular
+          component sub-tree which will also lead to creation of multiple service instances (one service instance per
+          one component usage)
+        </li>
+        <li>Always try to scope your services conservatively to prevent dependency creep and resulting tangled hell</li>
+      </ul>
+    </section>
+
+
+    <section class="well">
+      <ul>
+        <li>Every component comes with its own injector</li>
+
+        <li>Providers are flattened, meaning that, if there are multiple providers with the same token, the
+          last one wins. Use <code>InjectionToken</code> to avoid overwriting provider.
+        </li>
+
+        <li>When using a string token we HAVE to use <code>@Inject</code>, i.e. <code>@Inject('whateverToken') public
+          some3</code></li>
+
+        <li>
+          multi providers <code>multi: true</code> basically extend the thing that is being injected for a particular
+          token.
+          Angular uses this mechanism to provide pluggable hooks i.e extending <code>NG_VALIDATORS,
+          HTTP_INTERCEPTORS</code>
+        </li>
+
+        <li>If we provide services in a module they will be globally available as all modules use the root
+          injector. This is NOT the case with Lazy loaded modules, who get their own injector.
+          See <a routerLink="../modules" routerLinkActive="active">Modules</a> for more info.
+          This can be avoided and a singleton can be created if you <code>forRoot()</code>
+        </li>
+        <li>
+          When a module is loaded at application launch, its providers (services) have application-wide scope. They are
+          available for injection throughout the application, which is why you should try load the module lazily if you
+          can.
+          <strong>Angular gives a lazy-loaded module its own child injector. The module's providers are visible only
+            within
+            the component tree created with this injector. If you must load the module eagerly, when the application
+            starts,
+            provide the service in a component instead i.e. <code>@Component(&#123;providers : [...&#125;)</code>
+          </strong>
+          <a
+            href="https://stackoverflow.com/questions/39828246/angular-2-how-to-isolate-service-provider-in-a-feature-module"
+            target="_blank">Taken from here</a>
+        </li>
+
+        <li>If the injector doesn't have a provider for the requested token, it delegates
+          the request to its parent injector, where the process repeats until there are
+          no more injectors.
+        </li>
+
+        <li>A new injector has no providers. Each component has it's own injector or child-injector</li>
+      </ul>
+    </section>
 
     <div class="well">
       <h6>Create Multiple Angular Service Instances</h6>
@@ -127,14 +161,15 @@
     </section>
 
     <section class="well">
-      <h6>Define an Aliased Class Provider with useExisting.</h6>
+      <h6>Define an Aliased Class Provider with <code>useExisting</code></h6>
       <div class="links">
         <a href="https://blog.thoughtram.io/angular/2016/09/14/bypassing-providers-in-angular-2.html" target="_blank">bypassing-providers-in-angular-2</a>
         <a href="https://egghead.io/lessons/angular-define-an-aliased-class-provider-in-angular" target="_blank">Alias
           classes</a>
       </div>
       <code>providers: [NewLoggerService,&#123; provide: LoggerService, useExisting: NewLoggerService &#125;]</code>
-      <p>useExisting is a bit different than the other provider strategies. It’s the only strategy that doesn’t actually
+      <p><code>useExisting</code> is a bit different than the other provider strategies. It’s the only strategy that
+        doesn’t actually
         create an instance, but instead, it points to another token which in turn will create the instance.</p>
     </section>
 

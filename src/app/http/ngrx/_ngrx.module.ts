@@ -16,14 +16,14 @@ import {NgrxPeopleComponent} from "./ngrx-people.component";
 import {ClockComponent} from "./clock-component";
 import {StartStopRxStreamComponent} from "./stop-start-rx-stream-button.component";
 import {
-clockReducer,
-filterReducer,
-peopleReducer,
-peoplezReducer,
-queueReducer,
-tickReducer,
-unitReducer,
-wordsReducer
+  clockReducer,
+  filterReducer,
+  peopleReducer,
+  peoplezReducer,
+  queueReducer,
+  tickReducer,
+  unitReducer,
+  wordsReducer
 } from "./reducers/_reducers.service";
 
 @NgModule({

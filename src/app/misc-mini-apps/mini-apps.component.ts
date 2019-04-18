@@ -10,7 +10,7 @@ import {Component} from '@angular/core';
           <a routerLink='./redux-chat-app' routerLinkActive='active'>Redux Chat App</a>
           <a routerLink='./customers' routerLinkActive='active'>Customers App</a>
       </nav>
-      <div id='container'>
+      <div class="ngx-container">
         <router-outlet></router-outlet>
       </div>
     </div>

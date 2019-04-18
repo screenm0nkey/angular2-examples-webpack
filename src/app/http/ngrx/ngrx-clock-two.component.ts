@@ -3,7 +3,7 @@ import {interval, merge, Observable, Subject} from "rxjs";
 import {map, mapTo} from "rxjs/operators";
 import {Store} from "@ngrx/store";
 import {HOUR, SECOND} from "./actions";
-import {MyAction} from "./reducers/_reducers.service";
+import {MyAction, MyNgRxStore} from "./reducers/_reducers.service";
 
 /**
  * ngrx-clock-two-component
@@ -31,7 +31,7 @@ export class NgrxClockTwoComponent implements OnInit {
   time$: Observable<Date>;
   merged$: Observable<{} | MyAction>;
 
-  constructor(private store: Store<any>) {
+  constructor(private store: Store<MyNgRxStore>) {
     this.dispatch = this.dispatch.bind(this);
   }
 

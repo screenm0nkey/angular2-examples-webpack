@@ -4,7 +4,7 @@ import {RouterModule} from '@angular/router';
 import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {sharedPipes} from './pipes';
-import {ExternalLinkComponent} from './directives/external-links.component';
+import {ExternalLinksComponent} from './external-links.component';
 /**
  FormsModule gives us template driven directives such as:
  • ngModel and
@@ -21,6 +21,7 @@ import {ExternalLinkComponent} from './directives/external-links.component';
  * ModuleWithProviders containing components, directives, and providers
  */
 @NgModule({
+  imports : [CommonModule],
   // Notice that we have only exported the modules without adding it to declarations or imports.
   // This would happen in the case where the component is not used internally inside the module
   exports: [
@@ -30,12 +31,12 @@ import {ExternalLinkComponent} from './directives/external-links.component';
     RouterModule,
     HttpClientModule,
     HttpClientJsonpModule,
-    ExternalLinkComponent,
+    ExternalLinksComponent,
     ...sharedPipes
   ],
   declarations: [
     ...sharedPipes,
-    ExternalLinkComponent
+    ExternalLinksComponent
   ]
 })
 export class SharedModule {

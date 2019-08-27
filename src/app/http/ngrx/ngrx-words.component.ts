@@ -35,23 +35,23 @@ export class NgrxWordsComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this is one way to subscribe and subscribe
+    // this is one way to subscribe to the store (reducer)
     this.store
       .pipe(select((state: MyNgRxStore) => state.wordsReducer), takeUntil(this.unsubscribe$))
       .subscribe((word:string) => this.word1 = word);
 
-    // this is another way to subscribe to a store
+    // this is another way to subscribe to a store (reducer)
     this.store.select('wordsReducer').subscribe(word => this.word2 = word);
 
     // this is another way to subscribe to a store where we use the async filter
     this.word3$ = this.store.select('wordsReducer');
 
-    this.interval$ = interval(500).pipe(mapTo('random')); // random is the reducer name
+    this.interval$ = interval(500).pipe(mapTo('random')); // 'random' is the words-reducer action
   }
 
   // in this case the reducer name will always be random
-  dispatch(reducerName: string) {
-    this.store.dispatch({type: reducerName});
+  dispatch(reducerAction: string) {
+    this.store.dispatch({type: reducerAction});
   }
 
   ngOnDestroy(): void {

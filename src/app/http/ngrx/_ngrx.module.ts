@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core'
 import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
 import {SharedModule} from "../../shared/shared.module";
-import {NgrxMainComponent} from "./ngrx-main.component";
+import {NgrxContainerComponent} from "./_ngrx-container.component";
 import {NgRxClockOneComponent} from "./ngrx-clock-one.component";
 import {NgrxClockTwoComponent} from "./ngrx-clock-two.component";
 import {NgrxInTenMainComponent} from "./ngrx-in-ten/ngrx-in-ten-main-component";
@@ -42,7 +42,7 @@ import {
     EffectsModule.forRoot([UnitEffects])
   ],
   declarations: [
-    NgrxMainComponent,
+    NgrxContainerComponent,
     NgRxClockOneComponent,
     NgrxClockTwoComponent,
     NgrxInTenMainComponent,
@@ -59,5 +59,5 @@ import {
 export class NgrxModule {
 }
 
-export {NgrxMainComponent};
+export {NgrxContainerComponent};
 

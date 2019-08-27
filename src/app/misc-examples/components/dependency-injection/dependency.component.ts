@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MrTestyServiceOne, MrTestyServiceTwo, RubbishService} from './injectables.service';
-import {ExtLink} from "../../../shared/directives/external-links.component";
+import {ExtLink} from "../../../shared/external-links.component";
 
 @Component({
   selector: 'misc-app',

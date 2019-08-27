@@ -9,6 +9,8 @@ import {
   styleUrls: ['./app.css'],
   encapsulation: ViewEncapsulation.None,
   template: `
+<!--    <external-links></external-links>-->
+    
     <nav class='main'>
       <a routerLink='/misc' routerLinkActive='active'>Misc Examples</a>
       <a routerLink='/forms' routerLinkActive='active'>Forms</a>
@@ -19,6 +21,7 @@ import {
     </nav>
     <router-outlet></router-outlet>
     <router-outlet name='popup'></router-outlet>
+    
   `,
 })
 export class AppComponent {

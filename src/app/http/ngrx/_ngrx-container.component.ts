@@ -17,5 +17,5 @@ import {Component} from "@angular/core";
         </div>
     `
 })
-export class NgrxMainComponent {
+export class NgrxContainerComponent {
 }

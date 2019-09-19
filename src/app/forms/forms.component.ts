@@ -19,9 +19,9 @@ import {Component} from '@angular/core';
       <div class="ngx-container">
         <div class='comps'>
           <div class='links'>
-             <a href='http://blog.ng-book.com/the-ultimate-guide-to-forms-in-angular-2/' target='_blank'>The Ultimate Guide to Forms</a>
-              <a href='http://blog.thoughtram.io/angular/2016/03/21/template-driven-forms-in-angular-2.html' target='_blank'>Template-driven Forms</a>
-              <a href='http://blog.thoughtram.io/angular/2016/03/14/custom-validators-in-angular-2.html' target='_blank'>Custom Validators in Angular 2</a>
+              <external-link [id]="28"></external-link>
+              <external-link [id]="29"></external-link>
+              <external-link [id]="30"></external-link>
           </div>
           <router-outlet></router-outlet>
         </div>

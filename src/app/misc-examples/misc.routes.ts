@@ -21,13 +21,15 @@ import {ChangeAfterComponent} from './components/changed-after-check/_main.modul
 import {ModulesComponent} from './components/dependency-injection/modules.component';
 import {PipesComponent} from './components/dependency-injection/pipes.component';
 import {InterceptorComponent} from "./components/interceptors/interceptor.component";
+import {LinksComponent} from "./components/links/links.component";
 
 export const formsRoutes: Routes = [
   {
     path: '',
     component: MiscExamplesComponent,
     children: [
-      {path: '', redirectTo: 'dep-injection', pathMatch: 'full'},
+      {path: '', redirectTo: 'links', pathMatch: 'full'},
+      {path: 'links', component: LinksComponent},
       {path: 'dep-injection', component: DepInjectionComponent},
       {path: 'modules', component: ModulesComponent},
       {path: 'pipes', component: PipesComponent},

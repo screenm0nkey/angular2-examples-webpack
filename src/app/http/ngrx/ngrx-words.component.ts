@@ -11,10 +11,8 @@ import {MyNgRxStore} from "./reducers/_reducers.service";
     <p class='path'>/http-rxjs/misc-examples/ngrx-starter.ts</p>
     <h4>3 Ways of subscribing to a an NGRX store. 1 Way to unsubscribe</h4>
     <div class="links">
-      <a href='http://plnkr.co/edit/avLMS3m0VNMXSfUhT7K9?p=preview' target='_blank'>Original Plunk</a>
-      <a
-        href="https://blog.angularindepth.com/angular-question-rxjs-subscribe-vs-async-pipe-in-component-templates-c956c8c0c794"
-        target="_blank">Subscribe vs Async in NgRx</a>
+        <external-link [id]="14"></external-link>
+        <external-link [id]="5"></external-link>
     </div>
     <p style='color: red; margin-bottom: 10px'>{{word1}} | {{word2}} | {{word3$ | async}}</p>
 

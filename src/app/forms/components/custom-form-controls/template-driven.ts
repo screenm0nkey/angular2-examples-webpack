@@ -4,7 +4,7 @@ import {Component} from '@angular/core';
   selector: 'template-driven',
   template: `
     <h4>Using it inside template-driven forms</h4>
-     <a href='http://blog.thoughtram.io/angular/2016/07/27/custom-form-controls-in-angular-2.html' target='_blank'>custom-form-controls</a>
+     <external-link [id]="31"></external-link>
      
      <p>These are the min max values for the custom for control. the they become invalid. try changing the values and increasing the </p>
     <div>

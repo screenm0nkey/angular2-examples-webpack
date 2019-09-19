@@ -8,9 +8,7 @@ import {
   selector: 'app-root',
   styleUrls: ['./app.css'],
   encapsulation: ViewEncapsulation.None,
-  template: `
-<!--    <external-links></external-links>-->
-    
+  template: `    
     <nav class='main'>
       <a routerLink='/misc' routerLinkActive='active'>Misc Examples</a>
       <a routerLink='/forms' routerLinkActive='active'>Forms</a>

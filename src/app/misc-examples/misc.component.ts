@@ -4,7 +4,8 @@ import {Component} from '@angular/core';
   template: `
     <div class="miscellaneous">
       <nav>
-        <a routerLink='./dep-injection' routerLinkActive='active' [routerLinkActiveOptions]='{ exact: true }'>Dependency Injection</a>
+        <a routerLink='./links' routerLinkActive='active' [routerLinkActiveOptions]='{ exact: true }'>Links</a>
+        <a routerLink='./dep-injection' routerLinkActive='active'>Dependency Injection</a>
         <a routerLink='./modules' routerLinkActive='active'>Modules</a>
         <a routerLink='./pipes' routerLinkActive='active'>Pipes</a>
         <a routerLink='./change-detection' routerLinkActive='active'>Change Detection</a>
@@ -31,7 +32,7 @@ import {Component} from '@angular/core';
         <ul class='todos collapsed' #todolist (click)="toggleVisibility(todolist)">
           <li class="path"><p class="path">misc-examples/misc.component.ts</p></li>
           <li>ng-template</li>
-          <li>make changes to ngrx examples inline with <a href="https://blog.angularindepth.com/angular-question-rxjs-subscribe-vs-async-pipe-in-component-templates-c956c8c0c79">4this doc </a></li>
+          <li>make changes to ngrx examples inline with this article <external-link [id]="43"></external-link><a href=""> </a></li>
           <li>Spotify example is broken</li>
         </ul>
 

@@ -20,6 +20,7 @@ import {TemplatesModule} from './components/template-directives/templates.module
 import {ChangedAfterModule} from './components/changed-after-check/_main.module';
 import {TipsModule} from './components/tips/tips.module';
 import {InterceptorModule} from "./components/interceptors/_interceptor.module";
+import {LinksComponent} from "./components/links/links.component";
 
 @NgModule({
   imports: [
@@ -44,7 +45,10 @@ import {InterceptorModule} from "./components/interceptors/_interceptor.module";
     TipsModule,
     InterceptorModule
   ],
-  declarations: [MiscExamplesComponent]
+  declarations: [
+    MiscExamplesComponent,
+    LinksComponent
+  ]
 })
 export class MiscExamplesModule {
 }

@@ -26,7 +26,8 @@ const createUnit = (health = 0): Unit => ({
   template: `
     <p class="file">http/ngrx/ngrx-queue/ngrx-queue.component.ts</p>
     <h4>NgRx Queue</h4>
-    <a href="http://plnkr.co/edit/E57afQC5zwSQFt2oH5Z0?p=preview" target="_blank">Plunk</a>
+
+    <external-link [id]="17"></external-link>
     
     <button (click)="onClick($event)">
       Add to queue

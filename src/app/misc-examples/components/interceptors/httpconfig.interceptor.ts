@@ -45,11 +45,14 @@ export class HttpConfigInterceptor implements HttpInterceptor {
   }
 
   onError(error: HttpErrorResponse) {
-    let data = {
-      reason: error && error.error.reason ? error.error.reason : error.message,
-      status: error.status
-    };
-    this.errorDialogService.openDialog(data);
+    let data;
+    if (error.error){
+      data = {
+        reason: error.error && error.error.reason ? error.error.reason : error.message,
+        status: error.status
+      }
+    }
+    this.errorDialogService.openDialog(data || error);
     return throwError(error);
   }
 

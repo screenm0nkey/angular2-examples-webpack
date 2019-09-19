@@ -27,10 +27,8 @@ export class NgBookIf {
     <p class='file'>misc-examples/components/directive-templates/simple-ng-if.component.ts</p>
  
     <h4>Custom *ngBookIf template</h4>
-    
-    <a href='http://teropa.info/blog/2016/03/06/writing-an-angular-2-template-directive.html' target='_blank'>
-          Writing A Structural Directive in Angular 2
-        </a>
+
+    <external-link [id]="16"></external-link>
     
     <p>The view container is used to attach one or more views to the directive.
       the * before the *ngBookIf converts it into a template. it's short hand.

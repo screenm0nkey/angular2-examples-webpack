@@ -1,23 +1,290 @@
 [
   [
+    1,
     "NGRX Random Word Plunk",
     "http://plnkr.co/edit/avLMS3m0VNMXSfUhT7K9?p=preview"
   ],
   [
+    2,
     "Building an NGRX Time Machine with Angular 2",
     "https://github.com/johnlindquist/rxjs-in-angular2"
   ],
   [
+    3,
     "NGRX Queue Plunk",
     "http://plnkr.co/edit/E57afQC5zwSQFt2oH5Z0?p=preview"
   ],
   [
+    4,
     "NGRX Store In 10 Minutes",
     "https://egghead.io/lessons/angular-2-ngrx-store-in-10-minutes"
   ],
   [
+    5,
     "RXJS Subscribe vs Async-pipe",
     "https://blog.angularindepth.com/angular-question-rxjs-subscribe-vs-async-pipe-in-component-templates-c956c8c0c794"
+  ],
+  [
+    6,
+    "Total Guide To Angular 6+ Dependency Injection",
+    "https://medium.com/@tomastrajan/total-guide-to-angular-6-dependency-injection-providedin-vs-providers-85b7a347b59f"
+  ],
+  [
+    7,
+    "The NgModule forRoot() Convention",
+    "http://angularfirst.com/the-ngmodule-forroot-convention"
+  ],
+  [
+    8,
+    "Search this article for forRoot()",
+    "https://blog.angular-university.io/angular2-ngmodule/"
+  ],
+  [
+    9,
+    "Dependency Injection",
+    "http://blog.thoughtram.io/angular/2015/05/18/dependency-injection-in-angular-2.html"
+  ],
+  [
+    10,
+    "InjectionToken (was OpaqueToken)",
+    "http://blog.thoughtram.io/angular/2016/05/23/opaque-tokens-in-angular-2.html"
+  ],
+  [
+    11,
+    "Multi Providers",
+    "https://blog.thoughtram.io/angular2/2015/11/23/multi-providers-in-angular-2.html"
+  ],
+  [
+    12,
+    "BYPASSINGPROVIDERS IN ANGULAR 2",
+    "http://blog.thoughtram.io/angular/2016/09/14/bypassing-providers-in-angular-2.html"
+  ],
+  [
+    13,
+    "Angular 2 how to isolate service provider in a feature module",
+    "http://stackoverflow.com/questions/39828246/angular-2-how-to-isolate-service-provider-in-a-feature-module"
+  ],
+  [
+    14,
+    "NgRx Words Plunk",
+    "http://plnkr.co/edit/avLMS3m0VNMXSfUhT7K9?p=preview"
+  ],
+  [
+    15,
+    "Taking advantage-of-observables-in-angular2",
+    "http://blog.thoughtram.io/angular/2016/01/06/taking-advantage-of-observables-in-angular2.html"
+  ],
+  [
+    16,
+    "Great article on writing custom logic when things change. (Writing A Structural Directive in Angular 2)",
+    "http://teropa.info/blog/2016/03/06/writing-an-angular-2-template-directive.html"
+  ],
+  [
+    17,
+    "NgRx Queue Plunk",
+    "http://plnkr.co/edit/E57afQC5zwSQFt2oH5Z0?p=preview"
+  ],
+  [
+    18,
+    "Zones in Angular 2",
+    "http://blog.thoughtram.io/angular/2016/02/01/zones-in-angular-2.html"
+  ],
+  [
+    19,
+    "John Linquist ForkJoin Search",
+    "http://plnkr.co/edit/fOhgiYQyKtjGCAeWvi5U?p=preview&open=app%2Fapp.component.ts"
+  ],
+  [
+    20,
+    "Cold vs Hot Observables",
+    "https://blog.thoughtram.io/angular/2016/06/16/cold-vs-hot-observables.html"
+  ],
+  [
+    21,
+    "How components Ccmmunicate (READ THIS IT'S VERY GOOD)",
+    "http://mean.expert/2016/05/21/angular-2-component-communication"
+  ],
+  [
+    22,
+    "How does change detection really work",
+    "http://blog.angular-university.io/how-does-angular-2-change-detection-really-work"
+  ],
+  [
+    23,
+    "Reactive data flow in Ng2",
+    "http://blog.lambda-it.ch/reactive-data-flow-in-angular-2"
+  ],
+  [
+    24,
+    "Rookie Mistakes to avoid",
+    "http://angularjs.blogspot.co.uk/2016/04/5-rookie-mistakes-to-avoid-with-angular.html"
+  ],
+  [
+    25,
+    "NgModule ForRoot convention",
+    "http://angularfirst.com/the-ngmodule-forroot-convention"
+  ],
+  [
+    26,
+    "NgModule",
+    "https://blog.angular-universit y.io/angular2-ngmodule"
+  ],
+  [
+    27,
+    "How to focus an input",
+    "http://stackoverflow.com/questions/34502768/why-angular2-template-local-variables-are-not-usable-in-templates-when-using-ng"
+  ],
+  [
+    28,
+    "The Ultimate Guide to Forms",
+    "http://blog.ng-book.com/the-ultimate-guide-to-forms-in-angular-2",
+    "forms"
+  ],
+  [
+    29,
+    "Template-driven Forms",
+    "http://blog.thoughtram.io/angular/2016/03/21/template-driven-forms-in-angular-2.html",
+    "forms"
+  ],
+  [
+    30,
+    "Custom Validators in Angular 2",
+    "http://blog.thoughtram.io/angular/2016/03/14/custom-validators-in-angular-2.html",
+    "forms"
+  ],
+  [
+    31,
+    "Custom Form Controls",
+    "http://blog.thoughtram.io/angular/2016/07/27/custom-form-controls-in-angular-2.html",
+    "forms"
+  ],
+  [
+    32,
+    "RxJS in Angular",
+    "https://github.com/johnlindquist/rxjs-in-angular2",
+    "john linquist"
+  ],
+  [
+    33,
+    "NgRx in 10 minutes",
+    "https://egghead.io/lessons/angular-2-ngrx-store-in-10-minutes"
+  ],
+  [
+    34,
+    "Form Validation",
+    "http://www.syntaxsuccess.com/viewarticle/forms-and-validation-in-angular-2.0",
+    "forms"
+  ],
+  [
+    35,
+    "Nexted Forms",
+    "https://docs.google.com/document/u/1/d/1RIezQqE4aEhBRmArIAS1mRIZtWFf6JxN_7B4meyWK0Y/pub",
+    "forms"
+  ],
+  [
+    36,
+    "Nested Forms Plunk",
+    "http://plnkr.co/edit/nHSIsciSZNTQzQjxkXsk?p=preview",
+    "forms"
+  ],
+  [
+    37,
+    "Making your angular app fast",
+    "https://blog.thoughtram.io/angular/2017/02/02/making-your-angular-app-fast.html"
+  ],
+  [
+    38,
+    "John Linquist Http Plunk",
+    "http://plnkr.co/edit/NXT6JPgr7QoR4SEYva7N?p=preview",
+    "http rxjs"
+  ],
+  [
+    39,
+    "Dynamic Forms",
+    "http://www.syntaxsuccess.com/viewarticle/dynamic-form-in-angular-2.0",
+    "forms"
+  ],
+  [
+    40,
+    "Template Driven Forms",
+    "http://blog.thoughtram.io/angular/2016/03/21/template-driven-forms-in-angular-2.html",
+    "forms"
+  ],
+  [
+    41,
+    "Attribute Directives",
+    "https://angular.io/docs/ts/latest/guide/attribute-directives.html",
+    ""
+  ],
+  [
+    42,
+    "Input Controls",
+    "http://www.syntaxsuccess.com/viewarticle/input-controls-in-angular-2.0",
+    "forms"
+  ],
+  [
+    43,
+    "Subscribe vs Async Pipe",
+    "https://blog.angularindepth.com/angular-question-rxjs-subscribe-vs-async-pipe-in-component-templates-c956c8c0c79",
+    "rxjs"
+  ],
+  [
+    44,
+    "Everything you need to know about change detection in Angular",
+    "https://hackernoon.com/everything-you-need-to-know-about-change-detection-in-angular-8006c51d206f",
+    "change detection"
+  ],
+  [
+    45,
+    "Everything you need to know about the `ExpressionChangedAfterItHasBeenCheckedError` error",
+    "https://hackernoon.com/everything-you-need-to-know-about-the-expressionchangedafterithasbeencheckederror-error-e3fd9ce7dbb4",
+    "change detection"
+  ],
+  [
+    46,
+    "How does Angular Change Detection Really Work ?",
+    "http://blog.angular-university.io/how-does-angular-2-change-detection-really-work",
+    "change detection"
+  ],
+  [
+    47,
+    "Thoughtram Change Detection Explained",
+    "http://blog.thoughtram.io/angular/2016/02/22/angular-2-change-detection-explained.html",
+    "change detection"
+  ],
+  [
+    48,
+    "Victor Savin Change Detection",
+    "http://victorsavkin.com/post/110170125256/change-detection-in-angular-2",
+    "change detection"
+  ],
+  [
+    49,
+    "ScottLogic Building a todo list",
+    "http://blog.scottlogic.com/2015/12/07/angular-2.html",
+    ""
+  ],
+  [
+    50,
+    "Victor Savin - Immutability vs Encapsulation",
+    "http://victorsavkin.com/post/133936129316/angular-immutability-and-encapsulation",
+    "change detection"
+  ],
+  [
+    51,
+    "",
+    "",
+    ""
+  ],
+  [
+    52,
+    "",
+    "",
+    ""
   ]
 ]
+
+
+
+
 

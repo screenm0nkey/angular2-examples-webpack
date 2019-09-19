@@ -4,7 +4,9 @@ import {RouterModule} from '@angular/router';
 import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {sharedPipes} from './pipes';
-import {ExternalLinksComponent} from './external-links.component';
+import {ExternalLinksComponent} from './external-links/external-links.component';
+import {ExternalLinkComponent} from "./external-links/external-link.component";
+import {ExternalLinksService} from "./external-links/external-links.service";
 /**
  FormsModule gives us template driven directives such as:
  • ngModel and
@@ -32,11 +34,16 @@ import {ExternalLinksComponent} from './external-links.component';
     HttpClientModule,
     HttpClientJsonpModule,
     ExternalLinksComponent,
+    ExternalLinkComponent,
     ...sharedPipes
   ],
   declarations: [
     ...sharedPipes,
-    ExternalLinksComponent
+    ExternalLinksComponent,
+    ExternalLinkComponent
+  ],
+  providers:[
+    ExternalLinksService
   ]
 })
 export class SharedModule {
@@ -52,3 +59,4 @@ export class SharedModule {
     };
   }
 }
+

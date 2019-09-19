@@ -9,7 +9,7 @@ import {MyNgRxStore, PersonAction} from "../reducers/_reducers.service";
   template: `
   <p class="path">http-rxjs/ngrx/ngrx-in-ten/ngrx-in-ten-main-component.ts</p>
       <h4>NgRx in Ten - Party Planner</h4>
-      <a href="https://egghead.io/lessons/angular-2-ngrx-store-in-10-minutes" target="_blank">NgRx in Ten Minutes Egghead</a>
+      <external-link [id]="33"></external-link>
       
       <filter-select (updateFilter)="updateFilter($event)"></filter-select>
       <person-input (addPerson)="addPerson($event)"></person-input>

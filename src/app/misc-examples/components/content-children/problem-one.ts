@@ -32,8 +32,7 @@ export class SuperListComponent implements AfterContentInit {
   template: `
     <p class='file'>misc-examples/components/content-children/problem-one.ts</p>
     <h4>Scenario: You need a reference to an element a user projects into your component using ng-content</h4>
-    <a href='http://angularjs.blogspot.co.uk/2016/04/5-rookie-mistakes-to-avoid-with-angular.html' target='_blank'>Rookie
-      Mistakes</a>
+    <external-link [id]="24"></external-link>
 
     <p><code>@ContentChildren</code> allows us to target 'local-refs' in content which has been inserted using
       ng-content.

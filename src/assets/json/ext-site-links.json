@@ -21,7 +21,7 @@
   ],
   [
     5,
-    "RXJS Subscribe vs Async-pipe",
+    "Subscribe vs Async-pipe",
     "https://blog.angularindepth.com/angular-question-rxjs-subscribe-vs-async-pipe-in-component-templates-c956c8c0c794"
   ],
   [
@@ -31,13 +31,15 @@
   ],
   [
     7,
-    "The NgModule forRoot() Convention",
-    "http://angularfirst.com/the-ngmodule-forroot-convention"
+    "The NgModule and using the forRoot() Convention",
+    "http://angularfirst.com/the-ngmodule-forroot-convention",
+    "ngmodule"
   ],
   [
     8,
-    "Search this article for forRoot()",
-    "https://blog.angular-university.io/angular2-ngmodule/"
+    "Ahead Of Time Compilation And Lazy Loading - Avoid Common Pitfalls, forRoot()",
+    "https://blog.angular-university.io/angular2-ngmodule/",
+    "ngmodule"
   ],
   [
     9,
@@ -47,22 +49,26 @@
   [
     10,
     "InjectionToken (was OpaqueToken)",
-    "http://blog.thoughtram.io/angular/2016/05/23/opaque-tokens-in-angular-2.html"
+    "http://blog.thoughtram.io/angular/2016/05/23/opaque-tokens-in-angular-2.html",
+    "provider"
   ],
   [
     11,
     "Multi Providers",
-    "https://blog.thoughtram.io/angular2/2015/11/23/multi-providers-in-angular-2.html"
+    "https://blog.thoughtram.io/angular2/2015/11/23/multi-providers-in-angular-2.html",
+    "provider"
   ],
   [
     12,
     "BYPASSINGPROVIDERS IN ANGULAR 2",
-    "http://blog.thoughtram.io/angular/2016/09/14/bypassing-providers-in-angular-2.html"
+    "http://blog.thoughtram.io/angular/2016/09/14/bypassing-providers-in-angular-2.html",
+    "provider"
   ],
   [
     13,
     "Angular 2 how to isolate service provider in a feature module",
-    "http://stackoverflow.com/questions/39828246/angular-2-how-to-isolate-service-provider-in-a-feature-module"
+    "http://stackoverflow.com/questions/39828246/angular-2-how-to-isolate-service-provider-in-a-feature-module",
+    "provider"
   ],
   [
     14,
@@ -76,8 +82,9 @@
   ],
   [
     16,
-    "Great article on writing custom logic when things change. (Writing A Structural Directive in Angular 2)",
-    "http://teropa.info/blog/2016/03/06/writing-an-angular-2-template-directive.html"
+    "Writing A Structural Directive in Angular 2",
+    "http://teropa.info/blog/2016/03/06/writing-an-angular-2-template-directive.html",
+    "structural directive"
   ],
   [
     17,
@@ -118,11 +125,6 @@
     24,
     "Rookie Mistakes to avoid",
     "http://angularjs.blogspot.co.uk/2016/04/5-rookie-mistakes-to-avoid-with-angular.html"
-  ],
-  [
-    25,
-    "NgModule ForRoot convention",
-    "http://angularfirst.com/the-ngmodule-forroot-convention"
   ],
   [
     26,
@@ -213,20 +215,13 @@
   [
     41,
     "Attribute Directives",
-    "https://angular.io/docs/ts/latest/guide/attribute-directives.html",
-    ""
+    "https://angular.io/docs/ts/latest/guide/attribute-directives.html"
   ],
   [
     42,
     "Input Controls",
     "http://www.syntaxsuccess.com/viewarticle/input-controls-in-angular-2.0",
     "forms"
-  ],
-  [
-    43,
-    "Subscribe vs Async Pipe",
-    "https://blog.angularindepth.com/angular-question-rxjs-subscribe-vs-async-pipe-in-component-templates-c956c8c0c79",
-    "rxjs"
   ],
   [
     44,
@@ -261,8 +256,7 @@
   [
     49,
     "ScottLogic Building a todo list",
-    "http://blog.scottlogic.com/2015/12/07/angular-2.html",
-    ""
+    "http://blog.scottlogic.com/2015/12/07/angular-2.html"
   ],
   [
     50,
@@ -272,19 +266,144 @@
   ],
   [
     51,
-    "",
-    "",
-    ""
+    "difference between markforcheck and detectchanges",
+    "https://stackoverflow.com/questions/41364386/whats-the-difference-between-markforcheck-and-detectchanges",
+    "performance"
   ],
   [
     52,
-    "",
-    "",
-    ""
+    "Making angular apps faster",
+    "https://blog.thoughtram.io/angular/2017/02/02/making-your-angular-app-fast.html",
+    "performance"
+  ],
+  [
+    53,
+    "What is ForwardRef",
+    "https://hackernoon.com/what-is-forwardref-in-angular-and-why-we-need-it-6ecefb417d48"
+  ],
+  [
+    54,
+    "Afterview lifecycle hook",
+    "https://angular.io/docs/ts/latest/guide/lifecycle-hooks.html#!#afterview",
+    "lifecycle"
+  ],
+  [
+    55,
+    "Using Zones for better Performance",
+    "https://blog.thoughtram.io/angular/2017/02/21/using-zones-in-angular-for-better-performance.html",
+    "performance zones"
+  ],
+  [
+    56,
+    "Write a structural directive",
+    "https://egghead.io/lessons/angular-2-write-a-structural-directive-in-angular",
+    "structural directive"
+  ],
+  [
+    57,
+    "Building a toggle button",
+    "https://egghead.io/lessons/angular-2-angular-2-building-a-toggle-button-component"
+  ],
+  [
+    58,
+    "Create Multiple Service instances",
+    "https://egghead.io/lessons/angular-create-multiple-angular-service-instances",
+    "services multiple instances"
+  ],
+  [
+    59,
+    "Aliased Class Provider",
+    "https://egghead.io/lessons/angular-define-an-aliased-class-provider-in-angular"
+  ],
+  [
+    60,
+    "Indepth guide to @Host",
+    "https://blog.angularindepth.com/a-curios-case-of-the-host-decorator-and-element-injectors-in-angular-582562abcf0a"
+  ],
+  [
+    61,
+    "Whats new in Angular 6",
+    "https://blog.ninja-squad.com/2018/05/04/what-is-new-angular-6/"
+  ],
+  [
+    62,
+    "Control the dependency lookup with @Host, @SkipSelf and @Optional",
+    "https://egghead.io/lessons/angular-control-the-dependency-lookup-with-host-skipself-and-optional"
+  ],
+  [
+    63,
+    "Guide to DI Decorators",
+    "https://medium.com/frontend-coach/self-or-optional-host-the-visual-guide-to-angular-di-decorators-73fbbb5c8658"
+  ],
+  [
+    64,
+    "After Content Lifecycle Hook",
+    "https://angular.io/docs/ts/latest/guide/lifecycle-hooks.html#!#aftercontent",
+    "lifecycle hook"
+  ],
+  [
+    65,
+    "Rendering in Angular",
+    "https://www.yearofmoo.com/2016/02/rendering-in-angular2.html#why-rendering"
+  ],
+  [
+    66,
+    "Displaying Angular Material Dialog",
+    "https://stackoverflow.com/questions/41519481/angular2-material-dialog-has-issues-did-you-add-it-to-ngmodule-entrycomponent",
+    "ngModule"
+  ],
+  [
+    67,
+    "Get Started with Angular Fundamentals",
+    "https://egghead.io/series/angular-2-fundamentals",
+    "john lindquist"
+  ],
+  [
+    68,
+    "Pure and Impure Pipes",
+    "https://blog.angularindepth.com/the-essential-difference-between-pure-and-impure-pipes-and-why-that-matters-999818aa068"
+  ],
+  [
+    69,
+    "Hostbinding",
+    "https://angular.io/docs/ts/latest/api/core/index/HostBinding-var.html"
+  ],
+  [
+    70,
+    "Injecting dynamic components",
+    "https://medium.com/@tudorgergely/injecting-components-dynamically-in-angular-2-3d36594d49a0"
+  ],
+  [
+    71,
+    "Dan Wahlin Customer Manager App",
+    "https://github.com/DanWahlin/Angular2-CustomerManager",
+    "example"
+  ],
+  [
+    73,
+    "How to observe and object",
+    "https://blog.angularindepth.com/rxjs-how-to-observe-an-object-20c47cf51571",
+    "rxjs"
+  ],
+  [
+    75,
+    "Exploring HTTP module in Angular 7",
+    "https://hackernoon.com/angular-7-http-exploration-ffadddc8d745"
+  ],
+  [
+    76,
+    "The Extensive Guide to Creating Streams in RxJS",
+    "https://blog.angularindepth.com/the-extensive-guide-to-creating-streams-in-rxjs-aaa02baaff9a"
+  ],
+  [
+    77,
+    "A simple function for handling rxjs events with streams",
+    "https://github.com/johnlindquist/rx-handler"
+  ],
+  [
+    78,
+    "10 Need to know RXJS Functions",
+    "https://www.sitepoint.com/rxjs-functions-with-examples"
   ]
 ]
-
-
-
-
 

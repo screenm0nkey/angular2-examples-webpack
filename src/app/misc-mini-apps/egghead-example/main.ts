@@ -13,8 +13,7 @@ import {TodoService} from './services/todo-service';
           how the it keeps the data immutable.</p>
         <p>Also see how the pipes work by creating a new data array rather than mutating the exiting array</p>
 
-        <p><a target='_blank' href='https://egghead.io/series/angular-2-fundamentals'>See example on Fundamentals
-          videos</a></p>
+        <p><external-link [id]="67"></external-link></p>
 
         <search-box (update)='term = $event'></search-box>
 

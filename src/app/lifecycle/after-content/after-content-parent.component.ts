@@ -8,8 +8,8 @@ import {LoggerService} from '../logger.service';
   <div class='parent'>
     <p class='file'>lifecycle/after-content/after-content-parent.component.ts</p>
     <h4>AfterContent</h4>
-    <a href='https://angular.io/docs/ts/latest/guide/lifecycle-hooks.html#!#aftercontent' target='_blank'>Angular docs</a>
-
+      <external-link [id]="35"></external-link>
+      <external-link [id]="64"></external-link>
     <div *ngIf='show'>
         <after-content>
             <my-child></my-child><!--Projected content-->

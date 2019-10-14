@@ -9,9 +9,7 @@ import {Component, Input} from '@angular/core';
     <p class='file'>misc-examples/components/dependency-injection/inject-parent-component.ts</p>
     <h4>Injecting a parent component into a child</h4>
     <p>
-      The example below was taken from <a
-      href='https://hackernoon.com/everything-you-need-to-know-about-the-expressionchangedafterithasbeencheckederror-error-e3fd9ce7dbb4'
-      target='_blank'>here</a>.
+      The example below was taken from <external-link [id]="45"></external-link>.
     </p>
     <h6 style='margin:0'>I'm the parent.</h6>
     {{text}}<br>

@@ -40,9 +40,7 @@ const TOKEN_B = new InjectionToken<string>('UserConfig');
     <h4>InjectionToken (was Opaque Token)</h4>
     <p>Since Angular version 4.x OpaqueToken is considered deprecated in favour of InjectionToken.</p>
     <div class='links'>
-      <a
-        href='https://blog.thoughtram.io/angular/2016/05/23/opaque-tokens-in-angular-2.html#injectiontoken-since-angular-4x'
-        target='_blank'>Opaque Tokens</a>
+      <external-link [id]="10"></external-link>
     </div>
     <p>
       InjectionToken does pretty much the same thing as OpaqueToken (in fact, it derives from it). However, it allows

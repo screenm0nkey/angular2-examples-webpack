@@ -5,39 +5,18 @@
     <h4>Dependency Injection</h4>
 
     <p class="links">
-
-      <a href="http://angularfirst.com/the-ngmodule-forroot-convention/" target="_blank">
-        The NgModule <code>forRoot()</code> Convention
-      </a>
-
-      <a href="https://blog.angular-university.io/angular2-ngmodule/" target="_blank">
-        Search this article for <code>forRoot()</code>
-      </a>
-
-      <a target="_blank" href="http://blog.thoughtram.io/angular/2015/05/18/dependency-injection-in-angular-2.html"
-         target="_blank">
-        Dependency Injection
-      </a>
-      <a href="http://blog.thoughtram.io/angular/2016/05/23/opaque-tokens-in-angular-2.html" target="_blank">
-        InjectionToken (was OpaqueToken)
-      </a>
-      <a href="https://blog.thoughtram.io/angular2/2015/11/23/multi-providers-in-angular-2.html" target="_blank">
-        Multi Providers
-      </a>
-      <a target="_blank" href="http://blog.thoughtram.io/angular/2016/09/14/bypassing-providers-in-angular-2.html"
-         class="block" target="_blank">
-        BYPASSINGPROVIDERS IN ANGULAR 2
-      </a>
-      <a
-        href="http://stackoverflow.com/questions/39828246/angular-2-how-to-isolate-service-provider-in-a-feature-module"
-        target="_blank" class="block" target="_blank">
-        Angular 2 how to isolate service provider in a feature module
-      </a>
+      <external-link [id]="7"></external-link>
+      <external-link [id]="8"></external-link>
+      <external-link [id]="9"></external-link>
+      <external-link [id]="10"></external-link>
+      <external-link [id]="11"></external-link>
+      <external-link [id]="12"></external-link>
+      <external-link [id]="13"></external-link>
     </p>
 
     <section class="well">
       <h6>providedIn</h6>
-      <a href="https://blog.ninja-squad.com/2018/05/04/what-is-new-angular-6/" target="_blank">New to Ng6</a>
+      <external-link [id]="61"></external-link>
       <p>There is now a new, recommended, way to register a provider, directly inside the <code>@Injectable()</code>
         decorator, using the new <code>providedIn</code> attribute. It accepts 'root' as a value or any module of your
         application. When you use 'root',
@@ -103,7 +82,8 @@
         </li>
         <li>To prevent usage of a services outside of the desired module, use LazyServiceModule which will be imported
           by LazyModule to prevent circular dependency warning. LazyModule will then be lazy loaded using Angular Router
-          for some route in a standard fashion <a href="https://medium.com/@tomastrajan/total-guide-to-angular-6-dependency-injection-providedin-vs-providers-85b7a347b59f" target="_blank">See how to</a>.
+          for some route in a standard fashion
+          <external-link [id]="6"></external-link>.
         </li>
         <li class="strong">Use providers: [] inside of @Component or @Directive to scope service only for the particular
           component sub-tree which will also lead to creation of multiple service instances (one service instance per
@@ -147,9 +127,7 @@
             starts,
             provide the service in a component instead i.e. <code>@Component(&#123;providers : [...&#125;)</code>
           </strong>
-          <a
-            href="https://stackoverflow.com/questions/39828246/angular-2-how-to-isolate-service-provider-in-a-feature-module"
-            target="_blank">Taken from here</a>
+          <external-link [id]="13"></external-link>
         </li>
 
         <li>If the injector doesn't have a provider for the requested token, it delegates
@@ -163,8 +141,7 @@
 
     <div class="well">
       <h6>Create Multiple Angular Service Instances</h6>
-      <a href="https://egghead.io/lessons/angular-create-multiple-angular-service-instances" target="_blank">Egghead
-        Lesson</a>
+      <external-link [id]="58"></external-link>
       <p>An Angular service registered on the NgModule is globally visible on the entire application.
         Moreover it is a singleton instance, so every component that requires it via its constructor, will get the same
         instance. However this is not always the desired behavior.
@@ -190,9 +167,8 @@
     <section class="well">
       <h6>Define an Aliased Class Provider with <code>useExisting</code></h6>
       <div class="links">
-        <a href="https://blog.thoughtram.io/angular/2016/09/14/bypassing-providers-in-angular-2.html" target="_blank">bypassing-providers-in-angular-2</a>
-        <a href="https://egghead.io/lessons/angular-define-an-aliased-class-provider-in-angular" target="_blank">Alias
-          classes</a>
+        <external-link [id]="12"></external-link>
+        <external-link [id]="59"></external-link>
       </div>
       <code>providers: [NewLoggerService,&#123; provide: LoggerService, useExisting: NewLoggerService &#125;]</code>
       <p><code>useExisting</code> is a bit different than the other provider strategies. It’s the only strategy that
@@ -281,11 +257,7 @@
         because it’s not really documented anywhere. But exactly this kind of injectors is the first stage of the DI
         resolution process. And these injectors make up a hierarchy that is used to resolve dependencies decorated with
         the <code>@Host</code> decorator. </p>
-      <a
-        href="https://blog.angularindepth.com/a-curios-case-of-the-host-decorator-and-element-injectors-in-angular-582562abcf0a"
-        target="_blank">
-        Indepth guide to @Host
-      </a>
+      <external-link [id]="60"></external-link>
     </section>
   </section>
 

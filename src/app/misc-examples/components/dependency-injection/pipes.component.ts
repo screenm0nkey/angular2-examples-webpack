@@ -9,10 +9,9 @@ import {Hero} from '../../../shared/pipes/flying-heros.pipe';
       <section>
         <p class="path">misc-examples/components/dependency-injection/pipes.component.ts</p>
         <h4>Pipes</h4>
-        <p>
-          <a href='https://blog.angularindepth.com/the-essential-difference-between-pure-and-impure-pipes-and-why-that-matters-999818aa068'>
-          Difference between pure and impure pipes
-          </a>
+        <p class="links">
+          <external-link [id]="68"></external-link>
+          <external-link [id]="5"></external-link>
         </p>
 
         <p><strong>There are two categories of pipes: pure and impure</strong>.

@@ -24,8 +24,7 @@ export class ToggleButton {
   template: `
     <p class='file'>misc-examples/components/input-binding/toggle-button.ts</p>
     <h4>Two way binding on a custom event</h4>
-    <p><a href='https://egghead.io/lessons/angular-2-angular-2-building-a-toggle-button-component' target='_blank'>Building
-      a toggle button</a></p>
+    <p><external-link [id]="57"></external-link></p>
     <p>
       It covers using transclusion in Angular 2, setting up your own two-way binding, and making the button into a
       reusable component.

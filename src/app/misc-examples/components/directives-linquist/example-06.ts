@@ -24,24 +24,24 @@ export class ThreeDirective implements AfterViewInit {
 @Component({
   selector: 'example-06',
   template: `
-    <p class='file'>misc-examples/components/directives-linquist/example-06.ts</p>
-    <h4> A Structural Directive</h4>
-    <p><a href='https://egghead.io/lessons/angular-2-write-a-structural-directive-in-angular' target='_blank'>Lesson</a></p>
-    <strong>'let-' is only supported on template elements</strong>
-    
-    <pre>&lt;span *mrNick&gt;Hello, Angular&lt;/span&gt;</pre>
-    is the same as
-    <pre>&lt;template mrNick&gt;
+      <p class='file'>misc-examples/components/directives-linquist/example-06.ts</p>
+      <h4> A Structural Directive</h4>
+      <p><external-link [id]="56"></external-link></p>
+      <strong>'let-' is only supported on template elements</strong>
+
+      <pre>&lt;span *mrNick&gt;Hello, Angular&lt;/span&gt;</pre>
+      is the same as
+      <pre>&lt;template mrNick&gt;
     &lt;span&gt;Hello, Angular&lt;/span&gt;
 &lt;/template&gt;</pre>
-    
-    <p>For a structural directive, we're going to add in an *.</p>
-    <p> But the asterisk version of a directive is essentially the shorthand for wrapping something in a template
-      element, which will allow us to use this as a template inside of our directive</p>
-    <p>If you look at console.log(el.nativeElement) for the mrNick directive above you will now see template bindings
-      rather than a DOM element</p>
-    
-    <span *mrNick><strong>We</strong> can this as a template inside our directive, </span>
+
+      <p>For a structural directive, we're going to add in an *.</p>
+      <p> But the asterisk version of a directive is essentially the shorthand for wrapping something in a template
+          element, which will allow us to use this as a template inside of our directive</p>
+      <p>If you look at console.log(el.nativeElement) for the mrNick directive above you will now see template bindings
+          rather than a DOM element</p>
+
+      <span *mrNick><strong>We</strong> can this as a template inside our directive, </span>
   `
 })
 export class Example06AppComponent {

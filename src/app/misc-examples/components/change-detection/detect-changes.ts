@@ -6,10 +6,10 @@ import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component} fr
   template: `
     <p class='file'>/misc-examples/components/immutable/detect-changes.ts</p>
     <h4>this.ref.detectChanges()</h4>
-    <a href='https://stackoverflow.com/questions/41364386/whats-the-difference-between-markforcheck-and-detectchanges'
-       target='_blank'>detectChanges vs markForCheck</a>
-    <a href='https://blog.thoughtram.io/angular/2017/02/02/making-your-angular-app-fast.html' target='_blank'>Making
-      your angular app fast</a>
+    <external-link [id]="35"></external-link>
+
+    <external-link [id]="51"></external-link>
+    <external-link [id]="52"></external-link>
     <a routerLink='../speedyapp'>Speeding up app</a>
 
     <p>On push will stop the component's view bindings from being checked.

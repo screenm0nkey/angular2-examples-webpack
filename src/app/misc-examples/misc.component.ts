@@ -32,7 +32,6 @@ import {Component} from '@angular/core';
         <ul class='todos collapsed' #todolist (click)="toggleVisibility(todolist)">
           <li class="path"><p class="path">misc-examples/misc.component.ts</p></li>
           <li>ng-template</li>
-          <li>make changes to ngrx examples inline with this article <external-link [id]="43"></external-link><a href=""> </a></li>
           <li>Spotify example is broken</li>
         </ul>
 

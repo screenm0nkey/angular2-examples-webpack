@@ -12,9 +12,7 @@ import {Component} from '@angular/core';
       <h4>Custom validateMyCounter directives for template driven forms</h4>
 
       <p>
-      <a href='https://hackernoon.com/what-is-forwardref-in-angular-and-why-we-need-it-6ecefb417d48' target='_blank'>
-        What is forwardRef in Angular and why we need it with custom validators
-      </a>
+          <external-link [id]="53"></external-link>
       </p>
       
       <form #form='ngForm' (ngSubmit)='logForm(form)'>

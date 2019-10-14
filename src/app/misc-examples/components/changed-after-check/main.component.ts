@@ -4,11 +4,7 @@ import {Component} from '@angular/core';
   template: `
     <div class='comps'>
       <div>
-        <a
-          href='https://hackernoon.com/everything-you-need-to-know-about-the-expressionchangedafterithasbeencheckederror-error-e3fd9ce7dbb4'
-          target='_blank'>
-          Everything you need to know about the 'ExpressionChangedAfterItHasBeenCheckedError' error
-        </a>
+        <external-link [id]="45"></external-link>
       </div>
       <shared-service-component></shared-service-component>
       <dynamic-component></dynamic-component>

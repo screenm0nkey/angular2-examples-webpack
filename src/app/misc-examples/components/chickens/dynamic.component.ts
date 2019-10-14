@@ -5,7 +5,7 @@ const TMPL = `
   <p class='file'>misc-examples/components/chickens/dynamic.component.ts</p>
   <h4>Dynamic component instantiation</h4>
   <div class='link'>
-    <a href='https://medium.com/@tudorgergely/injecting-components-dynamically-in-angular-2-3d36594d49a0'>Dynamic Comps</a>
+    <external-link [id]="70"></external-link>
   </div>
 
   <ul>

@@ -12,7 +12,7 @@ import {MainInputBindingApp} from './components/input-binding/main';
 import {MultiTransclusion} from './components/multi-content/named-content';
 import {NgStyleMainComponent} from './components/ng-style/main';
 import {NgZoneMainComponent} from './components/ng-zone/ngzone.module';
-import {AppComponent} from './components/notifications/_notifications.module';
+import {AppComponent} from './components/notifications/main.component';
 import {MainChildrenApp} from './components/view-children/main';
 import {TricksMainComponent} from './components/tricks/main';
 import {TipsMainComponent} from './components/tips/main';

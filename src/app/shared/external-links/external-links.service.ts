@@ -26,7 +26,7 @@ export class ExternalLinksService {
 
   getLinks(): Observable<ExtLink[]> {
     const observable = this.http
-      .get('/assets/json/site-links.json')
+      .get('/assets/json/ext-site-links.json')
       .pipe(map((res: RawLink[]) => res.map(this.formatLink)));
 
     observable.subscribe((links: ExtLink[]) => {
@@ -39,7 +39,6 @@ export class ExternalLinksService {
   getLink(id: number): Subject<ExtLink> {
     const link$: Subject<ExtLink> = new ReplaySubject<ExtLink>(1);
     this.linksMap$.subscribe((links: LinkMap) => {
-      debugger
       link$.next(links[id]);
     });
     return link$;

@@ -44,18 +44,9 @@ export class PersonComponent implements OnInit {
     <p class="path">misc-examples/components/dependency-injection/control-lookup.component.ts</p>
     <h4>@Self, @Host, @SkipSelf and @Optional</h4>
     <div class="links">
-      <a href="https://egghead.io/lessons/angular-control-the-dependency-lookup-with-host-skipself-and-optional"
-         target="_blank">Control the dependency lookup with @Host, @SkipSelf and @Optional</a>
-      <a
-        href="https://medium.com/frontend-coach/self-or-optional-host-the-visual-guide-to-angular-di-decorators-73fbbb5c8658"
-        target="_blank">
-        Guide to DI Decorators
-      </a>
-      <a
-        href="https://blog.angularindepth.com/a-curios-case-of-the-host-decorator-and-element-injectors-in-angular-582562abcf0a"
-        target="_blank">
-        Indepth guide to @Host
-      </a>
+        <external-link [id]="62"></external-link>
+        <external-link [id]="63"></external-link>
+        <external-link [id]="60"></external-link>
     </div>
 
     <p>Angular now has a hierarchical dependency injector. That allows us to specify

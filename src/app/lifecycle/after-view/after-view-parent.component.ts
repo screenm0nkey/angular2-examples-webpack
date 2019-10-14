@@ -8,7 +8,7 @@ import {LoggerService} from '../logger.service';
       <div class='parent'>
         <p class='path'>lifecycle/after-view/after-view-parent.component.ts</p>
         <h4>AfterViewChecked, AfterViewInit</h4>
-        <a href='https://angular.io/docs/ts/latest/guide/lifecycle-hooks.html#!#afterview' target='_blank'>Docs</a>
+          <external-link [id]="54"></external-link>
     
         <after-view *ngIf='show'></after-view>
     

@@ -9,9 +9,6 @@ import {Component, OnInit} from '@angular/core';
 })
 export class LinksComponent implements OnInit {
 
-  constructor() {
-  }
-
   ngOnInit(): void {
   }
 }

@@ -318,7 +318,8 @@
   [
     60,
     "Indepth guide to @Host",
-    "https://blog.angularindepth.com/a-curios-case-of-the-host-decorator-and-element-injectors-in-angular-582562abcf0a"
+    "https://blog.angularindepth.com/a-curios-case-of-the-host-decorator-and-element-injectors-in-angular-582562abcf0a",
+    "A curious case of the @Host decorator and Element Injectors in Angular"
   ],
   [
     61,
@@ -333,7 +334,8 @@
   [
     63,
     "Guide to DI Decorators",
-    "https://medium.com/frontend-coach/self-or-optional-host-the-visual-guide-to-angular-di-decorators-73fbbb5c8658"
+    "https://medium.com/frontend-coach/self-or-optional-host-the-visual-guide-to-angular-di-decorators-73fbbb5c8658",
+    "Dependency injection host"
   ],
   [
     64,
@@ -365,8 +367,9 @@
   ],
   [
     69,
-    "Hostbinding",
-    "https://angular.io/docs/ts/latest/api/core/index/HostBinding-var.html"
+    "@Hostbinding",
+    "https://angular.io/docs/ts/latest/api/core/index/HostBinding-var.html",
+    "host binding"
   ],
   [
     70,

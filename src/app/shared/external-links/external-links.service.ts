@@ -1,12 +1,13 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
-import {Observable, ReplaySubject, Subject} from 'rxjs';
+import {forkJoin, Observable, ReplaySubject, Subject} from 'rxjs';
 
 type RawLink = [number, string, string, string];
 type LinkMap = { [key: number]: ExtLink };
 
 export interface ExtLink {
+  type: string;
   id: number;
   title: string;
   titleLc: string;
@@ -25,9 +26,9 @@ export class ExternalLinksService {
   }
 
   getLinks(): Observable<ExtLink[]> {
-    const observable = this.http
-      .get('/assets/json/ext-site-links.json')
-      .pipe(map((res: RawLink[]) => res.map(this.formatLink)));
+    const ext$: Observable<any> = this.http.get('/assets/json/ext-site-links.json');
+    const int$: Observable<any> = this.http.get('/assets/json/int-site-links.json');
+    const observable = this.joinLinks(int$, ext$);
 
     observable.subscribe((links: ExtLink[]) => {
       this.linksMap$.next(this.createLinkMap(links));
@@ -44,13 +45,22 @@ export class ExternalLinksService {
     return link$;
   }
 
-  private formatLink(linkInfo: RawLink): ExtLink {
+  private joinLinks(int$: Observable<RawLink[]>, ext$: Observable<RawLink[]>): Observable<ExtLink[]> {
+    return forkJoin(int$, ext$).pipe(map((res: [RawLink[], RawLink[]]) => {
+      const extLinks: ExtLink[] = res[1].map(link => this.formatLink(link, 'ext'));
+      const intLinks: ExtLink[] = res[0].map(link => this.formatLink(link, 'int'));
+      return intLinks.concat(extLinks);
+    }));
+  }
+
+  private formatLink(linkInfo: RawLink, type: string): ExtLink {
     return {
+      type,
       id: linkInfo[0],
       title: linkInfo[1],
       titleLc: linkInfo[1].toLowerCase(),
       href: linkInfo[2],
-      keywords : linkInfo[3] ? linkInfo[3].toLowerCase() : ''
+      keywords: linkInfo[3] ? linkInfo[3].toLowerCase() : '',
     }
   }
 

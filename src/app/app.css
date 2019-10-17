@@ -38,20 +38,24 @@ p {
   line-height: 14px;
 }
 
-a {
+.link-type {
   font-style: italic;
   color: #fbff73;
   text-decoration: none;
-  background-color: #ce0271;
   padding: 1px 7px 1px;
   border-radius: 2px;
   font-size: 13px;
   display: inline-block;
   margin-bottom: 2px;
+  cursor : pointer;
 }
 
-a:after {
-  content: ">>";
+.link-type.ext {
+    background-color: #ce0271;
+}
+
+.link-type.int {
+    background-color: #009a2f;
 }
 
 .links external-link {

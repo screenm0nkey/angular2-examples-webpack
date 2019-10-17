@@ -33,21 +33,19 @@ import {Hero} from '../../../shared/pipes/flying-heros.pipe';
         <p>This may seem restrictive but it's also fast. An object reference check is fast—much faster than a deep check
           for differences</p>
 
-        <p>Angular executes an impure pipe during every component change detection cycle. An impure pipe is called
-          often, as often as every keystroke or mouse-move</p>
-
-       
-
+        <p class="strong">Angular executes an impure pipe during every component change detection cycle. An impure pipe is called
+          often, as often as every keystroke or mouse-move.</p>
       </section>
 
       <section>
         <p class="path">misc-examples/components/dependency-injection/pipes.component.ts</p>
         
-        <p>Notice below when adding Impure values, the Pure list does not update. This is because it is Pure and will 
+        <p>Notice below when adding Impure values, the impure list updates but the Pure list does not. 
+            This is because it is Pure and will 
           only update when it's @Input changes. 
         </p>
         
-        <p>The Impure list updates when adding to the Pre list as it's Impure and will update on every digest loop.</p>
+        <p class="strong">Also notice the Impure list updates when adding to the Pure list as it's Impure and will update on every digest loop.</p>
         
         <p>See the console for out put.</p>
         

@@ -1,8 +1,15 @@
 [
   [
-    1,
-    "NGRX Random Word Plunk",
-    "http://plnkr.co/edit/avLMS3m0VNMXSfUhT7K9?p=preview"
+    1001,
+    "Pipes",
+    "/misc/pipes",
+    "pure impure async"
+  ],
+  [
+    1002,
+    "Dependency Injection",
+    "misc/dep-injection",
+    "Dependency injection token"
   ]
 ]
 

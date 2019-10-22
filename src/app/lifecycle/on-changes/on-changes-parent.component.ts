@@ -1,5 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {OnChangesComponent} from './on-changes.component';
+import {ChildViewComponent} from '../after-view/after-view.component';
 
 class Hero {
   constructor(public name: string) {
@@ -33,7 +34,7 @@ export class OnChangesParentComponent {
   hero: Hero;
   power: string;
   title = 'OnChanges';
-  @ViewChild(OnChangesComponent) childView: OnChangesComponent;
+  @ViewChild(OnChangesComponent, { static: false }) childView: OnChangesComponent;
 
   constructor() {
     this.reset();

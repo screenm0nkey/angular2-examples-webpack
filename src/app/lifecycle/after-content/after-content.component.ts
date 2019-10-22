@@ -29,7 +29,7 @@ export class AfterContentComponent
   public comment = '';
 
   // Query for a CONTENT child of type `InjectParentInChildComponent`
-  @ContentChild(ChildComponent) contentChild: ChildComponent;
+  @ContentChild(ChildComponent, { static: false }) contentChild: ChildComponent;
 
   constructor(private _logger: LoggerService) {
     this._logIt('AfterContent constructor');

@@ -1,4 +1,5 @@
 import {Component, TemplateRef, ViewChild, ViewContainerRef} from '@angular/core';
+import {ChildViewComponent} from '../../../lifecycle/after-view/after-view.component';
 
 /**
  * BasicComponent4
@@ -12,7 +13,7 @@ import {Component, TemplateRef, ViewChild, ViewContainerRef} from '@angular/core
   `
 })
 export class BasicComponent4 {
-  @ViewChild('foo') template: TemplateRef<any>;
+  @ViewChild('foo', { static: false }) template: TemplateRef<any>;
 
   constructor(private view: ViewContainerRef) {
   }

@@ -12,8 +12,8 @@ import {mapTo, switchMapTo, takeUntil} from "rxjs/operators";
 export class StartStopRxStreamComponent implements OnInit {
   @Input() stream$: Observable<any>;
   @Output() evt = new EventEmitter();
-  @ViewChild('start') startBtnEl: ElementRef;
-  @ViewChild('stop') stopBtnEl: ElementRef;
+  @ViewChild('start', {static: false}) startBtnEl: ElementRef;
+  @ViewChild('stop', {static: false}) stopBtnEl: ElementRef;
 
   constructor() {
     this.setButtonState = this.setButtonState.bind(this);

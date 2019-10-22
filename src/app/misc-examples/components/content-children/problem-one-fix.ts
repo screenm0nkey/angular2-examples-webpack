@@ -1,4 +1,5 @@
 import {AfterContentInit, Component, ContentChildren, Directive, ElementRef, QueryList} from '@angular/core';
+import {ChildViewComponent} from '../../../lifecycle/after-view/after-view.component';
 
 @Directive({selector: 'li'})
 export class SuperListDirective {
@@ -21,8 +22,8 @@ export class SuperListDirective {
 })
 export class FixSuperListComponent implements AfterContentInit {
   @ContentChildren(SuperListDirective) items: QueryList<SuperListDirective>;
-  count: number = 0;
-  showme: boolean = false;
+  count = 0;
+  showme = false;
   // use ngAfterViewInit() if you're doing a view query
   // use ngAfterContentInit() if you're injecting the content using ngcontent
   ngAfterContentInit() {

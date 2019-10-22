@@ -7,6 +7,7 @@ import {
   Input,
   ViewChild
 } from '@angular/core';
+import {ChildViewComponent} from '../../../lifecycle/after-view/after-view.component';
 
 @Component({
   selector: '[box]',
@@ -30,10 +31,10 @@ export class BoxComponent implements AfterViewInit {
 
   // make the box component instance available on event.target,
   // where target is the underlying SVG rect element, so we can access it in speedy.component.ts
-  @ViewChild('rect')
+  @ViewChild('rect', { static: false })
   set rect(value: ElementRef) {
     if (value) {
-      value.nativeElement['BoxComponent'] = this;
+      value.nativeElement.BoxComponent = this;
     }
   }
 

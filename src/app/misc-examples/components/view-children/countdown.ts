@@ -1,4 +1,5 @@
 import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {ChildViewComponent} from '../../../lifecycle/after-view/after-view.component';
 
 @Component({
   selector: 'countdown-timer',
@@ -58,7 +59,7 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
   `
 })
 export class CountdownViewChildParentComponent implements AfterViewInit {
-  @ViewChild(CountdownTimerComponent)
+  @ViewChild(CountdownTimerComponent, { static: false })
   private timerComponent: CountdownTimerComponent;
 
   seconds() {

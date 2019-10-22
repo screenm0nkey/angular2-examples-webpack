@@ -3,6 +3,7 @@ import {Component, ElementRef, EventEmitter, Injectable, OnInit, Output, ViewChi
 import {HttpClient} from '@angular/common/http';
 import {forkJoin, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {ChildViewComponent} from '../../../lifecycle/after-view/after-view.component';
 
 interface Chicken {
   id: number;
@@ -82,7 +83,7 @@ export class SayNameButtonComponent {
   `
 })
 export class ChickenComponent implements OnInit {
-  @ViewChild('namey') namey: ElementRef;
+  @ViewChild('namey', { static: false }) namey: ElementRef;
   chickens: Chicken[] = [];
   customers: Customer[] = [];
 

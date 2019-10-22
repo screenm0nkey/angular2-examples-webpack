@@ -44,7 +44,7 @@ export class InjectableComponent {
 })
 export class DynamicComponent implements AfterViewInit {
   // ViewContainerRef is the container of the parent of this component.
-  @ViewChild('viewContainer', {read: ViewContainerRef}) viewContainer;
+  @ViewChild('viewContainer', {read: ViewContainerRef, static:false}) viewContainer;
   name: string = 'I am a Component';
 
   // ComponentFactoryResolver is used to get the factory of the component we want to inject

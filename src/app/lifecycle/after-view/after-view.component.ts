@@ -1,7 +1,7 @@
 import {AfterViewChecked, AfterViewInit, Component, ViewChild} from '@angular/core';
 import {LoggerService} from '../logger.service';
 
-// // // // // // // // // 
+// // // // // // // // //
 @Component({
   selector: 'after-my-child',
   template: '<input [(ngModel)]=\'hero\'>'
@@ -11,7 +11,7 @@ export class ChildViewComponent {
 }
 
 
-// // // // // // // // // // // 
+// // // // // // // // // // //
 @Component({
   selector: 'after-view',
   template: `
@@ -29,7 +29,7 @@ export class AfterViewComponent implements AfterViewChecked, AfterViewInit {
   public comment: string = '';
 
   // Query for a VIEW child of type `ChildViewComponent`
-  @ViewChild(ChildViewComponent) viewChild: ChildViewComponent;
+  @ViewChild(ChildViewComponent, { static: false }) viewChild: ChildViewComponent;
 
   constructor(private _logger: LoggerService) {
     this._logIt('AfterViewComponent constructor');

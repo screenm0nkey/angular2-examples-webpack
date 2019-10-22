@@ -1,4 +1,5 @@
 import {AfterContentInit, Component, ContentChildren, ElementRef, QueryList} from '@angular/core';
+import {ChildViewComponent} from '../../../lifecycle/after-view/after-view.component';
 
 // SuperList component would be our library that an end user us using.
 @Component({

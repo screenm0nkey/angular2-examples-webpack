@@ -1,4 +1,5 @@
 import {Component, Directive, Injectable, TemplateRef, ViewChild, ViewContainerRef} from '@angular/core';
+import {ChildViewComponent} from '../../../lifecycle/after-view/after-view.component';
 
 /**
  * TemplateService
@@ -19,8 +20,8 @@ export class TemplateService {
   `
 })
 export class TemplateStorageComponent {
-  @ViewChild('header') headerTemplate: TemplateRef<any>;
-  @ViewChild('footer') footerTemplate: TemplateRef<any>;
+  @ViewChild('header', { static: false }) headerTemplate: TemplateRef<any>;
+  @ViewChild('footer', { static: false }) footerTemplate: TemplateRef<any>;
 
   constructor(private service: TemplateService) {
   }

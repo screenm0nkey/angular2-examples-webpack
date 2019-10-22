@@ -10,6 +10,7 @@ import {
   ViewChild,
   ViewChildren
 } from '@angular/core';
+import {ChildViewComponent} from '../../../lifecycle/after-view/after-view.component';
 
 @Directive({
   selector: '[focusIt]'
@@ -48,9 +49,9 @@ export class SolutionTwo implements OnInit {
   // @ViewChild allows us access to the directive instance's api methods in the component.
   // in this case we can access ngAfterViewInit, setFocus, etc
   // @ViewChildren does the same but lets us access multiple instances
-  @ViewChild(FocusIt) child: FocusIt;
+  @ViewChild(FocusIt, { static: false }) child: FocusIt;
   @ViewChildren(FocusIt) children: QueryList<FocusIt>;
-  private inputIsVisible: boolean = false;
+  private inputIsVisible = false;
 
   ngOnInit() {
     // notice that the 'child' directive object instance is still not available as a property

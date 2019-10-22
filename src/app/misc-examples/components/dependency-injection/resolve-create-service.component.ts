@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, ElementRef, Injectable, Injector, ViewChild} from '@angular/core';
 import {ParamService} from './injectables.service';
+import {ChildViewComponent} from '../../../lifecycle/after-view/after-view.component';
 
 @Injectable({providedIn: 'root'})
 class MyService {
@@ -28,7 +29,7 @@ class MyService {
   `
 })
 export class DiSampleComponent implements AfterViewInit {
-  @ViewChild('reffy') el: ElementRef;
+  @ViewChild('reffy', { static: false }) el: ElementRef;
   injector: Injector;
   myService: MyService;
 

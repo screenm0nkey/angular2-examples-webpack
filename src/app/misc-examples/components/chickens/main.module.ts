@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {SharedModule} from '../../../shared/shared.module';
+import {SharedModule} from '../../../shared/_shared.module';
 import {MainComponent} from './main.component';
 import {ChickenComponent, SayNameButtonComponent} from './chicken.component';
 import {DomAdapterComponent} from './dom-adapter.component';

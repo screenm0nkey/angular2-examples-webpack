@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {SharedModule} from '../../../shared/shared.module';
+import {SharedModule} from '../../../shared/_shared.module';
 import {ChangeAfterComponent} from './main.component';
 import {BComponent, SharedServiceComponent} from './shared-service.component';
 import {DComponent, DynamicComponent} from './dynamic.component';

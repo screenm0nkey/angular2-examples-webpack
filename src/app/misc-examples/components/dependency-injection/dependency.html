@@ -5,18 +5,18 @@
     <h4>Dependency Injection</h4>
 
     <p class="links">
-      <external-link [id]="7"></external-link>
-      <external-link [id]="8"></external-link>
-      <external-link [id]="9"></external-link>
-      <external-link [id]="10"></external-link>
-      <external-link [id]="11"></external-link>
-      <external-link [id]="12"></external-link>
-      <external-link [id]="13"></external-link>
+      <dlink [id]="7"></dlink>
+      <dlink [id]="8"></dlink>
+      <dlink [id]="9"></dlink>
+      <dlink [id]="10"></dlink>
+      <dlink [id]="11"></dlink>
+      <dlink [id]="12"></dlink>
+      <dlink [id]="13"></dlink>
     </p>
 
     <section class="well">
       <h6>providedIn</h6>
-      <external-link [id]="61"></external-link>
+      <dlink [id]="61"></dlink>
       <p>There is now a new, recommended, way to register a provider, directly inside the <code>@Injectable()</code>
         decorator, using the new <code>providedIn</code> attribute. It accepts 'root' as a value or any module of your
         application. When you use 'root',
@@ -26,9 +26,9 @@
         a provider of the UsersModule without adding it to the providers of the module.</p>
 
       <code>
-        @Injectable(&#123;
+        @Injectable(<brace>
         providedIn: 'root'
-        &#125;)
+        </brace>)
       </code>
     </section>
 
@@ -83,7 +83,7 @@
         <li>To prevent usage of a services outside of the desired module, use LazyServiceModule which will be imported
           by LazyModule to prevent circular dependency warning. LazyModule will then be lazy loaded using Angular Router
           for some route in a standard fashion
-          <external-link [id]="6"></external-link>.
+          <dlink [id]="6"></dlink>.
         </li>
         <li class="strong">Use providers: [] inside of @Component or @Directive to scope service only for the particular
           component sub-tree which will also lead to creation of multiple service instances (one service instance per
@@ -125,9 +125,9 @@
             within
             the component tree created with this injector. If you must load the module eagerly, when the application
             starts,
-            provide the service in a component instead i.e. <code>@Component(&#123;providers : [...&#125;)</code>
+            provide the service in a component instead i.e. <code>@Component(<brace>providers : [...</brace>)</code>
           </strong>
-          <external-link [id]="13"></external-link>
+          <dlink [id]="13"></dlink>
         </li>
 
         <li>If the injector doesn't have a provider for the requested token, it delegates
@@ -141,7 +141,7 @@
 
     <div class="well">
       <h6>Create Multiple Angular Service Instances</h6>
-      <external-link [id]="58"></external-link>
+      <dlink [id]="58"></dlink>
       <p>An Angular service registered on the NgModule is globally visible on the entire application.
         Moreover it is a singleton instance, so every component that requires it via its constructor, will get the same
         instance. However this is not always the desired behavior.
@@ -157,7 +157,7 @@
         <i>See the console.log 'Created an instance of MrTestyServiceTwo'</i></p>
       <p>
         1) there is only a single instance of MrTestyServiceOne being created but multiple MrTestyServiceTwo.
-        This is due to the way they are declared in the module src/app/shared/shared.module.ts
+        This is due to the way they are declared in the module src/app/shared/_shared.module.ts
         MrTestyServiceOne is configured using <code>forRoot</code>, which will only ever produce a single instance of
         the
         service.
@@ -167,10 +167,10 @@
     <section class="well">
       <h6>Define an Aliased Class Provider with <code>useExisting</code></h6>
       <div class="links">
-        <external-link [id]="12"></external-link>
-        <external-link [id]="59"></external-link>
+        <dlink [id]="12"></dlink>
+        <dlink [id]="59"></dlink>
       </div>
-      <code>providers: [NewLoggerService,&#123; provide: LoggerService, useExisting: NewLoggerService &#125;]</code>
+      <code>providers: [NewLoggerService,<brace> provide: LoggerService, useExisting: NewLoggerService </brace>]</code>
       <p><code>useExisting</code> is a bit different than the other provider strategies. It’s the only strategy that
         doesn’t actually
         create an instance, but instead, it points to another token which in turn will create the instance.</p>
@@ -220,15 +220,15 @@
       with the token called "LoggerService" and assigns the returned value
       to the loggerFactory parameter.</p>
 
-    <code>constructor(loggerFactory: LoggerService) &#123;
+    <code>constructor(loggerFactory: LoggerService) <brace>
       loggerFactory.logInfo('Creating HeroBiosComponent');
-      &#125;</code>
+      </brace></code>
 
 
     <p class="code-example">The simple "class" Provider is the most typical by far. <br> The example below takes a token
       and a
       definition object. The token is usually a class but it doesn't have to be.</p>
-    <code>&#123; provide: LoggerService, useClass: DateLoggerService &#125;</code>
+    <code><brace> provide: LoggerService, useClass: DateLoggerService </brace></code>
 
     <p>The “LoggerService” is the token, the “DateLoggerService” is the Definition Object or Factory</p>
 
@@ -236,7 +236,7 @@
     <p><strong>Set the "useValue" property to a fixed value that the provider can return as the dependency
       object.</strong></p>
 
-    <code> providers: [&#123;provide: 'URL', useValue: 'https://swapi.co/api'&#125;]</code>
+    <code> providers: [<brace>provide: 'URL', useValue: 'https://swapi.co/api'</brace>]</code>
 
     <p>Use this technique to provide runtime configuration constants such as web-site
       base addresses and feature flags. We often use a value provider in a unit test
@@ -257,7 +257,7 @@
         because it’s not really documented anywhere. But exactly this kind of injectors is the first stage of the DI
         resolution process. And these injectors make up a hierarchy that is used to resolve dependencies decorated with
         the <code>@Host</code> decorator. </p>
-      <external-link [id]="60"></external-link>
+      <dlink [id]="60"></dlink>
     </section>
   </section>
 

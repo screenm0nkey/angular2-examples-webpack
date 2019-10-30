@@ -1,11 +1,12 @@
 import {NgModule} from '@angular/core';
-import {SharedModule} from '../../../shared/shared.module';
-import {MainChildrenApp} from './main';
+import {SharedModule} from '../../../shared/_shared.module';
+import {MainChildrenApp} from './_main';
 import {KeepCountComponent, SuperItemComponent, ViewChildrenComponent} from './add-to-list';
 import {CountdownTimerComponent, CountdownViewChildParentComponent} from './countdown';
+import {LinquistDirectivesModule} from "../directives-linquist/_linquist-directives.module";
 
 @NgModule({
-  imports: [SharedModule],
+  imports: [SharedModule, LinquistDirectivesModule],
   declarations: [
     MainChildrenApp,
     ViewChildrenComponent,
@@ -15,7 +16,7 @@ import {CountdownTimerComponent, CountdownViewChildParentComponent} from './coun
     CountdownTimerComponent
   ]
 })
-export class ChildViewsModule {
+export class ChildViewModule {
 }
 
 export {MainChildrenApp};

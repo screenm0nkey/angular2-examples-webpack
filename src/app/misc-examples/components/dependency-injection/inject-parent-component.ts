@@ -9,7 +9,7 @@ import {Component, Input} from '@angular/core';
     <p class='file'>misc-examples/components/dependency-injection/inject-parent-component.ts</p>
     <h4>Injecting a parent component into a child</h4>
     <p>
-      The example below was taken from <external-link [id]="45"></external-link>.
+      The example below was taken from <dlink [id]="45"></dlink>.
     </p>
     <h6 style='margin:0'>I'm the parent.</h6>
     {{text}}<br>

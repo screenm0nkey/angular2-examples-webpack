@@ -6,7 +6,7 @@ import {Component} from '@angular/core';
     <div class='comps'>
       <div class='links'>
         <a routerLink='/misc/view-children'>@viewChild, @viewChildren</a>
-        <external-link [id]="21"></external-link>
+        <dlink [id]="21"></dlink>
       </div>
       <toggle-component></toggle-component>
       <name-parent></name-parent>

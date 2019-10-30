@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {SharedModule} from '../../../shared/shared.module';
+import {SharedModule} from '../../../shared/_shared.module';
 import {MainInputBindingApp} from './main';
 import {InventoryApp, PriceDisplay, ProductDepartment, ProductImage, ProductRow, ProductsList} from './inputs';
 import {NameChildComponent, NameParentComponent} from './input-getters-setters';

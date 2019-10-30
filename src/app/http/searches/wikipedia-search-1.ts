@@ -8,7 +8,7 @@ import {WikiSearchService} from './wikipedia-search.service';
       <p class='path'>app/http-rxjs/searches/wikipedia-search-1.ts</p>
       <h4>Examples using promises</h4>
       <p>
-          <external-link [id]="15"></external-link>
+          <dlink [id]="15"></dlink>
       </p>
       
       <input #term type='text' (keyup)='search(term.value)' placeholder='Wikipedia Search'>

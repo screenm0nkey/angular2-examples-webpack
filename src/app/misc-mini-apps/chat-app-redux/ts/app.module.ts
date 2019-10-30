@@ -1,6 +1,6 @@
 import {Component, Inject, NgModule} from '@angular/core';
 import {compose, createStore, Store, StoreEnhancer} from 'redux';
-import {SharedModule} from '../../../shared/shared.module';
+import {SharedModule} from '../../../shared/_shared.module';
 import {AppStore} from './app-store';
 import {AppState, default as reducer} from './reducers/index';
 import ChatPage from './components/ChatPage';

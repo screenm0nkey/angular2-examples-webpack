@@ -6,10 +6,10 @@ import {Component} from '@angular/core';
       <div class='comps'>
           <div>
               <p>These examples are in response to a question posed on stackoverflow</p>
-              <external-link [id]="27"></external-link>
+              <dlink [id]="27"></dlink>
 
               <p>found on Rookie Mistakes</p>
-              <external-link [id]="24"></external-link>
+              <dlink [id]="24"></dlink>
           </div>
           <solution-four></solution-four>
           <solution-one></solution-one>

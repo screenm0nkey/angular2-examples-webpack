@@ -24,7 +24,7 @@ If ngModel is used within a form tag, either the name attribute must be set or
 the form control must be defined as 'standalone' in ngModelOptions.
 <code>
   Example 1: &lt;input [(ngModel)]="person.firstName" name="first"&gt;
-Example 2: &lt;input [(ngModel)]="person.firstName" [ngModelOptions]="&#123;standalone: true&#125;"&gt;
+Example 2: &lt;input [(ngModel)]="person.firstName" [ngModelOptions]="<brace>standalone: true</brace>"&gt;
 </code>
 
 
@@ -37,7 +37,7 @@ Every form control that is registered with ngModel will automatically show up in
   &lt;input type="text" name="lastname" [(ngModel)]="lastname"&gt; // two-way binding
 </code>
 
-<external-link [id]="40"></external-link>
+<dlink [id]="40"></dlink>
 
 <form #form="ngForm" (ngSubmit)="logForm(form, n)" #n="ngNickForm" formnick>
   <fieldset ngModelGroup="name">

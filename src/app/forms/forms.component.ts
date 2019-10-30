@@ -19,9 +19,9 @@ import {Component} from '@angular/core';
       <div class="ngx-container">
         <div class='comps'>
           <div class='links'>
-              <external-link [id]="28"></external-link>
-              <external-link [id]="29"></external-link>
-              <external-link [id]="30"></external-link>
+              <dlink [id]="28"></dlink>
+              <dlink [id]="29"></dlink>
+              <dlink [id]="30"></dlink>
           </div>
           <router-outlet></router-outlet>
         </div>

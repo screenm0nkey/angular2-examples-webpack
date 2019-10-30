@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {SharedModule} from '../../../shared/shared.module';
+import {SharedModule} from '../../../shared/_shared.module';
 import {LoginService} from "./login.service";
 import {ErrorDialogService} from "./errordialog.service";
 import {HttpConfigInterceptor} from "./httpconfig.interceptor";

@@ -22,7 +22,7 @@ export class NgModelStatusThree {
   template: `
     <p class='file'>misc-examples/components/host-binding/host-three.ts</p>
     <h4>@HostBinding and ngModel</h4>
-    <external-link [id]="69"></external-link>
+    <dlink [id]="69"></dlink>
     <form [formGroup]='myForm'>
       <code>Input<span *ngIf='!myForm.controls.checkme.valid'> NOT</span> valid</code>
       <input placeholder='minLength 3' formControlName='checkme'>

@@ -9,7 +9,7 @@ import {ExternalLinksService, ExtLink} from "./external-links.service";
       <input #search type="text" placeholder="Search" (input)='filterLinks(search.value)'>
 
       <section class="links">
-          <external-link *ngFor='let item of links' [id]="item.id"></external-link>
+          <dlink *ngFor='let item of links' [id]="item.id"></dlink>
       </section>
   `
 })

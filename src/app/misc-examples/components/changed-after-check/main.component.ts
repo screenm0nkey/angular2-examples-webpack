@@ -4,7 +4,7 @@ import {Component} from '@angular/core';
   template: `
     <div class='comps'>
       <div>
-        <external-link [id]="45"></external-link>
+        <dlink [id]="45"></dlink>
       </div>
       <shared-service-component></shared-service-component>
       <dynamic-component></dynamic-component>

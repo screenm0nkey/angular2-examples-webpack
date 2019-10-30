@@ -23,13 +23,17 @@ export class Message {
   }
 }
 
+/**
+ * Component
+ */
 @Component({
   selector: 'transclusion-simple',
   template: `
     <p class='file'>misc-examples/components/multi-content/transclusion.ts</p>
-    <h4>Using Input and Transclusion on a directive</h4>
+    <h4>Using @Input and Content Projection on the same element</h4>
+    
     <div message header='This message was inserted using @Input'>
-      This content was inserted using transclusion
+      This content was inserted using transclusion. 
     </div>
   `
 })

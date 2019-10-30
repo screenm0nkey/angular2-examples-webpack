@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {SharedModule} from '../shared/shared.module';
+import {SharedModule} from '../shared/_shared.module';
 import {FormsRoutingModule} from './forms.routes.module';
 import {FormExamplesComponent} from './forms.component';
 import {FormOneComponent} from './components/form-1';

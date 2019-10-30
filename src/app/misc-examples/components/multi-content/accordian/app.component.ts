@@ -5,6 +5,7 @@ import {Component} from '@angular/core';
   template: `
     <p class='file'>misc-examples/components/multi-content/accordian/accordian.component.ts</p>
     <h4>This example uses ng-content and the Native shadowDOM</h4>
+    
     <h5>See the AccordionGroup component. It imports the Accordion Component as a service</h5>
     <p>
       <button type='button' class='btn btn-default' (click)='removeDynamic()'>
@@ -21,7 +22,7 @@ import {Component} from '@angular/core';
         {{group.content}}
       </accordion-group>
 
-      <accordion-group heading='Another group FormNick' [isOpen]='isOpen'>
+      <accordion-group heading='Static Heading 3' [isOpen]='isOpen'>
         More content
       </accordion-group>
     </accordion>
@@ -32,11 +33,11 @@ export class AccordianExample {
 
   groups: Array<any> = [
     {
-      heading: 'Dynamic 1',
+      heading: 'Dynamic Heading 1',
       content: 'I am dynamic!'
     },
     {
-      heading: 'Dynamic 2',
+      heading: 'Dynamic Heading 2',
       content: 'Dynamic as well'
     }
   ];

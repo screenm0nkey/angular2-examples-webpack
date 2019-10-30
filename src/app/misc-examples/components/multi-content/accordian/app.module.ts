@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {SharedModule} from '../../../../shared/shared.module';
+import {SharedModule} from '../../../../shared/_shared.module';
 import {AccordianExample} from './app.component';
 import {Accordion} from './accordian.component';
 import {AccordionGroup} from './accordian-group.component';

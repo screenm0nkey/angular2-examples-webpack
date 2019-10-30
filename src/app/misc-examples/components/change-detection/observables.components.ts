@@ -41,7 +41,7 @@ export class ChildObsList {
   template: `
     <p class='file'>/misc-examples/components/change-detection/observables.components.ts</p>
     <h4><code>ChangeDetectionStrategy.OnPush</code> with Observables and how to turn off ChangeDetection</h4>
-    <external-link [id]="22"></external-link>
+    <dlink [id]="22"></dlink>
 
     <p *ngIf='off'>
       <strong>Change detection turned off for this component</strong>

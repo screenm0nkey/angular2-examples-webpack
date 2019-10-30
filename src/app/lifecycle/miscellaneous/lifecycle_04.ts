@@ -82,7 +82,7 @@ export class AftersCmp
   template: `
   <p class='path'>/lifecycle/miscellaneous/lifecycle_04</p>
   <h4>AfterContentInit, AfterViewInit, AfterContentChecked and AfterViewChecked</h4>
-  <external-link [id]="16"></external-link>
+  <dlink [id]="16"></dlink>
   <p>See the Console. It displays all the life cycle events</p>
 
   <p>use <code>ngAfterViewInit()</code> if you're using viewChild /viewChildren</p>

@@ -10,8 +10,8 @@ import {Hero} from '../../../shared/pipes/flying-heros.pipe';
         <p class="path">misc-examples/components/dependency-injection/pipes.component.ts</p>
         <h4>Pipes</h4>
         <p class="links">
-          <external-link [id]="68"></external-link>
-          <external-link [id]="5"></external-link>
+          <dlink [id]="68"></dlink>
+          <dlink [id]="5"></dlink>
         </p>
 
         <p><strong>There are two categories of pipes: pure and impure</strong>.

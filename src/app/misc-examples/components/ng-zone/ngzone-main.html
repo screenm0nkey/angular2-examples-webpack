@@ -7,7 +7,7 @@
       <li>
         To make zones faster it is possible to bypass zones entirely for performance focused applications.
         To bypass zones, bootstrap your application with ‘noop’ as your ngZone.
-        <code>platformBrowserDynamic().bootstrapModule(AppModule, &#123;ngZone: 'noop'&#125;).then( ref => &#123;&#125;
+        <code>platformBrowserDynamic().bootstrapModule(AppModule, <brace>ngZone: 'noop'</brace>).then( ref => <brace></brace>
           );</code>
       </li>
       <li><code>ChangeDetectionStrategy.OnPush</code> - Use Angular’s OnPush change detection strategy to save view
@@ -32,7 +32,7 @@
     <p class="file">misc-examples/components/ng-zone/speedy.component.ts</p>
     <h4>How to make an app faster using detaching the change detectors and using a simpleNgFor directive</h4>
     <p>
-      <external-link [id]="37"></external-link>
+      <dlink [id]="37"></dlink>
     </p>
 
     <p>The first thing, we detach the component’s change detectors from the tree. We can inject a component’s
@@ -50,7 +50,7 @@
     <div>
       <p class="file">misc-examples/components/ng-zone/speedy-with-zones.component.ts</p>
       <h4>Using Zones to speed up an Application</h4>
-      <p><external-link [id]="55"></external-link>
+      <p><dlink [id]="55"></dlink>
         Using Zones for better performance
       /p>
 

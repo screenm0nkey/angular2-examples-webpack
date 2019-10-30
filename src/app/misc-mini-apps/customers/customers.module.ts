@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {SharedModule} from '../../shared/shared.module';
+import {SharedModule} from '../../shared/_shared.module';
 import {CustomersComponent} from './customer-app.component';
 import {CustomerDetailComponent} from './customer-detail.component';
 import {FilterTextComponent} from './filter-textbox.component';

@@ -5,7 +5,7 @@ import {Component, DoCheck, NgZone} from '@angular/core';
   template: `
     <p class='path'>misc-examples/components/ng-zone/runoutside.ts</p>
     <h4>Demo: NgZone (watch console log)</h4>
-    <external-link [id]="18"></external-link>
+    <dlink [id]="18"></dlink>
 
     <p>NgZone comes with an API runOutsideAngular() <strong>which performs a
       given task outside NgZone’s parent zone. This means it does not emit an 'onTurnDone'

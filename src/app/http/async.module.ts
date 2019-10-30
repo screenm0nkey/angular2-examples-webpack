@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {SharedModule} from '../shared/shared.module';
+import {SharedModule} from '../shared/_shared.module';
 import {AsyncRoutingModule} from './async.routes.module';
 import {MiscHttpModule} from './misc-examples/misc.module';
 import {MainHttpRxJs} from './async.component';

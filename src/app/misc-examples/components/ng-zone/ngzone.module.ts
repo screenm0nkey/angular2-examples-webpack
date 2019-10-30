@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {SharedModule} from '../../../shared/shared.module';
+import {SharedModule} from '../../../shared/_shared.module';
 import {NgZoneMainComponent} from './ngzone-main.component';
 import {NgZoneDemo} from './runoutside';
 import {BoxComponent} from './box.component';

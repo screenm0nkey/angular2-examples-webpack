@@ -44,9 +44,9 @@ export class PersonComponent implements OnInit {
     <p class="path">misc-examples/components/dependency-injection/control-lookup.component.ts</p>
     <h4>@Self, @Host, @SkipSelf and @Optional</h4>
     <div class="links">
-        <external-link [id]="62"></external-link>
-        <external-link [id]="63"></external-link>
-        <external-link [id]="60"></external-link>
+        <dlink [id]="62"></dlink>
+        <dlink [id]="63"></dlink>
+        <dlink [id]="60"></dlink>
     </div>
 
     <p>Angular now has a hierarchical dependency injector. That allows us to specify

@@ -28,7 +28,7 @@ export class NgBookIf {
  
     <h4>Custom *ngBookIf template</h4>
 
-    <external-link [id]="16"></external-link>
+    <dlink [id]="16"></dlink>
     
     <p>The view container is used to attach one or more views to the directive.
       the * before the *ngBookIf converts it into a template. it's short hand.

@@ -13,7 +13,7 @@ import {DOCUMENT} from '@angular/common';
       <p class='file'>misc-examples/components/chickens/dom-adapter.component.ts</p>
       <h4>Accessing the DOM using Renderer2 and <code>@Inject(DOCUMENT)</code></h4>
       <div class='links'>
-        <external-link [id]="65"></external-link>
+        <dlink [id]="65"></dlink>
       </div>
       <button class='mr-button' (click)='add($event)'>
         Click to Add New Element

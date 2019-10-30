@@ -12,7 +12,7 @@ import {Component} from '@angular/core';
       <h4>Custom validateMyCounter directives for template driven forms</h4>
 
       <p>
-          <external-link [id]="53"></external-link>
+          <dlink [id]="53"></dlink>
       </p>
       
       <form #form='ngForm' (ngSubmit)='logForm(form)'>

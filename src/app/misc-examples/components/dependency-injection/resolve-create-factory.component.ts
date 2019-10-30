@@ -9,13 +9,13 @@ const SOME_TOKEN = new InjectionToken<string>(`SomeToken`);
   template: `
     <p class='file'>misc-examples/components/dependency-injection/resolve-create-factory.ts</p>
     <h4>Manually Injecting a Factory with Dependencies</h4>
-    <code>&#123;
+    <code><brace>
     provide: 'OtherSizeService',
-    useFactory: (viewport: any) => &#123;
+    useFactory: (viewport: any) => <brace>
       return viewport.determineService();
-    &#125;,
+    </brace>,
     deps: [ViewPortService, SOME_TOKEN]
-  &#125;</code>
+  </brace></code>
 
     <button (click)='invokeApi()'>Invoke API</button>
     <button (click)='useInjectors()'>Use Injectors</button>

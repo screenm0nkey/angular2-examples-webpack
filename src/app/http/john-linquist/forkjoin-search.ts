@@ -36,9 +36,9 @@ interface Vehicle {
     <div class='master'>
       <p class='path'>/http-rxjs/john-linquist/forkjoin-search.ts</p>
       <h4> forkJoin() People and vehicles</h4>
-        <external-link [id]="19"></external-link>
+        <dlink [id]="19"></dlink>
         <p>share() is a shortcut for publish().refCount()</p>
-        <external-link [id]="20"></external-link>
+        <dlink [id]="20"></dlink>
 
       <div *ngFor='let person of people$ | async'>
         <div class='person' (click)='peopleClick$.next(person)'>{{person.name}} ({{person.vehicles.length}})</div>

@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {SharedModule} from '../../../shared/shared.module';
+import {SharedModule} from '../../../shared/_shared.module';
 import {HostBindingComponent} from './main';
 import {HostOne, NgModelStatusOne} from './host-one';
 import {HostOnePartTwo, NgModelStatusTwo} from './host-one-part-2';

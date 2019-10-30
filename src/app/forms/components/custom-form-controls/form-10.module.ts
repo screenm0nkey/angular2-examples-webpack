@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {SharedModule} from '../../../shared/shared.module';
+import {SharedModule} from '../../../shared/_shared.module';
 import {FormTenComponent} from './form-10.component';
 import {FormTenTemplateDrivenComponent} from './template-driven';
 import {FormTenModelDrivenComponent} from './model-driven';

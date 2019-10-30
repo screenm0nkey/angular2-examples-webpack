@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {SharedModule} from '../../shared/shared.module';
+import {SharedModule} from '../../shared/_shared.module';
 import {MiscLifecycleMain} from './main.component';
 import {LifecycleSampleApp1, OnInitCmp1} from './lifecycle_01';
 import {LifecycleSampleApp2} from './lifecycle_02';

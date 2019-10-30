@@ -10,6 +10,30 @@
     "Dependency Injection",
     "misc/dep-injection",
     "Dependency injection token"
+  ],
+  [
+    1002,
+    "Content Projection",
+    "misc/content-projection",
+    "contentchildren querylist tabs descendants"
+  ],
+  [
+    1003,
+    "Access a child component from the parent using local variable",
+    "/misc/input-binding",
+    ""
+  ],
+  [
+    1004,
+    "Linquist's directive examples 6, 7 and 8 have good @viewChild uses",
+    "/misc/directives",
+    ""
+  ],
+  [
+    1005,
+    "Custom Templates",
+    "/misc/templates",
+    ""
   ]
 ]
 

@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {SharedModule} from '../../../shared/shared.module';
+import {SharedModule} from '../../../shared/_shared.module';
 import {FocusInput} from './main';
 import {FocusMe, SolutionOne} from './solution1';
 import {FocusIt, SolutionTwo} from './solution2';

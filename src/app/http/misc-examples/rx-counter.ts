@@ -7,7 +7,7 @@ import {map, scan, startWith} from 'rxjs/operators';
   template: `
         <p class='path'>/http-rxjs/misc-examples/rx-counter.ts</p>
         <h4>RXJS Reactive data flow</h4>
-        <external-link [id]="23"></external-link>
+        <dlink [id]="23"></dlink>
         <br>
         <div style='margin-bottom: 10px'>
             <button (click)='decrement()'>Decrement</button>

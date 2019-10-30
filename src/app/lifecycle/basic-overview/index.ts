@@ -59,7 +59,7 @@ export class MyComponent {
         <h4>Basic <strong>Check the Console for LifeCycle Hooks</strong></h4>
       
         <p>
-            <external-link [id]="16"></external-link>
+            <dlink [id]="16"></dlink>
         </p>
         
         <input [(ngModel)]='appMessage'>

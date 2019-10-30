@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {SharedModule} from '../../../shared/shared.module';
+import {SharedModule} from '../../../shared/_shared.module';
 import {ChatNavBar} from './components/ChatNavBar';
 import {ChatThreads} from './components/ChatThreads';
 import {ChatThread} from './components/ChatThread';

@@ -13,7 +13,7 @@ import {MyAction, MyNgRxStore} from "./reducers/_reducers.service";
   template: `
     <p class="path">http/ngrx/ngrx-clock/ngrx-clock-two.component.ts</p>
     <h4>Udate Hours Clock 2</h4>
-    <external-link [id]="32"></external-link>
+    <dlink [id]="32"></dlink>
 
     <input #inputNum type="number" value="0">
     <button (click)="updateHours$.next(inputNum.value)">Update Hours</button>

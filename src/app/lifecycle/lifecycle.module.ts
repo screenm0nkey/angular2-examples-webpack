@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {LifeCycleRoutingModule} from './lifecycle.routes.module';
-import {SharedModule} from '../shared/shared.module';
+import {SharedModule} from '../shared/_shared.module';
 import {LifeCycleMainComponent} from './lifecycle.component';
 import {BasicExample, MyComponent} from './basic-overview';
 import {PeekABooParentComponent} from './peekaboo/peekaboo-parent.component';

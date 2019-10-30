@@ -6,10 +6,10 @@ import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component} fr
   template: `
     <p class='file'>/misc-examples/components/immutable/detect-changes.ts</p>
     <h4>this.ref.detectChanges()</h4>
-    <external-link [id]="35"></external-link>
+    <dlink [id]="35"></dlink>
 
-    <external-link [id]="51"></external-link>
-    <external-link [id]="52"></external-link>
+    <dlink [id]="51"></dlink>
+    <dlink [id]="52"></dlink>
     <a routerLink='../speedyapp'>Speeding up app</a>
 
     <p>On push will stop the component's view bindings from being checked.

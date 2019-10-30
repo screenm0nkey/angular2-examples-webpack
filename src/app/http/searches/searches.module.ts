@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {SharedModule} from '../../shared/shared.module';
+import {SharedModule} from '../../shared/_shared.module';
 import {HttpExamples} from './main';
 import {WikipediaSuperSearch} from './wikipedia-super-search';
 import {JsonpWikipediaPromise} from './wikipedia-search-1';

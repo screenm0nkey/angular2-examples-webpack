@@ -27,7 +27,7 @@ const createUnit = (health = 0): Unit => ({
     <p class="file">http/ngrx/ngrx-queue/ngrx-queue.component.ts</p>
     <h4>NgRx Queue</h4>
 
-    <external-link [id]="17"></external-link>
+    <dlink [id]="17"></dlink>
     
     <button (click)="onClick($event)">
       Add to queue

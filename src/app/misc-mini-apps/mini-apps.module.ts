@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {EggheadMiniAppModule} from './egghead-example/egghead.module';
-import {SharedModule} from '../shared/shared.module';
+import {SharedModule} from '../shared/_shared.module';
 import {MiniAppsRoutingModule} from './mini-apps-routing.module';
 import {MiniAppsComponent} from './mini-apps.component';
 import {CustomersModule} from './customers/customers.module';

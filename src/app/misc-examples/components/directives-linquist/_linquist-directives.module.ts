@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
-import {SharedModule} from '../../../shared/shared.module';
-import {DirectivesLinquistMain} from './main';
+import {SharedModule} from '../../../shared/_shared.module';
+import {DirectivesLinquistMain} from './_main';
 import {Example01AppComponent, FirstDirective} from './example-01';
 import {Example02AppComponent, Example02BasicComponent, Example02Directive} from './example-02';
 import {Example03AppComponent, OnlineDirective, TrackDirective} from './example-03';
@@ -12,6 +12,10 @@ import {Example08AppComponent, SurroundDirective, TemplateStorageComponent} from
 
 @NgModule({
   imports: [SharedModule],
+  exports: [
+    BasicComponent4, Example04AppComponent,
+    Example06AppComponent, ThreeDirective
+  ],
   declarations: [
     DirectivesLinquistMain,
     FirstDirective,
@@ -35,7 +39,7 @@ import {Example08AppComponent, SurroundDirective, TemplateStorageComponent} from
   ],
   providers: []
 })
-export class DirectivesLinquistModule {
+export class LinquistDirectivesModule {
 }
 
 export {DirectivesLinquistMain};

@@ -4,7 +4,7 @@ import {Component} from '@angular/core';
   selector: 'template-driven',
   template: `
     <h4>Using it inside template-driven forms</h4>
-     <external-link [id]="31"></external-link>
+     <dlink [id]="31"></dlink>
      
      <p>These are the min max values for the custom for control. the they become invalid. try changing the values and increasing the </p>
     <div>

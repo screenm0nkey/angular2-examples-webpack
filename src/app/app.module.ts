@@ -7,7 +7,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 // this is for the angular2 services example
 import {EngineService, SomeService} from './misc-examples/components/dependency-injection/injectables.service';
-import {SharedModule} from './shared/shared.module';
+import {SharedModule} from './shared/_shared.module';
 import {ComposeMessageComponent} from "./misc-mini-apps/auth/components/compose-message.component";
 
 @NgModule({

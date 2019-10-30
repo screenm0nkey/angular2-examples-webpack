@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {SharedModule} from '../../shared/shared.module';
+import {SharedModule} from '../../shared/_shared.module';
 import {EchonestAppComponent} from './echonest-app.component';
 import {ArtistComponent} from './artist.component';
 import {DropdownComponent} from './dropdown.component';

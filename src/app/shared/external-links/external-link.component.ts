@@ -3,7 +3,7 @@ import {ExternalLinksService, ExtLink} from "./external-links.service";
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'external-link',
+  selector: 'dlink',
   changeDetection: ChangeDetectionStrategy.Default,
   template: `
       <a *ngIf="link && link.type==='ext'" 

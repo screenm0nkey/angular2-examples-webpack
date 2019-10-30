@@ -1,5 +1,4 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -7,6 +6,8 @@ import {sharedPipes} from './pipes';
 import {ExternalLinksComponent} from './external-links/external-links.component';
 import {ExternalLinkComponent} from "./external-links/external-link.component";
 import {ExternalLinksService} from "./external-links/external-links.service";
+import {BraceComponent, HtmComponent, PathComponent} from "./brace.component";
+import { CommonModule } from '@angular/common';
 /**
  FormsModule gives us template driven directives such as:
  • ngModel and
@@ -35,12 +36,14 @@ import {ExternalLinksService} from "./external-links/external-links.service";
     HttpClientJsonpModule,
     ExternalLinksComponent,
     ExternalLinkComponent,
+    BraceComponent, HtmComponent, PathComponent,
     ...sharedPipes
   ],
   declarations: [
     ...sharedPipes,
     ExternalLinksComponent,
-    ExternalLinkComponent
+    ExternalLinkComponent,
+    BraceComponent, HtmComponent, PathComponent
   ],
   providers:[
     ExternalLinksService

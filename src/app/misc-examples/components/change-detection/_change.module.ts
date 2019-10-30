@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {SharedModule} from '../../../shared/shared.module';
+import {SharedModule} from '../../../shared/_shared.module';
 import {ChangeDetectionMain} from './main';
 import {MarkForCheck} from './mark-for-check.component';
 import {DetectChanges} from './detect-changes';

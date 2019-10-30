@@ -11,8 +11,8 @@ import {MyNgRxStore} from "./reducers/_reducers.service";
     <p class='path'>/http-rxjs/misc-examples/ngrx-starter.ts</p>
     <h4>3 Ways of subscribing to a an NGRX store. 1 Way to unsubscribe</h4>
     <div class="links">
-        <external-link [id]="14"></external-link>
-        <external-link [id]="5"></external-link>
+        <dlink [id]="14"></dlink>
+        <dlink [id]="5"></dlink>
     </div>
     <p style='color: red; margin-bottom: 10px'>{{word1}} | {{word2}} | {{word3$ | async}}</p>
 

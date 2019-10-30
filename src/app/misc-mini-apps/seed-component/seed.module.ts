@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {SharedModule} from '../../shared/shared.module';
+import {SharedModule} from '../../shared/_shared.module';
 import {SeedRoutingModule} from './seed.routes.module';
 import {SeedComponent} from './seed.component';
 import {AboutComponent} from './about.component';

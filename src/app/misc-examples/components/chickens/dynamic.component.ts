@@ -5,7 +5,7 @@ const TMPL = `
   <p class='file'>misc-examples/components/chickens/dynamic.component.ts</p>
   <h4>Dynamic component instantiation</h4>
   <div class='link'>
-    <external-link [id]="70"></external-link>
+    <dlink [id]="70"></dlink>
   </div>
 
   <ul>

@@ -9,7 +9,7 @@ import {MyNgRxStore, PersonAction} from "../reducers/_reducers.service";
   template: `
   <p class="path">http-rxjs/ngrx/ngrx-in-ten/ngrx-in-ten-main-component.ts</p>
       <h4>NgRx in Ten - Party Planner</h4>
-      <external-link [id]="33"></external-link>
+      <dlink [id]="33"></dlink>
       
       <filter-select (updateFilter)="updateFilter($event)"></filter-select>
       <person-input (addPerson)="addPerson($event)"></person-input>

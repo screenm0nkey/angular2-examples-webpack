@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {SharedModule} from '../../../shared/shared.module';
+import {SharedModule} from '../../../shared/_shared.module';
 import {DepInjectionComponent} from './dependency.component';
 import {ModulesComponent} from './modules.component';
 import {InjectComponent} from './injectables.component';

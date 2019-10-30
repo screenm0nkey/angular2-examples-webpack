@@ -15,7 +15,7 @@ class MyService {
   template: `
     <p class='file'>misc-examples/components/dependency-injection/resolve-create-service.ts</p>
     <h4>Manually Injecting a Service using Injector.create()</h4>
-    <code>Injector.create([&#123;provide: MyService, useClass: MyService, deps: []&#125;])</code>
+    <code>Injector.create([<brace>provide: MyService, useClass: MyService, deps: []</brace>])</code>
     
     <p class='strong'>Notice in the code, since we’re using our own injector, we didn’t have to add MyService to the
       NgModule's 'providers' list.</p>

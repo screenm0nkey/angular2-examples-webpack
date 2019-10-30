@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {SharedModule} from '../../shared/shared.module';
+import {SharedModule} from '../../shared/_shared.module';
 import {SearchComponent} from './components/SearchComponent';
 import {ArtistComponent} from './components/ArtistComponent';
 import {TrackComponent} from './components/TrackComponent';

@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {SharedModule} from '../../../shared/shared.module';
+import {SharedModule} from '../../../shared/_shared.module';
 import {FormSevenComponent} from './form-7.component';
 import {FormSevenEmailValidator} from './custom-validator-directive';
 import {FormSevenEmailValidatorWithDeps} from './custom-validator-directive-with-deps';

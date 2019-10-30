@@ -1,14 +1,13 @@
 import {AfterContentInit, Component, ContentChildren, ElementRef, QueryList} from '@angular/core';
-import {ChildViewComponent} from '../../../lifecycle/after-view/after-view.component';
 
 // SuperList component would be our library that an end user us using.
 @Component({
   selector: 'super-list',
   template: `
-    there are {{count}} items in the list
-    <ul>
-      <ng-content></ng-content>
-    </ul>
+      There are {{count}} items in the list
+      <ul>
+          <ng-content></ng-content>
+      </ul>
   `
 })
 export class SuperListComponent implements AfterContentInit {
@@ -31,39 +30,28 @@ export class SuperListComponent implements AfterContentInit {
 @Component({
   selector: 'my-component',
   template: `
-    <p class='file'>misc-examples/components/content-children/problem-one.ts</p>
-    <h4>Scenario: You need a reference to an element a user projects into your component using ng-content</h4>
-    <external-link [id]="24"></external-link>
+      <p class='file'>misc-examples/components/content-children/problem-one.ts</p>
+      <h4>How to reference an element a user projects into your component using a local reference and ng-content</h4>
+      <dlink [id]="24"></dlink>
 
-    <p><code>@ContentChildren</code> allows us to target 'local-refs' in content which has been inserted using
-      ng-content.
-      If the content was just in the view then we could use <code>@ViewChildren</code></p>
+      <p>What if you need a reference to an element that isn't in your component's template?
+          As an example, let's imagine you have a list component that accepts custom list items
+          through content projection, and you'd like to track the number of list items.</p>
 
-    <p>
-      QueryList is a class provided by Angular and when we use QueryList with a @ContentChildren annotation
-      Angular populates this with the components that match the query and then keeps the items
-      up to date if the state of the application changes.
-    </p>
+      <p><strong>You can use a <code>@ContentChildren</code> query to search your component's 'content'
+          (i.e. the nodes projected into the component)</strong> but because the content is
+          arbitrary, it's not possible to label the nodes with local variables yourself</p>
 
-    <p>What if you need a reference to an element that isn't in your component's template?
-      As an example, let's imagine you have a list component that accepts custom list items
-      through content projection, and you'd like to track the number of list items.</p>
+      <p>One option is to ask your users to label each of their list items with a
+          pre-agreed-upon variable, like '#mylocalref', which the example below uses.</p>
 
-    <p><strong>You can use a <code>@ContentChildren</code> query to search your component's 'content'
-      (i.e. the nodes projected into the component)</strong> but because the content is
-      arbitrary, it's not possible to label the nodes with local variables yourself
-      (as in the last example).</p>
+      <super-list>
+          <li *ngFor='let item of items' #mylocalref> {{item}}</li>
+      </super-list>
 
-    <p>One option is to ask your users to label each of their list items with a
-      pre-agreed-upon variable, like '#mylocalref', which the example below uses.</p>
-
-    <p>However, this solution isn't ideal because it requires users to write
-      some extra boilerplate. You may prefer an API with regular li tags
-      and no attributes. See below to see how can we make this work</p>
-
-    <super-list>
-      <li *ngFor='let item of items' #mylocalref> {{item}}</li>
-    </super-list>
+      <p>However, this solution isn't ideal because it requires users to write
+          some extra boilerplate. You may prefer an API with regular li tags
+          and no attributes. See <span class="path">misc-examples/components/content-children/problem-one-fix.ts</span>, to see how can we make this work</p>
   `
 })
 export class MyComponent {

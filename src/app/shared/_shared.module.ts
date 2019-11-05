@@ -7,7 +7,10 @@ import {ExternalLinksComponent} from './external-links/external-links.component'
 import {ExternalLinkComponent} from "./external-links/external-link.component";
 import {ExternalLinksService} from "./external-links/external-links.service";
 import {BraceComponent, HtmComponent, PathComponent} from "./brace.component";
-import { CommonModule } from '@angular/common';
+import {CommonModule} from '@angular/common';
+import {CollapseItComponent} from "./collapse-it/collapse-it.component";
+import {CollapseAllComponent} from "./collapse-it/collapse-all.component";
+
 /**
  FormsModule gives us template driven directives such as:
  • ngModel and
@@ -24,7 +27,7 @@ import { CommonModule } from '@angular/common';
  * ModuleWithProviders containing components, directives, and providers
  */
 @NgModule({
-  imports : [CommonModule],
+  imports: [CommonModule],
   // Notice that we have only exported the modules without adding it to declarations or imports.
   // This would happen in the case where the component is not used internally inside the module
   exports: [
@@ -37,15 +40,19 @@ import { CommonModule } from '@angular/common';
     ExternalLinksComponent,
     ExternalLinkComponent,
     BraceComponent, HtmComponent, PathComponent,
+    CollapseItComponent,
+    CollapseAllComponent,
     ...sharedPipes
   ],
   declarations: [
     ...sharedPipes,
     ExternalLinksComponent,
     ExternalLinkComponent,
-    BraceComponent, HtmComponent, PathComponent
+    BraceComponent, HtmComponent, PathComponent,
+    CollapseItComponent,
+    CollapseAllComponent,
   ],
-  providers:[
+  providers: [
     ExternalLinksService
   ]
 })

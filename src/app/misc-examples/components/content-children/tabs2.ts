@@ -43,18 +43,20 @@ export class Tab2 {
 @Component({
   selector: 'content-children-tabs-2',
   template: `
-      <tab2>
-          <pane2 id="1"></pane2>
-          <pane2 id="2"></pane2>
-          <pane2 id="3" *ngIf="shouldShow">
-              <tab2>
-                  <pane2 id="3_1"></pane2>
-                  <pane2 id="3_2"></pane2>
-              </tab2>
-          </pane2>
-      </tab2>
+      <collapse-it>
+          <tab2>
+              <pane2 id="1"></pane2>
+              <pane2 id="2"></pane2>
+              <pane2 id="3" *ngIf="shouldShow">
+                  <tab2>
+                      <pane2 id="3_1"></pane2>
+                      <pane2 id="3_2"></pane2>
+                  </tab2>
+              </pane2>
+          </tab2>
 
-      <button (click)="show()">Show 3</button>
+          <button (click)="show()">Show 3</button>
+      </collapse-it>
   `,
 })
 export class ContentChildrenTab2 {

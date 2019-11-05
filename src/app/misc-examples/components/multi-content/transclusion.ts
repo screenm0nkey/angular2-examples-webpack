@@ -29,12 +29,14 @@ export class Message {
 @Component({
   selector: 'transclusion-simple',
   template: `
-    <p class='file'>misc-examples/components/multi-content/transclusion.ts</p>
-    <h4>Using @Input and Content Projection on the same element</h4>
-    
-    <div message header='This message was inserted using @Input'>
-      This content was inserted using transclusion. 
-    </div>
+    <collapse-it>
+        <p class='file'>misc-examples/components/multi-content/transclusion.ts</p>
+        <h4>Using @Input and Content Projection on the same element</h4>
+
+        <div message header='This message was inserted using @Input'>
+            This content was inserted using transclusion.
+        </div>
+    </collapse-it>
   `
 })
 export class TransclusionSampleApp {

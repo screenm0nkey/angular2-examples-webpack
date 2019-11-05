@@ -3,29 +3,31 @@ import {Component} from '@angular/core';
 @Component({
   selector: 'accordian-component',
   template: `
-    <p class='file'>misc-examples/components/multi-content/accordian/accordian.component.ts</p>
-    <h4>This example uses ng-content and the Native shadowDOM</h4>
-    
-    <h5>See the AccordionGroup component. It imports the Accordion Component as a service</h5>
-    <p>
-      <button type='button' class='btn btn-default' (click)='removeDynamic()'>
-        Remove last dynamic
-      </button>
-    </p>
+      <collapse-it>
+          <p class='file'>misc-examples/components/multi-content/accordian/accordian.component.ts</p>
+          <h4>This example uses ng-content and the Native shadowDOM</h4>
 
-    <accordion close-others='true'>
-      <accordion-group heading='This is the header Pete' isOpen='false'>
-        Note: The is isOpen here will always be a truthy as false will be passed in as a string
-      </accordion-group>
+          <h5>See the AccordionGroup component. It imports the Accordion Component as a service</h5>
+          <p>
+              <button type='button' class='btn btn-default' (click)='removeDynamic()'>
+                  Remove last dynamic
+              </button>
+          </p>
 
-      <accordion-group [heading]='group.heading' *ngFor='let group of groups'>
-        {{group.content}}
-      </accordion-group>
+          <accordion close-others='true'>
+              <accordion-group heading='This is the header Pete' isOpen='false'>
+                  Note: The is isOpen here will always be a truthy as false will be passed in as a string
+              </accordion-group>
 
-      <accordion-group heading='Static Heading 3' [isOpen]='isOpen'>
-        More content
-      </accordion-group>
-    </accordion>
+              <accordion-group [heading]='group.heading' *ngFor='let group of groups'>
+                  {{group.content}}
+              </accordion-group>
+
+              <accordion-group heading='Static Heading 3' [isOpen]='isOpen'>
+                  More content
+              </accordion-group>
+          </accordion>
+      </collapse-it>
   `
 })
 export class AccordianExample {

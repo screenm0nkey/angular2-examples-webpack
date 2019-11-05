@@ -6,8 +6,7 @@ import {Component} from '@angular/core';
 @Component({
   template: `
       <div class='comps'>
-          
-          <section>
+          <section collapse-it>
               <path>src/app/misc-examples/components/multi-content/_main.ts</path>
               <h4>Notes on Content Projection</h4>
               <p>Transclusion in the AngularJS is now called Content Projection in Angular and uses <code><htm>ng-content</htm></code></p>

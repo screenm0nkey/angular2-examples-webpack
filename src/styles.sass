@@ -5,6 +5,70 @@
       clear: both
 
 
+body.dark-mode
+  .link-type
+    color: black
+
+    &.ext
+      background-color: #838383 !important
+      color: white
+
+      &:hover
+        color: yellow
+
+    &.int
+      background-color: #6b6b6b !important
+      color: white
+
+      &:hover
+        color: yellow
+
+  a
+    &.big
+      background-color: #8a8388
+
+    &:hover
+      background-color: #6b003a
+      color: #fff
+
+  h4
+    background: #5b5b5b
+    color: #f6f6f6
+
+  h6
+    color: #545454
+
+  div
+    &.comps
+      > *:nth-child(odd)
+        background-color: #ccc
+
+      > *:nth-child(even)
+        background-color: #c1c1c1
+
+  .miscellaneous > nav
+    background-color: #969696
+
+  p.file, p.path, span.path
+    background: #909090
+
+  .box
+    border-color: white !important
+
+  ul.todos
+    background-color: black
+    border-color: white
+
+  nav
+    background-color: #0f4005
+
+    .router-link-active, .active, .router-link-active:hover, .active:hover
+      background-color: #0f4005 !important
+
+  strong, p.strong, li.strong
+    background-color: #0f4005
+
+
 body
   background-color: #37373c
   overflow: hidden
@@ -34,6 +98,9 @@ p
   padding-right: 20px
   margin-bottom: 15px
   line-height: 14px
+
+button
+  cursor: pointer
 
 
 .link-type
@@ -105,12 +172,12 @@ h4
   color: #f0ff37
   border-radius: 3px
   font-weight: 400
-  font-size: 16px
+  font-size: 13px
   box-shadow: 0 6px 14px 1px rgba(0, 0, 0, .58)
   z-index: 2
-  margin: -2px 0 8px 0
+  margin: -8px 0 8px 0
 
-  brace>span, htm>span
+  brace > span, htm > span
     font-size: 16px
 
   &:first-child
@@ -231,27 +298,32 @@ nav
   border-radius: 3px
   z-index: 99
 
+  &.sub
+    position: relative
 
-nav.sub
-  position: relative
+  &.main
+    white-space: nowrap
+    overflow: hidden
 
+    > a
+      top: 2px
 
-nav.main
-  white-space: nowrap
-  overflow: hidden
+    button
+      position: relative
+      margin: 0 0 0 10px
+      top: -4px
 
-
-nav > a
-  max-width: 188px !important
-  overflow: hidden !important
-  text-overflow: ellipsis !important
-  font-size: 13px !important
-  display: inline-block !important
-  margin-right: 10px !important
-  background-color: #333 !important
-  color: #fff !important
-  padding: 2px 10px !important
-  text-decoration: none !important
+  > a
+    max-width: 188px !important
+    overflow: hidden !important
+    text-overflow: ellipsis !important
+    font-size: 13px !important
+    display: inline-block !important
+    margin-right: 10px !important
+    background-color: #333 !important
+    color: #fff !important
+    padding: 2px 10px !important
+    text-decoration: none !important
 
 
 nav > a:visited
@@ -343,16 +415,15 @@ section.main
   flex-wrap: wrap
   height: calc(100vh - 40px)
 
+  > div:last-child
+    flex: 1
+    padding: 10px
+    overflow-y: scroll
 
-.miscellaneous > div:last-child
-  flex: 1
-  padding: 10px
-
-
-.miscellaneous > nav
-  width: 200px
-  margin-right: 0
-  background-color: #afc7d2
+  > nav
+    width: 200px
+    margin-right: 0
+    background-color: #afc7d2
 
 
 .ngx-container
@@ -367,51 +438,45 @@ section.main
   margin-right: 10px
 
 
-div.comps > *
-  display: block
-  padding: 5px
-  margin: 0 10px 20px 0
-  border: solid 5px #c1c1c1
+div.comps
+  > *
+    display: block
+    padding: 5px
+    margin: 0 10px 20px 0
+    border: solid 5px #c1c1c1
 
+    &:nth-child(odd)
+      background-color: #cacaca
 
-div.comps > *:nth-child(odd)
-  background-color: #cacaca
+    &:nth-child(even)
+      background-color: #c5c5da
 
+  &:after
+    content: ""
+    display: table
+    clear: both
 
-div.comps > *:nth-child(even)
-  background-color: #c5c5da
+  a
+    margin-bottom: 2px
 
+    &[routerLink]
+      background-color: #35e000
+      color: #000
+      box-shadow: none
+      border: solid 2px #259e00
+      border-radius: 3px
+      font-style: normal
+      margin-bottom: -3px
+      margin-top: -3px
+      padding: 0 2px
+      font-size: 11px
 
-div.comp:after
-  content: ""
-  display: table
-  clear: both
+      &:hover
+        background-color: #008b8b
 
-
-div.comps a[routerLink]
-  background-color: #35e000
-  color: #000
-  box-shadow: none
-  border: solid 2px #259e00
-  border-radius: 3px
-  font-style: normal
-  margin-bottom: -3px
-  margin-top: -3px
-  padding: 0 2px
-  font-size: 11px
-
-
-div.comps a[routerLink]:hover
-  background-color: #008b8b
-
-
-div.comps a[routerLink]:after
-  content: " [int]"
-  color: #259e00
-
-
-div.comps a
-  margin-bottom: 2px
+      &:after
+        content: " [int]"
+        color: #259e00
 
 
 p.title, span.title
@@ -442,13 +507,12 @@ p.strong
 
 p.file, p.path, span.path
   font-family: Courier
-  background: #cc8fbe
   color: #fff
   margin: 0
   border-radius: 2px
   padding: 0 10px
   display: inline-block
-  top: -2px
+  top: -10px
   position: relative
   font-size: 11px
 
@@ -479,6 +543,21 @@ p.file, p.path, span.path
 .mat-dialog-container
   background-color: #008b8b
   border: solid 10px #0e566c
+
+
+.collapse-it
+  position: relative
+
+  > button
+    font-size: 10px
+    padding: 1px 4px
+    position: absolute
+    top: -6px
+    right: -6px
+    cursor: pointer
+
+  .title
+    font-weight: bold
 
 
 

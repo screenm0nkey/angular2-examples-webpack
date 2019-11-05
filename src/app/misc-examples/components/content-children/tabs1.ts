@@ -56,33 +56,35 @@ export class ContentChildrenTabset1 implements AfterContentInit {
 @Component({
   selector: 'content-children-tabs-1',
   template: `
-      <p class="file">src/app/misc-examples/components/content-children/tabs1.ts</p>
-      <h4>@ContentChildren, QueryList, AfterContentInit</h4>
-      
-      <code>@ContentChildren(ContentChildrenTab1) tabs: QueryList <htm>ContentChildrenTab1</htm></code>
-      <p>
-          QueryList is a class provided by Angular and when we use QueryList with a @ContentChildren annotation
-          Angular populates this with the components that match the query and then keeps the items
-          up to date if the state of the application changes.
-          However, QueryList requires a @ContentChildren to populate it, so let’s take a look at that now.
-      </p>
+      <collapse-it>
+          <p class="file">src/app/misc-examples/components/content-children/tabs1.ts</p>
+          <h4>@ContentChildren, QueryList, AfterContentInit</h4>
 
-      <p>
-          On the tabs instance variable, we add the <code>@ContentChildren(ContentChildrenTab1)</code> annotation.
-          This annotation will tell Angular to inject all the direct child directives (of the ContentChildrenTab1 type) into the tabs
-          parameter.
-          We then assign it to the tabs property of our component. With this we now have access to all the child ContentChildrenTab1
-          components.
-      </p>
-      
-      <tabset1>
-          <tab1 title='First TAB'>
-              First TAB - I already exist in the HTML
-          </tab1>
-          <tab1 *ngFor='let tab of tabs' [title]='tab.title'>
-              {{ tab.content }}
-          </tab1>
-      </tabset1>
+          <code>@ContentChildren(ContentChildrenTab1) tabs: QueryList <htm>ContentChildrenTab1</htm></code>
+          <p>
+              QueryList is a class provided by Angular and when we use QueryList with a @ContentChildren annotation
+              Angular populates this with the components that match the query and then keeps the items
+              up to date if the state of the application changes.
+              However, QueryList requires a @ContentChildren to populate it, so let’s take a look at that now.
+          </p>
+
+          <p>
+              On the tabs instance variable, we add the <code>@ContentChildren(ContentChildrenTab1)</code> annotation.
+              This annotation will tell Angular to inject all the direct child directives (of the ContentChildrenTab1 type) into the tabs
+              parameter.
+              We then assign it to the tabs property of our component. With this we now have access to all the child ContentChildrenTab1
+              components.
+          </p>
+
+          <tabset1>
+              <tab1 title='First TAB'>
+                  First TAB - I already exist in the HTML
+              </tab1>
+              <tab1 *ngFor='let tab of tabs' [title]='tab.title'>
+                  {{ tab.content }}
+              </tab1>
+          </tabset1>
+      </collapse-it>
   `
 })
 export class ContentChildrenTabs1 {

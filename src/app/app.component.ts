@@ -15,6 +15,7 @@ import {
       <a routerLink='/lifecycle' routerLinkActive='active'>Lifecycle</a>
       <a routerLink='/mini-apps' routerLinkActive='active'>Mini Apps</a>
       <button [routerLink]='[{ outlets: { popup: ["compose"] } }]'>Named Router Outlet</button>
+        <collapse-all></collapse-all>
     </nav>
     <router-outlet></router-outlet>
     <router-outlet name='popup'></router-outlet>

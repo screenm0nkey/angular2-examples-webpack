@@ -1,5 +1,4 @@
 import {AfterViewInit, Component, ElementRef, Input, QueryList, ViewChild, ViewChildren} from '@angular/core';
-import {ChildViewComponent} from '../../../lifecycle/after-view/after-view.component';
 
 @Component({
   selector: 'keep-count',
@@ -39,8 +38,8 @@ export class SuperItemComponent {
 })
 export class ViewChildrenComponent implements AfterViewInit {
   @ViewChildren(SuperItemComponent) children: QueryList<SuperItemComponent>;
-  @ViewChild(KeepCountComponent, { static: false }) private keepCount: KeepCountComponent;
-  @ViewChild('myref', { static: false }) el: ElementRef;
+  @ViewChild(KeepCountComponent, {static: false}) private keepCount: KeepCountComponent;
+  @ViewChild('myref', {static: false}) el: ElementRef;
 
   public items: string[] = ['hello', 'world', 'today'];
 

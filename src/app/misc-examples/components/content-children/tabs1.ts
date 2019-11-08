@@ -38,6 +38,7 @@ export class ContentChildrenTab1 {
 })
 export class ContentChildrenTabset1 implements AfterContentInit {
   @ContentChildren(ContentChildrenTab1) tabs: QueryList<ContentChildrenTab1>;
+
   // This lifecycle hook will be called once the contents of the child directives have been initialized.
   ngAfterContentInit() {
     // this.tabs.first.active = true;
@@ -58,7 +59,7 @@ export class ContentChildrenTabset1 implements AfterContentInit {
   template: `
       <collapse-it>
           <p class="file">src/app/misc-examples/components/content-children/tabs1.ts</p>
-          <h4>@ContentChildren, QueryList, AfterContentInit</h4>
+          <h4>Tabset using @ContentChildren, QueryList, AfterContentInit</h4>
 
           <code>@ContentChildren(ContentChildrenTab1) tabs: QueryList <htm>ContentChildrenTab1</htm></code>
           <p>

@@ -39,7 +39,7 @@ export class HttpConfigInterceptor implements HttpInterceptor {
     if (event instanceof HttpResponse) {
       console.log('%cHttpConfigInterceptor HttpResponse', 'color:gold', event);
       // Object.assign(event, JSON.parse(event.body));
-      
+
 //       this.errorDialogService.openDialog(event);
     }
     return event;
@@ -47,7 +47,7 @@ export class HttpConfigInterceptor implements HttpInterceptor {
 
   onError(error: HttpErrorResponse) {
     let data;
-    if (error.error){
+    if (error.error) {
       data = {
         reason: error.error && error.error.reason ? error.error.reason : error.message,
         status: error.status

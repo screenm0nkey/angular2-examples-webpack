@@ -1,5 +1,4 @@
 import {AfterContentInit, Component, ContentChildren, Directive, ElementRef, QueryList} from '@angular/core';
-import {ChildViewComponent} from '../../../lifecycle/after-view/after-view.component';
 
 @Directive({selector: 'li'})
 export class SuperListDirective {
@@ -42,10 +41,10 @@ export class FixSuperListComponent implements AfterContentInit {
 
 // this is how the end user might implement the external component
 @Component({
-  selector: 'fix-my-component',
+  selector: 'problem-one-fix',
   templateUrl: './problem-one-fix.html'
 })
-export class FixMyComponent {
+export class ProblemOneFixComponent {
   public items: string[] = ['hello', 'world', 'today'];
 
   addItem() {

@@ -1,5 +1,4 @@
 import {Component, DoCheck, ElementRef, NgZone, ViewChild} from '@angular/core';
-import {ChildViewComponent} from '../../../lifecycle/after-view/after-view.component';
 
 @Component({
   selector: 'solution-three',
@@ -24,7 +23,7 @@ import {ChildViewComponent} from '../../../lifecycle/after-view/after-view.compo
   `
 })
 export class SolutionThree implements DoCheck {
-  @ViewChild('input1', { static: false }) input1ElementRef: ElementRef;
+  @ViewChild('input1', {static: false}) input1ElementRef: ElementRef;
   private input1IsVisible: boolean = false;
 
   constructor(private _ngZone: NgZone) {

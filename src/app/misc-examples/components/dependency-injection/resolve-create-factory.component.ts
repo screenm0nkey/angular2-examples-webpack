@@ -1,6 +1,5 @@
 import {Component, ElementRef, Inject, InjectionToken, Injector, ViewChild} from '@angular/core';
 import {ApiService, ViewPortService} from './injectables.service';
-import {ChildViewComponent} from '../../../lifecycle/after-view/after-view.component';
 
 const SOME_TOKEN = new InjectionToken<string>(`SomeToken`);
 
@@ -24,7 +23,7 @@ const SOME_TOKEN = new InjectionToken<string>(`SomeToken`);
   `
 })
 export class DiSampleComponent2 {
-  @ViewChild('reffy', { static: false }) el: ElementRef;
+  @ViewChild('reffy', {static: false}) el: ElementRef;
 
   constructor(private apiService: ApiService,
               @Inject('ApiServiceAlias') private aliasService: ApiService, // useExisting

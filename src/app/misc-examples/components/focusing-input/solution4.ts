@@ -1,5 +1,4 @@
 import {AfterViewInit, Component, ElementRef, Renderer2, ViewChild} from '@angular/core';
-import {ChildViewComponent} from '../../../lifecycle/after-view/after-view.component';
 
 @Component({
   selector: 'solution-four',
@@ -19,7 +18,7 @@ import {ChildViewComponent} from '../../../lifecycle/after-view/after-view.compo
   `
 })
 export class SolutionFour implements AfterViewInit {
-  @ViewChild('myInput', { static: false }) input: ElementRef;
+  @ViewChild('myInput', {static: false}) input: ElementRef;
 
   constructor(private renderer: Renderer2) {
   }

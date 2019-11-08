@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {SharedModule} from '../../../shared/_shared.module';
-import {AccordianModule} from './accordian/app.module';
-import {MultiTransclusion} from './_main';
+import {AccordionModule} from './accordian/_accordian.module';
+import {MultiTransclusion} from './_main.component';
 import {Comp1, Comp2, EmitterComponent} from './emitter-component';
 import {Message, TransclusionSampleApp} from './transclusion';
 import {ContentChildrenModule} from "../content-children/_content-children.module";
@@ -9,7 +9,7 @@ import {LinquistDirectivesModule} from "../directives-linquist/_linquist-directi
 import {MultiContentComponent, MultiContentConfigComponent} from "./multi-content";
 
 @NgModule({
-  imports: [SharedModule, AccordianModule, ContentChildrenModule, LinquistDirectivesModule],
+  imports: [SharedModule, AccordionModule, ContentChildrenModule, LinquistDirectivesModule],
   declarations: [
     MultiTransclusion,
     MultiContentComponent, MultiContentConfigComponent,

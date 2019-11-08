@@ -11,7 +11,7 @@
       <li>we can list the components, directives, and pipes that are part of the module in the declarations array</li>
       <li>we can import other modules by listing them in the imports array <code>imports : [SharedModule]</code></li>
       <li>we can export a component so it's available to it's parent module or any module which imports the module.
-        <code>exports : [MyComponent]</code></li>
+        <code>exports : [ProblemOneComponent]</code></li>
       <li class="strong">
         Each module needs to define separately what it can 'see' in its context, so the solution here is to import all
         the
@@ -25,7 +25,9 @@
       <li> Angular module allows Angular to define a context for compiling templates. Each HTML tag is compared to that
         list to see if a component should be applied on top of it, the same goes for each attribute.
       </li>
-      <li>modules only need to be imported into another module using <code><brace>imports: [SomeModule]</brace></code> if
+      <li>modules only need to be imported into another module using <code>
+        <brace>imports: [SomeModule]</brace>
+      </code> if
         they are not lazy loaded
       </li>
       <li>
@@ -57,7 +59,9 @@
           within
           the component tree created with this injector. If you must load the module eagerly, when the application
           starts,
-          provide the service in a component instead i.e. <code>@Component(<brace>providers : [...</brace>)</code>
+          provide the service in a component instead i.e. <code>@Component(
+            <brace>providers : [...</brace>
+            )</code>
         </strong>
         <dlink [id]="13"></dlink>
       </li>

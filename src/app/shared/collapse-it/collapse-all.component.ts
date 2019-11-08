@@ -1,6 +1,5 @@
-import {Component, Injectable, OnInit} from '@angular/core';
-import {Subject} from 'rxjs/internal/Subject';
-import {ReplaySubject} from 'rxjs/internal/ReplaySubject';
+import {Component, OnInit} from '@angular/core';
+import {CollapseItService} from "./collapse-it.service";
 
 @Component({
   selector: 'collapse-all',
@@ -23,15 +22,5 @@ export class CollapseAllComponent implements OnInit {
     this.openAll = !this.openAll;
     this.text = this.openAll ? 'Collapse All' : 'Open All';
     this.cas.openAll$.next(this.openAll);
-  }
-}
-
-
-@Injectable({providedIn: 'root'})
-export class CollapseItService {
-  openAll$: Subject<boolean> = new ReplaySubject<boolean>(1);
-
-  constructor() {
-    this.openAll$.next(false);
   }
 }

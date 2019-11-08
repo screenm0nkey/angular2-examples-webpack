@@ -407,6 +407,11 @@
     78,
     "10 Need to know RXJS Functions",
     "https://www.sitepoint.com/rxjs-functions-with-examples"
+  ],
+  [
+    79,
+    "Understanding ViewEncapsulation.ShadowDom",
+    "https://blog.thoughtram.io/angular/2015/06/29/shadow-dom-strategies-in-angular2.html"
   ]
 ]
 

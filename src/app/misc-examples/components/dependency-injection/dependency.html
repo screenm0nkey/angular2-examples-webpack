@@ -26,9 +26,11 @@
         a provider of the UsersModule without adding it to the providers of the module.</p>
 
       <code>
-        @Injectable(<brace>
-        providedIn: 'root'
-        </brace>)
+        @Injectable(
+        <brace>
+          providedIn: 'root'
+        </brace>
+        )
       </code>
     </section>
 
@@ -83,7 +85,8 @@
         <li>To prevent usage of a services outside of the desired module, use LazyServiceModule which will be imported
           by LazyModule to prevent circular dependency warning. LazyModule will then be lazy loaded using Angular Router
           for some route in a standard fashion
-          <dlink [id]="6"></dlink>.
+          <dlink [id]="6"></dlink>
+          .
         </li>
         <li class="strong">Use providers: [] inside of @Component or @Directive to scope service only for the particular
           component sub-tree which will also lead to creation of multiple service instances (one service instance per
@@ -125,7 +128,9 @@
             within
             the component tree created with this injector. If you must load the module eagerly, when the application
             starts,
-            provide the service in a component instead i.e. <code>@Component(<brace>providers : [...</brace>)</code>
+            provide the service in a component instead i.e. <code>@Component(
+              <brace>providers : [...</brace>
+              )</code>
           </strong>
           <dlink [id]="13"></dlink>
         </li>
@@ -170,7 +175,9 @@
         <dlink [id]="12"></dlink>
         <dlink [id]="59"></dlink>
       </div>
-      <code>providers: [NewLoggerService,<brace> provide: LoggerService, useExisting: NewLoggerService </brace>]</code>
+      <code>providers: [NewLoggerService,
+        <brace> provide: LoggerService, useExisting: NewLoggerService</brace>
+        ]</code>
       <p><code>useExisting</code> is a bit different than the other provider strategies. It’s the only strategy that
         doesn’t actually
         create an instance, but instead, it points to another token which in turn will create the instance.</p>
@@ -220,15 +227,19 @@
       with the token called "LoggerService" and assigns the returned value
       to the loggerFactory parameter.</p>
 
-    <code>constructor(loggerFactory: LoggerService) <brace>
-      loggerFactory.logInfo('Creating HeroBiosComponent');
-      </brace></code>
+    <code>constructor(loggerFactory: LoggerService)
+      <brace>
+        loggerFactory.logInfo('Creating HeroBiosComponent');
+      </brace>
+    </code>
 
 
     <p class="code-example">The simple "class" Provider is the most typical by far. <br> The example below takes a token
       and a
       definition object. The token is usually a class but it doesn't have to be.</p>
-    <code><brace> provide: LoggerService, useClass: DateLoggerService </brace></code>
+    <code>
+      <brace> provide: LoggerService, useClass: DateLoggerService</brace>
+    </code>
 
     <p>The “LoggerService” is the token, the “DateLoggerService” is the Definition Object or Factory</p>
 
@@ -236,7 +247,9 @@
     <p><strong>Set the "useValue" property to a fixed value that the provider can return as the dependency
       object.</strong></p>
 
-    <code> providers: [<brace>provide: 'URL', useValue: 'https://swapi.co/api'</brace>]</code>
+    <code> providers: [
+      <brace>provide: 'URL', useValue: 'https://swapi.co/api'</brace>
+      ]</code>
 
     <p>Use this technique to provide runtime configuration constants such as web-site
       base addresses and feature flags. We often use a value provider in a unit test

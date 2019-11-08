@@ -1,5 +1,5 @@
-import {AfterViewInit, Component, DoCheck, ElementRef, OnInit} from '@angular/core';
-import {CollapseItService} from "./collapse-all.component";
+import {AfterViewInit, Component, ElementRef, OnInit} from '@angular/core';
+import {CollapseItService} from "./collapse-it.service";
 
 @Component({
   selector: '[collapse-it], collapse-it',
@@ -13,7 +13,7 @@ import {CollapseItService} from "./collapse-all.component";
           </div>
       </section>`
 })
-export class CollapseItComponent implements AfterViewInit, OnInit, DoCheck {
+export class CollapseItComponent implements AfterViewInit, OnInit {
   private open: boolean;
   private title: string;
 
@@ -26,9 +26,6 @@ export class CollapseItComponent implements AfterViewInit, OnInit, DoCheck {
     this.setTitle();
   }
 
-  ngDoCheck() {
-  }
-
   // i tried ngAfterContentInit but the content wasn't available
   ngAfterViewInit() {
   }
@@ -37,16 +34,19 @@ export class CollapseItComponent implements AfterViewInit, OnInit, DoCheck {
     const h4 = this.el.nativeElement.querySelector('H4');
     if (h4 && h4.innerText) {
       this.title = h4.innerText;
-      this.open = false;
-      this.cas.openAll$.subscribe(openAll => this.open = openAll);
+      this.open = this.cas.getOpenState(this.title);
+      this.cas.openAll$.subscribe((open:boolean) => {
+        this.open = open;
+        this.cas.storeOpenState(this.title, this.open)
+      });
     }
     if (!this.title) {
       return setTimeout(() => this.setTitle(), 10);
     }
   }
 
-  elementClicked(element) {
-    console.log(element);
+  elementClicked() {
     this.open = !this.open;
+    this.cas.storeOpenState(this.title, this.open);
   }
 }

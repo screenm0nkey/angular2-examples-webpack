@@ -7,7 +7,10 @@
       <li>
         To make zones faster it is possible to bypass zones entirely for performance focused applications.
         To bypass zones, bootstrap your application with ‘noop’ as your ngZone.
-        <code>platformBrowserDynamic().bootstrapModule(AppModule, <brace>ngZone: 'noop'</brace>).then( ref => <brace></brace>
+        <code>platformBrowserDynamic().bootstrapModule(AppModule,
+          <brace>ngZone: 'noop'</brace>
+          ).then( ref =>
+          <brace></brace>
           );</code>
       </li>
       <li><code>ChangeDetectionStrategy.OnPush</code> - Use Angular’s OnPush change detection strategy to save view
@@ -50,11 +53,12 @@
     <div>
       <p class="file">misc-examples/components/ng-zone/speedy-with-zones.component.ts</p>
       <h4>Using Zones to speed up an Application</h4>
-      <p><dlink [id]="55"></dlink>
+      <p>
+        <dlink [id]="55"></dlink>
         Using Zones for better performance
-      /p>
+        /p>
 
-      <code>this.zone.runOutsideAngular()</code>
+        <code>this.zone.runOutsideAngular()</code>
 
       <p>
         So the reason it's faster outside of the NgZone is because when you add a handler to an event like "mousemove"

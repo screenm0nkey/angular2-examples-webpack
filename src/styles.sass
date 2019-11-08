@@ -1,72 +1,9 @@
+@import "styles-dark"
 .clearfix
   &:after
     content: ""
       display: table
       clear: both
-
-
-body.dark-mode
-  .link-type
-    color: black
-
-    &.ext
-      background-color: #838383 !important
-      color: white
-
-      &:hover
-        color: yellow
-
-    &.int
-      background-color: #6b6b6b !important
-      color: white
-
-      &:hover
-        color: yellow
-
-  a
-    &.big
-      background-color: #8a8388
-
-    &:hover
-      background-color: #6b003a
-      color: #fff
-
-  h4
-    background: #5b5b5b
-    color: #f6f6f6
-
-  h6
-    color: #545454
-
-  div
-    &.comps
-      > *:nth-child(odd)
-        background-color: #ccc
-
-      > *:nth-child(even)
-        background-color: #c1c1c1
-
-  .miscellaneous > nav
-    background-color: #969696
-
-  p.file, p.path, span.path
-    background: #909090
-
-  .box
-    border-color: white !important
-
-  ul.todos
-    background-color: black
-    border-color: white
-
-  nav
-    background-color: #0f4005
-
-    .router-link-active, .active, .router-link-active:hover, .active:hover
-      background-color: #0f4005 !important
-
-  strong, p.strong, li.strong
-    background-color: #0f4005
 
 
 body
@@ -87,10 +24,10 @@ li
   margin-bottom: 15px
   line-height: 14px
 
-
-p .code, h4 > .code, li > .code
-  display: inline-block
-  margin: 0
+.code
+  p &, h4 > &, li > &
+    display: inline-block
+    margin: 0
 
 
 p
@@ -102,6 +39,15 @@ p
 button
   cursor: pointer
 
+.bold
+  font-weight: bold
+  color: black
+
+.example
+    border: solid #8c8c8c
+    padding: 5px
+    margin-left: -5px
+    margin-right: -5px
 
 .link-type
   font-style: italic
@@ -166,16 +112,14 @@ h4, h3
 
 
 h4
-  background: #e84300
+  background: #a5a5a5
   display: table
   padding: 3px 15px
-  color: #f0ff37
+  color: #31312a
   border-radius: 3px
-  font-weight: 400
-  font-size: 13px
-  box-shadow: 0 6px 14px 1px rgba(0, 0, 0, .58)
   z-index: 2
-  margin: -8px 0 8px 0
+  margin: -12px 0 8px 0
+  border: 2px solid white
 
   brace > span, htm > span
     font-size: 16px
@@ -381,10 +325,10 @@ code
   font-size: 13px
   font-weight: 400
 
-
-p code, li code, h4 code
-  white-space: normal
-  display: inline-block
+  h4 &, p &, li &
+    white-space: normal
+    display: inline-block
+    margin: 0
 
 
 h6
@@ -506,15 +450,12 @@ p.strong
 
 
 p.file, p.path, span.path
-  font-family: Courier
-  color: #fff
+  color: black
   margin: 0
-  border-radius: 2px
-  padding: 0 10px
   display: inline-block
   top: -10px
   position: relative
-  font-size: 11px
+  font-size: 9px
 
 
 .well
@@ -555,6 +496,7 @@ p.file, p.path, span.path
     top: -6px
     right: -6px
     cursor: pointer
+    z-index: 2
 
   .title
     font-weight: bold

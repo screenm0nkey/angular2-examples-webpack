@@ -49,7 +49,5 @@ export class Example04AppComponent {
 }
 
 
-
-
 // ng-template
 // ng-content

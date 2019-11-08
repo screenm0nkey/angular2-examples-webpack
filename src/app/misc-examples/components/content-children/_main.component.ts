@@ -3,7 +3,7 @@ import {Component} from '@angular/core';
 @Component({
   template: `
       <div class='comps'>
-          <section>
+          <section collapse-it>
               <p class="path">src/app/misc-examples/components/content-children/main.ts</p>
               <h4>@ContentChildren notes</h4>
               <p><code>@ContentChildren</code> allows us to target 'local-refs' in content which has been inserted using
@@ -17,8 +17,8 @@ import {Component} from '@angular/core';
               </p>
           </section>
 
-          <my-component></my-component>
-          <fix-my-component></fix-my-component>
+          <problem-one></problem-one>
+          <problem-one-fix></problem-one-fix>
           <content-children-tabs-1></content-children-tabs-1>
           <content-children-tabs-2></content-children-tabs-2>
       </div>

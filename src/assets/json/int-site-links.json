@@ -34,6 +34,12 @@
     "Custom Templates",
     "/misc/templates",
     ""
+  ],
+  [
+    1006,
+    "Nested Content Projection using ViewEncapsulation.ShadowDom and importing a Component as a service",
+    "/misc/content-projection",
+    "import inject service"
   ]
 ]
 

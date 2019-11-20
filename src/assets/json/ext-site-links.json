@@ -48,7 +48,7 @@
   ],
   [
     10,
-    "InjectionToken (was OpaqueToken)",
+    "How to prevent name collisions in Angular providers using InjectionToken",
     "http://blog.thoughtram.io/angular/2016/05/23/opaque-tokens-in-angular-2.html",
     "provider"
   ],
@@ -60,7 +60,7 @@
   ],
   [
     12,
-    "BYPASSINGPROVIDERS IN ANGULAR 2",
+    "BYPASSING PROVIDERS IN ANGULAR 2",
     "http://blog.thoughtram.io/angular/2016/09/14/bypassing-providers-in-angular-2.html",
     "provider"
   ],
@@ -412,6 +412,13 @@
     79,
     "Understanding ViewEncapsulation.ShadowDom",
     "https://blog.thoughtram.io/angular/2015/06/29/shadow-dom-strategies-in-angular2.html"
+  ],
+  [
+    80,
+    "A fix for ExpressionChangedAfterItHasBeenCheckedError when creating dynamic component",
+    "https://stackoverflow.com/questions/43652307/how-to-wait-that-ngafterviewinit-runs-while-creating-instance-of-a-component-f",
+    "dynamic component creation"
+
   ]
 ]
 

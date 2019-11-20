@@ -10,13 +10,13 @@
   which will receive the value from the <strong>$implicit</strong> local variable.
   That’s the name of the local variable that Angular uses when “de-sugaring” the syntax into a template.
 </p>
-<pre>&lt;li *ngBookRepeat="let peep of people"&gt;</pre>
+<pre><lgt>li *ngBookRepeat="let peep of people"</lgt></pre>
 gets converted to
-<pre>&lt;template ngBookRepeat [ngBookRepeatOf]="people" let-peep="$implicit"&gt;&lt;/template&gt;</pre>
+<pre><lgt>template ngBookRepeat [ngBookRepeatOf]="people" let-peep="$implicit"</lgt><lgt>/template</lgt></pre>
 <i>Here in the code is where we set the $implicit value to the change.item. change.item will be equal to the value of
   <strong>peep</strong>.</i>
 <pre>
-let view = this.viewContainer.createEmbeddedView(this.template, <brace>'$implicit': change.item</brace>);
+let view = this.viewContainer.createEmbeddedView(this.template, <cur>'$implicit': change.item</cur>);
 </pre>
 
 <ul>

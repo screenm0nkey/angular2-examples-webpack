@@ -8,7 +8,7 @@ import {AfterViewInit, Component, ElementRef, Renderer2, ViewChild} from '@angul
     <p>
       What developers often don't realize is that it's also possible to query by local variable
       in addition to component type. Since you control your component's view, you can add
-      a local variable to the input tag (e.g. <code>&lt;input #myInput type='text' /&gt;</code>) and pass the variable
+      a local variable to the input tag (e.g. <code><lgt>input #myInput type='text' /</lgt></code>) and pass the variable
       name into
       the @ViewChild query as a string. Then, once the view is initialized, you can use the
       renderer to invoke the focus method on that input.

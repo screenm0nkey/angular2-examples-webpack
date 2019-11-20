@@ -6,9 +6,9 @@ import {Component} from '@angular/core';
       <div>
         <dlink [id]="45"></dlink>
       </div>
-      <shared-service-component></shared-service-component>
-      <dynamic-component></dynamic-component>
-      <event-broadcasting></event-broadcasting>
+<!--      <shared-service-component></shared-service-component>-->
+<!--      <dynamic-component-example-01></dynamic-component-example-01>-->
+<!--      <event-broadcasting></event-broadcasting>-->
     </div>
   `
 })

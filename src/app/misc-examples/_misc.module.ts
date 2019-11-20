@@ -4,7 +4,7 @@ import {SharedModule} from '../shared/_shared.module';
 import {MiscExamplesComponent} from './misc.component';
 import {ChildViewModule} from './components/view-children/_childviews.module';
 import {TricksModule} from './components/tricks/tricks.module';
-import {ChickenModule} from './components/chickens/main.module';
+import {ChickensModule} from './components/chickens/_chickens.module';
 import {_changeModule} from './components/change-detection/_change.module';
 import {ContentChildrenModule} from './components/content-children/_content-children.module';
 import {FocusingInputModule} from './components/focusing-input/focusing.module';
@@ -21,6 +21,7 @@ import {ChangedAfterModule} from './components/changed-after-check/_main.module'
 import {TipsModule} from './components/tips/tips.module';
 import {InterceptorModule} from "./components/interceptors/_interceptor.module";
 import {LinksComponent} from "./components/links/links.component";
+import {DynamicExamplesModule} from "./components/dynamic-components/_dynamic.module";
 
 @NgModule({
   imports: [
@@ -28,7 +29,7 @@ import {LinksComponent} from "./components/links/links.component";
     MiscRoutingModule,
     TricksModule,
     ChildViewModule,
-    ChickenModule,
+    ChickensModule,
     _changeModule,
     ContentChildrenModule,
     FocusingInputModule,
@@ -43,7 +44,8 @@ import {LinksComponent} from "./components/links/links.component";
     LinquistDirectivesModule,
     ChangedAfterModule,
     TipsModule,
-    InterceptorModule
+    InterceptorModule,
+    DynamicExamplesModule,
   ],
   declarations: [
     MiscExamplesComponent,

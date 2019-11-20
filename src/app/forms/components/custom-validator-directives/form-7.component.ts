@@ -18,20 +18,20 @@ import {Component} from '@angular/core';
       <form #form='ngForm' (ngSubmit)='logForm(form)'>
         <span class='label'>Required</span>
         <input type='text' name='name' ngModel required>
-        <pre>&lt;input type='text' ngModel='name' required&gt;</pre>
+        <pre><lgt>input type='text' ngModel='name' required</lgt></pre>
       
         <span class='label'>Min Length = 3</span>
         <input type='text' name='street' ngModel minlength='3'>
-        <pre>&lt;input type='text' ngModel='street' minlength='3'&gt;</pre>
+        <pre><lgt>input type='text' ngModel='street' minlength='3'</lgt></pre>
       
         <span class='label'>Custom Email Validator </span>
         <input type='email' name='email' ngModel validateEmail placeholder='type email'>
-        <pre>&lt;input type='email' ngModel='email1' validateEmail&gt;</pre>
+        <pre><lgt>input type='email' ngModel='email1' validateEmail</lgt></pre>
       
       
         <span class='label'>Custom Email Validator with Dependencies</span>
         <input type='email' name='email2' ngModel validateEmailDeps placeholder='type email'>
-        <pre>&lt;input type='email' ngModel='email2' validateEmailDeps&gt;</pre>
+        <pre><lgt>input type='email' ngModel='email2' validateEmailDeps</lgt></pre>
       
         <button type='submit'>Submit</button>
       </form>

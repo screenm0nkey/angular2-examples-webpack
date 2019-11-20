@@ -11,8 +11,7 @@ import {RubbishService} from '../dependency-injection/injectables.service';
 })
 export class TipsMainComponent {
   constructor(rubbishSerivce: RubbishService) {
-    const str = `%cRubbishService is definied in another module but can be accessed 
-    here as services are available globally once defined`;
+    const str = `%cRubbishService is providedIn root, and there available globally`;
     console.log(str, 'color:lime', rubbishSerivce.imAString)
   }
 }

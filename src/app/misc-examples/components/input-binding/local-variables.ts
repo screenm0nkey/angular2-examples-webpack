@@ -52,7 +52,7 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
     <p class='file'>misc-examples/components/input-binding/local-variables.ts</p>
     <h4>Access a child component from the parent using local variable</h4>
     <p><a routerLink='/misc/view-children'>@viewChild @viewChildren</a></p>
-    <code>&lt;countdown-timer #timer&gt;</code>
+    <code><lgt>countdown-timer #timer</lgt></code>
 
     <button (click)='timer.start()'>Start</button>
     <button (click)='timer.stop()'>Stop</button>

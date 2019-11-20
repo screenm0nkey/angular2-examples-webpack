@@ -3,9 +3,9 @@
 
 
 <code style="padding: 0;">
-  &lt;form #form="ngForm" (ngSubmit)="logForm(form.value, n)" #n="ngNickForm" formnick&gt;
-  &lt;input type="text" name="lastname" [(ngModel)]="lastname" #last_name="ngModel"&gt;
-  &lt;/form&gt;
+  <lgt>form #form="ngForm" (ngSubmit)="logForm(form.value, n)" #n="ngNickForm" formnick</lgt>
+  <lgt>input type="text" name="lastname" [(ngModel)]="lastname" #last_name="ngModel"</lgt>
+  <lgt>/form</lgt>
 </code>
 
 <pre>
@@ -23,8 +23,8 @@ behind the scenes. There are two important pieces of functionality that NgForm g
 If ngModel is used within a form tag, either the name attribute must be set or
 the form control must be defined as 'standalone' in ngModelOptions.
 <code>
-  Example 1: &lt;input [(ngModel)]="person.firstName" name="first"&gt;
-Example 2: &lt;input [(ngModel)]="person.firstName" [ngModelOptions]="<brace>standalone: true</brace>"&gt;
+  Example 1: <lgt>input [(ngModel)]="person.firstName" name="first"</lgt>
+Example 2: <lgt>input [(ngModel)]="person.firstName" [ngModelOptions]="<cur>standalone: true</cur>"</lgt>
 </code>
 
 
@@ -32,9 +32,9 @@ Every form control that is registered with ngModel will automatically show up in
 </pre>
 
 <code>
-  &lt;input type="text" name="lastname" ngModel&gt; // registering it on the form
-  &lt;input type="text" name="lastname" [ngModel]="lastname"&gt; // one-way binding
-  &lt;input type="text" name="lastname" [(ngModel)]="lastname"&gt; // two-way binding
+  <lgt>input type="text" name="lastname" ngModel</lgt> // registering it on the form
+  <lgt>input type="text" name="lastname" [ngModel]="lastname"</lgt> // one-way binding
+  <lgt>input type="text" name="lastname" [(ngModel)]="lastname"</lgt> // two-way binding
 </code>
 
 <dlink [id]="40"></dlink>

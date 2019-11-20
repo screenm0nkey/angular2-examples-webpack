@@ -1,16 +1,21 @@
 import {NgModule} from '@angular/core';
 import {SharedModule} from '../../../shared/_shared.module';
-import {MainChildrenApp} from './_main';
-import {KeepCountComponent, SuperItemComponent, ViewChildrenComponent} from './add-to-list';
+import {MainViewChildrenComponent} from './_main.component';
+import {ViewChildren01Component} from './view-children-01.component';
 import {CountdownTimerComponent, CountdownViewChildParentComponent} from './countdown';
 import {LinquistDirectivesModule} from "../directives-linquist/_linquist-directives.module";
+import {ViewChildren02Component} from "./view-children-02.component";
+import {KeepCountComponent} from "./keep-count.component";
+import {SuperListItemComponent} from "./super-list-item.component";
+import {ChickensModule} from "../chickens/_chickens.module";
 
 @NgModule({
-  imports: [SharedModule, LinquistDirectivesModule],
+  imports: [SharedModule, LinquistDirectivesModule, ChickensModule ],
   declarations: [
-    MainChildrenApp,
-    ViewChildrenComponent,
-    SuperItemComponent,
+    MainViewChildrenComponent,
+    ViewChildren01Component,
+    ViewChildren02Component,
+    SuperListItemComponent,
     KeepCountComponent,
     CountdownViewChildParentComponent,
     CountdownTimerComponent
@@ -19,4 +24,4 @@ import {LinquistDirectivesModule} from "../directives-linquist/_linquist-directi
 export class ChildViewModule {
 }
 
-export {MainChildrenApp};
+export {MainViewChildrenComponent};

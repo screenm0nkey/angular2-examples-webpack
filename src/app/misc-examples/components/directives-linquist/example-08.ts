@@ -54,7 +54,7 @@ export class SurroundDirective {
  * Example08AppComponent
  */
 @Component({
-  selector: 'example-08',
+  selector: 'linquist-example-08',
   template: `
     <p class='file'>misc-examples/components/directives-linquist/example-08.ts</p>
     <h4>Template Storage Service using the TemplateService</h4>

@@ -18,7 +18,7 @@ export class CollapseItComponent implements AfterViewInit, OnInit {
   private title: string;
 
   constructor(private el: ElementRef, private cas: CollapseItService) {
-    console.log(el.nativeElement);
+    // console.log(el.nativeElement);
   }
 
   ngOnInit() {
@@ -35,7 +35,7 @@ export class CollapseItComponent implements AfterViewInit, OnInit {
     if (h4 && h4.innerText) {
       this.title = h4.innerText;
       this.open = this.cas.getOpenState(this.title);
-      this.cas.openAll$.subscribe((open:boolean) => {
+      this.cas.openAll$.subscribe((open: boolean) => {
         this.open = open;
         this.cas.storeOpenState(this.title, this.open)
       });
@@ -45,7 +45,7 @@ export class CollapseItComponent implements AfterViewInit, OnInit {
     }
   }
 
-  elementClicked() {
+  elementClicked(element: ElementRef): void {
     this.open = !this.open;
     this.cas.storeOpenState(this.title, this.open);
   }

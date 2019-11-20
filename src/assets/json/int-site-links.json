@@ -40,6 +40,21 @@
     "Nested Content Projection using ViewEncapsulation.ShadowDom and importing a Component as a service",
     "/misc/content-projection",
     "import inject service"
+  ],
+  [
+    1007,
+    "ExpressionChangedAfterItHasBeenCheckedError",
+    "/misc/change-after-check",
+    ""
+  ],
+  [
+    1008,
+    "Dynamic Components",
+    "/misc/dynamic",
+    "Dynamic component @ViewChild ComponentFactoryResolver, ChangeDetectorRef, ViewContainerRef"
   ]
 ]
+
+
+
 

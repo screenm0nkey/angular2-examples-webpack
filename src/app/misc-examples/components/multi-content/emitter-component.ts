@@ -18,7 +18,7 @@ class BroadcasterService {
   selector: 'comp1',
   template: '<div>Generated number: {{ generatedNumber }}</div>'
 })
-export class Comp1 {
+export class EmitterSub1Component {
   generatedNumber: number = 0;
 
   constructor(broadcaster: BroadcasterService) {
@@ -32,7 +32,7 @@ export class Comp1 {
   selector: 'comp2',
   template: '<div>Received number: {{ receivedNumber }}</div>'
 })
-export class Comp2 {
+export class EmitterSub2Component {
   receivedNumber: number = 0;
 
   constructor(broadcaster: BroadcasterService) {

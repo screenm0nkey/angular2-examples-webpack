@@ -14,7 +14,7 @@ export class CollapseItService {
     const map = this.getFromLocalStorage();
     const key = this.createKeyFromTitle(title);
     map[key] = openState;
-    console.log(map);
+    // console.log(map);
     localStorage.setItem('collapseIt', JSON.stringify(map));
   }
 

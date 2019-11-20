@@ -17,27 +17,23 @@ import {Component} from '@angular/core';
 })
 export class Message {
   header: string;
-
-  ngOnInit(): void {
-    console.log('header', this.header);
-  }
 }
 
 /**
  * Component
  */
 @Component({
-  selector: 'transclusion-simple',
+  selector: 'content-projection-example',
   template: `
       <collapse-it>
           <p class='file'>misc-examples/components/multi-content/transclusion.ts</p>
           <h4>Using @Input and Content Projection on the same element</h4>
 
           <div message header='This message was inserted using @Input'>
-              This content was inserted using transclusion.
+              This content was inserted using content projection.
           </div>
       </collapse-it>
   `
 })
-export class TransclusionSampleApp {
+export class ContentProjectionExample {
 }

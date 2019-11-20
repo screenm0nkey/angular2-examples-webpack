@@ -34,6 +34,7 @@ const appRoutes: Routes = [
   {
     path: '**',
     component: PageNotFoundComponent
+
   },
   {
     path: "compose",

@@ -31,7 +31,7 @@ export class ToggleButton {
     </p>
     <p>For two way custom event to work you have to suffix the event name with 'Change' i.e if the @input value is
       'nick' then the @output becomes 'nickChange'</p>
-    <p>This code <code>&lt;toggle-button [(nick)]='state'&gt;</code> is passing the input binding 'nick' into the child
+    <p>This code <code><lgt>toggle-button [(nick)]='state'</lgt></code> is passing the input binding 'nick' into the child
       component and also listening for the 'nick' event.
     <p class='strong'>The event is is emitted from the child by appending the word 'Change' to the end of the input
       binding name i.e 'nick'+'Change' <code>this.nickChange.emit(value);</code></p>

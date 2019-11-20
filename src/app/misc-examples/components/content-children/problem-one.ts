@@ -32,8 +32,9 @@ export class SuperListComponent implements AfterContentInit {
   template: `
       <collapse-it>
           <p class='file'>misc-examples/components/content-children/problem-one.ts</p>
-          <h4>How to reference an element a user projects into your component using a local reference and
-              ng-content</h4>
+          <h4>How to reference an element a user projects into your component using a local reference QueryList
+              <lgt>ElementRef</lgt>
+          </h4>
           <dlink [id]="24"></dlink>
 
           <p>What if you need a reference to an element that isn't in your component's template?</p>

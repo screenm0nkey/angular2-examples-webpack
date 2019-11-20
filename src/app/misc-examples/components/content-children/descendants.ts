@@ -11,24 +11,16 @@ export class Pane2 {
 @Component({
   selector: 'tab2',
   template: `
-      <collapse-it>
           <p class="file">src/app/misc-examples/components/content-children/tabs2.ts</p>
-          <h4>@ContentChildren,
-              <brace>descendants: true</brace>
-          </h4>
+          <h4>How to reference a nested element in your component using <cur>descendants: true</cur></h4>
 
-          <code> @ContentChildren(Pane,
-              <brace>descendants: true</brace>
-              ) arbitraryNestedPanes !: QueryList</code>
-          <div class="top-level">Top level panes: {{serializedPanes}}</div>
-          <p>
-              This list is the same as above but uses <code>
-              <brace>descendants: true</brace>
-          </code>
-              Use descendants to include all descendants
-          </p>
+          <code> @ContentChildren(Pane,<cur>descendants: true</cur>) arbitraryNestedPanes !: QueryList</code>
+          
+          <div class="example top-level">Top level panes: {{serializedPanes}}</div>
+          
+          <p>This list is the same as above but uses <code><cur>descendants: true</cur></code>Use descendants to include all descendants</p>
+          
           <div class="nested">Arbitrary nested panes: {{serializedNestedPanes}}</div>
-      </collapse-it>
   `
 })
 export class Tab2 {
@@ -49,8 +41,9 @@ export class Tab2 {
  *
  */
 @Component({
-  selector: 'content-children-tabs-2',
+  selector: 'content-children-descendants',
   template: `
+      <collapse-it>
           <tab2>
               <pane2 id="1"></pane2>
               <pane2 id="2"></pane2>
@@ -61,11 +54,12 @@ export class Tab2 {
                   </tab2>
               </pane2>
           </tab2>
+          <button (click)="show()">Show Descendants</button>
+      </collapse-it>
 
-          <button (click)="show()">Show 3</button>
   `,
 })
-export class ContentChildrenTab2 {
+export class ContentChildrenDescendants {
   shouldShow = false;
 
   show() {

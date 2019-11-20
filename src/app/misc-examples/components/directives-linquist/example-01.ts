@@ -9,7 +9,7 @@ export class FirstDirective {
 }
 
 @Component({
-  selector: 'example-01',
+  selector: 'linquist-example-01',
   template: `
     <p class='path'>misc-examples/components/directives-linquist/example-01</p>
     <h4>First Directive</h4>

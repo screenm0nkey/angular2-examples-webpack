@@ -17,7 +17,6 @@ const config: SocketIoConfig = {url: 'http://localhost:1970', options: {}};
     PushNotificationComponent,
     Ng6SocketAppComponent
   ],
-  providers: []
 })
 export class NotifcationModule {
 }

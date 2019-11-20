@@ -58,14 +58,13 @@ import {CollapseAllComponent} from "./collapse-it/collapse-all.component";
 })
 export class SharedModule {
   /**
-   * The forRoot() example below is deprecated in favour of 'providedIn'
+   * For providers, forRoot() example below is deprecated in favour of 'providedIn'
    * If we ever used SomeModule.forRoot() to prevent creation of additional instances of the service
    * by the lazy loaded modules we can simply use providedIn: 'root' instead.
    */
   public static forRoot(): ModuleWithProviders {
     return {
       ngModule: SharedModule,
-      providers: [/*MrTestyServiceOne*/]
     };
   }
 }

@@ -49,17 +49,21 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
 @Component({
   selector: 'countdown-parent-vc',
   template: `
-      <p class='file'>misc-examples/components/view-children/view-child.ts</p>
-      <h4>Countdown to Liftoff (via ViewChild)</h4>
-      <button (click)='start()'>Start</button>
-      <button (click)='stop()'>Stop</button>
-      <div class='seconds'>{{ seconds() }}</div>
-      <countdown-timer></countdown-timer>
+      <collapse-it>
+          <p class='file'>misc-examples/components/view-children/view-child.ts</p>
+          <h4>Accessing a component's API using @ViewChild - Countdown example</h4>
+          <code>@ViewChild(CountdownTimerComponent,<cur>static: false</cur>) private timerComponent: CountdownTimerComponent;</code>
+
+          <button (click)='start()'>Start</button>
+          <button (click)='stop()'>Stop</button>
+
+          <div class='seconds'>{{ seconds() }}</div>
+          <countdown-timer></countdown-timer>
+      </collapse-it>
   `
 })
 export class CountdownViewChildParentComponent implements AfterViewInit {
-  @ViewChild(CountdownTimerComponent, {static: false})
-  private timerComponent: CountdownTimerComponent;
+  @ViewChild(CountdownTimerComponent, {static: false}) private timerComponent: CountdownTimerComponent;
 
   seconds() {
     return 0;

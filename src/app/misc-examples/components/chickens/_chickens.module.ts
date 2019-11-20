@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {SharedModule} from '../../../shared/_shared.module';
-import {MainComponent} from './main.component';
+import {_mainComponent} from './_main.component';
 import {ChickenComponent, SayNameButtonComponent} from './chicken.component';
 import {DomAdapterComponent} from './dom-adapter.component';
 import {SnippetComponent} from './snippet.component';
@@ -8,12 +8,17 @@ import {UISnippets} from './directives/snippet.directive';
 import {Tooltip} from './directives/tooltip.directive';
 import {Unless} from './directives/unless.directive';
 import {PopupDirective} from './directives/popup.directive';
-import {DynamicComponent, InjectableComponent} from './dynamic.component';
+import {Dynamic01Component, InjectableComponent} from './dynamic-01.component';
+import {Dynamic02Component} from "./dynamic-02.component";
 
 @NgModule({
   imports: [SharedModule],
+  exports: [
+    Dynamic01Component,
+    Dynamic02Component
+  ],
   declarations: [
-    MainComponent,
+    _mainComponent,
     ChickenComponent,
     SayNameButtonComponent,
     Tooltip,
@@ -23,14 +28,14 @@ import {DynamicComponent, InjectableComponent} from './dynamic.component';
     UISnippets,
     PopupDirective,
     InjectableComponent,
-    DynamicComponent
+    Dynamic01Component,
+    Dynamic02Component
   ],
-  providers: [],
   // You need to use entryComponents under @NgModule.
   // This is for dynamically added components that are added using ViewContainerRef.createComponent()
   entryComponents: [InjectableComponent]
 })
-export class ChickenModule {
+export class ChickensModule {
 }
 
-export {MainComponent};
+export {_mainComponent};

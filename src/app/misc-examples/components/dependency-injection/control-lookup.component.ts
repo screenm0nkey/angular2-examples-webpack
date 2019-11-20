@@ -1,7 +1,21 @@
-import {Component, OnInit, Optional, SkipSelf} from '@angular/core';
-import {bloggerFactory, BloggerService} from "./injectables.service";
+import {Component, OnInit, Optional, SkipSelf, Injectable} from '@angular/core';
 
+@Injectable({ providedIn: "root" })
+export class BloggerService {
+  constructor(private prefix: string) {}
 
+  log(msg: string) {
+    console.log(`Slogger (${this.prefix}): ${msg}`);
+  }
+}
+
+export const bloggerFactory = (prefix): Function => {
+  return () => new BloggerService(prefix);
+};
+
+/**
+ * 
+ */
 @Component({
   selector: 'app-person',
   providers: [
@@ -38,23 +52,32 @@ export class PersonComponent implements OnInit {
   }
 }
 
+/**
+ * 
+ */
 @Component({
   selector: 'app-person-parent',
   template: `
-    <p class="path">misc-examples/components/dependency-injection/control-lookup.component.ts</p>
-    <h4>@Self, @Host, @SkipSelf and @Optional</h4>
-    <div class="links">
-        <dlink [id]="62"></dlink>
-        <dlink [id]="63"></dlink>
-        <dlink [id]="60"></dlink>
-    </div>
+    <collapse-it>
+        <p class="path">misc-examples/components/dependency-injection/control-lookup.component.ts</p>
+        <h4>@Self, @Host, @SkipSelf and @Optional</h4>
+        <div class="links">
+            <dlink [id]="62"></dlink>
+            <dlink [id]="63"></dlink>
+            <dlink [id]="60"></dlink>
+        </div>
 
-    <p>Angular now has a hierarchical dependency injector. That allows us to specify
-      service definitions as well as the service lifetime at various levels in our application. Whenever a service is
-      requested, Angular will walk up the component tree and search for a matching definition. While in most cases
-      that's perfectly fine, often you may want to take control over the dependency lookup.
-      <code>@Host(), @SkipSelf() and @Optional()</code></p>
-    <app-person></app-person>
+        <p>Angular now has a hierarchical dependency injector. That allows us to specify
+            service definitions as well as the service lifetime at various levels in our application. Whenever a service is
+            requested, Angular will walk up the component tree and search for a matching definition. While in most cases
+            that's perfectly fine, often you may want to take control over the dependency lookup.
+            By default Angular will first check if the component defines a dependency injector in its decorator.
+            <br/><strong>@Host</strong> will force the lookup to only go as far as this host component.
+            <br/><strong>@SkipSelf</strong>will mean the component is skipped, so if it provides the service in the component, it won't be used
+            <br/><strong>@Optional</strong> means if no service can be found then a null will be returned rather than a JS error
+            <code>constructor(@SkipSelf() @Optional() public blogger:BloggerService)</code></p>
+        <app-person></app-person>
+    </collapse-it>
   `,
   providers: [
     {
@@ -64,4 +87,6 @@ export class PersonComponent implements OnInit {
   ]
 })
 export class ParentPersonComponent {
+  constructor(public blogger: BloggerService) {
+  }
 }

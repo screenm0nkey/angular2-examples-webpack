@@ -55,13 +55,13 @@ export class ContentChildrenTabset1 implements AfterContentInit {
  *
  */
 @Component({
-  selector: 'content-children-tabs-1',
+  selector: 'content-children-tabs',
   template: `
       <collapse-it>
           <p class="file">src/app/misc-examples/components/content-children/tabs1.ts</p>
           <h4>Tabset using @ContentChildren, QueryList, AfterContentInit</h4>
 
-          <code>@ContentChildren(ContentChildrenTab1) tabs: QueryList <htm>ContentChildrenTab1</htm></code>
+          <code>@ContentChildren(ContentChildrenTab1) tabs: QueryList <lgt>ContentChildrenTab1</lgt></code>
           <p>
               QueryList is a class provided by Angular and when we use QueryList with a @ContentChildren annotation
               Angular populates this with the components that match the query and then keeps the items
@@ -88,7 +88,7 @@ export class ContentChildrenTabset1 implements AfterContentInit {
       </collapse-it>
   `
 })
-export class ContentChildrenTabs1 {
+export class ContentChildrenTabs {
   tabs: any;
 
   constructor() {

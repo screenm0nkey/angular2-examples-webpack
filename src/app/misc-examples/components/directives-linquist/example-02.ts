@@ -30,7 +30,7 @@ export class Example02BasicComponent {
 }
 
 @Component({
-  selector: 'example-02',
+  selector: 'linquist-example-02',
   styles: ['basic-02 {cursor: pointer; text-decoration:underline}'],
   template: `
     <p class='path'>misc-examples/components/directives-linquist/example-02</p>

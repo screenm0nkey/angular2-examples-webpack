@@ -1,26 +1,26 @@
 import {NgModule} from '@angular/core';
 import {SharedModule} from '../../../shared/_shared.module';
-import {AccordionModule} from './accordian/_accordian.module';
-import {MultiTransclusion} from './_main.component';
-import {Comp1, Comp2, EmitterComponent} from './emitter-component';
-import {Message, TransclusionSampleApp} from './transclusion';
-import {ContentChildrenModule} from "../content-children/_content-children.module";
-import {LinquistDirectivesModule} from "../directives-linquist/_linquist-directives.module";
+import {EmitterComponent, EmitterSub1Component, EmitterSub2Component} from './emitter-component';
+import {ContentProjectionExample, Message} from './transclusion';
 import {MultiContentComponent, MultiContentConfigComponent} from "./multi-content";
+import {AccordionModule} from "./accordian/_accordian.module";
 
 @NgModule({
-  imports: [SharedModule, AccordionModule, ContentChildrenModule, LinquistDirectivesModule],
-  declarations: [
-    MultiTransclusion,
+  imports: [SharedModule],
+  exports: [
     MultiContentComponent, MultiContentConfigComponent,
-    EmitterComponent,
-    Comp1,
-    Comp2,
-    TransclusionSampleApp,
+    EmitterComponent, EmitterSub1Component, EmitterSub2Component,
+    ContentProjectionExample,
+    Message,
+    AccordionModule
+  ],
+  declarations: [
+    MultiContentComponent, MultiContentConfigComponent,
+    EmitterComponent, EmitterSub1Component, EmitterSub2Component,
+    ContentProjectionExample,
     Message
   ]
 })
 export class MultiContentModule {
 }
 
-export {MultiTransclusion};

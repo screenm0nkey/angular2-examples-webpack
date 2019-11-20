@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'example-05',
+  selector: 'linquist-example-05',
   template: `
     <p class='file'>misc-examples/components/directives-linquist/example-04.ts</p>
     <h4>Create elements with ngTemplateOutlet</h4>

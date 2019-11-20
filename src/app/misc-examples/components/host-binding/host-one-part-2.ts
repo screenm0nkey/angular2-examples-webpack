@@ -34,10 +34,10 @@ export class NgModelStatusTwo {
   styles: ['.fixed-mixed {color: red}'],
   template: `
     <p class='file'>misc-examples/components/host-binding/host-one-part-2.ts</p>
-    <h4>host: <brace>'[class.fixed-mixed]': 'isFixed'</brace></h4>
-    This example is identicle to host-one-component but we're using the directives' host:<brace></brace> property rather than <br>
+    <h4>host: <cur>'[class.fixed-mixed]': 'isFixed'</cur></h4>
+    This example is identicle to host-one-component but we're using the directives' host:<cur></cur> property rather than <br>
     using the @HostBinding decorators.
-    <pre>host: <brace>'[value]': 'smvalue'</brace></pre>
+    <pre>host: <cur>'[value]': 'smvalue'</cur></pre>
     <input silly-input-two>
   `
 })

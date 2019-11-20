@@ -46,7 +46,7 @@ export class NgModelStatusOne {
     <code>@HostListener('input', ['$event.target.value'])</code>
     <code>@HostBinding('value') smvalue: string;</code>
     <p> @HostBinding binds the 'smvalue' value of the directive to the host element's 'value'
-      property. As the element is an &lt;input&gt;, it will change the value of the input when 'smvalue' is changed.
+      property. As the element is an <lgt>input</lgt>, it will change the value of the input when 'smvalue' is changed.
       Try typing into the input.
     </p>
     <input silly-input>

@@ -23,7 +23,7 @@ export class ThreeDirective implements AfterViewInit {
  * Example06AppComponent
  */
 @Component({
-  selector: 'example-06',
+  selector: 'linquist-example-06',
   template: `
       <p class='file'>misc-examples/components/directives-linquist/example-06.ts</p>
       <h4>How to access content in a structural directive</h4>
@@ -32,11 +32,11 @@ export class ThreeDirective implements AfterViewInit {
       </p>
       <strong>'let-' is only supported on template elements</strong>
 
-      <code>&lt;span *mrNick&gt;Hello, Angular&lt;/span&gt;</code>
+      <code><lgt>span *mrNick</lgt>Hello, Angular<lgt>/span</lgt></code>
       is the same as
-      <code>&lt;template mrNick&gt;
-          &lt;span&gt;Hello, Angular&lt;/span&gt;
-          &lt;/template&gt;</code>
+      <code><lgt>template mrNick</lgt>
+          <lgt>span</lgt>Hello, Angular<lgt>/span</lgt>
+          <lgt>/template</lgt></code>
 
       <p>For a structural directive, we're going to add in an *.</p>
       

@@ -1,7 +1,7 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
 
 @Component({
-  selector: 'brace',
+  selector: 'cur',
   template: `<span #text><ng-content></ng-content></span>`,
 })
 export class BraceComponent {
@@ -14,7 +14,7 @@ export class BraceComponent {
 
 
 @Component({
-  selector: 'htm',
+  selector: 'lgt',
   template: `<span #text><ng-content></ng-content></span>`,
 })
 export class HtmComponent {

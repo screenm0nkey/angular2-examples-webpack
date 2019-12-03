@@ -6,7 +6,7 @@ import {Directive, ElementRef} from '@angular/core';
   exportAs: 'popuppy',
   // host is the element using the directive
   host: {
-    '(click)': 'displayMessage()'
+    '(click)': 'displayMessageUsingHost()'
   }
 })
 export class PopupDirective {
@@ -16,8 +16,13 @@ export class PopupDirective {
     console.log(1, elRef.nativeElement);
   }
 
-  displayMessage(msg: string): void {
+  displayMessageUsingHost(msg: string): void {
     msg = msg || this.message;
-    this.elRef.nativeElement.innerText += ` - ${msg}`;
+    this.elRef.nativeElement.innerText += ` - host:${msg}`;
+  }
+
+  displayMessage2(msg: string): void {
+    msg = msg || this.message;
+    this.elRef.nativeElement.innerText += ` - api:${msg}`;
   }
 }

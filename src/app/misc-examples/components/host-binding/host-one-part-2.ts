@@ -14,13 +14,14 @@ import {Component, Directive} from '@angular/core';
 export class NgModelStatusTwo {
   count: number = 0;
   smvalue: string;
-  isFixed: boolean = true;
+  isFixed: boolean;
 
   constructor() {
+    this.isFixed = false;
     this.smvalue = 'Default Valuez';
     // this will update the view input's value
     setTimeout(() => (this.smvalue = 'something else'), 2000); // changes the input's text
-    setTimeout(() => (this.isFixed = false), 4000); // changes the inputs colour
+    setTimeout(() => (this.isFixed = true), 4000); // changes the inputs colour
   }
 
   hostInputUpdateEventHandler(updatedValue: string) {
@@ -34,7 +35,7 @@ export class NgModelStatusTwo {
   styles: ['.fixed-mixed {color: red}'],
   template: `
     <p class='file'>misc-examples/components/host-binding/host-one-part-2.ts</p>
-    <h4>host: <cur>'[class.fixed-mixed]': 'isFixed'</cur></h4>
+    <h4>@Hostbinding using host: <cur>'[class.fixed-mixed]': 'isFixed'</cur></h4>
     This example is identicle to host-one-component but we're using the directives' host:<cur></cur> property rather than <br>
     using the @HostBinding decorators.
     <pre>host: <cur>'[value]': 'smvalue'</cur></pre>

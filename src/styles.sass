@@ -2,9 +2,8 @@
 .clearfix
   &:after
     content: ""
-      display: table
-      clear: both
-
+    display: table
+    clear: both
 
 body
   background-color: #37373c
@@ -17,24 +16,25 @@ body
     font-size: 13px
 
 router-outlet
-  display: none
-
+    display: none
 
 li
   margin-bottom: 15px
-  line-height: 14px
 
 .code
   p &, h4 > &, li > &
     display: inline-block
     margin: 0
 
-
 p
   font-family: Avenir
   padding-right: 20px
   margin-bottom: 15px
-  line-height: 14px
+
+  &.warning
+    background-color : red
+    color: white
+    padding : 5px
 
 button
   cursor: pointer
@@ -44,14 +44,14 @@ button
   color: black
 
 .example
-    border: solid #8c8c8c
-    padding: 5px
-    margin-left: -5px
-    margin-right: -5px
+  border: solid #8c8c8c
+  padding: 5px
+  margin-left: -5px
+  margin-right: -5px
 
 .link-type
   font-style: italic
-  color: #fbff73
+  color: #ccc
   text-decoration: none
   padding: 1px 7px 1px
   border-radius: 2px
@@ -61,22 +61,19 @@ button
   cursor: pointer
 
   &.ext
-    background-color: #ce0271
+    background-color: #b5819d
 
   &.int
     background-color: #009a2f
 
-
 .links dlink
   display: block
-
 
 .links > a, nav > a
   position: relative
   left: 3px
   margin-right: 10px
   display: table
-
 
 a
   &.block
@@ -85,7 +82,6 @@ a
   &.big
     font-size: 13px
     background-color: #ce0271
-
 
   &:hover
     background-color: #6b003a
@@ -99,17 +95,14 @@ h1
   text-decoration: underline
   margin-bottom: 15px
 
-
 h4, h3, h2
   margin: 10px 0 0
   padding: 0
   color: #789
   font-size: 20px
 
-
 h4, h3
   font-size: 15px
-
 
 h4
   background: #a5a5a5
@@ -122,17 +115,15 @@ h4
   border: 2px solid white
 
   brace > span, htm > span
-    font-size: 16px
+  font-size: 16px
 
   &:first-child
     margin: 8px 0
-
 
 .ngx-container > ng-component > h4
   background-color: green
   position: relative
   top: -8px
-
 
 h5
   font-size: 13px
@@ -144,18 +135,15 @@ h5
   margin: 5px 0
   display: table
 
-
 h5:before
   content: "\2022"
   width: 10px
   color: red
   margin-right: 10px
 
-
 ul
   margin: 0 0 0 20px
   padding: 0
-
 
 ul.todos
   background-color: #07bd07
@@ -168,30 +156,19 @@ ul.todos
   text-indent: 21px
   margin-right: 10px
 
-
 ul.todos.collapsed
   height: 21px
   overflow: hidden
 
-
 ul.bullets
-  background-color: #a0a0a0
   padding: 5px 5px 5px 0
 
-
 ul.bullets li
-  background-color: #464861
   padding: 1px 10px
-  border-radius: 4px
-  color: #fff
-  font-weight: lighter
   margin: 5px 0 5px 18px
-  display: table
-
 
 i
   background-color: #ffffa4
-
 
 button
   background: #3498db
@@ -206,11 +183,9 @@ button
   padding: 3px 10px
   text-decoration: none
 
-
 button[disabled]
   background: dimgrey !important
   opacity: .3
-
 
 hr
   border: 0
@@ -221,7 +196,6 @@ hr
   padding: 0
   box-shadow: 0 6px 14px 1px rgba(0, 0, 0, .58)
 
-
 hr:after, hr:before
   content: ""
   display: block
@@ -231,10 +205,8 @@ hr:after, hr:before
   position: absolute
   right: 0
 
-
 hr:before
   left: 0
-
 
 nav
   background-color: #466c94
@@ -269,34 +241,27 @@ nav
     padding: 2px 10px !important
     text-decoration: none !important
 
-
 nav > a:visited
   color: #fff
-
 
 nav .router-link-active, nav .active, nav .router-link-active:hover, nav .active:hover
   background-color: #17235f !important
 
-
 nav a:hover
   background-color: #666 !important
-
 
 pre
   font-family: monospace
   color: #f5cf00
-  line-height: 15px
   padding: 5px 10px
   margin: 0
   background-color: black
   font-size: 15px
 
-
 pre.limit-height
   height: 200px
   overflow: scroll
   display: inline-block
-
 
 h4 pre
   display: inline
@@ -309,7 +274,6 @@ h4 pre
 
 h4 pre:before
   content: " ("
-
 
 h4 pre:after
   content: ")"
@@ -330,27 +294,21 @@ code
     display: inline-block
     margin: 0
 
-
 h6
   color: #f7ff00
 
-
 section.main
   padding-right: 3px
-
 
 .red
   color: #e02828
   font-weight: 700
 
-
 .ng-dirty.ng-invalid
   border: 1px red solid
 
-
 .has-error
   border-color: red
-
 
 .miscellaneous
   display: flex
@@ -369,18 +327,15 @@ section.main
     margin-right: 0
     background-color: #afc7d2
 
-
 .ngx-container
   height: 100%
   overflow-x: hidden
-
 
 .ngx-container.special, .special
   margin-top: 65px
   background-color: #cacaca
   border: solid 5px #c1c1c1
   margin-right: 10px
-
 
 div.comps
   > *
@@ -404,16 +359,13 @@ div.comps
     margin-bottom: 2px
 
     &[routerLink]
-      background-color: #35e000
-      color: #000
+      background-color: #5f984d
+      color: #ccc
       box-shadow: none
-      border: solid 2px #259e00
       border-radius: 3px
       font-style: normal
-      margin-bottom: -3px
-      margin-top: -3px
       padding: 0 2px
-      font-size: 11px
+      text-decoration: none
 
       &:hover
         background-color: #008b8b
@@ -422,26 +374,21 @@ div.comps
         content: " [int]"
         color: #259e00
 
-
 p.title, span.title
   font-weight: 700
   font-size: 15px
   display: block
   color: #3a3a3a
 
-
 strong, p.strong, li.strong
   color: #fff
-  background: #88621d
+  background: #d60000
   padding: 0 4px
   font-weight: 400
   font-size: 12px
-  border-radius: 4px
-
 
 p.strong
   display: table
-
 
 p.file, p.path, span.path
   color: yellow
@@ -451,34 +398,27 @@ p.file, p.path, span.path
   position: relative
   font-size: 9px
 
-
 .well
   background-color: #a5a5a5
   border-radius: 5px
   border: solid 3px #949494
   padding: 5px
 
-
 .well h6
   margin: 0
-
 
 .well p:last-child
   margin-bottom: 0
 
-
 .cdk-overlay-container
   margin-left: 200px
-
 
 .cdk-overlay-container p
   color: #fff
 
-
 .mat-dialog-container
   background-color: #008b8b
   border: solid 10px #0e566c
-
 
 .collapse-it
   position: relative
@@ -495,7 +435,6 @@ p.file, p.path, span.path
   .title
     font-weight: bold
 
-
-
-
-
+product-image
+  img 
+    width: 100px

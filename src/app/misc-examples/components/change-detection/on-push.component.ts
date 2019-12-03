@@ -93,6 +93,7 @@ export class OnPushCmp {
 @Component({
   selector: 'change-detection-sample-app',
   template: `
+    <collapse-it>
     <p class='file'>/misc-examples/components/change-detection/onpush.ts</p>
     <h4>Change detection using ngModel</h4>
     <div class='ui page grid'>
@@ -105,6 +106,7 @@ export class OnPushCmp {
         </div>
       </div>
     </div>
+    </collapse-it>
   `
 })
 export class OnPushChangeDetectionSampleApp {

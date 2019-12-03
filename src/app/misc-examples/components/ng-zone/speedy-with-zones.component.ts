@@ -29,7 +29,7 @@ export class BoxZoneComponent implements OnChanges {
   @Input() selected;
 
   ngOnChanges() {
-    console.log(this)
+    console.log('ngOnChanges', this)
   }
 }
 

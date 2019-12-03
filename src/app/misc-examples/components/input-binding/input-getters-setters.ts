@@ -13,7 +13,6 @@ export class NameChildComponent {
   set name(name: string) {
     this._name = (name && name.trim()) || '<no name set>';
   }
-
   get name() {
     return this._name;
   }

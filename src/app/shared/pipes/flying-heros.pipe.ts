@@ -3,6 +3,7 @@ import {Pipe, PipeTransform} from '@angular/core';
 export type Hero = {
   name: string;
   canFly: boolean;
+  date ?: Date;
 }
 
 @Pipe({

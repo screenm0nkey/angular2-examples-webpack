@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {SharedModule} from '../../../shared/_shared.module';
-import {MainInputBindingApp} from './main';
+import {MainInputBindingApp} from './_main.component';
 import {InventoryApp, PriceDisplay, ProductDepartment, ProductImage, ProductRow, ProductsList} from './inputs';
 import {NameChildComponent, NameParentComponent} from './input-getters-setters';
 import {VersionChildComponent, VersionParentComponent} from './ng-onchange';

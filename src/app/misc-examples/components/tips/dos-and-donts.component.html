@@ -1,0 +1,25 @@
+<p>
+  In your application, 80–90% of your components should be presentational. A
+  presentational component should take Inputs and emit Outputs, nothing else.
+  Yes, it may have its little inner state: that’s not a problem. It’s perfectly
+  fine for a TabsComponent, for example, to accept an index from outside but
+  keeping the currentIndex in a property. As long as it has an indexChange
+  output who tells the parent about the change (bonus: having the
+  index/indexChange pair will let you use the 2-way-binding syntax [(index)] in
+  Angular!). Does that make the component less-stateless? Yes, but it’s still
+  manageable from the outside and it can also work on its own. Win win.
+</p>
+
+<p>THIS is what you shouldn’t do in your presentational components:</p>
+<ul>
+  <li>
+    Modify the Input data directly: if your component is given an array or an
+    object, modifying it will affect the parents’ data, too. I won’t go into
+    details about this one, but let’s say you’re using Redux and that object
+    comes from a Store selector, what do you think would happen? Yep, you’d
+    mutate the Store directly from an “innocent” presentational component.
+    (psssst, using Angular and ngrx? Include <dlink [id]="81"></dlink> as soon as
+    possible). Should you need to modify the Input data, clone it. Is it too
+    expensive? There might be a design problem.
+  </li>
+</ul>

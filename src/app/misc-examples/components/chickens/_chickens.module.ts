@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {SharedModule} from '../../../shared/_shared.module';
-import {_mainComponent} from './_main.component';
+import {ChickensMainComponent} from './_main.component';
 import {ChickenComponent, SayNameButtonComponent} from './chicken.component';
 import {DomAdapterComponent} from './dom-adapter.component';
 import {SnippetComponent} from './snippet.component';
@@ -18,7 +18,7 @@ import {Dynamic02Component} from "./dynamic-02.component";
     Dynamic02Component
   ],
   declarations: [
-    _mainComponent,
+    ChickensMainComponent,
     ChickenComponent,
     SayNameButtonComponent,
     Tooltip,
@@ -38,4 +38,4 @@ import {Dynamic02Component} from "./dynamic-02.component";
 export class ChickensModule {
 }
 
-export {_mainComponent};
+export {ChickensMainComponent};

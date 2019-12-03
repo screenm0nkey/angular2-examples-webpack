@@ -4,14 +4,17 @@ import {CollapseItService} from "./collapse-it.service";
 @Component({
   selector: '[collapse-it], collapse-it',
   template: `
-      <section class="collapse-it">
-          <span *ngIf="!open" class="title">{{title}}</span>
-          <button *ngIf="!open" (click)="elementClicked(nick)">O</button>
-          <button *ngIf="open" (click)="elementClicked(nick)">X</button>
-          <div *ngIf="open" #nick>
+      <section *ngIf="!open" class="collapse-it">
+          <span class="title">{{title}}</span>
+          <button (click)="elementClicked(nick)">O</button>
+      </section>
+      <section *ngIf="open" class="collapse-it">
+          <button (click)="elementClicked(nick)">X</button>
+          <div #nick>
               <ng-content></ng-content>
           </div>
-      </section>`
+      </section>
+  `
 })
 export class CollapseItComponent implements AfterViewInit, OnInit {
   private open: boolean;

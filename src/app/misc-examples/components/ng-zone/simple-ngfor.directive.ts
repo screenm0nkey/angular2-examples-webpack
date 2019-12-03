@@ -1,16 +1,14 @@
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-
-import {Directive, DoCheck, EmbeddedViewRef, Input, TemplateRef, ViewContainerRef} from '@angular/core';
+import {
+  Directive,
+  DoCheck,
+  EmbeddedViewRef,
+  Input,
+  TemplateRef,
+  ViewContainerRef
+} from "@angular/core";
 
 class SimpleNgForRow {
-  constructor(public $implicit: any, public index: number) {
-  }
+  constructor(public $implicit: any, public index: number) {}
 
   get even(): boolean {
     return this.index % 2 === 0;
@@ -21,20 +19,21 @@ class SimpleNgForRow {
   }
 }
 
-@Directive({selector: '[simpleNgFor][simpleNgForOf]'})
+@Directive({ selector: "[simpleNgFor][simpleNgForOf]" })
 export class SimpleNgFor implements DoCheck {
   @Input() simpleNgForOf: any[];
 
-  constructor(private _viewContainer: ViewContainerRef,
-              private _template: TemplateRef<SimpleNgForRow>) {
-  }
+  constructor(
+    private _viewContainer: ViewContainerRef,
+    private _template: TemplateRef<SimpleNgForRow>
+  ) {}
 
   // see here for an explanation of this setter
   // https://angular.io/docs/ts/latest/guide/attribute-directives.html
   // or see the highlight directive example in this app
   @Input()
   set ngForTemplate(value: TemplateRef<SimpleNgForRow>) {
-    console.log(`%c${value}`, 'color:lime');
+    console.log(`%c${value}`, "color:lime");
     if (value) {
       this._template = value;
     }
@@ -48,9 +47,7 @@ export class SimpleNgFor implements DoCheck {
     // update existing rows
     for (let i = 0; i < minLen; i++) {
       const row = this.simpleNgForOf[i];
-      const viewRef = <EmbeddedViewRef<SimpleNgForRow>>this._viewContainer.get(
-        i
-      );
+      const viewRef = <EmbeddedViewRef<SimpleNgForRow>>(this._viewContainer.get(i));
       viewRef.context.$implicit = row;
     }
 

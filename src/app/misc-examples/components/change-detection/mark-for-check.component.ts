@@ -13,8 +13,8 @@ import {ChangeDetectionStrategy, ChangeDetectorRef, Component} from '@angular/co
 
     <p>
       <strong>setInterval() triggers the change detection</strong> in angular, which updates the view.
-      Our view is set to OnPush, so it will only update when it's inputs change but this view
-      doesn't have any inputs <strong>so it will never update unless we call markForCheck()</strong>.
+      Our view is set to OnPush, so it will only update when it's inputs change <strong>but this view
+      doesn't have any inputs so it will never update unless we call markForCheck()</strong>.
     </p>
 
     <button (click)='startStopInterval()'>{{start ? 'Stop' : 'Start'}} Interval</button>

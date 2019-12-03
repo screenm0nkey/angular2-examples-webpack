@@ -419,6 +419,12 @@
     "https://stackoverflow.com/questions/43652307/how-to-wait-that-ngafterviewinit-runs-while-creating-instance-of-a-component-f",
     "dynamic component creation"
 
+  ],
+  [
+    81,
+    "NGRX Store Freeze",
+    "https://github.com/brandonroberts/ngrx-store-freeze",
+    "NGRX"
+
   ]
 ]
-

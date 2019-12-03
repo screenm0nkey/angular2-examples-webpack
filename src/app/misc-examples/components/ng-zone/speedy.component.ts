@@ -29,14 +29,14 @@ function getRandomInt(min, max) {
 export class SpeedingComponent implements AfterViewInit {
   activeBox: BoxComponent;
   boxes: Box[] = [];
-  offsetX;
-  offsetY;
+  offsetX :number;
+  offsetY:number;
 
   constructor(private cdr: ChangeDetectorRef) {
   }
 
   ngOnInit() {
-    for (let i = 0; i < 1000; i++) {
+    for (let i = 0; i < 10000; i++) {
       const id = i;
       const x = getRandomInt(0, 500);
       const y = getRandomInt(0, 500);
@@ -59,7 +59,7 @@ export class SpeedingComponent implements AfterViewInit {
       this.offsetY = box.y - mouseY;
       this.activeBox = boxComponent;
       boxComponent.selected = true;
-      // boxComponent.update();
+      boxComponent.update();
     }
   }
 
@@ -71,7 +71,7 @@ export class SpeedingComponent implements AfterViewInit {
         event.clientX + this.offsetX,
         event.clientY + this.offsetY
       );
-      console.log(this.activeBox)
+      // console.log(this.activeBox)
     }
   }
 

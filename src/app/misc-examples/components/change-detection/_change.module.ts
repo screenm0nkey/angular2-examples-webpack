@@ -1,14 +1,16 @@
 import {NgModule} from '@angular/core';
 import {SharedModule} from '../../../shared/_shared.module';
-import {ChangeDetectionMain} from './main';
 import {MarkForCheck} from './mark-for-check.component';
-import {DetectChanges} from './detect-changes';
-import {ChangeComponent, TodoItemComponent, TodoListComponent} from './change.components';
-import {ChildObsList, ParentChangeObs} from './observables.components';
-import {DefaultCmp, OnPushChangeDetectionSampleApp, OnPushCmp} from './onpush';
-import {ObservableChangeDetectionSampleApp, ObservableCmp} from './observables';
-import {ImmutableObject, TestComponentObject} from './immutable-object';
-import {ImmutableList, TestComponentList} from './immutable-list';
+import {DetectChanges} from './detect-changes.component';
+import {DefaultCmp, OnPushChangeDetectionSampleApp, OnPushCmp} from './on-push.component';
+import {ImmutableList, TestComponentList} from './immutable-list.component';
+import { ChangeDetectionMain } from './_index.component';
+import { ChangeComponent } from './local-ref-vs-ng-model/change.components';
+import { TodoItemComponent } from './local-ref-vs-ng-model/todo-item.component';
+import { TodoListComponent } from './local-ref-vs-ng-model/todo-list.component';
+import { ImmutableObject, TestComponentObject } from './immutable-object.component';
+import { ParentChangeObs, ChildObsList } from './observables.component';
+import { ObservableChangeDetectionSampleApp, ObservableCmp } from './observables-mark-for-check.component';
 
 /*
  * The 'Store' service dependency for the components below has to be a injected as a dependency
@@ -35,10 +37,9 @@ import {ImmutableList, TestComponentList} from './immutable-list';
     TestComponentObject,
     ImmutableList,
     TestComponentList
-  ],
-  providers: []
+  ]
 })
-export class _changeModule {
+export class ChangeModule {
 }
 
 export {ChangeDetectionMain};

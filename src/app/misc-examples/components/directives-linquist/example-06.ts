@@ -7,6 +7,7 @@ import {AfterViewInit, Component, Directive, ElementRef, TemplateRef, ViewContai
   selector: '[mrNick]'
 })
 export class ThreeDirective implements AfterViewInit {
+
   constructor(el: ElementRef, private view: ViewContainerRef, private template: TemplateRef<any>) {
     console.log(123, 'el.nativeElement', el.nativeElement);
   }
@@ -26,11 +27,9 @@ export class ThreeDirective implements AfterViewInit {
   selector: 'linquist-example-06',
   template: `
       <p class='file'>misc-examples/components/directives-linquist/example-06.ts</p>
-      <h4>How to access content in a structural directive</h4>
-      <p>
-          <dlink [id]="56"></dlink>
-      </p>
-      <strong>'let-' is only supported on template elements</strong>
+      <h4>How to access content in a Structural Directive and use it as a template</h4>
+      
+      <p><dlink [id]="56"></dlink></p>
 
       <code><lgt>span *mrNick</lgt>Hello, Angular<lgt>/span</lgt></code>
       is the same as
@@ -40,14 +39,12 @@ export class ThreeDirective implements AfterViewInit {
 
       <p>For a structural directive, we're going to add in an *.</p>
       
-      <p class="strong"> The asterisk version of a directive is essentially the shorthand for wrapping something in a template
+      <p class="highlight"> The asterisk version of a directive is essentially the shorthand for wrapping something in a template
           element, which will allow us to use this as a template inside of our directive</p>
       
       <p>If you look at console.log(123, el.nativeElement) for the mrNick directive above you will now see template bindings
           rather than a DOM element</p>
       
-      <code><span>this content is from a component</span></code>
-
       <span *mrNick>this content is from a component<br></span>
   `
 })

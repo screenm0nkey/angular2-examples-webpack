@@ -52,6 +52,12 @@
     "Dynamic Components",
     "/misc/dynamic",
     "Dynamic component @ViewChild ComponentFactoryResolver, ChangeDetectorRef, ViewContainerRef"
+  ],
+  [
+    1009,
+    "How to focus an input",
+    "/misc/focus-input",
+    "@ViewChild"
   ]
 ]
 

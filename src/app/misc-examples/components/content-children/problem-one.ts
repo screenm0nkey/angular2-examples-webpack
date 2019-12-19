@@ -42,8 +42,8 @@ export class SuperListComponent implements AfterContentInit {
           <p>As an example, let's imagine you have a list component that accepts custom list items
               through content projection, and you'd like to track the number of list items.</p>
 
-          <p><strong>You can use <code>@ContentChildren</code> query to search your component's 'content'
-              (i.e. the nodes projected into the component)</strong> but because the content is
+          <p><highlight>You can use <code>@ContentChildren</code> query to search your component's 'content'
+              (i.e. the nodes projected into the component)</highlight> but because the content is
               arbitrary, it's not possible to label the nodes with local variables yourself.</p>
 
           <p>@ContentChildren allows us to target directives, components and local-refs
@@ -63,7 +63,7 @@ export class SuperListComponent implements AfterContentInit {
               some extra boilerplate nad they must be aware of the required local ref.</p>
 
           <p>What would be better is an API with regular li tags
-              and no attributes. See <strong>misc-examples/components/content-children/problem-one-fix.ts</strong>,
+              and no attributes. See <highlight>misc-examples/components/content-children/problem-one-fix.ts</highlight>,
               to see how can we make this work</p>
       </collapse-it>
   `

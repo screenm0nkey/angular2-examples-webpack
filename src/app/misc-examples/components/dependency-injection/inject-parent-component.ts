@@ -34,8 +34,8 @@ export class InjectParentComponent {
   template: `
     <div style='border:solid 2px green;'>
       <h6 style='margin:0'>I'm the child.</h6>
-      <strong>[@Input]</strong> {{text}} <br>
-      <strong>[property on parent]</strong> {{parent.name}}
+      <highlight>[@Input]</highlight> {{text}} <br>
+      <highlight>[property on parent]</highlight> {{parent.name}}
     </div>`
 })
 export class InjectParentInChildComponent {

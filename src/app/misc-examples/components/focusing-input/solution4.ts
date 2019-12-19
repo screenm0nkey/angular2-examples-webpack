@@ -4,7 +4,8 @@ import {AfterViewInit, Component, ElementRef, Renderer2, ViewChild} from '@angul
   selector: 'solution-four',
   template: `
     <p class='file'>misc-examples/components/focusing-input/solution4.ts</p>
-    <h4>Correct Solution - Using local variable refs and @ViewChild</h4>
+    <h4>Correct Solution - Using local variable refs and @ViewChild to focus an input</h4>
+    <dlink [id]="1009"></dlink>
     <p>
       What developers often don't realize is that it's also possible to query by local variable
       in addition to component type. Since you control your component's view, you can add
@@ -14,14 +15,10 @@ import {AfterViewInit, Component, ElementRef, Renderer2, ViewChild} from '@angul
       renderer to invoke the focus method on that input.
     </p>
     <input #myInput type='text'/>
-    <div> Some other content</div>
   `
 })
 export class SolutionFour implements AfterViewInit {
   @ViewChild('myInput', {static: false}) input: ElementRef;
-
-  constructor(private renderer: Renderer2) {
-  }
 
   ngAfterViewInit() {
     this.input.nativeElement.focus();

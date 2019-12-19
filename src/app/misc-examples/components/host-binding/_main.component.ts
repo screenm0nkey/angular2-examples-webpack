@@ -26,6 +26,10 @@ import { Component } from "@angular/core";
       <collapse-it>
         <host-three-component></host-three-component>
       </collapse-it>
+
+      <collapse-it>
+        <snippet-component></snippet-component>
+      </collapse-it>
     </div>
   `
 })

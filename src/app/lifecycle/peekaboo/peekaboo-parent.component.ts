@@ -25,7 +25,7 @@ import {LoggerService} from '../logger.service';
               a timeout, which in turn triggers the change detection to run. 
           </p>
           <p>
-            <strong>Every time the change detection runs these lifecycle methods are run;</strong>
+            <highlight>Every time the change detection runs these lifecycle methods are run;</highlight>
             <code>DoCheck(), AfterContentChecked(), AfterViewChecked()</code>, which are added to the logger output.
           </p>
             

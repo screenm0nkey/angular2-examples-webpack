@@ -4,17 +4,17 @@ import {Component} from '@angular/core';
   selector: 'focus-input',
   template: `
       <div class='comps'>
-          <div>
-              <p>These examples are in response to a question posed on stackoverflow</p>
-              <dlink [id]="27"></dlink>
-
-              <p>found on Rookie Mistakes</p>
-              <dlink [id]="24"></dlink>
-          </div>
-          <solution-four></solution-four>
-          <solution-one></solution-one>
-          <solution-two></solution-two>
-          <solution-three></solution-three>
+          <collapse-it>
+              <h4>These examples are in response to a question posed on stackoverflow</h4>
+              <div class="links">
+                <dlink [id]="27"></dlink>
+                <dlink [id]="24"></dlink>
+              </div>
+          </collapse-it>
+          <collapse-it><solution-four></solution-four></collapse-it>
+          <collapse-it><solution-one></solution-one></collapse-it>
+          <collapse-it><solution-two></solution-two></collapse-it>
+          <collapse-it><solution-three></solution-three></collapse-it>
       </div>
   `
 })

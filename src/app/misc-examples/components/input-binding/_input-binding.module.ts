@@ -6,6 +6,7 @@ import {NameChildComponent, NameParentComponent} from './input-getters-setters';
 import {VersionChildComponent, VersionParentComponent} from './ng-onchange';
 import {CountdownLocalVarParentComponent, CountdownTimerComponent} from './local-variables';
 import {ToggleButton, ToggleButtonComponent} from './toggle-button';
+import { AccessLocalVariableDirective, PopupDirective } from './local-variables-with-directive';
 
 @NgModule({
   imports: [SharedModule],
@@ -24,7 +25,9 @@ import {ToggleButton, ToggleButtonComponent} from './toggle-button';
     CountdownLocalVarParentComponent,
     CountdownTimerComponent,
     ToggleButtonComponent,
-    ToggleButton
+    ToggleButton,
+    AccessLocalVariableDirective,
+    PopupDirective
   ]
 })
 export class InputBindingModule {

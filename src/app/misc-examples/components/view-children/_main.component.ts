@@ -22,6 +22,10 @@ import {Component} from '@angular/core';
               <code>@ViewChildren(TemplateRef) templates: QueryList<lgt>TemplateRef</lgt></code>
           </section>
 
+            <collapse-it>
+                <app-card-container></app-card-container>
+            </collapse-it>
+
           <linquist-example-04></linquist-example-04>
 
           <view-children-01-example></view-children-01-example>
@@ -32,7 +36,7 @@ import {Component} from '@angular/core';
 
           <dynamic-component-example-01></dynamic-component-example-01>
           
-          <dynamic-component-example-02></dynamic-component-example-02>
+        <collapse-it><dynamic-component-example-02></dynamic-component-example-02></collapse-it>
 
           <section collapse-it>
               <p class='file'>src/app/misc-examples/components/view-children/_main.component.ts</p>
@@ -41,6 +45,8 @@ import {Component} from '@angular/core';
                   <cur>static: false</cur>
                   ) textElement: ElementRef;</code></p>
           </section>
+
+          <collapse-it><solution-four></solution-four></collapse-it>
 
 
       </div>

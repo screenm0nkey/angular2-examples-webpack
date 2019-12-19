@@ -7,9 +7,9 @@ import {Snippet} from './directives/snippet.directive';
   template: `
     <p class='file'>misc-examples/components/chickens/directives/snippet.directive.ts</p>
     <h4>Text Snippet Directive</h4>
-    <p>Type <code>lorem\`</code> for lorem ipsum</p>
-    <p>Type <code>zombie\`</code> for zombie ipsum</p>
-    <p>Type <code>bacon\`</code> for bacon ipsum</p>
+
+    Type either bacon, zombie, or car into the textarea followed by a \`, for example <strong>bacon\`</strong> 
+    
     <textarea [uiSnippets]='mySnippets'></textarea>
   `
 })

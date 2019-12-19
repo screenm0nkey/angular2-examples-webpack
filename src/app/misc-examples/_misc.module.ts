@@ -7,7 +7,7 @@ import {TricksModule} from './components/tricks/tricks.module';
 import {ChickensModule} from './components/chickens/_chickens.module';
 import {ChangeModule} from './components/change-detection/_change.module';
 import {ContentChildrenModule} from './components/content-children/_content-children.module';
-import {FocusingInputModule} from './components/focusing-input/focusing.module';
+import {FocusingInputModule} from './components/focusing-input/_focusing.module';
 import {HostBindingModule} from './components/host-binding/_hosting.module';
 import {LinquistDirectivesModule} from './components/directives-linquist/_linquist-directives.module';
 import {DependencyModule} from './components/dependency-injection/_main.module';

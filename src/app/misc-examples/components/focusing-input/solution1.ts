@@ -17,7 +17,6 @@ export class FocusMe implements AfterViewInit, OnChanges {
 
   // this is called if the input value 'focusMe' changes
   ngOnChanges(changes: { [propName: string]: SimpleChange }): void {
-    console.log('ngOnChanges', changes);
     if (changes.hasFocus && changes.hasFocus.currentValue === true) {
       this.elementRef.nativeElement.focus();
     }

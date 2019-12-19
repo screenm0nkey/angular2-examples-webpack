@@ -42,14 +42,14 @@
         When a module is loaded at application launch, its providers (services) have application-wide scope. They are
         available for injection throughout the application, which is why you should try load the module lazily if you
         can.
-        <strong>Angular gives a lazy-loaded module its own child injector. The module's providers are visible only
+        <highlight>Angular gives a lazy-loaded module its own child injector. The module's providers are visible only
           within
           the component tree created with this injector. If you must load the module eagerly, when the application
           starts,
           provide the service in a component instead i.e. <code>@Component(
             <cur>providers : [...</cur>
             )</code>
-        </strong>
+        </highlight>
         <dlink [id]="13"></dlink>
       </li>
 
@@ -68,9 +68,9 @@
     <p>There is now a new, recommended, way to register a provider, directly inside the <code>@Injectable()</code>
       decorator, using the new <code>providedIn</code> attribute. It accepts 'root' as a value or any module of your
       application.
-      <strong>When you use 'root', your injectable will be registered as a singleton in the application, and you don’t need
+      <highlight>When you use 'root', your injectable will be registered as a singleton in the application, and you don’t need
         to add it to the
-        providers of the root module.</strong> Similarly, if you use <code>providedIn: UsersModule</code>, the injectable is
+        providers of the root module.</highlight> Similarly, if you use <code>providedIn: UsersModule</code>, the injectable is
       registered as
       a provider of the UsersModule without adding it to the providers of the module.</p>
 
@@ -85,7 +85,7 @@
         <dlink [id]="6"></dlink>
         .
       </li>
-      <li class="strong">Use providers: [] inside of @Component or @Directive to scope service only for the particular
+      <li class="highlight">Use providers: [] inside of @Component or @Directive to scope service only for the particular
         component sub-tree which will also lead to creation of multiple service instances (one service instance per
         one component usage)
       </li>
@@ -101,24 +101,24 @@
       certain bugs related to services overriding each other in the global context
       that are hard to reproduce due to accidental overwrites of injectables.
       In order to avoid this this, angular will create a child dependency injection context.
-      This context will contain the service, but <strong>this service will not be visible to the rest of the
-      application.</strong>
+      This context will contain the service, but <highlight>this service will not be visible to the rest of the
+      application.</highlight>
     </p>
 
     <p>What would happen if we used providedIn: 'root' to implement service which we want to use in lazy loaded
       module?</p>
 
-    <p>Technically, <strong>the 'root' stands for AppModule</strong> but Angular is smart enough to bundle service in
+    <p>Technically, <highlight>the 'root' stands for AppModule</highlight> but Angular is smart enough to bundle service in
       the lazy loaded
       bundle if it is only injected in the lazy components / services. But there is a catch.
       If we later additionally inject service which is meant to belong to lazy module in any eager part of the
       application it will be then automatically bundled in the main bundle.</p>
 
-    <p>To summarize… <strong>If the service is only injected in the lazy part, it will be bundled in lazy bundle
+    <p>To summarize… <highlight>If the service is only injected in the lazy part, it will be bundled in lazy bundle
       If the service is injected in the eager part (while still possibly being injected in the lazy part), it will be
       bundled in the eager main bundle
       The problem with this behavior is that it can get quite unpredictable in the larger applications with tons of
-      modules and hundreds of services.</strong></p>
+      modules and hundreds of services.</highlight></p>
   </section>
 
   <section collapse-it class="well">
@@ -166,9 +166,9 @@
     <p>The last two stages of the resolution process that goes upwards through module and component injectors.
       Angular creates a hierarchy of module injectors when you lazy load a module. The hierarchy of component
       injectors
-      is created by nesting components in templates. Internally, <strong>component injectors are also referred to as
+      is created by nesting components in templates. Internally, <highlight>component injectors are also referred to as
         View
-        Injectors</strong></p>
+        Injectors</highlight></p>
     <p>A hierarchy of element injectors, on the other hand, is a lesser-known feature of Angular’s DI system mostly
       because it’s not really documented anywhere. But exactly this kind of injectors is the first stage of the DI
       resolution process. And these injectors make up a hierarchy that is used to resolve dependencies decorated with

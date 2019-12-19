@@ -26,7 +26,7 @@ import {
       stops the component and view from being checked.
     </p>
 
-    <p class="strong">
+    <p class="highlight">
       ngDoCheck will get called even if the changeDetector is detached
     </p>
 
@@ -42,7 +42,7 @@ import {
       happening.
     </p>
 
-    <p class="strong">
+    <p class="highlight">
       We only want to detach the change detectors after change detection has
       been performed for the first time, otherwise we won’t see any text in the
       buttons. To call <code>detach()</code> we can take advantage of Angular’s

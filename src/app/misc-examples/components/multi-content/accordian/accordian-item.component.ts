@@ -14,7 +14,7 @@ import {AccordionComponent} from './accordian.component';
           </div>
           <div class='panel-collapse' [hidden]='!isOpen'>
               <div class='panel-body'>
-                  <strong>Ho!</strong>
+                  <highlight>Ho!</highlight>
                   <ng-content></ng-content>
               </div>
           </div>

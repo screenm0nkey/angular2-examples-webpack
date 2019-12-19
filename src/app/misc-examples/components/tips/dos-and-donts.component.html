@@ -1,3 +1,5 @@
+<h4>Do's and Don'ts</h4>
+<dlink [id]="82"></dlink>
 <p>
   In your application, 80–90% of your components should be presentational. A
   presentational component should take Inputs and emit Outputs, nothing else.
@@ -10,16 +12,30 @@
   manageable from the outside and it can also work on its own. Win win.
 </p>
 
-<p>THIS is what you shouldn’t do in your presentational components:</p>
+<p>
+  <strong>What’s a container?</strong> It’s the component which hosts all the presentational
+  components of that “view”, or route: it’s the only one which should use
+  services to get/update data, which should use the Redux store, which should
+  dispatch actions, and which should pass its inner state (or slices of that) to
+  the child components. All the child components are presentational and should
+  not even know where the data has come from or what the consequences of their
+  Outputs will be. If tomorrow you decide to include a state-management library
+  or to get rid of it, your presentational components won’t break.
+</p>
+
+<p>Do</p>
 <ul>
-  <li>
-    Modify the Input data directly: if your component is given an array or an
-    object, modifying it will affect the parents’ data, too. I won’t go into
-    details about this one, but let’s say you’re using Redux and that object
-    comes from a Store selector, what do you think would happen? Yep, you’d
-    mutate the Store directly from an “innocent” presentational component.
-    (psssst, using Angular and ngrx? Include <dlink [id]="81"></dlink> as soon as
-    possible). Should you need to modify the Input data, clone it. Is it too
-    expensive? There might be a design problem.
-  </li>
+  <li>Use ChangeDetectionStrategy OnPush</li>
+  <li>Container Componentns delegate responsibilities to a service.</li>
+  <li>Containers can be split if they are too big</li>
+  <li>Use Directives as a way to incapsulate behaviors and reuse them</li>
+  <li>Use Content Projection</li>
+  <li>Huge forms : Use ControlValueAccessor to create sub-forms.</li>
+</ul>
+
+<p>DONT</p>
+<ul>
+  <li>Modify the Input data directly</li>
+  <li>Use models from other modules</li>
+  <li>Your containers shouldn’t do have complicated logic. Use services</li>
 </ul>

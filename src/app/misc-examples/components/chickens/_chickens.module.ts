@@ -7,13 +7,21 @@ import {SnippetComponent} from './snippet.component';
 import {UISnippets} from './directives/snippet.directive';
 import {Tooltip} from './directives/tooltip.directive';
 import {Unless} from './directives/unless.directive';
-import {PopupDirective} from './directives/popup.directive';
 import {Dynamic01Component, InjectableComponent} from './dynamic-01.component';
 import {Dynamic02Component} from "./dynamic-02.component";
 
 @NgModule({
   imports: [SharedModule],
   exports: [
+    ChickensMainComponent,
+    ChickenComponent,
+    SayNameButtonComponent,
+    Tooltip,
+    Unless,
+    DomAdapterComponent,
+    SnippetComponent,
+    UISnippets,
+    InjectableComponent,
     Dynamic01Component,
     Dynamic02Component
   ],
@@ -26,7 +34,6 @@ import {Dynamic02Component} from "./dynamic-02.component";
     DomAdapterComponent,
     SnippetComponent,
     UISnippets,
-    PopupDirective,
     InjectableComponent,
     Dynamic01Component,
     Dynamic02Component

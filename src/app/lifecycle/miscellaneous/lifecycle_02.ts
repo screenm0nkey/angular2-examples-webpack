@@ -5,14 +5,14 @@ import {Component} from '@angular/core';
   template: `
   <p class='path'>/lifecycle/miscellaneous/lifecycle_02</p>
   <h4>ngOnChanges and the SimpleChange object</h4>
-  <p class='strong'>
+  <p class='highlight'>
     It’s important to note that the <code>ngOnChanges()</code> hook gets overriden by <code>ngDoCheck()</code> 
     so if we implement both, OnChanges will be ignored.
   </p>
   <p><code>ngOnChanges()</code> is called when changes occur to @Input</p>
   <p><code>ngDoCheck()</code> is called every time a system even occurs</p>
   
-  <p class='strong'>Note that <code>ngOnChanges</code> only works on <code>@Input</code> </p>
+  <p class='highlight'>Note that <code>ngOnChanges</code> only works on <code>@Input</code> </p>
 
   <div class='ui form'>
     <div class='field' style='float: left;width: 200px'>

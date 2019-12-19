@@ -1,12 +1,24 @@
-import {Component} from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
   template: `
-      <div class='comps'>
-          <dynamic-component-example-01></dynamic-component-example-01>
-          <dynamic-component-example-02></dynamic-component-example-02>
-      </div>
+    <div class="comps">
+      <collapse-it>
+        <dynamic-component-example-01></dynamic-component-example-01>
+      </collapse-it>
+      
+      <collapse-it>
+        <dynamic-component-example-02></dynamic-component-example-02>
+      </collapse-it>
+
+      <collapse-it>
+        <dom-adapter-component></dom-adapter-component>
+      </collapse-it>
+
+      <collapse-it>
+        <linquist-example-06></linquist-example-06>
+      </collapse-it>
+    </div>
   `
 })
-export class DynamicMainComponent {
-}
+export class DynamicMainComponent {}

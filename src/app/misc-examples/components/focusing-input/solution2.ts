@@ -38,7 +38,6 @@ export class FocusIt implements AfterViewInit, OnChanges {
     <p class='path'>misc-examples/components/focusing-input/solution2.ts</p>
     <h4>Solution 2 @ViewChild and calling a method on the childview directive</h4>
 
-
     <button (click)='toggle()'>Make it {{isVisible ? 'invisible' : 'visible'}}</button>
     <input *ngIf='inputIsVisible' focusIt>
     <button (click)='focusInput()' *ngIf='inputIsVisible'>Focus it</button>

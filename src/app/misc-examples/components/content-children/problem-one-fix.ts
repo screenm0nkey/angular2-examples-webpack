@@ -69,7 +69,7 @@ export class SuperListFixComponent implements AfterContentInit {
               limit the results to children of your component, using queries to filter is the best way.
           </p>
 
-          <p class="strong">Using <code>ngOnChanges</code> to detect query list changes, is similar to $scope.$watch in
+          <p class="highlight">Using <code>ngOnChanges</code> to detect query list changes, is similar to $scope.$watch in
               AngularJS</p>
 
           <p>In Angular 1, if you wanted to be notified when a value changed, you'd have to set a
@@ -82,11 +82,11 @@ export class SuperListFixComponent implements AfterContentInit {
           <p>However, the <code>ngOnChanges</code> method executes only when the component's inputs change --
               specifically,
               those items you have included in your inputs array or explicitly labeled with an @Input decorator.
-              <strong>It will not be called when items are added or removed from <code>@ViewChildren</code> or
+              <highlight>It will not be called when items are added or removed from <code>@ViewChildren</code> or
                   <code>@ContentChildren</code> query
-                  lists.</strong></p>
+                  lists.</highlight></p>
 
-          <p class="strong">If you want to be notified of changes in a query list, don't use <code>ngOnChanges</code>.
+          <p class="highlight">If you want to be notified of changes in a query list, don't use <code>ngOnChanges</code>.
               Instead
               subscribe
               to the query list's built-in observable, its "changes" property. As long as you do so in the

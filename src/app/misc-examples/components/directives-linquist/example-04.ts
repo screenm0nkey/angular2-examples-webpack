@@ -9,11 +9,10 @@ import {Component, QueryList, TemplateRef, ViewChild, ViewChildren, ViewContaine
     <code>@ViewChild('foo', <cur>static: false</cur>) template: TemplateRef;</code>
     <code>@ViewChildren(TemplateRef) templates: QueryList<lgt>TemplateRef</lgt></code>
     <ng-template #woo>
-        This template instance was created using <strong>@ViewChildren</strong>, ViewContainerRef.createEmbeddedView()<br>
+        This template instance was created using <highlight>@ViewChildren</highlight>, ViewContainerRef.createEmbeddedView()<br>
     </ng-template>
-
     <ng-template #foo>
-        This template instance was created using <strong>@ViewChild</strong>, ViewContainerRef.createEmbeddedView()<br>
+        This template instance was created using <highlight>@ViewChild</highlight>, ViewContainerRef.createEmbeddedView()<br>
     </ng-template>
      
   `
@@ -42,8 +41,7 @@ export class BasicComponent4 {
           
           <h4>Insert dynamic templates using <lgt>ng-template</lgt>, @ViewChildren, @ViewChild, TemplateRef and ViewContainerRef.createEmbeddedView</h4>
 
-          <p><lgt>ng-template</lgt> do not render when used in the markup </p>
-          <!--  <a [routerLink]="['/misc', 'templates']">Misc Templates</a>-->
+          <p><lgt>ng-template</lgt> does not render when used in the markup </p>
           <p>Also see <dlink id="1005"></dlink> for similar examples.</p>
 
           <basic-04></basic-04>

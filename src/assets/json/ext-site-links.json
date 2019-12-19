@@ -425,6 +425,32 @@
     "NGRX Store Freeze",
     "https://github.com/brandonroberts/ngrx-store-freeze",
     "NGRX"
-
+  ],
+  [
+    82,
+    "Recurring problems I face as a Front-End Consultant",
+    "https://medium.com/@michelestieven/angular-recurring-problems-i-face-as-a-front-end-consultant-d2a9c1826a3a",
+    ""
+  ],
+  [
+    83,
+    "Angular ViewChild – static property in ng8",
+    "https://www.thecodecampus.de/blog/angular-viewchild-static-property-in-ng8",
+    ""
+  ],
+  [
+    84,
+    "ExpressionChangedAfterItHasBeenCheckedError — What, Why and How To Fix It?",
+    "https://medium.com/better-programming/expressionchangedafterithasbeencheckederror-in-angular-what-why-and-how-to-fix-it-c6bdc0b22787",
+    ""
+  ],
+  [
+    85,
+    "Using ngStyle in Angular for dynamic styling",
+    "https://ultimatecourses.com/blog/using-ngstyle-in-angular-for-dynamic-styling",
+    ""
   ]
+
+
+  
 ]

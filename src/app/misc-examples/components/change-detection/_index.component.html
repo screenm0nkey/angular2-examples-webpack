@@ -34,8 +34,8 @@
 
       <li>
         Somewhere in Angular’s source code,there’s this thing called
-        <strong
-          >ApplicationRef, which listens to NgZones onTurnDone event</strong
+        <highlight
+          >ApplicationRef, which listens to NgZones onTurnDone event</highlight
         >. Whenever this event is fired, it executes a tickReducer() function
         which essentially performs change detection.
       </li>
@@ -83,9 +83,9 @@
     <p>
       <code>ChangeDetectionStrategy.OnPush</code> <br />
       In Angular 2, components can subscribe to the
-      <strong
+      <highlight
         ><code>onChanges()</code> lifecycle hook, which will be called when any
-        of the @inputs properties change</strong
+        of the @inputs properties change</highlight
       >. this doesn't happen if changeDetection.OnPush is set. Only when the
       @input reference changes does it get called. This is the case for
       immutability.

@@ -51,8 +51,8 @@ export class TestComponentObject implements OnChanges, DoCheck {
 
     <p>
       Please see the example the
-      <strong
-        >Difference between LocalRef and NgModel when using change detection </strong
+      <highlight
+        >Difference between LocalRef and NgModel when using change detection </highlight
       >, which is similar to this example but uses ngmodel to update the object
       properties. interestingly it doesn't have to create a new instance of the
       object to trigger the change detection.

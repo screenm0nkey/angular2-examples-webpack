@@ -15,7 +15,7 @@ import {MyNgRxStore, PersonAction} from "./reducers/_reducers.service";
     <p class="path">http/ngrx/ngrx-people.component.ts</p>
     <h4>Building a Time Machine using withLatestFrom (Egghead example)</h4>
 
-    <p class="strong" style="margin:10px 0 0 0">Every time the users below are clicked, their individual times will
+    <p class="highlight" style="margin:10px 0 0 0">Every time the users below are clicked, their individual times will
       increase by one hour</p>
     <div
       (click)="person$.next(person)"

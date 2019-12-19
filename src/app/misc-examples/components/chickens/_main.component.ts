@@ -4,42 +4,14 @@ import { Component } from "@angular/core";
   template: `
     <div class="comps">
       <collapse-it>
-        <dynamic-component-example-01></dynamic-component-example-01>
+        <chicken-component></chicken-component>
       </collapse-it>
 
-      <section collapse-it>
-        <p class="file">
-          misc-examples/components/chickens/directives/popup.directive.ts
-        </p>
-        <h4>Access a @Directive API using exportAs and local variables</h4>
-        <button popup #popup1="popuppy" message="Socks">
-          Socks - Click Me
-        </button>
-        <br />
-        <button (click)="popup1.displayMessage2('Shirt')">
-          I'm accessing the directive's API using a local variable
-        </button>
-        <br />
-        <button popup #popup2="popuppy" message="Pants">
-          Pants - Click me
-        </button>
-        <br />
-        <button (click)="popup2.displayMessage2('Trousers')">
-          I'm accessing the directive's API using a local variable
-        </button>
-      </section>
-
-      <dom-adapter-component></dom-adapter-component>
-
-      <snippet-component></snippet-component>
-
-      <chicken-component></chicken-component>
-
-      <section>
+      <collapse-it>
         <p class="file">
           misc-examples/components/chickens/directives/tooltip.directive.ts
         </p>
-        <h4>directive example</h4>
+        <h4>Directive example using @Input, @Hostlistener and getter</h4>
         <dlink [id]="41"></dlink>
         <div>
           <input
@@ -66,13 +38,12 @@ import { Component } from "@angular/core";
           <lgt>span [myTooltip]="color" [defaultColor]="'violet'"</lgt>
         </code>
 
-        <span [myHighlight]="color" [defaultColor]="'violet'">
-          <span [ngStyle]="{ 'background-color': color }"
-            >highlight {{ color }}</span
-          >
+        <p [myHighlight]="color" [defaultColor]="'violet'">
           Mouse over me. I'm a directive using the "host" property
-        </span>
-      </section>
+        </p>
+        <p [ngStyle]="{ 'background-color': color }">highlight {{ color }}</p>
+
+      </collapse-it>
     </div>
   `
 })

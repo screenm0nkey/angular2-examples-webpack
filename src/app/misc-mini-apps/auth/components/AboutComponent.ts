@@ -7,10 +7,10 @@ import {ActivatedRoute, Params} from '@angular/router';
   template: `
    <h4>About</h4>
     <p>
-    params = <strong>{{ params }}</strong><br>
-    queryParams = <strong>{{ queryParams }}</strong><br>
-    framgment = <strong>{{ fragment }}</strong><br>
-    data = <strong>{{ data }}</strong> 
+    params = <highlight>{{ params }}</highlight><br>
+    queryParams = <highlight>{{ queryParams }}</highlight><br>
+    framgment = <highlight>{{ fragment }}</highlight><br>
+    data = <highlight>{{ data }}</highlight> 
 </p>
     
     

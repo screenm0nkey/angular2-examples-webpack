@@ -8,7 +8,7 @@ import {EchonestArtistCardComponent} from './echonest-artist-card.component';
   template: `
     <div class='search-results'>
       <p class='path'>/http-rxjs/searches/echonest-search.ts</p>
-      <h4>Song Search example using <strong>input[type=text][autosearch]</strong> directive</h4>
+      <h4>Song Search example using <highlight>input[type=text][autosearch]</highlight> directive</h4>
       
       <p>Type a search word i.e. 'st' (needs the www-server running)</p>
       <input 

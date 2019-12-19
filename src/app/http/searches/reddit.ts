@@ -8,7 +8,7 @@ import {debounceTime, map, switchMap, tap} from 'rxjs/operators';
   selector: 'reddit-example',
   template: `
         <p class='path'>/http-rxjs/searches/reddit.ts</p>
-        <h4>Reddit Search using the <strong>'form FormControl.valueChanges'</strong></h4>
+        <h4>Reddit Search using the <highlight>'form FormControl.valueChanges'</highlight></h4>
         
         <div class='search-results' style='padding-bottom: 10px'>
             <form [formGroup]='searchForm'>

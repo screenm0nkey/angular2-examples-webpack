@@ -5,9 +5,10 @@ import { HostOne, NgModelStatusOne } from "./host-one";
 import { HostOnePartTwo, NgModelStatusTwo } from "./host-one-part-2";
 import { CountClicks, HostTwo } from "./host-two";
 import { HostThree, NgModelStatusThree } from "./host-three";
+import { ChickensModule } from '../chickens/_chickens.module';
 
 @NgModule({
-  imports: [SharedModule],
+  imports: [SharedModule, ChickensModule],
   declarations: [
     HostBindingComponent,
     HostOne,

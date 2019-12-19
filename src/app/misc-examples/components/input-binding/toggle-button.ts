@@ -43,7 +43,7 @@ export class ToggleButton {
       listening for the 'nick' event.
     </p>
 
-    <p class="strong">
+    <p class="highlight">
       The event is is emitted from the child by appending the word 'Change' to
       the end of the input binding name i.e 'nick'+'Change'
       <code>this.nickChange.emit(value);</code>

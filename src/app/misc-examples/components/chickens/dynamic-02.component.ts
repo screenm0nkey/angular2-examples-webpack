@@ -11,7 +11,6 @@ export class MyComponentTemplate {
 @Component({
   selector: 'dynamic-component-example-02',
   template: `
-      <collapse-it>
           <p class='file'>src/app/misc-examples/components/chickens/dynamic-02.component.ts</p>
           <h4>Dynamic component creation using @ViewChild, ChangeDetectorRef, ViewContainerRef and <lgt>ng-container #vc</lgt></h4>
           <dlink [id]="1007"></dlink>
@@ -25,7 +24,6 @@ export class MyComponentTemplate {
           
           <h1>Hello {{name}}</h1>
           <ng-container #vc></ng-container>
-      </collapse-it>
   `
 })
 export class Dynamic02Component implements AfterViewInit {

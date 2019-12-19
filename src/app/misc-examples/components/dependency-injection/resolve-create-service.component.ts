@@ -16,10 +16,10 @@ class TheLovelyService {
           <h4>Manually Injecting a Service using Injector.create()</h4>
           <code>Injector.create([<cur>provide: MyService, useClass: MyService, deps: []</cur>])</code>
 
-          <p class='strong'>
+          <p class='highlight'>
           Notice in the code, since we’re using our own injector, we didn’t have to add MyService to the NgModule's 'providers' list.
           </p>
-          <p class="strong">
+          <p class="highlight">
               Once we've created a injector for the service, it will always return the same instance not matter how many
               times we call <code>this.injector.get(MyService)</code>
           </p>

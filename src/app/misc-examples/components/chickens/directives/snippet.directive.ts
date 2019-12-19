@@ -9,7 +9,7 @@ export interface Snippet {
 @Directive({
   selector: '[uiSnippets]',
   host: {
-    '(input)': 'onChange($event)' // map the input event to the onChange handler
+    '(input)': 'onTextareaChange($event)' // map the input event to the onTextareaChange handler
   }
 })
 export class UISnippets {
@@ -21,9 +21,9 @@ export class UISnippets {
     this._snippetRegex = /(?:^|\W)(\w+)(?!\w)`/g; // Match on given string with a following `
   }
 
-  onChange($event) {
-    if ($event.target.value.match(this._snippetRegex) !== null) {
-      $event.target.value = this._getValue($event.target.value);
+  onTextareaChange({target}) {
+    if (target.value.match(this._snippetRegex) !== null) {
+      target.value = this._getValue(target.value);
     }
   }
 

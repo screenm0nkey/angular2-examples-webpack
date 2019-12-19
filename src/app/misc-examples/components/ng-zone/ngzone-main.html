@@ -79,15 +79,15 @@
         a handler to an event like "mousemove" it is actually using
         Zone.onmousemove, which triggers the change detection when the event
         occurs.
-        <strong
+        <highlight
           >Binding the event handler outside of Zone stops the change detection
-          being triggered.</strong
+          being triggered.</highlight
         >
         If you look at the console you will only see the change detection
         happening a few times when it's outside.
       </p>
 
-      <p class="strong">
+      <p class="highlight">
         One interesting point is that the change detection for a component won't
         be invoked unless it is using any of the monkey-patched events. i.e. if
         there if there are no event handlers used like
@@ -105,10 +105,10 @@
       </p>
 
       <p>
-        <strong
+        <highlight
           >Using Zones is a great way to escape Angular’s change detection,
           without detaching change detectors and making the application code too
-          complex.</strong
+          complex.</highlight
         >
         In fact, it turns out that Zones APIs are super easy to use, especially
         NgZone’s APIs to run code outside or inside Angular. Based on the

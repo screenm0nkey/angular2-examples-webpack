@@ -72,9 +72,9 @@ export class PersonComponent implements OnInit {
             requested, Angular will walk up the component tree and search for a matching definition. While in most cases
             that's perfectly fine, often you may want to take control over the dependency lookup.
             By default Angular will first check if the component defines a dependency injector in its decorator.
-            <br/><strong>@Host</strong> will force the lookup to only go as far as this host component.
-            <br/><strong>@SkipSelf</strong>will mean the component is skipped, so if it provides the service in the component, it won't be used
-            <br/><strong>@Optional</strong> means if no service can be found then a null will be returned rather than a JS error
+            <br/><highlight>@Host</highlight> will force the lookup to only go as far as this host component.
+            <br/><highlight>@SkipSelf</highlight>will mean the component is skipped, so if it provides the service in the component, it won't be used
+            <br/><highlight>@Optional</highlight> means if no service can be found then a null will be returned rather than a JS error
             <code>constructor(@SkipSelf() @Optional() public blogger:BloggerService)</code></p>
         <app-person></app-person>
     </collapse-it>

@@ -16,8 +16,8 @@ class Hero {
           <h4>{{title}}</h4>
           <p>
             Notice that updating hero's name doesn't cause the onChange to be invoked but changing the power does. 
-            <strong>this is because we are changing a property on the @input object and not the object reference.
-            so we would need to introduce Immutability for this to work.</strong>
+            <highlight>this is because we are changing a property on the @input object and not the object reference.
+            so we would need to introduce Immutability for this to work.</highlight>
           </p>
           <table>
             <tr><td>Power: </td><td><input [(ngModel)]='power'></td></tr>

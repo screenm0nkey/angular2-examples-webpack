@@ -46,9 +46,9 @@ export class ChildObsList {
       <p>
         Even though the child view <code>ChildObsList</code> is set to 'OnPush' it will still update as it's using
         observables.
-        <strong>Angular will run the change detection on an 'OnPush component'
+        <highlight>Angular will run the change detection on an 'OnPush component'
           when any of its input properties changes, when it fires an event, or when an observable fires an event.
-          This can also be stopped using this.ref.detach();</strong>
+          This can also be stopped using this.ref.detach();</highlight>
       </p>
       <p>
         Note: you have to use async pipe for the change detection to be triggered <code>obs|async</code><br>

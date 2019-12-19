@@ -8,9 +8,11 @@ import {ViewChildren02Component} from "./view-children-02.component";
 import {KeepCountComponent} from "./keep-count.component";
 import {SuperListItemComponent} from "./super-list-item.component";
 import {ChickensModule} from "../chickens/_chickens.module";
+import { FocusingInputModule } from '../focusing-input/_focusing.module';
+import { CardComponent,CardHeaderDirective, CardComponentContainer} from './static-property.component'
 
 @NgModule({
-  imports: [SharedModule, LinquistDirectivesModule, ChickensModule ],
+  imports: [SharedModule, LinquistDirectivesModule, ChickensModule, FocusingInputModule ],
   declarations: [
     MainViewChildrenComponent,
     ViewChildren01Component,
@@ -18,7 +20,8 @@ import {ChickensModule} from "../chickens/_chickens.module";
     SuperListItemComponent,
     KeepCountComponent,
     CountdownViewChildParentComponent,
-    CountdownTimerComponent
+    CountdownTimerComponent,
+   CardComponent,CardHeaderDirective, CardComponentContainer
   ]
 })
 export class ChildViewModule {

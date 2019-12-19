@@ -10,7 +10,7 @@ import {LoggerService} from '../logger.service';
       <p class='path'>lifecycle/spy/spy.component.ts</p>
       <h4>Spy Directive</h4>
       <p>
-        <strong>Directives have lifecycle hooks too</strong>. We create a SpyDirective that logs when
+        <highlight>Directives have lifecycle hooks too</highlight>. We create a SpyDirective that logs when
         the element it spies upon is created or destroyed using the
         <code>ngOnInit</code> and <code>ngOnDestroy</code> hooks. </p>
       <p>

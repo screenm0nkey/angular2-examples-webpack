@@ -7,7 +7,7 @@ import {AfterContentInit, Component, ContentChildren, Input, QueryList} from '@a
   selector: 'tab1',
   template: `
       <div class='' [class.active]='active' style='border: deepskyblue 3px solid'>
-          <strong>{{title}}</strong> - <ng-content></ng-content>
+          <highlight>{{title}}</highlight> - <ng-content></ng-content>
       </div>
   `
 })

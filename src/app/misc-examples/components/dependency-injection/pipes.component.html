@@ -10,24 +10,24 @@
     </p>
 
     <p>
-      <strong>There are two categories of pipes: pure and impure</strong>. Pipes
+      <highlight>There are two categories of pipes: pure and impure</highlight>. Pipes
       are pure by default. You make a pipe impure by setting its pure flag to
       false.
     </p>
 
     <p>
-      <strong
+      <highlight
         >Angular executes a pure pipe only when it detects a pure change to the
-        input value. </strong
+        input value. </highlight
       >A pure change is either a change to a primitive input value (String,
       Number, Boolean, Symbol) or a changed object reference (Date, Array,
       Function, Object).
     </p>
 
     <p>
-      <strong
+      <highlight
         >Angular puts an additional restriction on a pipe to be considered
-        pure — the input to the pipe cannot be mutable</strong
+        pure — the input to the pipe cannot be mutable</highlight
       >. If the input is mutable, a pipe need to be re-evaluated on every digest
       because an input object can be mutated without changing the object
       reference (the pipe parameter stays the same). And that’s exactly why both
@@ -45,7 +45,7 @@
       fast—much faster than a deep check for differences
     </p>
 
-    <p class="strong">
+    <p class="highlight">
       Angular executes an impure pipe during every component change detection
       cycle. An impure pipe is called often, as often as every keystroke or
       mouse-move.
@@ -76,7 +76,7 @@
       new items into the array, whereas Pure is returning a new array
     </p>
 
-    <p class="strong">
+    <p class="highlight">
       Also notice the Impure list updates when adding to the Pure list as it's
       Impure and will update on every digest loop.
     </p>

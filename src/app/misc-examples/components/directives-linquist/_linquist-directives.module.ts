@@ -14,6 +14,7 @@ import {Example08AppComponent, SurroundDirective, TemplateStorageComponent} from
   imports: [SharedModule],
   exports: [
     BasicComponent4, Example04AppComponent,
+    Example06AppComponent, ThreeDirective,
     Example06AppComponent, ThreeDirective
   ],
   declarations: [

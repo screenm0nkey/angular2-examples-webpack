@@ -7,9 +7,9 @@ import {Component, DoCheck, NgZone} from '@angular/core';
     <h4>Demo: NgZone (watch console log)</h4>
     <dlink [id]="18"></dlink>
 
-    <p>NgZone comes with an API runOutsideAngular() <strong>which performs a
+    <p>NgZone comes with an API runOutsideAngular() <highlight>which performs a
       given task outside NgZone’s parent zone. This means it does not emit an 'onTurnDone'
-      event, hence no change detection is performed.</strong> This means it will be faster.</p>
+      event, hence no change detection is performed.</highlight> This means it will be faster.</p>
 
     <p>ngDoCheck() is called every time the component is checked.
       a component is checked every time change detection occurs, which is triggered

@@ -5,6 +5,7 @@ import {Component} from '@angular/core';
       <div class="miscellaneous">
           <nav>
               <a routerLink='./links' routerLinkActive='active' [routerLinkActiveOptions]='{ exact: true }'>Links</a>
+              <a routerLink='./tips' routerLinkActive='active'>Dos and Donts</a>
               <a routerLink='./dep-injection' routerLinkActive='active'>Dependency Injection</a>
               <a routerLink='./modules' routerLinkActive='active'>Modules</a>
               <a routerLink='./pipes' routerLinkActive='active'>Pipes</a>
@@ -14,7 +15,7 @@ import {Component} from '@angular/core';
               <a routerLink='./content-projection' routerLinkActive='active'>Content Projection using @ContentChildren, ngAfterContentInit and ngContent(<lgt>ng-content</lgt>) </a>
               <a routerLink='./view-children' routerLinkActive='active'>@ViewChildren @ViewChild ngAfterViewInit</a>
               <a routerLink='./ngzone' routerLinkActive='active'>The NgZone and Detaching Change Detectors</a>
-              <a routerLink='./dynamic' routerLinkActive='active'>Dynamic Component Creation</a>
+              <a routerLink='./dynamic' routerLinkActive='active'>Dynamic Component and DOM Element Creation</a>
               <a routerLink='./chickens' routerLinkActive='active'>ExportAs, Renderer2, Directives and ForkJoin()</a>
               <a routerLink='./focus-input' routerLinkActive='active'>Focus an Input @ViewChild</a>
               <a routerLink='./directives' routerLinkActive='active'>Directives with John Linquist</a>
@@ -22,7 +23,6 @@ import {Component} from '@angular/core';
               <a routerLink='./ngstyle' routerLinkActive='active'>NgStyle</a>
               <a routerLink='./notifications' routerLinkActive='active'>Notifications, Socket-io, @Input, @Output, getters/setters</a>
               <a routerLink='./tricks' routerLinkActive='active'>Tricks</a>
-              <a routerLink='./tips' routerLinkActive='active'>Tips</a>
               <a routerLink='./interceptor' routerLinkActive='active'>Interceptor</a>
               <a routerLink='./change-after-check' routerLinkActive='active'>ExpressionChangedAfterItHasBeenCheckedError</a>
           </nav>

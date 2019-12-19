@@ -12,7 +12,7 @@ import {debounceTime, delay, distinctUntilChanged, switchMap, tap} from 'rxjs/op
   template: `
     <div>
     <p class='path'>app/http-rxjs/searches/wikipedia-search-2.ts</p>
-      <h4>Search using angular <strong>async filter</strong>, <strong>input.valueChanges</strong> and a loading icon</h4>
+      <h4>Search using angular <highlight>async filter</highlight>, <highlight>input.valueChanges</highlight> and a loading icon</h4>
       
       <input type='text' [formControl]='term' placeholder='Wikipedia Search'/> 
       <span *ngIf='loading' style='background-color: red'>loading</span>

@@ -34,7 +34,7 @@ export class CountClicks {
   template: `
     <p class='file'>misc-examples/components/host-binding/host-two.ts</p>
     <h4>host:<cur></cur> and @HostListener</h4>
-    <p>Show different ways to bind to a host elements events. <strong>Look at console output</strong></p>
+    <p>Show different ways to bind to a host elements events. <highlight>Look at console output</highlight></p>
     <button counting>@HostListener Increment</button>
   `
 })

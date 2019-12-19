@@ -102,9 +102,9 @@ export class DoCheckItem implements DoCheck {
 
     <p>On every system event i.e. click, timeout etc ngDoCheck is called and the component is checked, which is quite a
       lot</p>
-    <p>Use<strong>IterableDiffers on Arrays and KeyValueDiffers on Maps</strong></p>
+    <p>Use<highlight>IterableDiffers on Arrays and KeyValueDiffers on Maps</highlight></p>
     <p>
-      It’s important to note that the <strong>ngOnChanges() hook gets overriden by ngDoCheck()</strong>
+      It’s important to note that the <highlight>ngOnChanges() hook gets overriden by ngDoCheck()</highlight>
       so if we implement both, OnChanges will be ignored.
     </p>
 

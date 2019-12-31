@@ -3,7 +3,7 @@ import {Component, OnInit} from '@angular/core';
 @Component({
   selector: 'links-component',
   template: `
-    <section class="main">
+    <section style="background-color: #dedede;padding: 10px;">
         <external-links></external-links>  
     </section>`
 })

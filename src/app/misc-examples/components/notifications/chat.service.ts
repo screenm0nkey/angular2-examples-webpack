@@ -1,42 +1,38 @@
-import {Socket} from 'ngx-socket-io';
-import {Injectable} from '@angular/core';
-import {merge, Observable} from "rxjs";
-import {map, mapTo, scan, startWith} from "rxjs/operators";
+import { Socket } from "ngx-socket-io";
+import { Injectable } from "@angular/core";
+import { merge, Observable } from "rxjs";
+import { map, mapTo, scan, startWith } from "rxjs/operators";
 
 export interface SocketMessage {
   msg: string;
 }
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: "root" })
 export class ChatService {
-
   public connected$: Observable<boolean>;
   public message$: Observable<string>;
-  public messages$: any;
+  public messages$: Observable<string[]>;
 
   constructor(private socket$: Socket) {
     const disconnect$ = this.socket$.fromEvent("disconnect");
     const connect$ = this.socket$.fromEvent("connect");
-    this.connected$ = merge(connect$.pipe(mapTo(true)), disconnect$.pipe(mapTo(false)));
+    this.connected$ = merge(
+      connect$.pipe(mapTo(true)),
+      disconnect$.pipe(mapTo(false))
+    );
 
     this.message$ = this.socket$
       .fromEvent("msg")
       .pipe(map((data: SocketMessage) => data.msg));
 
-    this.messages$ = this.message$
-      .pipe(startWith([]))
-      .pipe(scan((acc: string[], curr: string) => {
+    this.messages$ = this.message$.pipe(startWith([])).pipe(
+      scan((acc: string[], curr: string) => {
         return [...acc, curr];
-      }));
+      })
+    );
   }
 
-  sendMessage(msg: string) {
+  send(msg: string) {
     this.socket$.emit("msg", msg);
-  }
-
-  getMessage() {
-    return this.socket$
-      .fromEvent("msg")
-      .pipe(map((data: SocketMessage) => data.msg));
   }
 }

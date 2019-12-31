@@ -19,7 +19,7 @@ import {Component} from '@angular/core';
               <a routerLink='./chickens' routerLinkActive='active'>ExportAs, Renderer2, Directives and ForkJoin()</a>
               <a routerLink='./focus-input' routerLinkActive='active'>Focus an Input @ViewChild</a>
               <a routerLink='./directives' routerLinkActive='active'>Directives with John Linquist</a>
-              <a routerLink='./templates' routerLinkActive='active'>Template Directives and IterableDiffers</a>
+              <a routerLink='./templates' routerLinkActive='active'>Creating Structural Directives and IterableDiffers</a>
               <a routerLink='./ngstyle' routerLinkActive='active'>NgStyle</a>
               <a routerLink='./notifications' routerLinkActive='active'>Notifications, Socket-io, @Input, @Output, getters/setters</a>
               <a routerLink='./tricks' routerLinkActive='active'>Tricks</a>

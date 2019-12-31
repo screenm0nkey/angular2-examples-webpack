@@ -58,7 +58,7 @@ export class ContentChildrenTabset1 implements AfterContentInit {
   selector: 'content-children-tabs',
   template: `
       <collapse-it>
-          <p class="file">src/app/misc-examples/components/content-children/tabs1.ts</p>
+          <p class="file">misc-examples/components/content-children/tabs1.ts</p>
           <h4>Tabset using @ContentChildren, QueryList, AfterContentInit</h4>
 
           <code>@ContentChildren(ContentChildrenTab1) tabs: QueryList <lgt>ContentChildrenTab1</lgt></code>

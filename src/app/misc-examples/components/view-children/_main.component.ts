@@ -39,7 +39,7 @@ import {Component} from '@angular/core';
         <collapse-it><dynamic-component-example-02></dynamic-component-example-02></collapse-it>
 
           <section collapse-it>
-              <p class='file'>src/app/misc-examples/components/view-children/_main.component.ts</p>
+              <p class='file'>misc-examples/components/view-children/_main.component.ts</p>
               <h4>Replace curly braces in code</h4>
               <p><code>@ViewChild('text',
                   <cur>static: false</cur>

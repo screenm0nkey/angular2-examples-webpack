@@ -1,20 +1,22 @@
-import {Component} from '@angular/core';
-import {RubbishService} from '../dependency-injection/injectables.service';
+import { Component } from "@angular/core";
+import { RubbishService } from "../dependency-injection/injectables.service";
 
 @Component({
-  selector: 'tracks-main-component',
+  selector: "tracks-main-component",
   template: `
-    <div class='comps'>
-      <scroll-bottom></scroll-bottom>
-      <next-input></next-input>
-      <typewriter></typewriter>
+    <div class="comps">
+      <collapse-it>
+        <scroll-bottom></scroll-bottom>
+      </collapse-it>
+      <collapse-it>
+        <next-input></next-input>
+      </collapse-it>
+      <collapse-it>
+        <typewriter></typewriter>
+      </collapse-it>
     </div>
   `
 })
 export class TricksMainComponent {
-  constructor(rubbishSerivce: RubbishService) {
-    const str = `%cRubbishService is definied in another module but can be accessed 
-    here as services are available globally once defined`;
-    console.log(str, 'color:lime', rubbishSerivce.imAString)
-  }
+  constructor() {}
 }

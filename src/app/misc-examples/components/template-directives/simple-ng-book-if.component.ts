@@ -1,18 +1,22 @@
-import {Component, Directive, ElementRef, TemplateRef, ViewContainerRef} from '@angular/core';
+import {
+  Component,
+  Directive,
+  TemplateRef,
+  ViewContainerRef
+} from "@angular/core";
 
 @Directive({
-  selector: '[ngBookIf]',
-  inputs: ['ngBookIf']
+  selector: "[ngBookIf]",
+  inputs: ["ngBookIf"]
 })
 export class NgBookIf {
   // The view container is used to attach one or more views to the directive.
-  constructor(private el: ElementRef,
-              private viewContainer: ViewContainerRef,
-              private template: TemplateRef<any>) {
-  }
+  constructor(
+    private viewContainer: ViewContainerRef,
+    private template: TemplateRef<any>
+  ) {}
 
-  set ngBookIf(condition) {
-    console.log(this.template.elementRef.nativeElement);
+  set ngBookIf(condition: boolean) {
     if (condition) {
       this.viewContainer.createEmbeddedView(this.template);
     } else {
@@ -22,22 +26,32 @@ export class NgBookIf {
 }
 
 @Component({
-  selector: 'ng-book-if-template',
+  selector: "ng-book-if-template",
   template: `
-    <p class='file'>misc-examples/components/directive-templates/simple-ng-if.component.ts</p>
- 
+    <p class="file">
+      misc-examples/components/template-directives/simple-ng-book-if.component.ts
+    </p>
+
     <h4>Custom *ngBookIf template</h4>
 
-    <dlink [id]="16"></dlink>
-    
-    <p>The view container is used to attach one or more views to the directive.
+    <section class="links">
+      <dlink [id]="16"></dlink>
+      <dlink [id]="56"></dlink>
+    </section>
+
+    <p>
+      The view container is used to attach one or more views to the directive.
       the * before the *ngBookIf converts it into a template. it's short hand.
     </p>
-    <button class='ui primary button' (click)='toggle()'>
-      Toggle
+
+    <button class="ui primary button" (click)="toggle()">
+      Toggle the box below
     </button>
-    <div style='border:solid red 2px;' *ngBookIf='display'>
-      <code>this.template.elementRef.nativeElement === this.el.nativeElement</code>
+
+    <div style="border:solid red 2px;" *ngBookIf="display">
+      <code
+        >this.template.elementRef.nativeElement === this.el.nativeElement</code
+      >
     </div>
   `
 })

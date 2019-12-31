@@ -11,7 +11,7 @@ export class Pane2 {
 @Component({
   selector: 'tab2',
   template: `
-          <p class="file">src/app/misc-examples/components/content-children/tabs2.ts</p>
+          <p class="file">misc-examples/components/content-children/tabs2.ts</p>
           <h4>How to reference a nested element in your component using <cur>descendants: true</cur></h4>
 
           <code> @ContentChildren(Pane,<cur>descendants: true</cur>) arbitraryNestedPanes !: QueryList</code>

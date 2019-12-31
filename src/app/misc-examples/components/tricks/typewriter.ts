@@ -5,6 +5,7 @@ import {scan, zip} from 'rxjs/operators';
 @Component({
   selector: 'typewriter',
   template: `
+    <h4>Using Scan and Zip to show characters</h4>
     <div>
       {{typewriter$ | async}}
     </div>`

@@ -15,7 +15,8 @@ import {Example08AppComponent, SurroundDirective, TemplateStorageComponent} from
   exports: [
     BasicComponent4, Example04AppComponent,
     Example06AppComponent, ThreeDirective,
-    Example06AppComponent, ThreeDirective
+    Example07AppComponent, HooperDirective,
+    Example08AppComponent, SurroundDirective, TemplateStorageComponent,
   ],
   declarations: [
     DirectivesLinquistMain,

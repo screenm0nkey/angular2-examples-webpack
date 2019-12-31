@@ -3,7 +3,7 @@ import {MiscRoutingModule} from './misc.routes';
 import {SharedModule} from '../shared/_shared.module';
 import {MiscExamplesComponent} from './misc.component';
 import {ChildViewModule} from './components/view-children/_childviews.module';
-import {TricksModule} from './components/tricks/tricks.module';
+import {TricksModule} from './components/tricks/_tricks.module';
 import {ChickensModule} from './components/chickens/_chickens.module';
 import {ChangeModule} from './components/change-detection/_change.module';
 import {ContentChildrenModule} from './components/content-children/_content-children.module';
@@ -16,7 +16,7 @@ import {MultiContentModule} from './components/multi-content/_multicontent.modul
 import {NgStyleModule} from './components/ng-style/ngstyle.module';
 import {NgZoneModule} from './components/ng-zone/ngzone.module';
 import {NotifcationModule} from './components/notifications/_notifications.module';
-import {TemplatesModule} from './components/template-directives/templates.module';
+import {TemplatesModule} from './components/template-directives/_templates.module';
 import {ChangedAfterModule} from './components/changed-after-check/_main.module';
 import {TipsModule} from './components/tips/_tips.module';
 import {InterceptorModule} from "./components/interceptors/_interceptor.module";

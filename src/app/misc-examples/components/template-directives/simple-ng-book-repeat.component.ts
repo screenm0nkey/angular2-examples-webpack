@@ -1,112 +1,76 @@
-import {
-  Component,
-  Directive,
-  DoCheck,
-  IterableChangeRecord,
-  IterableChanges,
-  IterableDiffer,
-  IterableDifferFactory,
-  IterableDiffers,
-  TemplateRef,
-  ViewContainerRef,
-  ViewRef,
-} from '@angular/core';
-
-interface Person {
-  name: string;
-  age: number;
-}
-
-/**
- * NgBookRepeatDirective
- */
-@Directive({
-  selector: '[ngBookRepeat]',
-  inputs: ['ngBookRepeatOf']
-})
-export class NgBookRepeatDirective implements DoCheck {
-  // items holds the collection we’re iterating on
-  private items: Person[];
-  // differ is used for change detection purposes
-  private differ: IterableDiffer<Person>;
-  // views is a Map that will link a given item on the collection with the view that contains it
-  private views: Map<any, ViewRef> = new Map<any, ViewRef>();
-
-  constructor(private viewContainer: ViewContainerRef,
-              private template: TemplateRef<any>,
-              private differs: IterableDiffers) {
-  }
-
-  // this will trigger when we set the ngBookRepeatOf input:
-  set ngBookRepeatOf(items) {
-    this.items = items;
-    if (this.items && !this.differ) {
-      const idf: IterableDifferFactory = this.differs.find(items);
-      this.differ = idf.create();
-    }
-  }
-
-  // on every system event i.e. click, timeout etc ngDoCheck is called and the component is checked, which is quite a lot
-  ngDoCheck(): void {
-    if (this.differ) {
-      const changes: IterableChanges<Person> = this.differ.diff(this.items);
-      if (changes) {
-        this.addNewItems(changes);
-        this.removeDeletedItems(changes);
-      }
-    }
-  }
-
-  addNewItems(changes: IterableChanges<Person>) {
-    changes.forEachAddedItem((change: IterableChangeRecord<Person>) => {
-      let view = this.viewContainer.createEmbeddedView(this.template, {
-        $implicit: change.item
-      });
-      this.views.set(change.item, view);
-    });
-  }
-
-  removeDeletedItems(changes: IterableChanges<Person>) {
-    changes.forEachRemovedItem((change: IterableChangeRecord<Person>) => {
-      let view: ViewRef = this.views.get(change.item);
-      let index: number = this.viewContainer.indexOf(view);
-      this.viewContainer.remove(index);
-      this.views.delete(change.item);
-    });
-  }
-}
-
+import { Component } from "@angular/core";
+import { Person } from './simple-ng-book-repeat.directive';
 
 /**
  * NgBookRepeatDirective
  */
 @Component({
-  selector: 'ng-book-repeat-template',
-  templateUrl: './simple-ng-book-repeat.component.html'
+  selector: "ng-book-repeat-template",
+  template: `
+    <p class="file">
+      misc-examples/components/template-directives/simple-ng-book-repeat.component.ts
+    </p>
+    <h4>Custom *ngBookRepeat template using IterableDiffer</h4>
+    <div class="links">
+      <a routerLink="/lifecycle">ngDoCheck and IterableDiffers, KeyValueDiffers</a>
+      <a routerLink="../directives">Assign a structural directive dynamic content</a>
+      <dlink [id]="56"></dlink>
+    </div>
+
+    <p>
+      In the template that is generated, we’re going to have a local view variable called
+      <highlight>#peep</highlight>, which will receive the value from the
+      <highlight>$implicit local variable</highlight>.
+      <highlight>$implicit</highlight> is the name of the local variable that
+      Angular uses when “de-sugaring” the syntax into a template.
+    </p>
+
+    <code><lgt>li *ngBookRepeat="let peep of people"</lgt></code>
+    gets converted to
+    <code><lgt>template ngBookRepeat [ngBookRepeatOf]="people" let-peep="$implicit"</lgt><lgt>/template</lgt></code>
+
+    Here in the code is where we set the <highlight>$implicit</highlight> value to the change.item<br />
+    <highlight>change.item will be equal to the value of peep</highlight>
+
+    <code>let view = this.viewContainer.createEmbeddedView(this.template,<cur>'$implicit': change.item</cur>);</code>
+
+    <ul>
+      <li *ngBookRepeat="let peep of people">
+        {{ peep.name }} is {{ peep.age }}
+        <span (click)="remove(p)" style="text-decoration: underline; cursor:pointer">[Remove]</span>
+      </li>
+    </ul>
+
+    <form class="ui form" style="width:150px;">
+      <input type="text" #name placeholder="Name" />
+      <input type="text" #age placeholder="Age" style="float: left" />
+      <button class="ui submit button" (click)="add(name, age)">Add</button>
+    </form>
+  `
 })
 export class NgBookRepeatComponent {
   people: Person[];
 
   constructor() {
     this.people = [
-      {name: 'Joe', age: 10},
-      {name: 'Patrick', age: 21},
-      {name: 'Melissa', age: 12},
-      {name: 'Kate', age: 19}
+      { name: "Joe", age: 10 },
+      { name: "Patrick", age: 21 },
+      { name: "Melissa", age: 12 },
+      { name: "Kate", age: 19 }
     ];
   }
 
   remove(person: Person) {
-    let idx: number = this.people.indexOf(person);
-    this.people.splice(idx, 1);
+    let index: number = this.people.indexOf(person);
+    this.people.splice(index, 1);
     return false;
   }
 
   add(name: HTMLInputElement, age: HTMLInputElement) {
     if (name.value && age.value) {
-      this.people.push({name: name.value, age: Number(age.value)});
-      name.value = '';
-      age.value = '';
+      this.people.push({ name: name.value, age: Number(age.value) });
+      name.value = "";
+      age.value = "";
     }
   }
 }

@@ -4,7 +4,7 @@ import {Component} from '@angular/core';
   template: `
       <div class='comps'>
           <section collapse-it>
-              <p class="path">src/app/misc-examples/components/content-children/main.ts</p>
+              <p class="path">misc-examples/components/content-children/main.ts</p>
               <h4>Notes on Content Projection and @ContentChildren</h4>
 
               <p>

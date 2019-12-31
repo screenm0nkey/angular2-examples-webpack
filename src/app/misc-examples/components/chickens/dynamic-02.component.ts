@@ -11,7 +11,7 @@ export class MyComponentTemplate {
 @Component({
   selector: 'dynamic-component-example-02',
   template: `
-          <p class='file'>src/app/misc-examples/components/chickens/dynamic-02.component.ts</p>
+          <p class='file'>misc-examples/components/chickens/dynamic-02.component.ts</p>
           <h4>Dynamic component creation using @ViewChild, ChangeDetectorRef, ViewContainerRef and <lgt>ng-container #vc</lgt></h4>
           <dlink [id]="1007"></dlink>
           <dlink [id]="80"></dlink>

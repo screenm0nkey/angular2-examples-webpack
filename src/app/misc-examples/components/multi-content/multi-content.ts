@@ -15,7 +15,7 @@ import {Component} from '@angular/core';
   `],
   template: `
       <collapse-it>
-          <p class='file'>src/app/misc-examples/components/multi-content/multi-content.ts</p>
+          <p class='file'>misc-examples/components/multi-content/multi-content.ts</p>
           <h4>Inserting content into multiple places in a template <code><lgt>ng-content select='[header]'</lgt><lgt>/ng-content</lgt></code></h4>
           <p>Multi content projection into named template</p>
           <div class='box'>

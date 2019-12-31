@@ -18,6 +18,8 @@ import { Component } from "@angular/core";
       <collapse-it>
         <linquist-example-06></linquist-example-06>
       </collapse-it>
+
+      <collapse-it><linquist-example-08></linquist-example-08></collapse-it>
     </div>
   `
 })

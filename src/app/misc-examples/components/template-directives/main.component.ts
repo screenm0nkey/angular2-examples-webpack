@@ -4,8 +4,9 @@ import {Component} from '@angular/core';
   selector: 'template-component',
   template: `
     <div class='comps'>
-      <ng-book-if-template></ng-book-if-template>
-      <ng-book-repeat-template></ng-book-repeat-template>
+    <collapse-it> <ng-book-if-template></ng-book-if-template></collapse-it> 
+      <collapse-it> <ng-book-repeat-template></ng-book-repeat-template></collapse-it> 
+      <collapse-it> <linquist-example-07></linquist-example-07></collapse-it>
     </div>
   `
 })

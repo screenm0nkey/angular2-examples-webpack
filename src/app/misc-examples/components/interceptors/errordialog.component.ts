@@ -5,8 +5,10 @@ import {MAT_DIALOG_DATA} from '@angular/material';
   selector: 'error-dialog',
   template: `
     <div>
-      Reason: {{data.reason}} <br>
-      Status: {{data.status}}
+      <h4>Status: {{data.status}}</h4>
+      <strong>Reason:</strong> {{data.reason}}
+
+      <p class="strong">Press ESC to hide dialog</p>
     </div>
   `
 })

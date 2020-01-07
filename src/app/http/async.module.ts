@@ -3,7 +3,7 @@ import {SharedModule} from '../shared/_shared.module';
 import {AsyncRoutingModule} from './async.routes.module';
 import {MiscHttpModule} from './misc-examples/misc.module';
 import {MainHttpRxJs} from './async.component';
-import {JohnLinquistModule} from './john-linquist/index.module';
+import {JohnLinquistModule} from './john-linquist/_index.module';
 import {EchonestModule} from './echonest-app/echonest.module';
 import {SearchesModule} from './searches/searches.module';
 import {SpotifyModule} from './spotify/spotify.module';

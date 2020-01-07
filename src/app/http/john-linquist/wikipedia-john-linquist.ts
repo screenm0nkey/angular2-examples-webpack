@@ -22,7 +22,7 @@ import {WikiSearchService} from '../searches/wikipedia-search.service';
 })
 export class JohnLinquistWikiSearch implements OnInit {
   input$ = new Subject().pipe(map((event: Event) => (<HTMLInputElement>event.target).value));
-  searchTerm$;
+  searchTerm$ ;
   images$;
   imageCount$;
 

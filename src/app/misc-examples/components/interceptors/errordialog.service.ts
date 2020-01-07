@@ -1,21 +1,19 @@
-import {Injectable} from '@angular/core';
-import {MatDialog} from '@angular/material';
-import {ErrorDialogComponent} from './errordialog.component';
+import { Injectable } from "@angular/core";
+import { MatDialog } from "@angular/material";
+import { ErrorDialogComponent } from "./errordialog.component";
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: "root" })
 export class ErrorDialogService {
-
-  constructor(public dialog: MatDialog) {
-  }
+  constructor(public dialog: MatDialog) {}
 
   openDialog(data): void {
     const dialogRef = this.dialog.open(ErrorDialogComponent, {
-      width: '300px',
+      width: "300px",
       data: data
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      console.log("The dialog was closed");
     });
   }
 }

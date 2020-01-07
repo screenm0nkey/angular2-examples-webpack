@@ -1,24 +1,26 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {LoginService} from './login.service';
 
 @Component({
   selector: 'interceptor-component',
   template: `
     <div class='comps'>
-     <section>
+     <section collapse-it>
        <h4>{{title}}</h4>
        <button (click)="getCustomerDetails()">Get customer details</button>
      </section>
     </div>
   `,
 })
-export class InterceptorComponent {
+export class InterceptorComponent implements OnInit {
   title = 'Angular-Interceptor';
 
   constructor(public loginService: LoginService) {
-    this.loginService.login({}).subscribe(data => {
-      console.log('----->>>', data);
-    });
+    
+  }
+
+  ngOnInit(){
+    this.loginService.login({}).subscribe(data =>{});
   }
 
   getCustomerDetails() {

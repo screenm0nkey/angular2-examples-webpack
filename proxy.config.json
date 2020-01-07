@@ -1,0 +1,19 @@
+{
+    "/wikipedia-proxy": {
+      "target": "https://en.wikipedia.org/w/api.php",
+      "secure": false,
+      "pathRewrite": {
+        "^/wikipedia-proxy": ""
+      },
+      "changeOrigin": true,
+      "logLevel": "debug"
+    },
+    "/api": {
+      "target": "http://localhost:1970",
+      "secure": false,
+      "pathRewrite": {
+        "^/api": ""
+      }
+    }
+  }
+  

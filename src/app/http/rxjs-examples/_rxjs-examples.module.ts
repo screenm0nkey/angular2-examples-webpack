@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {MiscHttpExamples} from './main';
+import {RxJsExamplesComponent} from './_rxjs-examples.component';
 import {SharedModule} from '../../shared/_shared.module';
 import {CounterComponent} from './rx-counter';
 import {PromiseExample} from './promise';
@@ -9,7 +9,7 @@ import {AutoSearch} from './automated-wiki-search';
 @NgModule({
   imports: [SharedModule],
   declarations: [
-    MiscHttpExamples,
+    RxJsExamplesComponent,
     CounterComponent,
     PromiseExample,
     SubscribeExample,
@@ -19,4 +19,4 @@ import {AutoSearch} from './automated-wiki-search';
 export class MiscHttpModule {
 }
 
-export {MiscHttpExamples};
+export {RxJsExamplesComponent as MiscHttpExamples};

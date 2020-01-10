@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {SharedModule} from '../../shared/_shared.module';
-import {HttpExamples} from './main';
+import {HttpExamples} from './_searches.component';
 import {WikipediaSuperSearch} from './wikipedia-super-search';
 import {JsonpWikipediaPromise} from './wikipedia-search-1';
 import {WikipediaObservable} from './wikipedia-search-2';
@@ -13,6 +13,9 @@ import {LocalRefSearch} from './local-ref-search';
 import {RedditExample} from './reddit';
 import {NgBookYoutubeExample, NgBookYoutubeSearch} from './youtube-ng2-book';
 import {YoutubeResultComponent} from './youtube-helpers/youtube-result-component';
+import { JohnLinquistWikiSearch } from './wikipedia-john-linquist';
+import { ForkJoinComponent } from './forkjoin-search';
+import { StarWarsComponent } from './star-wars';
 
 @NgModule({
   imports: [SharedModule],
@@ -21,6 +24,7 @@ import {YoutubeResultComponent} from './youtube-helpers/youtube-result-component
     WikipediaSuperSearch,
     JsonpWikipediaPromise,
     WikipediaObservable,
+    JohnLinquistWikiSearch,
     EchonestSearchComponent, EchonestDirective, EchonestArtistCardComponent,
     Auth0Component,
     AutosearchAuth,
@@ -29,7 +33,9 @@ import {YoutubeResultComponent} from './youtube-helpers/youtube-result-component
     RedditExample,
     NgBookYoutubeExample,
     NgBookYoutubeSearch,
-    YoutubeResultComponent
+    YoutubeResultComponent,
+    ForkJoinComponent,
+    StarWarsComponent
   ],
   providers: []
 })

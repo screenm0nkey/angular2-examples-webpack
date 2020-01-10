@@ -31,4 +31,6 @@ const config: SocketIoConfig = {url: 'http://localhost:1970', options: {}};
   bootstrap: [AppComponent]
 })
 export class AppModule {
+  constructor(){
+  }
 }

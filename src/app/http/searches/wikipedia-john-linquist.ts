@@ -14,7 +14,7 @@ import {
   tap
 } from "rxjs/operators";
 import { merge, Observable, Subject } from "rxjs";
-import { WikiSearchService, WikiImage } from "../searches/wikipedia-search.service";
+import { WikiSearchService, WikiImage } from "./wikipedia-search.service";
 
 @Component({
   selector: "john-linquist-wiki",
@@ -58,7 +58,7 @@ export class JohnLinquistWikiSearch implements OnInit {
     const term$ = this.input$
       .pipe(tap((val)=>console.log(val)))
       .pipe(distinctUntilChanged()) // only output distinct values, based on the last emitted value
-      .pipe(debounceTime(250)) // time in ms to wait before allowing the  emitted value to continue 
+      .pipe(debounceTime(250)) // time in ms to wait before allowing the emitted value to continue 
       .pipe(filter(term => term.length > 2))
       .pipe(share());
 
@@ -69,7 +69,8 @@ export class JohnLinquistWikiSearch implements OnInit {
       .pipe(share());
 
     this.searchTerm$ = merge(term$, lessThanTwoChars$);
-
+    
+    // hot observable
     const results$ = term$
       .pipe(switchMap(this.wikipediaImageSearch.bind(this)))
       .pipe(startWith([]))

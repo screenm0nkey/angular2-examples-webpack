@@ -1,17 +1,15 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   template: `
     <div class='miscellaneous'>
       <nav>
-        <a routerLink='./john-linquist' routerLinkActive='active' [routerLinkActiveOptions]='{ exact: true }'>John Linquist</a>
-        <a routerLink='./http-examples' routerLinkActive='active'>Http/RxJs Searches</a>
-        <a routerLink='./misc-examples' routerLinkActive='active'>Http/RxJs Misc Examples</a>
+        <a routerLink='./searches' routerLinkActive='active' [routerLinkActiveOptions]='{ exact: true }'>Searches</a>
+        <a routerLink='./rxjs-examples' routerLinkActive='active'>RxJs Examples</a>
+        <a routerLink='./ngrx-examples' routerLinkActive='active'>NgRx Examples</a>
         <a routerLink='./echonest-app' routerLinkActive='active'>Echonest RxJs</a>
         <a routerLink='./spotify' routerLinkActive='active'>Spotify</a>
-        <a routerLink='./ngrx' routerLinkActive='active'>NgRx</a>
         <a routerLink='./chat-app-rxjs' routerLinkActive='active'>RxJs Chat App</a>
-
       </nav>
       <div class="ngx-container">
         <router-outlet></router-outlet>

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainHttpRxJs } from './async.component';
 import { EchonestAppComponent } from './echonest-app/echonest.module';
-import { RxJsExamplesComponent } from './rxjs-examples/_rxjs-examples.component';
+import { RxJsExamplesComponent } from './rxjs-examples/_main.component';
 import { ChatAppComponent } from './chat-app-rxjs/ts/app';
 import { NgrxContainerComponent } from './ngrx/_ngrx-container.component';
 import { HttpExamples } from './searches/_searches.component';

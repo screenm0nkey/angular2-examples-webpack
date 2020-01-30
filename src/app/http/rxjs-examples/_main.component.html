@@ -1,0 +1,153 @@
+<div class='comps'>
+  <section collapse-it>
+    <h4>A list RxJs Operators and Subjects used in the examples in this app</h4>
+    <dlink id="86"></dlink>
+    <p>These are all the different RxJs static methods and operators used in all of the examples in this app</p>
+    <highlight>Static methods</highlight>
+    <code>
+          forkJoin(int$, ext$) <br>
+          timer(delay, repeatMs).pipe(take(5)); <br>
+          combineLatest <br>
+          interval <br>
+          merge <br>
+          of <br>
+          range <br>
+          Observable <br>
+          Subject <br>
+          ReplaySubject <br>
+          BehaviorSubject <br>
+          fromEvent
+        </code>
+    <highlight>Operators</highlight>
+    <code>
+          .pipe(map(term => (!term.length ? "" : "Enter a term"))) <br>
+          .pipe(mapTo([])) <br>
+          .pipe(tap((val)=>console.log(val))) <br>
+          .pipe(distinctUntilChanged())  <br>
+          .pipe(debounceTime(250))  <br>
+          .pipe(delay(1000))  <br>
+          .pipe(filter(term => term.length > 2)) <br>
+          .pipe(switchMap(this.wikipediaImageSearch.bind(this))) <br>
+          .pipe(switchMapTo(intervalThatStops$)) <br>
+          .pipe(mergeMap(this.wikipediaService.getImageInfoFromTitle))  <br> 
+          .pipe(startWith([]))  <br>
+          .pipe(concatAll())  <br>
+          .pipe(takeUntil(this.input$)) <br>
+          .pipe(scan((acc, curr) => [...acc, ...curr])); <br>
+          .pipe(share()); <br>
+          .pipe(publishReplay(1)) <br>
+          .pipe(refCount()); <br>
+          .pipe(combineLatest(store.select("filterReducer"))) <br>
+          .pipe(withLatestFrom(this.time$, (_, y) => y)) <br>
+          .pipe(zip(interval(50), x => x)); <br>
+        </code>
+  </section>
+
+
+  <section collapse-it>
+    <h4>Commonly used RxJs Operators and Subjects</h4>
+    <dlink id="86"></dlink>
+    <ul>
+      <li><strong>Subject</strong></li>
+
+      <li><strong>BehaviorSubject</strong> Observers can subscribe to the subject to receive the last (or initial) value
+        and all subsequent notifications.</li>
+
+      <li><strong>ReplaySubject</strong> If you want the last emitted value(s) on subscription, but do not need to
+        supply a
+        seed value, use ReplaySubject. ReplaySubject also has a buffer</li>
+
+      <li><strong>AsyncSubject</strong> The AsyncSubject is a Subject variant where only the last value of the
+        Observable
+        execution is sent to its subscribers, and only when the execution completes</li>
+
+      <li><strong>mergeMap</strong> Only when the inner Observable emits, let me know by merging the value to the outer
+        Observable.</li>
+
+      <li><strong>switchMap</strong> Like mergeMap but when the source Observable emits cancel any previous
+        subscriptions
+        of the inner Observable.</li>
+
+      <li><strong>combineLatest</strong> Let me know when any Observable emits but also give me the latest value from
+        the
+        others. ( Array )</li>
+
+      <li><strong>forkJoin</strong> forkJoin is the Promise.all() of Rx. Don’t let me know until all the Observables are
+        complete, then give me all the values
+        at once. ( Array )</li>
+
+      <li><strong>concat</strong> Subscribe to Observables in order but only when the previous completes, let me know,
+        then move to the next one.</li>
+
+      <li><strong>pairwise</strong> Let me know when the Observable emits, but also give me the previous value. ( Array
+        )
+      </li>
+
+      <li><strong>map</strong></li>
+      <li><strong>pluck</strong></li>
+      <li><strong>zip</strong></li>
+      <li><strong>filter</strong></li>
+      <li><strong>delay</strong></li>
+      <li><strong>throttleTime</strong></li>
+      <li><strong>debounceTime</strong></li>
+      <li><strong>distinctUntilChanged</strong></li>
+      <li><strong>catchError</strong></li>
+    </ul>
+  </section>
+
+
+  <section collapse-it>
+    <h4>
+      Publish and its Variants
+    </h4>
+    <dlink id="86"></dlink>
+    <p>
+      Because using <strong>multicast() + Subject + refCount()</strong> is a typical pattern in RxJS, the team there have created
+      shortcut operators to make it easier for us. Let’s go over the different variations we have:
+    </p>
+    <ul>
+      <li><strong>publish()</strong> = a shortcut for multicast(() => new Subject()):</li>
+
+      <li><strong>publishBehavior()</strong> = a shortcut for multicast(new BehaviorSubject())</li>
+
+      <li><strong>publishReplay(x)</strong> — is a shortcut for multicast(() => new ReplaySubject(x))</li>
+
+      <li><strong>publishLast()</strong> — is a shortcut for multicast(new AsyncSubject()) </li>
+
+      <li><strong>share()</strong> — is a shortcut for multicast(() => new Subject()) + refCount()</li>
+
+      <li><strong>shareReplay(bufferSize)</strong> = is a multicasting operator that uses a ReplaySubject(). It doesn’t internally use
+        the multicast operator itself, and as a result it always returns an observable, rather than a ConnectableObservable.
+        It can be used either with a refCount, or without it. See both variations below</li>
+    </ul>
+
+    <p>
+      <strong>
+        Note that when using refCount, we get back a normal observable, instead of a ConnectableObservable.
+      </strong>
+    </p>
+
+  </section>
+
+  <collapse-it>
+    <share-http-request></share-http-request>
+  </collapse-it>
+
+  <collapse-it>
+    <auto-wiki-search></auto-wiki-search>
+  </collapse-it>
+  <collapse-it>
+    <counter-component></counter-component>
+  </collapse-it>
+  <collapse-it>
+    <promise-example></promise-example>
+  </collapse-it>
+  <collapse-it>
+    <subscribe-example></subscribe-example>
+  </collapse-it>
+
+
+
+
+
+</div>

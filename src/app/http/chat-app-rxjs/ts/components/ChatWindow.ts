@@ -10,7 +10,7 @@ import {Message, Thread, User} from '../models';
   template: `
     <div class='chat-window-container' style='border: solid 5px red;'>
       <div class='chat-window'>
-      <p class='path'>chat-app/ts/components/ChatWindow.ts</p>
+      <p class='path'>ChatWindow.ts</p>
         <div class='panel-container'>
           <div class='panel panel-default'>
 
@@ -74,7 +74,7 @@ export class ChatWindow implements OnInit {
     this.threadsService.currentThread$.subscribe((thread: Thread) => {
       this.currentThread = thread;
     });
-    this.userService.currentUser.subscribe((user: User) => {
+    this.userService.currentUser$.subscribe((user: User) => {
       this.currentUser = user;
     });
     this.messages.subscribe((messages: Array<Message>) => {

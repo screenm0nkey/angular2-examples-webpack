@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, share } from 'rxjs/operators';
-import { User } from './common';
+import { User } from './shared-components';
 
 @Component({
   selector: 'share-http-request',

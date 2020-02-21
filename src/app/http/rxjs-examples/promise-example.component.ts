@@ -36,13 +36,14 @@ export class CharacterService {
   providers: [CharacterService]
 })
 export class PromiseExample implements OnInit {
-  characters: Character[] = [];
+  characters: Character[];
 
   constructor(private _characterService: CharacterService) {
     console.log(this);
   }
 
   ngOnInit() {
+    this.characters = [];
     this._characterService.getCharacters().then((characters: Character[]) => {
       this.characters = characters;
     });

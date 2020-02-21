@@ -5,6 +5,6 @@ import {Component, Input, ViewEncapsulation} from '@angular/core';
   encapsulation: ViewEncapsulation.ShadowDom, // this makes it a real web component
   template: `<pre>{{artist.label}}</pre>`
 })
-export class EchonestArtistCardComponent {
+export class MusicSearchArtistCardComponent {
   @Input() artist: Object;
 }

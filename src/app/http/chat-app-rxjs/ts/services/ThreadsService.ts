@@ -16,7 +16,7 @@ export class ThreadsService {
   // `currentThread$` contains the currently selected thread
   currentThread$: Subject<Thread> = new BehaviorSubject<Thread>(new Thread());
 
-  // `currentThreadMessages` contains the set of messages$ for the currentlyselected thread
+  // `currentThreadMessages` contains the set of messages$ for the currently selected thread
   currentThreadMessages: Observable<Message[]>;
 
   constructor(private messagesService: MessagesService) {

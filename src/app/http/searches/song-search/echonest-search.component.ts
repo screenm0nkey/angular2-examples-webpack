@@ -1,21 +1,21 @@
 import {Component} from '@angular/core';
-import {EchonestService} from './echonest.service';
-import {EchonestArtistCardComponent} from './echonest-artist-card.component';
+import {MusicSearchService} from './echonest.service';
+import {MusicSearchArtistCardComponent} from './echonest-artist-card.component';
 
 @Component({
   selector: 'echonest-search-component',
-  providers: [EchonestService],
+  providers: [MusicSearchService],
   template: `
     <div class='search-results'>
       <p class='path'>/http-rxjs/searches/echonest-search.ts</p>
-      <h4>Song Search example using <highlight>input[type=text][autosearch]</highlight> directive</h4>
+      <h4>Song Search example using <highlight>input[type=text][musicsearch]</highlight> directive</h4>
       
       <p>Type a search word i.e. 'st' (needs the www-server running)</p>
       <input 
         type='text' 
-        autosearch 
+        musicsearch 
         (results)='setArtists($event)' 
-        placeholder='Echonest Search'>
+        placeholder='MusicSearch Search'>
       
       <div *ngIf='artists'>
           <div *ngFor='let artist of artists'>
@@ -25,8 +25,8 @@ import {EchonestArtistCardComponent} from './echonest-artist-card.component';
     </div>
 	`
 })
-export class EchonestSearchComponent {
-  artists: EchonestArtistCardComponent[];
+export class MusicSearchComponent {
+  artists: MusicSearchArtistCardComponent[];
 
   setArtists(artists) {
     if (Array.isArray(artists)) {

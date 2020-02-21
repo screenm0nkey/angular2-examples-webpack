@@ -18,7 +18,9 @@ app.use(cors({
 app.get('/', (req, res) => res.send('This is a dev server used for the Angular 2 examples'));
 app.get('/data', getData);
 app.get('/uk/rss/topsongs/limit=100/json', getTop100);
-app.post('/data', (req, res) => res.send(req.body));
+app.post('/data', (req, res) => {
+  return res.send({well:'done'});
+});
 app.post('/login', (req, res) => res.json(JSON.stringify({reason: 'I got ya bro'})));
 
 // const server = app.listen(1970, () => console.log('Server running at http://localhost:' + server.address().port));
@@ -49,7 +51,7 @@ function getTop100(req, res) {
       console.error(err);
       process.exit(1);
     }
-    const results = parseInt(req.query.results, 10);
+    let results = parseInt(req.query.results, 10);
     if (isNaN(results)) {
       results = 100;
     }

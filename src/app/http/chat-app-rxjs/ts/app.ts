@@ -1,13 +1,13 @@
 import {Component} from '@angular/core';
 import {MessagesService, ThreadsService, UserService} from './services/services';
-import {ChatExampleData} from './ChatExampleData';
+import {ChatExampleData} from './chat-data';
 
 @Component({
   selector: 'chat-app',
   template: `
     <p class='path'>chat-app/ts/app.ts</p>
-    <nav-bar></nav-bar>
-    <div class='special'>
+    <div style="background-color:#ccc">
+      <nav-bar></nav-bar>
       <chat-threads></chat-threads>
       <chat-window></chat-window>
     </div>

@@ -1,8 +1,8 @@
-import {Injectable} from '@angular/core';
-import {Message, Thread, User} from '../models';
+import { Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
+import { filter, map, publishReplay, refCount, scan } from 'rxjs/operators';
+import { Message, Thread, User } from '../models';
 
-import {Observable, Subject} from 'rxjs';
-import {filter, map, publishReplay, refCount, scan} from 'rxjs/operators';
 
 
 let initialMessages: Message[] = [];
@@ -11,7 +11,7 @@ interface IMessagesOperation extends Function {
   (messages: Message[]): Message[];
 }
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class MessagesService {
   // a stream that publishes new messages$ only once
   newMessages$: Subject<Message> = new Subject<Message>();
@@ -30,12 +30,15 @@ export class MessagesService {
 
   constructor() {
     this.messages$ = this.updates$
-    // watch the updates$ and accumulate operations on the messages$
-      .pipe(scan((messages: Message[], operation: IMessagesOperation) => {
-        return operation(messages);
-      }, initialMessages))
-      .pipe(publishReplay(1))
-      .pipe(refCount());
+      // watch the updates$ and accumulate operations on the messages$
+      .pipe(
+        scan((messages: Message[], operation: IMessagesOperation) => {
+          return operation(messages);
+        }, initialMessages),
+        publishReplay(1), 
+        refCount()
+      )
+
 
     this.create$
       .pipe(map(function (message: Message): IMessagesOperation {

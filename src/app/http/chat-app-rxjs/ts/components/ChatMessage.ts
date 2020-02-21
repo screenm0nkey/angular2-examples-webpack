@@ -6,8 +6,8 @@ import {Message, User} from '../models';
   inputs: ['message'],
   selector: 'chat-message',
   template: `
-  <div class='msg-container' [ngClass]="{'base-sent': !incoming, 'base-receive': incoming}">
-     <p class='path'>chat-app/ts/components/ChatMessage.ts</p>
+  <div style="border:solid gold" class='msg-container' [ngClass]="{'base-sent': !incoming, 'base-receive': incoming}">
+     <p class='path'>ChatMessage.ts</p>
     <div class='avatar' *ngIf='!incoming'>
       <img src='{{message.author.avatarSrc}}'>
     </div>
@@ -32,7 +32,7 @@ export class ChatMessage implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userService.currentUser.subscribe((user: User) => {
+    this.userService.currentUser$.subscribe((user: User) => {
       this.currentUser = user;
       if (this.message.author && user) {
         this.incoming = this.message.author.id !== user.id;

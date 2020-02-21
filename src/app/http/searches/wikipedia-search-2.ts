@@ -1,8 +1,8 @@
-import {Component} from '@angular/core';
-import {Observable} from 'rxjs';
-import {FormControl} from '@angular/forms';
-import {WikiSearchService} from './wikipedia-search.service';
-import {debounceTime, delay, distinctUntilChanged, switchMap, tap} from 'rxjs/operators';
+import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { debounceTime, delay, distinctUntilChanged, switchMap, tap, map } from 'rxjs/operators';
+import { WikiSearchService } from './wikipedia-search.service';
 
 
 // same as wikipedia-searchForImages-1.ts but built with observables
@@ -33,6 +33,7 @@ export class WikipediaObservable {
       // you should always use switchMap when making http requests
       .pipe(switchMap((sterm: string) => this.wikiSearch.search(sterm)))
       .pipe(delay(1000)) // add a delay to see the loading icon
-      .pipe(tap(() => (this.loading = false)));
+      .pipe(tap(() => (this.loading = false)))
+      .pipe(map(res=>res[1]));
   }
 }

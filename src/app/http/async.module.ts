@@ -3,7 +3,7 @@ import {SharedModule} from '../shared/_shared.module';
 import {AsyncRoutingModule} from './async.routes.module';
 import {MiscHttpModule as RxJsExamplesModule} from './rxjs-examples/_rxjs-examples.module';
 import {MainHttpRxJs} from './async.component';
-import {EchonestModule} from './echonest-app/echonest.module';
+import {MusicSearchModule} from './echonest-app/echonest.module';
 import {SearchesModule} from './searches/_searches.module';
 import {SpotifyModule} from './spotify/spotify.module';
 import {ChatAppRxJsModule} from './chat-app-rxjs/ts/app.module';
@@ -19,7 +19,7 @@ import {NgrxModule} from './ngrx/_ngrx.module';
     ChatAppRxJsModule,
     SpotifyModule,
     SearchesModule,
-    EchonestModule,
+    MusicSearchModule,
     RxJsExamplesModule,
     NgrxModule
   ],

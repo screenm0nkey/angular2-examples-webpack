@@ -1,15 +1,15 @@
 import {NgModule} from '@angular/core';
 import {SharedModule} from '../../shared/_shared.module';
-import {EchonestAppComponent} from './echonest-app.component';
+import {MusicSearchAppComponent} from './echonest-app.component';
 import {ArtistComponent} from './artist.component';
 import {DropdownComponent} from './dropdown.component';
 
 @NgModule({
   imports: [SharedModule],
-  declarations: [EchonestAppComponent, ArtistComponent, DropdownComponent],
+  declarations: [MusicSearchAppComponent, ArtistComponent, DropdownComponent],
   providers: []
 })
-export class EchonestModule {
+export class MusicSearchModule {
 }
 
-export {EchonestAppComponent};
+export {MusicSearchAppComponent};

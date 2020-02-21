@@ -8,6 +8,12 @@ export type WikiImage = {
   title: string;
 };
 
+export type WikiImageSearchResponse = {
+  query: {
+    allimages: WikiImage[]
+  };
+};
+
 const CALLBACK = "callback=JSONP_CALLBACK";
 // https://github.com/angular/angular-cli/blob/master/docs/documentation/stories/proxy.md
 const WIKIPEDIA_URL = "/wikipedia-proxy";
@@ -32,7 +38,7 @@ const defaultOptions = {
 
 @Injectable({ providedIn: "root" })
 export class WikiSearchService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   get(url: string, options): Observable<JSON> {
     let headers = new HttpHeaders();
@@ -80,15 +86,15 @@ export class WikiSearchService {
   }
 
   // 4
-  getImageTitles(allImages) {
-    allImages = allImages.query.allimages.map(({ title }) => title);
-    console.log(4, allImages);
-    return allImages;
+  getImageTitles(allImages: WikiImageSearchResponse): string[] {
+    const imageNames = allImages.query.allimages.map(({ title }) => title);
+    // console.log(4, allImages, imageNames);
+    return imageNames;
   }
 
   // 5
-  getImageInfoFromTitle(title): Observable<JSON> {
-    return this.get(`${API}&${IMAGEINFO}&${PROP_URL}&titles=${title}`, {});
+  getImageInfoFromTitle(imageName: string): Observable<JSON> {
+    return this.get(`${API}&${IMAGEINFO}&${PROP_URL}&titles=${imageName}`, {});
   }
 
   mapImageInfoToUrls(body) {
@@ -98,8 +104,20 @@ export class WikiSearchService {
         page = body.query.pages[page];
         let imageInfo = page.imageinfo[0];
         imageInfo.title = page.title;
-        console.log(6, imageInfo);
+        // console.log(6, imageInfo);
         return imageInfo;
       });
   }
+
+  rawSearch(term: string):any {
+    const params = {
+      callback: 'JSONP_CALLBACK',
+      action: 'opensearch',
+      search: term,
+      format: 'json'
+    };
+    return this.get('/wikipedia-proxy', { params })
+    .pipe(map((results)=>results[1]));
+  }
+  
 }

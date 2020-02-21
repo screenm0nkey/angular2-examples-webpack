@@ -4,7 +4,7 @@ import {fromEvent, Observable, Subject} from 'rxjs';
 import {debounceTime, filter, map, switchMap, tap} from 'rxjs/operators';
 
 @Directive({
-  selector: 'input[type=text][autosearch]',
+  selector: 'input[type=text][authautosearch]',
   outputs: ['results']
 })
 export class AutosearchAuth implements OnInit {
@@ -33,9 +33,9 @@ export class AutosearchAuth implements OnInit {
         
         <input 
           type='text' 
-          autosearch 
+          authautosearch 
           (results)='updates$.next($event)'>
-        <h3>{{searchTerm}}</h3>
+        <h3>You have serched for {{searchTerm}}</h3>
         <pre *ngIf='jsonny'>{{jsonny | json}}</pre>
     </div>
     `
@@ -65,7 +65,6 @@ export class Auth0Component implements OnInit {
     // Custom-FormNick is defined in express config in www/server
     headers.append('Custom-FormNick', 'love-it');
     return this._http
-      .post('// localhost:1970/data', formBody, {headers})
-      .pipe(map(res => res));
+      .post('/api/data', formBody, {headers})
   }
 }

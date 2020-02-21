@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {forkJoin, Observable, Subject} from 'rxjs';
-import {map, share, switchMap} from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { forkJoin, Observable, Subject } from 'rxjs';
+import { map, share, switchMap, tap} from 'rxjs/operators';
 
 interface Person {
   vehicles: number[];
@@ -39,13 +39,14 @@ interface Vehicle {
         <dlink [id]="19"></dlink>
         <p>share() is a shortcut for publish().refCount()</p>
         <dlink [id]="20"></dlink>
+        <p class="red">Click on the StarWars names  </p>
 
       <div *ngFor='let person of people$ | async'>
         <div class='person' (click)='peopleClick$.next(person)'>{{person.name}} ({{person.vehicles.length}})</div>
       </div>
     </div>
 
-    <div class='detail'>
+    <div class='detail' style="background-color:grey">
       <h2 *ngIf='vehicles$ | async'>Vehicles</h2>
       <div *ngFor='let vehicle of vehicles$ | async'>
         <div>{{vehicle.name}} - {{vehicle.manufacturer}}</div>
@@ -75,17 +76,21 @@ export class ForkJoinComponent implements OnInit {
   ngOnInit() {
     this.getPeopleWhoHaveVehicles();
     this.vehicles$ = this.peopleClick$
-      .pipe(switchMap(this.getVehiclesFromPerson.bind(this)))
-      .pipe(share());
+      .pipe(
+        switchMap(this.getVehiclesFromPerson.bind(this)),
+        tap(val=>console.log(val)),
+        share()
+      );
   }
 
   getPeopleWhoHaveVehicles() {
     this.people$ = this.http
       .get(`${ForkJoinComponent.API}/people`)
-      .pipe(map((res: { results: any[] }) => res.results))
-      .pipe(map((results: Person[]) => results.filter((person: Person) => person.vehicles.length)));
-
-    this.people$.subscribe(res => console.log(1333, res));
+      .pipe(
+        map((res: { results: any[] }) => res.results),
+        map((results: Person[]) => results.filter((person: Person) => person.vehicles.length))
+      );
+    this.people$.subscribe(people => console.log('StarWars people$', people));
   }
 
   getVechicle(vehicleUrl: string): Observable<Vehicle> {

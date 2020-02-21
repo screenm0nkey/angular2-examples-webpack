@@ -1,18 +1,14 @@
 import {Component, Injectable, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-
-export interface Character {
-  id: number;
-  name: string;
-}
+import { User } from './shared-components';
 
 @Injectable({providedIn: 'root'})
 export class CharacterService {
-  characters$: Observable<Character[]>;
+  characters$: Observable<User[]>;
 
   constructor(http: HttpClient) {
-    this.characters$ = http.get<Character[]>('/assets/json/characters.json');
+    this.characters$ = http.get<User[]>('/assets/json/characters.json');
   }
 }
 
@@ -28,15 +24,15 @@ export class CharacterService {
   providers: [CharacterService]
 })
 export class SubscribeExample implements OnInit {
-  characters: Character[] = [];
+  characters: User[];
 
   constructor(private _characterService: CharacterService) {
-    console.log(this);
   }
 
   ngOnInit() {
+    this.characters = [];
     this._characterService.characters$.subscribe(
-      characters => (this.characters = characters)
+      characters => this.characters = characters
     );
   }
 }

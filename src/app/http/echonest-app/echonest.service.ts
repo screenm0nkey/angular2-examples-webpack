@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
-import {Artist, EchonestRepo} from './echonest.repo';
-import {BehaviorSubject, Observable} from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Artist, MusicSearchRepo } from './echonest.http';
+import { BehaviorSubject, Observable } from 'rxjs';
 
-@Injectable({providedIn: 'root'})
-export class EchonestService {
+@Injectable({ providedIn: 'root' })
+export class MusicSearchService {
   private favourites: Artist[] = [];
   private artists: Artist[] = [];
   private artists$: BehaviorSubject<Artist[]> = new BehaviorSubject(
@@ -13,7 +13,7 @@ export class EchonestService {
     this.favourites
   );
 
-  constructor(private repo: EchonestRepo) {
+  constructor(private repo: MusicSearchRepo) {
   }
 
   getArtists(): Observable<Artist[]> {
@@ -27,11 +27,7 @@ export class EchonestService {
   onArtistSelected(artist: Artist) {
     artist.favourited = !artist.favourited;
     const index = this.artists.indexOf(artist);
-    this.artists = [
-      ...this.artists.slice(0, index),
-      (artist = {...artist}),
-      ...this.artists.slice(index + 1)
-    ];
+    this.artists = [...this.artists.slice(0, index), (artist = { ...artist }), ...this.artists.slice(index + 1)];
     this.favourites = this.favourites.filter((a: Artist) => a.id !== artist.id);
     if (artist.favourited) {
       this.favourites.push(artist);

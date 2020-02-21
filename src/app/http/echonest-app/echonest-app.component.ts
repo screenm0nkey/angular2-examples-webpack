@@ -1,12 +1,12 @@
 import {Component} from '@angular/core';
-import {EchonestService} from './echonest.service';
-import {Artist} from './echonest.repo';
+import {MusicSearchService} from './echonest.service';
+import {Artist} from './echonest.http';
 import {Observable} from 'rxjs';
 
 @Component({
   selector: 'echonest-app',
   providers: [
-    EchonestService
+    MusicSearchService
   ],
   template: `
     <div class='comps clearfix'>
@@ -19,7 +19,7 @@ import {Observable} from 'rxjs';
         <header>
           Top 100
           <dropdown-component
-            [results]='[5,15,30,50,100]'
+            [results]='[5,10,17,33,56,100]'
             (select)='service.fetchArtists($event)'>
           </dropdown-component>
         </header>
@@ -45,11 +45,11 @@ import {Observable} from 'rxjs';
     </div>
    `
 })
-export class EchonestAppComponent {
+export class MusicSearchAppComponent {
   public artists$: Observable<Artist[]>;
   public favourites$: Observable<Artist[]>;
 
-  constructor(public service: EchonestService) {
+  constructor(public service: MusicSearchService) {
     this.artists$ = service.getArtists();
     this.favourites$ = service.getFavourites();
   }

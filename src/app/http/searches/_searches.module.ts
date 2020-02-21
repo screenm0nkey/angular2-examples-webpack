@@ -1,18 +1,17 @@
-import {NgModule} from '@angular/core';
-import {SharedModule} from '../../shared/_shared.module';
-import {HttpExamples} from './_searches.component';
-import {WikipediaSuperSearch} from './wikipedia-super-search';
-import {JsonpWikipediaPromise} from './wikipedia-search-1';
-import {WikipediaObservable} from './wikipedia-search-2';
-import {EchonestDirective} from './echonest/echonest.directive';
-import {EchonestSearchComponent} from './echonest/echonest-search.component';
-import {EchonestArtistCardComponent} from './echonest/echonest-artist-card.component';
-import {Auth0Component, AutosearchAuth} from './auth0-authentication';
-import {YoutubeBasicExample} from './youtube-basic';
-import {LocalRefSearch} from './local-ref-search';
-import {RedditExample} from './reddit';
-import {NgBookYoutubeExample, NgBookYoutubeSearch} from './youtube-ng2-book';
-import {YoutubeResultComponent} from './youtube-helpers/youtube-result-component';
+import { NgModule } from '@angular/core';
+import { SharedModule } from '../../shared/_shared.module';
+import { HttpExamples } from './main.component';
+import { JsonpWikipediaPromise } from './promise-example.component';
+import { WikipediaObservable } from './wikipedia-search-2';
+import { MusicSearchDirective } from './song-search/echonest.directive';
+import { MusicSearchComponent } from './song-search/echonest-search.component';
+import { MusicSearchArtistCardComponent } from './song-search/echonest-artist-card.component';
+import { Auth0Component, AutosearchAuth } from './auth0-authentication';
+import { YoutubeBasicExample } from './youtube-basic';
+import { LocalRefSearch } from './local-ref-search';
+import { RedditExample } from './form-control-value-changes-example.component';
+import { NgBookYoutubeExample, NgBookYoutubeSearch } from './youtube-ng2-book';
+import { YoutubeResultComponent } from './youtube-helpers/youtube-result-component';
 import { JohnLinquistWikiSearch } from './wikipedia-john-linquist';
 import { ForkJoinComponent } from './forkjoin-search';
 import { StarWarsComponent } from './star-wars';
@@ -21,11 +20,10 @@ import { StarWarsComponent } from './star-wars';
   imports: [SharedModule],
   declarations: [
     HttpExamples,
-    WikipediaSuperSearch,
     JsonpWikipediaPromise,
     WikipediaObservable,
     JohnLinquistWikiSearch,
-    EchonestSearchComponent, EchonestDirective, EchonestArtistCardComponent,
+    MusicSearchComponent, MusicSearchDirective, MusicSearchArtistCardComponent,
     Auth0Component,
     AutosearchAuth,
     YoutubeBasicExample,
@@ -42,4 +40,4 @@ import { StarWarsComponent } from './star-wars';
 export class SearchesModule {
 }
 
-export {HttpExamples};
+export { HttpExamples };

@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d5f21bda-c6b4-4805-9630-4df6d1de2582" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/http/rxjs-examples/_main.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/http/rxjs-examples/_main.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/http/rxjs-examples/automated-wiki-search.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/http/rxjs-examples/automated-wiki-search.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,7 +88,9 @@
       <workItem from="1578432512843" duration="25000" />
       <workItem from="1579600252404" duration="575000" />
       <workItem from="1579818677203" duration="1079000" />
-      <workItem from="1580201694230" duration="979000" />
+      <workItem from="1580201694230" duration="1754000" />
+      <workItem from="1580476641707" duration="460000" />
+      <workItem from="1580560709561" duration="315000" />
     </task>
     <servers />
   </component>

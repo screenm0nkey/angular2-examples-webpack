@@ -1,0 +1,71 @@
+chat-app
+    nav-bar, chat-threads
+        position: relative
+        display: block
+    
+    chat-threads
+        background-color: yellow
+        padding-top: 20px
+
+    .chat-window-container
+        order: 3px solid black !important
+        padding: 0 5px 5px
+        background-color: #b5b5b5
+        
+    .pull-left
+        float: left
+    
+    img.avatar
+        width: 20px
+        height: 20px
+        float: left
+    
+    div.avatar
+        position: absolute
+        top: 10px
+        right: 0
+        img
+            width: 20px
+
+    .media-body 
+        float: left
+
+    p
+        margin: 0
+        padding: 0
+        font-size: 12px
+    
+        &.path 
+            position: absolute
+            top: 0
+            right: 0
+            font-weight: bold
+            font-size: 10px
+            
+    chat-thread, chat-message
+        display: block
+        overflow: auto
+        border: solid 1px green
+        margin-bottom: 10px
+        position: relative
+        cursor: pointer
+        background-color: white
+    
+    chat-message
+        &:nth-child(odd)
+            background-color: #b5d8b5
+            
+
+        &::after
+            content: ""
+            clear: both
+            display: table
+
+    .chat-window
+        overflow: scroll
+        position: relative
+
+        &::after
+            content: ""
+            clear: both
+            display: table

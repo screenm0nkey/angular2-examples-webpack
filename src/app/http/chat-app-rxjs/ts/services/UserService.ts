@@ -8,10 +8,10 @@ import {User} from '../models';
 @Injectable({providedIn: 'root'})
 export class UserService {
   // BehaviourSubject stores the last value.
-  currentUser: Subject<User> = new BehaviorSubject<User>(null);
+  currentUser$: Subject<User> = new BehaviorSubject<User>(null);
 
   public setCurrentUser(newUser: User): void {
-    this.currentUser.next(newUser);
+    this.currentUser$.next(newUser);
   }
 }
 

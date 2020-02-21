@@ -11,9 +11,9 @@ import { concatMap, debounceTime, delay, filter, map, scan, share, switchMap, ta
       <p class='path'>/http-rxjs/misc-examples/automated-wiki-search.ts</p>
       <h4>Automated Wiki Search</h4>
 
-      <button (click)='startIt()'>Initialise search</button>
-      <button (click)='this.search = true'>Play</button>
-      <button (click)='this.search = false'>Pause</button>
+      <button (click)='startIt()' [disabled]="!buttonDisabled">Initialise search</button>
+      <button (click)='this.search = true' [disabled]="buttonDisabled">Play</button>
+      <button (click)='this.search = false' [disabled]="buttonDisabled">Pause</button>
       <input type='text' [value]='term$ | async'>
       <ul>
         <li *ngFor='let result of results$ | async'>{{result}}</li>
@@ -22,40 +22,49 @@ import { concatMap, debounceTime, delay, filter, map, scan, share, switchMap, ta
   `
 })
 export class AutoSearch implements OnInit {
-  search: boolean = false;
+  search: boolean;
   text: string;
   randomInterval$: Observable<any>;
   term$: Observable<any>;
   results$: Observable<any>;
+  buttonDisabled: boolean;
 
   constructor(public http: HttpClient, private wiki: WikiSearchService) {
 
   }
 
   ngOnInit() {
-    this.text = `Dog fish cat`;
+    this.search = false;
+    this.text = `Dog Fish Cat Car`;
+    this.buttonDisabled = true;
   }
 
   startIt() {
     const randomDelay = (num: number) => of(num).pipe(delay(Math.random() * 2000));
 
     this.randomInterval$ = range(0, 1000)
-      .pipe(concatMap(randomDelay))
-      .pipe(filter(() => this.search))
-      .pipe(tap(data => console.log('%crandom delay ' + data + 'ms', 'color:pink')));
+      .pipe(
+        concatMap(randomDelay),
+        filter(() => this.search),
+        tap(data => console.log('%crandom delay ' + data + 'ms', 'color:pink'))
+      );
 
-    this.term$ = from(this.text)
-      .pipe(tap(data => console.log('%c' + data, 'color:red')))
-      .pipe(zip(this.randomInterval$, x => x))
-      .pipe(tap(data => console.log('%czip ' + data, 'color:orange')))
-      .pipe(scan((acc: string, curr: string) => (curr === ' ' ? '' : acc + curr)))
-      .pipe(tap(data => console.log('%cscan ' + data, 'color:green')))
-      .pipe(share());
+    this.term$ = from(this.text).pipe(
+      tap(data => console.log('%c' + data, 'color:red')),
+      zip(this.randomInterval$, x => x),
+      tap(data => console.log('%czip ' + data, 'color:orange')),
+      scan((acc: string, curr: string) => (curr === ' ' ? '' : acc + curr)),
+      tap(data => console.log('%cscan ' + data, 'color:green')),
+      //share() — is a shortcut for multicast(() => new Subject()) + refCount()
+      share() 
+    );
 
-    this.results$ = this.term$
-      .pipe(debounceTime(250))
-      .pipe(switchMap(term => this.wiki.search(term)))
-      .pipe(map(res => res[1]));
+    this.results$ = this.term$.pipe(
+      debounceTime(250),
+      switchMap(term => this.wiki.search(term)),
+      map(res => res[1])
+    );
+    this.buttonDisabled = false;
   }
 
   searchWiki() {

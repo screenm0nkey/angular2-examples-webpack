@@ -1,13 +1,12 @@
-import {Component} from '@angular/core';
-import {merge, Observable} from 'rxjs';
-import {map, scan, startWith} from 'rxjs/operators';
+import { Component } from '@angular/core';
+import { merge, Observable } from 'rxjs';
+import { map, scan, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'counter-component',
   template: `
         <p class='path'>/http-rxjs/misc-examples/rx-counter.ts</p>
-        <h4>RXJS Reactive data flow</h4>
-        <dlink [id]="23"></dlink>
+        <h4>RxJs Reactive data flow example</h4>
         <br>
         <div style='margin-bottom: 10px'>
             <button (click)='decrement()'>Decrement</button>

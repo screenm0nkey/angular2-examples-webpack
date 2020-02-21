@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange} from '@angular/core';
-import {Artist} from './echonest.repo';
+import {Artist} from './echonest.http';
 
 @Component({
   selector: 'artist-component',
@@ -21,9 +21,9 @@ export class ArtistComponent implements OnInit, OnChanges {
   private readonly ADD: string = 'Add';
   private readonly REMOVE: string = 'Remove';
   private buttonText: string;
-  private disabled: boolean = false;
+  private disabled: boolean;
 
-  // only called for/if there is an @input variable set by parent.
+  // only called for/if there is an @Input variable set by parent.
   // Responds after Angular sets a data-bound @input property. The method
   // receives a changes object of current and previous values.
   ngOnChanges(changes: { [propertyName: string]: SimpleChange }) {
@@ -34,6 +34,7 @@ export class ArtistComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
+    this.disabled = false;
     this.setButtonText(this.artist.favourited);
   }
 

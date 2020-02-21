@@ -1,8 +1,8 @@
-import {Component} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {debounceTime, map, switchMap, tap} from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { debounceTime, map, switchMap, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'reddit-example',
@@ -14,30 +14,33 @@ import {debounceTime, map, switchMap, tap} from 'rxjs/operators';
             <form [formGroup]='searchForm'>
                 <input type='text' formControlName='searchField' placeholder='Search Reddit'/>
             </form>
-            <img src='/images/loading.gif' *ngIf='loading'>
+
+            <h2 *ngIf='loading'>Loading</h2>
+            
             <div style='max-height: 300px; overflow: hidden; overflow-y: scroll'>
-                <div class='box' *ngFor='let r of results$ | async'>
+                <div class='box' *ngFor='let r of results$ | async' style="border:solid 1px red">
+                    <p><a [href]='r.url' target="_blank">{{r.title}}</a></p>
                     <img *ngIf='r.thumb' [src]='r.thumb'>
-                    <span>{{r.title}}</span><a [href]='r.url'>Link</a>
                 </div>
             </div>
         </div>
     `
 })
-export class RedditExample {
+export class RedditExample implements OnInit {
   searchForm: FormGroup;
   results$: Observable<any[]>;
   loading: boolean = false;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) { }
+
+  ngOnInit() {
     let searchField = new FormControl();
-    this.searchForm = new FormGroup({searchField});
+    this.searchForm = new FormGroup({ searchField });
 
     this.results$ = searchField.valueChanges
       .pipe(debounceTime(500))
       .pipe(tap(() => (this.loading = true)))
       .pipe(switchMap((val: string) => this.searchRedditPics(val)))
-      .pipe(tap(() => (this.loading = false)));
 
     this.results$.subscribe(x => console.log(x));
   }
@@ -46,7 +49,9 @@ export class RedditExample {
     return this.http
       .get(`https://www.reddit.com/r/pics/search.json?resct_sr=on&q=${search}`)
       .pipe(map(this.normaliseRedditData))
-      .pipe(map((items: any[]) => items.filter((item: any) => item.url)));
+      .pipe(map((items: any[]) => items.filter((item: any) => item.url)))
+      .pipe(tap(() => (this.loading = false)));
+
   }
 
   normaliseRedditData(items: any) {

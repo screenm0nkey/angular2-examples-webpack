@@ -1,6 +1,6 @@
 /* tslint:disable:max-line-length */
-import {Message, Thread, User} from './models';
-import {MessagesService, ThreadsService, UserService} from './services/services';
+import { Message, Thread, User } from './models';
+import { MessagesService, ThreadsService, UserService } from './services/services';
 import * as moment from 'moment';
 
 // the person using the app us Juliet
@@ -74,11 +74,7 @@ let initialMessages: Array<Message> = [
 ];
 
 export class ChatExampleData {
-  static init(
-    messagesService: MessagesService,
-    threadsService: ThreadsService,
-    userService: UserService
-  ): void {
+  static init(messagesService: MessagesService, threadsService: ThreadsService, userService: UserService): void {
     // TODO make `messages$` hot
     messagesService.messages$.subscribe(() => ({}));
     // set 'Juliet' as the current user
@@ -128,9 +124,7 @@ export class ChatExampleData {
 
         if (isNaN(waitTime)) {
           waitTime = 0;
-          reply = `I didnt understand ${
-            message.text
-            }. Try sending me a number`;
+          reply = `I didnt understand ${message.text}. Try sending me a number`;
         } else {
           reply = `I waited ${waitTime} seconds to send you this.`;
         }

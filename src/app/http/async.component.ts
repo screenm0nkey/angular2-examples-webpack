@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
         <a routerLink='./searches' routerLinkActive='active' [routerLinkActiveOptions]='{ exact: true }'>Searches</a>
         <a routerLink='./rxjs-examples' routerLinkActive='active'>RxJs Examples</a>
         <a routerLink='./ngrx-examples' routerLinkActive='active'>NgRx Examples</a>
-        <a routerLink='./echonest-app' routerLinkActive='active'>Echonest RxJs</a>
+        <a routerLink='./echonest-app' routerLinkActive='active'>MusicSearch RxJs</a>
         <a routerLink='./spotify' routerLinkActive='active'>Spotify</a>
         <a routerLink='./chat-app-rxjs' routerLinkActive='active'>RxJs Chat App</a>
       </nav>

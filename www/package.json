@@ -1,7 +1,7 @@
 {
   "name": "ng6-socket.io-sample-server",
   "version": "0.0.0",
-  "private": true,
+  "public": true,
   "scripts": {
     "start": "node ./bin/www"
   },

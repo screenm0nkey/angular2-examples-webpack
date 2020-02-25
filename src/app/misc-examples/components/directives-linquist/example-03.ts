@@ -59,7 +59,7 @@ export class OnlineDirective implements OnDestroy {
     return this.online.online;
   }
 
-  constructor(private online: OnlineService) {}
+  constructor(public online: OnlineService) {}
 
   public ngOnDestroy(): void {
     this.online.clearInterval();
@@ -81,7 +81,7 @@ export class TrackDirective {
   @HostListener("mouseover") onMouseover = () =>
     this.tracking.log({ event: "mouseover", message: this.track });
 
-  constructor(private tracking: TrackingService) {}
+  constructor(public tracking: TrackingService) {}
 }
 
 /**
@@ -108,5 +108,5 @@ export class TrackDirective {
 })
 export class Example03AppComponent {
   // tracking is used in template
-  constructor(protected tracking: TrackingService) {}
+  constructor(tracking: TrackingService) {}
 }

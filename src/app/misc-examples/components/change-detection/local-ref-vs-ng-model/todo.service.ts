@@ -26,7 +26,7 @@ export class TodoItem {
 }
 
 export class TodoStore {
-  private items: TodoItem[] = [];
+  public items: TodoItem[] = [];
 
   // we are mutating the array
   addItem(newItem: TodoItem) {

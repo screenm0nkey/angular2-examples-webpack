@@ -7,10 +7,10 @@ import {CollapseItService} from "./collapse-it.service";
       <button (click)="toggle()">{{text}}</button>`,
 })
 export class CollapseAllComponent implements OnInit {
-  private openAll: boolean;
-  private text: string;
+  public openAll: boolean;
+  public text: string;
 
-  constructor(private cas: CollapseItService) {
+  constructor(public cas: CollapseItService) {
   }
 
   ngOnInit(): void {

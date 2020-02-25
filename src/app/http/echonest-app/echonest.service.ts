@@ -4,16 +4,16 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class MusicSearchService {
-  private favourites: Artist[] = [];
-  private artists: Artist[] = [];
-  private artists$: BehaviorSubject<Artist[]> = new BehaviorSubject(
+  public favourites: Artist[] = [];
+  public artists: Artist[] = [];
+  public artists$: BehaviorSubject<Artist[]> = new BehaviorSubject(
     this.artists
   );
-  private favourites$: BehaviorSubject<Artist[]> = new BehaviorSubject(
+  public favourites$: BehaviorSubject<Artist[]> = new BehaviorSubject(
     this.favourites
   );
 
-  constructor(private repo: MusicSearchRepo) {
+  constructor(public repo: MusicSearchRepo) {
   }
 
   getArtists(): Observable<Artist[]> {

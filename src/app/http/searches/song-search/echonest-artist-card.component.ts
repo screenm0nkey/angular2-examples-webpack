@@ -6,5 +6,5 @@ import {Component, Input, ViewEncapsulation} from '@angular/core';
   template: `<pre>{{artist.label}}</pre>`
 })
 export class MusicSearchArtistCardComponent {
-  @Input() artist: Object;
+  @Input() artist: any;
 }

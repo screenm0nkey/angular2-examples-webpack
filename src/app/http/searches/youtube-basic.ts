@@ -32,7 +32,7 @@ export class YoutubeBasicExample implements OnInit {
   subject$: Subject<any>;
   results: any[] = [];
 
-  constructor(private fb: FormBuilder, public youtube: YoutubeService) {
+  constructor(public fb: FormBuilder, public youtube: YoutubeService) {
     this.subject$ = new Subject();
   }
 

@@ -31,7 +31,7 @@ export class NgrxClockTwoComponent implements OnInit {
   time$: Observable<Date>;
   merged$: Observable<{} | MyAction>;
 
-  constructor(private store: Store<MyNgRxStore>) {
+  constructor(public store: Store<MyNgRxStore>) {
     this.dispatch = this.dispatch.bind(this);
   }
 

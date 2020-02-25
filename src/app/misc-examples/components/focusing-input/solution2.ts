@@ -15,7 +15,7 @@ import {
   selector: '[focusIt]'
 })
 export class FocusIt implements AfterViewInit, OnChanges {
-  constructor(private elementRef: ElementRef) {
+  constructor(public elementRef: ElementRef) {
     console.log(this);
   }
 
@@ -47,9 +47,9 @@ export class SolutionTwo implements OnInit {
   // @ViewChild allows us access to the directive instance's api methods in the component.
   // in this case we can access ngAfterViewInit, setFocus, etc
   // @ViewChildren does the same but lets us access multiple instances
-  @ViewChild(FocusIt, {static: false}) child: FocusIt;
+  @ViewChild(FocusIt) child: FocusIt;
   @ViewChildren(FocusIt) children: QueryList<FocusIt>;
-  private inputIsVisible = false;
+  public inputIsVisible = false;
 
   ngOnInit() {
     // notice that the 'child' directive object instance is still not available as a property

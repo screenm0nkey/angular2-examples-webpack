@@ -30,7 +30,7 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
     this.message = `Holding at T-${this.seconds} seconds`;
   }
 
-  private countDown() {
+  public countDown() {
     this.clearTimer();
     this.intervalId = window.setInterval(() => {
       this.seconds -= 1;
@@ -52,7 +52,7 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
       <collapse-it>
           <p class='file'>misc-examples/components/view-children/view-child.ts</p>
           <h4>Accessing a component's API using @ViewChild - Countdown example</h4>
-          <code>@ViewChild(CountdownTimerComponent,<cur>static: false</cur>) private timerComponent: CountdownTimerComponent;</code>
+          <code>@ViewChild(CountdownTimerComponent,<cur>static: false</cur>) public timerComponent: CountdownTimerComponent;</code>
 
           <button (click)='start()'>Start</button>
           <button (click)='stop()'>Stop</button>
@@ -63,7 +63,7 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
   `
 })
 export class CountdownViewChildParentComponent implements AfterViewInit {
-  @ViewChild(CountdownTimerComponent, {static: false}) private timerComponent: CountdownTimerComponent;
+  @ViewChild(CountdownTimerComponent) public timerComponent: CountdownTimerComponent;
 
   seconds() {
     return 0;

@@ -6,7 +6,7 @@ import { Hero } from "../../../shared/pipes/flying-heros.pipe";
   templateUrl: './pipes.component.html' 
 })
 export class PipesComponent {
-  protected heroes: Hero[];
+  public heroes: Hero[];
 
   constructor() {
     this.heroes = [

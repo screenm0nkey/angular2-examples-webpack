@@ -23,7 +23,7 @@ export class ChatThread implements OnInit {
   thread: Thread;
   selected: boolean = false;
 
-  constructor(private threadsService: ThreadsService) {
+  constructor(public threadsService: ThreadsService) {
   }
 
   ngOnInit(): void {

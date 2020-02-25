@@ -39,16 +39,14 @@ class ConsoleWriter {
 }
 @Injectable({ providedIn: "root" })
 class LoggerService {
-  constructor(private isEnabled: boolean, private writer: ConsoleWriter) {}
+  constructor(public writer: ConsoleWriter) {}
 
   log(msg: string) {
-    if (this.isEnabled) {
       this.writer.write(msg);
-    }
   }
 }
 const loggerFactory = (writer: ConsoleWriter): LoggerService => {
-  return new LoggerService(true, writer);
+  return new LoggerService(writer);
 };
 
 

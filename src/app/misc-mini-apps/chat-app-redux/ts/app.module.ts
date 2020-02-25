@@ -26,7 +26,7 @@ let store: Store<AppState> = createStore<AppState>(reducer, compose(devtools));
   `
 })
 export class ReduxChatAppComponent {
-  constructor(@Inject(AppStore) private store: Store<AppState>) {
+  constructor(@Inject(AppStore) public store: Store<AppState>) {
     ChatExampleData(store);
   }
 }

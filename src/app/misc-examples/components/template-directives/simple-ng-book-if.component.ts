@@ -12,8 +12,8 @@ import {
 export class NgBookIf {
   // The view container is used to attach one or more views to the directive.
   constructor(
-    private viewContainer: ViewContainerRef,
-    private template: TemplateRef<any>
+    public viewContainer: ViewContainerRef,
+    public template: TemplateRef<any>
   ) {}
 
   set ngBookIf(condition: boolean) {

@@ -23,12 +23,12 @@ import {SpotifyService} from '../spotify.service';
 })
 export class TrackComponent implements OnInit {
   id: string;
-  track$: Object;
+  track$: any;
 
   constructor(
-    private route: ActivatedRoute,
-    private spotify: SpotifyService,
-    private location: Location
+    public route: ActivatedRoute,
+    public spotify: SpotifyService,
+    public location: Location
   ) {
     route.params.subscribe(params => {
       this.id = params['id'];

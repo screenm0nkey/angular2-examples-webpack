@@ -23,6 +23,6 @@ import {
   `,
 })
 export class AppComponent {
-  constructor(private ts1: MrTestyServiceOne, private ts2: MrTestyServiceTwo) {
+  constructor(public ts1: MrTestyServiceOne, public ts2: MrTestyServiceTwo) {
   }
 }

@@ -9,7 +9,7 @@ export class YoutubeService {
   BASE_URL: string = 'https://www.googleapis.com/youtube/v3/searchForImages';
   API_TOKEN: string = 'AIzaSyAJk1xUI72YYfBMgEc84gjHUX-k2AN6-B0';
 
-  constructor(private http: HttpClient) {
+  constructor(public http: HttpClient) {
     console.log(this);
   }
 

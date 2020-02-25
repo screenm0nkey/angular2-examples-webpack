@@ -9,7 +9,7 @@ import * as moment from 'moment';
   name: 'fromNow'
 })
 export class FromNowPipe implements PipeTransform {
-  transform(value: any, args: Array<any>): string {
+  transform(value: any): string {
     return moment(value).fromNow();
   }
 }

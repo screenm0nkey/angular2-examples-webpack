@@ -18,8 +18,8 @@ export class ChatNavBar implements OnInit {
   unreadMessagesCount: number;
 
   constructor(
-    private messagesService: MessagesService,
-    private threadsService: ThreadsService
+    public messagesService: MessagesService,
+    public threadsService: ThreadsService
   ) {
   }
 

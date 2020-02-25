@@ -22,7 +22,7 @@ import {
 export class VersionChildComponent implements OnChanges, OnInit {
   @Input() major: number;
   @Input() minor: number;
-  private changeLog: string[];
+  public changeLog: string[];
 
   ngOnInit() {}
 

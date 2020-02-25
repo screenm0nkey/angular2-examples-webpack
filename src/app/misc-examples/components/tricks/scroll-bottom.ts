@@ -32,7 +32,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class ScrollComponent implements OnInit {
   items$: any; //Observable<number[]>;
-  @ViewChild('list', {static:false}) list : ElementRef;
+  @ViewChild('list') list : ElementRef;
   scrollHeight:number;
 
   ngOnInit() {

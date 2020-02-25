@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 
 class Profile {
-  constructor(private first: string, private last: string) {
+  constructor(public first: string, public last: string) {
   }
 
   lastChanged() {

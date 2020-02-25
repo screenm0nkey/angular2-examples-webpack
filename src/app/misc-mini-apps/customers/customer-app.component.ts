@@ -16,8 +16,8 @@ export class CustomersComponent implements OnInit {
   filteredCustomers: Customer[];
 
   constructor(public dataService: CustomersDataService,
-              private router: Router,
-              private route: ActivatedRoute,
+              public router: Router,
+              public route: ActivatedRoute,
               public sorter: Sorter) {
     this.customers = [];
   }

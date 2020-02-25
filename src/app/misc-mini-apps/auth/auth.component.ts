@@ -10,7 +10,7 @@ import {ActivatedRoute, Router} from '@angular/router';
         <a routerLink='./home' routerLinkActive='active' [routerLinkActiveOptions]='{ exact: true }'>Home</a>
         <a [routerLink]="['./aboutus', getId()]" routerLinkActive='active'>About Us</a>
         <a [routerLink]="['./contact']" routerLinkActive='active'>Selective Preloading Strategy</a>
-        <a [routerLink]="['./protected']" routerLinkActive='active' *ngIf='isLoggedIn()'>Protected</a>
+        <a [routerLink]="['./public']" routerLinkActive='active' *ngIf='isLoggedIn()'>Protected</a>
 
       </nav>
       <div class='comps'>
@@ -28,7 +28,7 @@ import {ActivatedRoute, Router} from '@angular/router';
   `
 })
 export class AuthAppComponent {
-  constructor(private auth: AuthService, private router: Router, private route: ActivatedRoute) {
+  constructor(public auth: AuthService, public router: Router, public route: ActivatedRoute) {
   }
 
   isLoggedIn() {

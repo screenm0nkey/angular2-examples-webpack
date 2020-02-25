@@ -18,10 +18,10 @@ import {Component, QueryList, TemplateRef, ViewChild, ViewChildren, ViewContaine
   `
 })
 export class BasicComponent4 {
-  @ViewChild('foo', {static: false}) template: TemplateRef<any>;
+  @ViewChild('foo') template: TemplateRef<any>;
   @ViewChildren(TemplateRef) templates: QueryList<TemplateRef<any>>;
 
-  constructor(private view: ViewContainerRef) {
+  constructor(public view: ViewContainerRef) {
   }
 
   ngAfterViewInit() {

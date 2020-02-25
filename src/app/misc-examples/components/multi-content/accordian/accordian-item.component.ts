@@ -21,11 +21,11 @@ import {AccordionComponent} from './accordian.component';
       </div>`
 })
 export class AccordionItem implements OnDestroy, OnInit {
-  private _isOpen: boolean = false;
+  public _isOpen: boolean = false;
   @Input() heading: string = '';
 
   // we're importing the component as a service
-  constructor(private accordion: AccordionComponent) {
+  constructor(public accordion: AccordionComponent) {
   }
 
   toggleOpen(event: Event) {

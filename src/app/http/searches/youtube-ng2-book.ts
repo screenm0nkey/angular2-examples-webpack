@@ -15,7 +15,7 @@ export class NgBookYoutubeSearch implements OnInit {
   loading: EventEmitter<any> = new EventEmitter();
   results: EventEmitter<any> = new EventEmitter();
 
-  constructor(private el: ElementRef, private ytService: YoutubeService) {
+  constructor(public el: ElementRef, public ytService: YoutubeService) {
     console.log(this, ytService);
   }
 

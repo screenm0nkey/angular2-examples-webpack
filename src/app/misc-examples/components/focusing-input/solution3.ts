@@ -23,10 +23,10 @@ import {Component, DoCheck, ElementRef, NgZone, ViewChild} from '@angular/core';
   `
 })
 export class SolutionThree implements DoCheck {
-  @ViewChild('input1', {static: false}) input1ElementRef: ElementRef;
-  private input1IsVisible: boolean = false;
+  @ViewChild('input1') input1ElementRef: ElementRef;
+  public input1IsVisible: boolean = false;
 
-  constructor(private _ngZone: NgZone) {
+  constructor(public _ngZone: NgZone) {
     console.log(this);
   }
 

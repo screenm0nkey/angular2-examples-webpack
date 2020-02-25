@@ -28,7 +28,7 @@ const formsRoutes: Routes = [
         component: ContactComponent
       },
       {
-        path: 'protected',
+        path: 'public',
         component: ProtectedComponent,
         canActivate: [LoggedInGuard]
       }

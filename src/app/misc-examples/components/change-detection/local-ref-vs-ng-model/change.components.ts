@@ -75,7 +75,7 @@ export class ChangeComponent {
     this.todoStr = this.todoItem.text;
   }
 
-  addItem(todoStr: string) {
+  addItem(todoStr: any) {
     if (todoStr) {
       if (this.todoItem) {
         this.store.updateItem(this.todoItem, todoStr);

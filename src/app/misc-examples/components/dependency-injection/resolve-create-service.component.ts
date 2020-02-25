@@ -1,5 +1,4 @@
 import {AfterViewInit, Component, ElementRef, Injectable, Injector, ViewChild} from '@angular/core';
-import {ParamService} from './injectables.service';
 
 @Injectable({providedIn: 'root'})
 class TheLovelyService {
@@ -30,11 +29,11 @@ class TheLovelyService {
   `
 })
 export class DiSampleComponent implements AfterViewInit {
-  @ViewChild('reffy', {static: false}) el: ElementRef;
+  @ViewChild('reffy') el: ElementRef;
   injector: Injector;
   myService: TheLovelyService;
 
-  constructor(public ps: ParamService) {
+  constructor() {
     // Notice that since we’re using our own injector, we didn’t have to add MyService to the NgModule providers list.
     this.injector = Injector.create([{provide: TheLovelyService, useClass: TheLovelyService, deps: []}]);
     this.myService = this.injector.get(TheLovelyService);

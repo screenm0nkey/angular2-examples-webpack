@@ -14,10 +14,10 @@ import {ExternalLinksService, ExtLink} from "./external-links.service";
   `
 })
 export class ExternalLinksComponent implements OnInit {
-  private links: ExtLink[];
-  private pristine: ExtLink[];
+  public links: ExtLink[];
+  public pristine: ExtLink[];
 
-  constructor(private linksService: ExternalLinksService) {
+  constructor(public linksService: ExternalLinksService) {
   }
 
   ngOnInit() {

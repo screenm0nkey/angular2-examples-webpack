@@ -27,7 +27,7 @@ import { WikiSearchService, WikiImage, WikiImageSearchResponse } from "./wikiped
 
       <p>The proxy for the searches is configured in <strong>proxy.config.json</strong> and <strong>package.json</strong></p>
 
-      <input type="text" (input)="input$.next($event)" />
+      <input #nikko type="text" (input)="input$.next(nikko.value)" />
       <span style="color: red">{{ searchTerm$ | async }}</span>
 
       <h3>{{ imageCount$ | async }} results</h3>
@@ -44,29 +44,29 @@ import { WikiSearchService, WikiImage, WikiImageSearchResponse } from "./wikiped
   `
 })
 export class JohnLinquistWikiSearch implements OnInit {
-  protected input$: Observable<string>;
-  protected searchTerm$: Observable<string>;
-  protected images$: Observable<WikiImage[]>;
-  protected imageCount$: Observable<number>;
+  public input$: Subject<string>;
+  public searchTerm$: Observable<string>;
+  public images$: Observable<WikiImage[]>;
+  public imageCount$: Observable<number>;
 
-  constructor(private wikipediaService: WikiSearchService) { }
+  constructor(public wikipediaService: WikiSearchService) { }
 
   ngOnInit(): void {
-    this.input$ = new Subject().pipe(map((event: Event) => (<HTMLInputElement>event.target).value));
+    this.input$ = new Subject();
 
     // hot observable
     const term$ = this.input$
       .pipe(tap((term: string) => console.log(1.1, term)))
       .pipe(distinctUntilChanged()) // only output distinct values, based on the last emitted value
       .pipe(debounceTime(250)) // time in ms to wait before allowing the emitted value to continue 
-      .pipe(filter(term => term.length > 2))
+      .pipe(filter((term: string) => term.length > 2))
       .pipe(tap((term: string) => console.log(1.2, term)))
       .pipe(share());
 
     // hot observable
     const lessThanTwoChars$ = this.input$
-      .pipe(filter(term => term.length <= 2))
-      .pipe(map(term => (!term.length ? "" : "Enter a term longer than 2 letters")))
+      .pipe(filter((term: string) => term.length <= 2))
+      .pipe(map((term: string) => (!term.length ? "" : "Enter a term longer than 2 letters")))
       .pipe(tap((term: string) => console.log(2.1, term)))
       .pipe(share());
 

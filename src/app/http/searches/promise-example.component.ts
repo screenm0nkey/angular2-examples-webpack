@@ -22,7 +22,7 @@ import {WikiSearchService} from './wikipedia-search.service';
 export class JsonpWikipediaPromise {
   items: Array<string>;
 
-  constructor(private wikiSearch: WikiSearchService) {
+  constructor(public wikiSearch: WikiSearchService) {
   }
 
   search(term: string) {

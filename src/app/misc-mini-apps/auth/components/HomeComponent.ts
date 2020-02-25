@@ -5,7 +5,7 @@ import {ActivatedRoute, Router} from '@angular/router';
   selector: 'home',
   template: `
       <h1>Welcome!</h1>
-      <p>Sign in and you get access to the protected</p>
+      <p>Sign in and you get access to the public</p>
 
       <pre> <highlight>ActivatedRoute</highlight>	A service that is provided to each route component 
 that contains route specific information such as route parameters, static data, 
@@ -20,7 +20,7 @@ currently activated routes together with convenience methods for traversing the 
 export class HomeComponent {
   id: number = 1;
 
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(public router: Router, public route: ActivatedRoute) {
   }
 
   goToProduct(id: string): void {

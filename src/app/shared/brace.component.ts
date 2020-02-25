@@ -5,7 +5,7 @@ import {Component, ElementRef, ViewChild} from '@angular/core';
   template: `<span #text><ng-content></ng-content></span>`,
 })
 export class BraceComponent {
-  @ViewChild('text', {static: false}) textElement: ElementRef;
+  @ViewChild('text') textElement: ElementRef;
 
   ngAfterViewInit() {
     this.textElement.nativeElement.innerHTML = `&#123;${this.textElement.nativeElement.innerHTML}&#125;`
@@ -18,7 +18,7 @@ export class BraceComponent {
   template: `<span #text><ng-content></ng-content></span>`,
 })
 export class HtmComponent {
-  @ViewChild('text', {static: false}) textElement: ElementRef;
+  @ViewChild('text') textElement: ElementRef;
 
   ngAfterViewInit() {
     this.textElement.nativeElement.innerHTML = `&lt;${this.textElement.nativeElement.innerHTML}&gt;`
@@ -31,7 +31,7 @@ export class HtmComponent {
   template: `<p class="path" #text><ng-content></ng-content></p>`,
 })
 export class PathComponent {
-  @ViewChild('text', {static: false}) textElement: ElementRef;
+  @ViewChild('text') textElement: ElementRef;
 
   ngAfterViewInit() {
     let html = this.textElement.nativeElement.innerHTML;
@@ -40,6 +40,15 @@ export class PathComponent {
 
   }
 }
+
+
+@Component({
+  selector: 'highlight',
+  template: `<ng-content class="highlight"></ng-content>`,
+})
+export class HighlightComponent {
+}
+
 
 
 

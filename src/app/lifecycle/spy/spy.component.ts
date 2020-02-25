@@ -44,7 +44,7 @@ export class SpyParentComponent {
   heroes: string[] = ['Windstorm', 'Magenta'];
   spyLog: string[];
 
-  constructor(private _logger: LoggerService) {
+  constructor(public _logger: LoggerService) {
     this.spyLog = _logger.logs;
   }
 

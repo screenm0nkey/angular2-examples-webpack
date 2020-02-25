@@ -54,7 +54,7 @@ export class SpeedingZonesComponent {
   offsetY: number;
   element: HTMLElement;
 
-  constructor(private zone: NgZone) {
+  constructor(public zone: NgZone) {
   }
 
   ngOnInit() {

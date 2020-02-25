@@ -28,7 +28,7 @@ import { DOCUMENT } from "@angular/common";
   `
 })
 export class DomAdapterComponent {
-  constructor(@Inject(DOCUMENT) public dom, private renderer: Renderer2) {}
+  constructor(@Inject(DOCUMENT) public dom, public renderer: Renderer2) {}
 
   add() {
     const el: HTMLButtonElement = this.renderer.createElement("button");

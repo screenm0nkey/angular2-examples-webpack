@@ -17,7 +17,7 @@ let nextId = 1;
 
 export class PeekABoo implements OnInit {
   // this instance of the _logger is the same as the parent
-  constructor(private _logger: LoggerService) {
+  constructor(public _logger: LoggerService) {
   }
 
   // implement OnInit's `ngOnInit` method
@@ -26,7 +26,7 @@ export class PeekABoo implements OnInit {
     this._logIt(`OnInit`);
   }
 
-  protected _logIt(msg: string) {
+  public _logIt(msg: string) {
     this._logger.log(`#${nextId++} ${msg}`);
   }
 }
@@ -48,7 +48,7 @@ export class PeekABooComponent extends PeekABoo
     AfterViewChecked,
     OnDestroy {
   @Input() name: string;
-  private _verb = 'initialized';
+  public _verb = 'initialized';
 
   constructor(logger: LoggerService) {
     super(logger);

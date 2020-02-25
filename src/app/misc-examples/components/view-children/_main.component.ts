@@ -17,7 +17,7 @@ import {Component} from '@angular/core';
               <code>@ViewChild('vc',<cur>read: ViewContainerRef</cur>) vc;</code>
               <code>@ViewChild(ChildViewComponent) viewChild: ChildViewComponent;</code>
               <code>@ViewChild(OnChangesComponent) childView: OnChangesComponent;</code>
-              <code>@ViewChild(KeepCountComponent) private keepCount: KeepCountComponent;</code>
+              <code>@ViewChild(KeepCountComponent) public keepCount: KeepCountComponent;</code>
               <code>@ViewChild('foo', <cur>static: false</cur>) template: TemplateRef;</code>
               <code>@ViewChildren(TemplateRef) templates: QueryList<lgt>TemplateRef</lgt></code>
           </section>

@@ -14,7 +14,7 @@ export interface Snippet {
 })
 export class UISnippets {
   @Input('uiSnippets') snippetsList: Array<Snippet>;
-  private _snippetRegex: RegExp;
+  public _snippetRegex: RegExp;
 
   constructor() {
     // W is anything not a word
@@ -27,7 +27,7 @@ export class UISnippets {
     }
   }
 
-  private _getValue(value: string) {
+  public _getValue(value: string) {
     let snippets = value.match(this._snippetRegex);
     snippets.forEach(snippet => {
       value = value.replace(snippet, this._getSnippetContent(snippet));
@@ -35,7 +35,7 @@ export class UISnippets {
     return value;
   }
 
-  private _getSnippetContent(snippet) {
+  public _getSnippetContent(snippet) {
     this.snippetsList.forEach(s => {
       if (
         s.name.toLowerCase() ===

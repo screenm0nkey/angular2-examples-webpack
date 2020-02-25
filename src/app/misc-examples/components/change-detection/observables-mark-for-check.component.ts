@@ -15,7 +15,7 @@ export class ObservableCmp {
   @Input() items: Observable<number>;
   counter = 0;
 
-  constructor(private changeDetector: ChangeDetectorRef) {
+  constructor(public changeDetector: ChangeDetectorRef) {
   }
 
   ngOnInit() {

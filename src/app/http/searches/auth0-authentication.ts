@@ -10,7 +10,7 @@ import {debounceTime, filter, map, switchMap, tap} from 'rxjs/operators';
 export class AutosearchAuth implements OnInit {
   results: EventEmitter<any> = new EventEmitter();
 
-  constructor(private elementRef: ElementRef) {
+  constructor(public elementRef: ElementRef) {
   }
 
   ngOnInit() {
@@ -45,7 +45,7 @@ export class Auth0Component implements OnInit {
   searchTerm: string = '';
   jsonny: JSON;
 
-  constructor(private _http: HttpClient) {
+  constructor(public _http: HttpClient) {
   }
 
   ngOnInit() {

@@ -17,7 +17,7 @@ import {GithubHttp} from './github.http';
   `
 })
 export class RepoBrowser {
-  constructor(private router: Router, private github: GithubHttp) {
+  constructor(public router: Router, public github: GithubHttp) {
   }
 
   searchForOrg(orgName: string) {

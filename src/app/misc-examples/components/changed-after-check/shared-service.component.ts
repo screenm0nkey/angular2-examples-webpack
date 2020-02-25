@@ -56,7 +56,7 @@ export class BComponent {
   name = 'I am B component';
   @Input() text;
 
-  constructor(private sharedService: SharedService) {
+  constructor(public sharedService: SharedService) {
   }
 
   ngOnInit() {

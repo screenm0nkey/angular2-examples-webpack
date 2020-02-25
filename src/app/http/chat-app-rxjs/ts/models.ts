@@ -24,6 +24,7 @@ export class Message {
   author: User;
   text: string;
   thread: Thread;
+  sender: string;
 
   constructor(obj?: any) {
     this.id = (obj && obj.id) || uuid();

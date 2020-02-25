@@ -1,8 +1,7 @@
 import {Component, OnInit, Optional, SkipSelf, Injectable} from '@angular/core';
 
-@Injectable({ providedIn: "root" })
 export class BloggerService {
-  constructor(private prefix: string) {}
+  constructor(public prefix: string) {}
 
   log(msg: string) {
     console.log(`Slogger (${this.prefix}): ${msg}`);

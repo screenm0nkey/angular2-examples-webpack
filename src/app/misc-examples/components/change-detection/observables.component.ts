@@ -29,7 +29,7 @@ class ThreadsService {
 export class ChildObsList {
   threads$: Subject<Thread[]>;
 
-  constructor(private threadsService: ThreadsService) {
+  constructor(public threadsService: ThreadsService) {
     this.threads$ = this.threadsService.threads;
     this.threads$.subscribe((threads: Thread[]) => console.log(threads));
   }
@@ -66,10 +66,10 @@ export class ChildObsList {
   `
 })
 export class ParentChangeObs {
-  private off: boolean = false;
+  public off: boolean = false;
 
-  constructor(private threadsService: ThreadsService,
-              private ref: ChangeDetectorRef) {
+  constructor(public threadsService: ThreadsService,
+              public ref: ChangeDetectorRef) {
   }
 
   update(msg: string) {

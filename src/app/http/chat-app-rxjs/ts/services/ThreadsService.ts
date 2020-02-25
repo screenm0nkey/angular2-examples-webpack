@@ -19,7 +19,7 @@ export class ThreadsService {
   // `currentThreadMessages` contains the set of messages$ for the currently selected thread
   currentThreadMessages: Observable<Message[]>;
 
-  constructor(private messagesService: MessagesService) {
+  constructor(public messagesService: MessagesService) {
     this.threads$ = messagesService.messages$.pipe(map((messages: Message[]) => {
       let threads: { [key: string]: Thread } = {};
       // Store the message's thread in our accumulator `threads$`

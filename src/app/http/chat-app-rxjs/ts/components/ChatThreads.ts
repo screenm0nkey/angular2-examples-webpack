@@ -19,7 +19,7 @@ import {Observable} from 'rxjs';
 export class ChatThreads {
   threads: Observable<any>;
 
-  constructor(private threadsService: ThreadsService) {
+  constructor(public threadsService: ThreadsService) {
     this.threads = threadsService.orderedThreads;
   }
 }

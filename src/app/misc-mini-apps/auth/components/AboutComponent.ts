@@ -45,7 +45,7 @@ export class AboutComponent {
   fragment: string;
   data: string;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(public route: ActivatedRoute) {
     route.params.subscribe((params: Params) => {
       // route.snapshot.parent.params['org'];
       this.params = params['id'];

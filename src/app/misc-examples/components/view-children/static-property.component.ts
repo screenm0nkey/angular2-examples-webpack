@@ -26,7 +26,7 @@ export class CardHeaderDirective {}
   `
 })
 export class CardComponent {
-  @ContentChild(CardHeaderDirective, { static: false }) header?: CardHeaderDirective;
+  @ContentChild(CardHeaderDirective) header?: CardHeaderDirective;
   constructor() {}
 }
 

@@ -64,10 +64,10 @@ export class InjectableComponent {
 })
 export class Dynamic01Component implements AfterViewInit {
   // ViewContainerRef is the container of the parent of this component.
-  @ViewChild("viewContainer", { read: ViewContainerRef, static: false }) viewContainer;
+  @ViewChild("viewContainer", { read: ViewContainerRef }) viewContainer;
 
   // ComponentFactoryResolver is used to get the factory of the component we want to inject
-  constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
+  constructor(public componentFactoryResolver: ComponentFactoryResolver) {}
 
   ngAfterViewInit() {
     const factory = this.componentFactoryResolver.resolveComponentFactory(

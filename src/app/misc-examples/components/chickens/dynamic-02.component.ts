@@ -16,7 +16,7 @@ export class MyComponentTemplate {
           <dlink [id]="1007"></dlink>
           <dlink [id]="80"></dlink>
           
-          <code>@ViewChild('vc', <cur>read: ViewContainerRef, static: false</cur>) private vc: ViewContainerRef;</code>
+          <code>@ViewChild('vc', <cur>read: ViewContainerRef, static: false</cur>) public vc: ViewContainerRef;</code>
           
           <p>For this example to work, we need to call <code>this.cdRef.detectChanges()</code> in the <code>ngAfterViewInit()</code> 
               unless it will throw an ExpressionChangedAfterItHasBeenCheckedError</p>
@@ -27,10 +27,10 @@ export class MyComponentTemplate {
   `
 })
 export class Dynamic02Component implements AfterViewInit {
-  @ViewChild('vc', {read: ViewContainerRef, static: false}) private viewContainerRef: ViewContainerRef;
+  @ViewChild('vc', { read: ViewContainerRef }) public viewContainerRef: ViewContainerRef;
   name :string;
 
-  constructor(private r: ComponentFactoryResolver, private cdRef:ChangeDetectorRef) {
+  constructor(public r: ComponentFactoryResolver, public cdRef:ChangeDetectorRef) {
   }
 
   ngAfterViewInit() {

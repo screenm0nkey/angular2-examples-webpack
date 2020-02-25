@@ -62,8 +62,8 @@ export default class ChatWindow {
   currentUser: User;
 
   constructor(
-    @Inject(AppStore) private store: Store<AppState>,
-    private el: ElementRef
+    @Inject(AppStore) public store: Store<AppState>,
+    public el: ElementRef
   ) {
     store.subscribe(this.updateState.bind(this));
     this.updateState();

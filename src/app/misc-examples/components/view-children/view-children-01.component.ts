@@ -23,7 +23,7 @@ import {SuperListItemComponent} from "./super-list-item.component";
 })
 export class ViewChildren01Component implements AfterViewInit {
   @ViewChildren(SuperListItemComponent) children: QueryList<SuperListItemComponent>;
-  @ViewChild('myref', {static: false}) el: ElementRef;
+  @ViewChild('myref') el: ElementRef;
 
   public items: string[] = [];
 

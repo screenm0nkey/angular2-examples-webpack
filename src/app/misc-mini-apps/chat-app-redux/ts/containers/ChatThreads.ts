@@ -25,7 +25,7 @@ export default class ChatThreads {
   threads: Thread[];
   currentThreadId: string;
 
-  constructor(@Inject(AppStore) private store: Store<AppState>) {
+  constructor(@Inject(AppStore) public store: Store<AppState>) {
     store.subscribe(() => this.updateState());
     this.updateState();
   }

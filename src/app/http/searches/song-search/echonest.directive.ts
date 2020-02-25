@@ -11,7 +11,7 @@ import { debounceTime, distinctUntilChanged, filter, map, mergeMap } from 'rxjs/
 export class MusicSearchDirective {
   results: EventEmitter<any> = new EventEmitter();
 
-  constructor(private elementRef: ElementRef, private service: MusicSearchService) {
+  constructor(public elementRef: ElementRef, public service: MusicSearchService) {
   }
 
   ngOnInit() {

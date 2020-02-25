@@ -28,7 +28,7 @@ export class ChatMessage implements OnInit {
   currentUser: User;
   incoming: boolean;
 
-  constructor(private userService: UserService) {
+  constructor(public userService: UserService) {
   }
 
   ngOnInit(): void {

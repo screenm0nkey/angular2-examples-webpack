@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 
 @Injectable({providedIn: 'root'})
 export class CustomersDataService {
-  constructor(private _http: HttpClient) {
+  constructor(public _http: HttpClient) {
   }
 
   getCustomers() {

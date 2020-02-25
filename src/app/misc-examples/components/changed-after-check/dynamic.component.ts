@@ -31,7 +31,7 @@ export class DComponent {
     <code
       >@ViewChild('vc',
       <cur>read: ViewContainerRef, static: false</cur>
-      ) private vc: ViewContainerRef;</code
+      ) public vc: ViewContainerRef;</code
     >
     <p>
       <dlink [id]="66"></dlink>
@@ -50,11 +50,11 @@ export class DComponent {
   `
 })
 export class DynamicComponent implements OnInit, AfterViewInit {
-  @ViewChild("vc", { read: ViewContainerRef, static: false })
-  private vc: ViewContainerRef;
+  @ViewChild("vc", { read: ViewContainerRef })
+  public vc: ViewContainerRef;
   name: string;
 
-  constructor(private r: ComponentFactoryResolver) {}
+  constructor(public r: ComponentFactoryResolver) {}
 
   ngOnInit() {
     // this.name = 'I am Dynamic01Component';

@@ -59,9 +59,9 @@ export class SearchComponent implements OnInit {
   results$: Observable<any[]>;
 
   constructor(
-    private spotify: SpotifyService,
-    private router: Router,
-    private route: ActivatedRoute
+    public spotify: SpotifyService,
+    public router: Router,
+    public route: ActivatedRoute
   ) {
     this.search = this.search.bind(this);
     this.route.queryParams.subscribe(params => {

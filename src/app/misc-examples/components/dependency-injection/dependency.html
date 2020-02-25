@@ -219,8 +219,8 @@
 
     <p>Injecting a component as a service or access it via @ViewChild or simply reference it as a property in your component</p>
 
-    <code>@ViewChild(CountdownTimerComponent,<cur>static: false</cur>) private timerComponent: CountdownTimerComponent;</code>
-    <code>constructor(private accordion: AccordionComponent)</code>
+    <code>@ViewChild(CountdownTimerComponent,<cur>static: false</cur>) public timerComponent: CountdownTimerComponent;</code>
+    <code>constructor(public accordion: AccordionComponent)</code>
   </section>
 </div>
 

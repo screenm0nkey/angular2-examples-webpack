@@ -31,7 +31,7 @@ export class RedditExample implements OnInit {
   results$: Observable<any[]>;
   loading: boolean = false;
 
-  constructor(private http: HttpClient) { }
+  constructor(public http: HttpClient) { }
 
   ngOnInit() {
     let searchField = new FormControl();

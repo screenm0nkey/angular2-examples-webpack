@@ -13,7 +13,7 @@ export class ChatService {
   public message$: Observable<string>;
   public messages$: Observable<string[]>;
 
-  constructor(private socket$: Socket) {
+  constructor(public socket$: Socket) {
     const disconnect$ = this.socket$.fromEvent("disconnect");
     const connect$ = this.socket$.fromEvent("connect");
     this.connected$ = merge(

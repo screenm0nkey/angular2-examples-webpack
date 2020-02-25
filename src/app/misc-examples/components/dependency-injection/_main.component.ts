@@ -7,7 +7,7 @@ import {MrTestyServiceOne, MrTestyServiceTwo, RubbishService} from './injectable
 })
 export class DepInjectionComponent implements OnInit {
 
-  constructor(private ts1: MrTestyServiceOne, private ts2: MrTestyServiceTwo, rubbishService: RubbishService) {
+  constructor(public ts1: MrTestyServiceOne, public ts2: MrTestyServiceTwo, rubbishService: RubbishService) {
   }
 
   ngOnInit(): void {

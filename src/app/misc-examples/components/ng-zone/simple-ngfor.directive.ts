@@ -24,8 +24,8 @@ export class SimpleNgFor implements DoCheck {
   @Input() simpleNgForOf: any[];
 
   constructor(
-    private _viewContainer: ViewContainerRef,
-    private _template: TemplateRef<SimpleNgForRow>
+    public _viewContainer: ViewContainerRef,
+    public _template: TemplateRef<SimpleNgForRow>
   ) {}
 
   // see here for an explanation of this setter

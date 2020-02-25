@@ -40,7 +40,7 @@ export class PeekABooParentComponent {
   hookLog: string[];
 
   heroName = 'Windstorm';
-  private _logger: LoggerService;
+  public _logger: LoggerService;
 
   constructor(logger: LoggerService) {
     this._logger = logger;

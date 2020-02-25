@@ -22,7 +22,7 @@ import {AppState, getUnreadMessagesCount} from '../reducers/index';
 export default class ChatNavBar {
   unreadMessagesCount: number;
 
-  constructor(@Inject(AppStore) private store: Store<AppState>) {
+  constructor(@Inject(AppStore) public store: Store<AppState>) {
     store.subscribe(this.updateState.bind(this));
     this.updateState();
   }

@@ -8,7 +8,7 @@ import {AddUnitAction, Unit} from "../reducers/_reducers.service";
 
 @Injectable({providedIn: 'root'})
 export class UnitEffects {
-  constructor(private actions$: Actions) {
+  constructor(public actions$: Actions) {
   }
 
   @Effect()

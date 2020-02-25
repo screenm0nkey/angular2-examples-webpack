@@ -37,9 +37,9 @@ export class LoginComponent {
   message: string = '';
 
   constructor(
-    private authService: AuthService,
-    private router: Router,
-    private route: ActivatedRoute
+    public authService: AuthService,
+    public router: Router,
+    public route: ActivatedRoute
   ) {
   }
 
@@ -54,7 +54,7 @@ export class LoginComponent {
 
   logout(): boolean {
     this.authService.logout();
-    if (this.router.url.endsWith('protected')) {
+    if (this.router.url.endsWith('public')) {
       this.router.navigate(['./aboutus', 34], {relativeTo: this.route});
     }
     return false;

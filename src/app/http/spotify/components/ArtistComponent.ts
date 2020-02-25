@@ -27,9 +27,9 @@ export class ArtistComponent implements OnInit {
   artist$: Observable<any[]>;
 
   constructor(
-    private route: ActivatedRoute,
-    private spotify: SpotifyService,
-    private location: Location
+    public route: ActivatedRoute,
+    public spotify: SpotifyService,
+    public location: Location
   ) {
     route.params.subscribe(params => {
       this.id = params['id'];

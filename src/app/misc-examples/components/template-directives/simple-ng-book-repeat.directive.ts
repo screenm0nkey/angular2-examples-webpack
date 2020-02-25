@@ -22,16 +22,16 @@ export interface Person {
 })
 export class NgBookRepeatDirective implements DoCheck {
   // items holds the collection we’re iterating on
-  private items: Person[];
+  public items: Person[];
   // differ is used for change detection purposes
-  private differ: IterableDiffer<Person>;
+  public differ: IterableDiffer<Person>;
   // views is a Map that will link a given item on the collection with the view that contains it
-  private views: Map<any, ViewRef> = new Map<any, ViewRef>();
+  public views: Map<any, ViewRef> = new Map<any, ViewRef>();
 
   constructor(
-    private viewContainer: ViewContainerRef,
-    private template: TemplateRef<any>,
-    private differs: IterableDiffers
+    public viewContainer: ViewContainerRef,
+    public template: TemplateRef<any>,
+    public differs: IterableDiffers
   ) {}
 
   // this will trigger when we set the ngBookRepeatOf input,

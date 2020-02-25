@@ -12,7 +12,7 @@ import {map} from 'rxjs/operators'
 export class SpotifyService {
   static BASE_URL: string = 'https://api.spotify.com/v1';
 
-  constructor(private http: HttpClient) {
+  constructor(public http: HttpClient) {
   }
 
   query(URL: string, params?: Array<string>): Observable<any> {

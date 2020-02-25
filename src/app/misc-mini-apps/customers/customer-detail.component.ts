@@ -30,7 +30,7 @@ import {map} from 'rxjs/operators';
 export class CustomerDetailComponent {
   customer: Customer;
 
-  constructor(private route: ActivatedRoute, public dataService: CustomersDataService) {
+  constructor(public route: ActivatedRoute, public dataService: CustomersDataService) {
   }
 
   ngOnInit() {

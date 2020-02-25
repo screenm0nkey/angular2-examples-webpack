@@ -1,5 +1,5 @@
-import {AfterViewInit, Component, ElementRef, OnInit} from '@angular/core';
-import {CollapseItService} from "./collapse-it.service";
+import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
+import { CollapseItService } from "./collapse-it.service";
 
 @Component({
   selector: '[collapse-it], collapse-it',
@@ -17,10 +17,11 @@ import {CollapseItService} from "./collapse-it.service";
   `
 })
 export class CollapseItComponent implements AfterViewInit, OnInit {
-  private open: boolean;
-  private title: string;
+  public open: boolean;
+  public title: string;
+  public nick: ElementRef;
 
-  constructor(private el: ElementRef, private cas: CollapseItService) {
+  constructor(public el: ElementRef, public cas: CollapseItService) {
     // console.log(el.nativeElement);
   }
 

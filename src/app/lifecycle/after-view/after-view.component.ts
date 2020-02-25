@@ -25,13 +25,13 @@ export class ChildViewComponent {
   `
 })
 export class AfterViewComponent implements AfterViewChecked, AfterViewInit {
-  private _prevHero: string = '';
+  public _prevHero: string = '';
   public comment: string = '';
 
   // Query for a VIEW child of type `ChildViewComponent`
-  @ViewChild(ChildViewComponent, { static: false }) viewChild: ChildViewComponent;
+  @ViewChild(ChildViewComponent) viewChild: ChildViewComponent;
 
-  constructor(private _logger: LoggerService) {
+  constructor(public _logger: LoggerService) {
     this._logIt('AfterViewComponent constructor');
   }
 
@@ -53,7 +53,7 @@ export class AfterViewComponent implements AfterViewChecked, AfterViewInit {
   }
 
   // This surrogate for real business logic sets the `comment`
-  private _doSomething() {
+  public _doSomething() {
     let c = this.viewChild.hero.length > 10 ? 'Thats a long name' : '';
     if (c !== this.comment) {
       // Wait a tickReducer because the component's view has already been checked
@@ -61,7 +61,7 @@ export class AfterViewComponent implements AfterViewChecked, AfterViewInit {
     }
   }
 
-  private _logIt(method: string) {
+  public _logIt(method: string) {
     let vc = this.viewChild;
     let message = `'${vc ? vc.hero : 'no'}' child view`;
     this._logger.log(method + message);

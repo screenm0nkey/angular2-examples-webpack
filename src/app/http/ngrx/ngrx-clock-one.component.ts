@@ -34,7 +34,7 @@ export class NgRxClockOneComponent implements OnInit {
   dayForward$: Subject<MyAction>;
   merged$: Observable<MyAction>;
 
-  constructor(private store: Store<MyNgRxStore>) {
+  constructor(public store: Store<MyNgRxStore>) {
   }
 
   ngOnInit() {

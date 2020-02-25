@@ -12,7 +12,7 @@ import { Component, Directive, ElementRef } from "@angular/core";
 export class PopupDirective {
   message: string;
 
-  constructor(private elRef: ElementRef) {
+  constructor(public elRef: ElementRef) {
     console.log(1, elRef.nativeElement);
   }
 

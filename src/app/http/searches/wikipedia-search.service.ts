@@ -38,7 +38,7 @@ const defaultOptions = {
 
 @Injectable({ providedIn: "root" })
 export class WikiSearchService {
-  constructor(private http: HttpClient) { }
+  constructor(public http: HttpClient) { }
 
   get(url: string, options): Observable<JSON> {
     let headers = new HttpHeaders();

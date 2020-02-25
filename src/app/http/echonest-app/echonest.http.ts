@@ -22,9 +22,9 @@ export interface ITunesResponse {
  * */
 @Injectable({ providedIn: 'root' })
 export class MusicSearchRepo {
-  private static url: string = '/api/uk/rss/topsongs/limit=100/json';
+  public static url: string = '/api/uk/rss/topsongs/limit=100/json';
 
-  constructor(private _http: HttpClient) {
+  constructor(public _http: HttpClient) {
   }
 
   get(num: number): Observable<Artist[]> {

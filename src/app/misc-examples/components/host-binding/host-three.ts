@@ -3,7 +3,7 @@ import {FormBuilder, FormGroup, NgModel, Validators} from '@angular/forms';
 
 @Directive({selector: '[ngModel]'})
 export class NgModelStatusThree {
-  private isFixed : boolean;
+  public isFixed : boolean;
   // el is the element the directive is applied too.
   constructor(public el: ElementRef, public control: NgModel) {
     this.isFixed = true;

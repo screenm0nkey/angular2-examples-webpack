@@ -22,9 +22,9 @@ import { Router } from '@angular/router';
 })
 export class ExternalLinkComponent implements OnInit {
   @Input() id: number;
-  private link: ExtLink;
+  public link: ExtLink;
 
-  constructor(private router: Router, private linksService: ExternalLinksService) {
+  constructor(public router: Router, public linksService: ExternalLinksService) {
   }
 
   ngOnInit() {

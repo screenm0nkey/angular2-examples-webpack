@@ -12,7 +12,7 @@ import {AccordionItem} from './accordian-item.component';
   template: '<ng-content></ng-content>'
 })
 export class AccordionComponent {
-  private groups: Array<AccordionItem> = [];
+  public groups: Array<AccordionItem> = [];
 
   addGroup(group: AccordionItem): void {
     this.groups.push(group);

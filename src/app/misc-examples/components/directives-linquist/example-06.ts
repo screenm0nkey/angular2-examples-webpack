@@ -8,7 +8,7 @@ import {AfterViewInit, Component, Directive, ElementRef, TemplateRef, ViewContai
 })
 export class ThreeDirective implements AfterViewInit {
 
-  constructor(el: ElementRef, private view: ViewContainerRef, private template: TemplateRef<any>) {
+  constructor(el: ElementRef, public view: ViewContainerRef, public template: TemplateRef<any>) {
     console.log(123, 'el.nativeElement', el.nativeElement);
   }
 

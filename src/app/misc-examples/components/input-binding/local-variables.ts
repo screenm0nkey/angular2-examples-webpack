@@ -33,7 +33,7 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
     this.message = `Holding at T-${this.seconds} seconds`;
   }
 
-  private countDown() {
+  public countDown() {
     this.clearTimer();
     this.intervalId = window.setInterval(() => {
       this.seconds -= 1;

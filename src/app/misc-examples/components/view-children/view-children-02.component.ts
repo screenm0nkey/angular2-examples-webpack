@@ -11,7 +11,7 @@ import {SuperListItemComponent} from "./super-list-item.component";
           
           <code>
               @ViewChildren(SuperListItemComponent) children: QueryList <lgt>SuperListItemComponent</lgt>;
-              @ViewChild(KeepCountComponent, <cur>static: false</cur>) private keepCount: KeepCountComponent;
+              @ViewChild(KeepCountComponent, <cur>static: false</cur>) public keepCount: KeepCountComponent;
           </code>
 
           <section class="example">
@@ -26,7 +26,7 @@ import {SuperListItemComponent} from "./super-list-item.component";
 })
 export class ViewChildren02Component implements AfterViewInit {
   @ViewChildren(SuperListItemComponent) children: QueryList<SuperListItemComponent>;
-  @ViewChild(KeepCountComponent, {static: false}) private keepCount: KeepCountComponent;
+  @ViewChild(KeepCountComponent) public keepCount: KeepCountComponent;
 
   public items: string[] = ['hello'];
 

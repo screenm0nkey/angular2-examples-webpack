@@ -6,7 +6,7 @@ import {sharedPipes} from './pipes';
 import {ExternalLinksComponent} from './external-links/external-links.component';
 import {ExternalLinkComponent} from "./external-links/external-link.component";
 import {ExternalLinksService} from "./external-links/external-links.service";
-import {BraceComponent, HtmComponent, PathComponent} from "./brace.component";
+import {BraceComponent, HtmComponent, PathComponent, HighlightComponent} from "./brace.component";
 import {CommonModule} from '@angular/common';
 import {CollapseItComponent} from "./collapse-it/collapse-it.component";
 import {CollapseAllComponent} from "./collapse-it/collapse-all.component";
@@ -39,7 +39,7 @@ import {CollapseAllComponent} from "./collapse-it/collapse-all.component";
     HttpClientJsonpModule,
     ExternalLinksComponent,
     ExternalLinkComponent,
-    BraceComponent, HtmComponent, PathComponent,
+    BraceComponent, HtmComponent, PathComponent, HighlightComponent,
     CollapseItComponent,
     CollapseAllComponent,
     ...sharedPipes
@@ -48,7 +48,7 @@ import {CollapseAllComponent} from "./collapse-it/collapse-all.component";
     ...sharedPipes,
     ExternalLinksComponent,
     ExternalLinkComponent,
-    BraceComponent, HtmComponent, PathComponent,
+    BraceComponent, HtmComponent, PathComponent, HighlightComponent,
     CollapseItComponent,
     CollapseAllComponent,
   ],
@@ -62,7 +62,7 @@ export class SharedModule {
    * If we ever used SomeModule.forRoot() to prevent creation of additional instances of the service
    * by the lazy loaded modules we can simply use providedIn: 'root' instead.
    */
-  public static forRoot(): ModuleWithProviders {
+  public static forRoot(): ModuleWithProviders<SharedModule> {
     return {
       ngModule: SharedModule,
     };

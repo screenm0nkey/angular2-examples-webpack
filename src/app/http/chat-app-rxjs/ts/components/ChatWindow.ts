@@ -61,10 +61,10 @@ export class ChatWindow implements OnInit {
   currentUser: User;
 
   constructor(
-    private messagesService: MessagesService,
-    private threadsService: ThreadsService,
-    private userService: UserService,
-    private el: ElementRef
+    public messagesService: MessagesService,
+    public threadsService: ThreadsService,
+    public userService: UserService,
+    public el: ElementRef
   ) {
   }
 

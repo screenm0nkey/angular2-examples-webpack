@@ -10,7 +10,7 @@ export interface Character {
 export class CharacterService {
   characters: Character[] = [];
 
-  constructor(private _http: HttpClient) {
+  constructor(public _http: HttpClient) {
   }
 
   getCharacters(): Promise<Character[]> {
@@ -38,7 +38,7 @@ export class CharacterService {
 export class PromiseExample implements OnInit {
   characters: Character[];
 
-  constructor(private _characterService: CharacterService) {
+  constructor(public _characterService: CharacterService) {
     console.log(this);
   }
 

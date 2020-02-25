@@ -18,7 +18,7 @@ export const asyncRoutes: Routes = [
       { path: 'ngrx-examples', component: NgrxContainerComponent },
       { path: 'echonest-app', component: MusicSearchAppComponent },
       { path: 'chat-app-rxjs', component: ChatAppComponent },
-      { path: 'spotify', loadChildren: './spotify/spotify.module#SpotifyModule' },
+      { path: 'spotify', loadChildren: () => import('./spotify/spotify.module').then(m => m.SpotifyModule) },
       // { path: 'spotify', component: SpotifyDemoApp },
     ]
   }

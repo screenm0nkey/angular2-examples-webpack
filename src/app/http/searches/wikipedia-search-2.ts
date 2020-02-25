@@ -25,7 +25,7 @@ export class WikipediaObservable {
   term = new FormControl();
   loading: boolean = false;
 
-  constructor(private wikiSearch: WikiSearchService) {
+  constructor(public wikiSearch: WikiSearchService) {
     this.items = this.term.valueChanges
       .pipe(tap(() => (this.loading = true)))
       .pipe(debounceTime(400))

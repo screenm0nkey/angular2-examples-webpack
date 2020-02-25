@@ -14,8 +14,8 @@ import {Component, Input, OnChanges, SimpleChange} from '@angular/core';
   `
 })
 export class DisplayJsonComponent implements OnChanges {
-  private changes: { [propName: string]: SimpleChange };
-  private localstring: string;
+  public changes: { [propName: string]: SimpleChange };
+  public localstring: string;
   @Input('name') name: string;
   @Input('comment') comment: string;
 

@@ -6,7 +6,7 @@ import {Observable} from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class LoggedInGuard implements CanActivate {
-  constructor(private authService: AuthService) {
+  constructor(public authService: AuthService) {
   }
 
   canActivate(

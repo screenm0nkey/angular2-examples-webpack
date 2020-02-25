@@ -18,7 +18,7 @@ import {AfterViewInit, Component, ElementRef, Renderer2, ViewChild} from '@angul
   `
 })
 export class SolutionFour implements AfterViewInit {
-  @ViewChild('myInput', {static: false}) input: ElementRef;
+  @ViewChild('myInput') input: ElementRef;
 
   ngAfterViewInit() {
     this.input.nativeElement.focus();

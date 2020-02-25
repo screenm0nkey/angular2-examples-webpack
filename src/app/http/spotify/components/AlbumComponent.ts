@@ -8,6 +8,7 @@ import {Location} from '@angular/common';
  * Services
  */
 import {SpotifyService} from '../spotify.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'album$',
@@ -35,12 +36,12 @@ import {SpotifyService} from '../spotify.service';
 })
 export class AlbumComponent implements OnInit {
   id: string;
-  album$: Object;
+  album$: Observable<any>;
 
   constructor(
-    private route: ActivatedRoute,
-    private spotify: SpotifyService, // <-- injected
-    private location: Location
+    public route: ActivatedRoute,
+    public spotify: SpotifyService, // <-- injected
+    public location: Location
   ) {
     route.params.subscribe(params => {
       this.id = params['id'];

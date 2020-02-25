@@ -5,7 +5,7 @@ import {Component} from '@angular/core';
   template: `<h5>{{count}}</h5>`
 })
 export class KeepCountComponent {
-  private count: number = 0;
+  public count: number = 0;
 
   updateCount(num: number) {
     // if we don't wrap this in a timeout we will get an 'ExpressionChangedAfterItHasBeenCheckedError'

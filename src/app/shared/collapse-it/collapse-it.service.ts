@@ -26,13 +26,13 @@ export class CollapseItService {
     return !!map[key];
   }
 
-  private createKeyFromTitle(title: string = ""): string {
+  public createKeyFromTitle(title: string = ""): string {
     const titleRegex = /[\(\)\{\}\<\>\[\]\/@,.:\-='?&\s*]/g;
     // console.log(title.replace(titleRegex, "").toLowerCase());
     return title.replace(titleRegex, "").toLowerCase();
   }
 
-  private getFromLocalStorage() {
+  public getFromLocalStorage() {
     const map = localStorage.getItem("collapseIt");
     return map ? JSON.parse(map) : {};
   }

@@ -39,7 +39,7 @@ export class NgrxPeopleComponent implements OnInit {
   people$: Observable<PersonAction>;
   merged$: Observable<any>;
 
-  constructor(private store: Store<MyNgRxStore>) {
+  constructor(public store: Store<MyNgRxStore>) {
   }
 
   ngOnInit() {

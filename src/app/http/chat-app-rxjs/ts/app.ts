@@ -15,9 +15,9 @@ import {ChatExampleData} from './chat-data';
 })
 export class ChatAppComponent {
   constructor(
-    private messagesService: MessagesService,
-    private threadsService: ThreadsService,
-    private userService: UserService
+    public messagesService: MessagesService,
+    public threadsService: ThreadsService,
+    public userService: UserService
   ) {
     ChatExampleData.init(messagesService, threadsService, userService);
   }

@@ -62,15 +62,9 @@ export class MrTestyServiceTwo {
   }
 }
 
-@Injectable({ providedIn: "root" })
 export class ParamService {
-  constructor(private phrase: string, num: number) {
-    console.log(
-      "%cParamService is being created with phrase",
-      "color:violet",
-      phrase,
-      num
-    );
+  constructor(public phrase: string, num: number) {
+    console.log("%cParamService is being created with phrase","color:violet",phrase,num);
   }
 
   getValue(): string {

@@ -12,7 +12,7 @@ import {Directive, ElementRef, HostListener, Input} from '@angular/core';
 })
 export class Tooltip {
   @Input('myHighlight') highlightColor: string;
-  private _defaultColor = 'red';
+  public _defaultColor = 'red';
 
   /**
    * notice two different ways of binding to the host element...
@@ -31,14 +31,14 @@ export class Tooltip {
     this._defaultColor = colorName || this._defaultColor;
   }
 
-  constructor(private el: ElementRef) {
+  constructor(public el: ElementRef) {
   }
 
   onMouseEnter() {
     this._highlight(this.highlightColor || this._defaultColor);
   }
 
-  private _highlight(color: string) {
+  public _highlight(color: string) {
     this.el.nativeElement.style.backgroundColor = color;
   }
 }

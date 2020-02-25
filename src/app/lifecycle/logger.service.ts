@@ -7,7 +7,7 @@ export class LoggerService {
   prevMsgCount: number = 1;
   tid;
 
-  constructor(private zone: NgZone) {
+  constructor(public zone: NgZone) {
   }
 
   log(msg: string) {

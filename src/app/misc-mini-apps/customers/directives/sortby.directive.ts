@@ -7,7 +7,7 @@ export class SortByDirective {
   @Output() sorted: EventEmitter<any> = new EventEmitter();
   sortProperty: string;
 
-  constructor(private el: ElementRef) {
+  constructor(public el: ElementRef) {
     this.sortProperty = el.nativeElement.getAttribute('sort-by');
     el.nativeElement.addEventListener('click', evt => this.elementClicked(evt));
   }

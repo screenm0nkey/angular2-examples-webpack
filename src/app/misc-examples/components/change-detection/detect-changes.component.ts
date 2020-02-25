@@ -67,7 +67,7 @@ export class DetectChanges implements AfterViewInit {
   id: any = 0;
   attached: boolean;
 
-  constructor(private ref: ChangeDetectorRef) {}
+  constructor(public ref: ChangeDetectorRef) {}
 
   /**
    * We only want to detach the change detectors after change detection has been performed for the first time,

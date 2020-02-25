@@ -30,12 +30,12 @@ const SOME_TOKEN = new InjectionToken<string>(`SomeToken`);
   `
 })
 export class DiSampleComponent2 {
-  @ViewChild("reffy", { static: false }) el: ElementRef;
+  @ViewChild("reffy") el: ElementRef;
 
   constructor(
-    private apiService: ApiService,
-    @Inject("ApiServiceAlias") private aliasService: ApiService, // provided in module
-    @Inject("SizeService") private sizeService: any // factory provided in module
+    public apiService: ApiService,
+    @Inject("ApiServiceAlias") public aliasService: ApiService, // provided in module
+    @Inject("SizeService") public sizeService: any // factory provided in module
   ) {}
 
   invokeApi(): void {

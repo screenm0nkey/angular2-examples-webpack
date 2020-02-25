@@ -34,7 +34,7 @@ export class OnChangesParentComponent {
   hero: Hero;
   power: string;
   title = 'OnChanges';
-  @ViewChild(OnChangesComponent, { static: false }) childView: OnChangesComponent;
+  @ViewChild(OnChangesComponent) childView: OnChangesComponent;
 
   constructor() {
     this.reset();

@@ -26,7 +26,7 @@ export class CharacterService {
 export class SubscribeExample implements OnInit {
   characters: User[];
 
-  constructor(private _characterService: CharacterService) {
+  constructor(public _characterService: CharacterService) {
   }
 
   ngOnInit() {

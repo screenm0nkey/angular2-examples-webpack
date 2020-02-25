@@ -21,7 +21,7 @@ export class MusicSearchService {
       .pipe(map((data: Response) => this.matchSongTitle(name, data.feed.entry)));
   }
 
-  private matchSongTitle(name: string, items): string[] {
+  public matchSongTitle(name: string, items): string[] {
     return items
       .map((ent, x: number) => ({ id: x, label: ent['im:name'].label }))
       .filter(item => item.label.toLocaleLowerCase().indexOf(name.toLocaleLowerCase()) >= 0);

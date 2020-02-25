@@ -30,10 +30,10 @@ export class TemplateService {
   `
 })
 export class TemplateStorageComponent {
-  @ViewChild("header", { static: false }) headerTemplate: TemplateRef<any>;
-  @ViewChild("footer", { static: false }) footerTemplate: TemplateRef<any>;
+  @ViewChild("header") headerTemplate: TemplateRef<any>;
+  @ViewChild("footer") footerTemplate: TemplateRef<any>;
 
-  constructor(private service: TemplateService) {}
+  constructor(public service: TemplateService) {}
 
   ngAfterViewInit() {
     this.service.templates.set("header", this.headerTemplate);
@@ -49,9 +49,9 @@ export class TemplateStorageComponent {
 })
 export class SurroundDirective {
   constructor(
-    private service: TemplateService,
-    private view: ViewContainerRef,
-    private template: TemplateRef<any>
+    public service: TemplateService,
+    public view: ViewContainerRef,
+    public template: TemplateRef<any>
   ) {}
 
   ngAfterViewInit() {

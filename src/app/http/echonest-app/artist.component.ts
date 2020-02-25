@@ -18,10 +18,10 @@ export class ArtistComponent implements OnInit, OnChanges {
   @Output() select = new EventEmitter();
   @Input() artist: Artist;
   @Input() type: string;
-  private readonly ADD: string = 'Add';
-  private readonly REMOVE: string = 'Remove';
-  private buttonText: string;
-  private disabled: boolean;
+  public readonly ADD: string = 'Add';
+  public readonly REMOVE: string = 'Remove';
+  public buttonText: string;
+  public disabled: boolean;
 
   // only called for/if there is an @Input variable set by parent.
   // Responds after Angular sets a data-bound @input property. The method

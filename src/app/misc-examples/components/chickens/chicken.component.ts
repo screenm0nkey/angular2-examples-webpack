@@ -30,7 +30,7 @@ interface Customer {
 export class HttpDataService {
   chickens: Observable<any>;
 
-  constructor(private http: HttpClient) {
+  constructor(public http: HttpClient) {
     this.chickens = http.get("/assets/json/chickens.json");
   }
 
@@ -97,11 +97,11 @@ export class SayNameButtonComponent {
   `
 })
 export class ChickenComponent implements OnInit {
-  @ViewChild("namey", { static: false }) namey: ElementRef;
+  @ViewChild("namey") namey: ElementRef;
   buttons: Button[];
   customers: Customer[];
 
-  constructor(private httpService: HttpDataService) {}
+  constructor(public httpService: HttpDataService) {}
 
   ngOnInit() {
     this.getData();

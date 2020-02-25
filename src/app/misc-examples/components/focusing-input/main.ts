@@ -19,7 +19,7 @@ import {Component} from '@angular/core';
   `
 })
 export class FocusInput {
-  private isVisible: boolean = true;
+  public isVisible: boolean = true;
 
   appearInput(visible: boolean) {
     this.isVisible = !this.isVisible;

@@ -29,7 +29,7 @@ export class AutoSearch implements OnInit {
   results$: Observable<any>;
   buttonDisabled: boolean;
 
-  constructor(public http: HttpClient, private wiki: WikiSearchService) {
+  constructor(public http: HttpClient, public wiki: WikiSearchService) {
 
   }
 

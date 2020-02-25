@@ -34,7 +34,7 @@ export class ShareHttpRequest {
   secondUser$: Observable<User>;
   allUserCount: number;
 
-  constructor(private http: HttpClient) {
+  constructor(public http: HttpClient) {
   }
 
   notShared() {

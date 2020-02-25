@@ -14,11 +14,11 @@ import {GithubHttp} from './github.http';
   `
 })
 export class RepoDetail implements OnInit {
-  private org: string;
-  private repo: string;
+  public org: string;
+  public repo: string;
   public repoDetails: any = {};
 
-  constructor(public github: GithubHttp, private route: ActivatedRoute) {
+  constructor(public github: GithubHttp, public route: ActivatedRoute) {
   }
 
   ngOnInit() {

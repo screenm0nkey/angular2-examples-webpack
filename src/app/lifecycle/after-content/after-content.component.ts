@@ -25,13 +25,13 @@ export class ChildComponent {
 })
 export class AfterContentComponent
   implements AfterContentChecked, AfterContentInit {
-  private _prevHero = '';
+  public _prevHero = '';
   public comment = '';
 
   // Query for a CONTENT child of type `InjectParentInChildComponent`
-  @ContentChild(ChildComponent, { static: false }) contentChild: ChildComponent;
+  @ContentChild(ChildComponent) contentChild: ChildComponent;
 
-  constructor(private _logger: LoggerService) {
+  constructor(public _logger: LoggerService) {
     this._logIt('AfterContent constructor');
   }
 
@@ -53,12 +53,12 @@ export class AfterContentComponent
   }
 
   // This surrogate for real business logic sets the `comment`
-  private _doSomething() {
+  public _doSomething() {
     this.comment =
       this.contentChild.hero.length > 10 ? 'Thats a long name' : '';
   }
 
-  private _logIt(method: string) {
+  public _logIt(method: string) {
     const vc = this.contentChild;
     const message = `${method}: ${vc ? vc.hero : 'no'} child view`;
     this._logger.log(message);

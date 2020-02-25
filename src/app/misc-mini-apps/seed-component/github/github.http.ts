@@ -5,7 +5,7 @@ import {map} from 'rxjs/operators';
 
 @Injectable({providedIn: 'root'})
 export class GithubHttp {
-  constructor(private http: HttpClient) {
+  constructor(public http: HttpClient) {
   }
 
   getOrg(org: string): any {
@@ -20,7 +20,7 @@ export class GithubHttp {
     return this.makeRequest(`repos/${org}/${repo}`);
   }
 
-  private makeRequest(path: string) {
+  public makeRequest(path: string) {
     let params = new HttpParams();
     params.set('per_page', '100');
 

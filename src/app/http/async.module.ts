@@ -7,7 +7,7 @@ import {MusicSearchModule} from './echonest-app/echonest.module';
 import {SearchesModule} from './searches/_searches.module';
 import {SpotifyModule} from './spotify/spotify.module';
 import {ChatAppRxJsModule} from './chat-app-rxjs/ts/app.module';
-import {NgrxModule} from './ngrx/_ngrx.module';
+// import {NgrxModule} from './ngrx/_ngrx.module';
 
 @NgModule({
   imports: [
@@ -21,7 +21,7 @@ import {NgrxModule} from './ngrx/_ngrx.module';
     SearchesModule,
     MusicSearchModule,
     RxJsExamplesModule,
-    NgrxModule
+    // NgrxModule
   ],
   exports: [],
   declarations: [MainHttpRxJs],

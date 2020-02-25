@@ -7,7 +7,7 @@ export class FocusMe implements AfterViewInit, OnChanges {
   // notice that we can alias the focusMe variable to hasFocus
   @Input('focusMe') hasFocus: boolean;
 
-  constructor(private elementRef: ElementRef) {
+  constructor(public elementRef: ElementRef) {
     console.log(this);
   }
 
@@ -35,8 +35,8 @@ export class FocusMe implements AfterViewInit, OnChanges {
   `
 })
 export class SolutionOne {
-  private inputIsVisible: boolean = false;
-  private inputHasFocus: boolean = false;
+  public inputIsVisible: boolean = false;
+  public inputHasFocus: boolean = false;
 
   showInput() {
     this.inputIsVisible = true;

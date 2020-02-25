@@ -36,7 +36,7 @@ import {
 export class DoCheckItem implements DoCheck {
   @Input('comment') comment: any;
   onRemove: EventEmitter<any>;
-  private differ: KeyValueDiffer<string, any>;
+  public differ: KeyValueDiffer<string, any>;
 
   constructor(differs: KeyValueDiffers) {
     this.differ = differs.find([]).create();

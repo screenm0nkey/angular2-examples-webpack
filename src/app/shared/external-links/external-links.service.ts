@@ -20,7 +20,7 @@ export class ExternalLinksService {
   linksMap$: Subject<LinkMap> = new ReplaySubject<LinkMap>(1);
   links$: Subject<ExtLink[]> = new ReplaySubject<ExtLink[]>(1);
 
-  constructor(private http: HttpClient) {
+  constructor(public http: HttpClient) {
     this.formatLink = this.formatLink.bind(this);
     this.getLinks();
   }
@@ -45,7 +45,7 @@ export class ExternalLinksService {
     return link$;
   }
 
-  private joinLinks(int$: Observable<RawLink[]>, ext$: Observable<RawLink[]>): Observable<ExtLink[]> {
+  public joinLinks(int$: Observable<RawLink[]>, ext$: Observable<RawLink[]>): Observable<ExtLink[]> {
     return forkJoin(int$, ext$).pipe(map((res: [RawLink[], RawLink[]]) => {
       const extLinks: ExtLink[] = res[1].map(link => this.formatLink(link, 'ext'));
       const intLinks: ExtLink[] = res[0].map(link => this.formatLink(link, 'int'));
@@ -53,7 +53,7 @@ export class ExternalLinksService {
     }));
   }
 
-  private formatLink(linkInfo: RawLink, type: string): ExtLink {
+  public formatLink(linkInfo: RawLink, type: string): ExtLink {
     return {
       type,
       id: linkInfo[0],
@@ -64,7 +64,7 @@ export class ExternalLinksService {
     }
   }
 
-  private createLinkMap(links: ExtLink[]): LinkMap {
+  public createLinkMap(links: ExtLink[]): LinkMap {
     return links.reduce((acc: LinkMap, curr: ExtLink) => {
       acc[curr.id] = curr;
       return acc;

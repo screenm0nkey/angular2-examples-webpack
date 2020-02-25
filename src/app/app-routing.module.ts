@@ -12,24 +12,24 @@ const appRoutes: Routes = [
   },
   {
     path: 'forms',
-    loadChildren: './forms/forms.module#NickFormsModule',
+    loadChildren: () => import('./forms/forms.module').then(m => m.NickFormsModule),
     data: {preload: true}
   },
   {
     path: 'misc',
-    loadChildren: './misc-examples/_misc.module#MiscExamplesModule'
+    loadChildren: () => import('./misc-examples/_misc.module').then(m => m.MiscExamplesModule)
   },
   {
     path: "httprx",
-    loadChildren: "./http/async.module#HttpRxJsModule"
+    loadChildren: () => import('./http/async.module').then(m => m.HttpRxJsModule)
   },
   {
     path: "lifecycle",
-    loadChildren: "./lifecycle/lifecycle.module#LifeCycleModule"
+    loadChildren: () => import('./lifecycle/lifecycle.module').then(m => m.LifeCycleModule)
   },
   {
     path: "mini-apps",
-    loadChildren: "./misc-mini-apps/mini-apps.module#MiniAppsModule"
+    loadChildren: () => import('./misc-mini-apps/mini-apps.module').then(m => m.MiniAppsModule)
   },
   {
     path: '**',

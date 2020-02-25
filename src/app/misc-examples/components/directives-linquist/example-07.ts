@@ -30,8 +30,8 @@ export class HooperDirective {
 
   constructor(
     el: ElementRef,
-    private view: ViewContainerRef,
-    private template: TemplateRef<any>
+    public view: ViewContainerRef,
+    public template: TemplateRef<any>
   ) {
     console.log(el.nativeElement);
   }

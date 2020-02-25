@@ -23,13 +23,13 @@ import {MyNgRxStore} from "./reducers/_reducers.service";
   `
 })
 export class NgrxWordsComponent implements OnInit {
-  private unsubscribe$ = new Subject<void>();
+  public unsubscribe$ = new Subject<void>();
   public word1: string;
   public word2: string;
   public word3$: Observable<string>;
   public interval$: Observable<string>;
 
-  constructor(private store: Store<MyNgRxStore>, private cd : ChangeDetectorRef) {
+  constructor(public store: Store<MyNgRxStore>, public cd : ChangeDetectorRef) {
   }
 
   ngOnInit() {

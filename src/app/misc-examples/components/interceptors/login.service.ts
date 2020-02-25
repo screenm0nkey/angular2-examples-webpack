@@ -6,7 +6,7 @@ import {HttpClient} from '@angular/common/http';
 @Injectable({providedIn: 'root'})
 export class LoginService {
 
-  constructor(private http: HttpClient) {
+  constructor(public http: HttpClient) {
   }
 
   login(data) {

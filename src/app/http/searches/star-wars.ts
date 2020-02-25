@@ -21,13 +21,14 @@ import {debounceTime, filter, map, mapTo, share, startWith, switchMap, tap} from
   template: `
     <p class='path'>/http-rxjs/john-linquist/star-wars.ts</p>
     <h4>Search for a Star Wars character (supports regex)</h4>
-
-    <input (keyup)='input$.next($event)'>
-    <h3>{{(people$ | async)?.length}} results</h3>
-    <div class='container'>
-      <h5 *ngFor='let person of people$ | async' style='display: block'>{{person.name}}</h5>
-      <h3 *ngIf='noResults$ | async'>No one matched your search</h3>
-    </div>
+    <section *ngIf="people$ | async; let people"> 
+      <input (keyup)='input$.next($event)'>
+      <h3>{{people.length}} results</h3>
+      <div class='container'>
+        <h5 *ngFor='let person of people' style='display: block'>{{person.name}}</h5>
+        <h3 *ngIf='noResults$ | async'>No one matched your search</h3>
+      </div>
+    </section>
   `,
   providers: [{provide: 'URL', useValue: 'https://swapi.co/api'}]
 })

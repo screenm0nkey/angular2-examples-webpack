@@ -37,7 +37,7 @@ import { Person } from './simple-ng-book-repeat.directive';
     <ul>
       <li *ngBookRepeat="let peep of people">
         {{ peep.name }} is {{ peep.age }}
-        <span (click)="remove(p)" style="text-decoration: underline; cursor:pointer">[Remove]</span>
+        <span (click)="remove(peep)" style="text-decoration: underline; cursor:pointer">[Remove]</span>
       </li>
     </ul>
 

@@ -8,4 +8,5 @@ export interface Message {
   thread?: Thread;
   author: User;
   text: string;
+  sender ?: string;
 }

@@ -21,7 +21,7 @@ import { DOCUMENT } from "@angular/common";
       <div class="links">
         <dlink [id]="65"></dlink>
       </div>
-      <button class="mr-button" (click)="add($event)">
+      <button class="mr-button" (click)="add()">
         Click to Add New Element
       </button>
     </div>

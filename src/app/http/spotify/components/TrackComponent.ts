@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 import {SpotifyService} from '../spotify.service';
+import { Observable } from 'rxjs/Observable';
 
 // angular2 doesn't like 'track' as the selector
 // because apparently it's an existing HTML element
@@ -9,21 +10,21 @@ import {SpotifyService} from '../spotify.service';
 @Component({
   selector: 'theTrack',
   template: `
-  <div *ngIf='(track$ | async)?.album'>
-    <h1>{{ track$.name }}</h1>
-    <p>
-      <img src='{{ (track$ | async)?.album.images[1].url }}'>
-    </p>
-    <p>
-      <audio controls src='{{ (track$ | async)?.preview_url }}'></audio>
-    </p>
-    <p><a href (click)='back()'>Back</a></p>
+    <div *ngIf='track$ | async; let track'>
+      <h1>{{ track.name }}</h1>
+      <p>
+        <img src='{{ track.album.images[1].url }}'>
+      </p>
+      <p>
+        <audio controls src='{{ track.preview_url }}'></audio>
+      </p>
+      <p><a href (click)='back()'>Back</a></p>
   </div>
   `
 })
 export class TrackComponent implements OnInit {
   id: string;
-  track$: any;
+  track$: Observable<any>;
 
   constructor(
     public route: ActivatedRoute,

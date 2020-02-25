@@ -1,5 +1,5 @@
-import {AfterViewInit, ChangeDetectorRef, Component} from '@angular/core';
-import {BoxComponent} from './box.component';
+import { AfterViewInit, ChangeDetectorRef, Component } from '@angular/core';
+import { BoxComponent } from './box.component';
 
 interface Box {
   x: number;
@@ -21,7 +21,7 @@ function getRandomInt(min, max) {
       <svg:g
         *simpleNgFor='let box of boxes'
         [box]='box'
-        [selected]='box.id == currentId'>
+        [selected]='box.id === currentId'>
       </svg:g>
     </svg>
   `
@@ -29,8 +29,9 @@ function getRandomInt(min, max) {
 export class SpeedingComponent implements AfterViewInit {
   activeBox: BoxComponent;
   boxes: Box[] = [];
-  offsetX :number;
-  offsetY:number;
+  offsetX: number;
+  offsetY: number;
+  currentId: number;
 
   constructor(public cdr: ChangeDetectorRef) {
   }
@@ -40,7 +41,7 @@ export class SpeedingComponent implements AfterViewInit {
       const id = i;
       const x = getRandomInt(0, 500);
       const y = getRandomInt(0, 500);
-      const box = {id, x, y};
+      const box = { id, x, y };
       this.boxes.push(box);
     }
   }

@@ -107,6 +107,7 @@ export class TrackDirective {
   `
 })
 export class Example03AppComponent {
+  tracking : any;
   // tracking is used in template
   constructor(tracking: TrackingService) {}
 }

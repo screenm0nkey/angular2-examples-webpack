@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {YoutubeService} from './youtube-helpers/youtube-service';
-import {Subject} from 'rxjs';
-import {debounceTime, filter, switchMap} from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
+import { Subject } from 'rxjs';
+import { debounceTime, filter, switchMap } from 'rxjs/operators';
+import { YoutubeService } from './youtube-helpers/youtube-service';
 
 @Component({
   selector: 'youtube-basic-example',
@@ -56,7 +56,7 @@ export class YoutubeBasicExample implements OnInit {
     return text.length > 1;
   }
 
-  onSubmit(val: FormGroup) {
-    console.log(101, val);
+  onSubmit(val: FormGroupDirective) {
+    console.log(102, val);
   }
 }

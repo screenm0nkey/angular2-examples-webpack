@@ -23,7 +23,7 @@ export class HomeComponent {
   constructor(public router: Router, public route: ActivatedRoute) {
   }
 
-  goToProduct(id: string): void {
+  goToProduct(id: number): void {
     this.router.navigate(['../aboutus', id], {
       relativeTo: this.route,
       queryParams: {session_id: 111111},

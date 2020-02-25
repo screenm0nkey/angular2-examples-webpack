@@ -16,7 +16,8 @@ export class ToggleButton {
   @Input() nick = true;
   @Output() nickChange = new EventEmitter();
 
-  onClick() {
+  onClick(event:MouseEvent) {
+    console.log(event);
     this.nick = !this.nick;
     this.nickChange.emit(this.nick);
   }

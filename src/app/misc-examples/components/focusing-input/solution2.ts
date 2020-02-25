@@ -50,6 +50,7 @@ export class SolutionTwo implements OnInit {
   @ViewChild(FocusIt) child: FocusIt;
   @ViewChildren(FocusIt) children: QueryList<FocusIt>;
   public inputIsVisible = false;
+  public isVisible : boolean;
 
   ngOnInit() {
     // notice that the 'child' directive object instance is still not available as a property

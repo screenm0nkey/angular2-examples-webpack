@@ -85,6 +85,7 @@ export class HooperDirective {
 })
 export class Example07AppComponent implements OnInit, OnDestroy {
   interval: any;
+  message: string;
   messages: any = {};
 
   ngOnInit() {

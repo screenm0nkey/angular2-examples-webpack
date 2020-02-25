@@ -60,6 +60,7 @@ export class NgStyleSampleApp implements OnInit {
   color: string;
   fontSize: number;
   style: Style;
+  yellow : string;
 
   ngOnInit() {
     this.fontSize = 16;

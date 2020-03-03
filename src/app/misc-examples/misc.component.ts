@@ -18,7 +18,7 @@ import {Component} from '@angular/core';
               <a routerLink='./dynamic' routerLinkActive='active'>Dynamic Component and DOM Element Creation</a>
               <a routerLink='./chickens' routerLinkActive='active'>ExportAs, Renderer2, Directives and ForkJoin()</a>
               <a routerLink='./focus-input' routerLinkActive='active'>Focus an Input @ViewChild</a>
-              <a routerLink='./directives' routerLinkActive='active'>Directives with John Linquist</a>
+              <a routerLink='./directives' routerLinkActive='active'>Structual Directives, <br><lgt>ng-container</lgt> and Directives with John Linquist</a>
               <a routerLink='./templates' routerLinkActive='active'>Creating Structural Directives and IterableDiffers</a>
               <a routerLink='./ngstyle' routerLinkActive='active'>NgStyle</a>
               <a routerLink='./notifications' routerLinkActive='active'>Notifications, Socket-io, @Input, @Output, getters/setters</a>

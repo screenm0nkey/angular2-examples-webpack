@@ -7,6 +7,7 @@ import { SubscribeExample } from './subscribe';
 import { AutoSearch } from './automated-wiki-search';
 import { ShareHttpRequest} from './sharing-http-requests.component';
 import { UserComponent, UsersComponent } from './shared-components';
+import { GithubRepositoriesComponent } from './practical-rxjs.component';
 
 @NgModule({
   imports: [SharedModule],
@@ -18,7 +19,8 @@ import { UserComponent, UsersComponent } from './shared-components';
     AutoSearch,
     ShareHttpRequest,
     UserComponent,
-    UsersComponent
+    UsersComponent,
+    GithubRepositoriesComponent
   ]
 })
 export class MiscHttpModule {

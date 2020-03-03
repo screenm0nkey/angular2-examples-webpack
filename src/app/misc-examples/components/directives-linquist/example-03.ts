@@ -100,10 +100,11 @@ export class TrackDirective {
     <button online [track]="'2 Button'">Two</button>
     <button online [track]="'3 Button'">Three</button>
 
-    <!-- Only for visuals-->
+    <!-- Only for visuals
     <div *ngFor="let log of tracking.logs">
       {{ log.event }} - {{ log.message }}
     </div>
+    -->
   `
 })
 export class Example03AppComponent {

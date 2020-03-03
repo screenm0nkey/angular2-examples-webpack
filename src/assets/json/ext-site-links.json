@@ -461,6 +461,12 @@
     "Understanding RxJS Multicast Operators",
     "https://netbasal.com/understanding-rxjs-multicast-operators-77b3f60af0a2",
     ""
+  ],
+  [
+    87,
+    "Using ng-container to group strucural directives",
+    "https://angular.io/guide/structural-directives#group-sibling-elements-with-ng-container",
+    ""
   ]
 
 

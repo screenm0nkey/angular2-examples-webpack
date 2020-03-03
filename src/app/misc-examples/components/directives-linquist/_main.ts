@@ -7,8 +7,10 @@ import { Component } from "@angular/core";
         <h4>Notes on structural directives?</h4>
 
         <p>
-          There are three kinds of Angular directives
-           (1) components, (2) attribute directives (3) structural directives
+          There are three kinds of Angular directives <br>
+           (1) components <br>
+           (2) attribute directives <br>
+           (3) structural directives
         </p>
 
         <p>
@@ -36,6 +38,15 @@ import { Component } from "@angular/core";
           descendents. Each structural directive does something different with
           that template.
         </p>
+
+        <p>
+          <strong><ltg>ng-container</ltg></strong><br>
+          Host elements can only have one directive applied to them, so it's common to use an outer 
+          element for one directive and an inner element for another i.e. outer element might have an 
+          *ngIf and the inner might contain the *ngFor. The issue with this is the creation of additional html.
+          In this case we can use <ltg>ng-container</ltg>
+          <dlink id="87"></dlink>
+        </p>
       </section>
 
       <collapse-it>
@@ -58,4 +69,4 @@ import { Component } from "@angular/core";
     </div>
   `
 })
-export class DirectivesLinquistMain {}
+export class DirectivesLinquistMain { }

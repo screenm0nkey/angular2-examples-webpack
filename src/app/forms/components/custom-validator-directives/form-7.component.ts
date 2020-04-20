@@ -1,7 +1,6 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'form-five',
   styles: [
     '.label{ color : red; width : 250px; display : inline-block; text-align:left; font-size:12px;} .ng-dirty.ng-invalid {border: 1px red solid;}'
   ],
@@ -18,20 +17,26 @@ import {Component} from '@angular/core';
       <form #form='ngForm' (ngSubmit)='logForm(form)'>
         <span class='label'>Required</span>
         <input type='text' name='name' ngModel required>
-        <pre><lgt>input type='text' ngModel='name' required</lgt></pre>
+        <code><lgt>input type='text' ngModel='name' required</lgt></code>
+        <hr>
       
         <span class='label'>Min Length = 3</span>
         <input type='text' name='street' ngModel minlength='3'>
-        <pre><lgt>input type='text' ngModel='street' minlength='3'</lgt></pre>
+        <code><lgt>input type='text' ngModel='street' minlength='3'</lgt></code>
+        <hr>
       
+        <p>All built-in validators are already added to the NG_VALIDATORS token.
+        Angular has an internal mechanism to execute validators on a form control.
+        It maintains a multi provider for a dependency token called NG_VALIDATORS.
+        </p>
         <span class='label'>Custom Email Validator </span>
         <input type='email' name='email' ngModel validateEmail placeholder='type email'>
-        <pre><lgt>input type='email' ngModel='email1' validateEmail</lgt></pre>
-      
+        <code><lgt>input type='email' ngModel='email1' validateEmail</lgt></code>
+        <hr>
       
         <span class='label'>Custom Email Validator with Dependencies</span>
         <input type='email' name='email2' ngModel validateEmailDeps placeholder='type email'>
-        <pre><lgt>input type='email' ngModel='email2' validateEmailDeps</lgt></pre>
+        <code><lgt>input type='email' ngModel='email2' validateEmailDeps</lgt></code>
       
         <button type='submit'>Submit</button>
       </form>
@@ -40,4 +45,7 @@ import {Component} from '@angular/core';
   `
 })
 export class FormSevenComponent {
+  logForm(form){
+    console.log(form);
+  }
 }

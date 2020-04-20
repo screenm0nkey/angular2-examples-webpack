@@ -1,24 +1,27 @@
-import {Component} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+type city = { name: string }
 
 @Component({
   selector: 'form-four',
   templateUrl: './form-4.html'
 })
-export class FormFourComponent {
+export class FormFourComponent implements OnInit {
   myform: FormGroup;
-  payLoad: String = '';
-  cities: any[] = [
-    {name: 'London'},
-    {name: 'Berlin'},
-    {name: 'Rotheram'}
-  ];
-  selectedCity;
+  showPayload: boolean;
+  cities: city[];
+  selectedCity: city;
 
   constructor(private formBuilder: FormBuilder) {
   }
 
   ngOnInit() {
+    this.cities = [
+      { name: 'London' },
+      { name: 'Berlin' },
+      { name: 'Rotheram' }
+    ];
     this.selectedCity = this.cities[2];
     // calling fb.group() returns a controlGroup
     this.myform = this.formBuilder.group({
@@ -42,11 +45,12 @@ export class FormFourComponent {
     if (valid) {
       return null;
     }
-    return {invalidZip: true};
+    return { invalidZip: true };
   }
 
   onSubmit() {
-    this.payLoad = JSON.stringify(this.myform.value);
+    this.showPayload = true;
+    
   }
 }
 

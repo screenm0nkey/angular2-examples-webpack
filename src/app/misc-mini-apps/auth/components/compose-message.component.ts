@@ -1,6 +1,6 @@
-import {Component, HostBinding} from '@angular/core';
-import {Router} from '@angular/router';
-import {slideInDownAnimation} from '../animations';
+import { Component, HostBinding } from '@angular/core';
+import { Router } from '@angular/router';
+import { slideInDownAnimation } from '../animations';
 
 @Component({
   template: `
@@ -22,8 +22,9 @@ import {slideInDownAnimation} from '../animations';
     </p>
   `,
   styles: [
-    ':host { position: relative; bottom: 10%; background-color: white; border: solid 4px red; }'
+    ':host { position: relative; left: 250px; top: 10%; background-color: white; border: solid 4px red; padding: 10px; }'
   ],
+  // this is a custom animation
   animations: [slideInDownAnimation]
 })
 export class ComposeMessageComponent {
@@ -54,6 +55,6 @@ export class ComposeMessageComponent {
 
   closePopup() {
     // Providing a `null` value to the named outlet clears the contents of the named outlet
-    this.router.navigate([{outlets: {popup: null}}]);
+    this.router.navigate([{ outlets: { popup: null } }]);
   }
 }

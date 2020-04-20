@@ -4,12 +4,13 @@ import {GithubHttp} from './github.http';
 
 @Component({
   selector: 'repo-browser',
+  styleUrls: ['../seed-component.css'],
   template: `
-    <div class='repo-browser' style='border:solid 5px deeppink;'>
-      <p class='path'>seed-component/github/repo-browser.ts</p>
+    <div class="repo-browser">
+      <p class='path'>seed-component/github/repo-browser.ts (deeppink border)</p>
       <h4>GitHub Browser</h4>
     
-      <input type='text' #repoName placeholder='Search GithubHttp Orgs'>
+      <input type='text' #repoName placeholder='Search Github'>&nbsp;
       <button (click)='searchForOrg(repoName.value)'>Search Orgs</button>
     
       <router-outlet></router-outlet>
@@ -22,7 +23,7 @@ export class RepoBrowser {
 
   searchForOrg(orgName: string) {
     this.github.getOrg(orgName).subscribe(({name}) => {
-      this.router.navigate(['seed', 'github', orgName]);
+      this.router.navigate(['mini-apps', 'seed-app', 'github', orgName]);
     });
   }
 }

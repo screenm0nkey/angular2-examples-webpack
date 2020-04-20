@@ -5,31 +5,37 @@ import {ActivatedRoute, Router} from '@angular/router';
 @Component({
   selector: 'login-component',
   template: `
-    <div style='border:solid 3px goldenrod'>
+    <div style="margin-bottom:10px;">
+      <hr>
       <div class='alert alert-danger' role='alert' *ngIf='message'>
         {{ message }}
       </div>
 
-      <form class='form-inline' *ngIf='!authService.getUser()'>
+      <highlight *ngIf='!authService.validateUser()'>Sign in and you get access to the hidden content</highlight>
+
+
+      <form class='form-inline' *ngIf='!authService.validateUser()'>
         <div class='form-group'>
-          <label for='username'>User:</label>
-          <input class='form-control' name='username' value='user' #username>
+          <label for='username'>User:</label>&nbsp;
+          <input class='form-control' name='username' value='lowman' #username>
         </div>
 
         <div class='form-group'>
-          <label for='password'>Password:</label>
+          <label for='password'>Password:</label>&nbsp;
           <input class='form-control' type='password' name='password' value='password' #password>
         </div>
 
-        <a class='btn btn-default' (click)='login(username.value, password.value)'>
+        <button class='btn btn-default' (click)='login(username.value, password.value)'>
           Login
-        </a>
+        </button>
       </form>
 
-      <div class='well' *ngIf='authService.getUser()'>
-        Logged in as <b>{{ authService.getUser() }}</b>
-        <a href (click)='logout()'>Log out</a>
+      <div class='well' *ngIf='authService.validateUser()'>
+        Logged in as <highlight>{{ authService.validateUser() }}</highlight>&nbsp;
+        <button href (click)='logout()'>Click here to Log out</button>
       </div>
+
+      <hr>
     </div>
   `
 })

@@ -7,29 +7,28 @@
          type="text"
          id="first_name"
          [ngClass]="{invalid: nameCtrl.touched && !nameCtrl.valid}">
-  valid: {{ nameCtrl.valid }}, value: {{ nameCtrl.value }}
-
-  <br>
+    valid: {{ nameCtrl.valid }}, value: {{ nameCtrl.value }}<br>
 
   <label>Lastname:</label>
-  <input type="text" formControlName="lastname">
+  <input type="text" formControlName="lastname"> <br>
 
   <label>Email:</label>
-  Is valid {{registerForm.controls.email.valid}}
-  <input type="text" formControlName="email">
+  Is valid {{registerForm.get('email').valid}}
+  <input type="text" formControlName="email"> <br>
 
 
   <fieldset formGroupName="address">
     <label>Street:</label>
-    Is valid {{registerForm.controls.address.controls.street.valid}}
-    <input type="text" formControlName="street">
+    Is valid {{registerForm.get('address').get('street').valid}}
+    Is valid {{registerForm.get('address.street').valid}}
+    <input type="text" formControlName="street"> <br>
 
-    <label>Zip:</label>
-    Is valid {{registerForm.controls.address.controls.zip.valid}}
-    <input type="text" formControlName="zip">
+    <label>Zip:</label> 
+    Is valid {{registerForm.get('address.zip').valid}}
+    <input type="text" formControlName="zip"> <br>
 
     <label>City:</label>
-    Is valid {{registerForm.controls.address.controls.city.valid}}
+    Is valid {{registerForm.get('address.city').valid}}
     <input type="text" formControlName="city">
   </fieldset>
 

@@ -5,14 +5,11 @@ import {ActivatedRoute, Params} from '@angular/router';
 
 @Component({
   selector: 'repo-list',
-  styles: [`
-    repo-list { float:left}
-    .router-outlet {border:solid 5px orange; float: left; max-width:400px; overflow: hidden}
-  `],
+  styleUrls: ['../seed-component.css'],
   template: `
-    <section class='clearfix'>
-      <p class='path'>seed-component/github/repo-list.ts</p>
-      <h4>Repo list</h4>
+    <section class='clearfix repo-list'>
+      <p class='path'>seed-component/github/repo-list.ts (border lime)</p>
+      <h4>Repo List for {{org}}</h4>
       <ul>
         <li *ngFor='let repo of repos | async'>
           <a [routerLink]="[repo.name]" routerLinkActive="active">

@@ -9,7 +9,7 @@ export class FormFiveComponent {
   myForm: FormGroup;
   sku: AbstractControl;
   productName: string;
-  payLoad: string = '';
+  payLoad: Object = '';
 
   constructor(private formBuilder: FormBuilder) {
   }
@@ -17,10 +17,7 @@ export class FormFiveComponent {
   ngOnInit() {
     // 'Validators.compose' is used to add multiple validators to a control
     this.myForm = this.formBuilder.group({
-      firstName: [
-        '',
-        Validators.compose([Validators.required, Validators.minLength(4)])
-      ],
+      firstName: ['', Validators.compose([Validators.required, Validators.minLength(4)])],
       sku: ['', Validators.compose([Validators.required, this.skuValidator])], // uses formbuilder control
       pku: ['12', Validators.required], // uses the NgFormControl directive export
       productName: ['', Validators.required] // uses ng-model
@@ -45,11 +42,11 @@ export class FormFiveComponent {
 
   onSubmit(value: Object) {
     console.log('you submitted value: ', value);
-    this.payLoad = JSON.stringify(value);
+    this.payLoad = value;
   }
 
-  // custom validateMyCounter
-  skuValidator(control: FormControl) {
+  // Custom validator
+  skuValidator(control: FormControl): any {
     if (!control.value.match(/^123/)) {
       return {invalidSku: true};
     }

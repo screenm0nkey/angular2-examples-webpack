@@ -1,14 +1,15 @@
-import {Component} from '@angular/core';
-import {QuestionModel} from './question-model';
-import {TextboxQuestion} from './textbox-question';
-import {DropDownQuestion} from './dropdown-question';
+import { Component } from '@angular/core';
+import { QuestionModel, TextboxQuestion, DropDownQuestion } from './question-model';
 
 @Component({
   selector: 'survey-demo',
   template: `
         <div>
           <p class='path'>forms/components/dynamic/form-8.component.ts</p>
-            <h4>Survey using Dynamic Form</h4>
+            <h4>Dynamic reactive form</h4>
+            <dlink [id]="39"></dlink>
+            <hr>
+
             <survey [model]='questionModel'></survey></div>
         `
 })
@@ -41,10 +42,10 @@ export class FormEightComponent {
     let ddQuestion = new DropDownQuestion();
     ddQuestion.key = 'country';
     ddQuestion.text = 'Country';
-    ddQuestion.options.push({key: 'usa', value: 'USA'});
-    ddQuestion.options.push({key: 'germany', value: 'Germany'});
-    ddQuestion.options.push({key: 'canada', value: 'Canada'});
-    ddQuestion.options.push({key: 'australia', value: 'Australia'});
+    ddQuestion.options.push({ key: 'usa', value: 'USA' });
+    ddQuestion.options.push({ key: 'germany', value: 'Germany' });
+    ddQuestion.options.push({ key: 'canada', value: 'Canada' });
+    ddQuestion.options.push({ key: 'australia', value: 'Australia' });
     ddQuestion.order = 4;
     this.questionModel.questions.push(ddQuestion);
 

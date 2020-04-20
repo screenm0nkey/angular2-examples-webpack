@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 interface ValidationResult {
   [key: string]: boolean;
@@ -8,16 +8,16 @@ interface ValidationResult {
 class UsernameValidator {
   static startsWithNumber(control: FormControl): ValidationResult {
     if (control.value != '' && !isNaN(control.value.charAt(0))) {
-      return {startsWithNumber: true};
+      return { startsWithNumber: true };
     }
     return null;
   }
 
   static usernameTaken(control: FormControl): Promise<ValidationResult> {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       setTimeout(() => {
         if (control.value === 'nick') {
-          resolve({usernameTaken: true});
+          resolve({ usernameTaken: true });
         } else {
           resolve(null);
         }

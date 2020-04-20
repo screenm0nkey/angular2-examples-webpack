@@ -4,22 +4,67 @@ div.comps {
 }
 
 ul {
-  border: solid 2px blue;
+  /* border: solid 2px blue; */
   float: left;
   width: 30%;
   list-style: none;
 }
 
-ul, li {
+ul,
+li {
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
 ul li a::after {
-  content: '>>';
+  content: ">>";
 }
 
 main {
   border-top: 3px solid green;
+  padding-top: 12px;
 }
+
+.repo-browser {
+  border: solid 2px deeppink;
+  background-color: lightpink;
+}
+
+.path {
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
+
+repo-list {
+  float: left;
+}
+
+.repo-list {
+  border:solid lime 2px;
+  display: block;
+}
+
+/* .router-outlet {
+  border: solid 5px orange;
+  float: left;
+  max-width: 400px;
+  overflow: hidden;
+} */
+
+.repo-details {
+  position: absolute;
+  top: 206px;
+  scroll-behavior: auto;
+  left: 238px;
+  border: solid gold 2px;
+  overflow: hidden;
+}
+
+.repo-details pre {
+  font-size: 10px;
+  scroll-behavior: auto;
+  opacity: 0.7;
+  height: 500px;
+}
+

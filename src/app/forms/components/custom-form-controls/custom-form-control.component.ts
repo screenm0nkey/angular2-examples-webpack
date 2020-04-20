@@ -1,21 +1,10 @@
-import {Component, forwardRef, Input, OnChanges} from '@angular/core';
-import {ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR} from '@angular/forms';
+import { Component, forwardRef, Input, OnChanges } from '@angular/core';
+import { ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { createCounterRangeValidator } from './dynamic-counter-range-validator';
 
-export function createCounterRangeValidator(maxValue, minValue) {
-  return (c: FormControl) => {
-    const err = {
-      rangeError: {
-        given: c.value,
-        max: maxValue || 10,
-        min: minValue || 0
-      }
-    };
-    return c.value > +maxValue || c.value < +minValue ? err : null;
-  };
-}
 
 @Component({
-  selector: 'counter-input',
+  selector: 'custom-range-form-item',
   template: `
         <button (click)='increase()'>+</button> {{counterValue}} <button (click)='decrease()'>-</button>
   `,
@@ -35,17 +24,14 @@ export function createCounterRangeValidator(maxValue, minValue) {
     }
   ]
 })
-export class FormTenCounterInputComponent
-  implements ControlValueAccessor, OnChanges {
+export class FormTenCounterInputComponent implements ControlValueAccessor, OnChanges {
   // @ts-ignore
   @Input('counterValue') _counterValue = 0;
-  @Input() counterRangeMax;
-  @Input() counterRangeMin;
+  @Input() counterRangeMax: number;
+  @Input() counterRangeMin: number;
 
-  propagateChange: any = (newValue: any) => {
-  };
-  validateFn: any = (c: FormControl) => {
-  }; // this is replaced
+  private propagateChange: Function;
+  private validateFn: Function;
 
   get counterValue() {
     return this._counterValue;
@@ -55,42 +41,41 @@ export class FormTenCounterInputComponent
   // we want to propagate the new value to the outside world using propagateChange()
   set counterValue(val) {
     this._counterValue = val;
-    console.log('propagateChange ', val);
-    this.propagateChange(val);
+    this.propagateChange && this.propagateChange(val);
   }
 
   ngOnChanges(inputs) {
     if (inputs.counterRangeMax || inputs.counterRangeMin) {
-      this.validateFn = createCounterRangeValidator(
-        this.counterRangeMax,
-        this.counterRangeMin
-      );
+      this.validateFn = createCounterRangeValidator(this.counterRangeMax, this.counterRangeMin);
     }
   }
 
   // component itself now performs validation as it's added to NG_VALIDATORS
   validate(c: FormControl) {
-    const isValid = this.validateFn(c);
-    console.log('validate ', isValid, c);
-    return isValid;
+    return this.validateFn && this.validateFn(c);
   }
 
+  // ControlValueAccessor interface method
   // this method that writes a new value from the form model into the view or (if needed) DOM property.
   writeValue(value) {
     if (value) {
-      console.log('writeValue', value);
       this.counterValue = value;
     }
   }
 
+  // ControlValueAccessor interface method
   // is a method that registers a handler that should be called when something in the view has changed.
   // It gets a function that tells other form directives and form controls to update their values.
-  registerOnChange(fn) {
+  registerOnChange(fn: Function) {
     this.propagateChange = fn;
   }
 
+  // ControlValueAccessor interface method
   registerOnTouched() {
   }
+
+  // ControlValueAccessor interface method
+  setDisabledState(isDisabled: boolean) { }
 
   increase() {
     this.counterValue++;

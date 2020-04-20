@@ -19,9 +19,12 @@
 <div class="alert alert-info" role="alert">
   Error messages per field and disabled save button until entire form is valid.
 </div>
+<dlink [id]="34"></dlink>
+
+<hr>
+
 
 <form [formGroup]="myform" #f="ngForm" (ngSubmit)="onSubmit()">
-
   <button (click)="logit($event, f, myform)">Console log Form Info</button>
 
   <div class="form-row">
@@ -55,7 +58,7 @@
 
   <div class="form-row">
     <div class="formHeading">City</div>
-    <select [(ngModel)]="selectedCity" formControlName="city">
+    <select formControlName="city">
       <option *ngFor="let city of cities" [ngValue]="city">{{city.name}}</option>
     </select>
   </div>
@@ -69,7 +72,6 @@
       Zip code has to be 5 digits long
     </div>
   </div>
-  <pre>ZIP Input class names = '{{spy.className}}'</pre>
 
 
   <div class="form-row">
@@ -86,10 +88,6 @@
 </form>
 
 <div class="form-row">
-  <div *ngIf="payLoad"><highlight>The form contains the following values</highlight></div>
-  <div>
-    {{payLoad}}
-  </div>
-</div>
+  <div *ngIf="showPayload">{{this.myform.value | json}}</div>
 
-<h4><dlink [id]="34"></dlink></h4>
+

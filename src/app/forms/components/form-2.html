@@ -1,45 +1,51 @@
 <p class="path">forms/components/form-2.ts</p>
-<h4>Template driven forms - <code>ngForm, ngModel, ngModelGroup</code></h4>
+<h4>Template driven forms - ngForm, ngModel, ngModelGroup</h4>
 
 
 <code style="padding: 0;">
-  <lgt>form #form="ngForm" (ngSubmit)="logForm(form.value, n)" #n="ngNickForm" formnick</lgt>
-  <lgt>input type="text" name="lastname" [(ngModel)]="lastname" #last_name="ngModel"</lgt>
+  <lgt>form #form="ngForm" (ngSubmit)="logForm(form.value, n)" #n="ngNickForm" nickFormDirective</lgt><br>
+  &nbsp;&nbsp;&nbsp;<lgt>input type="text" name="lastname" [(ngModel)]="lastname" #last_name="ngModel"</lgt><br>
   <lgt>/form</lgt>
 </code>
 
-<pre>
-Now things get interesting: because we imported FormsModule, that makes NgForm available to our view.
-Remember that whenever we make directives available to our view, they will get attached to any
-element that matches their selector. NgForm does something handy but non-obvious: it includes
-the form tag in its selector (instead of requiring you to explicitly add ngForm as an attribute).
-What this means is that if you import FormsModule, NgForm will get automatically attached to any
-form tags you have in your view. This is really useful but potentially confusing because it happens
-behind the scenes. There are two important pieces of functionality that NgForm gives us:
-1. A FormGroup named ngForm
-2. A (ngSubmit)output
+<p>
+  Now things get interesting: because we imported FormsModule, that makes NgForm available to our view.
+  Remember that whenever we make directives available to our view, they will get attached to any
+  element that matches their selector. NgForm does something handy but non-obvious: it includes
+  the form tag in its selector (instead of requiring you to explicitly add ngForm as an attribute).
+  <highlight>What this means is that if you import FormsModule, NgForm will get automatically attached to any
+    form tags you have in your view</highlight>. This is really useful but potentially confusing because it happens
+  behind the scenes. </p>
 
+<p>
+  <highlight>
+    There are two important pieces of functionality that NgForm gives us:
+  </highlight><br>
+  1. A FormGroup named ngForm <br>
+  2. A (ngSubmit) output
+</p>
 
-If ngModel is used within a form tag, either the name attribute must be set or
-the form control must be defined as 'standalone' in ngModelOptions.
+<p>
+  If ngModel is used within a form tag, either the name attribute must be set or
+  the form control must be defined as 'standalone' in ngModelOptions.
+</p>
+
 <code>
-  Example 1: <lgt>input [(ngModel)]="person.firstName" name="first"</lgt>
-Example 2: <lgt>input [(ngModel)]="person.firstName" [ngModelOptions]="<cur>standalone: true</cur>"</lgt>
+  Example 1: <lgt>input [(ngModel)]="person.firstName" name="first"</lgt><br>
+  Example 2: <lgt>input [(ngModel)]="person.firstName" [ngModelOptions]="<cur>standalone: true</cur>"</lgt>
 </code>
 
-
-Every form control that is registered with ngModel will automatically show up in form.value
-</pre>
+<p>Every form control that is registered with ngModel will automatically show up in form.value</p>
 
 <code>
-  <lgt>input type="text" name="lastname" ngModel</lgt> // registering it on the form
-  <lgt>input type="text" name="lastname" [ngModel]="lastname"</lgt> // one-way binding
+  <lgt>input type="text" name="lastname" ngModel</lgt> // registering it on the form <br>
+  <lgt>input type="text" name="lastname" [ngModel]="lastname"</lgt> // one-way binding <br>
   <lgt>input type="text" name="lastname" [(ngModel)]="lastname"</lgt> // two-way binding
 </code>
 
-<dlink [id]="40"></dlink>
+<hr>
 
-<form #form="ngForm" (ngSubmit)="logForm(form, n)" #n="ngNickForm" formnick>
+<form #form="ngForm" (ngSubmit)="logForm(form, n)" #n="ngNickForm" nickFormDirective>
   <fieldset ngModelGroup="name">
     <label>Firstname (with one way binding)</label>
     <input type="text" name="firstname" [ngModel]="firstname">
@@ -59,16 +65,16 @@ Every form control that is registered with ngModel will automatically show up in
     <input type="text" name="city" ngModel>
   </fieldset>
 
-
-  <input type="text"
-         id="first_name"
-         name="first_name"
-         [(ngModel)]="employee.first_name"
-         [ngClass]="{invalid: first_name.touched && !first_name.valid}"
-         #first_name="ngModel">
+  <input 
+    type="text" 
+    id="first_name" 
+    name="first_name" 
+    [(ngModel)]="employee.first_name"
+    [ngClass]="{invalid: first_name.touched && !first_name.valid}" #first_name="ngModel"
+  >
   <p> valid: {{ first_name.valid }} </p>
   <p> value: {{ first_name.value }} </p>
 
   <button type="submit">Submit</button>
-  <pre>{{formStr}}</pre>
+  <pre>{{formStr | json}}</pre>
 </form>

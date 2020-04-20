@@ -40,11 +40,11 @@ import { Component } from "@angular/core";
         </p>
 
         <p>
-          <strong><ltg>ng-container</ltg></strong><br>
+          <strong><lgt>ng-container</lgt></strong><br>
           Host elements can only have one directive applied to them, so it's common to use an outer 
           element for one directive and an inner element for another i.e. outer element might have an 
           *ngIf and the inner might contain the *ngFor. The issue with this is the creation of additional html.
-          In this case we can use <ltg>ng-container</ltg>
+          In this case we can use <lgt>ng-container</lgt>
           <dlink id="87"></dlink>
         </p>
       </section>

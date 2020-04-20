@@ -4,11 +4,11 @@ import {GithubHttp} from './github.http';
 
 @Component({
   selector: 'repo-detail',
-  styleUrls: ['./repo-detail.css'],
+  styleUrls: ['../seed-component.css'],
   template: `
     <section class='repo-details'>
-      <p class='path'>seed-component/github/repo-detail.ts</p>
-      <h4>{{ repoDetails.full_name }}</h4>
+      <p class='path'>seed-component/github/repo-detail.ts  (gold border)</p>
+      <h4 *ngIf="repoDetails.full_name">{{ repoDetails.full_name }}</h4>
       <pre>this.repoDetails = {{ repoDetails | json }}</pre>
     </section>
   `

@@ -1,10 +1,15 @@
-import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, CanActivate, CanDeactivate, RouterStateSnapshot} from '@angular/router';
-import {AuthService} from '../services/AuthService';
-import {DialogService} from '../services/dialog.service';
-import {Observable} from 'rxjs';
+import { Injectable } from '@angular/core';
+import { ActivatedRouteSnapshot, CanActivate, CanDeactivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { AuthService } from '../services/AuthService';
+import { DialogService } from '../services/dialog.service';
+import { Observable } from 'rxjs';
 
-@Injectable({providedIn: 'root'})
+/**
+ * Interface that a class can implement to be a guard deciding if a route can be activated. 
+ * If all guards return true, navigation will continue. If any guard returns false, 
+ * navigation will be cancelled.
+ */
+@Injectable({ providedIn: 'root' })
 export class LoggedInGuard implements CanActivate {
   constructor(public authService: AuthService) {
   }
@@ -12,18 +17,26 @@ export class LoggedInGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): boolean {
+  ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    // this.permissions.canActivate(this.currentUser, route.params.id);
     return this.authService.isLoggedIn();
   }
 }
+
+
 
 export interface CanComponentDeactivate {
   canDeactivate: () => Observable<boolean> | Promise<boolean> | boolean;
 }
 
-@Injectable({providedIn: 'root'})
-export class UserCanDeactivate
-  implements CanDeactivate<CanComponentDeactivate> {
+/**
+ * Interface that a class can implement to be a guard deciding if a route can be deactivated. 
+ * If all guards return true, navigation will continue. If any guard returns false, navigation 
+ * will be cancelled. 
+ */
+@Injectable({ providedIn: 'root' })
+export class UserCanDeactivate implements CanDeactivate<CanComponentDeactivate> {
+
   constructor(public dialogService: DialogService) {
   }
 
@@ -31,10 +44,11 @@ export class UserCanDeactivate
     component: CanComponentDeactivate,
     currentRoute: ActivatedRouteSnapshot,
     currentState: RouterStateSnapshot,
-    nextState?: RouterStateSnapshot
-  ): Observable<boolean> | Promise<boolean> | boolean {
+    nextState: RouterStateSnapshot
+  ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    // return this.permissions.canDeactivate(this.currentUser, route.params.id);
     return this.dialogService.confirm(
-      'Are you sure you want to leave ' + currentRoute.params['id']
+      `This was triggered by "canDeactive" handler.\nAre you sure you want to leave? \ncurrentRoute.params.id=${currentRoute.params['id']}`
     );
   }
 }

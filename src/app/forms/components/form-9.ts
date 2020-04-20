@@ -1,13 +1,13 @@
-import {Component} from '@angular/core';
-import {FormArray, FormControl, FormGroup} from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormArray, FormControl, FormGroup, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'my-app',
-  template: './form-9.html',
+  templateUrl: './form-9.html',
   styleUrls: ['./form-9.css']
 })
 export class FormNineComponent {
-  form: FormGroup;
+  form: FormGroup; // This is a an AbstractControl
   payOffsFormArray: FormArray;
   myModel: any;
 
@@ -17,8 +17,8 @@ export class FormNineComponent {
     this.myModel = {
       name: 'Joanna Jedrzejczyk',
       payOffs: [
-        {amount: 111.11, date: 'Jan 1, 2016', number: 3, final: false},
-        {amount: 222.22, date: 'Jan 2, 2016', number: 11, final: true}
+        { amount: 111.11, date: 'Jan 1, 2016', number: 3, final: false },
+        { amount: 222.22, date: 'Jan 2, 2016', number: 11, final: true }
       ]
     };
 
@@ -37,7 +37,6 @@ export class FormNineComponent {
   }
 
   createPayOffFormGroup(payOffObj) {
-    console.log('payOffObj', payOffObj);
     return new FormGroup({
       amount: new FormControl(payOffObj.amount),
       date: new FormControl(payOffObj.date),
@@ -48,7 +47,7 @@ export class FormNineComponent {
 
   addPayOff(event) {
     event.preventDefault(); // ensure this button doesn't try to submit the form
-    const emptyPayOff = {amount: null, date: null, final: false};
+    const emptyPayOff = { amount: null, date: null, final: false };
 
     // add pay off to both the model and to form controls because
     // I don't think Angular has any way to do this automagically yet

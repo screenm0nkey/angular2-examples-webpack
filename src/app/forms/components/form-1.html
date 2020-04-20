@@ -1,19 +1,22 @@
 <div header>
   <p class="path">forms/components/form-1.ts</p>
-  <h4>Template driven forms using ngModel and input refs but not using ngForm</h4>
+  <h4>Template driven forms using ngModel and Input Refs but NOT using ngForm</h4>
 
-  These two are the same. one is the long hand syntax
+  <p><dlink [id]="42"></dlink></p>
+
+  These two inputs are the same. one is the long hand syntax
   <code>
-    <lgt>input type="text" [(ngModel)]="newItem"</lgt>
-    <lgt>input type="text" [ngModel]="newItem" (ngModelChange)="newItem=$event"</lgt></code>
-
-
-  <h3>= input-controls.ts (/forms) in old</h3>
+    <!-- These two inputs are the same. one is the long hand syntax -->
+    <lgt>input type="text" [(ngModel)]="newItem"</lgt><br>
+    <lgt>input type="text" [ngModel]="newItem" (ngModelChange)="newItem=$event"</lgt>
+  </code>
 
   <div class="input-controls">
-    <h5>"Two way bindings"</h5>
+    <h5>Two way binding</h5>
     <input [(ngModel)]="name"/>
-    <div>Current Value: {{name}}</div>
+    <div>Current Value: <highlight>
+      {{name}}
+    </highlight></div>
   </div>
 
 
@@ -66,4 +69,3 @@
       <li *ngIf="csharp">C#</li>
     </ul>
   </div>
-  <dlink [id]="42"></dlink>

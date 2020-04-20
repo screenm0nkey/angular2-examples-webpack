@@ -6,11 +6,15 @@
   <li>The addPayOff() and deletePayOff() methods manually push or delete FormGroup items into the form's FormArray.</li>
   <li>Use Add/Delete Buttons below and notice how both the form.controls and the model are kept in sync as expected</li>
 </ul>
-<dlink [id]="35"></dlink>
-<dlink [id]="36"></dlink>
+
+<div class="links">
+  <dlink [id]="35"></dlink>
+  <dlink [id]="36"></dlink>
+  <dlink [id]="40"></dlink>
+</div>
 
 <div style="border: 2px solid green; border-radius: 5px; padding: 1em;">
-  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+  <form [formGroup]="form">
     <label>Name</label>
     <input type="text" formControlName="name" [(ngModel)]="myModel.name" placeholder="Name">
 
@@ -23,7 +27,7 @@
         <th></th>
       </tr>
       <tbody>
-      <tr *ngFor="let po of form.controls.payOffs.controls; let i = index">
+      <tr *ngFor="let po of form.get('payOffs')['controls']; let i = index">
         <td>
           <input type="text" size=10 [formControl]="po.controls.amount" [(ngModel)]="myModel.payOffs[i].amount">
         </td>

@@ -25,16 +25,10 @@ import {Component} from '@angular/core';
               <a routerLink='./tricks' routerLinkActive='active'>Tricks</a>
               <a routerLink='./interceptor' routerLinkActive='active'>Interceptor</a>
               <a routerLink='./change-after-check' routerLinkActive='active'>ExpressionChangedAfterItHasBeenCheckedError</a>
+              <a routerLink='/mini-apps/auth-app'>Router Animations, canDeactivate canActiveate Route Guards</a>
           </nav>
 
           <div class="ngx-container">
-<!--              <ul class='todos collapsed' #todolist (click)="toggleVisibility(todolist)">-->
-<!--                  <li class="path"><p class="path">misc-examples/misc.component.ts</p></li>-->
-<!--                  <li>Add a collapse icon for sections in the app</li>-->
-<!--                  <li>you were lookingi nto how this component works src/app/misc-examples/components/multi-content/accordian/accordian-group.component.ts</li>-->
-<!--                  <li>Spotify example is broken</li>-->
-<!--              </ul>-->
-
               <router-outlet></router-outlet>
           </div>
       </div>

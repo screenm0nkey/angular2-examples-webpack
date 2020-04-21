@@ -2,15 +2,12 @@ import { Component } from '@angular/core';
 import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'my-app',
   styles : [],
   template: `
-    <h4>Generic method that displays validation errors in Angular’s form</h4>
+    <h4>Generic method that dynamically generates and displays validation errors in Angular’s form</h4>
     <dlink id="89"></dlink>
-
-    <p>Don't fill anything out and press submit to see error messages</p>
     
-    <form [formGroup]="form">
+    <form [formGroup]="myform">
       <div class="field">
         <div class="control">
           <input class="input" formControlName="name" placeholder="Name">
@@ -47,7 +44,7 @@ import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms'
   `,
 })
 export class FormErrorAppComponent {
-  form: FormGroup;
+  myform: FormGroup;
   control: FormControl;
   customErrors = { required: 'Please accept the terms' }
   
@@ -56,7 +53,7 @@ export class FormErrorAppComponent {
   ngOnInit() {
     this.control = this.builder.control('', Validators.required);
 
-    this.form = this.builder.group({
+    this.myform = this.builder.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
       terms: ['', Validators.requiredTrue],
       address: this.builder.group({

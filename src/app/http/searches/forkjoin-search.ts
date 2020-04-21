@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { forkJoin, Observable, Subject } from 'rxjs';
-import { map, share, switchMap, tap} from 'rxjs/operators';
+import { map, share, switchMap, tap } from 'rxjs/operators';
 
 interface Person {
   vehicles: number[];
@@ -64,21 +64,20 @@ export class ForkJoinComponent implements OnInit {
   constructor(public http: HttpClient) {
   }
 
-  /*
-  share() is the same as publish().refCount(). refCount() is built on connect().
-  publish creates a ConnectableObservable which shares a single subscription to the underlying source.
-  However, the publish operator doesn’t subscribe to the underlying source just yet. It’s more like a
-  gatekeeper that makes sure that subscriptions aren’t made to the underlying source but to
-  the ConnectableObservable instead.
-  refCount() causes the ConnectableObservable to subscribe to the underlying source
-  as soon as there is a first subscriber and to unsubscribe from it as soon as there’s no subscribers.
+  /**
+   * share() is the same as publish().refCount()
+   * refCount() is built on connect()
+   * publish() creates a ConnectableObservable which shares a single subscription to the underlying source.
+   * However, the publish operator doesn’t subscribe to the underlying source just yet. 
+   * It’s more like a gatekeeper that makes sure that subscriptions aren’t made to the underlying source but to the ConnectableObservable instead.
+   * refCount() causes the ConnectableObservable to subscribe to the underlying source as soon as there is a first subscriber and to unsubscribe from it as soon as there’s no subscribers.
    */
   ngOnInit() {
     this.getPeopleWhoHaveVehicles();
     this.vehicles$ = this.peopleClick$
       .pipe(
         switchMap(this.getVehiclesFromPerson.bind(this)),
-        tap(val=>console.log(val)),
+        tap(val => console.log(val)),
         share()
       );
   }

@@ -17,7 +17,7 @@ import { Component } from '@angular/core';
         <a routerLink='./form-eight' routerLinkActive='active'>Form 8 - Dynamic reactive forms</a>
         <a routerLink='./form-ten' routerLinkActive='active'>Form 10 - Custom form controls</a>
         <a routerLink='./guide-to-form-array' routerLinkActive='active'>Form 12-16 - Guide to working with FormArray</a>
-        <a routerLink='./form-errors' routerLinkActive='active'>form-errors</a>
+        <a routerLink='./form-errors' routerLinkActive='active'>Dynamically generated validation error messages</a>
       </nav>
 
       <div class="ngx-container">

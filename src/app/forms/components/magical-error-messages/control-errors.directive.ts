@@ -26,7 +26,7 @@ export class ControlErrorsDirective {
     private vcr: ViewContainerRef,
     private resolver: ComponentFactoryResolver,
     @Optional() controlErrorContainer: ControlErrorContainerDirective,
-    @Optional() @Host() private form: FormSubmitDirective,
+    @Optional() @Host() private form: FormSubmitDirective, // @Host will force the lookup to only go as far as this host component.
     @Inject(FORM_ERRORS) private errors,
     private controlDir: NgControl) {
     this.container = controlErrorContainer ? controlErrorContainer.vcr : vcr;

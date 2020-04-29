@@ -3,7 +3,7 @@ import {ExternalLinksService, ExtLink} from "./external-links.service";
 
 @Component({
   selector: 'external-links',
-  styles: ['external-link {display:block; }'],
+  styleUrls: ['./external-links.sass'],
   changeDetection: ChangeDetectionStrategy.Default,
   template: `
       <input #search type="text" placeholder="Search" (input)='filterLinks(search.value)'>

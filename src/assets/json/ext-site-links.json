@@ -479,6 +479,18 @@
     "How to develop generic form error method",
     "https://netbasal.com/make-your-angular-forms-error-messages-magically-appear-1e32350b7fa5",
     ""
+  ],
+  [
+    90,
+    "6 ways to unsubscribe from Observables",
+    "https://blog.bitsrc.io/6-ways-to-unsubscribe-from-observables-in-angular-ab912819a78f",
+    ""
+  ],
+  [
+    91,
+    "Creating Reusable Angular Components — How To Avoid the Painful Trap Most Go In",
+    "https://medium.com/angular-in-depth/creating-reusable-angular-components-how-to-avoid-the-painful-trap-most-go-in-d531761d6c7a",
+    "templateRef ng-content"
   ]
 
 

@@ -6,9 +6,10 @@ import {MainContentProjectionComponent} from './_main.component';
 import {ContentChildrenTab1, ContentChildrenTabs, ContentChildrenTabset1} from './tabs1';
 import {ContentChildrenDescendants, Pane2, Tab2} from "./descendants";
 import {MultiContentModule} from "../multi-content/_multicontent.module";
+import { LinquistDirectivesModule } from '../directives-linquist/_linquist-directives.module';
 
 @NgModule({
-  imports: [SharedModule, MultiContentModule],
+  imports: [SharedModule, MultiContentModule, LinquistDirectivesModule],
   // exporting it, allows the the component to be used in _multicontent.module.ts
   exports: [
     ContentChildrenTab1, ContentChildrenTabset1, ContentChildrenTabs,

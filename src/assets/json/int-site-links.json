@@ -12,7 +12,7 @@
     "Dependency injection token"
   ],
   [
-    1002,
+    1010,
     "Content Projection",
     "misc/content-projection",
     "contentchildren querylist tabs descendants"
@@ -51,13 +51,19 @@
     1008,
     "Dynamic Components",
     "/misc/dynamic",
-    "Dynamic component @ViewChild ComponentFactoryResolver, ChangeDetectorRef, ViewContainerRef"
+    "Dynamic component @ViewChild ComponentFactoryResolver, ChangeDetectorRef, ViewContainerRef, Renderer2"
   ],
   [
     1009,
     "How to focus an input",
     "/misc/focus-input",
     "@ViewChild"
+  ],
+  [
+    1011,
+    "Miscellaneous stuff",
+    "/misc/chickens",
+    "@ViewChild, @Inputs, @Outputs, @Input, @Hostlistener and getter, custom decorator"
   ]
 ]
 

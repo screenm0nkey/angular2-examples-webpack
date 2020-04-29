@@ -1,5 +1,8 @@
 @import "styles-dark"
 @import "./app/http/chat-app-rxjs/_chat"
+@import '~bootstrap-scss'
+@import 'styles/positioning'
+@import 'styles/spinner'
 
 .clearfix
   &:after
@@ -61,11 +64,15 @@ button
   margin: 10px -5px 0
 
 .link-type
+  cursor: pointer
   &.ext
     color: darkred
 
   &.int
     color: darkgreen
+    &:hover
+      background-color: darkgreen
+      color : white
 
 .links dlink
   display: block
@@ -300,6 +307,12 @@ section.main
     width: 200px
     margin-right: 0
     background-color: #afc7d2
+
+    a
+      font-size:12px !important
+      padding : 0 5px !important
+      display: block !important
+      margin-bottom: 3px
 
 .ngx-container
   height: 100%

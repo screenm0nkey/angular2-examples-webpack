@@ -1,11 +1,11 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  template: `
+    template: `
       <div class='comps'>
-          <section collapse-it>
+          <collapse-it>
               <p class="path">misc-examples/components/content-children/main.ts</p>
-              <h4>Notes on Content Projection and @ContentChildren</h4>
+              <h4>Notes on Content Projection</h4>
 
               <p>
                   <code>@ContentChildren</code> allows us to target 'local-refs' in content which has been inserted
@@ -30,8 +30,16 @@ import {Component} from '@angular/core';
               <p>You would taget it like this <code>
                   <lgt>emitter-component body</lgt>
               </code></p>
-          </section>
+          </collapse-it>
 
+          <collapse-it>
+            <h4>Should you use template reference or ng-content?</h4>
+            <dlink id="91"></dlink>
+            <p>There is a subtle difference between using templateRef vs. using ng-content because of how Angular’s lifecycle management works. Angular’s OnInit and onDestroy hooks works for component where they are declared, not where they are used/rendered. That means, if using ng-content, the child will not be destroyed when destroying the component containing the ng-content. Also for a child component being instantiated with ng-content, the constructor and init hooks will also be invoked regardless of if the child component has been rendered in the DOM. </p>
+            <p class="highlight">For that reason, passing the template projection as templateRef is the most maintainable and performant, as the lifecycle hooks are only getting called if the templateRef have actually been rendered in the DOM and because it gets destroyed with the component instantiating the templateRef.</p>
+          </collapse-it>
+        
+          <linquist-example-04></linquist-example-04>
           <problem-one></problem-one>
           <problem-one-fix></problem-one-fix>
           <content-children-tabs></content-children-tabs>

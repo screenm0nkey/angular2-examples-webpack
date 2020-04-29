@@ -12,20 +12,32 @@ import {Component} from '@angular/core';
               <a routerLink='./change-detection' routerLinkActive='active'>Change Detection</a>
               <a routerLink='./input-binding' routerLinkActive='active'>Component Communication</a>
               <a routerLink='./hostbinding' routerLinkActive='active'>@HostListener @HostBinding</a>
-              <a routerLink='./content-projection' routerLinkActive='active'>Content Projection using @ContentChildren, ngAfterContentInit and ngContent(<lgt>ng-content</lgt>) </a>
+              <a routerLink='./content-projection' routerLinkActive='active'>Content Projection using @ContentChildren</a>
+              <a routerLink='./content-projection' routerLinkActive='active'>ngAfterContentInit and ngContent(<lgt>ng-content</lgt>) </a>
               <a routerLink='./view-children' routerLinkActive='active'>@ViewChildren @ViewChild ngAfterViewInit</a>
-              <a routerLink='./ngzone' routerLinkActive='active'>The NgZone and Detaching Change Detectors</a>
-              <a routerLink='./dynamic' routerLinkActive='active'>Dynamic Component and DOM Element Creation</a>
-              <a routerLink='./chickens' routerLinkActive='active'>ExportAs, Renderer2, Directives and ForkJoin()</a>
-              <a routerLink='./focus-input' routerLinkActive='active'>Focus an Input @ViewChild</a>
-              <a routerLink='./directives' routerLinkActive='active'>Structual Directives, <br><lgt>ng-container</lgt> and Directives with John Linquist</a>
-              <a routerLink='./templates' routerLinkActive='active'>Creating Structural Directives and IterableDiffers</a>
+              <a routerLink='./ngzone' routerLinkActive='active'>The NgZone</a>
+              <a routerLink='./ngzone' routerLinkActive='active'>Detaching Change Detectors</a>
+              <a routerLink='./dynamic' routerLinkActive='active'>Dynamic Components</a>
+              <a routerLink='./dynamic' routerLinkActive='active'>DOM Element Creation</a>
+              <a routerLink='./dynamic' routerLinkActive='active'>Renderer2</a>
+              <a routerLink='./chickens' routerLinkActive='active'>ExportAs</a>
+              <a routerLink='./chickens' routerLinkActive='active'>Directives and ForkJoin()</a>
+              <a routerLink='./chickens' routerLinkActive='active'>Custom Decorator</a>
+              <a routerLink='./focus-input' routerLinkActive='active'>Focus an Input with @ViewChild</a>
+              <a routerLink='./directives' routerLinkActive='active'>Structual Directives</a>
+              <a routerLink='./directives' routerLinkActive='active'>Using <lgt>ng-container</lgt></a>
+              <a routerLink='./templates' routerLinkActive='active'>Creating Structural Directives</a>
+              <a routerLink='./templates' routerLinkActive='active'>IterableDiffers</a>
               <a routerLink='./ngstyle' routerLinkActive='active'>NgStyle</a>
-              <a routerLink='./notifications' routerLinkActive='active'>Notifications, Socket-io, @Input, @Output, getters/setters</a>
+              <a routerLink='./notifications' routerLinkActive='active'>Using Socket-io</a>
+              <a routerLink='./notifications' routerLinkActive='active'>Using component getters/setters</a>
               <a routerLink='./tricks' routerLinkActive='active'>Tricks</a>
-              <a routerLink='./interceptor' routerLinkActive='active'>Interceptor</a>
+              <a routerLink='./interceptor' routerLinkActive='active'>Interceptors</a>
               <a routerLink='./change-after-check' routerLinkActive='active'>ExpressionChangedAfterItHasBeenCheckedError</a>
-              <a routerLink='/mini-apps/auth-app'>Router Animations, canDeactivate canActiveate Route Guards</a>
+              <a routerLink='/mini-apps/auth-app'>Router Animations</a>
+              <a routerLink='/mini-apps/auth-app'>CanDeactivate and CanActiveate</a>
+              <a routerLink='/mini-apps/auth-app'>Route Guards</a>
+              <a routerLink='/mini-apps/insert-component' routerLinkActive='active'>Reusable Components using TemplateRef</a>
           </nav>
 
           <div class="ngx-container">

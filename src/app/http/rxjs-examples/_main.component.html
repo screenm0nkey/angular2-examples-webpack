@@ -40,6 +40,8 @@
           .pipe(combineLatest(store.select("filterReducer"))) <br>
           .pipe(withLatestFrom(this.time$, (_, y) => y)) <br>
           .pipe(zip(interval(50), x => x)); <br>
+          .pipe(take(5)); <br>
+          .pipe(takeUntil(stopBtnClick$); <br>
         </code>
   </section>
 
@@ -92,6 +94,9 @@
       <li><strong>debounceTime</strong></li>
       <li><strong>distinctUntilChanged</strong></li>
       <li><strong>catchError</strong></li>
+      <li><strong>take</strong></li>
+      <li><strong>takeUntil</strong></li>
+      <li><strong>takeWhile</strong></li>
     </ul>
   </section>
 

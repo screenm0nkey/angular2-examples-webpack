@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 
-@Injectable({ providedIn: "root" })
 class _SmallService {
   run(): string {
     console.log("Small service...");
@@ -8,7 +7,6 @@ class _SmallService {
   }
 }
 
-@Injectable({ providedIn: "root" })
 class _LargeService {
   run(): string {
     console.log("Large service...");
@@ -64,7 +62,7 @@ export class MrTestyServiceTwo {
 
 export class ParamService {
   constructor(public phrase: string, num: number) {
-    console.log("%cParamService is being created with phrase","color:violet",phrase,num);
+    console.log("%cParamService is being created with phrase", "color:violet", phrase, num);
   }
 
   getValue(): string {
@@ -79,6 +77,6 @@ export class RubbishService {
   imAString = "hello";
 
   constructor() {
-    console.log(`%cRubbishService instance-id=${++RubbishService.counter}`,"color:yellow");
+    console.log(`%cRubbishService instance-id=${++RubbishService.counter}`, "color:yellow");
   }
 }

@@ -19,7 +19,10 @@ import { GuideToFormArrayComponent } from './components/guide-to-form-array/guid
 import { FormFourteenComponent } from './components/guide-to-form-array/form-14';
 import { FormFifteenComponent } from './components/guide-to-form-array/form-15';
 import { FormSixteenComponent } from './components/guide-to-form-array/form-16';
-import { FormErrorAppModule } from './components/magical-error-messages/_app.module';
+import { FormErrorAppModule } from './components/custom-error-messages/_app.module';
+import { FormTipsComponent } from './components/form-20';
+import { AddressSubFormComponent } from './components/reactive-subforms/address-subform.component';
+import { ParentReactiveSubForm } from './components/reactive-subforms/parent-form.component';
 
 @NgModule({
   imports: [
@@ -42,10 +45,12 @@ import { FormErrorAppModule } from './components/magical-error-messages/_app.mod
     FormFiveComponent,
     FormSixComponent,
     FormNineComponent,
-    GuideToFormArrayComponent, FormTwelveComponent, FormThirteenComponent, 
+    GuideToFormArrayComponent, FormTwelveComponent, FormThirteenComponent,
     FormFourteenComponent,
     FormFifteenComponent,
     FormSixteenComponent,
+    FormTipsComponent,
+    AddressSubFormComponent, ParentReactiveSubForm
   ]
 })
 export class NickFormsModule {

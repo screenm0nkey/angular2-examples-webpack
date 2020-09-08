@@ -65,13 +65,8 @@
     <input type="text" name="city" ngModel>
   </fieldset>
 
-  <input 
-    type="text" 
-    id="first_name" 
-    name="first_name" 
-    [(ngModel)]="employee.first_name"
-    [ngClass]="{invalid: first_name.touched && !first_name.valid}" #first_name="ngModel"
-  >
+  <input type="text" id="first_name" name="first_name" [(ngModel)]="employee.first_name"
+    [ngClass]="{invalid: first_name.touched && !first_name.valid}" #first_name="ngModel">
   <p> valid: {{ first_name.valid }} </p>
   <p> value: {{ first_name.value }} </p>
 

@@ -4,6 +4,7 @@
     <p class="file">misc-examples/components/dependency-injection/dependency.component.ts</p>
     <h4>External links on Dependency Injection</h4>
     <p class="links">
+      <dlink [id]="6"></dlink>
       <dlink [id]="7"></dlink>
       <dlink [id]="8"></dlink>
       <dlink [id]="9"></dlink>
@@ -64,13 +65,19 @@
 
   <section collapse-it class="well">
     <h4>Using providedIn @Injectable(<cur>providedIn: 'root'</cur>)</h4>
+    <dlink [id]="6"></dlink><br>
     <dlink [id]="61"></dlink>
+    
+    <p class="highlight">Stick with providedIn: ‘root’ in every eagerly imported module scenario. See <dlink [id]="61"></dlink></p>
+    
     <p>There is now a new, recommended, way to register a provider, directly inside the <code>@Injectable()</code>
       decorator, using the new <code>providedIn</code> attribute. It accepts 'root' as a value or any module of your
       application.
-      <highlight>When you use 'root', your injectable will be registered as a singleton in the application, and you don’t need
+      <highlight>When you use 'root', your injectable will be registered as a singleton in the application, and you
+        don’t need
         to add it to the
-        providers of the root module.</highlight> Similarly, if you use <code>providedIn: UsersModule</code>, the injectable is
+        providers of the root module.</highlight> Similarly, if you use <code>providedIn: UsersModule</code>, the
+      injectable is
       registered as
       a provider of the UsersModule without adding it to the providers of the module.</p>
 
@@ -85,7 +92,8 @@
         <dlink [id]="6"></dlink>
         .
       </li>
-      <li class="highlight">Use providers: [] inside of @Component or @Directive to scope service only for the particular
+      <li class="highlight">Use providers: [] inside of @Component or @Directive to scope service only for the
+        particular
         component sub-tree which will also lead to creation of multiple service instances (one service instance per
         one component usage)
       </li>
@@ -102,23 +110,25 @@
       that are hard to reproduce due to accidental overwrites of injectables.
       In order to avoid this this, angular will create a child dependency injection context.
       This context will contain the service, but <highlight>this service will not be visible to the rest of the
-      application.</highlight>
+        application.</highlight>
     </p>
 
     <p>What would happen if we used providedIn: 'root' to implement service which we want to use in lazy loaded
       module?</p>
 
-    <p>Technically, <highlight>the 'root' stands for AppModule</highlight> but Angular is smart enough to bundle service in
+    <p>Technically, <highlight>the 'root' stands for AppModule</highlight> but Angular is smart enough to bundle service
+      in
       the lazy loaded
       bundle if it is only injected in the lazy components / services. But there is a catch.
       If we later additionally inject service which is meant to belong to lazy module in any eager part of the
       application it will be then automatically bundled in the main bundle.</p>
 
     <p>To summarize… <highlight>If the service is only injected in the lazy part, it will be bundled in lazy bundle
-      If the service is injected in the eager part (while still possibly being injected in the lazy part), it will be
-      bundled in the eager main bundle
-      The problem with this behavior is that it can get quite unpredictable in the larger applications with tons of
-      modules and hundreds of services.</highlight></p>
+        If the service is injected in the eager part (while still possibly being injected in the lazy part), it will be
+        bundled in the eager main bundle
+        The problem with this behavior is that it can get quite unpredictable in the larger applications with tons of
+        modules and hundreds of services.</highlight>
+    </p>
   </section>
 
   <section collapse-it class="well">
@@ -143,7 +153,7 @@
     <p>They are only made available for the component and its view child components. They are declared by the
       viewProviders option in the component decorator.</p>
   </section>
-  
+
   <!-- Define an Aliased Class Provider with <code>useExisting</code> -->
   <section collapse-it class="well">
     <h4>Define an Aliased Class Provider with <code>useExisting</code></h4>
@@ -168,7 +178,8 @@
       injectors
       is created by nesting components in templates. Internally, <highlight>component injectors are also referred to as
         View
-        Injectors</highlight></p>
+        Injectors</highlight>
+    </p>
     <p>A hierarchy of element injectors, on the other hand, is a lesser-known feature of Angular’s DI system mostly
       because it’s not really documented anywhere. But exactly this kind of injectors is the first stage of the DI
       resolution process. And these injectors make up a hierarchy that is used to resolve dependencies decorated with
@@ -203,13 +214,15 @@
 
   <tokens-example></tokens-example>
 
-  <factory-example></factory-example>
+
 
   <manual-injection-example></manual-injection-example>
-  
+
   <inject-parent-component></inject-parent-component>
 
-  <resolve-create-service></resolve-create-service>
+  <manually-inject-service></manually-inject-service>
+
+  <factory-example></factory-example>
 
   <resolve-create-factory></resolve-create-factory>
 
@@ -217,16 +230,10 @@
     <h4>Accessing a component's API in another component</h4>
     <p>There are three ways to access a component's APi in another component.</p>
 
-    <p>Injecting a component as a service or access it via @ViewChild or simply reference it as a property in your component</p>
+    <p>Injecting a component as a service or access it via @ViewChild or simply reference it as a property in your
+      component</p>
 
     <code>@ViewChild(CountdownTimerComponent,<cur>static: false</cur>) public timerComponent: CountdownTimerComponent;</code>
     <code>constructor(public accordion: AccordionComponent)</code>
   </section>
 </div>
-
-
-
-
-
-
-

@@ -7,7 +7,14 @@ import { LinquistDirectivesModule } from '../directives-linquist/_linquist-direc
 import { NgBookRepeatDirective } from './simple-ng-book-repeat.directive';
 
 @NgModule({
-  imports: [SharedModule, LinquistDirectivesModule],
+  imports: [SharedModule],
+  exports: [
+    TemplateComponent,
+    IfTemplateSampleApp,
+    NgBookIf,
+    NgBookRepeatComponent,
+    NgBookRepeatDirective
+  ],
   declarations: [
     TemplateComponent,
     IfTemplateSampleApp,

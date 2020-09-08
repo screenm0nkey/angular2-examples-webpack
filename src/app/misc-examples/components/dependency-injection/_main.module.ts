@@ -1,14 +1,12 @@
 import { NgModule } from "@angular/core";
-import { SharedModule } from "../../../shared/_shared.module";
 import { ModulesComponent } from "./modules.component";
-import { DiSampleComponent } from "./resolve-create-service.component";
 import {
   ApiService,
   RubbishService,
   ParamService,
   ViewPortService
 } from "./injectables.service";
-import { DiSampleComponent2 } from "./resolve-create-factory.component";
+import { ManuallyCreateFactoryComponent } from "./factory-examples/manually-create-factory.component";
 import {
   InjectParentComponent,
   InjectParentInChildComponent
@@ -20,16 +18,18 @@ import {
 } from "./control-lookup.component";
 import { DepInjectionComponent } from "./_main.component";
 import { TokenExamplesComponent } from "./token-examples.component";
-import { FactoryExamplesComponent } from "./factory-examples.component";
+import { FactoryExamplesComponent } from "./factory-examples/factory-examples.component";
 import { ManualInjectionExamplesComponent } from "./manual-injection.component";
+import { SharedModule } from 'src/app/shared/_shared.module';
+import { ManuallyInjectComponent } from './manually-inject-service.component';
 
 @NgModule({
   imports: [SharedModule],
   declarations: [
     DepInjectionComponent,
     TokenExamplesComponent,
-    DiSampleComponent,
-    DiSampleComponent2,
+    ManuallyInjectComponent,
+    ManuallyCreateFactoryComponent,
     InjectParentComponent,
     InjectParentInChildComponent,
     ModulesComponent,
@@ -52,7 +52,7 @@ import { ManualInjectionExamplesComponent } from "./manual-injection.component";
       useFactory: (rs): ParamService => new ParamService("YOLO", rs.imANumber),
       deps: [RubbishService]
     },
-  
+
     { provide: "ApiServiceAlias", useExisting: ApiService },
     {
       provide: "SizeService",
@@ -63,6 +63,6 @@ import { ManualInjectionExamplesComponent } from "./manual-injection.component";
     }
   ]
 })
-export class DependencyModule {}
+export class DependencyModule { }
 
 export { DepInjectionComponent };

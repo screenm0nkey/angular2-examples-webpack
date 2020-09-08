@@ -1,10 +1,10 @@
-import {AfterViewInit, Component, ComponentFactoryResolver, ViewChild, ViewContainerRef, OnInit, ChangeDetectorRef} from '@angular/core';
+import { AfterViewInit, Component, ComponentFactoryResolver, ViewChild, ViewContainerRef, OnInit, ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'd-comp',
   template: `<span>{{name}}<br></span>`
 })
-export class MyComponentTemplate {
+class MyInjectableComponent {
   name = 'Yo, I am dynamically inserted component 02';
 }
 
@@ -12,32 +12,35 @@ export class MyComponentTemplate {
   selector: 'dynamic-component-example-02',
   template: `
           <p class='file'>misc-examples/components/chickens/dynamic-02.component.ts</p>
-          <h4>Dynamic component creation using @ViewChild, ChangeDetectorRef, ViewContainerRef and <lgt>ng-container #vc</lgt></h4>
-          <dlink [id]="1007"></dlink>
-          <dlink [id]="80"></dlink>
+          <h4>Dynamic component creation using @ViewChild, ComponentFactoryResolver and ChangeDetectorRef</h4>
+          <p class="links">
+            <dlink [id]="1007"></dlink>
+            <dlink [id]="80"></dlink>
+          </p>
           
-          <code>@ViewChild('vc', <cur>read: ViewContainerRef, static: false</cur>) public vc: ViewContainerRef;</code>
+          <code>@ViewChild('vcr', <cur>read: ViewContainerRef, static: false</cur>) public vc: ViewContainerRef;</code>
           
-          <p>For this example to work, we need to call <code>this.cdRef.detectChanges()</code> in the <code>ngAfterViewInit()</code> 
-              unless it will throw an ExpressionChangedAfterItHasBeenCheckedError</p>
-          
-          
-          <h1>Hello {{name}}</h1>
-          <ng-container #vc></ng-container>
+          <p>For this example to work, we need to call <code>this.cdRef.detectChanges()</code> 
+            in the <code>ngAfterViewInit()</code> 
+            unless it will throw an ExpressionChangedAfterItHasBeenCheckedError
+          </p>
+                    
+            <div class="example">
+              <ng-container #vcr></ng-container>
+            </div>  
   `
 })
 export class Dynamic02Component implements AfterViewInit {
-  @ViewChild('vc', { read: ViewContainerRef }) public viewContainerRef: ViewContainerRef;
-  name :string;
+  @ViewChild('vcr', { read: ViewContainerRef }) public viewContainer: ViewContainerRef;
 
-  constructor(public r: ComponentFactoryResolver, public cdRef:ChangeDetectorRef) {
+  constructor(public componentFactoryResolver: ComponentFactoryResolver, public cdRef: ChangeDetectorRef) {
   }
 
   ngAfterViewInit() {
-    const factory = this.r.resolveComponentFactory(MyComponentTemplate);
-    this.viewContainerRef.createComponent(factory);
-    this.viewContainerRef.createComponent(factory);
-    this.viewContainerRef.createComponent(factory);
+    const factory = this.componentFactoryResolver.resolveComponentFactory(MyInjectableComponent);
+    this.viewContainer.createComponent(factory);
+    this.viewContainer.createComponent(factory);
+    this.viewContainer.createComponent(factory);
     // if you don't run the detect changes here, you will get a 'ExpressionChangedAfterItHasBeenCheckedError' error
     this.cdRef.detectChanges();
   }

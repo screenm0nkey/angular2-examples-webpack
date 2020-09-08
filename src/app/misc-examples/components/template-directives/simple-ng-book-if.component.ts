@@ -32,7 +32,7 @@ export class NgBookIf {
       misc-examples/components/template-directives/simple-ng-book-if.component.ts
     </p>
 
-    <h4>Custom *ngBookIf template</h4>
+    <h4>Structural Directive - Custom *ngBookIf template</h4>
 
     <section class="links">
       <dlink [id]="16"></dlink>

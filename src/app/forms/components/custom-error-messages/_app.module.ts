@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from 'src/app/shared/_shared.module';
-import { FormErrorAppComponent } from './app.component';
+import { FormErrorAppComponent } from './generic-form.component';
 import { ControlErrorContainerDirective } from './control-error-container.directive';
 import { ControlErrorComponent } from './control-error.component';
 import { ControlErrorsDirective } from './control-errors.directive';

@@ -5,13 +5,13 @@ import {Component} from '@angular/core';
   template: `
     <div class='miscellaneous'>
             <nav>
-                <a routerLink='./misc' routerLinkActive='active' [routerLinkActiveOptions]='{ exact: true }'>Miscellaneous examples</a>
-                <a routerLink='./basic' routerLinkActive='active'>Basic</a>
+                <a routerLink='./basic' routerLinkActive='active' [routerLinkActiveOptions]='{ exact: true }'>Basic</a>
                 <a routerLink='./peekaboo' routerLinkActive='active'>Peekaboo</a>
                 <a routerLink='./spy' routerLinkActive='active'>Spy</a>
                 <a routerLink='./on-changes' routerLinkActive='active'>OnChanges</a>
                 <a routerLink='./after-view' routerLinkActive='active'>AfterView</a>
                 <a routerLink='./after-content' routerLinkActive='active'>AfterContent</a>
+                <a routerLink='./misc' routerLinkActive='active'>Miscellaneous examples</a>
             </nav>
             <div class="ngx-container">
                 <router-outlet></router-outlet>

@@ -1,4 +1,4 @@
-import { ComponentFactoryResolver, ComponentRef, Directive, Host, Inject, Input, Optional, ViewContainerRef } from '@angular/core';
+import { ComponentFactoryResolver, ComponentRef, Directive, Host, Inject, Input, Optional, ViewContainerRef, Self } from '@angular/core';
 import { NgControl } from '@angular/forms';
 // untilDestroyed - A neat way to unsubscribe from observables when the component destroyed
 import { untilDestroyed } from 'ngx-take-until-destroy';
@@ -28,7 +28,8 @@ export class ControlErrorsDirective {
     @Optional() controlErrorContainer: ControlErrorContainerDirective,
     @Optional() @Host() private form: FormSubmitDirective, // @Host will force the lookup to only go as far as this host component.
     @Inject(FORM_ERRORS) private errors,
-    private controlDir: NgControl) {
+    @Self() private controlDir: NgControl // obtain a reference to the current form control instance in our directive
+  ) {
     this.container = controlErrorContainer ? controlErrorContainer.vcr : vcr;
     this.submit$ = this.form ? this.form.submit$ : EMPTY;
   }
@@ -36,7 +37,8 @@ export class ControlErrorsDirective {
   ngOnInit() {
     // untilDestroyed - A neat way to unsubscribe from observables when the component destroyed
     const formChanges$ = merge(this.submit$, this.control.valueChanges);
-    formChanges$.pipe(untilDestroyed(this))
+    formChanges$
+      .pipe(untilDestroyed(this))
       .subscribe(v => this.setFormErrors());
   }
 

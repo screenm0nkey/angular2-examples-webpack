@@ -13,12 +13,19 @@ export { DynamicMainComponent };
   imports: [
     SharedModule, ChickensModule, LinquistDirectivesModule,
   ],
+  exports: [
+    DynamicMainComponent,
+    CatItemComponent,
+    DogItemComponent,
+    MemberItemComponent,
+    MembersListComponent,
+  ],
   declarations: [
     DynamicMainComponent,
     CatItemComponent,
     DogItemComponent,
     MemberItemComponent,
-    MembersListComponent
+    MembersListComponent,
   ],
   /*
   Normally, Angular generates a factory for each component that it finds referenced in a template. 
@@ -26,7 +33,7 @@ export { DynamicMainComponent };
   We have to tell Angular to generate the factories, and to do so, we need to add our components to 
   the entryComponents array in the NgModule.
   */
-  entryComponents : [
+  entryComponents: [
     DogItemComponent,
     CatItemComponent,
   ]

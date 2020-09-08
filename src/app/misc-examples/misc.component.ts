@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   template: `
@@ -15,11 +15,11 @@ import {Component} from '@angular/core';
               <a routerLink='./content-projection' routerLinkActive='active'>Content Projection using @ContentChildren</a>
               <a routerLink='./content-projection' routerLinkActive='active'>ngAfterContentInit and ngContent(<lgt>ng-content</lgt>) </a>
               <a routerLink='./view-children' routerLinkActive='active'>@ViewChildren @ViewChild ngAfterViewInit</a>
+              <a routerLink='./dynamic' routerLinkActive='active'>DOM Manipulation and Element Creation</a>
+              <a routerLink='./dynamic' routerLinkActive='active'>Dynamic Components</a>
+              <a routerLink='./dynamic' routerLinkActive='active'>Renderer2</a>
               <a routerLink='./ngzone' routerLinkActive='active'>The NgZone</a>
               <a routerLink='./ngzone' routerLinkActive='active'>Detaching Change Detectors</a>
-              <a routerLink='./dynamic' routerLinkActive='active'>Dynamic Components</a>
-              <a routerLink='./dynamic' routerLinkActive='active'>DOM Element Creation</a>
-              <a routerLink='./dynamic' routerLinkActive='active'>Renderer2</a>
               <a routerLink='./chickens' routerLinkActive='active'>ExportAs</a>
               <a routerLink='./chickens' routerLinkActive='active'>Directives and ForkJoin()</a>
               <a routerLink='./chickens' routerLinkActive='active'>Custom Decorator</a>

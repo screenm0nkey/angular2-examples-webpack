@@ -1,0 +1,39 @@
+<p class="file">
+    misc-examples/components/template-directives/simple-ng-book-repeat.component.ts
+</p>
+<h4>Structural Directive - Custom *ngBookRepeat template using IterableDiffer</h4>
+<div class="links">
+    <a routerLink="/lifecycle">ngDoCheck and IterableDiffers, KeyValueDiffers</a>
+    <a routerLink="../directives">Assign a structural directive dynamic content</a>
+    <dlink [id]="56"></dlink>
+</div>
+
+<p>
+    In the template that is generated, we’re going to have a local view variable called
+    <highlight>#peep</highlight>, which will receive the value from the
+    <highlight>$implicit local variable</highlight>.
+    <highlight>$implicit</highlight> is the name of the local variable that
+    Angular uses when “de-sugaring” the syntax into a template.
+</p>
+
+<code><lgt>li *ngBookRepeat="let peep of people"</lgt></code>
+gets converted to
+<code><lgt>template ngBookRepeat [ngBookRepeatOf]="people" let-peep="$implicit"</lgt><lgt>/template</lgt></code>
+
+Here in the code is where we set the <highlight>$implicit</highlight> value to the change.item<br />
+<highlight>change.item will be equal to the value of peep</highlight>
+
+<code>let view = this.viewContainer.createEmbeddedView(this.template,<cur>'$implicit': change.item</cur>);</code>
+
+<ul>
+    <li *ngBookRepeat="let peep of people">
+        {{ peep.name }} is {{ peep.age }}
+        <span (click)="remove(peep)" style="text-decoration: underline; cursor:pointer">[Remove]</span>
+    </li>
+</ul>
+
+<form class="ui form" style="width:150px;">
+    <input type="text" #name placeholder="Name" />
+    <input type="text" #age placeholder="Age" style="float: left" />
+    <button class="ui submit button" (click)="add(name, age)">Add</button>
+</form>

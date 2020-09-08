@@ -1,8 +1,12 @@
 <h4>Do's and Don'ts</h4>
-<dlink [id]="82"></dlink>
+1) <dlink [id]="82"></dlink><br>
+2) <dlink [id]="94"></dlink><br>
+3) <dlink [id]="95"></dlink><br>
+4) <dlink [id]="96"></dlink><br>
+<hr>
 <p>
-  In your application, 80–90% of your components should be presentational. A
-  presentational component should take Inputs and emit Outputs, nothing else.
+  <strong>In your application, 80–90% of your components should be presentational. A
+    presentational component should take Inputs and emit Outputs, nothing else</strong>.
   Yes, it may have its little inner state: that’s not a problem. It’s perfectly
   fine for a TabsComponent, for example, to accept an index from outside but
   keeping the currentIndex in a property. As long as it has an indexChange
@@ -23,19 +27,28 @@
   or to get rid of it, your presentational components won’t break.
 </p>
 
-<p>Do</p>
+
 <ul>
+  <li class="strong">Do</li>
   <li>Use ChangeDetectionStrategy OnPush</li>
   <li>Container Componentns delegate responsibilities to a service.</li>
   <li>Containers can be split if they are too big</li>
   <li>Use Directives as a way to incapsulate behaviors and reuse them</li>
   <li>Use Content Projection</li>
-  <li>Huge forms : Use ControlValueAccessor to create sub-forms.</li>
-</ul>
+  <li>Provide Default Value for Optional Inputs (see link No.3)</li>
+  <li>Use *ngIf rather than binding to the [hidden] property (see below)</li>
 
-<p>DONT</p>
+</ul>
+<hr>
 <ul>
+  <li class="strong">Donts</li>
+  <li>Huge forms : Use ControlValueAccessor to create sub-forms.(see link 4)</li>
   <li>Modify the Input data directly</li>
   <li>Use models from other modules</li>
   <li>Your containers shouldn’t do have complicated logic. Use services</li>
+  <li>Relying on ViewChild for communication. Avoid calling methods on child components to change the state of the
+    component (3)(2)</li>
+  <li>Convert subscribables into promises (2)</li>
+  <li>Avoid calling components methods or getters from the component template as it can slow it down. (2)</li>
+
 </ul>

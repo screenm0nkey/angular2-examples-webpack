@@ -4,14 +4,16 @@ import { FormControl, FormArray, FormGroup } from '@angular/forms';
 @Component({
   selector: 'form-thirteen',
   template: `
+  <p class="path">src/app/forms/components/guide-to-form-array/form-13.ts</p>
+
   <h5>Using a FormArray in a FormGroup</h5>
 
   <p>Directives used:  <code>formGroup, formControlName, formArrayName</code></p>
 
-  <form [formGroup]="user">
+  <form [formGroup]="userForm">
     <input formControlName="name" />
-    <ng-container formArrayName="skills">
-      <div *ngFor="let _ of skills.controls; index as i">
+    <ng-container formArrayName="skillz">
+      <div *ngFor="let _ of targetSkillz.controls; index as i">
         <input [formControlName]="i" />
       </div>
     </ng-container>
@@ -19,13 +21,13 @@ import { FormControl, FormArray, FormGroup } from '@angular/forms';
   `
 })
 export class FormThirteenComponent {
-  user = new FormGroup({
+  userForm = new FormGroup({
     name: new FormControl('Liz'),
-    skills: new FormArray([
+    skillz: new FormArray([
       new FormControl('Simon'),
       new FormControl('Mark')
     ])
   });
 
-  skills = this.user.get('skills') as FormArray;
+  targetSkillz = this.userForm.get('skillz') as FormArray;
 }

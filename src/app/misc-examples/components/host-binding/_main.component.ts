@@ -5,7 +5,7 @@ import { Component } from "@angular/core";
     `
       h4 {
         font-weight: bold;
-        color: darkred;
+        color: white;
       }
     `
   ],
@@ -33,4 +33,4 @@ import { Component } from "@angular/core";
     </div>
   `
 })
-export class HostBindingComponent {}
+export class HostBindingComponent { }

@@ -33,6 +33,9 @@ import {MiscLifecycleModule} from './miscellaneous/lifecycle.module';
     AfterContentComponent,
     ChildComponent,
     Spy
+  ],
+  exports : [
+    BasicExample
   ]
 })
 export class LifeCycleModule {

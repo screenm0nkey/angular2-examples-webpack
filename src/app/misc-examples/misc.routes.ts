@@ -5,7 +5,7 @@ import { ChickensMainComponent } from "./components/chickens/_chickens.module";
 import { MainContentProjectionComponent } from "./components/content-children/_main.component";
 import { FocusInput } from "./components/focusing-input/main";
 import { HostBindingComponent } from "./components/host-binding/_main.component";
-import { DirectivesLinquistMain } from "./components/directives-linquist/_main";
+import { DirectivesLinquistMain } from "./components/directives-linquist/main.component";
 import { NgStyleMainComponent } from "./components/ng-style/main";
 import { NgZoneMainComponent } from "./components/ng-zone/ngzone.module";
 import { AppComponent } from "./components/notifications/main.component";

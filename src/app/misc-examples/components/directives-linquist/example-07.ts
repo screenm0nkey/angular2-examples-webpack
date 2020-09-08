@@ -46,7 +46,7 @@ export class HooperDirective {
     <p class="path">
       misc-examples/components/directives-linquist/example-07.ts
     </p>
-    <h4>Assign a structural directive dynamic content</h4>
+    <h4>Structural Directive - Assign a structural directive dynamic content</h4>
 
     <p>See the example <dlink [id]="1005"></dlink> *ngBookRepeat template</p>
 

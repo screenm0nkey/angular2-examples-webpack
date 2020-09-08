@@ -1,0 +1,41 @@
+<p class="path">src/app/forms/components/form-20.ts</p>
+<h4>Angular Reactive Forms: Tips and Tricks</h4>
+<dlink [id]="92"></dlink>
+
+<form [formGroup]="registerForm" (ngSubmit)="submit()">
+
+  <p>
+    If an input has a validator, it will be called on every keystroke.
+    This can be fixed by using the <code>updateOn</code> property. Please see output in console.
+  </p>
+
+  <section>
+    <label>This will only update on onBlur as it used</label>
+    <input type="text" formControlName="updateOnBlur">
+  </section>
+  <hr>
+  <section>
+    <label>This will update on every keystroke but only after 300ms of inactivity as it's using
+      <code>valueChanges.pipe(debounceTime(300))</code>. <br> It's triggered on less than 4 chars using
+      <code>name.setErrors(Validators.minLength(4)(name)</code>
+    </label>
+    <input type="text" formControlName="name">
+  </section>
+  <hr>
+  <section>
+    <label>This input is disabled on load using
+      <code>const email = new FormControl(<cur>disabled: true, value: 'nick'</cur>)</code><br>
+      It can changed using <code>email.disable(<cur>emitEvent: false</cur>);</code> or <br>
+      <code>   name.enable(<cur>emitEvent: false</cur> );</code>
+    </label>
+    <input type="text" formControlName="email">
+  </section>
+  <hr>
+  <section>
+    <label>This was added using <code>this.registerForm.addControl('house', new FormControl())</code></label>
+    <input type="text" formControlName="house">
+  </section>
+
+  <button type="submit">Submit</button>
+
+</form>

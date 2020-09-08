@@ -4,6 +4,8 @@ import { FormControl, FormArray, FormGroup } from '@angular/forms';
 @Component({
   selector: 'form-fourteen',
   template: `
+  <p class="path">src/app/forms/components/guide-to-form-array/form-14.ts</p>
+
   <h5>Using formGroupName directive for a FormGroup in a FormArray</h5>
 
   <p>Directives used: <code> formGroup, formControlName, formArrayName, formGroupName</code></p>
@@ -24,16 +26,16 @@ import { FormControl, FormArray, FormGroup } from '@angular/forms';
   `
 })
 export class FormFourteenComponent {
-    user = new FormGroup({
-      name: new FormControl('Mike'),
-      skills: new FormArray([
-        new FormGroup({
-          name: new FormControl('Sarah'),
-          level: new FormControl('Trevor'),
-          age: new FormControl(36),
-        })
-      ])
-    });
-  
-    skills = this.user.get('skills') as FormArray;
-  }
+  user = new FormGroup({
+    name: new FormControl('Mike'),
+    skills: new FormArray([
+      new FormGroup({
+        name: new FormControl('Sarah'),
+        level: new FormControl('Trevor'),
+        age: new FormControl(36),
+      })
+    ])
+  });
+
+  skills = this.user.get('skills') as FormArray;
+}

@@ -2,7 +2,8 @@
 import { InjectionToken } from '@angular/core';
 
 /**
- * These errors are accessed in ControlErrorsDirective.setFormErrors()
+ * These errors are accessed in control-errors.directive.ts 
+ * ControlErrorsDirective.setFormErrors() 
  */
 export const defaultErrors = {
   required: (error) => `This field is required`,

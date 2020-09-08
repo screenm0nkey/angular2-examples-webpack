@@ -418,7 +418,6 @@
     "A fix for ExpressionChangedAfterItHasBeenCheckedError when creating dynamic component",
     "https://stackoverflow.com/questions/43652307/how-to-wait-that-ngafterviewinit-runs-while-creating-instance-of-a-component-f",
     "dynamic component creation"
-
   ],
   [
     81,
@@ -430,7 +429,7 @@
     82,
     "Recurring problems I face as a Front-End Consultant",
     "https://medium.com/@michelestieven/angular-recurring-problems-i-face-as-a-front-end-consultant-d2a9c1826a3a",
-    ""
+    "tips"
   ],
   [
     83,
@@ -491,8 +490,47 @@
     "Creating Reusable Angular Components — How To Avoid the Painful Trap Most Go In",
     "https://medium.com/angular-in-depth/creating-reusable-angular-components-how-to-avoid-the-painful-trap-most-go-in-d531761d6c7a",
     "templateRef ng-content"
+  ],
+  [
+    92,
+    "Angular Reactive Forms: Tips and Tricks",
+    "https://netbasal.com/angular-reactive-forms-tips-and-tricks-bb0c85400b58",
+    "tips"
+  ],
+  [
+    94,
+    "Four Red Flags for Weak Conceptual Knowledge",
+    "https://medium.com/@liutingchun_95744/angular-four-common-red-flags-for-weak-conceptual-knowledge-cf3a75e1860c",
+    "tips"
+  ],
+  [
+    95,
+    "Four Practical Tips to Build a Good Shared Component",
+    "https://medium.com/@liutingchun_95744/angular-four-practical-tips-to-build-a-good-shared-component-63034aa2027",
+    "tips"
+  ],
+  [
+    96,
+    "Reactive sub forms and making then typesafe with generic interface",
+    "https://medium.com/@tomastrajan/angular-reactive-sub-forms-type-safe-without-duplication-dbd24225e1e8",
+    "sub forms"
+  ],
+  [
+    97,
+    "Pass Dependencies to a Factory Provider in Angular",
+    "https://egghead.io/lessons/angular-pass-dependencies-to-a-factory-provider-in-angular",
+    "factory"
+  ],
+  [
+    98,
+    "Reactive forms API summary",
+    "https://angular.io/guide/reactive-forms#classes",
+    "reactive form controls"
+  ],
+  [
+    99,
+    "How to do DOM Manipulation properly in Angular",
+    "https://medium.com/weekly-webtips/how-to-do-dom-manipulation-properly-in-angular-e6fdb70a6e0e",
+    "Renderer2 ViewContainerRef templateRef ViewChild, ViewChildren"
   ]
-
-
-  
 ]

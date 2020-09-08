@@ -43,6 +43,7 @@ export class PeekABooParentComponent {
   public _logger: LoggerService;
 
   constructor(logger: LoggerService) {
+    console.clear();
     this._logger = logger;
     this.hookLog = logger.logs;
   }

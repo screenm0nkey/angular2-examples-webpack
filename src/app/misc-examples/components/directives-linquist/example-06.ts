@@ -26,7 +26,7 @@ export class ThreeDirective implements AfterViewInit {
   selector: 'linquist-example-06',
   template: `
       <p class='file'>misc-examples/components/directives-linquist/example-06.ts</p>
-      <h4>How to access content in a Structural Directive and use it as a template</h4>
+      <h4>Structural Directive - How to access content in a Structural Directive and use it as a template</h4>
       <p><dlink [id]="56"></dlink></p>
 
       <code><lgt>span *mrNick</lgt>Hello, Angular<lgt>/span</lgt></code>is the same as<code><lgt>template mrNick</lgt><lgt>span</lgt>Hello, Angular<lgt>/span</lgt><lgt>/template</lgt></code>
@@ -42,7 +42,9 @@ export class ThreeDirective implements AfterViewInit {
           rather than a DOM element
       </p>
       
-      <span *mrNick>this content is from a component which is using a structural directive<br></span>
+      <section style="background-color:antiqueWhite">
+        <span *mrNick>this content is from a component which is using a structural directive<br></span>
+      </section>
   `
 })
 export class Example06AppComponent {

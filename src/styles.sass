@@ -24,13 +24,17 @@ body
 router-outlet
     display: none
 
-.code
-  p &, h4 > &, li > &
+.code, code
+  p &, h4 > &, li > &, label > &
     display: inline-block
     margin: 0
 
 strong
   color: black
+
+.strong
+  color: black
+  font-weight: bolder
 
 li
   code
@@ -67,6 +71,8 @@ button
   cursor: pointer
   &.ext
     color: darkred
+    &:hover
+      color: white
 
   &.int
     color: darkgreen
@@ -130,7 +136,7 @@ h4
   position: relative
   top: -8px
 
-h5 
+h5
   padding: 2px 10px 0
   margin: 0 0 10px
   background-color: white
@@ -182,7 +188,7 @@ button[disabled]
   background: dimgrey !important
   opacity: .3
 
-.alert-danger 
+.alert-danger
   background-color: red
   color: white
 
@@ -220,7 +226,7 @@ nav
     text-decoration: none !important
 
 nav > a:visited *
-  color: #fff 
+  color: #fff
 
 nav .router-link-active, nav .active, nav .router-link-active:hover, nav .active:hover
   background-color: #17235f !important
@@ -287,6 +293,7 @@ section.main
 
 .ng-dirty.ng-invalid
   border: 1px red solid
+  outline-color: red !important
 
 .has-error
   border-color: red
@@ -309,7 +316,7 @@ section.main
     background-color: #afc7d2
 
     a
-      font-size:12px !important
+      font-size: 12px !important
       padding : 0 5px !important
       display: block !important
       margin-bottom: 3px
@@ -426,5 +433,5 @@ product-image
   color : red
 
 p.help.is-danger
-  margin-top:0
+  margin-top: 0
   color: red

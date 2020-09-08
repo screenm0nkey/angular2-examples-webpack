@@ -1,5 +1,6 @@
 <div class='comps'>
   <section collapse-it>
+    <p class="path">src/app/http/rxjs-examples/_main.component.html</p>
     <h4>A list RxJs Operators and Subjects used in the examples in this app</h4>
     <dlink id="86"></dlink>
     <p>These are all the different RxJs static methods and operators used in all of the examples in this app</p>
@@ -47,6 +48,7 @@
 
 
   <section collapse-it>
+    <p class="path">src/app/http/rxjs-examples/_main.component.html</p>
     <h4>Commonly used RxJs Operators and Subjects</h4>
     <dlink id="86"></dlink>
     <ul>
@@ -102,12 +104,14 @@
 
 
   <section collapse-it>
+    <p class="path">src/app/http/rxjs-examples/_main.component.html</p>
     <h4>
       Publish and its Variants
     </h4>
     <dlink id="86"></dlink>
     <p>
-      Because using <strong>multicast() + Subject + refCount()</strong> is a typical pattern in RxJS, the team there have created
+      Because using <strong>multicast() + Subject + refCount()</strong> is a typical pattern in RxJS, the team there
+      have created
       shortcut operators to make it easier for us. Let’s go over the different variations we have:
     </p>
     <ul>
@@ -121,8 +125,10 @@
 
       <li><strong>share()</strong> — is a shortcut for multicast(() => new Subject()) + refCount()</li>
 
-      <li><strong>shareReplay(bufferSize)</strong> = is a multicasting operator that uses a ReplaySubject(). It doesn’t internally use
-        the multicast operator itself, and as a result it always returns an observable, rather than a ConnectableObservable.
+      <li><strong>shareReplay(bufferSize)</strong> = is a multicasting operator that uses a ReplaySubject(). It doesn’t
+        internally use
+        the multicast operator itself, and as a result it always returns an observable, rather than a
+        ConnectableObservable.
         It can be used either with a refCount, or without it. See both variations below</li>
     </ul>
 
@@ -152,6 +158,9 @@
   </collapse-it>
   <collapse-it>
     <app-github-repositories></app-github-repositories>
+  </collapse-it>
+  <collapse-it>
+    <takeuntil-unsubscribe></takeuntil-unsubscribe>
   </collapse-it>
 
 

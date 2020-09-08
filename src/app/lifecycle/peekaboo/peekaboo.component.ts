@@ -11,7 +11,7 @@ import {
   OnInit,
   SimpleChange
 } from '@angular/core';
-import {LoggerService} from '../logger.service';
+import { LoggerService } from '../logger.service';
 
 let nextId = 1;
 
@@ -20,7 +20,6 @@ export class PeekABoo implements OnInit {
   constructor(public _logger: LoggerService) {
   }
 
-  // implement OnInit's `ngOnInit` method
   // Initialize the directive/component after Angular initializes the data-bound input properties.
   ngOnInit() {
     this._logIt(`OnInit`);
@@ -38,31 +37,23 @@ export class PeekABoo implements OnInit {
 })
 // Don't HAVE to mention the Lifecycle Hook interfaces
 // unless we want typing and tool support.
-export class PeekABooComponent extends PeekABoo
-  implements OnChanges,
-    OnInit,
-    DoCheck,
-    AfterContentInit,
-    AfterContentChecked,
-    AfterViewInit,
-    AfterViewChecked,
-    OnDestroy {
+export class PeekABooComponent
+  extends PeekABoo
+  implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
   @Input() name: string;
   public _verb = 'initialized';
 
   constructor(logger: LoggerService) {
+    // super() calls the constructor of the PeekABoo class
     super(logger);
     let is = this.name ? 'is' : 'is not';
     this._logIt(`name ${is} known at construction`);
   }
 
-  // only called for/if there is an @input variable set by parent.
-  // Responds after Angular sets a data-bound @input property. The method
-  // receives a changes object of current and previous values.
   ngOnChanges(changes: { [propertyName: string]: SimpleChange }) {
     let changesMsgs: string[] = [];
     for (let propName in changes) {
-      if (propName === 'name') {
+      if (propName === 'name' ) {
         let name = changes['name'].currentValue;
         changesMsgs.push(`name ${this._verb} to '${name}'`);
       } else {

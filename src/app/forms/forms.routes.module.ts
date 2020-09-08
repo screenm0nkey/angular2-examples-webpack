@@ -13,27 +13,31 @@ import { FormSixComponent } from './components/form-6';
 import { FormNineComponent } from './components/form-9';
 import { GuideToFormArrayComponent } from './components/guide-to-form-array/guide-to-form-array.component';
 import { FormExamplesComponent } from './forms.component';
-import { FormErrorAppComponent } from './components/magical-error-messages/app.component';
+import { FormErrorAppComponent } from './components/custom-error-messages/generic-form.component';
+import { FormTipsComponent } from './components/form-20';
+import { ParentReactiveSubForm } from './components/reactive-subforms/parent-form.component';
 
 const formsRoutes: Routes = [
   {
     path: '',
     component: FormExamplesComponent,
     children: [
-      {path: '', redirectTo: 'form-two', pathMatch: 'full'},
-      {path: 'form-one', component: FormOneComponent},
-      {path: 'form-two', component: FormTwoComponent},
-      {path: 'form-three', component: FormThreeComponent},
-      {path: 'form-four', component: FormFourComponent},
-      {path: 'form-five', component: FormFiveComponent},
-      {path: 'form-six', component: FormSixComponent},
-      {path: 'form-seven', component: FormSevenComponent},
-      {path: 'form-eight', component: FormEightComponent},
-      {path: 'form-nine', component: FormNineComponent},
-      {path: 'form-ten', component: FormTenComponent},
-      {path: 'form-eleven', component: FormElevenComponent},
-      {path: 'guide-to-form-array', component: GuideToFormArrayComponent},
-      {path: 'form-errors', component: FormErrorAppComponent},
+      { path: '', redirectTo: 'form-two', pathMatch: 'full' },
+      { path: 'form-one', component: FormOneComponent },
+      { path: 'form-two', component: FormTwoComponent },
+      { path: 'form-three', component: FormThreeComponent },
+      { path: 'form-four', component: FormFourComponent },
+      { path: 'form-five', component: FormFiveComponent },
+      { path: 'form-six', component: FormSixComponent },
+      { path: 'form-seven', component: FormSevenComponent },
+      { path: 'form-eight', component: FormEightComponent },
+      { path: 'form-nine', component: FormNineComponent },
+      { path: 'form-ten', component: FormTenComponent },
+      { path: 'form-eleven', component: FormElevenComponent },
+      { path: 'guide-to-form-array', component: GuideToFormArrayComponent },
+      { path: 'form-errors', component: FormErrorAppComponent },
+      { path: 'form-tips', component: FormTipsComponent },
+      { path: 'sub-forms', component: ParentReactiveSubForm },
     ]
   }
 ];

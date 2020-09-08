@@ -5,7 +5,8 @@ import {
   ComponentFactoryResolver,
   OnInit,
   ViewChild,
-  ViewContainerRef
+  ViewContainerRef,
+  ChangeDetectorRef
 } from "@angular/core";
 
 @Component({
@@ -14,7 +15,7 @@ import {
     <strong>{{ name }}<br /></strong>
   `
 })
-export class DComponent {
+export class MyInjectableComponent {
   name = "I am dynamically inserted component";
 }
 
@@ -44,26 +45,24 @@ export class DComponent {
       child component requires DOM modification and ngAfterViewInit lifecycle
       hook is triggered after the Angular updated DOM the error is thrown.
     </p>
-
-    <h1>Hello {{ name }}</h1>
-    <ng-container #vc></ng-container>
+    <ng-container #vcr></ng-container>
   `
 })
-export class DynamicComponent implements OnInit, AfterViewInit {
-  @ViewChild("vc", { read: ViewContainerRef })
-  public vc: ViewContainerRef;
-  name: string;
+export class DynamicComponent implements AfterViewInit {
+  @ViewChild('vcr', { read: ViewContainerRef }) public viewContainer: ViewContainerRef;
 
-  constructor(public r: ComponentFactoryResolver) {}
-
-  ngOnInit() {
-    // this.name = 'I am Dynamic01Component';
+  constructor(public componentFactoryResolver: ComponentFactoryResolver, public cdRef: ChangeDetectorRef) {
   }
 
   ngAfterViewInit() {
-    const f = this.r.resolveComponentFactory(DComponent);
-    this.vc.createComponent(f);
-    this.vc.createComponent(f);
-    this.vc.createComponent(f);
+    const factory = this.componentFactoryResolver.resolveComponentFactory(MyInjectableComponent);
+    this.viewContainer.createComponent(factory);
+    this.viewContainer.createComponent(factory);
+    this.viewContainer.createComponent(factory);
+    // If you run detectChanges here, it will fix it
+    // this.cdRef.detectChanges();
   }
+
+
 }
+

@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   template: `
@@ -9,7 +9,6 @@ import {Component} from '@angular/core';
               <div class='links'>
                   <dlink id="1003"></dlink>
                   <dlink id="1004"></dlink>
-
               </div>
               Some examples...
               <code>@ViewChild('myref') el: ElementRef;</code>
@@ -20,6 +19,12 @@ import {Component} from '@angular/core';
               <code>@ViewChild(KeepCountComponent) public keepCount: KeepCountComponent;</code>
               <code>@ViewChild('foo', <cur>static: false</cur>) template: TemplateRef;</code>
               <code>@ViewChildren(TemplateRef) templates: QueryList<lgt>TemplateRef</lgt></code>
+              <code>@ViewChildren(child, <cur>'read': ElementRef</cur>) childComponent: QueryList<lgt>ElementRef</lgt>;</code>
+              <ul>
+                <li><dlink id="99"></dlink></li>
+                <li><strong>Modify DOM elements</strong> — Use Renderer service.</li>
+                <li><strong>Modify DOM Structure</strong> — Use ViewContainerRef and TemplateRef classes</li>
+              </ul>
           </section>
 
             <collapse-it>

@@ -3,7 +3,8 @@ import {
   Component,
   ComponentFactoryResolver,
   ViewChild,
-  ViewContainerRef
+  ViewContainerRef,
+  TemplateRef
 } from "@angular/core";
 
 /**
@@ -15,7 +16,7 @@ import {
     <strong>{{ name }}<br /></strong>
   `
 })
-export class InjectableComponent {
+export class MyInjectableComponent {
   name = "Hey, I am a dynamically inserted component 01";
 }
 
@@ -51,35 +52,42 @@ export class InjectableComponent {
           it.
         </li>
         <li>
-          <highlight>ref</highlight> — Reference to the component we just
+          <highlight>componentReference</highlight> — Reference to the component we just
           injected. We call detectChanges on it so angular will call the
           necessary lifecycle hooks and start the change detection mechanism.
         </li>
       </ul>
+      <br>
+      <p>Notice in the code we call <code>changeDetectorRef.detectChanges()</code> on the newly created component instance. 
+      This can also be done by importing <code>ChangeDetectorRef</code> and doing it in bulk. See <strong>dynamic-02.component.ts</strong></p>
+
       <div class="example">
-        <ng-container #viewContainer></ng-container>
+        <ng-container #vcr></ng-container>
       </div>   
     </section>
   `
 })
 export class Dynamic01Component implements AfterViewInit {
   // ViewContainerRef is the container of the parent of this component.
-  @ViewChild("viewContainer", { read: ViewContainerRef }) viewContainer;
+  @ViewChild("vcr", { read: ViewContainerRef }) public viewContainer: ViewContainerRef;
 
   // ComponentFactoryResolver is used to get the factory of the component we want to inject
-  constructor(public componentFactoryResolver: ComponentFactoryResolver) {}
+  constructor(public componentFactoryResolver: ComponentFactoryResolver) { }
 
   ngAfterViewInit() {
-    const factory = this.componentFactoryResolver.resolveComponentFactory(
-      InjectableComponent
-    );
+    //Create a factory for the component you wish to inject
+    const factory = this.componentFactoryResolver.resolveComponentFactory(MyInjectableComponent);
+
     // createComponent(factory) is the part that actually injects the component into the viewContainerRef.
-    let ref = this.viewContainer.createComponent(factory);
-    // ref is the component we injected
-    // We call detectChanges on it so angular will call the necessary lifecycle hooks and start the change detection mechanism.
-    ref.changeDetectorRef.detectChanges();
+    // componentReference is the component we injected
+    let componentReference = this.viewContainer.createComponent(factory);
+
+    // We call detectChanges on it so angular will call the necessary 
+    // lifecycle hooks and start the change detection mechanism.
+    // Also without calling it, you will get ExpressionChangedAfterItHasBeenCheckedError
+    componentReference.changeDetectorRef.detectChanges();
     // create another instance of the component and inject it.
-    ref = this.viewContainer.createComponent(factory);
-    ref.changeDetectorRef.detectChanges();
+    componentReference = this.viewContainer.createComponent(factory);
+    componentReference.changeDetectorRef.detectChanges();
   }
 }

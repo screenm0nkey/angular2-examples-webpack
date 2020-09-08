@@ -4,6 +4,8 @@ import { FormControl, FormArray, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'form-fifteen',
   template: `
+  <p class="path">src/app/forms/components/guide-to-form-array/form-15.ts</p>
+
   <h5>FormArray Validation</h5>
 
   <p>Directives used:  <code>formGroup, formControlName, formArrayName</code></p>

@@ -1,10 +1,8 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'my-component',
   template: `
-    <p><code>@Input() message</code> LifeCycle Hooks <highlight>{{message}}</highlight></p>
-    <br><br>
     <ng-content></ng-content>
   `
 })
@@ -12,6 +10,7 @@ export class MyComponent {
   @Input() message;
 
   constructor() {
+    console.clear();
     console.log('%cconstructor', 'color:white');
   }
 
@@ -33,7 +32,7 @@ export class MyComponent {
 
   // this is used for <ng-content>
   ngAfterContentInit() {
-    console.log('%cAfterContentInit', 'color:red');
+    console.log('%cAfterContentInit', 'color:yellow');
   }
 
   ngAfterContentChecked() {
@@ -42,7 +41,7 @@ export class MyComponent {
 
   // this is used for viewChild /viewChildren
   ngAfterViewInit() {
-    console.log('%cAfterViewInit', 'color:orange');
+    console.log('%cAfterViewInit', 'color:yellow');
   }
 
   ngAfterViewChecked() {
@@ -51,21 +50,26 @@ export class MyComponent {
 }
 
 @Component({
-  selector: 'my-app',
+  selector : 'lifecycle-basic',
   template: `
     <div class='comps'>
       <section>
         <p class='path'>/lifecycle/basic-overview/index.ts</p>
-        <h4>Basic <highlight>Check the Console for LifeCycle Hooks</highlight></h4>
-      
+        <h4>Basic</h4>
+
+        <dlink [id]="16"></dlink>
+
+        <p class="red">see console for output</p>
+
         <p>
-            <dlink [id]="16"></dlink>
-        </p>
+            <highlight>Every time the change detection runs these lifecycle methods are run;</highlight>
+            <code>DoCheck(), AfterContentChecked(), AfterViewChecked()</code>
+          </p>
         
         <input [(ngModel)]='appMessage'>
       
         <my-component [message]='appMessage'>
-          This is content is transposed using <lgt>ng-content</lgt>: <highlight>{{appMessage}}</highlight>
+          This content is transposed using <lgt>ng-content</lgt>: <highlight>{{appMessage}}</highlight>
         </my-component>
       </section>
     </div>

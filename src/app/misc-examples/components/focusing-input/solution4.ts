@@ -1,9 +1,9 @@
-import {AfterViewInit, Component, ElementRef, Renderer2, ViewChild} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'solution-four',
   template: `
-    <p class='file'>misc-examples/components/focusing-input/solution4.ts</p>
+    <p class="path">misc-examples/components/focusing-input/solution4.ts</p>
     <h4>Correct Solution - Using local variable refs and @ViewChild to focus an input</h4>
     <dlink [id]="1009"></dlink>
     <p>

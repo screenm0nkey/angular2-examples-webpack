@@ -1,12 +1,12 @@
-import {AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren} from '@angular/core';
-import {KeepCountComponent} from './keep-count.component';
-import {SuperListItemComponent} from "./super-list-item.component";
+import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { KeepCountComponent } from './keep-count.component';
+import { SuperListItemComponent } from "./super-list-item.component";
 
 @Component({
   selector: 'view-children-02-example',
   template: `
       <collapse-it>
-          <p class='file'>misc-examples/components/view-children/view-children-02.ts</p>
+          <p class="path">misc-examples/components/view-children/view-children-02.ts</p>
           <h4>Accessing a component's API using @ViewChild - List count example</h4>
           
           <code>

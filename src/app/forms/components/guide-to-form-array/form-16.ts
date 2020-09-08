@@ -4,7 +4,7 @@ import { FormControl, FormArray, FormGroup } from '@angular/forms';
 @Component({
   selector: 'form-sixteen',
   template: `
-    <p class="path">src/app/forms/components/guide-to-form-array/form-16.ts</p>
+    <p class="path">forms/components/guide-to-form-array/form-16.ts</p>
 
       <h5>Adding a FormGroup to a FormArray with the [formGroup] Directive</h5>
 

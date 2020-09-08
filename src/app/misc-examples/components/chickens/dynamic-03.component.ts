@@ -27,7 +27,7 @@ export class HighlightDirective {
   selector: 'dynamic-component-example-03',
   styles: [`[highlight]{background:green; color:white}`],
   template: `
-      <p class='file'>misc-examples/components/chickens/dynamic-03.component.ts</p>
+      <p class="path">misc-examples/components/chickens/dynamic-03.component.ts</p>
       <h4>NICK</h4>
       <span [appHighlight]="'highlight'">Mano Mano</span>
       <span>Mano Mano</span>

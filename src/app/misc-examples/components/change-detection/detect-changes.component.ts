@@ -9,7 +9,7 @@ import {
   selector: "detect-changes",
   changeDetection: ChangeDetectionStrategy.Default,
   template: `
-    <p class="file">
+    <p class="path">
       /misc-examples/components/immutable/detect-changes.component.ts
     </p>
     <h4>Speed-up an app by stopping the component from being checked using this.ref.detectChanges()</h4>
@@ -67,7 +67,7 @@ export class DetectChanges implements AfterViewInit {
   id: any = 0;
   attached: boolean;
 
-  constructor(public ref: ChangeDetectorRef) {}
+  constructor(public ref: ChangeDetectorRef) { }
 
   /**
    * We only want to detach the change detectors after change detection has been performed for the first time,

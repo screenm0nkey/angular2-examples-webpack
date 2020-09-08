@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   template: `
       <div class='comps'>
           <section class='info' collapse-it>
-              <p class='file'>misc-examples/components/view-children/main.ts</p>
+              <p class="path">misc-examples/components/view-children/main.ts</p>
               <h4>Notes on ViewChild/Children</h4>
               <div class='links'>
                   <dlink id="1003"></dlink>
@@ -44,7 +44,7 @@ import { Component } from '@angular/core';
         <collapse-it><dynamic-component-example-02></dynamic-component-example-02></collapse-it>
 
           <section collapse-it>
-              <p class='file'>misc-examples/components/view-children/_main.component.ts</p>
+              <p class="path">misc-examples/components/view-children/_main.component.ts</p>
               <h4>Replace curly braces in code</h4>
               <p><code>@ViewChild('text',
                   <cur>static: false</cur>

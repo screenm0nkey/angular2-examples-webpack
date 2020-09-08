@@ -1,11 +1,11 @@
-import {Component} from '@angular/core';
-import {WikiSearchService} from './wikipedia-search.service';
+import { Component } from '@angular/core';
+import { WikiSearchService } from './wikipedia-search.service';
 
 @Component({
   selector: 'wikipedia-promise',
   template: `
     <div>
-      <p class='path'>app/http-rxjs/searches/wikipedia-search-1.ts</p>
+      <p class="path">http-rxjs/searches/wikipedia-search-1.ts</p>
       <h4>Examples using promises</h4>
       <p>
           <dlink [id]="15"></dlink>

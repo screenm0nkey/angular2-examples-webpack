@@ -1,6 +1,6 @@
 <div class="comps">
   <div>
-    <p class="file">misc-examples/components/customers/customer-ngrx-queue.component.ts</p>
+    <p class="path">misc-examples/components/customers/customer-ngrx-queue.component.ts</p>
     <h4>Customers App from Dan Whalin</h4>
     <div class="links">
       <dlink [id]="71"></dlink>
@@ -10,16 +10,12 @@
     <a (click)="changeDisplayMode('block')" [ngClass]="{'active': !displayAsList}" class="nav">Column View</a>
 
     <section style="margin: 10px 0; border: solid gray 4px; display: table">
-      <filter-text-component
-        [placeholder]="filterText"
-        (changed)="filterChanged($event)">
+      <filter-text-component [placeholder]="filterText" (changed)="filterChanged($event)">
       </filter-text-component>
     </section>
 
     <section *ngIf="displayAsList">
-      <div *ngFor="let customer of filteredCustomers"
-           (click)="onClick(customer.id)"
-           style="cursor:pointer;">
+      <div *ngFor="let customer of filteredCustomers" (click)="onClick(customer.id)" style="cursor:pointer;">
         <div class="card-header">
           <img src="/assets/images/{{customer.gender | lowercase}}.png" class="avatar">
           <a routerLink="{{customer.id}}">
@@ -36,26 +32,24 @@
     <section *ngIf="!displayAsList">
       <table>
         <thead>
-        <tr>
-          <td></td>
-          <td sort-by="firstName" (sorted)="sort($event)">First</td>
-          <td sort-by="lastName" (sorted)="sort($event)">Last</td>
-          <td (click)="sort('orderTotal')">OrderTotal</td>
-        </tr>
+          <tr>
+            <td></td>
+            <td sort-by="firstName" (sorted)="sort($event)">First</td>
+            <td sort-by="lastName" (sorted)="sort($event)">Last</td>
+            <td (click)="sort('orderTotal')">OrderTotal</td>
+          </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let customer of filteredCustomers"
-            (click)="onClick(customer.id)"
-            style="cursor:pointer;">
-          <td>
-            <a routerLink="{{customer.id}}">
-              <img src="/assets/images/{{customer.gender | lowercase}}.png" class="avatar">
-            </a>
-          </td>
-          <td>{{customer.firstName}}</td>
-          <td>{{customer.lastName | capitalize }}</td>
-          <td>{{customer.orderTotal | currency:'USD':true }}</td>
-        </tr>
+          <tr *ngFor="let customer of filteredCustomers" (click)="onClick(customer.id)" style="cursor:pointer;">
+            <td>
+              <a routerLink="{{customer.id}}">
+                <img src="/assets/images/{{customer.gender | lowercase}}.png" class="avatar">
+              </a>
+            </td>
+            <td>{{customer.firstName}}</td>
+            <td>{{customer.lastName | capitalize }}</td>
+            <td>{{customer.orderTotal | currency:'USD':true }}</td>
+          </tr>
         </tbody>
       </table>
     </section>

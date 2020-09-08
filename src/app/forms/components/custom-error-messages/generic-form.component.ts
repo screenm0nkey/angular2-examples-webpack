@@ -4,7 +4,7 @@ import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms'
 @Component({
   styles: [],
   template: `
-    <p class="path">src/app/forms/components/custom-error-messages/generic-form.component.ts</p>
+    <p class="path">forms/components/custom-error-messages/generic-form.component.ts</p>
     <h4>Generic method that dynamically generates and displays validation errors in Angular’s form</h4>
     <dlink id="89"></dlink>
 

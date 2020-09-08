@@ -11,7 +11,7 @@ import { WikiSearchService } from './wikipedia-search.service';
   // providers: [WikipediaService],
   template: `
     <div>
-    <p class='path'>app/http-rxjs/searches/wikipedia-search-2.ts</p>
+    <p class="path">http-rxjs/searches/wikipedia-search-2.ts</p>
       <h4>Search using angular <highlight>async filter</highlight>, <highlight>input.valueChanges</highlight> and a loading icon</h4>
       
       <input type='text' [formControl]='term' placeholder='Wikipedia Search'/> 
@@ -34,6 +34,6 @@ export class WikipediaObservable {
       .pipe(switchMap((sterm: string) => this.wikiSearch.search(sterm)))
       .pipe(delay(1000)) // add a delay to see the loading icon
       .pipe(tap(() => (this.loading = false)))
-      .pipe(map(res=>res[1]));
+      .pipe(map(res => res[1]));
   }
 }

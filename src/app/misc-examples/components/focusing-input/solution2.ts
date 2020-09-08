@@ -35,7 +35,7 @@ export class FocusIt implements AfterViewInit, OnChanges {
 @Component({
   selector: 'solution-two',
   template: `
-    <p class='path'>misc-examples/components/focusing-input/solution2.ts</p>
+    <p class="path">misc-examples/components/focusing-input/solution2.ts</p>
     <h4>Solution 2 @ViewChild and calling a method on the childview directive</h4>
 
     <button (click)='toggle()'>Make it {{isVisible ? 'invisible' : 'visible'}}</button>
@@ -50,7 +50,7 @@ export class SolutionTwo implements OnInit {
   @ViewChild(FocusIt) child: FocusIt;
   @ViewChildren(FocusIt) children: QueryList<FocusIt>;
   public inputIsVisible = false;
-  public isVisible : boolean;
+  public isVisible: boolean;
 
   ngOnInit() {
     // notice that the 'child' directive object instance is still not available as a property

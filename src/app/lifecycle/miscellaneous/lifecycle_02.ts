@@ -1,9 +1,9 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'lifecycle-sample-app-2',
   template: `
-  <p class='path'>/lifecycle/miscellaneous/lifecycle_02</p>
+  <p class="path">/lifecycle/miscellaneous/lifecycle_02</p>
   <h4>ngOnChanges and the SimpleChange object</h4>
   <p class='highlight'>
     It’s important to note that the <code>ngOnChanges()</code> hook gets overriden by <code>ngDoCheck()</code> 

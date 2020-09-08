@@ -1,12 +1,12 @@
-import {Component, Injectable, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { Component, Injectable, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 export interface Character {
   id: number;
   name: string;
 }
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class CharacterService {
   characters: Character[] = [];
 
@@ -29,7 +29,7 @@ export class CharacterService {
 @Component({
   selector: 'promise-example',
   template: `
-    <p class='path'> /http-rxjs/misc-examples/promise.ts</p>
+    <p class="path"> /http-rxjs/misc-examples/promise.ts</p>
     <h4>Promise example</h4> 
      <p style='margin-bottom: 10px'>There are {{characters.length}} characters <br/>{{characters | json}}</p>
   `,

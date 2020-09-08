@@ -23,13 +23,13 @@ import {
 })
 export class AftersCmp
   implements OnInit,
-    OnDestroy,
-    DoCheck,
-    OnChanges,
-    AfterContentInit,
-    AfterContentChecked,
-    AfterViewInit,
-    AfterViewChecked {
+  OnDestroy,
+  DoCheck,
+  OnChanges,
+  AfterContentInit,
+  AfterContentChecked,
+  AfterViewInit,
+  AfterViewChecked {
   counter: number;
 
   constructor() {
@@ -80,7 +80,7 @@ export class AftersCmp
 @Component({
   selector: 'lifecycle-sample-app-4',
   template: `
-  <p class='path'>/lifecycle/miscellaneous/lifecycle_04</p>
+  <p class="path">/lifecycle/miscellaneous/lifecycle_04</p>
   <h4>AfterContentInit, AfterViewInit, AfterContentChecked and AfterViewChecked</h4>
   <dlink [id]="16"></dlink>
   <p>See the Console. It displays all the life cycle events</p>

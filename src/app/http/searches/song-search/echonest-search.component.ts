@@ -1,13 +1,13 @@
-import {Component} from '@angular/core';
-import {MusicSearchService} from './echonest.service';
-import {MusicSearchArtistCardComponent} from './echonest-artist-card.component';
+import { Component } from '@angular/core';
+import { MusicSearchService } from './echonest.service';
+import { MusicSearchArtistCardComponent } from './echonest-artist-card.component';
 
 @Component({
   selector: 'echonest-search-component',
   providers: [MusicSearchService],
   template: `
     <div class='search-results'>
-      <p class='path'>/http-rxjs/searches/echonest-search.ts</p>
+      <p class="path">/http-rxjs/searches/echonest-search.ts</p>
       <h4>Song Search example using <highlight>input[type=text][musicsearch]</highlight> directive</h4>
       
       <p>Type a search word i.e. 'st' (needs the www-server running)</p>

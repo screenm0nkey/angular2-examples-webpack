@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'name-child',
@@ -21,7 +21,7 @@ export class NameChildComponent {
 @Component({
   selector: 'name-parent',
   template: `
-    <p class='file'>misc-examples/components/input-binding/input-getters-setters.ts</p>
+    <p class="path">misc-examples/components/input-binding/input-getters-setters.ts</p>
     <h4>Using Getters and Setter on @Input</h4>
     <code>@Input() set name(name: string)</code>
     There are {{names.length}} names

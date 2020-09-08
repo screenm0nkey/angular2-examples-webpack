@@ -50,11 +50,11 @@ export class MyComponent {
 }
 
 @Component({
-  selector : 'lifecycle-basic',
+  selector: 'lifecycle-basic',
   template: `
     <div class='comps'>
       <section>
-        <p class='path'>/lifecycle/basic-overview/index.ts</p>
+        <p class="path">/lifecycle/basic-overview/index.ts</p>
         <h4>Basic</h4>
 
         <dlink [id]="16"></dlink>

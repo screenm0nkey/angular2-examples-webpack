@@ -8,13 +8,11 @@
         To make zones faster it is possible to bypass zones entirely for
         performance focused applications. To bypass zones, bootstrap your
         application with ‘noop’ as your ngZone.
-        <code
-          >platformBrowserDynamic().bootstrapModule(AppModule,
+        <code>platformBrowserDynamic().bootstrapModule(AppModule,
           <cur>ngZone: 'noop'</cur>
           ).then( ref =>
           <cur></cur>
-          );</code
-        >
+          );</code>
       </li>
       <li>
         <code>ChangeDetectionStrategy.OnPush</code> - Use Angular’s OnPush
@@ -40,7 +38,7 @@
   </collapse-it>
 
   <section collapse-it>
-    <p class="file">misc-examples/components/ng-zone/speedy.component.ts</p>
+    <p class="path">misc-examples/components/ng-zone/speedy.component.ts</p>
     <h4>
       Make an app faster by writing our own a simpleNgFor directive and using
       changeDetectorRef.detach()
@@ -63,7 +61,7 @@
 
   <section collapse-it>
     <div>
-      <p class="file">
+      <p class="path">
         misc-examples/components/ng-zone/speedy-with-zones.component.ts
       </p>
       <h4>Using Zones to speed up an Application</h4>
@@ -79,10 +77,8 @@
         a handler to an event like "mousemove" it is actually using
         Zone.onmousemove, which triggers the change detection when the event
         occurs.
-        <highlight
-          >Binding the event handler outside of Zone stops the change detection
-          being triggered.</highlight
-        >
+        <highlight>Binding the event handler outside of Zone stops the change detection
+          being triggered.</highlight>
         If you look at the console you will only see the change detection
         happening a few times when it's outside.
       </p>
@@ -105,11 +101,9 @@
       </p>
 
       <p>
-        <highlight
-          >Using Zones is a great way to escape Angular’s change detection,
+        <highlight>Using Zones is a great way to escape Angular’s change detection,
           without detaching change detectors and making the application code too
-          complex.</highlight
-        >
+          complex.</highlight>
         In fact, it turns out that Zones APIs are super easy to use, especially
         NgZone’s APIs to run code outside or inside Angular. Based on the
         numbers, we can even say that the NgZone example is about as fast as the

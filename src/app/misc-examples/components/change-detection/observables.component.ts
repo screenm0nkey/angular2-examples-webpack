@@ -1,14 +1,14 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Injectable} from '@angular/core';
-import {BehaviorSubject, Subject} from 'rxjs';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Injectable } from '@angular/core';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 class Thread {
   constructor(public message?: string) {
   }
 }
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 class ThreadsService {
-  messages: Thread[] = [{message: 'First one'}];
+  messages: Thread[] = [{ message: 'First one' }];
   threads: Subject<Thread[]> = new BehaviorSubject<Thread[]>(this.messages);
 
   addThread(thread: Thread): void {
@@ -39,7 +39,7 @@ export class ChildObsList {
   selector: 'parent-obs',
   providers: [ThreadsService],
   template: `
-      <p class='file'>/misc-examples/components/change-detection/observables.components.ts</p>
+      <p class="path">/misc-examples/components/change-detection/observables.components.ts</p>
       <h4><code>ChangeDetectionStrategy.OnPush</code> with Observables and how to turn off ChangeDetection</h4>
       <dlink [id]="22"></dlink>
 
@@ -69,11 +69,11 @@ export class ParentChangeObs {
   public off: boolean = false;
 
   constructor(public threadsService: ThreadsService,
-              public ref: ChangeDetectorRef) {
+    public ref: ChangeDetectorRef) {
   }
 
   update(msg: string) {
-    this.threadsService.addThread({message: msg});
+    this.threadsService.addThread({ message: msg });
   }
 
   turnOffChangeDetection() {

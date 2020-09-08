@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'countdown-timer',
@@ -50,7 +50,7 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
   selector: 'countdown-parent-vc',
   template: `
       <collapse-it>
-          <p class='file'>misc-examples/components/view-children/view-child.ts</p>
+          <p class="path">misc-examples/components/view-children/view-child.ts</p>
           <h4>Accessing a component's API using @ViewChild - Countdown example</h4>
           <code>@ViewChild(CountdownTimerComponent,<cur>static: false</cur>) public timerComponent: CountdownTimerComponent;</code>
 

@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {LoggerService} from '../logger.service';
+import { Component } from '@angular/core';
+import { LoggerService } from '../logger.service';
 
 @Component({
   selector: 'spy-parent',
@@ -7,7 +7,7 @@ import {LoggerService} from '../logger.service';
     `
   <div class='comps'>
     <div class='parent'>
-      <p class='path'>lifecycle/spy/spy.component.ts</p>
+      <p class="path">lifecycle/spy/spy.component.ts</p>
       <h4>Spy Directive</h4>
       <p>
         <highlight>Directives have lifecycle hooks too</highlight>. We create a SpyDirective that logs when

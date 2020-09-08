@@ -27,7 +27,7 @@ export class MyInjectableComponent {
   selector: "dynamic-component-example-01",
   template: `
     <section collapse-it>
-      <p class="file">
+      <p class="path">
         src/app/misc-examples/components/chickens/dynamic-01.component.ts
       </p>
       <h4>

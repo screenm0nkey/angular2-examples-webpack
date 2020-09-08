@@ -25,7 +25,7 @@ export class ThreeDirective implements AfterViewInit {
 @Component({
   selector: 'linquist-example-06',
   template: `
-      <p class='file'>misc-examples/components/directives-linquist/example-06.ts</p>
+      <p class="path">misc-examples/components/directives-linquist/example-06.ts</p>
       <h4>Structural Directive - How to access content in a Structural Directive and use it as a template</h4>
       <p><dlink [id]="56"></dlink></p>
 

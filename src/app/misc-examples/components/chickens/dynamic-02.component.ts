@@ -11,7 +11,7 @@ class MyInjectableComponent {
 @Component({
   selector: 'dynamic-component-example-02',
   template: `
-          <p class='file'>misc-examples/components/chickens/dynamic-02.component.ts</p>
+          <p class="path">misc-examples/components/chickens/dynamic-02.component.ts</p>
           <h4>Dynamic component creation using @ViewChild, ComponentFactoryResolver and ChangeDetectorRef</h4>
           <p class="links">
             <dlink [id]="1007"></dlink>

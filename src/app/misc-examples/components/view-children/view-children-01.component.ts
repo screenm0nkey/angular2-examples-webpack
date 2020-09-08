@@ -1,11 +1,11 @@
-import {AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren} from '@angular/core';
-import {SuperListItemComponent} from "./super-list-item.component";
+import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { SuperListItemComponent } from "./super-list-item.component";
 
 @Component({
   selector: 'view-children-01-example',
   template: `
       <collapse-it>
-          <p class='file'>misc-examples/components/view-children/view-children-01.ts</p>
+          <p class="path">misc-examples/components/view-children/view-children-01.ts</p>
           <h4>Using @ViewChildren, @ViewChild and <lgt>ElementRef</lgt> local ref to keep count</h4>
 
           <code>@ViewChildren(AComponent) children: QueryList<lgt>AComponent</lgt></code>

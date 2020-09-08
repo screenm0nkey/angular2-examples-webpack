@@ -20,7 +20,7 @@ import { jeffProvider, JEFF_TOKEN } from './token-factory.service';
   ],
   template: `
     <collapse-it>
-      <p class="file">
+      <p class="path">
         src/app/misc-examples/components/dependency-injection/factory-examples.component.ts
       </p>
       <h4>Notes on Factories and Creating factories with dependancies</h4>

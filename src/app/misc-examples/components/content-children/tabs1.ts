@@ -1,4 +1,4 @@
-import {AfterContentInit, Component, ContentChildren, Input, QueryList} from '@angular/core';
+import { AfterContentInit, Component, ContentChildren, Input, QueryList } from '@angular/core';
 
 /**
  *
@@ -58,7 +58,7 @@ export class ContentChildrenTabset1 implements AfterContentInit {
   selector: 'content-children-tabs',
   template: `
       <collapse-it>
-          <p class="file">misc-examples/components/content-children/tabs1.ts</p>
+          <p class="path">misc-examples/components/content-children/tabs1.ts</p>
           <h4>Tabset using @ContentChildren, QueryList, AfterContentInit</h4>
 
           <code>@ContentChildren(ContentChildrenTab1) tabs: QueryList <lgt>ContentChildrenTab1</lgt></code>
@@ -93,9 +93,9 @@ export class ContentChildrenTabs {
 
   constructor() {
     this.tabs = [
-      {title: 'About TAB', content: 'This is the AboutComponent tab'},
-      {title: 'Blog TAB', content: 'This is our blog'},
-      {title: 'Contact TAB', content: 'Contact us here'}
+      { title: 'About TAB', content: 'This is the AboutComponent tab' },
+      { title: 'Blog TAB', content: 'This is our blog' },
+      { title: 'Contact TAB', content: 'Contact us here' }
     ];
   }
 }

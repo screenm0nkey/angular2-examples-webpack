@@ -1,9 +1,9 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'use-ngif',
   template: `
-    <p class='path'>misc-examples/components/tips/use-ngIf-to-hide.ts</p>
+    <p class="path">misc-examples/components/tips/use-ngIf-to-hide.ts</p>
     <h4>Use *ngIf rather than binding to the [hidden] property</h4>
 
     <p>At first glance, binding to the hidden property seems like the closest cousin to Angular 1's ng-show.

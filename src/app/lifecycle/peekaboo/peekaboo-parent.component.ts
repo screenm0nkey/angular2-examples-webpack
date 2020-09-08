@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {LoggerService} from '../logger.service';
+import { Component } from '@angular/core';
+import { LoggerService } from '../logger.service';
 
 @Component({
   selector: 'peek-a-boo-parent',
@@ -8,7 +8,7 @@ import {LoggerService} from '../logger.service';
   template: `
       <div class='comps'>
         <div class='parent'>
-        <p class='path'>lifecycle/peekaboo/peekaboo-parent.component.ts</p>
+        <p class="path">lifecycle/peekaboo/peekaboo-parent.component.ts</p>
           <h4>Peek-A-Boo</h4>
       
           <button (click)='toggleChild()'>

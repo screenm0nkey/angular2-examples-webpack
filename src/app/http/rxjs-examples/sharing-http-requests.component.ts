@@ -7,7 +7,7 @@ import { User } from './shared-components';
 @Component({
   selector: 'share-http-request',
   template: `
-    <p class="path">src/app/http/rxjs-examples/sharing-http-requests.component.ts</p>  
+    <p class="path">http/rxjs-examples/sharing-http-requests.component.ts</p>  
     <h4>How to share a HTTP request</h4>
     
 

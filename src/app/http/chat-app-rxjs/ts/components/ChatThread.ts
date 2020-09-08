@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {ThreadsService} from '../services/services';
-import {Thread} from '../models';
+import { Component, OnInit } from '@angular/core';
+import { ThreadsService } from '../services/services';
+import { Thread } from '../models';
 
 @Component({
   inputs: ['thread'],
   selector: 'chat-thread',
   template: `
   <div class='media conversation' (click)='clicked($event)'>
-    <p class='path'>ChatThread.ts</p>
+    <p class="path">ChatThread.ts</p>
     <div class='pull-left'>
       <img class='media-object avatar' 
            src='{{thread.avatarSrc}}'>

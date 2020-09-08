@@ -30,7 +30,7 @@ export class PopupDirective {
 @Component({
   selector: "local-var-directive",
   template: `
-    <p class="file">
+    <p class="path">
       misc-examples/components/chickens/directives/popup.directive.ts
     </p>
     <h4>Access a @Directive API using exportAs and local variables</h4>
@@ -51,4 +51,4 @@ export class PopupDirective {
     </button>
   `
 })
-export class AccessLocalVariableDirective {}
+export class AccessLocalVariableDirective { }

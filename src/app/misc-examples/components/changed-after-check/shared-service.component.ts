@@ -1,6 +1,6 @@
 // our root app component
-import {Component, Input, Injectable} from '@angular/core';
-@Injectable({providedIn:'root'})
+import { Component, Input, Injectable } from '@angular/core';
+@Injectable({ providedIn: 'root' })
 export class SharedService {
   listeners = [];
   _text = '';
@@ -20,7 +20,7 @@ export class SharedService {
 @Component({
   selector: "shared-service-component",
   template: `
-    <p class="file">
+    <p class="path">
       misc-examples/components/changed-after-check/shared-service.component.ts
     </p>
     <h4>Shared Service</h4>

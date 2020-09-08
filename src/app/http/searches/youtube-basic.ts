@@ -9,7 +9,7 @@ import { YoutubeService } from './youtube-helpers/youtube-service';
   providers: [FormBuilder],
   template: `
         <div class='search-results' style='padding-bottom: 10px;'>
-        <p class='path'>/http-rxjs/searches/youtube-basic.ts</p>
+        <p class="path">/http-rxjs/searches/youtube-basic.ts</p>
         <h4>Youtube basic search example </h4>
             <form [formGroup]='form' #f='ngForm' (ngSubmit)='onSubmit(f)'>
                 <div style='max-height: 300px; overflow: hidden; overflow-y: scroll'>

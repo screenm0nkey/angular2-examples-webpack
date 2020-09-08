@@ -33,7 +33,7 @@ export class TestComponentList implements OnChanges {
   selector: "immutable-list-component",
   template: `
     <collapse-it>
-      <p class="file">/misc-examples/components/immutable/immutable-list.ts</p>
+      <p class="path">/misc-examples/components/immutable/immutable-list.ts</p>
       <h4>Immutable List Example</h4>
       <p>
         The list will only update when the @Inputs changes by creating a new

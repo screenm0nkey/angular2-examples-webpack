@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Params} from '@angular/router';
-import {GithubHttp} from './github.http';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { GithubHttp } from './github.http';
 
 @Component({
   selector: 'repo-detail',
   styleUrls: ['../seed-component.css'],
   template: `
     <section class='repo-details'>
-      <p class='path'>seed-component/github/repo-detail.ts  (gold border)</p>
+      <p class="path">seed-component/github/repo-detail.ts  (gold border)</p>
       <h4 *ngIf="repoDetails.full_name">{{ repoDetails.full_name }}</h4>
       <pre>this.repoDetails = {{ repoDetails | json }}</pre>
     </section>

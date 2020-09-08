@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Directive, ElementRef, Input, OnChanges, SimpleChange} from '@angular/core';
+import { AfterViewInit, Component, Directive, ElementRef, Input, OnChanges, SimpleChange } from '@angular/core';
 
 @Directive({
   selector: '[focusMe]'
@@ -26,7 +26,7 @@ export class FocusMe implements AfterViewInit, OnChanges {
 @Component({
   selector: 'solution-one',
   template: `
-    <p class='file'>misc-examples/components/focusing-input/solution1.ts</p>
+    <p class="path">misc-examples/components/focusing-input/solution1.ts</p>
     <h4>Solution 1 using ngOnChanges ElementRef, directive and @Input</h4>
 
     <button (click)='showInput()'>Make it visible</button>

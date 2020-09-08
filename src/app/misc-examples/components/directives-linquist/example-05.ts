@@ -1,9 +1,9 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'linquist-example-05',
   template: `
-    <p class='file'>misc-examples/components/directives-linquist/example-05.ts</p>
+    <p class="path">misc-examples/components/directives-linquist/example-05.ts</p>
     <h4>Create elements with ngTemplateOutlet</h4>
 
     <dlink [id]="85"></dlink>
@@ -30,7 +30,7 @@ import {Component} from '@angular/core';
   `
 })
 export class Example05AppComponent {
-  one = {message: 'Hello One', colour: 'red'};
-  two = {message: 'Hello Two', colour: 'gold'};
-  three = {message: 'Hello Three', colour: 'green'};
+  one = { message: 'Hello One', colour: 'red' };
+  two = { message: 'Hello Two', colour: 'gold' };
+  three = { message: 'Hello Three', colour: 'green' };
 }

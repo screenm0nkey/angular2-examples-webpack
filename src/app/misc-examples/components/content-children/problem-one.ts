@@ -1,9 +1,9 @@
-import {AfterContentInit, Component, ContentChildren, ElementRef, QueryList} from '@angular/core';
+import { AfterContentInit, Component, ContentChildren, ElementRef, QueryList } from '@angular/core';
 
 // SuperList component would be our library, that an end user is using.
 @Component({
-  selector: 'super-list',
-  template: `
+    selector: 'super-list',
+    template: `
       There are <span class="bold">{{count}}</span> items in the list
       <ul>
           <ng-content></ng-content>
@@ -11,27 +11,27 @@ import {AfterContentInit, Component, ContentChildren, ElementRef, QueryList} fro
   `
 })
 export class SuperListComponent implements AfterContentInit {
-  // @ContentChildren allows us to target directives, components and local-refs
-  // in content which has been inserted using ng-content. If the content was
-  // just in the view then we could use @ViewChildren
-  @ContentChildren('mylocalref') items: QueryList<ElementRef>;
-  count: number;
+    // @ContentChildren allows us to target directives, components and local-refs
+    // in content which has been inserted using ng-content. If the content was
+    // just in the view then we could use @ViewChildren
+    @ContentChildren('mylocalref') items: QueryList<ElementRef>;
+    count: number;
 
-  // this is used for ng-content
-  ngAfterContentInit() {
-    this.count = this.items.length;
-    this.items.forEach((el: ElementRef) => console.log(el.nativeElement));
-  }
+    // this is used for ng-content
+    ngAfterContentInit() {
+        this.count = this.items.length;
+        this.items.forEach((el: ElementRef) => console.log(el.nativeElement));
+    }
 }
 
 // this is how the end user might implement the external component.
 // we're forced to ask them to add a reference to their list items
 // #mylocalref, which is not ideal
 @Component({
-  selector: 'problem-one',
-  template: `
+    selector: 'problem-one',
+    template: `
       <collapse-it>
-          <p class='file'>misc-examples/components/content-children/problem-one.ts</p>
+          <p class="path">misc-examples/components/content-children/problem-one.ts</p>
           <h4>How to reference an element a user projects into your component using a local reference QueryList
               <lgt>ElementRef</lgt>
           </h4>
@@ -69,5 +69,5 @@ export class SuperListComponent implements AfterContentInit {
   `
 })
 export class ProblemOneComponent {
-  public items: string[] = ['hello', 'world', 'today'];
+    public items: string[] = ['hello', 'world', 'today'];
 }

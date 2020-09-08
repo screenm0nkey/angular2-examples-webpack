@@ -1,7 +1,7 @@
-import {ChangeDetectionStrategy, Component, ElementRef, OnInit} from '@angular/core';
-import {MessagesService, ThreadsService, UserService} from '../services/services';
-import {Observable} from 'rxjs';
-import {Message, Thread, User} from '../models';
+import { ChangeDetectionStrategy, Component, ElementRef, OnInit } from '@angular/core';
+import { MessagesService, ThreadsService, UserService } from '../services/services';
+import { Observable } from 'rxjs';
+import { Message, Thread, User } from '../models';
 
 
 @Component({
@@ -10,7 +10,7 @@ import {Message, Thread, User} from '../models';
   template: `
     <div class='chat-window-container' style='border: solid 5px red;'>
       <div class='chat-window'>
-      <p class='path'>ChatWindow.ts</p>
+      <p class="path">ChatWindow.ts</p>
         <div class='panel-container'>
           <div class='panel panel-default'>
 

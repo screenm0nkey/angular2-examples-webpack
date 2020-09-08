@@ -1,7 +1,7 @@
-import {Component, Inject} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {combineLatest, merge, Observable, Subject} from 'rxjs';
-import {debounceTime, filter, map, mapTo, share, startWith, switchMap, tap} from 'rxjs/operators';
+import { Component, Inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { combineLatest, merge, Observable, Subject } from 'rxjs';
+import { debounceTime, filter, map, mapTo, share, startWith, switchMap, tap } from 'rxjs/operators';
 
 
 @Component({
@@ -19,7 +19,7 @@ import {debounceTime, filter, map, mapTo, share, startWith, switchMap, tap} from
     `
   ],
   template: `
-    <p class='path'>/http-rxjs/john-linquist/star-wars.ts</p>
+    <p class="path">/http-rxjs/john-linquist/star-wars.ts</p>
     <h4>Search for a Star Wars character (supports regex)</h4>
     <section *ngIf="people$ | async; let people"> 
       <input (keyup)='input$.next($event)'>
@@ -30,7 +30,7 @@ import {debounceTime, filter, map, mapTo, share, startWith, switchMap, tap} from
       </div>
     </section>
   `,
-  providers: [{provide: 'URL', useValue: 'https://swapi.co/api'}]
+  providers: [{ provide: 'URL', useValue: 'https://swapi.co/api' }]
 })
 export class StarWarsComponent {
   input$ = new Subject();
@@ -65,7 +65,7 @@ export class StarWarsComponent {
       .pipe(map((res: { results: any[] }) => res.results))
       .pipe(map((results: any[]) =>
         results.map(person =>
-          Object.assign({}, person, {image: `${this.api}/${person.image}`})
+          Object.assign({}, person, { image: `${this.api}/${person.image}` })
         )));
   }
 }

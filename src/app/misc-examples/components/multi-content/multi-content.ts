@@ -1,11 +1,11 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 /**
  * Component
  */
 @Component({
-  selector: 'multi-content',
-  styles: [`
+    selector: 'multi-content',
+    styles: [`
       .box {
           min-height: 30px;
           border: 5px solid purple;
@@ -13,9 +13,9 @@ import {Component} from '@angular/core';
           margin-bottom: 10px;
       }
   `],
-  template: `
+    template: `
       <collapse-it>
-          <p class='file'>misc-examples/components/multi-content/multi-content.ts</p>
+          <p class="path">misc-examples/components/multi-content/multi-content.ts</p>
           <h4>Inserting content into multiple places in a template <code><lgt>ng-content select='[header]'</lgt><lgt>/ng-content</lgt></code></h4>
           <p>Multi content projection into named template</p>
           <div class='box'>
@@ -39,8 +39,8 @@ export class MultiContentComponent {
  * Component
  */
 @Component({
-  selector: 'multi-content-config',
-  template: `
+    selector: 'multi-content-config',
+    template: `
       <multi-content>
           <div header>
               This content is projected into the 'header'.

@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 class Profile {
   constructor(public first: string, public last: string) {
@@ -94,7 +94,7 @@ export class OnPushCmp {
   selector: 'change-detection-sample-app',
   template: `
     <collapse-it>
-    <p class='file'>/misc-examples/components/change-detection/onpush.ts</p>
+    <p class="path">/misc-examples/components/change-detection/onpush.ts</p>
     <h4>Change detection using ngModel</h4>
     <div class='ui page grid'>
       <div class='two column row'>

@@ -22,7 +22,7 @@ export class MyInjectableComponent {
 @Component({
   selector: "dynamic-component-example-01",
   template: `
-    <p class="file">
+    <p class="path">
       misc-examples/components/changed-after-check/dynamic.component.ts
     </p>
     <h4>

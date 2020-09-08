@@ -8,7 +8,7 @@ import { combineLatest } from 'rxjs';
   selector: 'nav-bar',
   template: `
     <div style="background-color:grey">
-      <p class='path'>ChatNavBar.ts</p>
+      <p class="path">ChatNavBar.ts</p>
       <p><strong>Unread Messages</strong> = <span class='badge'>{{unreadMessagesCount}}</span></p>
     </div>
 
@@ -32,11 +32,11 @@ export class ChatNavBar implements OnInit {
 
     // one array with two items. the current thread and an array of Message objects
     wrapThreadInArray$.subscribe(([currentThread, messages]: [Thread, Message[]]) => {
-      this.unreadMessagesCount = _.reduce(messages, (acc: number, m: Message)=> this.getMessageCount(currentThread, acc, m), 0);
+      this.unreadMessagesCount = _.reduce(messages, (acc: number, m: Message) => this.getMessageCount(currentThread, acc, m), 0);
     });
   }
 
-  getMessageCount(currentThread:Thread, acc: number, m: Message) {
+  getMessageCount(currentThread: Thread, acc: number, m: Message) {
     let messageIsInCurrentThread: boolean = m.thread && currentThread && currentThread.id === m.thread.id;
     if (m && !m.isRead && !messageIsInCurrentThread) {
       acc = acc + 1;

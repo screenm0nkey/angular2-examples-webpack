@@ -1,6 +1,6 @@
 <div class="comps">
   <section collapse-it>
-    <p class="file">
+    <p class="path">
       /misc-examples/components/dependecy-injection/modules.html
     </p>
     <h4>Notes and Bullets on Modules</h4>
@@ -11,8 +11,8 @@
 
     <p class="warning">
       NOTE: For providers, forRoot() is deprecated in favour of 'providedIn'
-    If we ever used SomeModule.forRoot() to prevent creation of additional instances of the service
-    by the lazy loaded modules we can simply use providedIn: 'root' instead.
+      If we ever used SomeModule.forRoot() to prevent creation of additional instances of the service
+      by the lazy loaded modules we can simply use providedIn: 'root' instead.
     </p>
 
     <ul>
@@ -63,9 +63,8 @@
         exports the component
       </li>
       <li>
-        <highlight
-          >Components can be exported without adding it to declarations</highlight
-        >. This would happen in the case where the component is not used
+        <highlight>Components can be exported without adding it to declarations</highlight>. This would happen in the
+        case where the component is not used
         internally inside the module. Take a look at the shared module where we
         are doing this. src/app/shared/_shared.module.ts
       </li>
@@ -90,21 +89,17 @@
         are available throughout the whole application.
       </li>
       <li>
-        <highlight
-          >Components and directives are scoped to the NgModule in which they
-          are imported to prevent naming conflicts</highlight
-        >
+        <highlight>Components and directives are scoped to the NgModule in which they
+          are imported to prevent naming conflicts</highlight>
         where two components might have the same selector for example.
       </li>
       <li>
         In short, consider using the convention when you have multiple custom
         components or directives that all take a dependency on a global UI
         concern and need to work together to manage this global state.
-        <highlight
-          >To be clear, the <code>forRoot()</code> convention is a form of
+        <highlight>To be clear, the <code>forRoot()</code> convention is a form of
           coupling which should only be used after careful design
-          consideration.</highlight
-        >
+          consideration.</highlight>
       </li>
     </ul>
   </section>
@@ -113,15 +108,13 @@
 
     <p class="warning">
       NOTE: For providers, forRoot() is deprecated in favour of 'providedIn'
-    If we ever used SomeModule.forRoot() to prevent creation of additional instances of the service
-    by the lazy loaded modules we can simply use providedIn: 'root' instead.
+      If we ever used SomeModule.forRoot() to prevent creation of additional instances of the service
+      by the lazy loaded modules we can simply use providedIn: 'root' instead.
     </p>
 
     <p>
-      <highlight
-        >When the module is lazy loaded, the providers in the module don't
-        become globally available.</highlight
-      >
+      <highlight>When the module is lazy loaded, the providers in the module don't
+        become globally available.</highlight>
       they are only visible within the scope of the lazy loaded module as a
       child context is created. so if you create a shared module and load it
       into a several lazy loaded modules, a new instance of the Providers will
@@ -144,16 +137,13 @@
       have application-wide scope. They are available for injection throughout
       the application, which is why you should try load the module lazily if
       you can.
-      <highlight
-        >Angular gives a lazy-loaded module its own child injector. The
+      <highlight>Angular gives a lazy-loaded module its own child injector. The
         module's providers are visible only within the component tree created
         with this injector. If you must load the module eagerly, when the
         application starts, provide the service in a component instead i.e.
-        <code
-          >@Component(
+        <code>@Component(
           <cur>providers : [...</cur>
-          )</code
-        >
+          )</code>
       </highlight>
       <dlink [id]="13"></dlink>
     </p>

@@ -16,7 +16,7 @@ export class ToggleButton {
   @Input() nick = true;
   @Output() nickChange = new EventEmitter();
 
-  onClick(event:MouseEvent) {
+  onClick(event: MouseEvent) {
     console.log(event);
     this.nick = !this.nick;
     this.nickChange.emit(this.nick);
@@ -29,7 +29,7 @@ export class ToggleButton {
 @Component({
   selector: "toggle-component",
   template: `
-    <p class="file">misc-examples/components/input-binding/toggle-button.ts</p>
+    <p class="path">misc-examples/components/input-binding/toggle-button.ts</p>
     <h4>Two way binding with a custom event</h4>
     <p><dlink [id]="57"></dlink></p>
     

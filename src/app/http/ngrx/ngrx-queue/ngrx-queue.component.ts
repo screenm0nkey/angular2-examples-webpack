@@ -1,9 +1,9 @@
-import {Store} from "@ngrx/store";
-import {Component} from "@angular/core";
-import {ADD_TO_QUEUE} from "../actions";
-import {Observable} from "rxjs/internal/Observable";
-import {map} from "rxjs/operators";
-import {MyNgRxStore, Unit} from "../reducers/_reducers.service";
+import { Store } from "@ngrx/store";
+import { Component } from "@angular/core";
+import { ADD_TO_QUEUE } from "../actions";
+import { Observable } from "rxjs/internal/Observable";
+import { map } from "rxjs/operators";
+import { MyNgRxStore, Unit } from "../reducers/_reducers.service";
 
 let id = 0;
 let next = () => ++id;
@@ -24,7 +24,7 @@ const createUnit = (health = 0): Unit => ({
   `
   ],
   template: `
-    <p class="file">http/ngrx/ngrx-queue/ngrx-queue.component.ts</p>
+    <p class="path">http/ngrx/ngrx-queue/ngrx-queue.component.ts</p>
     <h4>NgRx Queue</h4>
 
     <dlink [id]="17"></dlink>
@@ -57,6 +57,6 @@ export class NgrxQueueComponent {
   }
 
   onClick() {
-    this.store.dispatch({type: ADD_TO_QUEUE, payload: createUnit()});
+    this.store.dispatch({ type: ADD_TO_QUEUE, payload: createUnit() });
   }
 }

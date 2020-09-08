@@ -52,7 +52,7 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
 @Component({
   selector: "countdown-parent-lv",
   template: `
-    <p class="file">
+    <p class="path">
       misc-examples/components/input-binding/local-variables.ts
     </p>
     <h4>Access a child Component's API from the parent component using local variable</h4>
@@ -71,4 +71,4 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
     </div>
   `
 })
-export class CountdownLocalVarParentComponent {}
+export class CountdownLocalVarParentComponent { }

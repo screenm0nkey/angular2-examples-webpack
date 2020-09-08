@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   template: `
     <div class='comps'>
       <div class='custom'>
-      <p class='file'>forms/components/custom-validator-directives/form-7.component.ts</p>
+      <p class="path">forms/components/custom-validator-directives/form-7.component.ts</p>
       <h4>Custom validateMyCounter directives for template driven forms</h4>
 
       <p>
@@ -45,7 +45,7 @@ import { Component } from '@angular/core';
   `
 })
 export class FormSevenComponent {
-  logForm(form){
+  logForm(form) {
     console.log(form);
   }
 }

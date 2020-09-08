@@ -94,7 +94,7 @@ export class DoCheckItem implements DoCheck {
 @Component({
   selector: 'do-check',
   template: `
-    <p class='path'>/lifecycle/miscellaneous/lifecycle_03.ts</p>
+    <p class="path">/lifecycle/miscellaneous/lifecycle_03.ts</p>
     <h4>ngDoCheck and IterableDiffers, KeyValueDiffers</h4>
     <div class='links'>
       <a routerLink='/misc/templates'>Custom *ngBookRepeat template using IterableDiffer</a>

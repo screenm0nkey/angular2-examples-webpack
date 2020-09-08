@@ -5,7 +5,7 @@ import { map, scan, startWith } from 'rxjs/operators';
 @Component({
   selector: 'counter-component',
   template: `
-        <p class='path'>/http-rxjs/misc-examples/rx-counter.ts</p>
+        <p class="path">/http-rxjs/misc-examples/rx-counter.ts</p>
         <h4>RxJs Reactive data flow example</h4>
         <br>
         <div style='margin-bottom: 10px'>

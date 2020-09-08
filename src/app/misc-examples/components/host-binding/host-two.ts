@@ -1,4 +1,4 @@
-import {Component, Directive, HostListener} from '@angular/core';
+import { Component, Directive, HostListener } from '@angular/core';
 
 @Directive({
   selector: 'button[counting]',
@@ -32,7 +32,7 @@ export class CountClicks {
 @Component({
   selector: 'host-two-component',
   template: `
-    <p class='file'>misc-examples/components/host-binding/host-two.ts</p>
+    <p class="path">misc-examples/components/host-binding/host-two.ts</p>
     <h4>host:<cur></cur> and @HostListener</h4>
     <p>Show different ways to bind to a host elements events. <highlight>Look at console output</highlight></p>
     <button counting>@HostListener Increment</button>

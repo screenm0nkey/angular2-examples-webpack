@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {UserService} from '../services/services';
-import {Message, User} from '../models';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from '../services/services';
+import { Message, User } from '../models';
 
 @Component({
   inputs: ['message'],
   selector: 'chat-message',
   template: `
   <div style="border:solid gold" class='msg-container' [ngClass]="{'base-sent': !incoming, 'base-receive': incoming}">
-     <p class='path'>ChatMessage.ts</p>
+     <p class="path">ChatMessage.ts</p>
     <div class='avatar' *ngIf='!incoming'>
       <img src='{{message.author.avatarSrc}}'>
     </div>

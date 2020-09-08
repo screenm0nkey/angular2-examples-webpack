@@ -14,7 +14,7 @@ export class NgBookIf {
   constructor(
     public viewContainer: ViewContainerRef,
     public template: TemplateRef<any>
-  ) {}
+  ) { }
 
   set ngBookIf(condition: boolean) {
     if (condition) {
@@ -28,7 +28,7 @@ export class NgBookIf {
 @Component({
   selector: "ng-book-if-template",
   template: `
-    <p class="file">
+    <p class="path">
       misc-examples/components/template-directives/simple-ng-book-if.component.ts
     </p>
 

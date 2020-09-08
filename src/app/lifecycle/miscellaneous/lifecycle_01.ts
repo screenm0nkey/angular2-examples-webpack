@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'on-init-1',
@@ -21,7 +21,7 @@ export class OnInitCmp1 implements OnInit, OnDestroy {
 @Component({
   selector: 'lifecycle-sample-app-1',
   template: `
-  <p class='path'>/lifecycle/miscellaneous/lifecycle_01.ts</p>
+  <p class="path">/lifecycle/miscellaneous/lifecycle_01.ts</p>
   <h4>ngOnInit and ngOnDestroy</h4>
 
   <div class='clearfix'>

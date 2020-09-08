@@ -1,10 +1,10 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'accordion-example',
   template: `
       <collapse-it>
-          <p class='file'>misc-examples/components/multi-content/accordian/accordian-example.component.ts</p>
+          <p class="path">misc-examples/components/multi-content/accordian/accordian-example.component.ts</p>
           <h4>Nested Content Projection using <code>ViewEncapsulation.ShadowDom</code> and importing a parent Component as a service</h4>
           
           <dlink [id]="79"></dlink>

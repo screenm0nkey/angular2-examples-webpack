@@ -1,7 +1,7 @@
-import {Component, Directive, ElementRef, EventEmitter, OnInit} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {fromEvent, Observable, Subject} from 'rxjs';
-import {debounceTime, filter, map, switchMap, tap} from 'rxjs/operators';
+import { Component, Directive, ElementRef, EventEmitter, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { fromEvent, Observable, Subject } from 'rxjs';
+import { debounceTime, filter, map, switchMap, tap } from 'rxjs/operators';
 
 @Directive({
   selector: 'input[type=text][authautosearch]',
@@ -26,7 +26,7 @@ export class AutosearchAuth implements OnInit {
   selector: 'auth0-example',
   template: `
     <div class='search-results'>
-        <p class='path'>/http-rxjs/searches/auth0-authentication.ts</p>
+        <p class="path">/http-rxjs/searches/auth0-authentication.ts</p>
         <h4>POSTing form data with custom headers example</h4>
         <pre>headers.append('Content-Type', 'application/x-www-form-urlencoded');</pre>
         <p>Type anything in the input. It's just posting the data.<br>You need to run the www/server for this to work)</p>
@@ -65,6 +65,6 @@ export class Auth0Component implements OnInit {
     // Custom-FormNick is defined in express config in www/server
     headers.append('Custom-FormNick', 'love-it');
     return this._http
-      .post('/api/data', formBody, {headers})
+      .post('/api/data', formBody, { headers })
   }
 }

@@ -1,5 +1,5 @@
 // our root app component
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'e-comp',
@@ -20,7 +20,7 @@ export class EComponent {
 @Component({
   selector: 'event-broadcasting',
   template: `
-      <p class='file'>misc-examples/components/changed-after-check/event-broadcasting.ts</p>
+      <p class="path">misc-examples/components/changed-after-check/event-broadcasting.ts</p>
       <h4>Synchronous event broadcasting</h4>
       <p>
           This pattern is illustrated by this plunker. The application is designed to have a child component emitting

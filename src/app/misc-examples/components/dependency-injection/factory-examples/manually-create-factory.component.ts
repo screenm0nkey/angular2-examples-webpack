@@ -9,7 +9,7 @@ const SOME_TOKEN = new InjectionToken<string>(`SomeToken`);
   selector: "resolve-create-factory",
   template: `
     <collapse-it
-      ><p class="file">
+      ><p class="path">
         misc-examples/components/dependency-injection/resolve-create-factory.ts
       </p>
       <h4>Manually Injecting a Factory with Dependencies</h4>

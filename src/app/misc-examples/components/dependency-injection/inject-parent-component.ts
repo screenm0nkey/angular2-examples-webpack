@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 /**
  * Parent
@@ -6,7 +6,7 @@ import {Component, Input} from '@angular/core';
 @Component({
   selector: 'inject-parent-component',
   template: `
-      <collapse-it><p class='file'>misc-examples/components/dependency-injection/inject-parent-component.ts</p>
+      <collapse-it><p class="path">misc-examples/components/dependency-injection/inject-parent-component.ts</p>
           <h4>Injecting a parent component into a child</h4>
           <p>
               The example below was taken from

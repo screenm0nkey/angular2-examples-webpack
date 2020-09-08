@@ -5,7 +5,7 @@ import { QuestionModel, TextboxQuestion, DropDownQuestion } from './question-mod
   selector: 'survey-demo',
   template: `
         <div>
-          <p class='path'>forms/components/dynamic/form-8.component.ts</p>
+          <p class="path">forms/components/dynamic/form-8.component.ts</p>
             <h4>Dynamic reactive form</h4>
             <dlink [id]="39"></dlink>
             <hr>

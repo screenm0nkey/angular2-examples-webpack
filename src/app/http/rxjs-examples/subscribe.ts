@@ -1,9 +1,9 @@
-import {Component, Injectable, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import { Component, Injectable, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { User } from './shared-components';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class CharacterService {
   characters$: Observable<User[]>;
 
@@ -16,7 +16,7 @@ export class CharacterService {
   selector: 'subscribe-example',
   template: `
         <div class='search-results'>
-          <p class='path'>/http-rxjs/misc-examples/subscribe.ts</p>
+          <p class="path">/http-rxjs/misc-examples/subscribe.ts</p>
             <h4>Subscribe example</h4> 
             <pre class='limit-height'>{{characters | json}}</pre>
         </div>

@@ -1,14 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import {GithubHttp} from './github.http';
-import {Observable} from 'rxjs';
-import {ActivatedRoute, Params} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { GithubHttp } from './github.http';
+import { Observable } from 'rxjs';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'repo-list',
   styleUrls: ['../seed-component.css'],
   template: `
     <section class='clearfix repo-list'>
-      <p class='path'>seed-component/github/repo-list.ts (border lime)</p>
+      <p class="path">seed-component/github/repo-list.ts (border lime)</p>
       <h4>Repo List for {{org}}</h4>
       <ul>
         <li *ngFor='let repo of repos | async'>

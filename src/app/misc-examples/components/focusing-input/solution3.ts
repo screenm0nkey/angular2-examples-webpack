@@ -1,9 +1,9 @@
-import {Component, DoCheck, ElementRef, NgZone, ViewChild} from '@angular/core';
+import { Component, DoCheck, ElementRef, NgZone, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'solution-three',
   template: `
-    <p class='file'>misc-examples/components/focusing-input/solution3.ts</p>
+    <p class="path">misc-examples/components/focusing-input/solution3.ts</p>
     <h4>Solution 3 using ngZone and @ViewChild with local reference</h4>
 
     <p>We run the setTimeout outside of the NgZone so that we don't cause Angular's change detection algorithm to run

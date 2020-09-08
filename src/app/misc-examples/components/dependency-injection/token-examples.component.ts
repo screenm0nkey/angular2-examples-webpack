@@ -4,7 +4,7 @@ import { Component, Inject, InjectionToken, Injector, Injectable } from "@angula
 class SomeService {
   static counter: number = 0;
   callMe(s: String) {
-    console.log(`%cSomeService instance-id=${++SomeService.counter}`,"color:green",s);
+    console.log(`%cSomeService instance-id=${++SomeService.counter}`, "color:green", s);
   }
 }
 
@@ -30,7 +30,7 @@ const TOKEN_B = new InjectionToken<string>("UserConfig");
   ],
   template: `
     <collapse-it>
-      <p class="file">
+      <p class="path">
         misc-examples/components/dependency-injection/token-examples.component.ts
       </p>
       <h4>Notes on Tokens and InjectionTokens</h4>

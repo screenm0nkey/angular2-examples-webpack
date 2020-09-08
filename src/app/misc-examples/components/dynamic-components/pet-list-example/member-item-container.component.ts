@@ -10,7 +10,8 @@ import { DogItemComponent } from './dog-item.component';
 export class MemberItemComponent implements OnInit {
   @Input() member: Pet;
 
-  // We inject the ViewContainerRef, to have access to the view container, in which we will be able to attach the actual component
+  // We inject the ViewContainerRef, to have access to the view container, 
+  // in which we will be able to attach the actual components
   constructor(
     private viewContainerRef: ViewContainerRef,
     private componentFactoryResolver: ComponentFactoryResolver,
@@ -23,10 +24,13 @@ export class MemberItemComponent implements OnInit {
     const cat = this.member as Cat;
     const dog = this.member as Dog;
 
-    if (cat.favoriteComfyPlace) { 
+    if (cat.favoriteComfyPlace) {
+      // create a cat component factory
       const catComponentFactory = this.componentFactoryResolver.resolveComponentFactory(CatItemComponent);
+      // Create an instance of the cat component.
       const componentRef = this.viewContainerRef.createComponent(catComponentFactory);
-      // member is the name of the @input on the Cat Component i.e. @Input() member: Cat;
+      // assign Input properties
+      // 'member' is the name of the @Input on the Cat Component i.e. @Input() member: Cat;
       componentRef.instance.member = cat;
     }
     if (dog.favoritePark) {

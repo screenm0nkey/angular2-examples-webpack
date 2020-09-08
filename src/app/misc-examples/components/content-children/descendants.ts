@@ -1,6 +1,6 @@
-import {Component, ContentChildren, Directive, Input, QueryList} from '@angular/core';
+import { Component, ContentChildren, Directive, Input, QueryList } from '@angular/core';
 
-@Directive({selector: 'pane2'})
+@Directive({ selector: 'pane2' })
 export class Pane2 {
   @Input() id !: string;
 }
@@ -11,7 +11,7 @@ export class Pane2 {
 @Component({
   selector: 'tab2',
   template: `
-          <p class="file">misc-examples/components/content-children/tabs2.ts</p>
+          <p class="path">misc-examples/components/content-children/tabs2.ts</p>
           <h4>How to reference a nested element in your component using <cur>descendants: true</cur></h4>
 
           <code> @ContentChildren(Pane,<cur>descendants: true</cur>) arbitraryNestedPanes !: QueryList</code>
@@ -26,7 +26,7 @@ export class Pane2 {
 export class Tab2 {
   @ContentChildren(Pane2) topLevelPanes !: QueryList<Pane2>;
   // {descendants: true} to include all descendants, otherwise include only direct children
-  @ContentChildren(Pane2, {descendants: true}) arbitraryNestedPanes !: QueryList<Pane2>;
+  @ContentChildren(Pane2, { descendants: true }) arbitraryNestedPanes !: QueryList<Pane2>;
 
   get serializedPanes(): string {
     return this.topLevelPanes ? this.topLevelPanes.map(p => p.id).join(', ') : '';

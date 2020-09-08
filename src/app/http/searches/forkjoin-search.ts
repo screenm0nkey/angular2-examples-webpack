@@ -34,7 +34,7 @@ interface Vehicle {
   ],
   template: `
     <div class='master'>
-      <p class='path'>/http-rxjs/john-linquist/forkjoin-search.ts</p>
+      <p class="path">/http-rxjs/john-linquist/forkjoin-search.ts</p>
       <h4> forkJoin() People and vehicles</h4>
         <dlink [id]="19"></dlink>
         <p>share() is a shortcut for publish().refCount()</p>

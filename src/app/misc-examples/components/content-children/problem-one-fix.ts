@@ -1,6 +1,6 @@
-import {AfterContentInit, Component, ContentChildren, Directive, ElementRef, QueryList} from '@angular/core';
+import { AfterContentInit, Component, ContentChildren, Directive, ElementRef, QueryList } from '@angular/core';
 
-@Directive({selector: 'li'})
+@Directive({ selector: 'li' })
 export class SuperListDirective {
   // make el public as it's accessed in 'this.items.changes.subscribe'
   constructor(public el: ElementRef) {
@@ -44,7 +44,7 @@ export class SuperListFixComponent implements AfterContentInit {
   selector: 'problem-one-fix',
   template: `
       <collapse-it>
-          <p class="file">misc-examples/components/content-children/problem-one-fix.ts</p>
+          <p class="path">misc-examples/components/content-children/problem-one-fix.ts</p>
           <h4>How to reference an element a user projects into your component by subscribing to a custom directive
               QueryList
               <lgt>SuperListDirective</lgt>

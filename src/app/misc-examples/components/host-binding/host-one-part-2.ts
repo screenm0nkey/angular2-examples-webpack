@@ -1,4 +1,4 @@
-import {Component, Directive} from '@angular/core';
+import { Component, Directive } from '@angular/core';
 
 /**
  * <input silly-input>
@@ -34,7 +34,7 @@ export class NgModelStatusTwo {
   selector: 'host-one-part-two-component',
   styles: ['.fixed-mixed {color: red}'],
   template: `
-    <p class='file'>misc-examples/components/host-binding/host-one-part-2.ts</p>
+    <p class="path">misc-examples/components/host-binding/host-one-part-2.ts</p>
     <h4>@Hostbinding using host: <cur>'[class.fixed-mixed]': 'isFixed'</cur></h4>
     This example is identicle to host-one-component but we're using the directives' host:<cur></cur> property rather than <br>
     using the @HostBinding decorators.

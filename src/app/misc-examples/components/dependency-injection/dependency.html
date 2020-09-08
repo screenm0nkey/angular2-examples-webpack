@@ -1,7 +1,7 @@
 <div class='comps'>
 
   <section collapse-it>
-    <p class="file">misc-examples/components/dependency-injection/dependency.component.ts</p>
+    <p class="path">misc-examples/components/dependency-injection/dependency.component.ts</p>
     <h4>External links on Dependency Injection</h4>
     <p class="links">
       <dlink [id]="6"></dlink>
@@ -67,9 +67,11 @@
     <h4>Using providedIn @Injectable(<cur>providedIn: 'root'</cur>)</h4>
     <dlink [id]="6"></dlink><br>
     <dlink [id]="61"></dlink>
-    
-    <p class="highlight">Stick with providedIn: ‘root’ in every eagerly imported module scenario. See <dlink [id]="61"></dlink></p>
-    
+
+    <p class="highlight">Stick with providedIn: ‘root’ in every eagerly imported module scenario. See <dlink [id]="61">
+      </dlink>
+    </p>
+
     <p>There is now a new, recommended, way to register a provider, directly inside the <code>@Injectable()</code>
       decorator, using the new <code>providedIn</code> attribute. It accepts 'root' as a value or any module of your
       application.

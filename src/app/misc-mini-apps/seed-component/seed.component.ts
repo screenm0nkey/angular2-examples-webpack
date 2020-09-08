@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app',
@@ -11,7 +11,7 @@ import {Component} from '@angular/core';
         <a [routerLink]="['github', 'angular']" routerLinkActive='active'>Github Repos</a>
       </nav>
       <section>
-        <p class='path'>seed-component/seed.component.ts (border violet)</p>
+        <p class="path">seed-component/seed.component.ts (border violet)</p>
         <h4>Angular 2 Seed</h4>
         
         <main class='clearfix'>

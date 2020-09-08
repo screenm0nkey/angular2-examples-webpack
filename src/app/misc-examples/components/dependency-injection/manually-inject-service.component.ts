@@ -10,7 +10,7 @@ class TheLovelyService {
 @Component({
   selector: 'manually-inject-service',
   template: `
-    <p class='file'>misc-examples/components/dependency-injection/manually-inject-service.ts</p>
+    <p class="path">misc-examples/components/dependency-injection/manually-inject-service.ts</p>
     <h4>Manually Injecting a Service using Injector.create()</h4>
     <code>Injector.create([<cur>provide: MyService, useClass: MyService, deps: []</cur>])</code>
 

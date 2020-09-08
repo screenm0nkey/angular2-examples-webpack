@@ -130,7 +130,7 @@ export class ProductsList {
 @Component({
   selector: "inventory-app",
   template: `
-    <p class="file">misc-examples/components/input-binding/inputs.ts</p>
+    <p class="path">misc-examples/components/input-binding/inputs.ts</p>
     <h4>Using different Inputs and Events</h4>
     <div class="inventory-app">
       <products-list [products]="products" (stick)="productClicked($event)">

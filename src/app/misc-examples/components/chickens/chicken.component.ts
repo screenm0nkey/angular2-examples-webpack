@@ -76,7 +76,7 @@ export class SayNameButtonComponent {
   selector: "chicken-component",
   inputs: ["name"],
   template: `
-    <p class="file">misc-examples/components/chickens/chicken.component.ts</p>
+    <p class="path">misc-examples/components/chickens/chicken.component.ts</p>
     <h4>
       Simple example using @ViewChild, @Inputs, @Outputs and Http to display
       data
@@ -101,7 +101,7 @@ export class ChickenComponent implements OnInit {
   buttons: Button[];
   customers: Customer[];
 
-  constructor(public httpService: HttpDataService) {}
+  constructor(public httpService: HttpDataService) { }
 
   ngOnInit() {
     this.getData();

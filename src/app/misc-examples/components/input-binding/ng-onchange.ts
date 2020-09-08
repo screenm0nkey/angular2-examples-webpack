@@ -24,7 +24,7 @@ export class VersionChildComponent implements OnChanges, OnInit {
   @Input() minor: number;
   public changeLog: string[];
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
     let log: string[] = [];
@@ -46,7 +46,7 @@ export class VersionChildComponent implements OnChanges, OnInit {
 @Component({
   selector: "version-parent",
   template: `
-    <p class="file">misc-examples/components/input-binding/ng-onchange.ts</p>
+    <p class="path">misc-examples/components/input-binding/ng-onchange.ts</p>
     <h4>
       Using <code>ngOnChanges</code>, <code>@Input</code> and the SimpleChange
       object

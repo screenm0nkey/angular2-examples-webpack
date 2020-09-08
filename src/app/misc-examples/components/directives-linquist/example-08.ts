@@ -33,7 +33,7 @@ export class TemplateStorageComponent {
   @ViewChild("header") headerTemplate: TemplateRef<any>;
   @ViewChild("footer") footerTemplate: TemplateRef<any>;
 
-  constructor(public service: TemplateService) {}
+  constructor(public service: TemplateService) { }
 
   ngAfterViewInit() {
     this.service.templates.set("header", this.headerTemplate);
@@ -52,7 +52,7 @@ export class SurroundDirective {
     public service: TemplateService,
     public view: ViewContainerRef,
     public template: TemplateRef<any>
-  ) {}
+  ) { }
 
   ngAfterViewInit() {
     this.view.createEmbeddedView(this.service.templates.get("header"));
@@ -67,7 +67,7 @@ export class SurroundDirective {
 @Component({
   selector: "linquist-example-08",
   template: `
-    <p class="file">
+    <p class="path">
       misc-examples/components/directives-linquist/example-08.ts
     </p>
     <h4>Template Storage Service using the TemplateService</h4>
@@ -81,4 +81,4 @@ export class SurroundDirective {
     </div>
   `
 })
-export class Example08AppComponent {}
+export class Example08AppComponent { }

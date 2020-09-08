@@ -14,7 +14,6 @@ import { Dog } from './pets.model';
     </div>
   `,
   styleUrls: ['./members-list.component.scss']
-
 })
 export class DogItemComponent {
   @Input() member: Dog;

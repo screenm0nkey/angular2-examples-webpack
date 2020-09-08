@@ -8,7 +8,7 @@ import { concatMap, debounceTime, delay, filter, map, scan, share, switchMap, ta
   selector: 'auto-wiki-search',
   template: `
     <div>
-      <p class='path'>/http-rxjs/misc-examples/automated-wiki-search.ts</p>
+      <p class="path">/http-rxjs/misc-examples/automated-wiki-search.ts</p>
       <h4>Automated Wiki Search</h4>
 
       <button (click)='startIt()' [disabled]="!buttonDisabled">Initialise search</button>
@@ -56,7 +56,7 @@ export class AutoSearch implements OnInit {
       scan((acc: string, curr: string) => (curr === ' ' ? '' : acc + curr)),
       tap(data => console.log('%cscan ' + data, 'color:green')),
       //share() — is a shortcut for multicast(() => new Subject()) + refCount()
-      share() 
+      share()
     );
 
     this.results$ = this.term$.pipe(

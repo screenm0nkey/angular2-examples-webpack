@@ -5,7 +5,7 @@ import { Component } from "@angular/core";
     <div class="comps">
     
       <collapse-it>
-      <p class="path">app/misc-examples/components/dynamic-components/_main.component.ts</p>
+      <p class="path">misc-examples/components/dynamic-components/_main.component.ts</p>
         <h4>DOM Manipulation Notes</h4>
         <ul>
           <li><dlink id="99"></dlink></li>
@@ -23,8 +23,13 @@ import { Component } from "@angular/core";
       </collapse-it> 
       
       <collapse-it>
+        <app-members-list></app-members-list>
+      </collapse-it>
+      
+      <collapse-it>
         <dynamic-component-example-01></dynamic-component-example-01>
       </collapse-it>
+
       
       <collapse-it>
         <dynamic-component-example-02></dynamic-component-example-02>
@@ -46,9 +51,6 @@ import { Component } from "@angular/core";
         <linquist-example-08></linquist-example-08>
       </collapse-it>
 
-      <collapse-it>
-        <app-members-list></app-members-list>
-      </collapse-it>
     </div>
   `
 })

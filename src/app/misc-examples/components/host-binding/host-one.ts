@@ -44,7 +44,7 @@ export class NgModelStatusOne {
   selector: "host-one-component",
   styles: [".fixed-mixed {color: red}"],
   template: `
-    <p class="file">misc-examples/components/host-binding/host-one.ts</p>
+    <p class="path">misc-examples/components/host-binding/host-one.ts</p>
     <h4>@HostBinding and @HostListener</h4>
     <p>@HostListener listens to events on the host element and excutes a method      on the Component. In the example below, @HostListener will listen to the      'input' event on the host element and then invoke the method      'iCanBeCalledAnythingAsLongAsIFollowTheHostListener' which follows the      decorator. The method will be invoked with the input's value      ($event.target.value)</p>
     <code      >@HostListener('input', ['$event.target.value'])      iCanBeCalledAnythingAsLongAsIFollowTheHostListener(updatedValue: string)
@@ -61,4 +61,4 @@ export class NgModelStatusOne {
     <code>@HostBinding('value') smvalue: string;</code>
     <input silly-input />`
 })
-export class HostOne {}
+export class HostOne { }

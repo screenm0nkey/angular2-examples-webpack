@@ -12,7 +12,7 @@ import { Component } from "@angular/core";
         </collapse-it>
 
         <collapse-it>
-            <p class="file">
+            <p class="path">
             misc-examples/components/chickens/directives/tooltip.directive.ts
             </p>
             <h4>Directive example using @Input, @Hostlistener and getter</h4>

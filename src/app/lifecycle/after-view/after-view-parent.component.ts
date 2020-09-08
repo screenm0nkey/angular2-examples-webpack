@@ -1,12 +1,12 @@
-import {Component} from '@angular/core';
-import {LoggerService} from '../logger.service';
+import { Component } from '@angular/core';
+import { LoggerService } from '../logger.service';
 
 @Component({
   selector: 'after-view-parent',
   template: `
     <div class='comps'>
       <div class='parent'>
-        <p class='path'>lifecycle/after-view/after-view-parent.component.ts</p>
+        <p class="path">lifecycle/after-view/after-view-parent.component.ts</p>
         <h4>AfterViewChecked, AfterViewInit</h4>
           <dlink [id]="54"></dlink>
     

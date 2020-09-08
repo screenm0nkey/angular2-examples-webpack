@@ -1,12 +1,12 @@
-import {Component} from '@angular/core';
-import {LoggerService} from '../logger.service';
+import { Component } from '@angular/core';
+import { LoggerService } from '../logger.service';
 
 @Component({
   selector: 'after-content-parent',
   template: `
   <div class='comps'>
   <div class='parent'>
-    <p class='file'>lifecycle/after-content/after-content-parent.component.ts</p>
+    <p class="path">lifecycle/after-content/after-content-parent.component.ts</p>
     <h4>AfterContent</h4>
       <dlink [id]="35"></dlink>
       <dlink [id]="64"></dlink>

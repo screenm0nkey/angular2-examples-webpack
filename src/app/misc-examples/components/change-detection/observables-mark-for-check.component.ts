@@ -1,6 +1,6 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input} from '@angular/core';
-import {Observable, timer} from 'rxjs';
-import {take} from 'rxjs/operators';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
+import { Observable, timer } from 'rxjs';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'observable',
@@ -30,7 +30,7 @@ export class ObservableCmp {
 @Component({
   selector: 'observable-change-detection-sample-app',
   template: `
-    <p class='file'>/misc-examples/components/change-detection/observables.ts</p>
+    <p class="path">/misc-examples/components/change-detection/observables.ts</p>
     <h4>changeDetector.markForCheck() with Observables</h4>
     <observable [items]='itemObservable'></observable>
   `

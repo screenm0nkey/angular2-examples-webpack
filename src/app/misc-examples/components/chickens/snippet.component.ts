@@ -1,11 +1,11 @@
-import {Component} from '@angular/core';
-import {Snippet} from './directives/snippet.directive';
+import { Component } from '@angular/core';
+import { Snippet } from './directives/snippet.directive';
 
 @Component({
   selector: 'snippet-component',
   styles: ['textarea {width : 300px; font-size : 10px; height:75px;}'],
   template: `
-    <p class='file'>misc-examples/components/chickens/directives/snippet.directive.ts</p>
+    <p class="path">misc-examples/components/chickens/directives/snippet.directive.ts</p>
     <h4>Text Snippet Directive</h4>
 
     Type either bacon, zombie, or car into the textarea followed by a \`, for example <strong>bacon\`</strong> 

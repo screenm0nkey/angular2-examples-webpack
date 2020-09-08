@@ -5,7 +5,8 @@ import Pet from './pets.model';
 @Component({
   selector: 'app-members-list',
   template: `
-    <h4>List of Members:</h4>
+    <span class="path">misc-examples/components/dynamic-components/pet-list-example/members-list.component.ts</span>
+    <h4>Create dynamic Component instances and pass in @Input values. NOT using @ViewChild</h4>
     <app-member-item-container 
       *ngFor="let member of members" 
       [member]="member">

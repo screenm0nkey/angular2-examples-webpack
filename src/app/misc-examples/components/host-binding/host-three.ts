@@ -1,9 +1,9 @@
-import {Component, Directive, ElementRef, HostBinding} from '@angular/core';
-import {FormBuilder, FormGroup, NgModel, Validators} from '@angular/forms';
+import { Component, Directive, ElementRef, HostBinding } from '@angular/core';
+import { FormBuilder, FormGroup, NgModel, Validators } from '@angular/forms';
 
-@Directive({selector: '[ngModel]'})
+@Directive({ selector: '[ngModel]' })
 export class NgModelStatusThree {
-  public isFixed : boolean;
+  public isFixed: boolean;
   // el is the element the directive is applied too.
   constructor(public el: ElementRef, public control: NgModel) {
     this.isFixed = true;
@@ -23,7 +23,7 @@ export class NgModelStatusThree {
     .YES {border: solid 4px green;}
   `],
   template: `
-    <p class='file'>misc-examples/components/host-binding/host-three.ts</p>
+    <p class="path">misc-examples/components/host-binding/host-three.ts</p>
     <h4>Using @HostBinding and [ngModel] @Directive</h4>
     <dlink [id]="69"></dlink>
 

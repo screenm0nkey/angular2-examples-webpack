@@ -1,9 +1,9 @@
-import {Component, DoCheck, NgZone} from '@angular/core';
+import { Component, DoCheck, NgZone } from '@angular/core';
 
 @Component({
   selector: 'ng-zone-demo',
   template: `
-    <p class='path'>misc-examples/components/ng-zone/runoutside.ts</p>
+    <p class="path">misc-examples/components/ng-zone/runoutside.ts</p>
     <h4>Demo: NgZone (watch console log)</h4>
     <dlink [id]="18"></dlink>
 

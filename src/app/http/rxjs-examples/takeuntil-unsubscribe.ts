@@ -20,7 +20,7 @@ export class BaseComponent implements OnDestroy {
 @Component({
   selector: 'takeuntil-unsubscribe',
   template: `
-        <p class='path'>src/app/http/rxjs-examples/takeuntil-unsubscribe.ts</p>
+        <p class="path">http/rxjs-examples/takeuntil-unsubscribe.ts</p>
         <h4>Manage your unsubscription with the class inheritance feature</h4>
         <p>Add a subject to notify the destruction of the component. As a result, we can declare the life time of our subscriptions at the moment when we create them.</p>
         `

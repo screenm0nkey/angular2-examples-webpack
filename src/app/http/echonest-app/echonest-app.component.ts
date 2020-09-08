@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {MusicSearchService} from './echonest.service';
-import {Artist} from './echonest.http';
-import {Observable} from 'rxjs';
+import { Component } from '@angular/core';
+import { MusicSearchService } from './echonest.service';
+import { Artist } from './echonest.http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'echonest-app',
@@ -11,7 +11,7 @@ import {Observable} from 'rxjs';
   template: `
     <div class='comps clearfix'>
       <section>
-        <p class='path'>/http-rxjs/echonest-app/echonest-app.ts</p>
+        <p class="path">/http-rxjs/echonest-app/echonest-app.ts</p>
         <h4>A not particularly well written RxJs Mini App</h4>
         <a routerLink='/misc/change-detection/'>See change-detection example</a>
         <br>

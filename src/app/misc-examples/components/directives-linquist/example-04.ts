@@ -1,4 +1,4 @@
-import {Component, QueryList, TemplateRef, ViewChild, ViewChildren, ViewContainerRef} from '@angular/core';
+import { Component, QueryList, TemplateRef, ViewChild, ViewChildren, ViewContainerRef } from '@angular/core';
 
 /**
  * BasicComponent4
@@ -37,7 +37,7 @@ export class BasicComponent4 {
   selector: 'linquist-example-04',
   template: `
       <collapse-it>
-          <p class='file'>misc-examples/components/directives-linquist/example-04.ts</p>
+          <p class="path">misc-examples/components/directives-linquist/example-04.ts</p>
           
           <h4>Insert dynamic templates using <lgt>ng-template</lgt>, @ViewChildren, @ViewChild, TemplateRef and ViewContainerRef.createEmbeddedView</h4>
 

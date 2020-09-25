@@ -6,7 +6,6 @@ import { SpinnerModule } from '@insertApp/shared/spinner/spinner.module';
 @NgModule({
   imports: [SpinnerModule],
   declarations: [SpinnerOverlayComponent],
-  entryComponents: [SpinnerOverlayComponent],
   providers: [SpinnerOverlayService],
   exports: []
 })

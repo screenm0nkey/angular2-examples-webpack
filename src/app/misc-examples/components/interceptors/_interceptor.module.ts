@@ -22,7 +22,6 @@ import {InterceptorComponent} from "./interceptor.component";
     ErrorDialogService,
     {provide: HTTP_INTERCEPTORS, useClass: ErrorDialogInterceptor, multi: true}
   ],
-  entryComponents: [ErrorDialogComponent],
 })
 export class InterceptorModule {
 }

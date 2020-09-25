@@ -18,16 +18,6 @@ import { MembersListComponent } from './pet-list-example/members-list.component'
     DogItemComponent,
     MemberItemComponent,
     MembersListComponent,
-  ],
-  /*
-  Normally, Angular generates a factory for each component that it finds referenced in a template. 
-  In this case, the two components below are not referenced anywhere, as they are used only at runtime. 
-  We have to tell Angular to generate the factories, and to do so, we need to add our components to 
-  the entryComponents array in the NgModule.
-  */
-  entryComponents: [
-    DogItemComponent,
-    CatItemComponent,
   ]
 })
 export class DynamicExamplesModule {

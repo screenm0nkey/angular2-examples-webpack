@@ -35,9 +35,6 @@ import { ChickensMainComponent } from './_main.component';
     Dynamic03Component, MyInjectableComponent03, HighlightDirective,
     HighlightComponent,
   ],
-  // You need to use entryComponents under @NgModule.
-  // This is for dynamically added components that are added using ViewContainerRef.createComponent()
-  entryComponents: [MyInjectableComponent01]
 })
 export class ChickensModule {
 }

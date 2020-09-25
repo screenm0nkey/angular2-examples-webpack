@@ -15,9 +15,6 @@ import { FormSubmitDirective } from './form-submit.directive';
     ControlErrorComponent, 
     ControlErrorContainerDirective, 
     FormSubmitDirective
-  ],
-  entryComponents: [
-    ControlErrorComponent
-  ],
+  ]
 })
 export class FormErrorAppModule { }

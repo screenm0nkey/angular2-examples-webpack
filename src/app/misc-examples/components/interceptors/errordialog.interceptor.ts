@@ -53,7 +53,7 @@ export class ErrorDialogInterceptor implements HttpInterceptor {
         const json = JSON.parse(event.body);
         Object.assign(event, json);
       } catch (error) {
-        console.error("Reponse not JSON format", event.body);
+        console.error("Reponse not JSON format", event.url);
       }
     }
     return event;

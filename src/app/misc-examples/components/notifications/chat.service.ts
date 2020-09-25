@@ -16,6 +16,7 @@ export class ChatService {
   constructor(public socket$: Socket) {
     const disconnect$ = this.socket$.fromEvent("disconnect");
     const connect$ = this.socket$.fromEvent("connect");
+
     this.connected$ = merge(
       connect$.pipe(mapTo(true)),
       disconnect$.pipe(mapTo(false))
@@ -25,11 +26,13 @@ export class ChatService {
       .fromEvent("msg")
       .pipe(map((data: SocketMessage) => data.msg));
 
-    this.messages$ = this.message$.pipe(startWith([])).pipe(
-      scan((acc: string[], curr: string) => {
-        return [...acc, curr];
-      })
-    );
+    this.messages$ = this.message$
+      .pipe(startWith([]))
+      .pipe(
+        scan((acc: string[], curr: string) => {
+          return [...acc, curr];
+        })
+      );
   }
 
   send(msg: string) {

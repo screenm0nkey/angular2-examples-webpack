@@ -1,11 +1,4 @@
-import {
-  Component,
-  Directive,
-  Injectable,
-  TemplateRef,
-  ViewChild,
-  ViewContainerRef
-} from "@angular/core";
+import { Component, Directive, Injectable, TemplateRef, ViewChild, ViewContainerRef } from "@angular/core";
 
 /**
  * TemplateService
@@ -14,6 +7,8 @@ import {
 export class TemplateService {
   templates = new Map<string, TemplateRef<any>>();
 }
+
+
 
 /**
  * TemplateStorageComponent
@@ -41,6 +36,8 @@ export class TemplateStorageComponent {
   }
 }
 
+
+
 /**
  * SurroundDirective
  */
@@ -61,6 +58,8 @@ export class SurroundDirective {
   }
 }
 
+
+
 /**
  * Example08AppComponent
  */
@@ -70,7 +69,7 @@ export class SurroundDirective {
     <p class="path">
       misc-examples/components/directives-linquist/example-08.ts
     </p>
-    <h4>Template Storage Service using the TemplateService</h4>
+    <h4>CreateEmbeddedView with a Directive and TemplateRef</h4>
     <div style="border:solid red 2px;">
       <template-storage-component></template-storage-component>
     </div>

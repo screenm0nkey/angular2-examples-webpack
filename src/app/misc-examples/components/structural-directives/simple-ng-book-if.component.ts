@@ -29,7 +29,7 @@ export class NgBookIf {
   selector: "ng-book-if-template",
   template: `
     <p class="path">
-      misc-examples/components/template-directives/simple-ng-book-if.component.ts
+      misc-examples/components/structural-directives/simple-ng-book-if.component.ts
     </p>
 
     <h4>Structural Directive - Custom *ngBookIf template</h4>

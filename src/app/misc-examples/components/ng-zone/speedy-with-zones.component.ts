@@ -1,4 +1,4 @@
-import {Component, Input, NgZone, OnChanges} from '@angular/core';
+import { Component, Input, NgZone, OnChanges } from '@angular/core';
 
 interface Box {
   id: number;
@@ -29,7 +29,7 @@ export class BoxZoneComponent implements OnChanges {
   @Input() selected;
 
   ngOnChanges() {
-    console.log('ngOnChanges', this)
+    // console.log('ngOnChanges', this)
   }
 }
 
@@ -59,7 +59,7 @@ export class SpeedingZonesComponent {
 
   ngOnInit() {
     this.mouseMove = this.mouseMove.bind(this);
-    this.generateBoxes(1000);
+    this.generateBoxes(10000);
   }
 
   generateBoxes(num: number): void {
@@ -67,7 +67,7 @@ export class SpeedingZonesComponent {
       const id = i;
       const x = getRandomInt(0, 500);
       const y = getRandomInt(0, 500);
-      const box: Box = {id, x, y};
+      const box: Box = { id, x, y };
       this.boxes.push(box);
     }
   }
@@ -81,8 +81,10 @@ export class SpeedingZonesComponent {
     this.offsetY = box.y - mouseY;
     this.currentId = index;
     this.element = event.target;
-    // we are running the mousemove event outisde of ngzone to stop the change detection being invoked on every box
-    // each time the mouse move event occurs
+
+    // we are running the mousemove event outisde of ngZone to stop the change detection being invoked on every box
+    // each time the mousemove event occurs.
+    // to prove just how slow it can be, move the addEventListener line of code outside of the runOutsideAngular
     this.zone.runOutsideAngular(() => {
       window.document.addEventListener('mousemove', this.mouseMove);
     });

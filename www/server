@@ -26,6 +26,7 @@ app.post('/login', (req, res) => res.json(JSON.stringify({reason: 'I got ya bro'
 // const server = app.listen(1970, () => console.log('Server running at http://localhost:' + server.address().port));
 const server = http.createServer(app);
 
+
 const io = require('socket.io')(server);
 io.on('connection', function (socket) {
   socket.emit('msg', {msg: 'Welcome To the Socket Server!!!'});

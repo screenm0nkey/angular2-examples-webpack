@@ -9,10 +9,12 @@ import { Component, QueryList, TemplateRef, ViewChild, ViewChildren, ViewContain
     <code>@ViewChild('foo', <cur>static: false</cur>) template: TemplateRef;</code>
     <code>@ViewChildren(TemplateRef) templates: QueryList<lgt>TemplateRef</lgt></code>
     <ng-template #woo>
-        This template instance was created using <highlight>@ViewChildren</highlight>, ViewContainerRef.createEmbeddedView()<br>
+        This template instance was created using 
+        <highlight>@ViewChildren()</highlight>, ViewContainerRef.createEmbeddedView()<br>
     </ng-template>
     <ng-template #foo>
-        This template instance was created using <highlight>@ViewChild</highlight>, ViewContainerRef.createEmbeddedView()<br>
+        This template instance was created using 
+        <highlight>@ViewChild()</highlight>, ViewContainerRef.createEmbeddedView()<br>
     </ng-template>
      
   `
@@ -38,7 +40,6 @@ export class BasicComponent4 {
   template: `
       <collapse-it>
           <p class="path">misc-examples/components/directives-linquist/example-04.ts</p>
-          
           <h4>Insert dynamic templates using <lgt>ng-template</lgt>, @ViewChildren, @ViewChild, TemplateRef and ViewContainerRef.createEmbeddedView</h4>
 
           <p><lgt>ng-template</lgt> does not render when used in the markup </p>

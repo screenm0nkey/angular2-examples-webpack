@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
-import { interval } from 'rxjs';
+import { interval, Subscription } from 'rxjs';
 
 
 export function NgLog(): ClassDecorator {
@@ -15,7 +15,7 @@ export function NgLog(): ClassDecorator {
     LIFECYCLE_HOOKS.forEach(hook => {
       const original = constructor.prototype[hook];
 
-      constructor.prototype[hook] = function (...args) {
+      constructor.prototype[hook] = (...args) => {
         console.log(`%c ${component} - ${hook}`, `color: #4CAF50; font-weight: bold`, ...args);
         original && original.apply(this, args);
       }
@@ -26,26 +26,23 @@ export function NgLog(): ClassDecorator {
 
 @NgLog()
 @Component({
-  selector: "custom-decorator",
+  selector: "custom-log-decorator",
   template: `
-    <p class="path"></p>
-    <h4>Custom Decorators</h4>
-    <p>Note: Custom decorators are not working on lifecycle methods Custom decorators using AoT and Ivy see here <a href="https://github.com/angular/angular/issues/31495#">Link</a>
-    </p>
-
-    
+    <p class="path">src/app/misc-examples/components/decorators/custom-log-decorator.component.ts</p>
+    <h4>Lifecycle Logger Decorators</h4>
+    <p>See the console</p>
   `
 })
-export class CustomDecorator implements OnInit, OnDestroy {
-  one$;
+export class CustomLogDecoratorComponent implements OnInit, OnDestroy {
+  private one$: Subscription;
 
   constructor() { }
 
   ngOnInit() {
-    // this.one$ = interval(1000).subscribe(data => console.log(1, data));
+    this.one$ = interval(1000).subscribe();
   }
 
   ngOnDestroy() {
-    // this.one$.unsubscribe();
+    this.one$.unsubscribe();
   }
 }

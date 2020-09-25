@@ -14,6 +14,22 @@ function getRandomInt(min, max) {
 @Component({
   selector: 'speedy-component',
   template: `
+    <p class="path">src/app/misc-examples/components/ng-zone/speedy.component.ts</p>
+    <h4>Make an app faster by writing our own a simpleNgFor directive and using changeDetectorRef.detach()</h4>
+    <p>
+      <dlink [id]="37"></dlink>
+    </p>
+
+    <p>
+      The first thing, we detach the component’s change detectors from the tree.
+      We can inject a component’s ChangeDetectorRef using DI and use its
+      <code>this.cdr.detach()</code> method for that. The only thing we need to
+      keep in mind is that we only want to detach the change detectors after
+      change detection has been performed for the first time, otherwise we won’t
+      see any boxes. To call detach() in the right moment, we can take advantage
+      of Angular’s <code>AfterViewInit</code> life cycle hook.
+    </p>
+
     <svg width='450' height='150'
          (mousedown)='mouseDown($event)'
          (mousemove)='mouseMove($event)'
@@ -37,7 +53,7 @@ export class SpeedingComponent implements AfterViewInit {
   }
 
   ngOnInit() {
-    for (let i = 0; i < 10000; i++) {
+    for (let i = 0; i < 2000; i++) {
       const id = i;
       const x = getRandomInt(0, 500);
       const y = getRandomInt(0, 500);
@@ -46,6 +62,11 @@ export class SpeedingComponent implements AfterViewInit {
     }
   }
 
+  /**
+   * We only want to detach the change detectors after change detection has been performed for the first time, 
+   * otherwise we won’t see any boxes. To call detach() in the right moment, we can take advantage of Angular’s 
+   * AfterViewInit life cycle hook.
+   */
   ngAfterViewInit() {
     this.cdr.detach();
   }

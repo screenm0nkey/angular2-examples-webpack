@@ -12,7 +12,7 @@ import { AppComponent } from "./components/notifications/main.component";
 import { MainViewChildrenComponent } from "./components/view-children/_main.component";
 import { TricksMainComponent } from "./components/tricks/main";
 import { TipsMainComponent } from "./components/tips/_tips.module";
-import { TemplateComponent } from "./components/template-directives/main.component";
+import { TemplateComponent } from "./components/structural-directives/main.component";
 import { ChangeAfterComponent } from "./components/changed-after-check/_main.module";
 import { ModulesComponent } from "./components/dependency-injection/modules.component";
 import { PipesComponent } from "./components/dependency-injection/pipes.component";
@@ -22,6 +22,7 @@ import { DynamicMainComponent } from "./components/dynamic-components/_main.comp
 import { DepInjectionComponent } from "./components/dependency-injection/_main.component";
 import { ChangeDetectionMain } from './components/change-detection/_index.component';
 import { MainInputBindingApp } from './components/input-binding/_main.component';
+import { CustomDecoratorsComponent } from './components/decorators/custom-decorators.component';
 
 export const formsRoutes: Routes = [
   {
@@ -49,7 +50,8 @@ export const formsRoutes: Routes = [
       { path: "tips", component: TipsMainComponent },
       { path: "interceptor", component: InterceptorComponent },
       { path: "dynamic", component: DynamicMainComponent },
-      { path: "links", component: LinksComponent }
+      { path: "links", component: LinksComponent },
+      { path: "custom-decorator", component: CustomDecoratorsComponent },
     ]
   }
 ];
@@ -57,4 +59,4 @@ export const formsRoutes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(formsRoutes)]
 })
-export class MiscRoutingModule {}
+export class MiscRoutingModule { }

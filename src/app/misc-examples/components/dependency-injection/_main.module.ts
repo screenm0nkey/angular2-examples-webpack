@@ -22,6 +22,7 @@ import { FactoryExamplesComponent } from "./factory-examples/factory-examples.co
 import { ManualInjectionExamplesComponent } from "./manual-injection.component";
 import { SharedModule } from 'src/app/shared/_shared.module';
 import { ManuallyInjectComponent } from './manually-inject-service.component';
+import { PipeHelperComponent, PipeMapper } from './pipes-helper.component';
 
 @NgModule({
   imports: [SharedModule],
@@ -37,7 +38,8 @@ import { ManuallyInjectComponent } from './manually-inject-service.component';
     PersonComponent,
     ParentPersonComponent,
     FactoryExamplesComponent,
-    ManualInjectionExamplesComponent
+    ManualInjectionExamplesComponent,
+    PipeHelperComponent, PipeMapper
   ],
   // https://blog.thoughtram.io/angular/2016/09/14/bypassing-providers-in-angular-2.html
   // https://egghead.io/lessons/angular-define-an-aliased-class-provider-in-angular

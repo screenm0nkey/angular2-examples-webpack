@@ -1,10 +1,9 @@
 import { AfterViewInit, Component, ComponentFactoryResolver, ViewChild, ViewContainerRef, OnInit, ChangeDetectorRef } from '@angular/core';
 
 @Component({
-  selector: 'd-comp',
   template: `<span>{{name}}<br></span>`
 })
-class MyInjectableComponent {
+export class MyInjectableComponent02 {
   name = 'Yo, I am dynamically inserted component 02';
 }
 
@@ -31,17 +30,17 @@ class MyInjectableComponent {
   `
 })
 export class Dynamic02Component implements AfterViewInit {
-  @ViewChild('vcr', { read: ViewContainerRef }) public viewContainer: ViewContainerRef;
+  @ViewChild('vcr', { read: ViewContainerRef }) public viewContainerRef: ViewContainerRef;
 
   constructor(public componentFactoryResolver: ComponentFactoryResolver, public cdRef: ChangeDetectorRef) {
   }
 
   ngAfterViewInit() {
-    const factory = this.componentFactoryResolver.resolveComponentFactory(MyInjectableComponent);
-    this.viewContainer.createComponent(factory);
-    this.viewContainer.createComponent(factory);
-    this.viewContainer.createComponent(factory);
-    // if you don't run the detect changes here, you will get a 'ExpressionChangedAfterItHasBeenCheckedError' error
+    const factory = this.componentFactoryResolver.resolveComponentFactory(MyInjectableComponent02);
+    this.viewContainerRef.createComponent(factory);
+    this.viewContainerRef.createComponent(factory);
+    this.viewContainerRef.createComponent(factory);
+    // calling detectChanges() stops 'ExpressionChangedAfterItHasBeenCheckedError' error
     this.cdRef.detectChanges();
   }
 

@@ -1,14 +1,6 @@
-import {
-  Component,
-  ElementRef,
-  EventEmitter,
-  Injectable,
-  OnInit,
-  Output,
-  ViewChild
-} from "@angular/core";
 // import {Response} from '@angular/common/http';
 import { HttpClient } from "@angular/common/http";
+import { Component, ElementRef, EventEmitter, Injectable, OnInit, Output, ViewChild } from "@angular/core";
 import { forkJoin, Observable } from "rxjs";
 import { map } from "rxjs/operators";
 
@@ -34,16 +26,16 @@ export class HttpDataService {
     this.chickens = http.get("/assets/json/chickens.json");
   }
 
-  getData() {
+  getData(): Observable<[Button[], Customer[]]> {
     // forkjoin() is like a little like $q.all()
-    return forkJoin(
+    return forkJoin([
       this.http
         .get("/assets/json/chickens.json")
         .pipe(map((res: Button[]) => res)),
       this.http
         .get("/assets/json/customers.json")
         .pipe(map((res: Customer[]) => res))
-    );
+    ]);
   }
 }
 
@@ -107,12 +99,12 @@ export class ChickenComponent implements OnInit {
     this.getData();
   }
 
-  saidHello(name) {
+  saidHello(name): void {
     const el: HTMLElement = this.namey.nativeElement;
     el.innerText += ` : ${name}`;
   }
 
-  getData() {
+  getData(): void {
     this.httpService.getData().subscribe(data => {
       this.buttons = data[0];
       this.customers = data[1];

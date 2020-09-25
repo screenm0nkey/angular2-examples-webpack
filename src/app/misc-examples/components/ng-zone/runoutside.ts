@@ -15,6 +15,8 @@ import { Component, DoCheck, NgZone } from '@angular/core';
       a component is checked every time change detection occurs, which is triggered
       every time an angular event happens i.e click, settimeout, http etc.</p>
 
+    <p class="red">See console output for this example</p>
+
     <p>Running processes outside of the Angular zone stops ngDoCheck() being called.</p>
 
     <p>Progress: {{progress}}%</p>
@@ -35,6 +37,9 @@ export class NgZoneDemo implements DoCheck {
   // a component is checked every time change detection occurs
   // which is triggered every time an event an angular event happens.
   ngDoCheck() {
+    for (let i = 0; i < 100000000; i++) {
+      const t = i / 1.2;
+    }
     console.log(`ngDoCheck ${this.progress}%`);
   }
 

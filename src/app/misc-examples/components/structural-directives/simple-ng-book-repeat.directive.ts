@@ -32,10 +32,9 @@ export class NgBookRepeatDirective implements DoCheck {
     public viewContainer: ViewContainerRef,
     public template: TemplateRef<any>,
     public differs: IterableDiffers
-  ) {}
+  ) { }
 
-  // this will trigger when we set the ngBookRepeatOf input,
-  // at which point we
+  // <li *ngBookRepeat...> will trigger a call this ngBookRepeatOf setter,
   set ngBookRepeatOf(items: Person[]) {
     this.items = items;
     if (this.items && !this.differ) {

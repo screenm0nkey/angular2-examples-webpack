@@ -34,7 +34,7 @@ export class Example02Directive {
     This text will be replaced by the directive
   `
 })
-export class Example02BasicComponent {}
+export class Example02BasicComponent { }
 
 @Component({
   selector: "linquist-example-02",
@@ -42,7 +42,9 @@ export class Example02BasicComponent {}
   template: `
     <p class="path">misc-examples/components/directives-linquist/example-02</p>
     <h4>Combining directives and components</h4>
+
     <p>Click each of the words below</p>
+    
     <basic-02 [second]="'Something'"></basic-02>
     <hr>
     <basic-02 [second]="'Another'"></basic-02>
@@ -50,4 +52,4 @@ export class Example02BasicComponent {}
     <basic-02 [second]="'Third'"></basic-02>
   `
 })
-export class Example02AppComponent {}
+export class Example02AppComponent { }

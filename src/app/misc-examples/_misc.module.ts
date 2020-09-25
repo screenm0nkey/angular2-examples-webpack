@@ -16,13 +16,14 @@ import { MultiContentModule } from './components/multi-content/_multicontent.mod
 import { NgStyleModule } from './components/ng-style/ngstyle.module';
 import { NgZoneModule } from './components/ng-zone/ngzone.module';
 import { NotifcationModule } from './components/notifications/_notifications.module';
-import { TemplatesModule } from './components/template-directives/_templates.module';
+import { StructuralDirectivesModule } from './components/structural-directives/_templates.module';
 import { ChangedAfterModule } from './components/changed-after-check/_main.module';
 import { TipsModule } from './components/tips/_tips.module';
 import { InterceptorModule } from "./components/interceptors/_interceptor.module";
 import { LinksComponent } from "./components/links/links.component";
 import { DynamicExamplesModule } from "./components/dynamic-components/_dynamic.module";
 import { LifeCycleModule } from '../lifecycle/lifecycle.module';
+import { CustomDecoratorsModule } from './components/decorators/_custom-decorators.module';
 
 @NgModule({
   imports: [
@@ -41,13 +42,14 @@ import { LifeCycleModule } from '../lifecycle/lifecycle.module';
     NgStyleModule,
     NgZoneModule,
     NotifcationModule,
-    TemplatesModule,
+    StructuralDirectivesModule,
     LinquistDirectivesModule,
     ChangedAfterModule,
     TipsModule,
     InterceptorModule,
     DynamicExamplesModule,
     LifeCycleModule,
+    CustomDecoratorsModule
   ],
   declarations: [
     MiscExamplesComponent,

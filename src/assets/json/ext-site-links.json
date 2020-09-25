@@ -531,6 +531,18 @@
     99,
     "How to do DOM Manipulation properly in Angular",
     "https://medium.com/weekly-webtips/how-to-do-dom-manipulation-properly-in-angular-e6fdb70a6e0e",
-    "Renderer2 ViewContainerRef templateRef ViewChild, ViewChildren"
+    "Renderer2 ViewContainerRef TemplateRef ViewChild, ViewChildren"
+  ],
+  [
+    100,
+    "Exploring Angular DOM manipulation techniques",
+    "https://indepth.dev/exploring-angular-dom-manipulation-techniques-using-viewcontainerref",
+    "ElementRef, TemplateRef, ViewRef, ComponentRef ViewContainerRef"
+  ],
+  [
+    101,
+    "Custom Decorators",
+    "https://itnext.io/custom-decorators-in-angular-c54da873b3b3",
+    ""
   ]
 ]

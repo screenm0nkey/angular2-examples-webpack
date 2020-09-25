@@ -16,7 +16,7 @@ import { DOCUMENT } from "@angular/common";
         misc-examples/components/chickens/dom-adapter.component.ts
       </p>
       <h4>
-        Add dynamic DOM elements to DOM using Renderer2 and <code>@Inject(DOCUMENT)</code>
+        Add Elements to the DOM using Renderer2 and <code>@Inject(DOCUMENT)</code>
       </h4>
       <div class="links">
         <dlink [id]="65"></dlink>
@@ -28,17 +28,16 @@ import { DOCUMENT } from "@angular/common";
   `
 })
 export class DomAdapterComponent {
-  constructor(@Inject(DOCUMENT) public dom, public renderer: Renderer2) { }
+  constructor(@Inject(DOCUMENT) public dom: HTMLDocument, private renderer: Renderer2) { }
 
   add() {
-    const el: HTMLButtonElement = this.renderer.createElement("button");
-    this.renderer.addClass(el, "test");
-    el.innerText = "Click me";
-    el.addEventListener("click", this.raiseEvent);
-    const compEl: any = this.dom.getElementsByTagName(
-      "dom-adapter-component"
-    )[0];
-    compEl.append(el);
+    const button: HTMLButtonElement = this.renderer.createElement("button");
+    this.renderer.addClass(button, "test");
+    button.innerText = "Click me";
+    button.addEventListener("click", this.raiseEvent);
+    const elements: HTMLCollectionOf<Element> = this.dom.getElementsByTagName("dom-adapter-component");
+    const el: Element = elements[0];
+    el.append(button);
   }
 
   raiseEvent(evt) {

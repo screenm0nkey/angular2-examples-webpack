@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { SharedModule } from "../../../shared/_shared.module";
 import { AppComponent } from "./main.component";
-import { PushNotificationComponent } from "./notification.component";
+import { PushNotificationComponent } from "./push-notification.component";
 import { Ng6SocketAppComponent } from "./ng6-socket-app.component";
 
 @NgModule({

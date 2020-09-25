@@ -23,8 +23,10 @@ export class NameChildComponent {
   template: `
     <p class="path">misc-examples/components/input-binding/input-getters-setters.ts</p>
     <h4>Using Getters and Setter on @Input</h4>
+
     <code>@Input() set name(name: string)</code>
     There are {{names.length}} names
+    
     <name-child *ngFor='let name of names' [name]='name'></name-child>
   `
 })

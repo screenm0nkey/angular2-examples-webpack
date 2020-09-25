@@ -12,7 +12,7 @@ import {
 @Directive({
   selector: "[appCardHeader]"
 })
-export class CardHeaderDirective {}
+export class CardHeaderDirective { }
 
 @Component({
   selector: "app-card",
@@ -27,7 +27,7 @@ export class CardHeaderDirective {}
 })
 export class CardComponent {
   @ContentChild(CardHeaderDirective) header?: CardHeaderDirective;
-  constructor() {}
+  constructor() { }
 }
 
 @Component({
@@ -53,7 +53,7 @@ export class CardComponent {
 })
 export class CardComponentContainer implements OnInit, AfterViewInit {
   // changing static to false means the card won't be available in ngOnInit
-  @ViewChild(CardComponent, {static:true}) card: CardComponent;
+  @ViewChild(CardComponent, { static: true }) card: CardComponent;
 
   name = "Angular";
 

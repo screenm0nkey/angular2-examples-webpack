@@ -16,7 +16,7 @@
   </section>
 
   <section collapse-it class="well">
-    <h4>Main bullet points for dependency injection</h4>
+    <h4>Dependency Injection Main Points</h4>
     <ul>
       <li>Every component comes with its own injector</li>
 
@@ -60,11 +60,13 @@
       </li>
 
       <li>A new injector has no providers. Each component has it's own injector or child-injector</li>
+
+      <li> A root injector is created in the bootstrap process and injectors are created for components, pipes or directives. Each lazy-loaded module also gets its own.      </li>
     </ul>
   </section>
 
   <section collapse-it class="well">
-    <h4>Using providedIn @Injectable(<cur>providedIn: 'root'</cur>)</h4>
+    <h4>Understand Angular’s forRoot and forChild</h4>
     <dlink [id]="6"></dlink><br>
     <dlink [id]="61"></dlink>
 
@@ -222,7 +224,9 @@
 
   <inject-parent-component></inject-parent-component>
 
-  <manually-inject-service></manually-inject-service>
+  <collapse-it>
+    <manually-inject-service></manually-inject-service>
+  </collapse-it>
 
   <factory-example></factory-example>
 

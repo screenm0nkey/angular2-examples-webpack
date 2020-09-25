@@ -1,0 +1,29 @@
+<p class="path">misc-examples/components/directives-linquist/example-07.ts</p>
+<h4>Structural Directive - Assign a structural directive dynamic content</h4>
+
+<p>See the example <dlink [id]="1005"></dlink> *ngBookRepeat template</p>
+
+<code><lgt>span *hooper='let message spoonzOf messages'</lgt>{{ message }}<lgt>/span</lgt></code>
+<highlight>Gets converted to</highlight>
+<code><lgt>template [hooperSpoonzOf]='messages' let-message='$implicit'</lgt><lgt>/template</lgt></code>
+
+<p>
+  There's going to be an input called
+  <highlight>hooperSpoonzOf</highlight> on the HooperDirective. It's a
+  combination of the name of the directive, and the separator, which is
+  going to take <highlight>messages</highlight> as the input. Remember,
+  <highlight>let message</highlight> was used to declare a variable, and any
+  word you put here is going to be an input which combines
+  <highlight>*hooper</highlight> and <highlight>spoonzOf</highlight>
+</p>
+
+<p>
+  Which means we have to change the input on the directive to
+  <highlight>hooperSpoonzOf</highlight> and
+  <highlight>this.messages</highlight> will be passed into the
+  <highlight>hooperSpoonzOf input</highlight>
+</p>
+
+<div style="width:100%; height : 30px;overflow: scroll">
+  <span *hooper="let message; spoonzOf: messages" class="moo">{{ message }}</span>
+</div>

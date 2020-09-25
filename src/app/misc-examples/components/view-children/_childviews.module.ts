@@ -1,18 +1,18 @@
-import {NgModule} from '@angular/core';
-import {SharedModule} from '../../../shared/_shared.module';
-import {MainViewChildrenComponent} from './_main.component';
-import {ViewChildren01Component} from './view-children-01.component';
-import {CountdownTimerComponent, CountdownViewChildParentComponent} from './countdown';
-import {LinquistDirectivesModule} from "../directives-linquist/_linquist-directives.module";
-import {ViewChildren02Component} from "./view-children-02.component";
-import {KeepCountComponent} from "./keep-count.component";
-import {SuperListItemComponent} from "./super-list-item.component";
-import {ChickensModule} from "../chickens/_chickens.module";
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { SharedModule } from '../../../shared/_shared.module';
+import { MainViewChildrenComponent } from './_main.component';
+import { ViewChildren01Component } from './view-children-01.component';
+import { CountdownTimerComponent, CountdownViewChildParentComponent } from './countdown';
+import { LinquistDirectivesModule } from "../directives-linquist/_linquist-directives.module";
+import { ViewChildren02Component } from "./view-children-02.component";
+import { KeepCountComponent } from "./keep-count.component";
+import { SuperListItemComponent } from "./super-list-item.component";
+import { ChickensModule } from "../chickens/_chickens.module";
 import { FocusingInputModule } from '../focusing-input/_focusing.module';
-import { CardComponent,CardHeaderDirective, CardComponentContainer} from './static-property.component'
+import { CardComponent, CardHeaderDirective, CardComponentContainer } from './static-property.component'
 
 @NgModule({
-  imports: [SharedModule, LinquistDirectivesModule, ChickensModule, FocusingInputModule ],
+  imports: [SharedModule, LinquistDirectivesModule, ChickensModule, FocusingInputModule],
   declarations: [
     MainViewChildrenComponent,
     ViewChildren01Component,
@@ -21,10 +21,11 @@ import { CardComponent,CardHeaderDirective, CardComponentContainer} from './stat
     KeepCountComponent,
     CountdownViewChildParentComponent,
     CountdownTimerComponent,
-   CardComponent,CardHeaderDirective, CardComponentContainer
-  ]
+    CardComponent, CardHeaderDirective, CardComponentContainer
+  ],
+  schemas: [NO_ERRORS_SCHEMA]
 })
 export class ChildViewModule {
 }
 
-export {MainViewChildrenComponent};
+export { MainViewChildrenComponent };

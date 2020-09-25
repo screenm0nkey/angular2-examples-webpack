@@ -4,17 +4,18 @@ import { Component } from '@angular/core';
   selector: 'linquist-example-05',
   template: `
     <p class="path">misc-examples/components/directives-linquist/example-05.ts</p>
-    <h4>Create elements with ngTemplateOutlet</h4>
+    <h4>Create elements with ngTemplateOutlet and ngTemplateOutletContext</h4>
 
     <dlink [id]="85"></dlink>
     
     <pre>'let-' is only supported on 'template elements'</pre>
     
-    <ng-template #foo let-whatever='message', let-color='colour'>
-      <span [style.background-color]="color">{{whatever}} {{color}}</span>
+    <ng-template #foo let-whatever='message', let-myshoes='colour'>
+      <span [style.background-color]="myshoes">{{whatever}} {{myshoes}}</span>
     </ng-template>
     
     <p>The div will serve as an outlet for the template with the local ref of #foo</p>
+    
     <div
       [ngTemplateOutlet]='foo'
       [ngTemplateOutletContext]='one'>

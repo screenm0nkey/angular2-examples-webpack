@@ -16,6 +16,7 @@ export class TrackingService {
   logs = [];
 
   log(trackingEvent) {
+    console.log(trackingEvent);
     this.logs.push(trackingEvent);
   }
 }
@@ -26,14 +27,11 @@ export class TrackingService {
 @Injectable({ providedIn: "root" })
 export class OnlineService {
   online: boolean;
-  interval: any;
+  interval: any; //NodeJS.Timeout;
 
   constructor() {
     this.online = true;
-    this.interval = setInterval(
-      () => (this.online = Math.random() > 0.5),
-      1000
-    );
+    this.interval = setInterval(() => (this.online = Math.random() > 0.5), 1000);
   }
 
   clearInterval() {
@@ -59,7 +57,7 @@ export class OnlineDirective implements OnDestroy {
     return this.online.online;
   }
 
-  constructor(public online: OnlineService) {}
+  constructor(public online: OnlineService) { }
 
   public ngOnDestroy(): void {
     this.online.clearInterval();
@@ -81,15 +79,14 @@ export class TrackDirective {
   @HostListener("mouseover") onMouseover = () =>
     this.tracking.log({ event: "mouseover", message: this.track });
 
-  constructor(public tracking: TrackingService) {}
+  constructor(public tracking: TrackingService) { }
 }
 
 /**
  * Example03AppComponent
  */
 @Component({
-  selector: "track-app",
-  styleUrls: ["./styles.css"],
+  selector: "linquist-example-03",
   template: `
     <p class="path">misc-examples/components/directives-linquist/example-03</p>
     <h4>Combine Directive @HostBinding with Services</h4>
@@ -100,15 +97,16 @@ export class TrackDirective {
     <button online [track]="'2 Button'">Two</button>
     <button online [track]="'3 Button'">Three</button>
 
-    <!-- Only for visuals
+    
     <div *ngFor="let log of tracking.logs">
       {{ log.event }} - {{ log.message }}
     </div>
-    -->
   `
 })
 export class Example03AppComponent {
-  tracking : any;
+  tracking: TrackingService;
   // tracking is used in template
-  constructor(tracking: TrackingService) {}
+  constructor(tracking: TrackingService) {
+    this.tracking = tracking;
+  }
 }

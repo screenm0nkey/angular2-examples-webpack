@@ -146,16 +146,20 @@ ul
   margin: 0 0 0 20px
   padding: 0
 
-ul.todos
-  background-color: #07bd07
-  padding: 3px
-  border: solid 3px #259e00
-  margin-left: 0
-  margin-bottom: 3px
-  z-index: 2
-  cursor: pointer
-  text-indent: 21px
-  margin-right: 10px
+  &.todos
+    background-color: #07bd07
+    padding: 3px
+    border: solid 3px #259e00
+    margin-left: 0
+    margin-bottom: 3px
+    z-index: 2
+    cursor: pointer
+    text-indent: 21px
+    margin-right: 10px
+
+  &.notes
+    li
+      margin-bottom: 10px
 
 ul.todos.collapsed
   height: 21px

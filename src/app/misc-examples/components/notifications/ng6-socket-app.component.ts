@@ -9,6 +9,10 @@ import { ChatService } from "./chat.service";
     </p>
     <h4>Single Socket Example using NGX-Socket-IO</h4>
 
+    <p class="red">Start WWW</p>
+    <code>const config: SocketIoConfig = <cur> url: 'http://localhost:1970', options:... </cur>;</code><br>
+    <code>SocketIoModule.forRoot(config)</code>
+
     <div>
       <p>
         {{ (chatService.connected$ | async) ? "Connected!" : "Disconnected." }}
@@ -36,7 +40,7 @@ import { ChatService } from "./chat.service";
 export class Ng6SocketAppComponent implements OnInit {
   msg: string;
 
-  constructor(public chatService: ChatService) {}
+  constructor(public chatService: ChatService) { }
 
   ngOnInit() {
     this.chatService.message$.subscribe((msg: string) => (this.msg = msg));

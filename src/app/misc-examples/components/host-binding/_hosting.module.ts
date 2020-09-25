@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { SharedModule } from "../../../shared/_shared.module";
 import { HostBindingComponent } from "./_main.component";
 import { HostOne, NgModelStatusOne } from "./host-one";
@@ -19,8 +19,9 @@ import { ChickensModule } from '../chickens/_chickens.module';
     CountClicks,
     HostThree,
     NgModelStatusThree
-  ]
+  ],
+  schemas: [NO_ERRORS_SCHEMA]
 })
-export class HostBindingModule {}
+export class HostBindingModule { }
 
 export { HostBindingComponent };

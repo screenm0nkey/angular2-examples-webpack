@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { interval, Observable, Subject } from 'rxjs';
 import { mapTo, takeUntil } from "rxjs/operators";
-import { MyNgRxStore } from "./reducers/_reducers.service";
+import { MyNgRxStores } from "./reducers/_reducers.service";
 
 
 @Component({
@@ -29,17 +29,17 @@ export class NgrxWordsComponent implements OnInit {
   public word3$: Observable<string>;
   public interval$: Observable<string>;
 
-  constructor(public store: Store<MyNgRxStore>, public cd: ChangeDetectorRef) {
+  constructor(public store: Store<MyNgRxStores>, public cd: ChangeDetectorRef) {
   }
 
   ngOnInit() {
     // this is one way to subscribe to the store (reducer)
     this.store
-      .pipe(select((state: MyNgRxStore) => state.wordsReducer), takeUntil(this.unsubscribe$))
+      .pipe(select((state: MyNgRxStores) => state.wordsReducer), takeUntil(this.unsubscribe$))
       .subscribe((word: string) => this.word1 = word);
 
     // this is another way to subscribe to a store (reducer)
-    this.store.select('wordsReducer').subscribe(word => this.word2 = word);
+    this.store.select('wordsReducer').subscribe((word: string) => this.word2 = word);
 
     // this is another way to subscribe to a store where we use the async filter
     this.word3$ = this.store.select('wordsReducer');

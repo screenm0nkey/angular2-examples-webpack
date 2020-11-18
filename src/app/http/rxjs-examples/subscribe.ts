@@ -15,7 +15,11 @@ export class CharacterService {
   }
 }
 
-export class BaseComponent implements OnDestroy {
+// TODO: Add Angular decorator.
+@Component({
+  template: ''
+})
+export abstract class BaseComponent implements OnDestroy {
   destroyed = new Subject();
   constructor() { }
   ngOnDestroy() {

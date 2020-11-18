@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
-import { ReplaySubject } from "rxjs/internal/ReplaySubject";
-import { Subject } from "rxjs/internal/Subject";
+import { ReplaySubject } from "rxjs/ReplaySubject";
+import { Subject } from "rxjs/Subject";
 
 @Injectable({ providedIn: "root" })
 export class CollapseItService {
@@ -15,6 +15,7 @@ export class CollapseItService {
     const key = this.createKeyFromTitle(title);
     if (key) {
       map[key] = openState;
+      
       // console.log(map);
       localStorage.setItem("collapseIt", JSON.stringify(map));
     }

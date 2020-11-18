@@ -1,9 +1,9 @@
-import { Store } from "@ngrx/store";
 import { Component } from "@angular/core";
-import { ADD_TO_QUEUE } from "../actions";
-import { Observable } from "rxjs/internal/Observable";
+import { Store } from "@ngrx/store";
+import { Observable } from "rxjs/Observable";
 import { map } from "rxjs/operators";
-import { MyNgRxStore, Unit } from "../reducers/_reducers.service";
+import { Unit } from "../reducers/_reducers.service";
+import { ADD_TO_QUEUE } from './actions';
 
 let id = 0;
 let next = () => ++id;
@@ -25,11 +25,11 @@ const createUnit = (health = 0): Unit => ({
   ],
   template: `
     <p class="path">http/ngrx/ngrx-queue/ngrx-queue.component.ts</p>
-    <h4>NgRx Queue</h4>
+    <h4>NgRx Effects Example</h4>
 
     <dlink [id]="17"></dlink>
     
-    <button (click)="onClick($event)">
+    <button (click)="onClick()">
       Add to queue
     </button>
     
@@ -48,7 +48,7 @@ export class NgrxQueueComponent {
   unitsInProgress$: Observable<Unit[]>;
   unitsReady$: Observable<Unit[]>;
 
-  constructor(public store: Store<MyNgRxStore>) {
+  constructor(public store: Store<{ queueReducer: Unit[] }>) {
     this.unitsInProgress$ = this.store.select("queueReducer")
       .pipe(map((queue: Unit[]) => queue.filter(u => !u.completed)));
 

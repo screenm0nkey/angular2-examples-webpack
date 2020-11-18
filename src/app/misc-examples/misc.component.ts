@@ -27,11 +27,10 @@ import { Component } from '@angular/core';
               <a routerLink='./tricks' routerLinkActive='active'>Tricks</a>
               <a routerLink='./interceptor' routerLinkActive='active'>Interceptors</a>
               <a routerLink='./change-after-check' routerLinkActive='active'>ExpressionChangedAfterItHasBeenCheckedError</a>
-              <a routerLink='/mini-apps/auth-app'>Router Animations</a>
-              <a routerLink='/mini-apps/auth-app'>CanDeactivate and CanActiveate</a>
-              <a routerLink='/mini-apps/auth-app'>Route Guards</a>
-              <a routerLink='/mini-apps/insert-component' routerLinkActive='active'>Reusable Components using TemplateRef</a>
               <a routerLink='./chickens' routerLinkActive='active'>Miscellaneous</a>
+              <a>--</a>
+              <a routerLink='/mini-apps/auth-app'>Route Guards, CanDeactivate and CanActiveate</a>
+              <a routerLink='/mini-apps/insert-component' routerLinkActive='active'>Reusable Components using TemplateRef</a>
           </nav>
 
           <div class="ngx-container">

@@ -1,9 +1,9 @@
-import {Component, OnInit} from "@angular/core";
-import {interval, merge, Observable, Subject} from "rxjs";
-import {map, mapTo} from "rxjs/operators";
-import {Store} from "@ngrx/store";
-import {HOUR, SECOND} from "./actions";
-import {MyAction, MyNgRxStore} from "./reducers/_reducers.service";
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Store } from "@ngrx/store";
+import { interval, merge, Observable, Subject } from "rxjs";
+import { map, mapTo, takeUntil } from "rxjs/operators";
+import { hourTickAction, secondTickAction } from "./actions";
+import { MyAction, MyNgRxStores } from "./reducers/_reducers.service";
 
 /**
  * ngrx-clock-two-component
@@ -25,29 +25,32 @@ import {MyAction, MyNgRxStore} from "./reducers/_reducers.service";
     </start-stop-rx-stream-component>
   `
 })
-export class NgrxClockTwoComponent implements OnInit {
+export class NgrxClockTwoComponent implements OnInit, OnDestroy {
   updateHours$: Subject<any>;
+  destroy$: Subject<any>;
   seconds$: Observable<MyAction>;
   time$: Observable<Date>;
   merged$: Observable<{} | MyAction>;
 
-  constructor(public store: Store<MyNgRxStore>) {
+  constructor(public store: Store<MyNgRxStores>) {
     this.dispatch = this.dispatch.bind(this);
   }
 
   ngOnInit() {
     this.time$ = this.store.select("clockReducer");
     this.updateHours$ = new Subject();
-    this.seconds$ = interval(1000).pipe(mapTo({type: SECOND, payload: 1}));
+    this.seconds$ = interval(1000).pipe(mapTo(secondTickAction({ payload: 1 })));
 
     this.merged$ = merge(
-      this.updateHours$.pipe(map(value => ({type: HOUR, payload: value}))),
+      this.updateHours$.pipe(map(value => (hourTickAction({ payload: value })))),
       this.seconds$
-    );
+    ).pipe(takeUntil(this.destroy$))
+  }
+
+  ngOnDestroy() {
   }
 
   dispatch(evt: MyAction): void {
-    console.log(`%cNgrxClockTwoComponent`, 'color:yellow', evt);
     this.store.dispatch(evt);
   }
 

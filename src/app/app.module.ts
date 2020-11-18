@@ -10,6 +10,7 @@ import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 // this is for the angular2 services example
 import { SharedModule } from './shared/_shared.module';
 import { ComposeMessageComponent } from "./misc-mini-apps/auth/components/compose-message.component";
+import { StoreModule } from '@ngrx/store';
 
 const config: SocketIoConfig = { url: 'http://localhost:1970', options: {} };
 
@@ -20,7 +21,7 @@ const config: SocketIoConfig = { url: 'http://localhost:1970', options: {} };
     BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule.forRoot(),
-    SocketIoModule.forRoot(config)
+    SocketIoModule.forRoot(config),
   ],
   declarations: [AppComponent, PageNotFoundComponent, ComposeMessageComponent],
   providers: [

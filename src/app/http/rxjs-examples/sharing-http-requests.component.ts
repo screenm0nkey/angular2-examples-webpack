@@ -10,8 +10,10 @@ import { User } from './shared-components';
     <p class="path">http/rxjs-examples/sharing-http-requests.component.ts</p>  
     <h4>How to share a HTTP request</h4>
     
-
-    <dlink id="86"></dlink>
+    <div class="links">
+      <dlink id="104"></dlink>
+      <dlink id="86"></dlink>
+    </div>
 
     <p><strong>share() is a shortcut for multicast(() => new Subject()) + refCount()</strong></p>
 

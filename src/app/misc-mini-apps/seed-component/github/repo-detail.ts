@@ -7,8 +7,8 @@ import { GithubHttp } from './github.http';
   styleUrls: ['../seed-component.css'],
   template: `
     <section class='repo-details'>
-      <p class="path">seed-component/github/repo-detail.ts  (gold border)</p>
-      <h4 *ngIf="repoDetails.full_name">{{ repoDetails.full_name }}</h4>
+      <p class="path">src/app/misc-mini-apps/seed-component/github/repo-detail.ts </p>
+      <h5 *ngIf="repoDetails.full_name">{{ repoDetails.full_name }}</h5>
       <pre>this.repoDetails = {{ repoDetails | json }}</pre>
     </section>
   `

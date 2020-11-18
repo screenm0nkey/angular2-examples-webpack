@@ -1,5 +1,5 @@
 import { Component, Injectable, OnDestroy } from '@angular/core';
-import { Subject } from 'rxjs/internal/Subject';
+import { Subject } from 'rxjs/Subject';
 import { takeUntil } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
@@ -8,7 +8,11 @@ export class TUSTestService {
   observableB: Subject<any> = new Subject();
 }
 
-export class BaseComponent implements OnDestroy {
+// TODO: Add Angular decorator.
+@Component({
+  template: ''
+})
+export abstract class BaseComponent implements OnDestroy {
   destroyed = new Subject();
   constructor() { }
   ngOnDestroy() {

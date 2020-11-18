@@ -22,13 +22,12 @@ ul li a::after {
 }
 
 main {
-  border-top: 3px solid green;
+  background-color: red;
   padding-top: 12px;
 }
 
 .repo-browser {
-  border: solid 2px deeppink;
-  background-color: lightpink;
+  background-color: #535cbf;
 }
 
 .path {
@@ -41,7 +40,7 @@ repo-list {
 }
 
 .repo-list {
-  border:solid lime 2px;
+  background-color: lime;
   display: block;
 }
 
@@ -57,14 +56,13 @@ repo-list {
   top: 206px;
   scroll-behavior: auto;
   left: 238px;
-  border: solid gold 2px;
+  background-color: gold;
   overflow: hidden;
 }
 
 .repo-details pre {
   font-size: 10px;
   scroll-behavior: auto;
-  opacity: 0.7;
+  background-color: dodgerblue;
   height: 500px;
 }
-

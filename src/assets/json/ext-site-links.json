@@ -544,5 +544,23 @@
     "Custom Decorators",
     "https://itnext.io/custom-decorators-in-angular-c54da873b3b3",
     ""
+  ],
+  [
+    102,
+    "Upgrading to NgRx v8",
+    "https://ultimatecourses.com/blog/how-to-upgrade-your-angular-and-ngrx-apps-to-v8",
+    ""
+  ],
+  [
+    103,
+    "Introduction to @ngrx/effects",
+    "https://developer.school/introduction-to-ngrx-effects",
+    ""
+  ],
+  [
+    104,
+    "The magic of RXJS Muticast Operators and Sharing",
+    "https://itnext.io/the-magic-of-rxjs-sharing-operators-and-their-differences-3a03d699d255",
+    ""
   ]
 ]

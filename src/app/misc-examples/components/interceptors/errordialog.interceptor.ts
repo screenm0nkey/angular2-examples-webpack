@@ -14,35 +14,33 @@ import { catchError, map } from "rxjs/operators";
 
 @Injectable({ providedIn: "root" })
 export class ErrorDialogInterceptor implements HttpInterceptor {
+
   constructor(public errorDialogService: ErrorDialogService) {
     this.onSuccess = this.onSuccess.bind(this);
     this.onError = this.onError.bind(this);
   }
 
-  intercept(
-    request: HttpRequest<any>,
-    next: HttpHandler
-  ): Observable<HttpEvent<any>> {
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token: string = localStorage.getItem("token");
     if (token) {
       // "Authorization : Bearer" format are most likely implementing OAuth 2.0 bearer tokens.
-      request = request.clone({
-        headers: request.headers.set("Authorization", "Bearer " + token)
+      const authreq = req.clone({
+        headers: req.headers.set("Authorization", "Bearer " + token)
       });
     }
-    if (!request.headers.has("Content-Type")) {
-      request = request.clone({
-        headers: request.headers.set("Content-Type", "application/json")
+    if (!req.headers.has("Content-Type")) {
+      req = req.clone({
+        headers: req.headers.set("Content-Type", "application/json")
       });
     }
-    request = request.clone({
-      headers: request.headers.set("Accept", "application/json")
-    });
-    console.log("%cHttpConfigInterceptor HttpRequest", "color:yellow", request);
 
+    // The practice of cloning a request to set new headers is so common that there's a setHeaders shortcut for it:
+    req = req.clone({ setHeaders: { "Accept": "application/json" } });
+
+    console.log("%cHttpConfigInterceptor HttpRequest", "color:yellow", req);
     // this deals with the response
     return next
-      .handle(request)
+      .handle(req)
       .pipe(map(this.onSuccess), catchError(this.onError));
   }
 
@@ -60,7 +58,6 @@ export class ErrorDialogInterceptor implements HttpInterceptor {
   }
 
   onError(error: HttpErrorResponse) {
-    debugger;
     let data;
     if (error.error) {
       data = {

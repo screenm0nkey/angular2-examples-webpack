@@ -1,20 +1,9 @@
-import {
-  AfterContentChecked,
-  AfterContentInit,
-  AfterViewChecked,
-  AfterViewInit,
-  Component,
-  DoCheck,
-  Input,
-  OnChanges,
-  OnDestroy,
-  OnInit,
-  SimpleChange
-} from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChange, Directive } from '@angular/core';
 import { LoggerService } from '../logger.service';
 
 let nextId = 1;
 
+@Directive()
 export class PeekABoo implements OnInit {
   // this instance of the _logger is the same as the parent
   constructor(public _logger: LoggerService) {

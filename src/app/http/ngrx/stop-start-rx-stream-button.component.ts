@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { fromEvent, Observable } from 'rxjs';
 import { mapTo, switchMapTo, takeUntil } from "rxjs/operators";
+import { MyAction } from './reducers/_reducers.service';
 
 @Component({
   selector: 'start-stop-rx-stream-component',
@@ -21,13 +22,19 @@ export class StartStopRxStreamComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.setButtonState('stop');
-    const startBtnClick$: Observable<string> = fromEvent(this.startBtnEl.nativeElement, 'click').pipe(mapTo('start'));
-    const stopBtnClick$: Observable<string> = fromEvent(this.stopBtnEl.nativeElement, 'click').pipe(mapTo('stop'));
+
+    const startBtnClick$: Observable<string> = fromEvent(this.startBtnEl.nativeElement, 'click')
+      .pipe(mapTo('start'));
+    startBtnClick$.subscribe(this.setButtonState);
+
+    const stopBtnClick$: Observable<string> = fromEvent(this.stopBtnEl.nativeElement, 'click')
+      .pipe(mapTo('stop'));
+    stopBtnClick$.subscribe(this.setButtonState);
+
     const intervalThatStops$ = this.stream$.pipe(takeUntil(stopBtnClick$));
     const startInterval$ = startBtnClick$.pipe(switchMapTo(intervalThatStops$));
-    startBtnClick$.subscribe(this.setButtonState);
-    stopBtnClick$.subscribe(this.setButtonState);
-    startInterval$.subscribe(value => this.evt.emit(value));
+
+    startInterval$.subscribe((action: MyAction) => this.evt.emit(action));
   }
 
   setButtonState(state: string): void {

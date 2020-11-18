@@ -9,6 +9,7 @@ import { ShareHttpRequest } from './sharing-http-requests.component';
 import { UserComponent, UsersComponent } from './shared-components';
 import { GithubRepositoriesComponent } from './practical-rxjs.component';
 import { takeuntilUnsubscribe } from './takeuntil-unsubscribe';
+import { ThinkReactivelyComponent } from './think-reactively.component';
 
 @NgModule({
   imports: [SharedModule],
@@ -22,7 +23,8 @@ import { takeuntilUnsubscribe } from './takeuntil-unsubscribe';
     UserComponent,
     UsersComponent,
     GithubRepositoriesComponent,
-    takeuntilUnsubscribe
+    takeuntilUnsubscribe,
+    ThinkReactivelyComponent
   ],
 })
 export class MiscHttpModule {

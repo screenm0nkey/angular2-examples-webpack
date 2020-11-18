@@ -1,11 +1,22 @@
+import { createAction, props } from '@ngrx/store';
+
 export const ADD = "ADD";
-export const ADD_TO_QUEUE = "ADD_TO_QUEUE";
 export const GROW_UNIT = "GROW_UNIT";
-export const GROW_QUEUE = "GROW_QUEUE";
 export const HOUR = "HOUR";
-export const SECOND = "SECOND";
-export const HOUR_TICK = "HOUR_TICK";
-export const SECOND_TICK = "SECOND_TICK";
-export const ADVANCE = "ADVANCE";
-export const RECALL = "RECALL";
-export const DAY_TICK = "DAY_TICK";
+
+export interface Peepz {
+    name: string;
+    time: Date;
+}
+
+export const dayTickAction = createAction('DAY_TICK', props<{ payload: number }>());
+export const hourTickAction = createAction('HOUR_TICK', props<{ payload: number }>());
+export const secondTickAction = createAction('SECOND_TICK', props<{ payload: number }>());
+
+
+export const peopleSecondAction = createAction('SECOND', props<{ payload: number }>());
+export const peopleAdvanceAction = createAction('ADVANCE', props<{ payload: Peepz }>());
+export const peopleRecallAction = createAction('RECALL', props<{ payload: Date }>());
+
+export const clockSecondAction = createAction('SECOND', props<{ payload: string }>());
+export const clockHourAction = createAction('HOUR', props<{ payload: string }>());

@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./seed-component.css'],
   template: `
     <div class="repo-browser">
-    <p class="path">seed-component/about.component.ts</p>
+    <p class="path">src/app/misc-mini-apps/seed-component/about.component.ts</p>
     <h4>AboutComponent Component</h4>
     <p>This is the about component!</p>
     </div>

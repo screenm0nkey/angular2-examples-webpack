@@ -1,8 +1,14 @@
 <div class='comps'>
   <section collapse-it>
     <p class="path">http/rxjs-examples/_main.component.html</p>
+
     <h4>A list RxJs Operators and Subjects used in the examples in this app</h4>
-    <dlink id="86"></dlink>
+
+    <div class="links">
+      <dlink id="104"></dlink>
+      <dlink id="86"></dlink>
+    </div>
+
     <p>These are all the different RxJs static methods and operators used in all of the examples in this app</p>
     <highlight>Static methods</highlight>
     <code>
@@ -50,7 +56,10 @@
   <section collapse-it>
     <p class="path">http/rxjs-examples/_main.component.html</p>
     <h4>Commonly used RxJs Operators and Subjects</h4>
-    <dlink id="86"></dlink>
+    <div class="links">
+      <dlink id="104"></dlink>
+      <dlink id="86"></dlink>
+    </div>
     <ul>
       <li><strong>Subject</strong></li>
 
@@ -106,16 +115,46 @@
   <section collapse-it>
     <p class="path">http/rxjs-examples/_main.component.html</p>
     <h4>
-      Publish and its Variants
+      Notes on Multicast, Publish and its variants
     </h4>
-    <dlink id="86"></dlink>
+
+    <div class="links">
+      <dlink id="104"></dlink>
+      <dlink id="86"></dlink>
+    </div>
+
+    <p>
+      <span class="strong">multicast()</span><br>
+      RxJs has multicast() operator which takes subject or subject factory and returns ConnectableObservable . The
+      subject passed as argument acts like a middleman in a multicast observable. It just relays data from source
+      observable to all subscribers. ConnectableObservable is a regular observable, but it won’t subscribe to the source
+      until connect() method is called. Let’s change the example above with multicast() to understand how it works
+    </p>
+
+    <p>
+      <span class="strong">share() is similar to publish()+refCount()</span> but not the same. See here for a good
+      example <dlink id="104"></dlink> but publish uses a Subject instance <code> multicast(new Subject())</code> and
+      share() uses factory function that returns Subject instance —
+      <code>multicast(() => new Subject()).refCount()</code>
+    </p>
+    <p>
+      * refCount() is built on connect()<br>
+      * publish() creates a ConnectableObservable which shares a single subscription to the underlying source.<br>
+      * However, the publish operator doesn’t subscribe to the underlying source just yet. <br>
+      * It’s more like a gatekeeper that makes sure that subscriptions aren’t made to the underlying source but to the
+      ConnectableObservable instead.<br>
+      * refCount() causes the ConnectableObservable to subscribe to the underlying source as soon as there is a first
+      subscriber and to unsubscribe from it as soon as there’s no subscribers.<br>
+    </p>
+
     <p>
       Because using <strong>multicast() + Subject + refCount()</strong> is a typical pattern in RxJS, the team there
       have created
       shortcut operators to make it easier for us. Let’s go over the different variations we have:
     </p>
     <ul>
-      <li><strong>publish()</strong> = a shortcut for multicast(() => new Subject()):</li>
+      <li><strong>publish()</strong> === multicast(new Subject()) </li>
+      <li><strong>share()</strong> === multicast(() => new Subject()).refCount() </li>
 
       <li><strong>publishBehavior()</strong> = a shortcut for multicast(new BehaviorSubject())</li>
 
@@ -123,13 +162,11 @@
 
       <li><strong>publishLast()</strong> — is a shortcut for multicast(new AsyncSubject()) </li>
 
-      <li><strong>share()</strong> — is a shortcut for multicast(() => new Subject()) + refCount()</li>
+
 
       <li><strong>shareReplay(bufferSize)</strong> = is a multicasting operator that uses a ReplaySubject(). It doesn’t
-        internally use
-        the multicast operator itself, and as a result it always returns an observable, rather than a
-        ConnectableObservable.
-        It can be used either with a refCount, or without it. See both variations below</li>
+        internally use the multicast operator itself, and as a result it always returns an observable, rather than a
+        ConnectableObservable. It can be used either with a refCount, or without it. See both variations below</li>
     </ul>
 
     <p>
@@ -137,6 +174,42 @@
         Note that when using refCount, we get back a normal observable, instead of a ConnectableObservable.
       </strong>
     </p>
+
+    <div class="chunk">
+      multicast returns a ConnectableObservable.
+      we need to manually call connect() on the ConnectableObservable
+      <code>
+this.user$ = this.http.get(`api/user/1`)
+.pipe(
+  multicast(new Subject())
+);
+this.name$ = this.user$.pipe(map(user => user.name));
+this.age$ = this.user$.pipe(map(user => user.age));
+this.user$.connect();
+    </code>
+    </div>
+
+    <div class="chunk">
+      the code above can be reduced to this
+      <code>
+        this.user$ = this.http.get(`api/user/1`).pipe(multicast(new Subject()), refCount());
+    </code>
+    </div>
+
+    <div class="chunk">
+      which can be reduced to this
+      <code>
+        this.user$ = this.http.get(`api/user/1`).pipe(publish(), refCount());
+    </code>
+    </div>
+
+    <div class="chunk">
+      which can be reduced to this
+      publish() === multicast(new Subject())
+      <code>
+        this.user$ = this.http.get(`api/user/1`).pipe(share());
+    </code>
+    </div>
 
   </section>
 
@@ -147,20 +220,29 @@
   <collapse-it>
     <auto-wiki-search></auto-wiki-search>
   </collapse-it>
+
   <collapse-it>
     <counter-component></counter-component>
   </collapse-it>
+
   <collapse-it>
     <promise-example></promise-example>
   </collapse-it>
+
   <collapse-it>
     <subscribe-example></subscribe-example>
   </collapse-it>
+
   <collapse-it>
     <app-github-repositories></app-github-repositories>
   </collapse-it>
+
   <collapse-it>
     <takeuntil-unsubscribe></takeuntil-unsubscribe>
+  </collapse-it>
+
+  <collapse-it>
+    <think-reactively></think-reactively>
   </collapse-it>
 
 

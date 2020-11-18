@@ -7,7 +7,7 @@ import { GithubHttp } from './github.http';
   styleUrls: ['../seed-component.css'],
   template: `
     <div class="repo-browser">
-      <p class="path">seed-component/github/repo-browser.ts (deeppink border)</p>
+      <p class="path">src/app/misc-mini-apps/seed-component/github/repo-browser.ts</p>
       <h4>GitHub Browser</h4>
     
       <input type='text' #repoName placeholder='Search Github'>&nbsp;

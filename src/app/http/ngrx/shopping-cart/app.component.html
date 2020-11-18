@@ -1,0 +1,43 @@
+<p class="path">src/app/http/ngrx/shopping-cart/app.component.ts</p>
+<h4>Introduction to @ngrx/effects</h4>
+<dlink id="103"></dlink>
+
+<p>To run this example make sure json-server is install<br>
+  npm i json-server -g<br>
+
+  right click on db.json and choose Open in Integrated Terminal<br>
+  type json-server db.json in Terminal<br>
+  navigate to localhost:3000</p>
+
+<div id="wrapper">
+  <div [class.loading]="(loading$ | async)" id="shopping-list" *ngIf="!(error$ | async); else error">
+    <div id="list">
+      <h2>
+        Shopping List
+        <span *ngIf="loading$ | async" style="color: white;">Doing Async stuff using NgRx Effect</span>
+      </h2>
+
+      <ul *ngIf="(shoppingItems | async); else noItems">
+        <li *ngFor="let shopping of shoppingItems | async" (click)="deleteItem(shopping.id)">
+          <span>{{ shopping.name }}</span>
+        </li>
+      </ul>
+
+      <ng-template #noItems>
+        <ul>
+          <li style="max-width:250px;margin:0 auto;">No items found. Are you sure there's <em>nothing</em> you want?
+          </li>
+        </ul>
+      </ng-template>
+    </div>
+
+    <form (ngSubmit)="addItem()">
+      <input type="text" [(ngModel)]="newShoppingItem.name" placeholder="Item" name="itemName" />
+      <button type="submit">+</button>
+    </form>
+  </div>
+</div>
+
+<ng-template #error>
+  <h2 class="sausage">{{(error$ | async)?.message}}</h2>
+</ng-template>

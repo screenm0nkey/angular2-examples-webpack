@@ -1,4 +1,5 @@
-import {Component, EventEmitter, Input, Output} from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { PersonAction } from '../reducers/_reducers.service';
 
 @Component({
   selector: "person-list",
@@ -18,7 +19,7 @@ import {Component, EventEmitter, Input, Output} from "@angular/core";
     `
 })
 export class PersonListComponent {
-  @Input() people;
+  @Input() people: PersonAction[];
   @Output() addGuest = new EventEmitter();
   @Output() removeGuest = new EventEmitter();
   @Output() removePerson = new EventEmitter();

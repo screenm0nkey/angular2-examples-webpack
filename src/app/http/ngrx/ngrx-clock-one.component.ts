@@ -1,9 +1,9 @@
-import {Component, OnInit} from "@angular/core";
-import {interval, merge, Observable, Subject} from "rxjs";
-import {Store} from "@ngrx/store";
-import {DAY_TICK, HOUR_TICK, SECOND_TICK} from "./actions";
-import {MyAction, MyNgRxStore} from "./reducers/_reducers.service";
-import {mapTo} from "rxjs/operators";
+import { Component, OnInit } from "@angular/core";
+import { Store } from "@ngrx/store";
+import { interval, merge, Observable, Subject } from "rxjs";
+import { mapTo } from "rxjs/operators";
+import { dayTickAction, hourTickAction, secondTickAction } from "./actions";
+import { MyAction, MyNgRxStores as AppState } from "./reducers/_reducers.service";
 
 /**
  * ngrx-clock-one-component
@@ -34,7 +34,7 @@ export class NgRxClockOneComponent implements OnInit {
   dayForward$: Subject<MyAction>;
   merged$: Observable<MyAction>;
 
-  constructor(public store: Store<MyNgRxStore>) {
+  constructor(public store: Store<AppState>) {
   }
 
   ngOnInit() {
@@ -44,11 +44,11 @@ export class NgRxClockOneComponent implements OnInit {
     this.dayBackward$ = new Subject();
     this.dayForward$ = new Subject();
     this.merged$ = merge(
-      this.hourBackward$.pipe(mapTo({type: HOUR_TICK, payload: -1})),
-      this.hourForward$.pipe(mapTo({type: HOUR_TICK, payload: 1})),
-      this.dayBackward$.pipe(mapTo({type: DAY_TICK, payload: -1})),
-      this.dayForward$.pipe(mapTo({type: DAY_TICK, payload: 1})),
-      interval(1000).pipe(mapTo({type: SECOND_TICK, payload: 1}))
+      this.hourBackward$.pipe(mapTo(hourTickAction({ payload: -1 }))),
+      this.hourForward$.pipe(mapTo(hourTickAction({ payload: 1 }))),
+      this.dayForward$.pipe(mapTo(dayTickAction({ payload: 1 }))),
+      this.dayBackward$.pipe(mapTo(dayTickAction({ payload: -1 }))),
+      interval(1000).pipe(mapTo(secondTickAction({ payload: 1 })))
     );
   }
 

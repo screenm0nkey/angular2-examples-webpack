@@ -87,7 +87,7 @@ export class RxJsSpinner {
       completed: currentCompleted,
       previousLoading: loadingUpdate
     };
-  }
+  }//
 
   private setupSpinner(): void {
     const loadUp$ = this.taskStarts.pipe(mapTo(1));

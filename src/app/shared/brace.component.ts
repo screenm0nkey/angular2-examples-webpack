@@ -26,7 +26,7 @@ export class HtmComponent {
 }
 
 
-@Component({
+@Component({ 
   selector: 'path',
   template: `<p class="path" #text><ng-content></ng-content></p>`,
 })

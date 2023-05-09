@@ -69,7 +69,7 @@ export class MyComponent {
         <input [(ngModel)]='appMessage'>
       
         <my-component [message]='appMessage'>
-          This content is transposed using <lgt>ng-content</lgt>: <highlight>{{appMessage}}</highlight>
+          This content is projected using <lgt>ng-content</lgt>: <highlight>{{appMessage}}</highlight>
         </my-component>
       </section>
     </div>

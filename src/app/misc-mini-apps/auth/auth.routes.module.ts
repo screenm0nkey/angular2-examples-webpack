@@ -30,7 +30,7 @@ const formsRoutes: Routes = [
       {
         path: 'public',
         component: ProtectedComponent,
-        canActivate: [LoggedInGuard]
+        canActivate: [LoggedInGuard],
       }
     ]
   }
